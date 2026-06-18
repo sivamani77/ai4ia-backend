@@ -1,0 +1,25 @@
+{
+  "video_id": "akYE4Tu12Eg",
+  "source_video": "0143_akYE4Tu12Eg_Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems",
+  "title": "Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems",
+  "speakers": [
+    {
+      "name": "Matias Karlsson",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Matias Carzon",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Matias Karlsson",
+  "title_name_hint": "Matias Karlsson",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:30:50.540451"
+}

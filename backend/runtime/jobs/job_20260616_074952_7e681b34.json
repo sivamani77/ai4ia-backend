@@ -1,0 +1,19 @@
+{
+  "job_id": "job_20260616_074952_7e681b34",
+  "type": "generate_assets",
+  "status": "failed",
+  "progress": 100,
+  "created_at": "2026-06-16T07:49:52.191722",
+  "started_at": "2026-06-16T07:49:52.192561",
+  "completed_at": "2026-06-16T07:49:52.452148",
+  "payload": {
+    "storyline_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260612_151535.json",
+    "voice": "en-GB-RyanNeural",
+    "rate": "-6%",
+    "volume": "+0%",
+    "skip_tts": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_074952_7e681b34.log",
+  "result_path": null,
+  "error": "Script failed with exit code 2"
+}

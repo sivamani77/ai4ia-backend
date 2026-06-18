@@ -1,0 +1,995 @@
+{
+  "source_transcript": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging.json",
+  "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+  "video_id": "cM66NWzeUkw",
+  "fragment_count": 9,
+  "created_at": "2026-06-16T12:54:12.773372",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0001",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 1,
+      "start": 2.61,
+      "end": 73.97,
+      "duration": 71.36,
+      "text": "Hello, my name is Deborah Berlin. I'm Executive Director of Project Goal, the project to get older adults online. I'm pleased to join you to talk about technology innovations, AI and aging. The world is aging. The number of older individuals globally is growing exponentially. According to the World Health Organization between the years 2015 and 2050, the proportion of the world's population of those 60 years and older will nearly double from 12% to 22%. In just five years, 2030, one in six people in the world will be 60 and older. As older populations increase and the working and younger aging ages decrease, resources to assist with aging need grow increasingly scarce, creating a significant gap in services.",
+      "word_count": 123,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "created_at": "2026-06-16T12:54:12.771552",
+      "keywords": [
+        "health",
+        "aging",
+        "services",
+        "older",
+        "world",
+        "years",
+        "i'm",
+        "project"
+      ],
+      "summary": "I'm Executive Director of Project Goal, the project to get older adults online.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.25,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "services"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.25,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.575772"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0002",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 2,
+      "start": 73.97,
+      "end": 138.74,
+      "duration": 64.77,
+      "text": "Technology can step in to help. It can fill the gaps to enhance and assist with daily life. Older adults are increasingly adopting smart devices with AI technology. A growing number of older adults have smartphones. In the US, 76% of those 65 and older are on a smartphone. And globally, smartphone adoption varies depending on a region's economy. For some time now, AI has been the backbone behind many of the devices used daily. For aging, AI technology is a critical component of tech devices that can reduce isolation by connecting older adults to family and friends that can help them stay informed about whether updates and community information. Tech can help improve health and wellness with wearable devices.",
+      "word_count": 121,
+      "source_segment_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "created_at": "2026-06-16T12:54:12.771792",
+      "keywords": [
+        "health",
+        "economy",
+        "information",
+        "aging",
+        "older",
+        "devices",
+        "technology",
+        "help",
+        "adults",
+        "daily",
+        "smartphone",
+        "tech"
+      ],
+      "summary": "It can fill the gaps to enhance and assist with daily life.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "economy"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "economy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.580814"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0003",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 3,
+      "start": 138.74,
+      "end": 204.66,
+      "duration": 65.92,
+      "text": "AI tech innovations include telehealth and remote health monitoring. Older adults can shop for food and supplies from the convenience of their homes. And AI keeps track of favorite and most frequently ordered items. Our devices with AI entertain us and personalize our music playlist so we can listen to our favorites throughout the year. AI tech has provided the data for precise directions on a device when we're driving and even walking. And finally, AI and Gen AI enable tech helps to maintain cognitive skills as we age. Now comes the fun part to take a look at some devices that we're using in our daily life or could use going forward. First, our home voice assistance that are helpful in providing daily information with the use of our voice.",
+      "word_count": 133,
+      "source_segment_ids": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "created_at": "2026-06-16T12:54:12.772013",
+      "keywords": [
+        "health",
+        "information",
+        "music",
+        "tech",
+        "devices",
+        "we're",
+        "daily",
+        "use",
+        "voice"
+      ],
+      "summary": "AI tech innovations include telehealth and remote health monitoring.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.585914"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0004",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 4,
+      "start": 204.66,
+      "end": 264.35,
+      "duration": 59.69,
+      "text": "Very helpful in terms of accessibility to get information. And they can also connect to some spark devices to control lights to control our shades and play music, etc. And then on the right is our dear friend Astro, a little robot that dies. Perhaps not in every home yet, but someday maybe very helpful in providing accessibility. It can tell you who's at the front door and can roam around and can hold your reading glasses and perhaps a cold drink. Here's some AI enabled smart tech that is in and around the home and outside the home are robotic vacuum cleaner and also can mop your floors. Does a floor mapping and you can use it once a week or every day if you want to clean your help, clean your home.",
+      "word_count": 136,
+      "source_segment_ids": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "created_at": "2026-06-16T12:54:12.772217",
+      "keywords": [
+        "accessibility",
+        "information",
+        "music",
+        "home",
+        "helpful",
+        "control",
+        "perhaps",
+        "every",
+        "around",
+        "clean"
+      ],
+      "summary": "Very helpful in terms of accessibility to get information.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "music"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "music"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.591133"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0005",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 5,
+      "start": 264.35,
+      "end": 327.05,
+      "duration": 62.7,
+      "text": "In the middle is a similar type of device, but it for outside your home to mow your lawn. And on the right are smart thermostats to help with energy consumption to manage your home energy when you're home and actually also works if you're remote and you want to help control your energy as well. Home security devices with enhanced features also are important for accessibility for aging not only to provide security in the home, but the system that you see here the security system also has a fall detection device. So that if you fall it connects with emergency services and contacts them. So very helpful for aging in the home and on the right you see the ring doorbell which can tell you who is in front of your home.",
+      "word_count": 136,
+      "source_segment_ids": [
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "created_at": "2026-06-16T12:54:12.772407",
+      "keywords": [
+        "accessibility",
+        "aging",
+        "security",
+        "services",
+        "home",
+        "energy",
+        "device",
+        "right",
+        "help",
+        "you're",
+        "system",
+        "see",
+        "fall"
+      ],
+      "summary": "In the middle is a similar type of device, but it for outside your home to mow your lawn.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "aging"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "services"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.596451"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0006",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 6,
+      "start": 327.05,
+      "end": 391.54,
+      "duration": 64.49,
+      "text": "You can communicate with them and see who's there when you're inside your home and also when you are not home, you can know who is at your door. Wearable devices are innovating for accessibility, safety and health as well. And on the left we see the meta ray band glasses which can take pictures and videos, but also have great accessibility feature for individuals who may have diminished site as you get older or perhaps lose your site. They can actually read and with audio tell you what you're seeing read menus, read signs, etc. So that's very helpful for accessibility on the right you see a smartwatch which has obviously fitness and health information but also provides a great safety information for older adults with fall detection which I found very helpful when I fell.",
+      "word_count": 141,
+      "source_segment_ids": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "created_at": "2026-06-16T12:54:12.772615",
+      "keywords": [
+        "accessibility",
+        "health",
+        "information",
+        "safety",
+        "see",
+        "read",
+        "you're",
+        "home",
+        "great",
+        "site",
+        "older",
+        "helpful"
+      ],
+      "summary": "You can communicate with them and see who's there when you're inside your home and also when you are not home, you can know who is at your door.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.667,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.667,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.667,
+          "matched_keywords": [
+            "safety"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.602087"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0007",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 7,
+      "start": 391.54,
+      "end": 466.54,
+      "duration": 75.0,
+      "text": "And it actually called emergency services and said do you need an ambulance so a great service for accessibility service for older adults. Now gen AI and AI offer a more intuitive AI technology that brings additional benefits to older adults. Technology provides enhanced remote medical services and advanced added personalization and technologies with benefits we're just starting to realize today. For aging virtual assistance can engage in conversation, play games to help maintain and build cognitive skills and ease loneliness for older individuals who often live alone and experience ease of isolation. There are several key issues to resolve to make AI technology work for aging first accessibility. It's critically important to make sure tech devices and tools are easily accessible from adoption to use devices need to be intuitive and adaptable with built in accessibility features to meet the needs of the aging community.",
+      "word_count": 148,
+      "source_segment_ids": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "created_at": "2026-06-16T12:54:12.772837",
+      "keywords": [
+        "accessibility",
+        "aging",
+        "medical",
+        "accessible",
+        "services",
+        "older",
+        "technology",
+        "need",
+        "service",
+        "adults",
+        "intuitive",
+        "benefits",
+        "ease",
+        "make",
+        "devices"
+      ],
+      "summary": "And it actually called emergency services and said do you need an ambulance so a great service for accessibility service for older adults.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.167,
+          "matched_keywords": [
+            "medical"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility",
+            "accessible"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.75,
+          "matched_keywords": [
+            "aging"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "services"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.25,
+          "matched_keywords": [
+            "medical"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.608654"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0008",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 8,
+      "start": 466.54,
+      "end": 543.2,
+      "duration": 76.66,
+      "text": "Next addressing the barriers older adults still confront barriers to adopting technology around the world which include cost access and lack of digital literacy. In addition older adults have concerns about data privacy and potential misuse of information that can lead to scams and fraud especially with these emerging technologies. That brings us to our third and final point the challenges and risks for challenges it's important to examine how these new technologies can be leveraged to maximize their use for older adults ease of use is paramount not only must these devices be easy to set up. They must be able to smoothly and easily connect and operate for each and every use it's important to evaluate whether there may be practices that pose as barriers to smooth and ready access what lessons can we learn from manufacturers of equipment and service providers that automatically make their equipment easy to use at every point as far as risks for the aging community building in privacy and security protections are critically important.",
+      "word_count": 174,
+      "source_segment_ids": [
+        49,
+        50,
+        51,
+        52
+      ],
+      "created_at": "2026-06-16T12:54:12.773042",
+      "keywords": [
+        "privacy",
+        "information",
+        "aging",
+        "digital literacy",
+        "security",
+        "use",
+        "barriers",
+        "older",
+        "adults",
+        "important",
+        "access",
+        "technologies",
+        "point",
+        "challenges",
+        "risks"
+      ],
+      "summary": "Next addressing the barriers older adults still confront barriers to adopting technology around the world which include cost access and lack of digital literacy.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "aging"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging",
+            "digital literacy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.75,
+          "matched_keywords": [
+            "digital literacy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "privacy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.25,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.43,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.616997"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0009",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "fragment_index": 9,
+      "start": 543.2,
+      "end": 616.54,
+      "duration": 73.34,
+      "text": "While the incentives are great the aging community wants to operate in a safe space. AI and Gen A I present an opportunity for more realistic scams and fraud schemes however while they may contribute to some risks AI also offers an important solution to address these risks. Today there are creative solutions that are being deployed that are using AI to help stop these bad actors from employing their schemes. AI and Gen A I are enabling a world of innovative devices that provide great benefits for the aging community and create an opportunity to age well in the years to come as well as today. We need to continue to ensure accessibility overcome the barriers and address the challenges and continue to allow innovative technologies to serve the expanding global aging community. Thank you.",
+      "word_count": 136,
+      "source_segment_ids": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "created_at": "2026-06-16T12:54:12.773349",
+      "keywords": [
+        "accessibility",
+        "aging",
+        "creative",
+        "community",
+        "while",
+        "great",
+        "gen",
+        "opportunity",
+        "schemes",
+        "risks",
+        "address",
+        "innovative",
+        "well",
+        "continue"
+      ],
+      "summary": "While the incentives are great the aging community wants to operate in a safe space.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "creative"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "creative"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.623986"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:17.623997"
+}

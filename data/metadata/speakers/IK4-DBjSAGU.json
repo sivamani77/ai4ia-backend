@@ -1,0 +1,25 @@
+{
+  "video_id": "IK4-DBjSAGU",
+  "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+  "title": "Gissella M. Bejarano Nicho - \"Sign language processing for accessibility\"",
+  "speakers": [
+    {
+      "name": "Gissella M. Bejarano Nicho",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Gisela Beyerano",
+      "role": "Speaker",
+      "affiliation": "Marys University in New York",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Gissella M. Bejarano Nicho",
+  "title_name_hint": "Gissella M. Bejarano Nicho",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:28:44.866723"
+}

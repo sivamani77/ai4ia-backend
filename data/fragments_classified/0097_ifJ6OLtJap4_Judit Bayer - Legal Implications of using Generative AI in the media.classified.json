@@ -1,0 +1,1225 @@
+{
+  "source_transcript": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media.json",
+  "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+  "video_id": "ifJ6OLtJap4",
+  "fragment_count": 11,
+  "created_at": "2026-06-16T12:54:13.306938",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0001",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 1,
+      "start": 3.02,
+      "end": 59.38,
+      "duration": 56.36,
+      "text": "Good morning. My name is Judith Boyer, and I'm going to talk about the legal implications of using generative AI in the media. AI has been used in the media for some decade already, but with the emergence of freely accessible generative AI tools, its use has become just so much more prevalent. Media law intersects several legal branches, most typically international property, civil liability for damages, criminal liability, administrative liability. In addition, journalism is also governed by ethical standards, scale of regulation and correlation. But ultimately, only the question boils down to the same basic question. Who is the holder of the rights and obligations? Who is the legal subject? We can distinguish at least three levels, three stages",
+      "word_count": 121,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "created_at": "2026-06-16T12:54:13.304632",
+      "keywords": [
+        "regulation",
+        "law",
+        "legal",
+        "rights",
+        "liability",
+        "journalism",
+        "media",
+        "administrative",
+        "ethical",
+        "standards",
+        "generative",
+        "question",
+        "three"
+      ],
+      "summary": "My name is Judith Boyer, and I'm going to talk about the legal implications of using generative AI in the media.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "legal",
+            "rights",
+            "regulation",
+            "liability"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.556,
+          "matched_keywords": [
+            "journalism",
+            "media",
+            "administrative"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "ethical",
+            "regulation",
+            "standards"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "law",
+            "rights",
+            "regulation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "journalism",
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "regulation",
+            "law"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.167,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.167,
+          "matched_keywords": [
+            "standards"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.234818"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0002",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 2,
+      "start": 59.38,
+      "end": 111.41,
+      "duration": 52.03,
+      "text": "based on the level of involvement. In the first, the AI is prompted to grammatically or stylistically enhance a text or an image created by a human deployer. Where deployer means the user of the AI applications. For example, this slide has been edited and mutified with the help of some simple AI tools. In the second stage, the AI is asked to paraphrase, expand or summarize a text or generate audio from a text or transform and develop an image or a video. The outcome would be a different product, but still closely related to the original input data. The example is the picture of the Pope in this iconic white coat. At the third level, the AI would automatically generate the required amount of text, image, video or audio content",
+      "word_count": 132,
+      "source_segment_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "created_at": "2026-06-16T12:54:13.304875",
+      "keywords": [
+        "content",
+        "text",
+        "image",
+        "level",
+        "deployer",
+        "example",
+        "generate",
+        "audio",
+        "video"
+      ],
+      "summary": "In the first, the AI is prompted to grammatically or stylistically enhance a text or an image created by a human deployer.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "content"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.241658"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0003",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 3,
+      "start": 111.41,
+      "end": 166.96,
+      "duration": 55.55,
+      "text": "based on instructions given by the deployer. The example is this figure of the synthetic figure of a female radio anchor whose voice is also generated and this AI is a governing radio problem. In the first case, the author and the legally responsible person is clearly the human deployer. The second, the third phase is raised in ported questions of liability and copyright. The legal position is quite clear. Only a human person can be the creator of the represents intellectual activity. As long as there is a human person who has control over the system and who publishes the content, unrights and obligations that attach to a generated content such as copyright, freedom of expression or the liability for illegal content are born by",
+      "word_count": 126,
+      "source_segment_ids": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "created_at": "2026-06-16T12:54:13.305107",
+      "keywords": [
+        "copyright",
+        "legal",
+        "liability",
+        "freedom",
+        "content",
+        "synthetic",
+        "person",
+        "human",
+        "deployer",
+        "figure",
+        "radio",
+        "generated"
+      ],
+      "summary": "The example is this figure of the synthetic figure of a female radio anchor whose voice is also generated and this AI is a governing radio problem.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "copyright",
+            "liability",
+            "freedom"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "content"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 16",
+          "chapter": "Ch 16: Deepfakes, Synthetic Media & Copyright",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "copyright",
+            "synthetic"
+          ]
+        },
+        {
+          "chapter_id": "Ch 25",
+          "chapter": "Ch 25: AI & Intellectual Property",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.667,
+          "matched_keywords": [
+            "copyright"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "legal"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "freedom"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 16: Deepfakes, Synthetic Media & Copyright",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.250671"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0004",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 4,
+      "start": 166.96,
+      "end": 217.58,
+      "duration": 50.62,
+      "text": "that person. In the context of the media, we should examine freedom of expression and the freedom of the press. Freedom of expression is meant to protect all content expressed by a person. As a human right, it applies primarily to human individuals, although legal entities may also take a veil off the side. Freedom of expression has at least two main social goals. On the one hand, to ensure that individuals can communicate their ideas in this respect, it roots in the dignity of men. When publications fully created by generative AI, this goal is not allowed. On the other hand, freedom of expression is supposed to ensure democratic public discourse by an AI-generated content may contribute to the public discourse. It is questionable whether that would happen",
+      "word_count": 130,
+      "source_segment_ids": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "created_at": "2026-06-16T12:54:13.305348",
+      "keywords": [
+        "legal",
+        "freedom",
+        "media",
+        "press",
+        "content",
+        "expression",
+        "person",
+        "human",
+        "individuals",
+        "may",
+        "hand",
+        "ensure",
+        "public",
+        "discourse"
+      ],
+      "summary": "In the context of the media, we should examine freedom of expression and the freedom of the press.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "freedom"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "media",
+            "press",
+            "content"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "freedom"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.4,
+          "matched_keywords": [
+            "media",
+            "press"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.2,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.260431"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0005",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 5,
+      "start": 217.58,
+      "end": 266.9,
+      "duration": 49.32,
+      "text": "in the name of democracy because the constitutive actors of democracy are the human individuals. It can be concluded that neither the first nor the second goal of freedom of expression can be claimed to protect content that is fully AI-generated without human involvement. This only means that the bar of intervention is set lower if content is harmful or illegal, for example, if it infringes someone's rights or if a law is violated through an AI-generated publication, it can be removed or restricted without human rights considerations. However, distinctly from freedom of expression, we also observe a freedom of the press, which applies to media outlets whether these take the form of legal personality or not.",
+      "word_count": 120,
+      "source_segment_ids": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "created_at": "2026-06-16T12:54:13.305573",
+      "keywords": [
+        "human rights",
+        "law",
+        "legal",
+        "rights",
+        "freedom",
+        "media",
+        "press",
+        "content",
+        "publication",
+        "human",
+        "democracy",
+        "expression",
+        "ai-generated"
+      ],
+      "summary": "in the name of democracy because the constitutive actors of democracy are the human individuals.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "legal",
+            "human rights",
+            "rights",
+            "freedom"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.4,
+          "matched_keywords": [
+            "media",
+            "press",
+            "content"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "freedom",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "legal",
+            "law",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "media",
+            "press"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.125,
+          "matched_keywords": [
+            "law"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.125,
+          "matched_keywords": [
+            "publication"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.269869"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0006",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 6,
+      "start": 267.86,
+      "end": 322.27,
+      "duration": 54.41,
+      "text": "Therefore, even assuming that the press product is 200 percent generated by AI, it would still be protected by a press freedom. Thus, an AI-generated press product might enjoy the protection of the press of press freedom but no data of freedom of expression. Scrutinating the goal, press freedom as a right, we again find that it is meant to serve the public discourse but still as press freedom is more encompassing than just one piece of content, a media outlet may produce some content by AI and others by human journalists and both would be protected by press freedom. But is there any content that is 200 percent generated by AI that could be, for example, if content is generated by social bots in a fully automated",
+      "word_count": 129,
+      "source_segment_ids": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "created_at": "2026-06-16T12:54:13.305804",
+      "keywords": [
+        "media",
+        "press",
+        "content",
+        "freedom",
+        "journalists",
+        "protection",
+        "generated",
+        "product",
+        "percent",
+        "still",
+        "protected"
+      ],
+      "summary": "Therefore, even assuming that the press product is 200 percent generated by AI, it would still be protected by a press freedom.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "press",
+            "content"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.462,
+          "matched_keywords": [
+            "freedom"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "press",
+            "journalists"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.7,
+          "matched_keywords": [
+            "freedom",
+            "protection"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.279413"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0007",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 7,
+      "start": 322.27,
+      "end": 372.59,
+      "duration": 50.32,
+      "text": "manner. However, a complete automation of content creation would fail to meet the standards of ethical journalism. Therefore, in the context of media, most of the time there is some involvement of human input. But the necessary level of human contribution should be to be versed the protection is a question that needs to be decided by the judiciary or by the legislative policy. However, when AI is used responsibly by a journalist following the journalistic guidelines of accuracy and fact-checking, then the added value by the journalist should suffice to justify the right to freedom of expression. The interesting questions emerged when the portion of human and machine involvement needs to be established. To what extent can a human journalist,",
+      "word_count": 122,
+      "source_segment_ids": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "created_at": "2026-06-16T12:54:13.306030",
+      "keywords": [
+        "policy",
+        "ethical",
+        "standards",
+        "journalism",
+        "media",
+        "content",
+        "fact-checking",
+        "content creation",
+        "freedom",
+        "protection",
+        "human",
+        "journalist",
+        "however",
+        "involvement",
+        "needs"
+      ],
+      "summary": "However, a complete automation of content creation would fail to meet the standards of ethical journalism.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethical",
+            "policy",
+            "standards"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "journalism",
+            "media",
+            "content"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "fact-checking"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "journalism",
+            "media",
+            "content creation",
+            "fact-checking"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.375,
+          "matched_keywords": [
+            "fact-checking"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.25,
+          "matched_keywords": [
+            "freedom",
+            "protection"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.125,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.125,
+          "matched_keywords": [
+            "standards"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.288981"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0008",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 8,
+      "start": 372.59,
+      "end": 433.81,
+      "duration": 61.22,
+      "text": "editor of publishers rely on an AI model and is possible to divert liability on the developer? Let's take the mindless question. If image, audio or video content is generated or manipulated, the deployment must always disclose that the content has been artificially generated or manipulated. However, if text has been artificially generated or manipulated, for the purpose of informing the public about matters of public interest, and it has undergone either human review or editorial control or editorial responsibility is taken for the content by a natural or legal person, then there is no obligation to disclose the use of generative AI. In addition, the AI orders, AI act orders that artificially generated audio, video, image or text content must be watermarked in a machine",
+      "word_count": 127,
+      "source_segment_ids": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "created_at": "2026-06-16T12:54:13.306261",
+      "keywords": [
+        "content",
+        "legal",
+        "liability",
+        "model",
+        "responsibility",
+        "editorial",
+        "generated",
+        "manipulated",
+        "artificially",
+        "image",
+        "audio",
+        "video",
+        "must",
+        "disclose",
+        "text"
+      ],
+      "summary": "editor of publishers rely on an AI model and is possible to divert liability on the developer?",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "content"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "legal",
+            "liability"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "model",
+            "responsibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "editorial"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.298504"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0009",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 9,
+      "start": 433.81,
+      "end": 488.37,
+      "duration": 54.56,
+      "text": "readable format, unless the AI contribution is insignificant, nearly assisted and does not potentially alter the input data. This watermarking must be arranged by the AI system provider, however, in real life this can be easily released or manipulatively inserted, so it is more than as we have for reality chat. If a publisher claims that the mistake was caused by the deficient functioning of the AI model, then logically the rules on product liability should apply, where the new AI liability directive would be instructive. However, apparently it's not because they're updated, product liability directive covers only material losses, such as death, personal injury, damage to property or loss and corruption of data. In addition, the directive",
+      "word_count": 120,
+      "source_segment_ids": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "created_at": "2026-06-16T12:54:13.306487",
+      "keywords": [
+        "liability",
+        "model",
+        "directive",
+        "data",
+        "however",
+        "product"
+      ],
+      "summary": "readable format, unless the AI contribution is insignificant, nearly assisted and does not potentially alter the input data.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "liability"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "model"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.308282"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0010",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 10,
+      "start": 488.37,
+      "end": 545.97,
+      "duration": 57.6,
+      "text": "applies only to fully automated systems, so even a minimum human involvement will render the directive in applicable, which is the usual case with media use of generative AI. However, the relationship between the deployer and provider could still be regulated when media industry actors decide about applying a generative AI model, they may do so considering the features of the possible models, including their first assessment framework and accuracy. Ideally, the developers would need to credibly attest and ensure the capacities of the model. However, at the current stage of technology, we cannot be entirely sure that it is possible to prevent generative AI models from generating inaccurate information that is hallucinating. Once that becomes possible, generative media outlets will have the possibility to rely on",
+      "word_count": 127,
+      "source_segment_ids": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "created_at": "2026-06-16T12:54:13.306740",
+      "keywords": [
+        "media",
+        "information",
+        "framework",
+        "assessment",
+        "model",
+        "industry",
+        "generative",
+        "possible",
+        "however",
+        "models"
+      ],
+      "summary": "applies only to fully automated systems, so even a minimum human involvement will render the directive in applicable, which is the usual case with media use of generative AI.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "framework"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "assessment"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "framework",
+            "model"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "industry"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "assessment"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.320188"
+    },
+    {
+      "fragment_id": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media_0011",
+      "source_video": "0097_ifJ6OLtJap4_Judit Bayer - Legal Implications of using Generative AI in the media",
+      "video_id": "ifJ6OLtJap4",
+      "fragment_index": 11,
+      "start": 545.97,
+      "end": 591.9,
+      "duration": 45.93,
+      "text": "more on those models. However, at the station of quality, we're likely attached to contractual terms to conclude. The liability rules of media providers are not affected by the use of generative AI if human review is an absolute must. The biggest threat of generative AI on the media industry is the restarting confusion in the rational public discourse and the distrust that it sits towards media. In this overloaded chaotic information turmoil, those media companies which develop and consistently follow an ethical and robust AI policy can grow into pillars of trust. Thank you for your attention.",
+      "word_count": 99,
+      "source_segment_ids": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "created_at": "2026-06-16T12:54:13.306922",
+      "keywords": [
+        "policy",
+        "media",
+        "information",
+        "ethical",
+        "trust",
+        "liability",
+        "industry",
+        "generative"
+      ],
+      "summary": "However, at the station of quality, we're likely attached to contractual terms to conclude.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.6,
+          "matched_keywords": [
+            "ethical",
+            "policy",
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.4,
+          "matched_keywords": [
+            "liability",
+            "policy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethical",
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "policy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "industry"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:25.328828"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:25.328842"
+}

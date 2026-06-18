@@ -1,0 +1,19 @@
+{
+  "video_id": "Txl1nmb84VA",
+  "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
+  "title": "Paul Ash - AI4IA 2025",
+  "speakers": [
+    {
+      "name": "Paul Ash",
+      "role": "Speaker",
+      "affiliation": "Christchurch Hall Foundation",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Paul Ash",
+  "title_name_hint": "Paul Ash",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:28:34.859020"
+}

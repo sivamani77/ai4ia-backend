@@ -1,0 +1,25 @@
+{
+  "video_id": "cM66NWzeUkw",
+  "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+  "title": "Debra Berlyn - Technology Innovations:  AI and Aging",
+  "speakers": [
+    {
+      "name": "Debra Berlyn",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Deborah Berlin",
+      "role": "Speaker",
+      "affiliation": "Project Goal",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Debra Berlyn",
+  "title_name_hint": "Debra Berlyn",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:27:34.364168"
+}

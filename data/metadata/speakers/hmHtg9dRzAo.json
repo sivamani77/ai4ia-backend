@@ -1,0 +1,31 @@
+{
+  "video_id": "hmHtg9dRzAo",
+  "source_video": "0008_hmHtg9dRzAo_James_Sherer_-_AI4IA_2025",
+  "title": "James Sherer - AI4IA 2025",
+  "speakers": [
+    {
+      "name": "James Sherer",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Baker Haas settler",
+      "role": "Speaker|Unknown",
+      "affiliation": null,
+      "confidence": 1.0
+    },
+    {
+      "name": "Theroux",
+      "role": "Host|Unknown",
+      "affiliation": null,
+      "confidence": 0.8
+    }
+  ],
+  "primary_speaker": "James Sherer",
+  "title_name_hint": "James Sherer",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:26:45.185656"
+}

@@ -1,0 +1,624 @@
+{
+  "created_at": "2026-06-17T12:26:20.677494",
+  "user_prompt": "Create a video on what codrel green spoke on all the themes",
+  "prompt_intent": {
+    "intent_type": "speaker_topic_summary",
+    "requested_speaker": "Cordel Green",
+    "topic_terms": [
+      "codrel",
+      "green"
+    ],
+    "theme": null,
+    "chapter": null,
+    "scope": "specific_topic"
+  },
+  "target_duration_seconds": 120,
+  "style": "documentary",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 16,
+    "selected_candidate_count": 0,
+    "supporting_candidate_count": 0,
+    "context_candidate_count": 0,
+    "rejected_candidate_count": 16,
+    "top_semantic_score": 0.581276
+  },
+  "planning_summary": {
+    "video_mode": "no_evidence",
+    "evidence_strength": "none",
+    "exact_clip_count": 0,
+    "related_clip_count": 0,
+    "strong_related_count": 0,
+    "usable_speaker_clip_count": 0,
+    "supporting_candidate_count": 0,
+    "context_candidate_count": 0,
+    "rejected_clip_count": 16,
+    "fallback_risk": "high",
+    "planning_notes": [
+      "No archive clips were found for Cordel Green. No unrelated speakers were used as filler.",
+      "No speaker clips are approved for soundbite use. Narration and visuals will carry the video."
+    ]
+  },
+  "validation_issues": [],
+  "selected_candidates": [],
+  "supporting_candidates": [],
+  "context_candidates": [],
+  "rejected_candidates": [
+    {
+      "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0001",
+      "source_video": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks",
+      "video_id": "FEfUiDQppGs",
+      "start": 3.31,
+      "end": 85.3,
+      "duration": 81.99,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Hello, wherever and whenever you're joining us, from morning in Mumbai to midnight in Montego Bay, Jamaica, welcome to the sixth AI4IA conference.",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "governance",
+        "information",
+        "conference",
+        "equity",
+        "empowerment",
+        "truth",
+        "welcome",
+        "access"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.581276,
+      "prompt_relevance_score": 0.617876,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.581, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "Hello, wherever and whenever you're joining us, from morning in Mumbai to midnight in Montego Bay, Jamaica, welcome to the sixth AI4IA conference. This year we gather to commemorate the International Day for Universal Access to Information on our theme AI Access in Focus. Access is not just about connectivity, it's about dignity, equity and empowerment. And so as artificial intelligence becomes more deeply embedded in our lives, let us begin with a truth that should never be a rebuttable presumption. Human dignity is and must always remain the first principle of AI governance. This foundational truth becomes even more critical as we confront the strange but serious reality that we are now..."
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0002",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "start": 73.7,
+      "end": 143.08,
+      "duration": 69.38,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "summary": "In a March 23 interview, Jaron Leneer, the godfather of virtual reality, warns about this perhaps cover layer type of thinking.",
+      "keywords": [
+        "court",
+        "type",
+        "thinking",
+        "people",
+        "human"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "semantic_score": 0.567928,
+      "prompt_relevance_score": 0.604528,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.568, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "In a March 23 interview, Jaron Leneer, the godfather of virtual reality, warns about this perhaps cover layer type of thinking. He said, and I quote, a lot of modern enlightenment thinkers and technical people feel that there is something old fashioned about believing that people are special. For instance, that consciousness is a thing. They tend to think that there is an equivalence between what a computer could be and what a human brain could be end of court. That type of thinking would seek to approximate machine agency to core aspects of human cognition. So we are told, for example, that AI can lift the quality of our experience with democracy by moderating our political conversations,..."
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0008",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "start": 508.41,
+      "end": 580.66,
+      "duration": 72.25,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "capacity building, civil society needs to be a key player in a global coalition of progressive forces involving actors across all vectors of society and culture.",
+      "keywords": [
+        "information",
+        "freedom of information",
+        "privacy",
+        "freedom",
+        "culture",
+        "values",
+        "humanity",
+        "society",
+        "need",
+        "future"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.556996,
+      "prompt_relevance_score": 0.593596,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.557, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "capacity building, civil society needs to be a key player in a global coalition of progressive forces involving actors across all vectors of society and culture. In other words, we need a new multilateralism which builds from the bottom up. Finally, I should say that the future of human agency need not be dystopian if we look through the lens of an alternative universe that rejects technological determinism and information feudalism. We can preserve a world which is human-centric, with values such as human dignity, mental, physical and digital privacy and freedom of information intact. And at the same time, we can build a better future with the help of technology and not better technology..."
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0001",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "start": 0.4,
+      "end": 73.7,
+      "duration": 73.3,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "Ladies and gentlemen, good morning, good afternoon, good evening, wherever you are.",
+      "keywords": [
+        "information",
+        "philosophy",
+        "moral",
+        "humanity",
+        "good",
+        "human",
+        "technology"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.556656,
+      "prompt_relevance_score": 0.593256,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.557, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "Ladies and gentlemen, good morning, good afternoon, good evening, wherever you are. My presentation raises questions about the future of human agency in the face of rapid incursion by machines and technology in all aspects of everyday life, including AI with the potential to become autonomous moral agents. Mankind has always been dependent on information, and it could be argued that we are information beings with everything about us coded in genes. So the quality of being human might be for some people no more than complex coding. This thinking comports with transhumanist philosophy which aspires to a redesign of humanity to allow us to transcend our biological limitations and to shape the..."
+    },
+    {
+      "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
+      "source_video": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks",
+      "video_id": "FEfUiDQppGs",
+      "start": 173.35,
+      "end": 263.73,
+      "duration": 90.38,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "This is where the principle of human dignity must be most fiercely protected.",
+      "keywords": [
+        "artificial intelligence",
+        "media",
+        "information",
+        "literacy",
+        "moral",
+        "children",
+        "must",
+        "artificial",
+        "intelligence",
+        "access"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.551916,
+      "prompt_relevance_score": 0.592716,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.552, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "This is where the principle of human dignity must be most fiercely protected. It requires openness, inclusivity and enlightened access. People from all walks of life must have a say in the shaping of the future of AI. Second, we must teach moral literacy alongside digital media and information literacy. It's simply not good enough to show children and adults how to use artificial intelligence or to talk about the opportunities or the risks of artificial intelligence. No, that's not good enough. We must equally ensure that we help people to engage with artificial intelligence in ways that preserve their sense of self. As you explore the more than 60 video presentations at your own pace in..."
+    }
+  ],
+  "storyline": {
+    "title": "Cordel Green: Exploring Themes and Ideas",
+    "logline": "A documentary exploring Cordel Green's thoughts on various themes, using evidence-backed narration and visuals.",
+    "style": "documentary",
+    "target_duration_seconds": 120,
+    "estimated_duration_seconds": 120,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "no_evidence",
+      "evidence_strength": "none",
+      "exact_clip_count": 0,
+      "related_clip_count": 0,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 0,
+      "rejected_clip_count": 16,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 0,
+      "theme_coverage": [],
+      "chapter_coverage": [],
+      "average_similarity": null,
+      "average_quote_strength": null,
+      "recommended_structure": [
+        "opening_context",
+        "evidence_gap_narration",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "high",
+      "planning_notes": [
+        "No archive clips were found for Cordel Green. No unrelated speakers were used as filler.",
+        "No speaker clips are approved for soundbite use. Narration and visuals will carry the video."
+      ],
+      "requested_speaker": "Cordel Green"
+    },
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_context",
+        "target_duration_seconds": 15,
+        "director_role": "opening_context",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Welcome to this documentary exploring Cordel Green's thoughts on various themes.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the title of the video and a background image",
+            "on_screen_text": "Cordel Green: Exploring Themes and Ideas"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 30,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Cordel Green's work explores various themes, including technology and society.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "Visual representation of the intersection of technology and society"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 20,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "However, there are challenges in understanding the implications of these themes.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "Visual representation of the complexity of the themes"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 25,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "To better understand these themes, we need to consider the human perspective.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "Visual representation of the importance of human perspective"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 20,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "While there is limited expert evidence available, we can still explore the themes.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "Visual representation of the limitations of expert evidence"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 20,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "By considering multiple perspectives, we can work towards a deeper understanding.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "Visual representation of the importance of multiple perspectives"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 20,
+        "director_role": "closing_takeaway",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "In conclusion, Cordel Green's work offers valuable insights into various themes.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Closing title card with the title of the video and a background image"
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to this documentary exploring Cordel Green's thoughts on various themes.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "Cordel Green's work explores various themes, including technology and society.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "However, there are challenges in understanding the implications of these themes.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "To better understand these themes, we need to consider the human perspective.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "While there is limited expert evidence available, we can still explore the themes.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "By considering multiple perspectives, we can work towards a deeper understanding.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "In conclusion, Cordel Green's work offers valuable insights into various themes.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [],
+    "asset_plan": {
+      "real_archive_assets": [],
+      "generated_assets": [
+        "Title card with the title of the video and a background image",
+        "Visual representation of the intersection of technology and society",
+        "Visual representation of the complexity of the themes",
+        "Visual representation of the importance of human perspective",
+        "Visual representation of the limitations of expert evidence",
+        "Visual representation of the importance of multiple perspectives",
+        "Closing title card with the title of the video and a background image"
+      ],
+      "internet_assets": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "title_card",
+        "section_id": "S1",
+        "duration_seconds": 5,
+        "description": "Opening title card"
+      },
+      {
+        "order": 2,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "duration_seconds": 10,
+        "description": "Introduction to the documentary"
+      },
+      {
+        "order": 3,
+        "timeline_type": "abstract_ai_visual",
+        "section_id": "S2",
+        "duration_seconds": 15,
+        "description": "Visual representation of the intersection of technology and society"
+      },
+      {
+        "order": 4,
+        "timeline_type": "voiceover",
+        "section_id": "S2",
+        "duration_seconds": 15,
+        "description": "Exploring Cordel Green's work on technology and society"
+      },
+      {
+        "order": 5,
+        "timeline_type": "abstract_ai_visual",
+        "section_id": "S3",
+        "duration_seconds": 10,
+        "description": "Visual representation of the complexity of the themes"
+      },
+      {
+        "order": 6,
+        "timeline_type": "voiceover",
+        "section_id": "S3",
+        "duration_seconds": 10,
+        "description": "Challenges in understanding the implications of the themes"
+      },
+      {
+        "order": 7,
+        "timeline_type": "abstract_ai_visual",
+        "section_id": "S4",
+        "duration_seconds": 15,
+        "description": "Visual representation of the importance of human perspective"
+      },
+      {
+        "order": 8,
+        "timeline_type": "voiceover",
+        "section_id": "S4",
+        "duration_seconds": 10,
+        "description": "Considering the human perspective in understanding the themes"
+      },
+      {
+        "order": 9,
+        "timeline_type": "abstract_ai_visual",
+        "section_id": "S5",
+        "duration_seconds": 10,
+        "description": "Visual representation of the limitations of expert evidence"
+      },
+      {
+        "order": 10,
+        "timeline_type": "voiceover",
+        "section_id": "S5",
+        "duration_seconds": 10,
+        "description": "Limited expert evidence available for exploring the themes"
+      },
+      {
+        "order": 11,
+        "timeline_type": "abstract_ai_visual",
+        "section_id": "S6",
+        "duration_seconds": 15,
+        "description": "Visual representation of the importance of multiple perspectives"
+      },
+      {
+        "order": 12,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "duration_seconds": 5,
+        "description": "Considering multiple perspectives for a deeper understanding"
+      },
+      {
+        "order": 13,
+        "timeline_type": "title_card",
+        "section_id": "S7",
+        "duration_seconds": 10,
+        "description": "Closing title card"
+      }
+    ],
+    "editor_notes": [],
+    "planning_summary": {
+      "video_mode": "no_evidence",
+      "evidence_strength": "none",
+      "exact_clip_count": 0,
+      "related_clip_count": 0,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 0,
+      "rejected_clip_count": 16,
+      "fallback_risk": "high",
+      "planning_notes": [
+        "No archive clips were found for Cordel Green. No unrelated speakers were used as filler.",
+        "No speaker clips are approved for soundbite use. Narration and visuals will carry the video."
+      ]
+    }
+  }
+}

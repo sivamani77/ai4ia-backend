@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260617_124859_2e66c77f",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-17T12:48:59.392815",
+  "started_at": "2026-06-17T12:48:59.393204",
+  "completed_at": "2026-06-17T12:51:54.682257",
+  "payload": {
+    "prompt": "Create a video on AI inclusion, youth empowerment, access to information, and responsible governance.",
+    "duration": 300,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260617_124859_2e66c77f.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260617_182154.json",
+  "error": null
+}

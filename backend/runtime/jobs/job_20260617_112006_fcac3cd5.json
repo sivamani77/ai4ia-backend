@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260617_112006_fcac3cd5",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-17T11:20:06.334581",
+  "started_at": "2026-06-17T11:20:06.335133",
+  "completed_at": "2026-06-17T11:22:53.591063",
+  "payload": {
+    "prompt": "Create a video on AI inclusion, youth empowerment.",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260617_112006_fcac3cd5.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260617_165253.json",
+  "error": null
+}

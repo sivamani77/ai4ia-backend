@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_131340_637ffdbc",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-16T13:13:40.831613",
+  "started_at": "2026-06-16T13:13:40.832770",
+  "completed_at": "2026-06-16T13:18:27.207301",
+  "payload": {
+    "prompt": "Create a 1-minuteAI in Health, Science & Environment\nCh 15: AI in Agriculture & Food Security",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_131340_637ffdbc.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260616_184827.json",
+  "error": null
+}

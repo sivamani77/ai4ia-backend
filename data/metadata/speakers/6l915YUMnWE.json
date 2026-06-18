@@ -1,0 +1,43 @@
+{
+  "video_id": "6l915YUMnWE",
+  "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+  "title": "Canada Satellite Event - AI and Administrative Intelligence",
+  "speakers": [
+    {
+      "name": "Jeffrey Rockwell",
+      "role": "Moderator",
+      "affiliation": "University of Alberta",
+      "confidence": 1.0
+    },
+    {
+      "name": "Dr. Faith Majekolagbe",
+      "role": "Speaker",
+      "affiliation": "Faculty of Law, University of Alberta",
+      "confidence": 0.9
+    },
+    {
+      "name": "Dr. Andy Knight",
+      "role": "Speaker",
+      "affiliation": "Political Science Department, Faculty of Arts, University of Alberta",
+      "confidence": 0.8
+    },
+    {
+      "name": "Dr. Gillian Lemermeyer",
+      "role": "Speaker",
+      "affiliation": "Faculty of Nursing, University of Alberta",
+      "confidence": 0.7
+    },
+    {
+      "name": "Dr. John Simpson",
+      "role": "Speaker",
+      "affiliation": "Information Services & Technology, University of Alberta",
+      "confidence": 0.6
+    }
+  ],
+  "primary_speaker": null,
+  "title_name_hint": null,
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:28:10.446014"
+}

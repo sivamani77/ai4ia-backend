@@ -1,0 +1,25 @@
+{
+  "video_id": "V6m-XNuWH-I",
+  "source_video": "0028_V6m-XNuWH-I_Azizi_Seixas_-_AI_the_Great_Equalizer_for_the_Global_South",
+  "title": "Azizi Seixas - AI the Great Equalizer for the Global South",
+  "speakers": [
+    {
+      "name": "Azizi Seixas",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Dr. Zzyzy Tsyshe",
+      "role": "Speaker|Unknown",
+      "affiliation": "Department of Informatics and Health Data Science, Media and Innovation Lab",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Azizi Seixas",
+  "title_name_hint": "Azizi Seixas",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:27:19.994524"
+}

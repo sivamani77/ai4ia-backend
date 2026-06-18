@@ -1,0 +1,1148 @@
+{
+  "source_transcript": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility.json",
+  "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+  "video_id": "VQAGXagFka4",
+  "fragment_count": 8,
+  "created_at": "2026-06-16T12:54:12.980007",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0001",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "fragment_index": 1,
+      "start": 0.53,
+      "end": 69.17,
+      "duration": 68.64,
+      "text": "Distinguished colleagues, UNESCO partners, champions of universal information access. As we gather to celebrate the international day of for universal access to information, we face a key moment in this age, the digital age, today marks the sixth AI for information access conference building on years of crucial dialogue about how artificial intelligence can serve information accessibility, not as an abstract philosophical technological possibility, but as a fundamental human rights that demands immediate coordinated action. Speaking from my experience working at the European Union level, I want to share how policy frameworks, public-private partnerships, strategic regulation can transform artificial intelligence from a potential barrier into a powerful enabler of information accessibility for all. The European Union has positioned itself at the forefront of responsible AI governance,",
+      "word_count": 127,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "created_at": "2026-06-16T12:54:12.977921",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "information accessibility",
+        "human rights",
+        "governance",
+        "policy",
+        "regulation",
+        "accessibility",
+        "information",
+        "conference",
+        "unesco",
+        "responsible ai",
+        "rights",
+        "information access",
+        "dialogue"
+      ],
+      "summary": "Distinguished colleagues, UNESCO partners, champions of universal information access.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information accessibility",
+            "information",
+            "conference",
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.375,
+          "matched_keywords": [
+            "governance",
+            "policy",
+            "regulation",
+            "responsible ai"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.375,
+          "matched_keywords": [
+            "human rights",
+            "rights",
+            "regulation",
+            "policy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "access to information",
+            "information access",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.2,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.15,
+          "matched_keywords": [
+            "responsible ai"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.15,
+          "matched_keywords": [
+            "policy",
+            "regulation",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": [
+            "conference",
+            "unesco",
+            "dialogue"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:20.668175"
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0002",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "fragment_index": 2,
+      "start": 69.17,
+      "end": 139.16,
+      "duration": 69.99,
+      "text": "not merely from a regulatory point of view, but as a moral imperative. The approach at the European Union recognizes that information accessibility is not just about technical capability, it's about ensuring that artificial intelligence systems serve human dignity and democratic values. Through the UAI Act, the EU established the world's first comprehensive AI regulation, creating binding obligations for high-risk AI systems that directly impact fundamental rights, including access to information. Regulation alone is insufficient, however. We need proactive policies that actively promote accessibility, not merely prevent harm. Consider the EU digital single market strategy, the EU accessibility act. This framework recognizes that true digital inclusion requires intentional design, substantial investment, coordinated action, synergies across member states.",
+      "word_count": 120,
+      "source_segment_ids": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "created_at": "2026-06-16T12:54:12.978227",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "information accessibility",
+        "regulation",
+        "accessibility",
+        "information",
+        "framework",
+        "market",
+        "strategy",
+        "inclusion",
+        "member states",
+        "rights",
+        "values",
+        "moral",
+        "merely"
+      ],
+      "summary": "not merely from a regulatory point of view, but as a moral imperative.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information accessibility",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.625,
+          "matched_keywords": [
+            "regulation",
+            "framework",
+            "market",
+            "strategy"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "inclusion",
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "regulation",
+            "strategy",
+            "member states"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.375,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.375,
+          "matched_keywords": [
+            "rights",
+            "regulation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "values",
+            "moral"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:20.675527"
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0003",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "fragment_index": 3,
+      "start": 139.16,
+      "end": 209.96,
+      "duration": 70.8,
+      "text": "The same principles must guide the approach to AI and information accessibility. The challenge before us is not a technological challenge, it's fundamentally a political and economic one. AI systems capable of revolutionizing information access already exists. What's missing, however, is the policy architecture to ensure these capabilities reach those who need them most. In my work, I witnessed how policy can either accelerate or obstruct technological inclusion. When Estonia pioneered digital governance making government services accessible online to all citizens, they didn't just adopt technology. They redesigned public service delivery around digital inclusion principles. In Finland, guaranteed broadband internet as a legal right, they recognized connectivity as essential infrastructure, not an add-on commercial luxury. These examples illuminate our path forward.",
+      "word_count": 125,
+      "source_segment_ids": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "created_at": "2026-06-16T12:54:12.978590",
+      "keywords": [
+        "information accessibility",
+        "governance",
+        "policy",
+        "accessibility",
+        "principles",
+        "economic",
+        "information",
+        "inclusion",
+        "information access",
+        "government",
+        "citizens",
+        "services",
+        "infrastructure",
+        "challenge",
+        "technological"
+      ],
+      "summary": "The same principles must guide the approach to AI and information accessibility.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "governance",
+            "policy",
+            "principles",
+            "economic"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.833,
+          "matched_keywords": [
+            "information accessibility",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "inclusion",
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "information access",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "policy",
+            "government",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.375,
+          "matched_keywords": [
+            "government",
+            "citizens",
+            "services"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.375,
+          "matched_keywords": [
+            "inclusion",
+            "infrastructure"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "principles"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:20.683003"
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0004",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "fragment_index": 4,
+      "start": 209.96,
+      "end": 274.54,
+      "duration": 64.58,
+      "text": "AI for information accessibility requires similar bold policy commitments, treating AI literacy as a public good, mandating accessibility features in AI systems, accessing public information and creating public infrastructure that serve citizens rather than shareholders. Working with private sector stakeholders across Europe, I've learned that the most successful AI accessibility initiatives emerge not from regulatory pressure alone, but recognizing the enormous market opportunity in inclusive design. When Microsoft invested heavily in AI powered accessibility features, they didn't just serve users with disability, they created technologies that benefit everyone. Parents then multitask with audio content professionals that work in noise environments, international audiences accessing content across language barriers. This is the power of universal design in AI. Solutions created for accessibility often deliver breakthrough innovations for broader",
+      "word_count": 128,
+      "source_segment_ids": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "created_at": "2026-06-16T12:54:12.978911",
+      "keywords": [
+        "information accessibility",
+        "ai literacy",
+        "policy",
+        "accessibility",
+        "content",
+        "information",
+        "public information",
+        "inclusive",
+        "disability",
+        "literacy",
+        "language",
+        "inclusive design",
+        "citizens",
+        "public",
+        "features"
+      ],
+      "summary": "AI for information accessibility requires similar bold policy commitments, treating AI literacy as a public good, mandating accessibility features in AI systems, accessing public information and creating public infrastructure that serve citizens rather than shareholders.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "content",
+            "information",
+            "public information"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.7,
+          "matched_keywords": [
+            "inclusive",
+            "disability",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "literacy",
+            "ai literacy",
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disability",
+            "accessibility",
+            "inclusive design"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.556,
+          "matched_keywords": [
+            "information accessibility",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.444,
+          "matched_keywords": [
+            "citizens",
+            "public information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "ai literacy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.111,
+          "matched_keywords": [
+            "policy"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:20.690597"
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0005",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "fragment_index": 5,
+      "start": 274.54,
+      "end": 336.35,
+      "duration": 61.81,
+      "text": "markets. The business case is before us. It's compelling. It requires, however, policy frameworks and architectures that reward long-term inclusive innovation over shortened profit maximization. One area where European experience offers particularly valuable lessons and we will discuss it right now is multilingual AI development, the EU commitment to linguistic diversity with 24 official languages and hundreds of regional languages has forced the European Union to confront AI's monolingable bias head-on. Investments at your level in multilingual AI research through programmes like Horizon Europe and the digital Europe programme demonstrate linguistic inclusions is not just possible technologically, but it's essential and it's a fundamental part in AI legitimacy. When AI systems can operate effectively in mouthies, Irish Gaelic, original languages",
+      "word_count": 126,
+      "source_segment_ids": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "created_at": "2026-06-16T12:54:12.979197",
+      "keywords": [
+        "policy",
+        "bias",
+        "inclusive",
+        "diversity",
+        "regional",
+        "markets",
+        "innovation",
+        "business",
+        "it's",
+        "languages",
+        "european",
+        "multilingual",
+        "linguistic",
+        "europe"
+      ],
+      "summary": "It requires, however, policy frameworks and architectures that reward long-term inclusive innovation over shortened profit maximization.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "policy",
+            "bias"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusive",
+            "diversity"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "regional"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "markets",
+            "innovation",
+            "business"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "diversity",
+            "bias"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "bias"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "policy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "regional"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:20.697759"
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0006",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "fragment_index": 6,
+      "start": 336.35,
+      "end": 401.33,
+      "duration": 64.98,
+      "text": "like Catalan or Welsh, they provide that the technological sophistication and cultural preservation can advance together. This European approach offers a model for global AI development rather than accepting English language as inevitable or dominant. We can invest in AI systems that truly serve global linguistic diversity. The window of shaping AI development around accessibility principles is rapidly closing. As AI systems become more entrenched, retro-freezing accessibility becomes more difficult and expensive. I would say we have five years probably to embed accessibility into AI foundational architecture. After that, we'll spend decades so much more time trying to fix systems designed without inclusion in mind. This is why events like today AI for the conference are so crucial and thank you for this opportunity.",
+      "word_count": 126,
+      "source_segment_ids": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "created_at": "2026-06-16T12:54:12.979490",
+      "keywords": [
+        "accessibility",
+        "inclusion",
+        "diversity",
+        "language",
+        "cultural",
+        "principles",
+        "model",
+        "conference",
+        "systems",
+        "global",
+        "development"
+      ],
+      "summary": "like Catalan or Welsh, they provide that the technological sophistication and cultural preservation can advance together.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusion",
+            "diversity",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.4,
+          "matched_keywords": [
+            "language",
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "principles"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "diversity",
+            "inclusion"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "principles"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "model"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "conference"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:20.704631"
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0007",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "fragment_index": 7,
+      "start": 401.33,
+      "end": 455.22,
+      "duration": 53.89,
+      "text": "They create a global dialogue necessary for coordinated action. Dialogue must lead to action and action requires the political will to prioritise long-term accessibility over short-term convenience. In the European Union, we often speak of the Europe we want to build a vision of shared prosperity, fundamental rights, technological sovereignty aligned with democratic values. Today, I invite you to think globally about the world we're choosing to build through our AI policies. We can build a world where a visually impaired student in rural Africa has the same access to educational content as a sighted student in downtown Brussels, mediated by AI systems that understand accessibility because it's built-in, its accessibility as a design principle,",
+      "word_count": 120,
+      "source_segment_ids": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "created_at": "2026-06-16T12:54:12.979749",
+      "keywords": [
+        "accessibility",
+        "africa",
+        "rural",
+        "content",
+        "rights",
+        "sovereignty",
+        "dialogue",
+        "values",
+        "action",
+        "build",
+        "world",
+        "student"
+      ],
+      "summary": "They create a global dialogue necessary for coordinated action.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "africa",
+            "accessibility",
+            "rural"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.2,
+          "matched_keywords": [
+            "content"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.2,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "africa",
+            "sovereignty",
+            "rural"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "dialogue"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "values"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:20.710630"
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0008",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "fragment_index": 8,
+      "start": 455.22,
+      "end": 506.23,
+      "duration": 51.01,
+      "text": "and it's not an afterthought. We can create a future where language barriers dissolve through AI translation that preserves cultural nuance and local knowledge, where information flows freely across borders while respecting privacy and security. But this future requires the same coordinated commitment that build the European project itself, the recognition that our individual prosperity depends on our collective commitment to both inclusion and justice. This is the choice we face. The choice is ours. The time is now, let us choose wisely and let us choose together. Thank you very much.",
+      "word_count": 93,
+      "source_segment_ids": [
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "created_at": "2026-06-16T12:54:12.979984",
+      "keywords": [
+        "information",
+        "knowledge",
+        "inclusion",
+        "justice",
+        "language",
+        "cultural",
+        "translation",
+        "security",
+        "future",
+        "commitment",
+        "choice",
+        "let",
+        "choose"
+      ],
+      "summary": "We can create a future where language barriers dissolve through AI translation that preserves cultural nuance and local knowledge, where information flows freely across borders while respecting privacy and security.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "knowledge"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusion",
+            "justice"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "language",
+            "cultural"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "knowledge",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "language",
+            "translation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "inclusion"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "inclusion"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:20.715446"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:20.715455"
+}

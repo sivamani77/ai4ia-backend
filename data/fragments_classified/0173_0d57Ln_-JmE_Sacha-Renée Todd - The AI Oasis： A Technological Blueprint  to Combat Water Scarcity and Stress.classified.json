@@ -1,0 +1,1233 @@
+{
+  "source_transcript": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress.json",
+  "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+  "video_id": "0d57Ln",
+  "fragment_count": 12,
+  "created_at": "2026-06-16T12:54:13.743463",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0001",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 1,
+      "start": 0.21,
+      "end": 59.0,
+      "duration": 58.79,
+      "text": "Greetings. I'm Sasha Renee Todd, and I've dedicated a large part of my professional journey to understanding the ecological services of freshwater habitats and the complexities of water challenges in our modern world. For the next few minutes, we will review the historical symbiosis between water and civilization, and explore a blueprint where AI becomes our AI, reviewing innovative strategies to address water stress. Essential for all biological processes, water is the building block of life on Earth. Every cell in our bodies require water to function. For this reason, the first human settlement sprang up around rivers and lakes. The availability of freshwater has always played a pivotal role in the settlement and growth of human populations throughout history, for drinking, agriculture, and transportation.",
+      "word_count": 127,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "created_at": "2026-06-16T12:54:13.740307",
+      "keywords": [
+        "agriculture",
+        "water",
+        "services",
+        "freshwater",
+        "human",
+        "settlement"
+      ],
+      "summary": "I'm Sasha Renee Todd, and I've dedicated a large part of my professional journey to understanding the ecological services of freshwater habitats and the complexities of water challenges in our modern world.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "agriculture"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.2,
+          "matched_keywords": [
+            "services"
+          ]
+        },
+        {
+          "chapter_id": "Ch 15",
+          "chapter": "Ch 15: AI in Agriculture & Food Security",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.2,
+          "matched_keywords": [
+            "agriculture"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.232583"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0002",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 2,
+      "start": 59.0,
+      "end": 119.14,
+      "duration": 60.14,
+      "text": "The development of new technologies such as canals and aqueducts allowed people to transport freshwater over longer distances. This made it possible for human settlements to grow and develop in areas that were previously uninhabitable. But the Industrial Revolution led to a dramatic increase in demand for freshwater with the growth of cities and the development of new industries such as textiles and mining. The increased demand for freshwater led to the construction of water infrastructure, such as dams and reservoirs. Water resources are the total volume of water available for human use, but this is a finite resource. Water security is the sustainable availability and accessibility of clean water. Threats the water security include population growth, climate change, and pollution. Water stress",
+      "word_count": 123,
+      "source_segment_ids": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "created_at": "2026-06-16T12:54:13.740561",
+      "keywords": [
+        "accessibility",
+        "climate",
+        "water",
+        "pollution",
+        "security",
+        "sustainable",
+        "infrastructure",
+        "freshwater",
+        "development",
+        "new",
+        "human",
+        "led",
+        "demand",
+        "growth"
+      ],
+      "summary": "The development of new technologies such as canals and aqueducts allowed people to transport freshwater over longer distances.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "climate",
+            "water",
+            "pollution"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.222,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.111,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "climate",
+            "water",
+            "pollution",
+            "sustainable"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.2,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.1,
+          "matched_keywords": [
+            "infrastructure"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.1,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.237858"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0003",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 3,
+      "start": 119.14,
+      "end": 184.03,
+      "duration": 64.89,
+      "text": "is a term used to describe the deterioration in quantity and or quality of freshwater resources. According to the World Resources Institute, over 2 billion people worldwide currently live in water stress areas. 25 countries hosting one quarter of the global population faced extremely high water stress each year, regularly using up their entire available water supply. Over the past century, global demand for water has surged by 600 percent. Driven by population growth, economic progression and shifts in consumption habits. The UN estimates that nearly 6 billion people will suffer from clean water scarcity by 2050. Disease, famine, socio-political unrest, and economic instability are the consequences of poor water management. Rising temperatures caused by climate change are making naturally arid regions even drier. This can lead to crop failures and livestock",
+      "word_count": 133,
+      "source_segment_ids": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "created_at": "2026-06-16T12:54:13.740844",
+      "keywords": [
+        "disease",
+        "climate",
+        "water",
+        "economic",
+        "crop",
+        "livestock",
+        "resources",
+        "over",
+        "billion",
+        "people",
+        "stress",
+        "global",
+        "population"
+      ],
+      "summary": "is a term used to describe the deterioration in quantity and or quality of freshwater resources.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "disease",
+            "climate",
+            "water"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "economic"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "climate",
+            "water"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.286,
+          "matched_keywords": [
+            "economic"
+          ]
+        },
+        {
+          "chapter_id": "Ch 15",
+          "chapter": "Ch 15: AI in Agriculture & Food Security",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.286,
+          "matched_keywords": [
+            "crop",
+            "livestock"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.143,
+          "matched_keywords": [
+            "disease"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.244035"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0004",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 4,
+      "start": 184.03,
+      "end": 245.02,
+      "duration": 60.99,
+      "text": "deaths. Not only can water scarcity lead to food insecurity and famine, but Manitrition also lowers immunity, making it difficult for people to fight off diseases and illnesses. Lack of clean water for drinking, sanitation, and hygiene purposes can lead to a range of diseases such as diarrhea, cholera, and typhoid. Water scarcity has led to conflicts in the past, particularly in regions where water resources are shared by multiple countries, for example the Nile, Indus, and Jordan Rivers. In some instances, the outcomes of these disputes have been violence. A notable example is the Iranian Iraq War, from 1980 to 1988, with a key contributor being the contested use of the Shatala Rab River. Lunds and droughts are likely to cause mass migrations in the near future.",
+      "word_count": 128,
+      "source_segment_ids": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "created_at": "2026-06-16T12:54:13.741089",
+      "keywords": [
+        "water",
+        "cholera",
+        "scarcity",
+        "lead",
+        "diseases",
+        "example"
+      ],
+      "summary": "Not only can water scarcity lead to food insecurity and famine, but Manitrition also lowers immunity, making it difficult for people to fight off diseases and illnesses.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "cholera"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.25,
+          "matched_keywords": [
+            "cholera"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.249570"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0005",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 5,
+      "start": 245.02,
+      "end": 305.46,
+      "duration": 60.44,
+      "text": "From 2017 to 2022, just under 3 million people globally were displaced by drought, according to the internal displacement monitoring sensor. The World Health Organization further estimates that up to 700 million people are at risk of being displaced over the next decade. A.A.I. has the potential to play a vital role in helping us to manage water resources more sustainably and efficiently. A.I. is currently being used in a number of sectors for water management purposes. Water quality and water supply can be monitored and analyzed in real time. A.I. models can trap pollution sources and predict potential contaminants in various water sources, ensuring safe drinking water. In California, 83% of the persons depend on groundwater proportion of their water supply.",
+      "word_count": 126,
+      "source_segment_ids": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "created_at": "2026-06-16T12:54:13.741339",
+      "keywords": [
+        "health",
+        "water",
+        "drought",
+        "pollution",
+        "water quality",
+        "risk",
+        "million",
+        "people",
+        "displaced",
+        "potential",
+        "supply",
+        "sources"
+      ],
+      "summary": "From 2017 to 2022, just under 3 million people globally were displaced by drought, according to the internal displacement monitoring sensor.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health",
+            "water",
+            "drought",
+            "pollution",
+            "water quality"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.077,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "drought",
+            "pollution",
+            "water quality"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.083,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.083,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.254636"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0006",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 6,
+      "start": 305.46,
+      "end": 369.43,
+      "duration": 63.97,
+      "text": "Over extraction has led to significant depletion of groundwater supplies. This has degraded the water quality, rendering some aquifers unusable now for drinking or irrigation. To this end, A.I. is being used to monitor and manage groundwater resources to prevent over extraction in California. Predictive modeling is being used to forecast future water demand based on variables like industrial growth and urban expansion. As well as to calculate future water availability by analyzing trends in rainfall, snow melts, or other sources. Israel is situated in a region with scarce water resources. The country has heavily invested in tech solutions, including development of desalination plants which convert sea water to fresh water. However, this is energy intensive and expensive. The water authority is working on an A.I. powered platform to predict water demand and optimize",
+      "word_count": 136,
+      "source_segment_ids": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "created_at": "2026-06-16T12:54:13.741635",
+      "keywords": [
+        "water",
+        "rainfall",
+        "water quality",
+        "irrigation",
+        "over",
+        "extraction",
+        "groundwater",
+        "used",
+        "resources",
+        "future",
+        "demand"
+      ],
+      "summary": "Over extraction has led to significant depletion of groundwater supplies.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "rainfall",
+            "water quality"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "rainfall",
+            "water quality"
+          ]
+        },
+        {
+          "chapter_id": "Ch 15",
+          "chapter": "Ch 15: AI in Agriculture & Food Security",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.083,
+          "matched_keywords": [
+            "irrigation"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.260212"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0007",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 7,
+      "start": 369.43,
+      "end": 426.26,
+      "duration": 56.83,
+      "text": "distribution, which is expected to save millions of dollars per year. In the Netherlands, A.I. is being used to develop early warning systems for floods. Whereas the weather forecast tells us when a storm is approaching, through A.I. and machine learning methods, we will be able to predict with high levels of accuracy days in advance exactly how water from this storm will travel through a particular community. A.I. systems can ensure optimized water management, for example by quickly detecting leaks. In Jamaica, water inefficiency is a major problem, with an estimated 40 to 50% of water supply being lost through leaks. Jamaica's name translates to land of wood and water, or land of springs. But despite its moniker, Jamaica is a highly water stressed country.",
+      "word_count": 130,
+      "source_segment_ids": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "created_at": "2026-06-16T12:54:13.741911",
+      "keywords": [
+        "water",
+        "early warning",
+        "learning",
+        "systems",
+        "storm",
+        "leaks",
+        "jamaica",
+        "land"
+      ],
+      "summary": "distribution, which is expected to save millions of dollars per year.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "early warning"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.111,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "early warning"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.111,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.266657"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0008",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 8,
+      "start": 426.26,
+      "end": 490.01,
+      "duration": 63.75,
+      "text": "The outdated infrastructure, including old pipes and treatment facilities, cannot meet the growing demand for water, especially during dry seasons. Through modernization and adoption of A.I. technologies, Jamaica could significantly enhance the efficiency, reliability and sustainability of its water supply infrastructure. This could create an estimated savings from eliminating non-reviewed water costs alone, of 10 billion Jamaican dollars, or US 60 million per annum. In India, the agricultural sector accounts for over 80% of water consumption. A.I. is therefore being used to develop and implement water conservation strategies in agriculture. A.I. driven smart irrigation systems can determine the exact amount of water crops need, reducing over irrigation, and recommend crops more suited to projected conditions as a given locale.",
+      "word_count": 123,
+      "source_segment_ids": [
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "created_at": "2026-06-16T12:54:13.742217",
+      "keywords": [
+        "agriculture",
+        "sustainability",
+        "water",
+        "crops",
+        "irrigation",
+        "agricultural",
+        "infrastructure",
+        "over"
+      ],
+      "summary": "The outdated infrastructure, including old pipes and treatment facilities, cannot meet the growing demand for water, especially during dry seasons.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "sustainability",
+            "water",
+            "agriculture"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "sustainability",
+            "water"
+          ]
+        },
+        {
+          "chapter_id": "Ch 15",
+          "chapter": "Ch 15: AI in Agriculture & Food Security",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.857,
+          "matched_keywords": [
+            "agriculture",
+            "crops",
+            "irrigation",
+            "agricultural"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.286,
+          "matched_keywords": [
+            "infrastructure"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.275896"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0009",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 9,
+      "start": 490.01,
+      "end": 542.88,
+      "duration": 52.87,
+      "text": "Countries like Israel are also using A.I. to simulate the impacts of climate change and water distribution, and develop adaptation and mitigation strategies. A.I. is currently being used to develop new water treatment technologies. Australia, one company is using A.I. to develop a new, more energy-efficient water-to-decealination technology. As we look towards the future prospects of A.I. for water management, the main limitations pertain to lack of data, lack of financial resources, and lack of specialized trading. For most countries, especially developing countries, there is a lack of data on freshwater resources, and this data is essential for training and using A.I. models. The examples we looked at earlier require data on vast quantities of terrain and land",
+      "word_count": 126,
+      "source_segment_ids": [
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88
+      ],
+      "created_at": "2026-06-16T12:54:13.742480",
+      "keywords": [
+        "climate",
+        "water",
+        "training",
+        "lack",
+        "data",
+        "countries",
+        "using",
+        "develop",
+        "new",
+        "resources"
+      ],
+      "summary": "to simulate the impacts of climate change and water distribution, and develop adaptation and mitigation strategies.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "climate",
+            "water"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "training"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "climate",
+            "water"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "training"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.285113"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0010",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 10,
+      "start": 542.88,
+      "end": 593.5,
+      "duration": 50.62,
+      "text": "use, as well as socio-economic data and other variables. These A.I. solutions can also be expensive to implement and develop, and there will be a need to build capacity in developing countries to use A.I. Despite these challenges, there are also a number of opportunities to scale up the use of A.I. in water management. Increasing availability of data from sensors, satellites, and other sources is making it easier to train and use A.I. models, and the decreasing cost of computing is making A.I. solutions more affordable than ever before. How do we create a blueprint using artificial intelligence to combat water scarcity? The first step requires defining the specific goals, whether it's optimizing existing water",
+      "word_count": 123,
+      "source_segment_ids": [
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "created_at": "2026-06-16T12:54:13.742735",
+      "keywords": [
+        "artificial intelligence",
+        "water",
+        "use",
+        "data",
+        "other",
+        "solutions",
+        "making"
+      ],
+      "summary": "use, as well as socio-economic data and other variables.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.63,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.294022"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0011",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 11,
+      "start": 593.5,
+      "end": 667.23,
+      "duration": 73.73,
+      "text": "resources, predicting future scarcity, reducing wastage, or improving water quality. Data acquisition can be a challenging process, as it will require collecting and digitizing historical data, including past water usage, aquifer levels, rainfall, drought patterns and river flows, implementing sensors to get real-time data from relevant sources, as well as gathering data from met departments, satellites, and other third-party sources. Collaboration will be key for success. This includes engagement with international organizations to understand best practices and novel approaches. And partnerships with tech firms, research institutions, and NGOs. Sharing findings, predictions, and strategies with the public will also be critical for fostering trust and cooperation. Significant investments will also be required in tech infrastructure, including cloud storage and computational resources essential for A.I. implementation, as well as robust cyber security",
+      "word_count": 133,
+      "source_segment_ids": [
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "created_at": "2026-06-16T12:54:13.743081",
+      "keywords": [
+        "water",
+        "rainfall",
+        "drought",
+        "water quality",
+        "trust",
+        "security",
+        "infrastructure",
+        "data",
+        "resources",
+        "including",
+        "sources",
+        "well",
+        "tech"
+      ],
+      "summary": "resources, predicting future scarcity, reducing wastage, or improving water quality.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "rainfall",
+            "drought",
+            "water quality"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.286,
+          "matched_keywords": [
+            "trust",
+            "security"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "trust"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water",
+            "rainfall",
+            "drought",
+            "water quality"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.143,
+          "matched_keywords": [
+            "infrastructure"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.143,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.143,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.302693"
+    },
+    {
+      "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0012",
+      "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
+      "video_id": "0d57Ln",
+      "fragment_index": 12,
+      "start": 667.23,
+      "end": 728.49,
+      "duration": 61.26,
+      "text": "measures to protect data integrity. Really, supportive policies will need to be created for data sharing and collaboration between different entities, and regulatory frameworks will be required to ensure ethical use of A.I. Furthermore, along each step of this journey, we have to ensure that we meet or exceed requirements regarding data privacy, ensuring that the data is housed and used responsibly in A.I. presentations, and accessibility, ensuring that the technology is available to the countries and regions that need it the most. Improving global water security is a complex challenge, but through the integration of artificial intelligence into water management strategies, we can execute data-driven, proactive approaches and unravel the immense potential A.I. holes, ensuring a water-secure future for humanity. Thank you.",
+      "word_count": 128,
+      "source_segment_ids": [
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123
+      ],
+      "created_at": "2026-06-16T12:54:13.743444",
+      "keywords": [
+        "artificial intelligence",
+        "accessibility",
+        "water",
+        "ethical",
+        "humanity",
+        "security",
+        "privacy",
+        "data",
+        "ensuring",
+        "need",
+        "ensure"
+      ],
+      "summary": "Really, supportive policies will need to be created for data sharing and collaboration between different entities, and regulatory frameworks will be required to ensure ethical use of A.I.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethical",
+            "humanity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:32.309420"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:32.309431"
+}

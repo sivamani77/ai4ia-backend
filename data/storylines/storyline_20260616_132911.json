@@ -1,0 +1,1437 @@
+{
+  "created_at": "2026-06-16T07:59:11.951552",
+  "user_prompt": "Create a 1-minute AI Ethics, Governance & Policy\nCh 4: AI Economics, Competition & Markets\n",
+  "target_duration_seconds": 60,
+  "style": "documentary",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 90,
+    "selected_candidate_count": 35,
+    "top_semantic_score": 0.648988
+  },
+  "validation_issues": [
+    "Invalid fragment_id at storyline.export_timeline[0].fragment_id: ",
+    "Invalid fragment_id at storyline.export_timeline[7].fragment_id: "
+  ],
+  "selected_candidates": [
+    {
+      "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0035",
+      "source_video": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+      "video_id": "yqqiJmWKZ9I",
+      "start": 1996.31,
+      "end": 2044.6,
+      "duration": 48.29,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "From the AIA conference for IAIDS, the 24th of October in Perseven, the authoritative, technical, imperialism, and the era of relationships could be a strong idea.",
+      "keywords": [
+        "access to information",
+        "information",
+        "conference",
+        "students",
+        "research",
+        "session",
+        "welcome",
+        "conclusions",
+        "going",
+        "let's"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.621803,
+      "selection_score": 1.022693,
+      "text": "From the AIA conference for IAIDS, the 24th of October in Perseven, the authoritative, technical, imperialism, and the era of relationships could be a strong idea. The research of students of the signature, according to the voice, they always gave them the sound of the sounds. In other words, we recorded a session of work and analysis, after which we arrived at the conclusions that I am going to share with the students with us. Including all those conclusions proposals that we are going to explain with which he is looking for potential in access to information as well as the challenges that he plans to use for the periodist period. Let's welcome them. Then, let's study before the..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0155",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 8962.31,
+      "end": 8999.35,
+      "duration": 37.04,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "Any gym sun, you say AI is doing a great job but I think we need more content creators from home so that we share our own unique story about our own culture.",
+      "keywords": [
+        "content",
+        "research",
+        "culture",
+        "own",
+        "think",
+        "time"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.75,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.648988,
+      "selection_score": 0.973978,
+      "text": "Any gym sun, you say AI is doing a great job but I think we need more content creators from home so that we share our own unique story about our own culture. More needs to be done to have our own content and research is uploaded on the internet about dance. These are the two comments that I've received straight there from my colleague Allegra and the third comment says, Tony, please be first food is already ready. You're taking too much time. I think it's about time. So I'm just listening to the instructions. Thank you so much for your contribution, your efforts, your input towards this. Please let's give it all of our applause to our moderators."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0026",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 1880.61,
+      "end": 1944.89,
+      "duration": 64.28,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "All right, we will skip straight to the presentation of the Heritage School students which is going to be led to us by Ms.",
+      "keywords": [
+        "accessibility",
+        "students",
+        "school",
+        "heritage",
+        "information",
+        "give",
+        "round",
+        "applause",
+        "all",
+        "same"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.627401,
+      "selection_score": 0.935291,
+      "text": "Please give me a round of applause. All right, we will skip straight to the presentation of the Heritage School students which is going to be led to us by Ms. Ropapha Zomak Khazla. Thank you so much, ma'am. Please give you a round of applause. Thank you. Good morning, everybody. It is an honor to be amongst the great minds we are gathered here today. Mines will all share the same vision, the same goals that is to see AI being implemented so as to widen the accessibility of information around the globe. This is from, I would say, 2023 to up to today. We have seen an impressive stage in the adoption and development of AI tools such that I would"
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0003",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 193.42,
+      "end": 241.45,
+      "duration": 48.03,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "the Digital Foundation, the Digital Jamaica, the Public Broadcasting Corporation of Jamaica and the National Health Fund.",
+      "keywords": [
+        "health",
+        "session",
+        "welcome",
+        "event",
+        "digital",
+        "put",
+        "together",
+        "jamaica",
+        "national",
+        "time"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.643844,
+      "selection_score": 0.901734,
+      "text": "the Digital Foundation, the Digital Jamaica, the Public Broadcasting Corporation of Jamaica and the National Health Fund. Of course, to our extra special guests today or seniors, we welcome you. We welcome you for taking the time out to be here today. We celebrate you as a national treasure and that is why we would have set apart the time for you to be here today. This event is designed to empower you to navigate the digital space safely and confidently. Whether you're joining us in person or online, we are going to put together this session, or you have put together, sorry, we have put together this session for you, to be interactive and lightning and an uplifting session."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0079",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 4316.74,
+      "end": 4363.73,
+      "duration": 46.99,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "as a de facto standard for media product producers to have a text based on content credential images based on content credential and videos based on content credential if we will be able to design a...",
+      "keywords": [
+        "media",
+        "content",
+        "transparency",
+        "research",
+        "based",
+        "credential",
+        "nice",
+        "solution",
+        "i'm",
+        "big"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.609814,
+      "selection_score": 0.898124,
+      "text": "as a de facto standard for media product producers to have a text based on content credential images based on content credential and videos based on content credential if we will be able to design a solution that is doing that that is also part of the transparency of the algorithm that is generating this kind of content I think that we will reach a very nice solution so that's my idea I'm let's say I'm quite optimistic that we will be there in 12 months from the research side then the big big point is the adoption because we can have a very nice paper published on a nice journal but then one is reading our technical journal and so we need a lot of work"
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0119",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 6855.02,
+      "end": 6907.78,
+      "duration": 52.76,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "help in one person understanding how AI works and how it functions?",
+      "keywords": [
+        "literacy",
+        "university",
+        "training",
+        "content",
+        "patient",
+        "digital literacy",
+        "local repository",
+        "creating",
+        "sure",
+        "think"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.617093,
+      "selection_score": 0.895983,
+      "text": "help in one person understanding how AI works and how it functions? Thank you. Very key. She spoke of creating and creating the content, making sure that we feed greater on-local repository, very rich, but I think the fundamental also goes through the digital literacy. How people informed and how do we train and make sure that we don't leave anyone behind in terms of the basic training. I think too many times we take it for granted and very quick take. I wanted to say, it takes time, we have to be very patient, we should do it in digital, literacy, so we don't come to official intelligence, I come from an engineering faculty at the University"
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0068",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 4189.82,
+      "end": 4272.96,
+      "duration": 83.14,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "So we could be at the same time globally competitive euro and one between it as an outsider but at the same time.",
+      "keywords": [
+        "think",
+        "really",
+        "scale",
+        "same",
+        "time",
+        "globally",
+        "competitive",
+        "yeah",
+        "global",
+        "idea"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "semantic_score": 0.607607,
+      "selection_score": 0.887517,
+      "text": "So we could be at the same time globally competitive euro and one between it as an outsider but at the same time. We would have a good local approach to yeah. Yeah i I I I string a census very serious case of of global formal here so this whole idea that the next. Hyper scalar needs to be European and that we need to be globally competitive i think we first should start wondering whether this is actually the way to go I think what I really found for example really interesting about deep mind is that it really challenge this idea that it's all about scale scale scale. For many uses the more AI and Jenny I is implemented in daily life I think the more we will look hopefully look for more..."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0015",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 837.81,
+      "end": 887.39,
+      "duration": 49.58,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "You can say, okay, for understanding if I am a human or if I am a robot.",
+      "keywords": [
+        "doing",
+        "really",
+        "huge",
+        "amount",
+        "normal",
+        "collecting",
+        "data",
+        "autonomous",
+        "driving",
+        "way"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "semantic_score": 0.607353,
+      "selection_score": 0.887263,
+      "text": "Normal and normal. So why we are doing this? You can say, okay, for understanding if I am a human or if I am a robot. So it's an anti-spam system. But in reality, this is collecting data for autonomous driving. This is a way of collecting worldwide data for autonomous driving. So we can think about that really, really in a very proper way. Not always. We are doing a charge GPT or LLM or generating images, but we are doing a huge amount of nice things. And we can work on preterm infants, for example, using generative AI. We need to enlarge a little bit our vision because now we can do really a huge amount of things. Fashion is there with a huge amount of"
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0122",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 7069.18,
+      "end": 7135.4,
+      "duration": 66.22,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "need to be patient, yeah, and just try to break the ceiling, because Zimbabwe is a very big country, and I think you will make it.",
+      "keywords": [
+        "research",
+        "training",
+        "patient",
+        "business",
+        "need",
+        "people",
+        "that's",
+        "yeah",
+        "zimbabwe",
+        "learn"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.622295,
+      "selection_score": 0.886205,
+      "text": "need to be patient, yeah, and just try to break the ceiling, because Zimbabwe is a very big country, and I think you will make it. Yeah, my response would be very short, what I would suggest that you do, first, do a research of what people need to learn, let me give you an example, for example, into entrepreneurship, now is on the rise in Zimbabwe, right, so don't focus on training, digital training or AI training, invite people to learn on how to use ICT, how to use their phones to manage their businesses, so people will come there because they want to do business, right, because that's what they are looking for, that's what they need, that's what they want to survive, and in the process,"
+    },
+    {
+      "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0044",
+      "source_video": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+      "video_id": "yqqiJmWKZ9I",
+      "start": 2548.21,
+      "end": 2624.15,
+      "duration": 75.94,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "correct or not correct for example the subject of which is to be eliminated for example for example for example it is super alive there are a lot of topics and I would like to know...",
+      "keywords": [
+        "regulation",
+        "content",
+        "example",
+        "correct",
+        "super",
+        "topics",
+        "know",
+        "course"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.62614,
+      "selection_score": 0.88585,
+      "text": "correct or not correct for example the subject of which is to be eliminated for example for example for example it is super alive there are a lot of topics and I would like to know about the course of audio or not yes the platform has its own finishes and they do it because there is no there is no there is no there is no there is no there is no there is no regulation and but of course it is also part of the most easy topics that would be I would like to know about the data but in terms of content it is super competitive and in the whole world there was"
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0131",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 6673.91,
+      "end": 6724.12,
+      "duration": 50.21,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "into, right, and that one looks on it on a bigger level and your points that you brought out here today will be ventilated there as well, so can join us there on September 28th, the...",
+      "keywords": [
+        "information accessibility",
+        "accessibility",
+        "information",
+        "conference",
+        "event",
+        "one",
+        "right",
+        "here",
+        "free",
+        "pay"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.633178,
+      "selection_score": 0.881688,
+      "text": "into, right, and that one looks on it on a bigger level and your points that you brought out here today will be ventilated there as well, so can join us there on September 28th, the conference continues this important conversation that we have started here and it connects Jamaica to the Global Movement on Information Accessibility, you can also register for this event and let me say, this event is also free, you don't pay for that one, so anything that tells you going to pay for it, that's not the right one, this event is also free, it's at AI4, the number 4, IA, conference as C-O-N-F-E-R-E-N-C-E.com,"
+    },
+    {
+      "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0038",
+      "source_video": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+      "video_id": "yqqiJmWKZ9I",
+      "start": 2141.64,
+      "end": 2205.65,
+      "duration": 64.01,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "think that the UNESCO should be something negative and it will be a ally of all people.",
+      "keywords": [
+        "content",
+        "information",
+        "transparency",
+        "unesco",
+        "responsibility",
+        "digital",
+        "way",
+        "verify"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.608178,
+      "selection_score": 0.877868,
+      "text": "think that the UNESCO should be something negative and it will be a ally of all people. We have different points and within this, the first item is the responsibility of the UNESCO. Within this, this is the transparency of the obligatory algorithm, which we wanted to create a digital way, a digital way, in which the information would be indicated within this is very rich in the information that is shown in a place. This would be, for example, in a website in which the digital way is used and, well, there will be also a part of the content that was created and this would verify a human being. This would verify if this information is veridica or not"
+    },
+    {
+      "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0007",
+      "source_video": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+      "video_id": "yqqiJmWKZ9I",
+      "start": 389.26,
+      "end": 455.51,
+      "duration": 66.25,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "We will continue now with the greeting at the end of the video, from Court of Green, who is the president of the work group of UNESCO, on the accessivity to information, and so on.",
+      "keywords": [
+        "information",
+        "satellite event",
+        "conference",
+        "unesco",
+        "creative",
+        "cultural",
+        "ethical",
+        "welcome",
+        "event",
+        "legal"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.622538,
+      "selection_score": 0.876228,
+      "text": "and be all very welcome. Thank you very much. We will continue now with the greeting at the end of the video, from Court of Green, who is the president of the work group of UNESCO, on the accessivity to information, and so on. And I am very curious about the inclusion of this device that will give us a greeting. Hello, and welcome. I am pleased to join you for this satellite event, one of nine being convened in the lead-up to the sixth AI for IAA conference on September 28. Gatherings like this help bring into focus a wide spectrum of perspectives, technical, ethical, cultural, legal, and social. They offer space for thoughtful exchange and creative expression"
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0004",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 241.45,
+      "end": 290.28,
+      "duration": 48.83,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "If you're here for the first time, the restroom is to the side, so you may go around, not past the cameras, you may go around and access the bathroom there.",
+      "keywords": [
+        "information accessibility",
+        "accessibility",
+        "information",
+        "conference",
+        "unesco",
+        "remarks",
+        "you're",
+        "may",
+        "around",
+        "sorry"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.621789,
+      "selection_score": 0.875479,
+      "text": "Just a bit of housekeeping matters. If you're here for the first time, the restroom is to the side, so you may go around, not past the cameras, you may go around and access the bathroom there. If you're online for closed captioning, please click on the double-c, the CC, at the bottom of your screen. We will now have the old minute, sorry, the welcoming remarks for Mr. Cordell Green. Mr. Green is the vice chairman of the UNESCO Information for All Programs. He's also the chairman of UNESCO Information for All Working Group on Information Accessibility, sorry, the organizers of the Global AI for AI Conference. He's also the Executive Director of the Broadcasting Commission."
+    },
+    {
+      "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0001",
+      "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
+      "video_id": "6T5ec0wYVSg",
+      "start": 2.35,
+      "end": 62.9,
+      "duration": 60.55,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Hello, thank you to UNESCO for convening the 6-4-AA conference in commemoration of the International Day for Universal Access to Information.",
+      "keywords": [
+        "access to information",
+        "journalism",
+        "media",
+        "information",
+        "conference",
+        "unesco",
+        "competition",
+        "market",
+        "business",
+        "science"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.613312,
+      "selection_score": 0.871202,
+      "text": "Hello, thank you to UNESCO for convening the 6-4-AA conference in commemoration of the International Day for Universal Access to Information. I'm Michael Markovitz. I'm Director of the Media Leadership Think Tank at the Gordon Institute of Business Science in Johannesburg. I think Tank works to strengthen democracy with solutions for African media, with a clear focus on harder sustained public interest journalism in an age of concentrated digital power, not only on the digital platform side, but also on specifically with AI networks and platforms as well. Over the past two years, we've played an active role in South Africa's media and digital platforms market inquiry, this process which was..."
+    },
+    {
+      "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0075",
+      "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
+      "video_id": "yZAAZZ",
+      "start": 4045.49,
+      "end": 4105.23,
+      "duration": 59.74,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "Can they regulate fast enough Or are there other mechanisms Whereby they can keep up with this changing environment Thanks for the question Jeffrey I'm definitely in favor of Multi-stakeholder input And I think we're getting...",
+      "keywords": [
+        "ethics",
+        "regulation",
+        "environment",
+        "keep",
+        "fast",
+        "enough",
+        "continue",
+        "bring",
+        "beginning"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.623191,
+      "selection_score": 0.867091,
+      "text": "Can they keep up? Can they move fast enough? Can they regulate fast enough Or are there other mechanisms Whereby they can keep up with this changing environment Thanks for the question Jeffrey I'm definitely in favor of Multi-stakeholder input And I think we're getting More into that in recent years But also co-regulation is a phrase that I continue to bring up again Because everything needs to happen in concert From the beginning And as Katrina mentioned Sustained after Implementation as well So really it's not a one and done We need to bring in Multiple stakeholders from the beginning and continue So ethics as an afterthought which has typically been The case in also"
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0124",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 6356.46,
+      "end": 6400.23,
+      "duration": 43.77,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "And as I heard right here, you had said, I'll touch on your shoulder, personal information and that is what I name personal, right?",
+      "keywords": [
+        "privacy",
+        "information",
+        "right",
+        "personal",
+        "ensure",
+        "said",
+        "saying",
+        "important",
+        "don't",
+        "coming"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.616534,
+      "selection_score": 0.863544,
+      "text": "E, ensure privacy. What am I saying for though? Ensure privacy. Are you a private Matadisino, right? Ensure privacy. Protect your personal. And as I heard right here, you had said, I'll touch on your shoulder, personal information and that is what I name personal, right? So it's very important that you said that and I have to say that you keep saying it, it personal, right? So stay safe online. I don't know what's coming next, but I said this to you. CFT is important. Although I see some hands being raised, I think a coming on time, I don't want to come between you and the nice fruits, you'll miss it over this one and the blood, check on"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0016",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "start": 864.82,
+      "end": 916.38,
+      "duration": 51.56,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "One thing I have to keep in mind, deliberate attention requires extra energy, extra effort while choosing the AI.",
+      "keywords": [
+        "accountability",
+        "citizens",
+        "deliberate",
+        "attention",
+        "extra",
+        "encourage",
+        "use",
+        "i'm",
+        "comfortable"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.61258,
+      "selection_score": 0.84447,
+      "text": "One thing I have to keep in mind, deliberate attention requires extra energy, extra effort while choosing the AI. And therefore, the more things that encourage that, the easier it will be for our people, our learners and our future workers to engage with AI using deliberate attention. Beyond the schools, we're going to need to make sure we teach our citizens in general about responsible use of AI and encourage our accountability for AI generated material. So that it becomes a norm that the way that you use output from AI is with that view that anything I put out there that I took from a generative AI tool I could stand behind. I'm comfortable, I can, I'm comfortable being accountable for it."
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0011",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "start": 1541.56,
+      "end": 1613.84,
+      "duration": 72.28,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "in this drama we witness the incredible power of artificial intelligence in making the world more accessible the story shows how AI can guide a visually impaired girl helping her to learn music and to prepare...",
+      "keywords": [
+        "artificial intelligence",
+        "school",
+        "music",
+        "competition",
+        "accessible",
+        "selection",
+        "papa",
+        "happened",
+        "feeling",
+        "happy"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.611725,
+      "selection_score": 0.844415,
+      "text": "in this drama we witness the incredible power of artificial intelligence in making the world more accessible the story shows how AI can guide a visually impaired girl helping her to learn music and to prepare for a competition it is a moving reminder that technology when used with the purpose can break barriers and create opportunities for all Papa, where are you? my dear, one minute what happened? I am feeling very happy come here sit here sit great my daughter is feeling very happy today what happened? Papa, my selection is gone selection? which selection was it? in singing wow, great! where did you sing? my daughter is there in my school, the reality show was on the team"
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0058",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 3348.78,
+      "end": 3384.38,
+      "duration": 35.6,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "would say to start but there is one last point in that first question I would like to make and that is it's interesting that the UN Global Principles for Information Integrity which you mentioned in...",
+      "keywords": [
+        "information integrity",
+        "learning",
+        "research",
+        "transparency",
+        "principles",
+        "information",
+        "interesting",
+        "look",
+        "question",
+        "right"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.6,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.617213,
+      "selection_score": 0.839623,
+      "text": "would say to start but there is one last point in that first question I would like to make and that is it's interesting that the UN Global Principles for Information Integrity which you mentioned in your question and also which are the underlying issue why we're discussing this year today put transparency together with research right that's interesting and why is that interesting because we are all learning look look at today look at what we learned from Emmanuel's input right through to all the other speakers we are learning we have to learn at a very high speed we are trying to understand we can't even understand a lot of things that are happening the the institutions which"
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0066",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 3671.04,
+      "end": 3712.0,
+      "duration": 40.96,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "are trying to use AI in order to make their voice better heard so maybe we would implement new obligations on them as well which would make it again more difficult for them to survive in...",
+      "keywords": [
+        "human rights",
+        "environment",
+        "rights",
+        "media",
+        "news",
+        "information",
+        "court",
+        "make",
+        "difficult",
+        "obligation"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.618451,
+      "selection_score": 0.832161,
+      "text": "are trying to use AI in order to make their voice better heard so maybe we would implement new obligations on them as well which would make it again more difficult for them to survive in this really difficult environment so would they be the right address of a high-risk obligation which is quite extensive in the AI act could we separate the AI system from the news providers I am not so sure on the other hand Daria you're rightly asking a question because we're not allowed to forget plurality of the media landscape access to reliable information at least in the understanding of the Court of Human Rights under the European Convention on Human Rights is an obligation of stats they"
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0070",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 4323.08,
+      "end": 4389.92,
+      "duration": 66.84,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "Thanks thank you very much i see that our time is coming to an end.",
+      "keywords": [
+        "information integrity",
+        "information",
+        "panel",
+        "end",
+        "raised",
+        "one",
+        "made",
+        "important",
+        "little",
+        "bit"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.629712,
+      "selection_score": 0.824402,
+      "text": "Thanks thank you very much i see that our time is coming to an end. And I would like to go about our panel and to pass the floor to Andrea. Thank you it's quite a difficult one to summarize in any sense performs I've just made a few notes. I thought the last question what would be success in you was an excellent and and really important can I just link back a little bit to this morning's panel because this morning's panel talked about information integrity. And there was so many issues that were raised so I will be joining them up a little bit I think so many issues raised this morning that you have raised in this panel and they're obviously very very important one of the particular..."
+    },
+    {
+      "fragment_id": "0076_b4EGpIjWd6I_Ihor Samokhodskyi - AI & Open Data for Public Policy： Turning Access into Use_0007",
+      "source_video": "0076_b4EGpIjWd6I_Ihor Samokhodskyi - AI & Open Data for Public Policy： Turning Access into Use",
+      "video_id": "b4EGpIjWd6I",
+      "start": 236.5,
+      "end": 280.98,
+      "duration": 44.48,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "summary": "because one analyst not working full-time has been able to do that in several months.",
+      "keywords": [
+        "justice",
+        "working",
+        "core",
+        "tools",
+        "free",
+        "time",
+        "merely"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.611518,
+      "selection_score": 0.815408,
+      "text": "because one analyst not working full-time has been able to do that in several months. So this is unthinkable for the previous projects and approaches. Another point is core data monitoring where we published daily the core decisions on specific articles. I will stop on that in details more. And in this presentation, I will show you the tools that are working with the justice. All of these tools have been created by my team without any big donations or funds actually in our free time from our main tasks. So please feel free to see what could be done with a merely, merely a small amount of time invested. First tool that I believe has enormous potential for scaling"
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0038",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 2385.87,
+      "end": 2464.83,
+      "duration": 78.96,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "Is becoming again, I think a high priority issue.",
+      "keywords": [
+        "training",
+        "panel",
+        "think",
+        "again",
+        "questions",
+        "comment",
+        "one",
+        "stefan",
+        "platforms"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.611484,
+      "selection_score": 0.806174,
+      "text": "Is becoming again, I think a high priority issue. So again, no solutions from my side, maybe some, some more questions for our discussion. Thank you. Thank you very much. Andrea, would you like to comment on the UK? Probably comment in the overall summary, which will actually reflect back to panel one. Good. Thanks. Then first of all, thank you, Christina, for your contribution. And it gives us, I think, a lot of the think about. And I would like to proceed with the questions and to ask Stefan, Stefan Bach. And what one thing that given the influence of the common crawl cattle and similar platforms on the end of them pre training and the fact that these companies, these platforms, they..."
+    },
+    {
+      "fragment_id": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2_0011",
+      "source_video": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2",
+      "video_id": "M1pldnhhORc",
+      "start": 559.09,
+      "end": 607.76,
+      "duration": 48.67,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "suggestion that maybe especially for universities and other schools, especially yeah, and other schools we could implement a system of continuous assessment where we give the students continuous work to do and also work during the...",
+      "keywords": [
+        "students",
+        "assessment",
+        "conference",
+        "especially",
+        "other",
+        "schools",
+        "yeah",
+        "continuous",
+        "work",
+        "homework"
+      ],
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.610206,
+      "selection_score": 0.802416,
+      "text": "suggestion that maybe especially for universities and other schools, especially yeah, and other schools we could implement a system of continuous assessment where we give the students continuous work to do and also work during the term not just as homework but to check if they actually understood the topic in class so that you know whether they use the AI for homework or not. And then what was the last one? Oh yeah, oh, the prayer, my mistake. Okay, let us pray. Okay, do you have any further? Thank you for today, yesterday and the day before. Thank you for providing us everything you need and having protect us from even the nightmares. Thank you for opening us to it needs to be done in the..."
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0057",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 3470.32,
+      "end": 3552.9,
+      "duration": 82.58,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "This is not good regulation and this is not where simplification would help maybe applying the same standards and maybe investing in regulatory skills regulatory staff regulatory procedures cooperation and taking it seriously.",
+      "keywords": [
+        "regulation",
+        "ethical",
+        "standards",
+        "maybe",
+        "regulatory",
+        "question",
+        "look",
+        "step"
+      ],
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.615174,
+      "selection_score": 0.800864,
+      "text": "This is not good regulation and this is not where simplification would help maybe applying the same standards and maybe investing in regulatory skills regulatory staff regulatory procedures cooperation and taking it seriously. Thank you. Thank you very much. Completely agree by me and since our discussion is about the changing of approaches the switching of the paradigm. I have a question to all speakers well look ahead if we imagine ourselves in 2035. What would success for the European AI look like in this time I mean in 2035. Should we measure it by technological leadership or by ethical benchmarks by sociator resilience or maybe by something else. What is your opinion on that step on..."
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0024",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "start": 2890.1,
+      "end": 2963.32,
+      "duration": 73.22,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Santi Kopta for their constant guidance and support.",
+      "keywords": [
+        "students",
+        "children",
+        "event",
+        "singh",
+        "support",
+        "performers",
+        "evening",
+        "team"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.611824,
+      "selection_score": 0.796724,
+      "text": "and Mr. Santi Kopta for their constant guidance and support. A special thanks also goes to our talented choreographers and performers, whose dedication brought such magic to the evening tonight. We are deeply grateful to our recording and editing partners, Gospels Studio, for capturing these moments so beautifully. I would also like to acknowledge the incredible efforts of the team behind this event. Mr. Supri Singh, Mrs. Harmandeep Kaur, Ms. Ananya Pasi, Ms. Sanjole Singh, Ms. Lee Shu Singh, and Harshika Gujella. Without their hard work and management, this evening would not have been possible, especially for the children and students who performed today. And now, to honor every single..."
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0030",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 1802.32,
+      "end": 1875.5,
+      "duration": 73.18,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "Because this Friday moment, I wish you live, a world of this order.",
+      "keywords": [
+        "governance",
+        "unesco",
+        "speaker",
+        "event",
+        "world",
+        "order",
+        "everyone",
+        "here"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.608693,
+      "selection_score": 0.794383,
+      "text": "Because this Friday moment, I wish you live, a world of this order. A world of what I call a world of order that is in transition, if you will. AI will either be a tool that fuels turbulence or one that helps to build more responsive, more humane, and more just systems of governance. Our next speaker is Jillian Lemmermeyer. And she is an assistant professor of the Faculty of Nursing. Thank you. Thank you, everyone. Thank you so much for the invitation to everyone here who invited me in the large UNESCO event organizers. Of course, it's really an honor to be alongside the other presenters here today. My argument, if you will, since we were set up in part to think about this as a debate, may..."
+    },
+    {
+      "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0001",
+      "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
+      "video_id": "Na4L8xXcusY",
+      "start": 3.63,
+      "end": 64.35,
+      "duration": 60.72,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "I'm Lloyd Ling, Creative Director at Island Rock Entertainment.",
+      "keywords": [
+        "creative",
+        "creativity",
+        "conference",
+        "unesco",
+        "synthetic",
+        "every",
+        "bedroom"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.609847,
+      "selection_score": 0.790547,
+      "text": "I'm Lloyd Ling, Creative Director at Island Rock Entertainment. But today, as we stand on the precipice of the 2025 AI-4IA conference powered by UNESCO, I want to take you on a journey that goes deeper than pixels and algorithms. We're living through what I call the great creative reckoning. A moment where synthetic intelligence meets human imagination, where the very definition of creativity is being rewritten in real time. Picture this. It's 3 a.m. in a bedroom studio in Kingston and aspiring producer opens their laptop, types, create dancehall rhythm, bounty killer style, and within seconds, boom. Attract materializes. Baseline pumping. Hyatt's crisp. Melodies infectious. Now multiply..."
+    },
+    {
+      "fragment_id": "0008_hmHtg9dRzAo_James_Sherer_-_AI4IA_2025_0001",
+      "source_video": "0008_hmHtg9dRzAo_James_Sherer_-_AI4IA_2025",
+      "video_id": "hmHtg9dRzAo",
+      "start": 0.59,
+      "end": 51.74,
+      "duration": 51.15,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "Welcome to the Cure to AI and Posture Syndrome presentation by Baker Haas settler We're going to start with Theroux's Law if you see a man approaching you with the obvious intention of doing you good...",
+      "keywords": [
+        "law",
+        "welcome",
+        "posture",
+        "syndrome"
+      ],
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.612897,
+      "selection_score": 0.788607,
+      "text": "Welcome to the Cure to AI and Posture Syndrome presentation by Baker Haas settler We're going to start with Theroux's Law if you see a man approaching you with the obvious intention of doing you good You should run for your life So take everything that I say here with a grain of salt Appreciating though that AI and Posture Syndrome is an issue that many of my friends Colleagues and clients have had to confront in an area of Dramatic and increasing change. We've seen some reactions already to the uses of these technologies and the manner in which they should be used in organizations Likewise, if you want to skip ahead appreciate that was worth constant says that the 31st 30% of any"
+    },
+    {
+      "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0015",
+      "source_video": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025",
+      "video_id": "jgnObufjIRE",
+      "start": 634.95,
+      "end": 686.62,
+      "duration": 51.67,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "There is an ongoing conversation about the lack of global standards.",
+      "keywords": [
+        "accountability",
+        "transparency",
+        "trust",
+        "standards",
+        "legal",
+        "see",
+        "it's",
+        "people",
+        "different",
+        "don't"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.613728,
+      "selection_score": 0.777818,
+      "text": "There is an ongoing conversation about the lack of global standards. And it's challenging like multidisciplinary needs. People come with different viewpoints, technical, legal and social. And these people can speak different languages and see it differently. Like I said, in 10 minutes, I don't think I'll solve the problem of trust in AI, but wanted to give some food for thought. Transparency counts enormously. Clear communication on how and when AI is being used. And the particular guardrails that have been put in place to protect us is enormous. The more transparency I see in organizations, the more I see uptake in their AI tools and solutions. Accountability matters. When you don't know..."
+    },
+    {
+      "fragment_id": "0072_pE8drlSeIpQ_Deepak_Maheshwari_-_Grassroots_Innovation_for_Universal_Access_to_Information_0004",
+      "source_video": "0072_pE8drlSeIpQ_Deepak_Maheshwari_-_Grassroots_Innovation_for_Universal_Access_to_Information",
+      "video_id": "pE8drlSeIpQ",
+      "start": 180.76,
+      "end": 238.02,
+      "duration": 57.26,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+      "summary": "say Hindi, and I am in a place where the other person is speaking in Tamil, we can still communicate through this platform very easily and rather than creating 22 by 22 metrics of corpus.",
+      "keywords": [
+        "language",
+        "translation",
+        "models",
+        "other",
+        "each",
+        "english",
+        "one"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.620029,
+      "selection_score": 0.769719,
+      "text": "say Hindi, and I am in a place where the other person is speaking in Tamil, we can still communicate through this platform very easily and rather than creating 22 by 22 metrics of corpus. What was done in a very smart manner was that for each language, there was first a translation to English and then from English to the other language. So, this way only 22 models would suffice, what would have otherwise required more than 300 models. So, that is one example. Second one that I want to mention is about the use of swan language models which could work actually at the edges level. So, in India we have some they call common service centers, they have been planned across each of the 600,000 plus..."
+    },
+    {
+      "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0095",
+      "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
+      "video_id": "yZAAZZ",
+      "start": 5105.95,
+      "end": 5141.71,
+      "duration": 35.76,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "So this is the FTC doing some good work taking right into court and saying hey the way you deployed Facial recognition software.",
+      "keywords": [
+        "responsible ai",
+        "court",
+        "right",
+        "want",
+        "doing",
+        "it's",
+        "there's",
+        "going",
+        "that's",
+        "thing"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.611435,
+      "selection_score": 0.761945,
+      "text": "So this is the FTC doing some good work taking right into court and saying hey the way you deployed Facial recognition software. It's really problematic and guess what you're on the hook for that and there's going to be some You know some restrictions and now they've got a five-year ban. They can't use that technology That's the stick the carrot for me It's a little bit harder because I don't think there's necessarily a we're going to pay you to do the right thing But the conversations that I tend to have are do you want to be like the Patagonia of Responsible AI? Do you want to be that brand that's doing the right thing? Do you want to be the fair trade coffee version of"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0012",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "start": 1613.84,
+      "end": 1673.14,
+      "duration": 59.3,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "so I cleared the audition very good field audition is cleared now I have a TV round you will go out for TV round dear, you know what is your situation what is your father's situation?",
+      "keywords": [
+        "school",
+        "cleared",
+        "audition",
+        "round",
+        "work",
+        "situation",
+        "father's",
+        "load",
+        "expenses",
+        "hot"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.607574,
+      "selection_score": 0.759584,
+      "text": "so I cleared the audition very good field audition is cleared now I have a TV round you will go out for TV round dear, you know what is your situation what is your father's situation? how many problems do you have with me? office work, work load you don't get a lot of work load expenses, travelling expenses how is that possible? tell me Papa, you listen to me once please it is hot, isn't it? hot? yes, okay in that school, this was also a team of reality show okay I cleared the audition round then my father will go with him I will go with him I understood that the father's condition is fine"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0009",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "start": 1023.99,
+      "end": 1193.92,
+      "duration": 169.93,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "and look at us now we have to combine them today exactly true my posture was not going to be the same but this skill will help me to correct my posture see my video?",
+      "keywords": [
+        "health",
+        "welcome",
+        "posture",
+        "look",
+        "correct",
+        "let's",
+        "performance"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.622019,
+      "selection_score": 0.719209,
+      "text": "and look at us now we have to combine them today exactly true my posture was not going to be the same but this skill will help me to correct my posture see my video? how much health has helped me? how do I have to guide the posture? look and look at the correct posture let's go to our performance let's welcome our next performance"
+    }
+  ],
+  "storyline": {
+    "title": "AI Economics, Competition & Markets",
+    "logline": "Exploring the intersection of AI and economics, competition, and markets.",
+    "style": "documentary",
+    "target_duration_seconds": 60,
+    "estimated_duration_seconds": 60,
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 5,
+        "narration": "Welcome to the world of AI economics, competition, and markets.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "AI Economics, Competition & Markets",
+            "on_screen_text": "AI Economics, Competition & Markets"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 10,
+        "narration": "The rise of AI has brought about significant changes in the way businesses operate and compete.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0001",
+            "usage": "background_visual",
+            "start": 2.35,
+            "end": 10,
+            "reason": "sets the context for the rise of AI"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 10,
+        "narration": "However, this has also led to concerns about job displacement and market concentration.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0075",
+            "usage": "background_visual",
+            "start": 4045.49,
+            "end": 4055,
+            "reason": "illustrates the concern about job displacement"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0075",
+            "start": 4045.49,
+            "end": 4055,
+            "quote_summary": "concerns about job displacement and market concentration",
+            "reason": "expert perspective on the issue"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 10,
+        "narration": "So, what does this mean for individuals and businesses?",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0011",
+            "usage": "background_visual",
+            "start": 1541.56,
+            "end": 1550,
+            "reason": "shows the human impact of AI"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 10,
+        "narration": "Experts weigh in on the potential solutions.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0070",
+            "usage": "background_visual",
+            "start": 4323.08,
+            "end": 4330,
+            "reason": "expert perspective on potential solutions"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0070",
+            "start": 4323.08,
+            "end": 4330,
+            "quote_summary": "potential solutions to the challenges posed by AI",
+            "reason": "expert insight"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 5,
+        "narration": "The future of AI economics, competition, and markets.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "The Future of AI Economics, Competition & Markets",
+            "on_screen_text": "The Future of AI Economics, Competition & Markets"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 5,
+        "narration": "Conclusion.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to the world of AI economics, competition, and markets.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "The rise of AI has brought about significant changes in the way businesses operate and compete.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "However, this has also led to concerns about job displacement and market concentration.",
+        "tone": "concerned documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "So, what does this mean for individuals and businesses?",
+        "tone": "thoughtful documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "Experts weigh in on the potential solutions.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "The future of AI economics, competition, and markets.",
+        "tone": "excited documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "Conclusion.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0075",
+        "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
+        "start": 4045.49,
+        "end": 4055,
+        "quote_summary": "concerns about job displacement and market concentration",
+        "use_in_section": "S3"
+      },
+      {
+        "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0070",
+        "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+        "start": 4323.08,
+        "end": 4330,
+        "quote_summary": "potential solutions to the challenges posed by AI",
+        "use_in_section": "S5"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0001",
+        "0085_yZAAZZ_FjAk_Canada Regional Event_0075",
+        "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0011",
+        "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0070"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "AI Economics, Competition & Markets",
+          "on_screen_text": "AI Economics, Competition & Markets"
+        },
+        {
+          "asset_type": "title_card",
+          "description": "The Future of AI Economics, Competition & Markets",
+          "on_screen_text": "The Future of AI Economics, Competition & Markets"
+        }
+      ],
+      "internet_assets_needed": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "title_card",
+        "section_id": "S1",
+        "fragment_id": "",
+        "duration_seconds": 5,
+        "description": "AI Economics, Competition & Markets"
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0001",
+        "duration_seconds": 10,
+        "description": "sets the context for the rise of AI"
+      },
+      {
+        "order": 3,
+        "timeline_type": "archive_visual",
+        "section_id": "S3",
+        "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0075",
+        "duration_seconds": 10,
+        "description": "illustrates the concern about job displacement"
+      },
+      {
+        "order": 4,
+        "timeline_type": "speaker_soundbite",
+        "section_id": "S3",
+        "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0075",
+        "duration_seconds": 10,
+        "description": "expert perspective on the issue"
+      },
+      {
+        "order": 5,
+        "timeline_type": "archive_visual",
+        "section_id": "S4",
+        "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0011",
+        "duration_seconds": 10,
+        "description": "shows the human impact of AI"
+      },
+      {
+        "order": 6,
+        "timeline_type": "archive_visual",
+        "section_id": "S5",
+        "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0070",
+        "duration_seconds": 10,
+        "description": "expert perspective on potential solutions"
+      },
+      {
+        "order": 7,
+        "timeline_type": "speaker_soundbite",
+        "section_id": "S5",
+        "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0070",
+        "duration_seconds": 10,
+        "description": "expert insight"
+      },
+      {
+        "order": 8,
+        "timeline_type": "title_card",
+        "section_id": "S6",
+        "fragment_id": "",
+        "duration_seconds": 5,
+        "description": "The Future of AI Economics, Competition & Markets"
+      }
+    ],
+    "editor_notes": []
+  }
+}

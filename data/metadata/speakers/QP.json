@@ -1,0 +1,25 @@
+{
+  "video_id": "QP",
+  "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+  "title": "India Event - AI4IA 2025",
+  "speakers": [
+    {
+      "name": "Riddhi Arora",
+      "role": "Moderator",
+      "affiliation": "UNESCO",
+      "confidence": 1.0
+    },
+    {
+      "name": "Kodel Green",
+      "role": "Speaker",
+      "affiliation": "UNESCO",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": null,
+  "title_name_hint": null,
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:28:05.257693"
+}

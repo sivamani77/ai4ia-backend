@@ -1,0 +1,19 @@
+{
+  "job_id": "job_20260617_113557_e2705903",
+  "type": "generate_assets",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-17T11:35:57.037201",
+  "started_at": "2026-06-17T11:35:57.037979",
+  "completed_at": "2026-06-17T11:37:01.239124",
+  "payload": {
+    "storyline_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260617_170501.json",
+    "voice": "en-GB-RyanNeural",
+    "rate": "-6%",
+    "volume": "+0%",
+    "skip_tts": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260617_113557_e2705903.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/latest_asset_manifest.json",
+  "error": null
+}

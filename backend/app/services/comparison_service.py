@@ -1,0 +1,244 @@
+"""Comparison, theme synthesis, and thematic relay.
+
+All three reuse the citation-first contract from insight_service: the LLM may
+only cite from a numbered evidence pool, every claim carries fragment_refs, and
+we validate refs after generation. The relay is a thematic idea-thread ACROSS
+SPEAKERS (not across years — this archive is a single edition), so it embodies
+the "Relay of Ideas" with the axis being voices building on a theme.
+"""
+from datetime import datetime
+from typing import Any
+
+from app.core.config import INSIGHT_MODEL
+from app.services import embedding_index, fragment_store
+from app.services.insight_service import _truncate, _validate
+from app.services.llm_service import generate_json
+
+
+def _clip(p: dict) -> dict:
+    return {
+        "fragment_id": p.get("fragment_id"), "speaker": p.get("speaker"),
+        "speaker_attribution": p.get("speaker_attribution"),
+        "edition": p.get("edition"),
+        "primary_theme": p.get("primary_theme"),
+        "video_stream_url": p.get("stream_url"),
+        "start": p.get("start"), "end": p.get("end"), "duration": p.get("duration"),
+        "text": _truncate(p.get("text", ""), 400),
+    }
+
+
+def _pool_from_fragments(frags: list[dict]) -> list[dict]:
+    """Number a fragment list [1..N] as a citation pool (used by speaker compare)."""
+    pool = []
+    for i, f in enumerate(frags, start=1):
+        pool.append({
+            "ref": i, "fragment_id": f.get("fragment_id"), "speaker": f.get("speaker"),
+            "speaker_attribution": f.get("speaker_attribution"), "edition": f.get("edition"),
+            "primary_theme": f.get("primary_theme"), "primary_chapter": f.get("primary_chapter"),
+            "start": f.get("start"), "end": f.get("end"), "duration": f.get("duration"),
+            "stream_url": f.get("stream_url"), "text": f.get("text"),
+        })
+    return pool
+
+
+def _format_pool(pool: list[dict]) -> str:
+    lines = []
+    for p in pool:
+        meta = " | ".join(filter(None, [p.get("speaker"), p.get("primary_theme")]))
+        lines.append(f"[{p['ref']}] ({meta}) {_truncate(p['text'])}")
+    return "\n".join(lines)
+
+
+# ----------------------------------------------------------------------------- speakers
+_COMPARE_PROMPT = """You are comparing how different AI4IA speakers address a topic.
+
+Topic: {topic}
+
+Numbered evidence fragments (each tagged with its speaker). Use ONLY these.
+Every statement MUST cite supporting fragment numbers via "fragment_refs".
+Do NOT invent. A claim with no supporting fragment must be omitted.
+
+EVIDENCE:
+{evidence}
+
+Speakers being compared: {speakers}
+
+Return JSON exactly:
+{{
+  "per_speaker": [{{"speaker": "<name>", "position": "<their stance in 1-2 sentences>",
+                    "fragment_refs": [1]}}],
+  "agreements": [{{"statement": "<shared view>", "fragment_refs": [1,4]}}],
+  "tensions":   [{{"statement": "<disagreement/contrast>", "fragment_refs": [2,5]}}],
+  "synthesis": "<2-3 sentence cross-speaker takeaway>"
+}}"""
+
+
+def compare_speakers(speakers: list[str], topic: str | None = None,
+                     limit_per_speaker: int = 6, model: str | None = None) -> dict:
+    topic = topic or "their overall perspective on AI"
+    pool: list[dict] = []
+    missing: list[str] = []
+    for name in speakers:
+        frags = fragment_store.by_facet("speaker", name)
+        if not frags:
+            missing.append(name)
+            continue
+        # If a topic is given, rank this speaker's fragments by similarity to it.
+        if topic:
+            try:
+                ranked = embedding_index.search(topic, top_k=limit_per_speaker,
+                                                filters={"speaker": name})
+                frags = ranked or frags[:limit_per_speaker]
+            except Exception:  # noqa: BLE001
+                frags = frags[:limit_per_speaker]
+        else:
+            frags = frags[:limit_per_speaker]
+        pool.extend(frags)
+
+    if not pool:
+        raise ValueError(f"No fragments found for speakers: {speakers}")
+
+    numbered = _pool_from_fragments(pool)
+    valid = {p["ref"] for p in numbered}
+    raw = generate_json(
+        _COMPARE_PROMPT.format(topic=topic, evidence=_format_pool(numbered),
+                               speakers=", ".join(speakers)),
+        model=model or INSIGHT_MODEL, temperature=0.2,
+    )
+
+    agreements, a_bad = _validate(raw.get("agreements"), valid)
+    tensions, t_bad = _validate(raw.get("tensions"), valid)
+    per_speaker, _ = _validate(raw.get("per_speaker"), valid)
+
+    return {
+        "topic": topic,
+        "speakers_requested": speakers,
+        "speakers_missing": missing,
+        "per_speaker": per_speaker,
+        "agreements": agreements,
+        "tensions": tensions,
+        "synthesis": raw.get("synthesis"),
+        "unsupported_claims": a_bad + t_bad,
+        "evidence_pool": numbered,
+        "models": {"llm": model or INSIGHT_MODEL},
+        "created_at": datetime.utcnow().isoformat(),
+    }
+
+
+# ----------------------------------------------------------------------------- theme
+_THEME_PROMPT = """You are synthesizing how the AI4IA archive treats a theme.
+
+Theme: {theme}
+
+Numbered evidence fragments. Use ONLY these. Every statement MUST cite
+supporting fragment numbers via "fragment_refs". Do NOT invent.
+
+EVIDENCE:
+{evidence}
+
+Return JSON exactly:
+{{
+  "title": "<evocative title>",
+  "summary": "<3-4 sentence synthesis>",
+  "key_points": [{{"point": "<idea>", "fragment_refs": [1,2]}}],
+  "representative_clips": [{{"ref": 1, "reason": "<why>"}}]
+}}"""
+
+
+def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> dict:
+    frags = embedding_index.search(theme, top_k=limit, filters={"theme": theme})
+    if not frags:  # fall back to semantic-only if the theme string isn't an exact facet
+        frags = embedding_index.search(theme, top_k=limit)
+    if not frags:
+        raise ValueError(f"No fragments found for theme: {theme}")
+
+    numbered = _pool_from_fragments(frags)
+    valid = {p["ref"] for p in numbered}
+    raw = generate_json(
+        _THEME_PROMPT.format(theme=theme, evidence=_format_pool(numbered)),
+        model=model or INSIGHT_MODEL, temperature=0.2,
+    )
+    key_points, kp_bad = _validate(raw.get("key_points"), valid)
+    rep = []
+    for r in raw.get("representative_clips") or []:
+        ref = r.get("ref")
+        if isinstance(ref, int) and ref in valid:
+            p = next(x for x in numbered if x["ref"] == ref)
+            rep.append({**_clip(p), "reason": r.get("reason")})
+
+    return {
+        "theme": theme,
+        "title": raw.get("title") or theme,
+        "summary": raw.get("summary"),
+        "key_points": key_points,
+        "representative_clips": rep,
+        "unsupported_claims": kp_bad,
+        "evidence_pool": numbered,
+        "models": {"llm": model or INSIGHT_MODEL},
+        "created_at": datetime.utcnow().isoformat(),
+    }
+
+
+# ----------------------------------------------------------------------------- relay
+_RELAY_PROMPT = """You are building a "Relay of Ideas": an ordered narrative thread on a
+topic where each step is a DIFFERENT speaker's clip, sequenced so the idea
+develops — introduction, then development, then a tension or counterpoint, then
+a synthesis. This is a relay across VOICES, not across time.
+
+Topic: {topic}
+
+Numbered candidate clips (each from a speaker). Use ONLY these. Pick 3-6 that
+form the best thread. Each step MUST reference exactly one clip number.
+
+CLIPS:
+{evidence}
+
+Return JSON exactly:
+{{
+  "relay_title": "<title>",
+  "relay_steps": [{{"ref": 1, "role_in_relay": "opening|development|tension|synthesis",
+                    "bridge": "<1 sentence connecting this voice to the thread>"}}],
+  "relay_narrative": "<short paragraph describing the through-line>"
+}}"""
+
+
+def build_relay(topic: str, limit: int = 20, model: str | None = None) -> dict:
+    frags = embedding_index.search(topic, top_k=limit)
+    if not frags:
+        raise ValueError(f"No fragments found for topic: {topic}")
+
+    # Prefer diversity of speakers in the candidate pool.
+    seen, diverse = set(), []
+    for f in frags:
+        sp = f.get("speaker")
+        if sp not in seen:
+            seen.add(sp)
+            diverse.append(f)
+    pool_frags = (diverse + [f for f in frags if f not in diverse])[:limit]
+
+    numbered = _pool_from_fragments(pool_frags)
+    valid = {p["ref"] for p in numbered}
+    raw = generate_json(
+        _RELAY_PROMPT.format(topic=topic, evidence=_format_pool(numbered)),
+        model=model or INSIGHT_MODEL, temperature=0.3,
+    )
+
+    steps = []
+    for s in raw.get("relay_steps") or []:
+        ref = s.get("ref")
+        if isinstance(ref, int) and ref in valid:
+            p = next(x for x in numbered if x["ref"] == ref)
+            steps.append({**_clip(p), "role_in_relay": s.get("role_in_relay"),
+                          "bridge": s.get("bridge")})
+
+    return {
+        "topic": topic,
+        "relay_title": raw.get("relay_title") or topic,
+        "relay_narrative": raw.get("relay_narrative"),
+        "relay_steps": steps,
+        "step_count": len(steps),
+        "distinct_speakers": len({s["speaker"] for s in steps if s.get("speaker")}),
+        "edition": "AI4IA 2025",
+        "models": {"llm": model or INSIGHT_MODEL},
+        "created_at": datetime.utcnow().isoformat(),
+    }

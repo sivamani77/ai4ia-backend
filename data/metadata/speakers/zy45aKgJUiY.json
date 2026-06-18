@@ -1,0 +1,25 @@
+{
+  "video_id": "zy45aKgJUiY",
+  "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
+  "title": "Botswana Satellite event",
+  "speakers": [
+    {
+      "name": "Kelly",
+      "role": "Speaker|Panelist",
+      "affiliation": "Kenya",
+      "confidence": 1.0
+    },
+    {
+      "name": "Bosana",
+      "role": "Host|Unknown",
+      "affiliation": null,
+      "confidence": 0.8
+    }
+  ],
+  "primary_speaker": "Kelly",
+  "title_name_hint": null,
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:29:21.580211"
+}

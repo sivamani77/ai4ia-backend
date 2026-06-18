@@ -1,0 +1,230 @@
+{
+  "insight_id": "insight_20260617_120009",
+  "title": "The Role of AI in Education",
+  "query": "Education.",
+  "filters": {},
+  "summary": "Experts discuss the impact of AI on education, highlighting both benefits and challenges. While AI can enhance learning experiences, there are concerns about its potential to create a divide in the workforce and undermine human creativity. Educators must adapt to these changes and find ways to effectively integrate AI into their teaching practices.",
+  "patterns": [
+    {
+      "statement": "AI has the potential to transform education by providing personalized learning experiences",
+      "fragment_refs": [
+        6,
+        8
+      ],
+      "support_count": 2
+    },
+    {
+      "statement": "There is a need for educators to adapt to the changing landscape of education in the age of AI",
+      "fragment_refs": [
+        3,
+        5
+      ],
+      "support_count": 2
+    }
+  ],
+  "contrasts": [
+    {
+      "statement": "Some experts believe that AI can enhance human creativity, while others argue that it may undermine it",
+      "fragment_refs": [
+        2,
+        9
+      ],
+      "support_count": 2
+    },
+    {
+      "statement": "There is a tension between the potential benefits of AI in education and the need to address concerns about job displacement and workforce division",
+      "fragment_refs": [
+        3,
+        10
+      ],
+      "support_count": 2
+    }
+  ],
+  "recommended_clips": [
+    {
+      "fragment_id": "0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information_0002",
+      "ref": 6,
+      "reason": "This clip provides a clear overview of the transformative potential of AI in education",
+      "stream_url": "/api/archive/videos/0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information/stream",
+      "start": 60.97,
+      "end": 121.99
+    },
+    {
+      "fragment_id": "0117_NLqa-0IUNdM_Shanti Williams - When I asked AI to compose a Haiku_0002",
+      "ref": 2,
+      "reason": "This clip highlights the complexities and challenges of integrating AI into educational practices",
+      "stream_url": "/api/archive/videos/0117_NLqa-0IUNdM_Shanti Williams - When I asked AI to compose a Haiku/stream",
+      "start": 75.24,
+      "end": 144.09
+    }
+  ],
+  "unsupported_claims": [],
+  "evidence_coverage": 1.0,
+  "evidence_pool": [
+    {
+      "ref": 1,
+      "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0030",
+      "speaker": "I",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "start": 1672.13,
+      "end": 1724.2,
+      "duration": 52.07,
+      "stream_url": "/api/archive/videos/0101_laS77v9F_Io_New York⧸Carnegie Satellite Event/stream",
+      "similarity": 0.7387,
+      "text": "not in science, especially under my public trust in science and knowledge. Therefore, I think that the transparency and the use of AI, the responsible use of AI itself, is the most important in all these posts. So we have meaningful human control, and then we have transparency and responsibility using AI in that context. So let's see, what do you want to add to this? And you obviously can't take the other two options, because they're gone. So I had transparency and there you took that, but that's fine. I'll start off with a story. So I think a few months ago, I think in April of this year, there's these shops in North"
+    },
+    {
+      "ref": 2,
+      "fragment_id": "0117_NLqa-0IUNdM_Shanti Williams - When I asked AI to compose a Haiku_0002",
+      "speaker": "Shanti Williams",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "start": 75.24,
+      "end": 144.09,
+      "duration": 68.85,
+      "stream_url": "/api/archive/videos/0117_NLqa-0IUNdM_Shanti Williams - When I asked AI to compose a Haiku/stream",
+      "similarity": 0.7361,
+      "text": "no personal inspiration, no collaborate, when asked to compose a hi-coup on why Hawaii should not be a part of America. AI delivered. Yes. But whose rendition was it? Did it even answer the question or evade? Was I supposed to benefit greatly for AI's contribution to humanity? Is AI teaching me an art, a skill, a trade, or just doing the work for me? I hesitated. For the moment I read its subversive text, I was at a loss for words, any creative inclination I may have had to spin a posee, snuffed out, I didn't know whether to be impressed or offended, awestruck or humiliated, I know I felt cheated, robbed, I even sought. How could this device"
+    },
+    {
+      "ref": 3,
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0012",
+      "speaker": "Professor Daniel Coore",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "start": 641.45,
+      "end": 695.86,
+      "duration": 54.41,
+      "stream_url": "/api/archive/videos/0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital/stream",
+      "similarity": 0.7313,
+      "text": "It's quite plausible to anticipate that those users, even without the AI tools, so the solid line represent the competence level with the AI and not the line without the AI. It's quite plausible that those users become even more competent without the AI than those who are passively using the AI even when they have the AI. This is going to lead to a major division in the workforce, and I don't think one that would be favorable if it, in fact, did become manifested. So how can we avoid this? First of all, I think schools and education institutions would have a very significant role to play in this. And by the way, now we're talking about avoiding two kinds of things."
+    },
+    {
+      "ref": 4,
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0040",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "start": 2684.2,
+      "end": 2750.09,
+      "duration": 65.89,
+      "stream_url": "/api/archive/videos/0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1/stream",
+      "similarity": 0.7309,
+      "text": "And these are different men and women who have been working day and night to make sure that this event and this document comes to life, please let's give them a round of applause. Is there about to move today? Next slide. Thank you so much. I think I'll start with one man who I've known for a very long time. Some calling doctor, but I call him Babatisha. Babatisha. Dr. Apaniyangi. Right there. We have Dr. Apaniyangi. Dr. Apaniyangi is also the current ICT director, the Zimbabwe Council of Higher Education is also actively involved in data analytics through the GESA Insights and local ICT solutions provider. Before then, he was the ICT director of the University of Zimbabwe."
+    },
+    {
+      "ref": 5,
+      "fragment_id": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2_0010",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "start": 505.74,
+      "end": 559.09,
+      "duration": 53.35,
+      "stream_url": "/api/archive/videos/0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2/stream",
+      "similarity": 0.7305,
+      "text": "uploaded on the internet about density. These are the two comments that I've received straight away from my colleague. Now, I mentioned that I spoke about updating our jobs for AI to adapt for the AI system. Now, the issue here is despite speaking about that, that's what we should do. We didn't exactly talk about how we should do it. As I have noticed that especially the older people apologies. They struggle with coming to learn as it was stated earlier that some refuse as they may feel embarrassed. And then my second point was on the education system on how students have been using AI and I agree with that. And again, we spoke about innovating new ways to do it but I'd like to make a"
+    },
+    {
+      "ref": 6,
+      "fragment_id": "0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information_0002",
+      "speaker": "Dushyant Savadia",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "start": 60.97,
+      "end": 121.99,
+      "duration": 61.02,
+      "stream_url": "/api/archive/videos/0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information/stream",
+      "similarity": 0.7292,
+      "text": "Information is moved from being something we merely consume to something we can now generate and personalize through AI. This shift, in my view, is very, very, very profound. Generative AI allows us to create new content, solutions and innovations with incredible ease. It's driving transformation in healthcare, education, the creative arts and beyond. To stay relevant in today's world, it's no longer enough to just be tech savvy. We must move from merely using technology to become creators and innovators of new ideas. This is where Generative AI comes into play. In my view, it also gives us the tools to solve both local and global problems and creating opportunities that once seemed absolutely untenable. Whether it's developing solutions to streamline operations or crafting entirely new customer experiences,"
+    },
+    {
+      "ref": 7,
+      "fragment_id": "0192_5E0fb2OudVY_Jose Hernandez-Orallo - AI, Education and Work： Remarks from an augmentation perspective_0001",
+      "speaker": "Jose Hernandez-Orallo",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "start": 0.14,
+      "end": 81.82,
+      "duration": 81.68,
+      "stream_url": "/api/archive/videos/0192_5E0fb2OudVY_Jose Hernandez-Orallo - AI, Education and Work： Remarks from an augmentation perspective/stream",
+      "similarity": 0.7291,
+      "text": "Hello, my name is Josevena de Feragio, I'm a professor of Technical University of Valencia and I've been doing research on AI for quite a long time, but apart from that, I'm also teaching courses with my students at the university. And I'm going to talk a little bit about some ideas, remarks about exactly this use of AI in education and especially in evaluation. So there's a lot of discussion about AI and education and of course a lot of discussion about AI and work and of course these two things are related because education serves more than just preparing people for work, preparing people for life and to understand the world. But in with the user new tools coming from AI, things are changing very quickly and I'm going just to mention some ideas from my own experience as a researcher and also as a lecturer."
+    },
+    {
+      "ref": 8,
+      "fragment_id": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone_0004",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "start": 154.56,
+      "end": 200.72,
+      "duration": 46.16,
+      "stream_url": "/api/archive/videos/0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone/stream",
+      "similarity": 0.7277,
+      "text": "or planning to, or thinking about using AI. Go ahead, Ashish. Thank you. Thank you so much, Madeline. And Ray, it's kind of nice to have you guys as well, I appreciate this opportunity. So I'm Ashish, and we found on the CEO of Eon Media, we are a Toronto-based company. We primarily focused on using our AI technology products, Eon extract, the other products, to be able to help extract metadata and the information that is within the video and any kind of audio-digital assets, and provide that to different customers, whether the broad casters, media companies, sports companies, education institutions, or some of the non-profit institutions as well. We work with some of the archest broadcasters in the US, Comcast and other folks as well."
+    },
+    {
+      "ref": 9,
+      "fragment_id": "0164_7WtYDxG8c5A_Emad Mousavi - A Look at the State of AI Through the Lens of Conversational AIs_0011",
+      "speaker": "Emad Mousavi",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "start": 594.23,
+      "end": 662.78,
+      "duration": 68.55,
+      "stream_url": "/api/archive/videos/0164_7WtYDxG8c5A_Emad Mousavi - A Look at the State of AI Through the Lens of Conversational AIs/stream",
+      "similarity": 0.7277,
+      "text": "These are basic functions of our mind. That's so far, AI's have not been able to unlock. Humans are creative. That is true, the creativity varies from person to person and is bit subjective and definitely chat GPT can look more creative than some, but is that creativity, what human creativity looks like? Can chat GPT create something without merging, consolidating and combining other already created material? Does chat GPT or any AI system for that matter of an internal desire to learn and improve and then reflect on the learnings? They can certainly be coded to improve, but that is different from what human cognition from how human human cognition works. So the question becomes, is AI promising or is it just false hope and promise? I would submit that it depends on the question we ask of AI. I think AI systems are very promising, but there is a big, big but there. They are extremely powerful tools. We definitely need governance and oversight."
+    },
+    {
+      "ref": 10,
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0064",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "start": 3963.89,
+      "end": 4010.91,
+      "duration": 47.02,
+      "stream_url": "/api/archive/videos/0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1/stream",
+      "similarity": 0.7276,
+      "text": "for it. So at the end of the day, no, AI is not going to replace us. We are not going to lose our jobs, but it's going to be the ultimate collaborator. I'll leave it for now. Thank you. So I'm seeing a trend here. I think Dr. Alamin set me up when he gave me this pile. He did not tell me that I was going to be dealing with lectures, because they all don't finish when they start to speak, but nevertheless, I think I'm seeing a trend. Very insightful comments, and that shift just nodded there, where we are seeing a lot of usage on AI, and there's always limits in terms of knowledge and understanding."
+    }
+  ],
+  "models": {
+    "llm": "llama3.1:70b",
+    "embedding": "nomic-embed-text:v1.5"
+  },
+  "created_at": "2026-06-17T12:00:09.548833"
+}

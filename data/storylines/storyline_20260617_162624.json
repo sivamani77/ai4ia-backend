@@ -1,0 +1,1850 @@
+{
+  "created_at": "2026-06-17T10:56:24.215688",
+  "user_prompt": "Create a 1-minute video on what paul hector spoke about all the themes.",
+  "target_duration_seconds": 60,
+  "style": "documentary",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 90,
+    "selected_candidate_count": 35,
+    "top_semantic_score": 0.65139
+  },
+  "planning_summary": {
+    "video_mode": "narration_led_explainer",
+    "evidence_strength": "high",
+    "exact_clip_count": 35,
+    "related_clip_count": 0,
+    "fallback_risk": "low",
+    "planning_notes": [
+      "Speaker diversity is limited, so narration carries more of the connective explanation."
+    ]
+  },
+  "validation_issues": [
+    "Invalid fragment_id at storyline.export_timeline[0].fragment_id: ",
+    "Invalid fragment_id at storyline.export_timeline[4].fragment_id: ",
+    "Invalid fragment_id at storyline.export_timeline[8].fragment_id: ",
+    "Invalid fragment_id at storyline.export_timeline[10].fragment_id: ",
+    "Invalid fragment_id at storyline.export_timeline[12].fragment_id: "
+  ],
+  "selected_candidates": [
+    {
+      "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0030",
+      "source_video": "0136_AL8la33n0dw_India Satellite Event",
+      "video_id": "AL8la33n0dw",
+      "start": 1812.43,
+      "end": 1876.3,
+      "duration": 63.87,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "countries, you'll see a lot of AI government led AI initiatives.",
+      "keywords": [
+        "ethics",
+        "unesco",
+        "warfare",
+        "panel",
+        "event",
+        "government",
+        "industry",
+        "together",
+        "first"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.621969,
+      "selection_score": 0.965459,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "countries, you'll see a lot of AI government led AI initiatives. So therefore, I would say industry leaders and governments do work together, sharing expertise and resources to advance AI capabilities. Professor Bord, your insights into regulating AI are invaluable. I have two interrelated questions for you. First, how much do ethics feature in the discourse surrounding AI and warfare? And second, do you believe policymakers fully grasp the complexity of the regulatory challenges they face? Yeah, thank you so much. Some really first of all for putting together this event. And I'm very grateful to be speaking as part of this panel. And thank you to UNESCO for convening this whole series. So..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0030",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 2102.77,
+      "end": 2178.2,
+      "duration": 75.43,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Bafazo Malkaza, we do appreciate that in the great work that you are doing as far as making sure that you push and drive our various students there.",
+      "keywords": [
+        "youth",
+        "students",
+        "values",
+        "far",
+        "think",
+        "look",
+        "all"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.611961,
+      "selection_score": 0.963051,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "Thank you so much, Mr. Bafazo Malkaza, we do appreciate that in the great work that you are doing as far as making sure that you push and drive our various students there. Thank you for that foundational values that you are bestowing, much appreciated. We are going to move straight to the youth representative on the intervention as far as they are concerned within the AI. I think of course AI have got Mr. Yusuf Arik, correct? Yes, we did a look at it. All right, please let's give this young gentleman a round of applause. I think my team and I will all speak, so should we stand up for the presentation? One came, look around this room, we are surrounded by some of the brightest minds on the..."
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0014",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "start": 1290.23,
+      "end": 1364.36,
+      "duration": 74.13,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "Furthermore, AI can play crucial role in making content more accessible by automating the translation of text, generating subtitles for videos and by converting speech to text.",
+      "keywords": [
+        "content",
+        "information",
+        "unesco",
+        "equity",
+        "inclusion",
+        "inclusive",
+        "diversity",
+        "ethical",
+        "principles",
+        "dialogue"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.83,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.608119,
+      "selection_score": 0.933409,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "the"
+      ],
+      "text": "Furthermore, AI can play crucial role in making content more accessible by automating the translation of text, generating subtitles for videos and by converting speech to text. However, the benefits of AI can be fully realized only if we ensure that its development and application are guided by the principles of inclusivity, diversity and equity. This is where the work of UNESCO comes in through the information for our program and other UNESCO initiatives we aim to foster a global dialogue on the ethical use of AI and to promote the development of inclusive policies and practices. As we embark on the seminar, I extend my wishes for a fruitful and engaging seminar. May the ideas and..."
+    },
+    {
+      "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0174",
+      "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
+      "video_id": "zy45aKgJUiY",
+      "start": 13163.42,
+      "end": 13239.08,
+      "duration": 75.66,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "My son, we need not expose it to technology, until, until, until, until, until, we need to include it until he was about six years old.",
+      "keywords": [
+        "media",
+        "news",
+        "information",
+        "knowledge",
+        "training",
+        "classroom",
+        "until",
+        "need",
+        "i'm",
+        "get"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.75,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.608863,
+      "selection_score": 0.929353,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "My son, we need not expose it to technology, until, until, until, until, until, we need to include it until he was about six years old. This game is going on, don't get angry. to understand that, hey, the whole AI is because the AI can push the stupidity books, but you can engage with it, but you've also been, I'm training certain to do it. So we need any knowledge, we need any information, just by the side, and all this on society. And I'm not just in the classroom, but on the side of the classroom. Media, I'm really, really, I want to be there, trying to get the media so that it's already happening on some major news"
+    },
+    {
+      "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+      "source_video": "0136_AL8la33n0dw_India Satellite Event",
+      "video_id": "AL8la33n0dw",
+      "start": 303.47,
+      "end": 366.82,
+      "duration": 63.35,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "This year's global theme which is mainstreaming access to information and participation in the public sector shines the spotlight on the importance of access to information as a fundamental right and a cornerstone of democracy and...",
+      "keywords": [
+        "access to information",
+        "law",
+        "information",
+        "unesco",
+        "public sector",
+        "session",
+        "remarks",
+        "sustainable",
+        "access",
+        "forward"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.619268,
+      "selection_score": 0.922958,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "and sustainable ways. This year's global theme which is mainstreaming access to information and participation in the public sector shines the spotlight on the importance of access to information as a fundamental right and a cornerstone of democracy and sustainable development. I thank you and we look forward to insightful discussions during this session and further collaboration will move forward. Thank you very much. Thank you Ezekiel for the welcoming speech. Now I would like to invite Mr. Kodel Green for presenting the opening remarks. Mr. Green is an alternate law and the executive director the broadcasting commission in Jamaica and also former assistant to Tonya General of Jamaica. His..."
+    },
+    {
+      "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0176",
+      "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
+      "video_id": "zy45aKgJUiY",
+      "start": 13326.22,
+      "end": 13412.0,
+      "duration": 85.78,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "supposed to be for policy, it's not a big deal, it's not a big deal.",
+      "keywords": [
+        "policy",
+        "journalism",
+        "media",
+        "information",
+        "literacy",
+        "teachers",
+        "diverse",
+        "big",
+        "need",
+        "train"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.605923,
+      "selection_score": 0.922213,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "supposed to be for policy, it's not a big deal, it's not a big deal. So we need to train the teachers, we need to train policy, we need to train it all, they can tell you that for us as big the AI is in the mouth, and certainly the interest, we have to be very actively involved in it, being the voice of the society, being, you know, educating them, educating them, entertaining them, then media, from media information, literacy, journalism, the game starts with them, trying to understand what they must do to educate them. They're very interested in discussions, very diverse, a part of the puzzle. I think this is the end of the second"
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0026",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 1880.61,
+      "end": 1944.89,
+      "duration": 64.28,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "All right, we will skip straight to the presentation of the Heritage School students which is going to be led to us by Ms.",
+      "keywords": [
+        "accessibility",
+        "students",
+        "school",
+        "heritage",
+        "information",
+        "give",
+        "round",
+        "applause",
+        "all",
+        "same"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.611441,
+      "selection_score": 0.919331,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "Please give me a round of applause. All right, we will skip straight to the presentation of the Heritage School students which is going to be led to us by Ms. Ropapha Zomak Khazla. Thank you so much, ma'am. Please give you a round of applause. Thank you. Good morning, everybody. It is an honor to be amongst the great minds we are gathered here today. Mines will all share the same vision, the same goals that is to see AI being implemented so as to widen the accessibility of information around the globe. This is from, I would say, 2023 to up to today. We have seen an impressive stage in the adoption and development of AI tools such that I would"
+    },
+    {
+      "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0066",
+      "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
+      "video_id": "laS77v9F",
+      "start": 3584.06,
+      "end": 3645.26,
+      "duration": 61.2,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "So let us all put our shoulders to the wheel and start to address critical needs such as digital media and information literacy.",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "accessibility",
+        "media",
+        "information",
+        "conference",
+        "literacy",
+        "all",
+        "put",
+        "other"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.609154,
+      "selection_score": 0.911854,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "is also about enlightened access. So let us all put our shoulders to the wheel and start to address critical needs such as digital media and information literacy. Thank you so much for are invaluable ill sites. And we look forward to the other conversations across the world in China, in India, in Canada, in Jamaica, in Colombia, which will all happen between now and September 27. And then we invite you to join us on September 28. Remember, it's a Saturday, but put aside some time to come on the other town for the flagship artificial intelligence for information accessibility conference. From Jamaica, big up in the self. Thank you. Have a good day. Take care. Bye."
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0037",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 2305.17,
+      "end": 2385.87,
+      "duration": 80.7,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 16: Deepfakes, Synthetic Media & Copyright",
+      "summary": "This is the objective or this is the vision.",
+      "keywords": [
+        "copyright",
+        "privacy",
+        "cultural",
+        "innovation",
+        "archives",
+        "infrastructure",
+        "data",
+        "talk",
+        "here",
+        "one"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.616167,
+      "selection_score": 0.894057,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "This is the objective or this is the vision. The action plan says this could be done through partnering with bodies that hold valuable cultural data like the National Archives, Natural History Museum, British Library and the BBC to develop a commercial proposition for sharing that data to advance AI. So my one of the one of the points I would like to raise here is if you talk about infrastructure, if you talk about access and if you talk about strategic innovation discussions, we should talk about at the same level about how do we open up those data sense that are epistemic really highly relevant. And here again, I see copyright as a major strategic issue and the last remark here to..."
+    },
+    {
+      "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0011",
+      "source_video": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI",
+      "video_id": "wT3zdfIIeUw",
+      "start": 472.15,
+      "end": 522.7,
+      "duration": 50.55,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "have to be armed in a way, have to have regulatory frameworks and guidelines in place to ensure that through the decisions that they're making, it does not infringe on the rights of our children and...",
+      "keywords": [
+        "young people",
+        "privacy",
+        "rights",
+        "children",
+        "young",
+        "decisions",
+        "they're",
+        "making",
+        "people",
+        "make"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.611385,
+      "selection_score": 0.889875,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "the"
+      ],
+      "text": "have to be armed in a way, have to have regulatory frameworks and guidelines in place to ensure that through the decisions that they're making, it does not infringe on the rights of our children and young people and where it is that our children and young people are able to make decisions for themselves, that they have the tools needed to either seek out help, submit a decision or when they make it for themselves, they're making one that will protect them and their data and privacy rights. That's very important. Now, I want to wind down quickly to what should be our next step going forward. Your next step right now, whoever you are watching this video, is to speak to some young"
+    },
+    {
+      "fragment_id": "0140_4qeKJwssmSw_Nadeen Matthews Blair - The importance of the Caribbean topping the AI medal table. Why and how？_0004",
+      "source_video": "0140_4qeKJwssmSw_Nadeen Matthews Blair - The importance of the Caribbean topping the AI medal table. Why and how？",
+      "video_id": "4qeKJwssmSw",
+      "start": 223.61,
+      "end": 281.9,
+      "duration": 58.29,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "And it returned some amazing examples, Harriet Tubman and Martin Luther King, Jr.",
+      "keywords": [
+        "caribbean",
+        "information",
+        "representation",
+        "heroes",
+        "returned",
+        "going",
+        "coming",
+        "data",
+        "less",
+        "useful"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.60656,
+      "selection_score": 0.88925,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "the"
+      ],
+      "text": "of real life heroes. And it returned some amazing examples, Harriet Tubman and Martin Luther King, Jr. to name a few. No one is going to argue there. But I love a future where there are Caribbean heroes that are returned coming out of a problem like this because we are much better represented in the data. So why does this matter? If there is lack of Caribbean representation in AI and the data, then we're going to find the products less useful. The searches on perplexity may be less useful because there's not enough of our information coming back. We can interact with the various agents and robots because they don't speak our languages and our dialects. And so if there's"
+    },
+    {
+      "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0021",
+      "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
+      "video_id": "laS77v9F",
+      "start": 1163.05,
+      "end": 1205.36,
+      "duration": 42.31,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "So who watches the people who are making the AI?",
+      "keywords": [
+        "water",
+        "panelists",
+        "good",
+        "watches",
+        "ask",
+        "here",
+        "back",
+        "afternoon",
+        "essential"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.77,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.610144,
+      "selection_score": 0.888844,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "It's like, who watches the Watchmen, right? So who watches the people who are making the AI? Who gets to ask those questions? And I'm so glad that six of us here and more around, under your moderation, I wish I had able to ask that question here. So I pass on back to you. Thank you. And Lexan brought back. So let's see. Stuart, what do you think about it? Thank you, Sharon. Good afternoon. Good morning. Good afternoon. Good evening, everyone. I am in complete agreement with the panelists. AI, of course, is not essential. Just like. water, you know, all the essential stuff that we need to live, but I do want to add a point"
+    },
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0018",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 1113.98,
+      "end": 1177.94,
+      "duration": 63.96,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "We can see this clearly reflected in a number of the quotes, which they have shared with us.",
+      "keywords": [
+        "disinformation",
+        "misinformation",
+        "caribbean",
+        "language",
+        "cultural",
+        "dialogue",
+        "one",
+        "based",
+        "new",
+        "another"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.611764,
+      "selection_score": 0.886254,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "create",
+        "all",
+        "the"
+      ],
+      "text": "We can see this clearly reflected in a number of the quotes, which they have shared with us. For example, one of the dimensions that the most promising opportunity that AI offers to make an offer is the ability to create many movies based on their stories. AI opened new possibilities in new fields of endeavor. They also, another one mentions AI systems often generate content based on global data that overlooks all this represents Caribbean history, dialogue, tradition, and perspectives. So again, concerns about misinformation, disinformation, a similar, along similar lines. Another author expressed the so on that AI could promote cultural homogenization and others, you know, here's a..."
+    },
+    {
+      "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0035",
+      "source_video": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation",
+      "video_id": "ikdcwVcRSPo",
+      "start": 2101.68,
+      "end": 2159.58,
+      "duration": 57.9,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+      "summary": "as we engage with and consume the information that we're seeing online.",
+      "keywords": [
+        "disinformation",
+        "misinformation",
+        "information",
+        "caribbean",
+        "we're",
+        "any",
+        "burning",
+        "questions",
+        "question",
+        "must"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "context_visual"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.606704,
+      "selection_score": 0.886194,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "as we engage with and consume the information that we're seeing online. Do we have any burning questions? Anyone here that has a question that you feel must be asked to Professor Charles before he go or before he signs off his presentation fully? Any burning questions? I guess it was really clear and of course as usual excellent coming from Professor Charles. Thank you very much. Yes sir. All right, I guess we're moving on. So we just heard about the challenges we are facing in terms of misinformation and disinformation and the question then must be asked are we proactive or are we reactive in this regard? But I'd like to note that the Caribbean has actually been"
+    },
+    {
+      "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0085",
+      "source_video": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation",
+      "video_id": "ikdcwVcRSPo",
+      "start": 4835.44,
+      "end": 4884.69,
+      "duration": 49.25,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "has to be a concerted effort to include, you know, the idea of ethics and managing misuse around these technologies, even if we don't necessarily see it automatically implemented by the technology developers themselves.",
+      "keywords": [
+        "ethics",
+        "content",
+        "caribbean",
+        "need",
+        "around",
+        "stuart",
+        "that's",
+        "it's",
+        "already"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.605769,
+      "selection_score": 0.884659,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "has to be a concerted effort to include, you know, the idea of ethics and managing misuse around these technologies, even if we don't necessarily see it automatically implemented by the technology developers themselves. Thank you, Stuart. And that's what it's shown that you may need around water-marking AI-generated content is something that's already been done in the European Union. So we already have a reference point if we wish to implement it here in the Caribbean. Craig, what say you? I agree with what Stuart has said. Additionally, it's pretty clear I think that we need to strengthen the reach of our regulatory entities and we need to probably do this through"
+    },
+    {
+      "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0007",
+      "source_video": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+      "video_id": "yqqiJmWKZ9I",
+      "start": 389.26,
+      "end": 455.51,
+      "duration": 66.25,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "We will continue now with the greeting at the end of the video, from Court of Green, who is the president of the work group of UNESCO, on the accessivity to information, and so on.",
+      "keywords": [
+        "information",
+        "satellite event",
+        "conference",
+        "unesco",
+        "creative",
+        "cultural",
+        "ethical",
+        "welcome",
+        "event",
+        "legal"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.614689,
+      "selection_score": 0.868379,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "and be all very welcome. Thank you very much. We will continue now with the greeting at the end of the video, from Court of Green, who is the president of the work group of UNESCO, on the accessivity to information, and so on. And I am very curious about the inclusion of this device that will give us a greeting. Hello, and welcome. I am pleased to join you for this satellite event, one of nine being convened in the lead-up to the sixth AI for IAA conference on September 28. Gatherings like this help bring into focus a wide spectrum of perspectives, technical, ethical, cultural, legal, and social. They offer space for thoughtful exchange and creative expression"
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0006",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 300.54,
+      "end": 351.66,
+      "duration": 51.12,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "And we're going to be looking at the implications of AI, the risks and opportunities, especially as they're understood and can relate to the broadest cross section of people.",
+      "keywords": [
+        "accessibility",
+        "environment",
+        "trust",
+        "we're",
+        "going",
+        "communication",
+        "social",
+        "technical",
+        "speakers"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.608429,
+      "selection_score": 0.862119,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "And we're going to be looking at the implications of AI, the risks and opportunities, especially as they're understood and can relate to the broadest cross section of people. We're going to tackle pressing questions about trust, communication, the social nature of technical systems, and hopefully speakers will be offering a multi-dimensional view of AI's role in our lives. There are three thematic tracks that structure this year's program, AI and the question of trust, breaking accessibility barriers and communication and the technical is social. We expect to have more than 70 speakers presenting their lectures in an on-demand format. In the thin of you, some of you may not have..."
+    },
+    {
+      "fragment_id": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People_0029",
+      "source_video": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People",
+      "video_id": "xehafx7DAEs",
+      "start": 1462.47,
+      "end": 1515.47,
+      "duration": 53.0,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "And what was interesting is that even though we came up with all these different areas, privacy, accessibility, inclusivity, most students actually focus on human flourishing.",
+      "keywords": [
+        "accessibility",
+        "learning",
+        "students",
+        "ethical",
+        "privacy",
+        "developed",
+        "around",
+        "interesting",
+        "actually",
+        "guidelines"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.610636,
+      "selection_score": 0.861846,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "And what was interesting is that even though we came up with all these different areas, privacy, accessibility, inclusivity, most students actually focus on human flourishing. And so, that was very interesting. And of course, while students were learning about web development, actually building out their metaverse spaces, we reminded them of their ethical guidelines that they developed. So, we prevented some sort of scaffolding to unload them to remember a bit around what they developed in previous phases. And we did that through these three ways. We used things like short stories. You know, what would you do if you were a designer, and also problems solving activities. And these are just..."
+    },
+    {
+      "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0003",
+      "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
+      "video_id": "hgN30LSOz6Y",
+      "start": 96.88,
+      "end": 137.95,
+      "duration": 41.07,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "Each part of the talk came from the human touch mine.",
+      "keywords": [
+        "creative",
+        "access",
+        "it's"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "semantic_score": 0.60874,
+      "selection_score": 0.85903,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "Each part of the talk came from the human touch mine. The AI assistants offered fresh perspectives when I hit a roadblock, but it was my refining and rewriting that made the final draft. AI can make the creation process a duet between humans and machine or harmonious plan of organic ingenuity and artificial brilliance. Our visions can be enhanced with the skill collaborator nudging us closer in our vision masterpiece, whether an art, writing, or filmmaking. All we need is access to a browser, because intentionally nearly every tool I use for this presentation was based on web tools. Creative assets and opportunities are just a click away for anyone within internet access. And it's not just..."
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0124",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 6356.46,
+      "end": 6400.23,
+      "duration": 43.77,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "And as I heard right here, you had said, I'll touch on your shoulder, personal information and that is what I name personal, right?",
+      "keywords": [
+        "privacy",
+        "information",
+        "right",
+        "personal",
+        "ensure",
+        "said",
+        "saying",
+        "important",
+        "don't",
+        "coming"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.609795,
+      "selection_score": 0.856805,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "the"
+      ],
+      "text": "E, ensure privacy. What am I saying for though? Ensure privacy. Are you a private Matadisino, right? Ensure privacy. Protect your personal. And as I heard right here, you had said, I'll touch on your shoulder, personal information and that is what I name personal, right? So it's very important that you said that and I have to say that you keep saying it, it personal, right? So stay safe online. I don't know what's coming next, but I said this to you. CFT is important. Although I see some hands being raised, I think a coming on time, I don't want to come between you and the nice fruits, you'll miss it over this one and the blood, check on"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0001",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "start": 2.06,
+      "end": 71.22,
+      "duration": 69.16,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Hello everyone, such a great pleasure to be here on AI for AI conference.",
+      "keywords": [
+        "information",
+        "conference",
+        "literacy",
+        "here",
+        "i'm",
+        "minutes",
+        "hopefully",
+        "presentation"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.614761,
+      "selection_score": 0.850451,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "minute",
+        "all",
+        "the"
+      ],
+      "text": "Hello everyone, such a great pleasure to be here on AI for AI conference. I thank you disco for the invitation. I'm really happy to share some thoughts with you for the next 10 minutes. And hopefully I'll be there on the live discussion that will be hold on the 26th of September. My name is Aleksandr Levosisayat. I'm a Brazilian researcher. Our start here showing my presentation because we have only 10 minutes. So I need to hurry and also to be precise on my presentation here. Hopefully you can see it now. I choose a specific topic that's not very common to be discussed when you touch AI. And information literacy, which is how to develop local AI's."
+    },
+    {
+      "fragment_id": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People_0034",
+      "source_video": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People",
+      "video_id": "xehafx7DAEs",
+      "start": 1708.1,
+      "end": 1770.49,
+      "duration": 62.39,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "And these are just visualizations of their visit.",
+      "keywords": [
+        "ethics",
+        "students",
+        "university",
+        "news",
+        "top",
+        "one",
+        "metaphors",
+        "invited",
+        "jamaica",
+        "high"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.65139,
+      "selection_score": 0.84608,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "And these are just visualizations of their visit. The top corner, the top visualization is one of our students, with another of the participants showcasing her metaphors space. We were also invited by the Jamaica High Commissioner, to the, we were invited by the UK High Commissioner, the Jamaica, to present or find their, and then also by City University, where we had the opportunity to trial their metaphors spaces. So, it was very eventful for the students. And of course, one of our program coordinators, Christopher Durrell, visited Brazil, where he discussed quite extensively ethics and privacy with metal. All right, so we've come to the end of the talk today. And what I want to do, you..."
+    },
+    {
+      "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0004",
+      "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
+      "video_id": "hgN30LSOz6Y",
+      "start": 137.95,
+      "end": 176.33,
+      "duration": 38.38,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "power of connectivity and underscores the critical narrative that internet access is not just a duality, but should be seen as a basic human right.",
+      "keywords": [
+        "creative",
+        "music",
+        "media",
+        "screenwriter",
+        "critical",
+        "skill",
+        "own"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.625479,
+      "selection_score": 0.845869,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "power of connectivity and underscores the critical narrative that internet access is not just a duality, but should be seen as a basic human right. Skill is critical too, the beginning of my creative career was considering becoming a screenwriter. When I mentioned it others of course nearly everyone offered to give me their opus that I could write for them. Because of AI tools available today empower all of us to take the reins and become our own creators of our own narratives. You can level the playing field ahead of skill. The steep cliff that once guarded the entrance many creative fields has been considerably softened. The world of music opened up with the advent of media and synthesis..."
+    },
+    {
+      "fragment_id": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone_0009",
+      "source_video": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone",
+      "video_id": "vlowfYDpWjA",
+      "start": 405.97,
+      "end": 451.02,
+      "duration": 45.05,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "All they need is to live within the footprint of that television signal, and then they'll have access to all of that curated content in their home or in their school or public health facility.",
+      "keywords": [
+        "health",
+        "media",
+        "content",
+        "information",
+        "school",
+        "public health",
+        "services",
+        "audience",
+        "all",
+        "use"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.611771,
+      "selection_score": 0.844461,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "All they need is to live within the footprint of that television signal, and then they'll have access to all of that curated content in their home or in their school or public health facility. Wow. Thanks. So Ashish, Eon Media is in a position to be providing these kinds of services to an organization like IEI. Talk a little bit about how you see AI fulfilling the use cases, those three use cases that Eric just talked about, and if there's anything else that our audience should be keeping in mind. All right. Perfect. Yeah. So in terms of the areas that Eric just kind of touched upon, which are extremely important. So the information that we are able to extract is from these videos, audio,..."
+    },
+    {
+      "fragment_id": "0098_llAJjuaCCVE_Chris Taylor - Bridging environmental concerns, digital rights, and digital inclusion_0002",
+      "source_video": "0098_llAJjuaCCVE_Chris Taylor - Bridging environmental concerns, digital rights, and digital inclusion",
+      "video_id": "llAJjuaCCVE",
+      "start": 58.1,
+      "end": 102.02,
+      "duration": 43.92,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "time we have this afternoon so I'm going to tell you a little bit about our research but then narrow into some of the key points I wanted to bring out which are mainly around the...",
+      "keywords": [
+        "ethics",
+        "research",
+        "rights",
+        "digital",
+        "three",
+        "themes",
+        "overlaps",
+        "report",
+        "see"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.620168,
+      "selection_score": 0.834858,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "the",
+        "themes"
+      ],
+      "text": "time we have this afternoon so I'm going to tell you a little bit about our research but then narrow into some of the key points I wanted to bring out which are mainly around the digital rights and digital ethics area. As I've said we published this research earlier this year in January on these three themes and importantly I think where we felt we'd made a new contribution to thinking is that we identified overlaps and intersections between the three themes and we explored them in our research and report. If you want to see the detail of that please do read our report. It's freely available on our website. Some of those overlaps you can see"
+    },
+    {
+      "fragment_id": "0118_KyCt7abd_lU_Caleb Gichuhi - Deliberative technologies for Democratic processes_0008",
+      "source_video": "0118_KyCt7abd_lU_Caleb Gichuhi - Deliberative technologies for Democratic processes",
+      "video_id": "KyCt7abd",
+      "start": 319.91,
+      "end": 370.91,
+      "duration": 51.0,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "Then the next step would be to ask the public also the views and they can also send the views through voice note.",
+      "keywords": [
+        "policy",
+        "government",
+        "communities",
+        "particular",
+        "service",
+        "views",
+        "people",
+        "ask",
+        "out",
+        "whether"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.605715,
+      "selection_score": 0.833605,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "the"
+      ],
+      "text": "Then the next step would be to ask the public also the views and they can also send the views through voice note. So imagine we are a government and we wanted to find out whether a program that we were implementing was successful. So this could be one of the ways that we could deliver this platform where we asked people to share their views about a particular program that we are delivering or a service. Or we can also ask people who are implementing that service to the communities to get a feedback on whether it's it's working or not and how the community is receiving that particular service. So this can be on service delivery it can be on a policy that you want to to to put out that pass..."
+    },
+    {
+      "fragment_id": "0178_I4IOUSdnMtY_Isabela Ferrari - The Machine of Chaos： Data analysis, cheap dopamine and our daily lives_0004",
+      "source_video": "0178_I4IOUSdnMtY_Isabela Ferrari - The Machine of Chaos： Data analysis, cheap dopamine and our daily lives",
+      "video_id": "I4IOUSdnMtY",
+      "start": 194.62,
+      "end": 262.86,
+      "duration": 68.24,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "And after that, you present your own product as a solution for their problem.",
+      "keywords": [
+        "school",
+        "feel",
+        "certain",
+        "after",
+        "one",
+        "people"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.619807,
+      "selection_score": 0.828497,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "create",
+        "all",
+        "the"
+      ],
+      "text": "And then you amplify this game. And after that, you present your own product as a solution for their problem. Do I feel weak? Do I feel imperfect? Do I feel ugly perhaps? But not with certain shoes or certain bags or even certain clothes. Do months that work a lot, if you're guilty? But what if they could give their kids the trending doll that no one has at school? I think you already got the idea by this point. So usually, the most powerful way to make people buy something is to use images embedded with energy. And that is why so many people nowadays study archetypes. So after you have created the narrative and the scenario you need, then you add buying triggers related to the difference..."
+    },
+    {
+      "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0089",
+      "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
+      "video_id": "yZAAZZ",
+      "start": 4795.81,
+      "end": 4835.31,
+      "duration": 39.5,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "to get these different opinions and standpoints together the three now I um, I'm really waiting to hear what you know think about this Sir, yeah, I'm going to kind of maybe echo that and maybe...",
+      "keywords": [
+        "it's",
+        "know",
+        "think",
+        "going",
+        "get",
+        "i'm",
+        "waiting",
+        "maybe",
+        "entity",
+        "tell"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.6,
+      "narration_support_score": 0.55,
+      "semantic_score": 0.607049,
+      "selection_score": 0.823449,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "to get these different opinions and standpoints together the three now I um, I'm really waiting to hear what you know think about this Sir, yeah, I'm going to kind of maybe echo that and maybe add on a little bit to this because um You know, I come into these spaces, we have these conversations And I get the feeling that everyone's looking for the the entity, the one big entity Ideally, it's globally that's going to tell us what to do. It's going to tell us the right way And I think about the phrase, you know, we are the heroes we've been waiting for and I think that it's you know It's us, right? Like it's society is comprised of us. We elect governments"
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0036",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 2240.66,
+      "end": 2305.17,
+      "duration": 64.51,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "This is something we already talk about, but, but I don't think it's strategic enough, the our discussions about the copyright issues.",
+      "keywords": [
+        "copyright",
+        "strategy",
+        "research",
+        "training",
+        "government",
+        "innovation",
+        "media",
+        "aspect",
+        "set"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.606641,
+      "selection_score": 0.816531,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "This is something we already talk about, but, but I don't think it's strategic enough, the our discussions about the copyright issues. For a report we are working on right now for the for the German expert commission on AI and innovation and research and innovation. I've looked up on the UK's strategy on on AI and was looking actually regarding this aspect, this epistemic aspect and I have found very interesting things and maybe Andrea you will comment on this. So at least in this strategy and action plan of the UK government, there is a clear set of actions to establish a copyright cleared British media asset training data set, which can be licensed internationally at scale."
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0001",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "start": 2.03,
+      "end": 71.76,
+      "duration": 69.73,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "summary": "Hello, good morning, good afternoon, and good evening.",
+      "keywords": [
+        "ethics",
+        "security",
+        "cognitive",
+        "good",
+        "engineering",
+        "talk",
+        "concept",
+        "called",
+        "twin",
+        "slide"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.609543,
+      "selection_score": 0.815233,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "Hello, good morning, good afternoon, and good evening. This is Krishna Sankara. I work as an engineering manager in AI Ethics and Governments and a data center engineering and cloud security. So today I would like to talk about a concept called Cognitive Twin, both pros and cons and what is the need for us to get educated about this cognitive twin. In those lines, I will also talk about a concept called Cognitive Security as well. Yeah, before that, I would like to slide in my slide deck. So this is about Cognitive Twins and then the right to remain ourselves, mostly yourselves. So imagine you wake up one day to find a version of you speaking your voice, making your decisions,"
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0021",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 1161.92,
+      "end": 1220.71,
+      "duration": 58.79,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "And that's that's a reality that I do not want to see because I think that's very problematic.",
+      "keywords": [
+        "university",
+        "arts",
+        "unesco",
+        "speaker",
+        "event",
+        "panelists",
+        "science",
+        "that's",
+        "want",
+        "think"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.6239,
+      "selection_score": 0.81379,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "And that's that's a reality that I do not want to see because I think that's very problematic. So I'll leave it at that and I will talk about some other things during the Q&A. Thank you everyone. Our next speaker is standing next with a professor in the political science department of the faculty of arts. I was here at the University of Alberta. Good morning everyone. I hope you can hear me okay. I think sometimes the the boys get dead and in this room for some reason. So I hope that I'm clear enough for you. I want to thank, first of all, Keis and the college of social sciences and humanities, as well as UNESCO, I have AP and all Nicole panelists for this wonderful event."
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0095",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 5060.71,
+      "end": 5117.34,
+      "duration": 56.63,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "I love to do that and I love to block.",
+      "keywords": [
+        "misinformation",
+        "audience",
+        "love",
+        "one",
+        "here",
+        "don't",
+        "there's",
+        "clark",
+        "that's"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.629499,
+      "selection_score": 0.810199,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "all",
+        "the"
+      ],
+      "text": "I love to do that and I love to block. Excellent. All right, we take one more from the audience. Here, here. Also, if the Ministry is going to be putting something like this on, their logo would be big there. So that you don't, and everybody know what it looks like, so that there's no misinformation. Thank you. Thank you very much. One last question. Income tax credit. That I heard with Daniel Clark. That's different. There's a scheme that's the same as that. Nigel Clark, before he left, he announced it in averted speed. That really gets in the 20,000 if you're not burning more than three million. So I don't see afterwards as we can come back to you like what that lady said."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 2.1,
+      "end": 58.76,
+      "duration": 56.66,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "Whatever time of day or wherever you are connecting from, I bring you very warm Caribbean greetings from the UNESCO Kingston office and my co-presenter, Miss Erica Simmons.",
+      "keywords": [
+        "artificial intelligence",
+        "policy",
+        "information",
+        "conference",
+        "unesco",
+        "caribbean",
+        "presentation",
+        "work",
+        "roadmap",
+        "during"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.615058,
+      "selection_score": 0.809748,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "paul",
+        "hector",
+        "all",
+        "the"
+      ],
+      "text": "Whatever time of day or wherever you are connecting from, I bring you very warm Caribbean greetings from the UNESCO Kingston office and my co-presenter, Miss Erica Simmons. I am Paul Hector, Advise of Communication and Information, and I'd like to express appreciation for the opportunity to share our work on the Caribbean AI Policy Roadmap. And, of course, special thanks to Mr. Cordell Green, EFAP, and all the amazing partners who are making this conference possible. Now, during my presentation, I will provide, next slide, during my presentation, I will provide an overview of UNESCO's work in the area of artificial intelligence. I will also highlight some Caribbean-specific initiatives, so..."
+    },
+    {
+      "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0046",
+      "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
+      "video_id": "zSkma5s0SFg",
+      "start": 2408.21,
+      "end": 2475.97,
+      "duration": 67.76,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "It was a very interesting presentation and insightful conversation.",
+      "keywords": [
+        "disinformation",
+        "ethics",
+        "propaganda",
+        "fact-checking",
+        "journalism",
+        "media",
+        "information",
+        "university",
+        "school",
+        "panel"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.60889,
+      "selection_score": 0.79458,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "the"
+      ],
+      "text": "It was a very interesting presentation and insightful conversation. Maybe participants have some questions. If you do have please feel free to put them in the chat and I will forward them to our speakers. As of now I don't see any so maybe if they arise some we will just take them in the end of our panel. So now I would like to invite our next speaker, Victoria Rumanyuk, the chair of the IFAAP Information Ethics Working Group, a director of the Mahila School of Journalism at National University, Ki Mahila Academy, and a visiting professor at Carlos III University of Mahila Academy. Victoria is an editor of a well-known Ukrainian fact-checking project Stopfake that was launched in 2014 and..."
+    },
+    {
+      "fragment_id": "0008_hmHtg9dRzAo_James_Sherer_-_AI4IA_2025_0001",
+      "source_video": "0008_hmHtg9dRzAo_James_Sherer_-_AI4IA_2025",
+      "video_id": "hmHtg9dRzAo",
+      "start": 0.59,
+      "end": 51.74,
+      "duration": 51.15,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "Welcome to the Cure to AI and Posture Syndrome presentation by Baker Haas settler We're going to start with Theroux's Law if you see a man approaching you with the obvious intention of doing you good...",
+      "keywords": [
+        "law",
+        "welcome",
+        "posture",
+        "syndrome"
+      ],
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.615472,
+      "selection_score": 0.791182,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "the"
+      ],
+      "text": "Welcome to the Cure to AI and Posture Syndrome presentation by Baker Haas settler We're going to start with Theroux's Law if you see a man approaching you with the obvious intention of doing you good You should run for your life So take everything that I say here with a grain of salt Appreciating though that AI and Posture Syndrome is an issue that many of my friends Colleagues and clients have had to confront in an area of Dramatic and increasing change. We've seen some reactions already to the uses of these technologies and the manner in which they should be used in organizations Likewise, if you want to skip ahead appreciate that was worth constant says that the 31st 30% of any"
+    }
+  ],
+  "storyline": {
+    "title": "Paul Hector on AI Themes",
+    "logline": "Exploring Paul Hector's insights on various AI themes, from information access to ethics and governance.",
+    "style": "documentary",
+    "target_duration_seconds": 60,
+    "estimated_duration_seconds": 60,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "narration_led_explainer",
+      "evidence_strength": "high",
+      "exact_clip_count": 35,
+      "related_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 25,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI Equity, Inclusion & Social Justice",
+        "AI Ethics, Governance & Policy",
+        "AI in Education & Creative Industries",
+        "AI in Health, Science & Environment",
+        "AI, Law & Human Rights",
+        "Disinformation, Deepfakes & AI Safety"
+      ],
+      "chapter_coverage": [
+        "Ch 12: Youth, Aging & Generational Perspectives",
+        "Ch 13: AI in Healthcare & Medicine",
+        "Ch 16: Deepfakes, Synthetic Media & Copyright",
+        "Ch 17: AI-Driven Disinformation & Propaganda",
+        "Ch 18: AI Safety, Cybersecurity & Warfare",
+        "Ch 19: AI Literacy, Learning & Education Reform",
+        "Ch 1: Foundations of AI Ethics & Philosophy",
+        "Ch 20: AI in Creative Arts, Music & Culture",
+        "Ch 22: AI in Academic Research & Knowledge Production",
+        "Ch 24: Privacy, Human Rights & Civil Liberties",
+        "Ch 3: AI Policy, Regulation & Legislation",
+        "Ch 5: Open Data & Information Accessibility",
+        "Ch 6: AI in Journalism & the Media Landscape",
+        "Ch 8: Regional & Satellite Conference Events",
+        "Ch 9: AI Equity in the Global South & Developing Nations"
+      ],
+      "average_similarity": 0.613789,
+      "average_quote_strength": 0.591714,
+      "recommended_structure": [
+        "opening_context",
+        "exact_evidence_clip",
+        "related_theme_clip",
+        "synthesis_narration",
+        "related_supporting_clip",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    },
+    "narrative_arc": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook"
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context"
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension"
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective"
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence"
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction"
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis"
+      }
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 10,
+        "director_role": "opening_context",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Welcome to our exploration of Paul Hector's insights on AI themes.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": ""
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "",
+            "on_screen_text": "Paul Hector on AI Themes"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 15,
+        "director_role": "exact_evidence_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Paul Hector discusses the importance of information access in the Caribbean.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+            "usage": "evidence_visual",
+            "start": 10,
+            "end": 20,
+            "reason": ""
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+            "start": 10,
+            "end": 20,
+            "quote_summary": "",
+            "reason": ""
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 15,
+        "director_role": "related_theme_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Paul Hector highlights the challenges of AI ethics and governance.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0085",
+            "usage": "context_visual",
+            "start": 20,
+            "end": 30,
+            "reason": ""
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0085",
+            "start": 20,
+            "end": 30,
+            "quote_summary": "",
+            "reason": ""
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 15,
+        "director_role": "related_supporting_clip",
+        "evidence_role": "synthesis",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Paul Hector emphasizes the importance of human perspective in AI development.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0011",
+            "usage": "context_visual",
+            "start": 30,
+            "end": 40,
+            "reason": ""
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0011",
+            "start": 30,
+            "end": 40,
+            "quote_summary": "",
+            "reason": ""
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 15,
+        "director_role": "synthesis_narration",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Paul Hector discusses the need for expert evidence in AI policy development.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+            "usage": "background_visual",
+            "start": 40,
+            "end": 50,
+            "reason": ""
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "data_card",
+            "description": "",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 15,
+        "director_role": "closing_takeaway",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Paul Hector emphasizes the importance of collaboration in AI development.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+            "usage": "evidence_visual",
+            "start": 50,
+            "end": 60,
+            "reason": ""
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+            "start": 50,
+            "end": 60,
+            "quote_summary": "",
+            "reason": ""
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 10,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "In conclusion, Paul Hector's insights on AI themes highlight the need for collaboration and expert evidence.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+            "usage": "background_visual",
+            "start": 60,
+            "end": 70,
+            "reason": ""
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "",
+            "on_screen_text": "Conclusion"
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to our exploration of Paul Hector's insights on AI themes.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "Paul Hector discusses the importance of information access in the Caribbean.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "Paul Hector highlights the challenges of AI ethics and governance.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "Paul Hector emphasizes the importance of human perspective in AI development.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "Paul Hector discusses the need for expert evidence in AI policy development.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "Paul Hector emphasizes the importance of collaboration in AI development.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "In conclusion, Paul Hector's insights on AI themes highlight the need for collaboration and expert evidence.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+        "source_video": "0136_AL8la33n0dw_India Satellite Event",
+        "start": 10,
+        "end": 20,
+        "quote_summary": "",
+        "use_in_section": "S2"
+      },
+      {
+        "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0085",
+        "source_video": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation",
+        "start": 20,
+        "end": 30,
+        "quote_summary": "",
+        "use_in_section": "S3"
+      },
+      {
+        "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0011",
+        "source_video": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI",
+        "start": 30,
+        "end": 40,
+        "quote_summary": "",
+        "use_in_section": "S4"
+      },
+      {
+        "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+        "source_video": "0136_AL8la33n0dw_India Satellite Event",
+        "start": 50,
+        "end": 60,
+        "quote_summary": "",
+        "use_in_section": "S6"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+        "0136_AL8la33n0dw_India Satellite Event_0005",
+        "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0085",
+        "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0011"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "",
+          "on_screen_text": "Paul Hector on AI Themes"
+        },
+        {
+          "asset_type": "data_card",
+          "description": "",
+          "on_screen_text": ""
+        }
+      ],
+      "internet_assets_needed": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S1",
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 3,
+        "timeline_type": "speaker_clip",
+        "section_id": "S2",
+        "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 4,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 5,
+        "timeline_type": "voiceover",
+        "section_id": "S3",
+        "fragment_id": "",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 6,
+        "timeline_type": "archive_visual",
+        "section_id": "S3",
+        "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0085",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 7,
+        "timeline_type": "speaker_clip",
+        "section_id": "S4",
+        "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0011",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 8,
+        "timeline_type": "archive_visual",
+        "section_id": "S4",
+        "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0011",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 9,
+        "timeline_type": "voiceover",
+        "section_id": "S5",
+        "fragment_id": "",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 10,
+        "timeline_type": "archive_visual",
+        "section_id": "S5",
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 11,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "fragment_id": "",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 12,
+        "timeline_type": "archive_visual",
+        "section_id": "S6",
+        "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 13,
+        "timeline_type": "voiceover",
+        "section_id": "S7",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": ""
+      }
+    ],
+    "editor_notes": [],
+    "planning_summary": {
+      "video_mode": "narration_led_explainer",
+      "evidence_strength": "high",
+      "exact_clip_count": 35,
+      "related_clip_count": 0,
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    }
+  }
+}

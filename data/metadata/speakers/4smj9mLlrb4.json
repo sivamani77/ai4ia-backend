@@ -1,0 +1,25 @@
+{
+  "video_id": "4smj9mLlrb4",
+  "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
+  "title": "David Aguacheiro - Curated information",
+  "speakers": [
+    {
+      "name": "David Aguacheiro",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "David Aguashero",
+      "role": "Speaker",
+      "affiliation": "Mozambique",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "David Aguacheiro",
+  "title_name_hint": "David Aguacheiro",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:31:38.818489"
+}

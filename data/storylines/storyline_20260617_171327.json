@@ -1,0 +1,1907 @@
+{
+  "created_at": "2026-06-17T11:43:27.528000",
+  "user_prompt": "Create a 1-minute video on AI healthcare",
+  "target_duration_seconds": 60,
+  "style": "National Geographic-style documentary explainer",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 90,
+    "selected_candidate_count": 35,
+    "top_semantic_score": 0.695485
+  },
+  "planning_summary": {
+    "video_mode": "speaker_led_documentary",
+    "evidence_strength": "high",
+    "exact_clip_count": 8,
+    "related_clip_count": 23,
+    "strong_related_count": 0,
+    "usable_speaker_clip_count": 8,
+    "rejected_clip_count": 0,
+    "fallback_risk": "low",
+    "planning_notes": [
+      "Speaker diversity is limited, so narration carries more of the connective explanation."
+    ]
+  },
+  "validation_issues": [],
+  "selected_candidates": [
+    {
+      "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0008",
+      "source_video": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care",
+      "video_id": "VdgizwSC1jo",
+      "start": 479.66,
+      "end": 540.44,
+      "duration": 60.78,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "digit doctors, coverage and claims digital platform, national health analytics platform and unique digital health ID for each citizen.",
+      "keywords": [
+        "health",
+        "healthcare",
+        "privacy",
+        "lack",
+        "doctors",
+        "digital",
+        "platform",
+        "high",
+        "workers"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.682246,
+      "selection_score": 1.049136,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['healthcare']) + high semantic 0.682",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "digit doctors, coverage and claims digital platform, national health analytics platform and unique digital health ID for each citizen. This has not been an easy journey for implementing AI in healthcare. It has faced a lot of challenges like lack of broad-based expertise, lack of access to intelligent data, very high resource cost, lack of awareness for AI adoption and lastly lack of regulations on privacy. There has been an all-time high pressure on healthcare workers and we are on track to be shot of five million doctors by 2030. So this clearly shows how urgently AI is needed in healthcare to support our healthcare workers. There is no doubt that AI is expanding and evolving every day."
+    },
+    {
+      "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0001",
+      "source_video": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care",
+      "video_id": "VdgizwSC1jo",
+      "start": 4.43,
+      "end": 68.54,
+      "duration": 64.11,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "Despite the fact that AI invokes fear in many of us, it is also benefiting us in numerous ways.",
+      "keywords": [
+        "healthcare",
+        "session",
+        "welcome",
+        "industry",
+        "ways",
+        "understanding",
+        "intelligence"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.695485,
+      "selection_score": 0.957575,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['healthcare']) + high semantic 0.695",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "Despite the fact that AI invokes fear in many of us, it is also benefiting us in numerous ways. AI is revolutionizing the healthcare industry by providing a helping hand. Hello everyone, this is Dr. Puna Merotras, Senior Physotherapist, and I welcome you to this session on AI in healthcare. In this session, we would be understanding the different ways in which AI is impacting the healthcare industry. I would like to begin the session by understanding what exactly is AI and how it is transforming the world. We will also understand the history and benefits. And in the end, we will learn the future of AI in healthcare. AI sometimes called as machine intelligence is the intelligence..."
+    },
+    {
+      "fragment_id": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone_0009",
+      "source_video": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone",
+      "video_id": "vlowfYDpWjA",
+      "start": 405.97,
+      "end": 451.02,
+      "duration": 45.05,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "All they need is to live within the footprint of that television signal, and then they'll have access to all of that curated content in their home or in their school or public health facility.",
+      "keywords": [
+        "health",
+        "media",
+        "content",
+        "information",
+        "school",
+        "public health",
+        "services",
+        "audience",
+        "all",
+        "use"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.669086,
+      "selection_score": 0.901776,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['healthcare']) + high semantic 0.669",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "All they need is to live within the footprint of that television signal, and then they'll have access to all of that curated content in their home or in their school or public health facility. Wow. Thanks. So Ashish, Eon Media is in a position to be providing these kinds of services to an organization like IEI. Talk a little bit about how you see AI fulfilling the use cases, those three use cases that Eric just talked about, and if there's anything else that our audience should be keeping in mind. All right. Perfect. Yeah. So in terms of the areas that Eric just kind of touched upon, which are extremely important. So the information that we are able to extract is from these videos, audio,..."
+    },
+    {
+      "fragment_id": "0065_CpgTUDyaQJU_Utsav_Patel_-_AI_to_Reduce_Medicine_Waste_0002",
+      "source_video": "0065_CpgTUDyaQJU_Utsav_Patel_-_AI_to_Reduce_Medicine_Waste",
+      "video_id": "CpgTUDyaQJU",
+      "start": 50.7,
+      "end": 98.66,
+      "duration": 47.96,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "If you visualize a single 500 bed hospitals and your discards, you are looking at pallets not to send a shoebox.",
+      "keywords": [
+        "healthcare",
+        "patient",
+        "industry",
+        "single",
+        "medications",
+        "often",
+        "easier"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.653111,
+      "selection_score": 0.881601,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Expanded synonym overlap (['health', 'medicine', 'patient']) + semantic 0.653",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "If you visualize a single 500 bed hospitals and your discards, you are looking at pallets not to send a shoebox. One single digit efficiency gains more real money and access. So what drives the waste? In the long-term care pharmacies, medications are dispensed in 30-day blister cards. If the treatment is changed, the patient is transferred or dies that can cause a lot of unused medications. Anything opened, relabelled or with uncertain chain of custody can't be reused. In the healthcare industry, staff is often overloaded, so it's often easier to discard than verify, unless you make the verification faster and easier. And when the peers have already paid for their drug, there's little..."
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0010",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 599.58,
+      "end": 659.6,
+      "duration": 60.02,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "So it is able to resolve the gap between what you and I want, because we are all elderly and independence.",
+      "keywords": [
+        "health",
+        "healthcare",
+        "elderly",
+        "doctor",
+        "children",
+        "technology",
+        "we're",
+        "see",
+        "doing",
+        "whether"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.66518,
+      "selection_score": 0.82987,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['healthcare']) + high semantic 0.665",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "Computers, the internet, the digital healthcare technology. We're using that more and more. You can call your primary doctor, etc. So it is able to resolve the gap between what you and I want, because we are all elderly and independence. We have cameras now. So your children can see what you're doing, see what the caregiver is doing. But it also helps improve mental and physical health and those increase well-being next. So understanding the factors that influence our intention to use technology is very important. Anybody who is trying to introduce it, whether it's family, whether it's the broadcasting conversation, need to understand what stops us from taking on new things. Because..."
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0005",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "start": 236.23,
+      "end": 294.16,
+      "duration": 57.93,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "It's monitoring their blood sugar, so you don't have problems with either excesses of high or low.",
+      "keywords": [
+        "health",
+        "older",
+        "persons",
+        "once",
+        "accept",
+        "assist",
+        "siri",
+        "google",
+        "necessary"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.652032,
+      "selection_score": 0.806522,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Expanded synonym overlap (['health', 'medicine']) + semantic 0.652",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "It's monitoring their blood sugar, so you don't have problems with either excesses of high or low. Technology is now believed to be able to resolve the gap between older persons wishes and their needs. And it has great potential once we accept it and once we make sure older people accept it to assist and prolong older persons independent living. And then, as another benefit, it can help improve mental, as well as physical health and increase well-being. Voice-activated devices like Alexa, Siri and Google assist, where necessary and when necessary are easy to use because they provide hands-free assistance for persons with mobility and cardiovascular issues. You just turn around and ask Siri..."
+    },
+    {
+      "fragment_id": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits_0001",
+      "source_video": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits",
+      "video_id": "",
+      "start": 2.93,
+      "end": 60.85,
+      "duration": 57.92,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Good morning, and I'm very pleased to be here with you at the 6th AI for IAA Conference, Artificial Intelligence for Information Accessibility Conference 2025.",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "accessibility",
+        "information",
+        "conference",
+        "inclusive",
+        "healthcare",
+        "responsibility",
+        "artificial",
+        "intelligence"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.636585,
+      "selection_score": 0.987675,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "Good morning, and I'm very pleased to be here with you at the 6th AI for IAA Conference, Artificial Intelligence for Information Accessibility Conference 2025. This is a conference that put people at the center of the conversation on artificial intelligence. From healthcare to do curriculum to the workplace, AI is increasingly becoming part of our everyday lives. But this growing presence also comes with responsibility. Today's focus is not just on what AI can do, but you know how it does it and for whom. It's more important now than ever to make this system understandable, trustworthy and inclusive. And today's discussion will help us explore AI, not just as a technical tool, but as..."
+    },
+    {
+      "fragment_id": "0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology_0001",
+      "source_video": "0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology",
+      "video_id": "bUymCM0SGJ8",
+      "start": 3.12,
+      "end": 65.41,
+      "duration": 62.29,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "A very warm welcome to all the delegates out there.",
+      "keywords": [
+        "artificial intelligence",
+        "healthcare",
+        "welcome",
+        "obstetrician",
+        "role",
+        "artificial",
+        "intelligence",
+        "predicting",
+        "future"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.62747,
+      "selection_score": 0.97856,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=['healthcare'], expanded=['health', 'medicine']",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "A very warm welcome to all the delegates out there. I'm Dr. Namrata Sambhu, an obstetrician and gynecologist from India. And it gives me immense pleasure to be a part of this workshop and to talk about a subject that is very dear to me, the role of artificial intelligence in healthcare, especially obstetrician gynecology, is it a bone or a pain. I will also be talking about the opportunities and challenges of the technology and most importantly about the role of responsible use of AI in healthcare. Predicting the future isn't magic, it's artificial intelligence, wise words there, because predicting a future is not a dream anymore, because AI is there with us. Yes, without a doubt, we are in..."
+    },
+    {
+      "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0008",
+      "source_video": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine",
+      "video_id": "hIzU20n5u8I",
+      "start": 406.15,
+      "end": 454.43,
+      "duration": 48.28,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "Then the regulatory approvals also like the gaining trust from the both medical and the professionals and the patients and just to conclude my presentation, AI is undeniably transforming medicines from diagnostics and does discovery to...",
+      "keywords": [
+        "policy",
+        "health",
+        "medical",
+        "patient",
+        "ethical",
+        "trust",
+        "safety",
+        "accessible",
+        "care",
+        "professionals"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.627449,
+      "selection_score": 0.974339,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=['healthcare'], expanded=['health', 'medicine', 'medical']",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "health care inequalities also. Then the regulatory approvals also like the gaining trust from the both medical and the professionals and the patients and just to conclude my presentation, AI is undeniably transforming medicines from diagnostics and does discovery to personalize care and predictive analytics. While the future of AI promises even more efficient and accessible health care, it is essential that we as health care professionals collaborate and AI developers and policy makers to ensure its effective integration. Furthermore, as we continue to adapt AI, it is critical that we keep ethical consideration and patient safety at the forefront and thank you for your attention and I look..."
+    },
+    {
+      "fragment_id": "0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology_0014",
+      "source_video": "0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology",
+      "video_id": "bUymCM0SGJ8",
+      "start": 750.69,
+      "end": 809.22,
+      "duration": 58.53,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "recognize its advantages and drawbacks to continue providing the best patient care.",
+      "keywords": [
+        "artificial intelligence",
+        "medical",
+        "patient",
+        "jobs",
+        "replace",
+        "completely",
+        "robots",
+        "professionals",
+        "future"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.622951,
+      "selection_score": 0.969051,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=['healthcare'], expanded=['health', 'medicine', 'medical']",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "recognize its advantages and drawbacks to continue providing the best patient care. Do not forget AI is a tool. The choice is ours about how it's deployed. Now let's address the elephant in the room. Will AI completely replace humans or can robots completely take over the OR? Absolutely not. At least not in the lifetime of everyone watching this video. The robots in the OR are going to be just tools to help doctors do their jobs a little better. AI will not replace medical professionals. However, those medical professionals that use AI will replace those that don't. To conclude, undoubtedly, artificial intelligence is the future and the future is here. Thank you."
+    },
+    {
+      "fragment_id": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone_0002",
+      "source_video": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone",
+      "video_id": "vlowfYDpWjA",
+      "start": 47.7,
+      "end": 104.34,
+      "duration": 56.64,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "Information Equity Initiative is an international nonprofit organization.",
+      "keywords": [
+        "health",
+        "content",
+        "information",
+        "equity",
+        "public health",
+        "infrastructure",
+        "government",
+        "out",
+        "lack",
+        "access"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.633573,
+      "selection_score": 0.937263,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=['healthcare'], expanded=['health', 'medicine']",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "to Eric's mission. So Eric, please take it away. Great. Thank you, Madeline. Information Equity Initiative is an international nonprofit organization. We were created a few years ago out of a recognition that about one in four U.S. households and nearly three billion people worldwide lack access to broadband, and yet television infrastructure is largely built out globally. What we've done is we've established a content platform that's interoperable in 82 percent of the world's countries using a technology called data casting so that we allow government agencies and trusted curators, like second grade teachers, public health officers, emergency managers to send curated digital content,..."
+    },
+    {
+      "fragment_id": "0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information_0010",
+      "source_video": "0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information",
+      "video_id": "4h5HbeOFkIk",
+      "start": 482.02,
+      "end": 532.14,
+      "duration": 50.12,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "As we continue to develop AI systems, we also have to ensure that they're built with fairness, transparency, and accountability at their core.",
+      "keywords": [
+        "access to information",
+        "information",
+        "transparency",
+        "accountability",
+        "fairness",
+        "healthcare",
+        "responsibility",
+        "innovation",
+        "continue",
+        "all"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.615652,
+      "selection_score": 0.931942,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "Whether it is hiring, lending, or healthcare. As we continue to develop AI systems, we also have to ensure that they're built with fairness, transparency, and accountability at their core. The power of AI is immense. There's no second thoughts about it, but it must be harnessed responsibility, too. We all have to have a collective responsibility to make sure that AI remains a force for good, one that blifts all of society and not just a select few. So in my conclusion, as we look to the future, it's clear that generative AI and AI in general, will continue to close the gap between those with access to information and those without. It will continue to bridge the divide between industries,..."
+    },
+    {
+      "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0002",
+      "source_video": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine",
+      "video_id": "hIzU20n5u8I",
+      "start": 51.54,
+      "end": 120.3,
+      "duration": 68.76,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "Today, I will be sharing my insight and experience regarding artificial intelligence, current and the potential future role in healthcare.",
+      "keywords": [
+        "artificial intelligence",
+        "healthcare",
+        "medicine",
+        "medical",
+        "patient",
+        "diagnosis",
+        "information",
+        "intelligence",
+        "care",
+        "artificial"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.631036,
+      "selection_score": 0.899736,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=['healthcare'], expanded=['health', 'medicine', 'medical']",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "Today, I will be sharing my insight and experience regarding artificial intelligence, current and the potential future role in healthcare. So artificial intelligence that refers to the simulation of human intelligence and machines can learn, reason and self correct, the introduction to AI in the field of medicine can benefit in multiple facets of the field like diagnosis, imaging, surgery, patient care to increasing complexity and accuracy of medical data as well as medical procedures and for the efficient accuracy and personalized care. We will be discussing few key areas, diagnostics and imaging, interpreting medical images like X-ray, MRI, CT scans, faster and more accurate diagnosis,..."
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0031",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 1875.5,
+      "end": 1926.5,
+      "duration": 51.0,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "We need to look at each technology for itself and for the manner in which it's being used.",
+      "keywords": [
+        "ethics",
+        "research",
+        "healthcare",
+        "that's",
+        "way",
+        "look",
+        "it's",
+        "change",
+        "work"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.617151,
+      "selection_score": 0.899041,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "We need to look at each technology for itself and for the manner in which it's being used. It's context. That's the way I've been trained to do research. That's sort of an underlying idea. That's hard. To me, as a researcher first, this means interrogating the ethics and effects of individual technologies and the way they shape and change the work they're meant to be doing. When I received this invitation, I was thinking about AI and administration is a little bit different than the way I typically think about it, which tends to be in AI and healthcare or nursing practices and how it will change our relationships with patients. AI in research. So, you know, our LLM is really going to help..."
+    },
+    {
+      "fragment_id": "0168_0bfeuwvSKLA_Esther Ngamba - The impact of AI usage base on the digital rights of children between 6-12 years old_0006",
+      "source_video": "0168_0bfeuwvSKLA_Esther Ngamba - The impact of AI usage base on the digital rights of children between 6-12 years old",
+      "video_id": "0bfeuwvSKLA",
+      "start": 376.06,
+      "end": 452.26,
+      "duration": 76.2,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "For instance, by watching television and ethical channels, if their parents see, oh, caregivers are not controlled.",
+      "keywords": [
+        "education",
+        "ethical",
+        "gender",
+        "medical",
+        "services",
+        "children",
+        "use",
+        "example",
+        "sexual",
+        "both"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.616239,
+      "selection_score": 0.898129,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['medical']",
+      "meaningful_prompt_overlap": [],
+      "text": "For instance, by watching television and ethical channels, if their parents see, oh, caregivers are not controlled. For example, Taylor, 22, Sadie, children in Kenya, her first sexual exploitation, and the use of both, and their abuse, both online and offline, via smartphones or computers. That's often in physical, sexual, or emotional violence in a person. Use of AI frequency for every activity may use children's thinking capacity. For example, the use of chatty dpt. AI can potentially cause or contribute to digital inequalities like the gender gap, the divide between rich or poor, and the skills gap. Children's access to adequate social medical and education services may be limited by..."
+    },
+    {
+      "fragment_id": "0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information_0003",
+      "source_video": "0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information",
+      "video_id": "XQ7aWaXW3dw",
+      "start": 107.17,
+      "end": 171.7,
+      "duration": 64.53,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "in critical industries such as healthcare, journalism, financial services, you name it.",
+      "keywords": [
+        "health",
+        "healthcare",
+        "journalism",
+        "information",
+        "risk",
+        "model",
+        "industry",
+        "mental",
+        "support",
+        "used"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.628424,
+      "selection_score": 0.898114,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=['healthcare'], expanded=['health', 'medicine']",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "in critical industries such as healthcare, journalism, financial services, you name it. Well, give an example of AI being used in healthcare where we have seen conversational being used is a mental health support true. So such that a user is someone who is in need of mental support can just get onto the platform that is dedicated for mental support and be able to confess with the generative AI model. So because of all these reasons, if information is not accurate, if information cannot be trusted in such an industry in such a field as healthcare, that brings a life-threatening risk. So these concerns all need to be addressed, concerns on data privacy, possible misuse of generative AI"
+    },
+    {
+      "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0011",
+      "source_video": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025",
+      "video_id": "jgnObufjIRE",
+      "start": 454.58,
+      "end": 505.12,
+      "duration": 50.54,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "And then when you look at it kind of maybe at the most extreme example for something like citizen surveillance.",
+      "keywords": [
+        "health",
+        "trust",
+        "surveillance",
+        "example",
+        "citizen",
+        "really",
+        "kind",
+        "people",
+        "facial",
+        "recognition"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.614718,
+      "selection_score": 0.889928,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['health']",
+      "meaningful_prompt_overlap": [],
+      "text": "And then when you look at it kind of maybe at the most extreme example for something like citizen surveillance. I would offer that a lot of people would have an issue with facial recognition in that context. So all the way from, you know, unlocking my phone to citizen surveillance is underpinned by the same technology. And people are thinking about some of these things the same. So they get they get concerned about facial recognition with citizen surveillance or another example would be deep fakes or neutifying apps and some of this kind of really egregious. We just breaches of trust when we see the technology deployed in these ways. But then they apply that reverse halo to context that..."
+    },
+    {
+      "fragment_id": "0163_Zk3Dm2JUtGo_Karsten Mundel - Generative AI and Academic Citizenship： A Call to Action_0009",
+      "source_video": "0163_Zk3Dm2JUtGo_Karsten Mundel - Generative AI and Academic Citizenship： A Call to Action",
+      "video_id": "Zk3Dm2JUtGo",
+      "start": 388.82,
+      "end": 436.95,
+      "duration": 48.13,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "a medical procedure or designing built infrastructure where it is crucial that we find ways for students to be able to demonstrate their achievement of those skills.",
+      "keywords": [
+        "learning",
+        "students",
+        "medical",
+        "infrastructure",
+        "able",
+        "demonstrate",
+        "skills",
+        "continue",
+        "think"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.77,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.616189,
+      "selection_score": 0.869879,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['medical']",
+      "meaningful_prompt_overlap": [],
+      "text": "a medical procedure or designing built infrastructure where it is crucial that we find ways for students to be able to demonstrate their achievement of those skills. Herein lies the disruptive moment for those of us working in institutions of higher learning. Many of our existing practices for helping students demonstrate their competence need significant reworking in light of things that generative AI can now do. How do we continue to graduate students who can write and think critically to skills that I think continue to be important? But how do we do that when a tool like chat GPT is able to approximate that work so well? One of the solutions is to speed up our adoption of what is often..."
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0130",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 6623.85,
+      "end": 6673.91,
+      "duration": 50.06,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Berlin or partners the Broadcasting Commission of Jamaica, UNESCO Information for All Program, Working Group on Information Accessibility, the Jamaica Library Service, the National Council for Cena Citizens, the Caribbean Community of Retired Persons, the UW-Moana...",
+      "keywords": [
+        "information accessibility",
+        "accessibility",
+        "health",
+        "information",
+        "unesco",
+        "caribbean",
+        "aging",
+        "event",
+        "citizens",
+        "national"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.618143,
+      "selection_score": 0.861853,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['health']",
+      "meaningful_prompt_overlap": [],
+      "text": "Berlin or partners the Broadcasting Commission of Jamaica, UNESCO Information for All Program, Working Group on Information Accessibility, the Jamaica Library Service, the National Council for Cena Citizens, the Caribbean Community of Retired Persons, the UW-Moana Aging and Wellness Center, Digital Foundation, the Public Broadcasting Corporation and the Digital Cell Jamaica, we also have the National Health Fund and the National Health Fund and the National Heart Foundation and the Guardian Group, so thank you all, but before we do, we encourage you, before we go off, we encourage you to have a look back at today's event when you join us on September 28th at the Global Event, so there's a..."
+    },
+    {
+      "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0003",
+      "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
+      "video_id": "UfD8",
+      "start": 114.29,
+      "end": 180.53,
+      "duration": 66.24,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "Well, given example of AI being used in healthcare, where we have seen conversational being used is a mental health support true.",
+      "keywords": [
+        "health",
+        "information",
+        "transparency",
+        "healthcare",
+        "ethical",
+        "risk",
+        "model",
+        "industry",
+        "need",
+        "mental"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.640142,
+      "selection_score": 0.850032,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=['healthcare'], expanded=['health', 'medicine']",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "Well, given example of AI being used in healthcare, where we have seen conversational being used is a mental health support true. So such that a user is somewhat with the need of mental health support and just get onto the platform that is dedicated for mental support and be able to confess with the generative AI model. So because of all these reasons, if information is not accurate, if information cannot be trusted in such an industry, such a fluid as healthcare, that brings a life-threatening risk. So these concerns all need to be addressed, concerns on data privacy, possible issues of generative AI and there is also a need for ethical transparency. We need to be cognizant of the threats..."
+    },
+    {
+      "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0002",
+      "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
+      "video_id": "laS77v9F",
+      "start": 79.05,
+      "end": 160.42,
+      "duration": 81.37,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "When we begin to question the truth of a palpable and visceral experience with our parent, child or child's teacher, our doctor, lawyer or spouse, when critical information is received from emergency services such as an...",
+      "keywords": [
+        "media",
+        "news",
+        "information",
+        "truth",
+        "humanity",
+        "services",
+        "society"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.61634,
+      "selection_score": 0.84883,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['doctor']",
+      "meaningful_prompt_overlap": [],
+      "text": "What does this part end for society? When we begin to question the truth of a palpable and visceral experience with our parent, child or child's teacher, our doctor, lawyer or spouse, when critical information is received from emergency services such as an immediate evacuation order or a determinative statement by a political expert on the eve of an election or when there is breaking news from a presumed trusted media source. If on truth and disbelief scale to a point where we normalize fiction, fraud and distrust, society becomes dysfunctional and a mere carcass. Hence, exhortations such as that of the late Professor Stephen Hawking that AI poses an existential threat to humanity."
+    },
+    {
+      "fragment_id": "0186_Z9UrSKwT-7g_Francois Boldoc - Chatbot for knowledge mobilization for individuals with complex medical conditions_0006",
+      "source_video": "0186_Z9UrSKwT-7g_Francois Boldoc - Chatbot for knowledge mobilization for individuals with complex medical conditions",
+      "video_id": "Z9UrSKwT-7g",
+      "start": 258.24,
+      "end": 296.64,
+      "duration": 38.4,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "depending on the type of disorders, need to learn about these conditions very quickly.",
+      "keywords": [
+        "accessibility",
+        "health",
+        "learning",
+        "training",
+        "knowledge",
+        "there's",
+        "disorders",
+        "issue",
+        "lack",
+        "they're"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.620936,
+      "selection_score": 0.848826,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['health']",
+      "meaningful_prompt_overlap": [],
+      "text": "depending on the type of disorders, need to learn about these conditions very quickly. So there is an issue with like a very steep learning curve. And then there's a lack of knowledge or up-to-date training for health professionals as well. So FEMDs will report, for instance, that they're family doctors or they're specialists even, does not know much about their condition. This is especially through when it comes to rare disorders, which are not frequent and tend to have multiple genes associated with them. And then there's the issue of accessibility. I think we've seen that before COVID, but to some degree as accelerated after COVID and after, there's a lack of"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0006",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "start": 294.16,
+      "end": 353.18,
+      "duration": 59.02,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "And most importantly, as well, the social support, going back to what I said about loneliness.",
+      "keywords": [
+        "health",
+        "media",
+        "communities",
+        "social",
+        "connected",
+        "older",
+        "it's",
+        "tools",
+        "virtual",
+        "many"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.619608,
+      "selection_score": 0.848098,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['health']",
+      "meaningful_prompt_overlap": [],
+      "text": "It can tell you about medication. And most importantly, as well, the social support, going back to what I said about loneliness. Staying connected with loved ones is vital for the mental health and emotional health of older persons. And it's made easier by AI-driven tools. The virtual reality tools actually allow for interaction. We have many grandparents that have not physically met their grandchildren, especially after COVID when many stop traveling. It's video calls and virtual visits that keep families connected. We have families that when you ask who's your nearest relative, they live in some far-off country. Older people are also part of social media and online communities. Seniors..."
+    },
+    {
+      "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0006",
+      "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
+      "video_id": "U31ADgIRLH4",
+      "start": 280.83,
+      "end": 335.66,
+      "duration": 54.83,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "In countries like Japan, airports like Pepper are used in healthcare homes.",
+      "keywords": [
+        "gender",
+        "race",
+        "bias",
+        "healthcare",
+        "artist",
+        "even",
+        "create",
+        "once",
+        "human"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.630937,
+      "selection_score": 0.845027,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=['healthcare'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "In countries like Japan, airports like Pepper are used in healthcare homes. The sing, the talk, even lead the group games and reduce isolation. AI is changing how we create. It helps us through right versus and musician to compose melodies, even the artist generate unique visualizations, like using a Delhi, Ava or even Chaat G.P.D. in the world that once made a thought that machines had no souls, AI is now entering the space. We once believed what purely human emotion, art, care and companionship. But AI becomes more human like we face big questions. AI can unfair if it's tailored on bias data. It will create people differently based on race, gender or background without realizing"
+    },
+    {
+      "fragment_id": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging_0006",
+      "source_video": "0036_cM66NWzeUkw_Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging",
+      "video_id": "cM66NWzeUkw",
+      "start": 327.05,
+      "end": 391.54,
+      "duration": 64.49,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "You can communicate with them and see who's there when you're inside your home and also when you are not home, you can know who is at your door.",
+      "keywords": [
+        "accessibility",
+        "health",
+        "information",
+        "safety",
+        "see",
+        "read",
+        "you're",
+        "home",
+        "great",
+        "site"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.62123,
+      "selection_score": 0.84492,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['health']",
+      "meaningful_prompt_overlap": [],
+      "text": "You can communicate with them and see who's there when you're inside your home and also when you are not home, you can know who is at your door. Wearable devices are innovating for accessibility, safety and health as well. And on the left we see the meta ray band glasses which can take pictures and videos, but also have great accessibility feature for individuals who may have diminished site as you get older or perhaps lose your site. They can actually read and with audio tell you what you're seeing read menus, read signs, etc. So that's very helpful for accessibility on the right you see a smartwatch which has obviously fitness and health information but also provides a great safety..."
+    },
+    {
+      "fragment_id": "0186_Z9UrSKwT-7g_Francois Boldoc - Chatbot for knowledge mobilization for individuals with complex medical conditions_0002",
+      "source_video": "0186_Z9UrSKwT-7g_Francois Boldoc - Chatbot for knowledge mobilization for individuals with complex medical conditions",
+      "video_id": "Z9UrSKwT-7g",
+      "start": 46.67,
+      "end": 102.99,
+      "duration": 56.32,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "on to citizens and vitriolals of FEMDs for, for instance, rare disorders here, which is one type of complex medical condition.",
+      "keywords": [
+        "media",
+        "information",
+        "medical",
+        "citizens",
+        "science",
+        "femds",
+        "now",
+        "one",
+        "type",
+        "sourced"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.637187,
+      "selection_score": 0.842877,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['medical']",
+      "meaningful_prompt_overlap": [],
+      "text": "on to citizens and vitriolals of FEMDs for, for instance, rare disorders here, which is one type of complex medical condition. And the information would be sourced from biomedical social science and other scientific evidence that would boil down in policies. And those would be kind of passed on to the patients or to the families or to the public through regular media. Now, one of the big disruption that happened is the advent of social media and the shift of the information sourced now from these so-called experts, which were scientists and professionals, to another type of source of information, which is citizen and individual with FEMDs, sorry, individuals and FEMDs of patients in our..."
+    },
+    {
+      "fragment_id": "0024__tkZ7W9QiiI_Stella_Njogo_-_Building_Inclusive_AI_Systems_Through_Cultural_Awareness_1_0013",
+      "source_video": "0024__tkZ7W9QiiI_Stella_Njogo_-_Building_Inclusive_AI_Systems_Through_Cultural_Awareness_1",
+      "video_id": "",
+      "start": 642.7,
+      "end": 694.22,
+      "duration": 51.52,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "And then the other example is Semanami from Kenya.",
+      "keywords": [
+        "health",
+        "young people",
+        "medical",
+        "media",
+        "services",
+        "accessible",
+        "kenya",
+        "bot",
+        "other",
+        "semanami"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.617432,
+      "selection_score": 0.841122,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['health', 'medical']",
+      "meaningful_prompt_overlap": [],
+      "text": "And then the other example is Semanami from Kenya. So and the other system I'd like to introduce you to is a bot from Kenya called Semanami. So Shujaz Inc from Kenya has developed this AI bot that helps young people make better decisions with their sexual health. So why I love this bot is because it's easily accessible through what's up so that that cat has to individual agency. And it is also grounded in legacy because it recommends different service providers to young people who need extra care, who need medical services. So there's a partnership between Shujaz, which is a media brand with established medical professionals. So it's grounded in real medical insights."
+    },
+    {
+      "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0004",
+      "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
+      "video_id": "yZAAZZ",
+      "start": 171.01,
+      "end": 249.41,
+      "duration": 78.4,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "In that sense, it is like old wine in a new bucket Except that the scale and scope of its impact are unprecedented Anyone can now make fake images videos and sound at the speed of...",
+      "keywords": [
+        "news",
+        "information",
+        "truth",
+        "fake",
+        "services",
+        "doctor",
+        "new"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.614727,
+      "selection_score": 0.832437,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['doctor']",
+      "meaningful_prompt_overlap": [],
+      "text": "In that sense, it is like old wine in a new bucket Except that the scale and scope of its impact are unprecedented Anyone can now make fake images videos and sound at the speed of thought And so real that we default to positions of disbelief and distrust In what our eyes have seen and ears have heard What does it pretend for a society When we question the truth of a palpable and visceral experience With our child Our child's teacher Our doctor lawyer or spouse When critical information is received from emergency services such as an immediate evacuation order Or a determinative state net made by a political aspirant On the eve of an election Or when there is breaking news from a trusted new..."
+    },
+    {
+      "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0006",
+      "source_video": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025",
+      "video_id": "jgnObufjIRE",
+      "start": 230.67,
+      "end": 279.54,
+      "duration": 48.87,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "And she and the doctor that was working on endometriosis detection was like, I can literally change women's lives with AI.",
+      "keywords": [
+        "trust",
+        "doctor",
+        "people",
+        "aviation",
+        "high"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.613981,
+      "selection_score": 0.769671,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap: meaningful=[], theme=[], expanded=['doctor']",
+      "meaningful_prompt_overlap": [],
+      "text": "He was helping with preterm birth. There was amazing people at this dinner. And she and the doctor that was working on endometriosis detection was like, I can literally change women's lives with AI. But this trust question is causing the issues because people hear AI and they're not confident in it. I want to pull another lesson from aviation in about the around the 70s 1970 aviation saw about four fatal crashes per one million flights. That's actually pretty high, but not as high as maybe some people might expect. But by 2023 that dropped to 0.23 and 84 or 94% reduction and global air traffic grew 10 fold. So things that helped this were black boxes monitor mandatory incident reporting..."
+    },
+    {
+      "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0011",
+      "source_video": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI",
+      "video_id": "wT3zdfIIeUw",
+      "start": 472.15,
+      "end": 522.7,
+      "duration": 50.55,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "have to be armed in a way, have to have regulatory frameworks and guidelines in place to ensure that through the decisions that they're making, it does not infringe on the rights of our children and...",
+      "keywords": [
+        "young people",
+        "privacy",
+        "rights",
+        "children",
+        "young",
+        "decisions",
+        "they're",
+        "making",
+        "people",
+        "make"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.611594,
+      "selection_score": 0.890084,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.612 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "text": "have to be armed in a way, have to have regulatory frameworks and guidelines in place to ensure that through the decisions that they're making, it does not infringe on the rights of our children and young people and where it is that our children and young people are able to make decisions for themselves, that they have the tools needed to either seek out help, submit a decision or when they make it for themselves, they're making one that will protect them and their data and privacy rights. That's very important. Now, I want to wind down quickly to what should be our next step going forward. Your next step right now, whoever you are watching this video, is to speak to some young"
+    },
+    {
+      "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0016",
+      "source_video": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation",
+      "video_id": "ikdcwVcRSPo",
+      "start": 971.8,
+      "end": 1021.75,
+      "duration": 49.95,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "Also, we see contention around what is true in relation to the COVID-19 vaccine.",
+      "keywords": [
+        "misinformation",
+        "government",
+        "vaccine",
+        "covid",
+        "i'm",
+        "people",
+        "now",
+        "religious"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.609565,
+      "selection_score": 0.815255,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.610 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "text": "Also, we see contention around what is true in relation to the COVID-19 vaccine. And I'm giving it here as an example of misinformation, where some people believe that the COVID-19 vaccine in different variants had nanoparticles. There are computer chips that if you took the vaccine, the government would be able to track you. And the Jamaican government was working in concert with the United States government. I have a pen shot for excitement. So I'm smiling now because when I first heard it, it was funny. But people take these things seriously. And then you have the religious perspective now where there are some religious traditions in Jamaica. They speak of the mark of the beast"
+    },
+    {
+      "fragment_id": "0199_KAIeKSnPIqI_Natalie Pang - Pivoting AI for Digital Inclusion_0012",
+      "source_video": "0199_KAIeKSnPIqI_Natalie Pang - Pivoting AI for Digital Inclusion",
+      "video_id": "KAIeKSnPIqI",
+      "start": 658.06,
+      "end": 681.6,
+      "duration": 23.54,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "it's a platform that provides collections of royalty-free stock photography and videos.",
+      "keywords": [
+        "ethical",
+        "services"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.615448,
+      "selection_score": 0.810138,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.615 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "text": "it's a platform that provides collections of royalty-free stock photography and videos. And the other example is Fam on Door, which is a marketplace for ethical goods and services, and it has its origins in Germany. So I believe my time is up, right? With that, I end my presentation and thank you very much."
+    },
+    {
+      "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0007",
+      "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
+      "video_id": "wFL2l6tjt7M",
+      "start": 333.71,
+      "end": 390.97,
+      "duration": 57.26,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "I'd like to pause here and show a short video demonstrating the newest version of AAT in action.",
+      "keywords": [
+        "artificial intelligence",
+        "screen reader",
+        "water",
+        "man",
+        "video",
+        "facebook",
+        "you'll",
+        "automatic",
+        "alt",
+        "text"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.624422,
+      "selection_score": 0.779922,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.624 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "text": "I'd like to pause here and show a short video demonstrating the newest version of AAT in action. In the video, you'll see a screen reader reading automatic alt text as a user interacts with the photo on Facebook. You'll also hear audio description of the video portion of the presentation. Can we start the demo please? Facebook automatic alt text. Using artificial intelligence to create descriptions of images for the blind and visually impaired community. Multiple flags blowing on a pier. Man walking along the pier in San Francisco using a white cane. Man browses through a friend's Facebook pictures. Close up of a man smiling. Close up of a man navigating his phone. Maybe an image of one or..."
+    },
+    {
+      "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0004",
+      "source_video": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care",
+      "video_id": "VdgizwSC1jo",
+      "start": 196.91,
+      "end": 271.92,
+      "duration": 75.01,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "In customer services like banking and financial services, it helps to deliver highly personalized customer service and also in the sector of education and carbon emission reduction.",
+      "keywords": [
+        "artificial intelligence",
+        "education",
+        "health",
+        "healthcare",
+        "medical",
+        "services",
+        "industry",
+        "customer",
+        "domain"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.65671,
+      "selection_score": 0.9306,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Expanded synonym overlap (['health', 'medicine', 'medical']) + semantic 0.657",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "In customer services like banking and financial services, it helps to deliver highly personalized customer service and also in the sector of education and carbon emission reduction. Now let's move on. And learn how artificial intelligence in healthcare is impacting. Since the origin of healthcare in 1950, it has impacted various domains, including finance, marketing, gaming industry and musical art. However, the biggest impact has been in the healthcare domain. The design of new AI systems have helped achieve medical advancements such as producing faster data collection and processing, assisting in more precise surgical procedures and more comprehensive implementation of electronic health..."
+    },
+    {
+      "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0007",
+      "source_video": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care",
+      "video_id": "VdgizwSC1jo",
+      "start": 419.88,
+      "end": 479.66,
+      "duration": 59.78,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "Now let's look at India's approach to AI in healthcare industry.",
+      "keywords": [
+        "health",
+        "healthcare",
+        "disease",
+        "diagnosis",
+        "health systems",
+        "government",
+        "industry",
+        "infrastructure",
+        "early",
+        "detection"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.66061,
+      "selection_score": 0.8705,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "healthcare"
+      ],
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['healthcare']) + high semantic 0.661",
+      "meaningful_prompt_overlap": [
+        "healthcare"
+      ],
+      "text": "Now let's look at India's approach to AI in healthcare industry. So AI technologies in healthcare started with radiology, particularly in treating TB. Gradually after the post-pandemic area, it has been widely used in other spheres like early detection and diagnosis of liver and lung issues, cancer, diabetes and also for various eye related issues. The National Center for Disease Control, along with the partnership with one private company, plans to create a database for the outbreak of almost 33 diseases. Needy IO has been actively involved in implementing AI in the early detection of diabetes. The government of India has also created a national digital health infrastructure to improvise..."
+    }
+  ],
+  "storyline": {
+    "title": "AI in Healthcare: Transforming the Future of Medicine",
+    "logline": "Discover how AI is revolutionizing healthcare, from diagnosis to treatment, and explore its potential to improve patient outcomes.",
+    "style": "National Geographic-style documentary explainer",
+    "target_duration_seconds": 60,
+    "estimated_duration_seconds": 59.5,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "speaker_led_documentary",
+      "evidence_strength": "high",
+      "exact_clip_count": 8,
+      "related_clip_count": 23,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 8,
+      "rejected_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 25,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI Equity, Inclusion & Social Justice",
+        "AI Ethics, Governance & Policy",
+        "AI in Education & Creative Industries",
+        "AI in Health, Science & Environment",
+        "Disinformation, Deepfakes & AI Safety"
+      ],
+      "chapter_coverage": [
+        "Ch 10: Gender, Race & Diversity in AI",
+        "Ch 11: Disabilities, Assistive Tech & Accessibility",
+        "Ch 12: Youth, Aging & Generational Perspectives",
+        "Ch 13: AI in Healthcare & Medicine",
+        "Ch 19: AI Literacy, Learning & Education Reform",
+        "Ch 1: Foundations of AI Ethics & Philosophy",
+        "Ch 22: AI in Academic Research & Knowledge Production",
+        "Ch 24: Privacy, Human Rights & Civil Liberties",
+        "Ch 3: AI Policy, Regulation & Legislation",
+        "Ch 5: Open Data & Information Accessibility",
+        "Ch 6: AI in Journalism & the Media Landscape",
+        "Ch 8: Regional & Satellite Conference Events"
+      ],
+      "average_similarity": 0.632388,
+      "average_quote_strength": 0.568571,
+      "recommended_structure": [
+        "opening_hook",
+        "exact_evidence_clip",
+        "speaker_voice_two",
+        "bridge_narration",
+        "speaker_voice_three",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    },
+    "narrative_arc": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook"
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context"
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension"
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective"
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence"
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction"
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis"
+      }
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 5,
+        "director_role": "opening_context",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Welcome to the future of healthcare, where AI is revolutionizing the way we diagnose and treat diseases.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0008",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 5,
+            "reason": "Sets the context for AI in healthcare"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "AI in Healthcare: Transforming the Future of Medicine",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 10,
+        "director_role": "exact_evidence_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "AI is being used in various ways to improve healthcare outcomes, from diagnosis to treatment.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0004",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Provides context for AI in healthcare"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 10,
+        "director_role": "related_theme_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "However, there are also challenges associated with the use of AI in healthcare.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information_0003",
+            "usage": "context_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Highlights the challenges of AI in healthcare"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 10,
+        "director_role": "related_governance_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Patients and healthcare professionals are also concerned about the impact of AI on their jobs.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology_0014",
+            "usage": "context_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Highlights the human perspective on AI in healthcare"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 10,
+        "director_role": "synthesis_narration",
+        "evidence_role": "synthesis",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Experts believe that AI has the potential to improve healthcare outcomes, but it requires careful consideration of its limitations and challenges.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0002",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Provides expert evidence on AI in healthcare"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0002",
+            "start": 0,
+            "end": 10,
+            "quote_summary": "AI has the potential to improve healthcare outcomes, but it requires careful consideration of its limitations and challenges.",
+            "reason": "Provides expert evidence on AI in healthcare"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 10,
+        "director_role": "closing_takeaway",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "As AI continues to evolve, it is essential that we prioritize its development and implementation in healthcare.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0007",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Sets the context for AI in healthcare"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 5,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "In conclusion, AI has the potential to transform healthcare, but it requires careful consideration of its limitations and challenges.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0008",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 5,
+            "reason": "Sets the context for AI in healthcare"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "closing_card",
+            "description": "AI in Healthcare: Transforming the Future of Medicine",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to the future of healthcare, where AI is revolutionizing the way we diagnose and treat diseases.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "AI is being used in various ways to improve healthcare outcomes, from diagnosis to treatment.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "However, there are also challenges associated with the use of AI in healthcare.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "Patients and healthcare professionals are also concerned about the impact of AI on their jobs.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "Experts believe that AI has the potential to improve healthcare outcomes, but it requires careful consideration of its limitations and challenges.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "As AI continues to evolve, it is essential that we prioritize its development and implementation in healthcare.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "In conclusion, AI has the potential to transform healthcare, but it requires careful consideration of its limitations and challenges.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0002",
+        "source_video": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine",
+        "start": 0,
+        "end": 10,
+        "quote_summary": "AI has the potential to improve healthcare outcomes, but it requires careful consideration of its limitations and challenges.",
+        "use_in_section": "S5"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0008",
+        "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0004",
+        "0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information_0003",
+        "0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology_0014",
+        "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0002"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "AI in Healthcare: Transforming the Future of Medicine",
+          "on_screen_text": ""
+        },
+        {
+          "asset_type": "closing_card",
+          "description": "AI in Healthcare: Transforming the Future of Medicine",
+          "on_screen_text": ""
+        }
+      ],
+      "internet_assets": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "fragment_id": "",
+        "duration_seconds": 5,
+        "description": "Welcome to the future of healthcare, where AI is revolutionizing the way we diagnose and treat diseases."
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S1",
+        "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0008",
+        "duration_seconds": 5,
+        "description": "Sets the context for AI in healthcare"
+      },
+      {
+        "order": 3,
+        "timeline_type": "voiceover",
+        "section_id": "S2",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "AI is being used in various ways to improve healthcare outcomes, from diagnosis to treatment."
+      },
+      {
+        "order": 4,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0004",
+        "duration_seconds": 10,
+        "description": "Provides context for AI in healthcare"
+      },
+      {
+        "order": 5,
+        "timeline_type": "voiceover",
+        "section_id": "S3",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "However, there are also challenges associated with the use of AI in healthcare."
+      },
+      {
+        "order": 6,
+        "timeline_type": "archive_visual",
+        "section_id": "S3",
+        "fragment_id": "0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information_0003",
+        "duration_seconds": 10,
+        "description": "Highlights the challenges of AI in healthcare"
+      },
+      {
+        "order": 7,
+        "timeline_type": "voiceover",
+        "section_id": "S4",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "Patients and healthcare professionals are also concerned about the impact of AI on their jobs."
+      },
+      {
+        "order": 8,
+        "timeline_type": "archive_visual",
+        "section_id": "S4",
+        "fragment_id": "0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology_0014",
+        "duration_seconds": 10,
+        "description": "Highlights the human perspective on AI in healthcare"
+      },
+      {
+        "order": 9,
+        "timeline_type": "voiceover",
+        "section_id": "S5",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "Experts believe that AI has the potential to improve healthcare outcomes, but it requires careful consideration of its limitations and challenges."
+      },
+      {
+        "order": 10,
+        "timeline_type": "speaker_soundbite",
+        "section_id": "S5",
+        "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0002",
+        "duration_seconds": 10,
+        "description": "Provides expert evidence on AI in healthcare"
+      },
+      {
+        "order": 11,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "As AI continues to evolve, it is essential that we prioritize its development and implementation in healthcare."
+      },
+      {
+        "order": 12,
+        "timeline_type": "archive_visual",
+        "section_id": "S6",
+        "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0007",
+        "duration_seconds": 10,
+        "description": "Sets the context for AI in healthcare"
+      },
+      {
+        "order": 13,
+        "timeline_type": "voiceover",
+        "section_id": "S7",
+        "fragment_id": "",
+        "duration_seconds": 5,
+        "description": "In conclusion, AI has the potential to transform healthcare, but it requires careful consideration of its limitations and challenges."
+      },
+      {
+        "order": 14,
+        "timeline_type": "archive_visual",
+        "section_id": "S7",
+        "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0008",
+        "duration_seconds": 5,
+        "description": "Sets the context for AI in healthcare"
+      }
+    ],
+    "editor_notes": [],
+    "planning_summary": {
+      "video_mode": "speaker_led_documentary",
+      "evidence_strength": "high",
+      "exact_clip_count": 8,
+      "related_clip_count": 23,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 8,
+      "rejected_clip_count": 0,
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    }
+  }
+}

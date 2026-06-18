@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_094247_82581cb1",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-16T09:42:47.049970",
+  "started_at": "2026-06-16T09:42:47.050230",
+  "completed_at": "2026-06-16T09:44:38.422631",
+  "payload": {
+    "prompt": "Create a 1-minute Disinformation, Deepfakes & AI Safety\nCh 17: AI-Driven Disinformation & Propaganda",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_094247_82581cb1.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260616_151438.json",
+  "error": null
+}

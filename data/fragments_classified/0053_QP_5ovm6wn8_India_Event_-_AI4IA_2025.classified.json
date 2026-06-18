@@ -1,0 +1,2200 @@
+{
+  "source_transcript": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025.json",
+  "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+  "video_id": "QP",
+  "fragment_count": 25,
+  "created_at": "2026-06-16T12:54:12.895178",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0001",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 1,
+      "start": 0.66,
+      "end": 46.95,
+      "duration": 46.29,
+      "text": "tutorial for transcript and closed captioning and I'm going to go to the three dot menu right here and I'm going to turn on live captions so now as I'm talking or anyone else in the meeting is talking you can see in the lower left it's captioning as I'm talking this is currently just supported in English but it means that anyone else who is talking in the meeting or myself I will see these live captions for me personally no one else will see them so this makes for a very inclusive meeting and now I will turn them off dot dot dot menu and click off good morning good afternoon and good evening to everyone joining us from across the",
+      "word_count": 128,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "created_at": "2026-06-16T12:54:12.887664",
+      "keywords": [
+        "inclusive",
+        "i'm",
+        "dot",
+        "talking",
+        "else",
+        "meeting",
+        "see",
+        "good",
+        "captioning",
+        "going",
+        "menu",
+        "turn",
+        "live",
+        "captions",
+        "now"
+      ],
+      "summary": "tutorial for transcript and closed captioning and I'm going to go to the three dot menu right here and I'm going to turn on live captions so now as I'm talking or anyone else in the...",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusive"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.633,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.364124"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0002",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 2,
+      "start": 46.95,
+      "end": 132.18,
+      "duration": 85.23,
+      "text": "group the UNESCO information for all program working group on information accessibility is hosting its sixth online AI for IA conference on on Sunday September 28th 2025 to commemorate the international day for universal access to information in addition to the main event on September 28th we are proud to have such a light event taking place worldwide in India Jamaica Canada South Africa Zimbabwe Europe Chile and Latin America artificial intelligence is no longer a distant concept it has rapidly evolved to become an integral part of our daily lives influencing how we learn create communicate and access information this conference explores how artificial intelligence can be harnessed to make information more inclusive accessible and empowering for all I am some Riddhi Arora a member of UNESCO if perhaps working group on information accessibility and an advocate on record at Supreme Court of India",
+      "word_count": 145,
+      "source_segment_ids": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "created_at": "2026-06-16T12:54:12.887899",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "information accessibility",
+        "accessibility",
+        "information",
+        "conference",
+        "unesco",
+        "inclusive",
+        "africa",
+        "event",
+        "latin america",
+        "accessible",
+        "court",
+        "group",
+        "all"
+      ],
+      "summary": "group the UNESCO information for all program working group on information accessibility is hosting its sixth online AI for IA conference on on Sunday September 28th 2025 to commemorate the international day for universal access to...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information accessibility",
+            "information",
+            "conference",
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.211,
+          "matched_keywords": [
+            "inclusive",
+            "africa",
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.4,
+          "matched_keywords": [
+            "conference",
+            "unesco",
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.267,
+          "matched_keywords": [
+            "africa",
+            "latin america"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.2,
+          "matched_keywords": [
+            "accessibility",
+            "accessible"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.067,
+          "matched_keywords": [
+            "court"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.917,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.370679"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0003",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 3,
+      "start": 132.18,
+      "end": 199.72,
+      "duration": 67.54,
+      "text": "I also have the honor of moderating today's India satellite event titled Tradition and Transition AI and the evolution of Indian Arts to open today's session and welcome all of you we are privileged to hear from Mr. Kodel Green vice chair of UNESCO's information for all program and chair of the working group on information accessibility I am the visionary behind the AI for IA conference hello and welcome I am pleased to join you for this satellite event one of nine being convened in the lead up to the sixth AI for IA conference on September 28 gatherings like this help bring into focus a wide spectrum of perspectives technical ethical cultural legal and social",
+      "word_count": 120,
+      "source_segment_ids": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "created_at": "2026-06-16T12:54:12.888098",
+      "keywords": [
+        "information accessibility",
+        "accessibility",
+        "information",
+        "satellite event",
+        "conference",
+        "satellite",
+        "arts",
+        "cultural",
+        "session",
+        "welcome",
+        "event",
+        "ethical",
+        "today's",
+        "all",
+        "chair"
+      ],
+      "summary": "I also have the honor of moderating today's India satellite event titled Tradition and Transition AI and the evolution of Indian Arts to open today's session and welcome all of you we are privileged to hear...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "information",
+            "satellite event",
+            "conference"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.154,
+          "matched_keywords": [
+            "satellite"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.154,
+          "matched_keywords": [
+            "arts",
+            "cultural"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "conference",
+            "satellite event",
+            "session",
+            "welcome",
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.385,
+          "matched_keywords": [
+            "information accessibility",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.154,
+          "matched_keywords": [
+            "satellite"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.077,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.077,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.917,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.375702"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0004",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 4,
+      "start": 199.72,
+      "end": 281.93,
+      "duration": 82.21,
+      "text": "they offer space for thoughtful exchange and creative expression for surfacing local insights and deepening our shared understanding of artificial intelligence and its impact on our lives I thank all participants the local organizers and partners for bringing this event to life I also thank the AI for IA planning committee for their continued work your contributions are helping to build a richer more connected conversation one that will carry forward into the main conference see you on the gather town platform on September 28 for the sixth AI for IA virtual conference thank you so much Mr. Kodel Green for your inspiring words and vision now as we begin our India satellite event cultural showcase let me share what makes today truly special",
+      "word_count": 124,
+      "source_segment_ids": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "created_at": "2026-06-16T12:54:12.888344",
+      "keywords": [
+        "artificial intelligence",
+        "satellite event",
+        "conference",
+        "creative",
+        "cultural",
+        "satellite",
+        "event",
+        "local"
+      ],
+      "summary": "they offer space for thoughtful exchange and creative expression for surfacing local insights and deepening our shared understanding of artificial intelligence and its impact on our lives I thank all participants the local organizers and partners...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "satellite event",
+            "conference"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.4,
+          "matched_keywords": [
+            "creative",
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.2,
+          "matched_keywords": [
+            "satellite"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "conference",
+            "satellite event",
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.143,
+          "matched_keywords": [
+            "satellite"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.143,
+          "matched_keywords": [
+            "creative"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.917,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.381350"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0005",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 5,
+      "start": 281.93,
+      "end": 361.15,
+      "duration": 79.22,
+      "text": "this year's program is a celebration of fusion where India's timeless tradition meets the evolution world of artificial intelligence our stage today will feature a unique confluence of art and technology with performances and dance instrumental music Kathak semi classical pieces drama and yoga all presented in symphony and integration with artificial intelligence most of our performers are school going students guided by their teachers we are also delighted to have with us the two youngest performers of the satellite event just 3.5 years old their presence reminds us that art like knowledge is passed down across generations while also adapting to the world of tomorrow this time our India satellite event is a cultural journey and in each performance you will see AI woven into the fabric of creativity",
+      "word_count": 133,
+      "source_segment_ids": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "created_at": "2026-06-16T12:54:12.888611",
+      "keywords": [
+        "artificial intelligence",
+        "knowledge",
+        "satellite event",
+        "students",
+        "teachers",
+        "school",
+        "music",
+        "creativity",
+        "cultural",
+        "satellite",
+        "event",
+        "world",
+        "artificial",
+        "intelligence",
+        "art"
+      ],
+      "summary": "this year's program is a celebration of fusion where India's timeless tradition meets the evolution world of artificial intelligence our stage today will feature a unique confluence of art and technology with performances and dance instrumental...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "knowledge",
+            "satellite event"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.857,
+          "matched_keywords": [
+            "students",
+            "teachers",
+            "school",
+            "music",
+            "creativity",
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.286,
+          "matched_keywords": [
+            "satellite"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "satellite event",
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.375,
+          "matched_keywords": [
+            "students",
+            "teachers",
+            "school"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.25,
+          "matched_keywords": [
+            "satellite"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "music",
+            "creativity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.125,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.917,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.387699"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0006",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 6,
+      "start": 361.15,
+      "end": 640.81,
+      "duration": 279.66,
+      "text": "we began with Kathak Kathak has always been a mirror of our history and culture adorned with the rhythms of tradition yet as time moves forward yet evolves finding new colors and new expressions to tell we witness a new era where art and technology walk hand in hand so first you will see Kathak in its classical form performed to human rendered music and then same Kathak will embrace air generated music a beautiful glimpse into how traditions into innovation AI is also composed of an unlimited composition",
+      "word_count": 89,
+      "source_segment_ids": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "created_at": "2026-06-16T12:54:12.888755",
+      "keywords": [
+        "music",
+        "culture",
+        "innovation",
+        "kathak",
+        "new",
+        "yet",
+        "hand"
+      ],
+      "summary": "we began with Kathak Kathak has always been a mirror of our history and culture adorned with the rhythms of tradition yet as time moves forward yet evolves finding new colors and new expressions to tell...",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music",
+            "culture"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music",
+            "culture"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "innovation"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.6,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.867,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.392116"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0007",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 7,
+      "start": 640.81,
+      "end": 794.92,
+      "duration": 154.11,
+      "text": "how is it generated? it has a lot of tools like Sunodot AI okay so let us do one thing I have an idea in the mind let us make a fusion let us start classical dance now and the other in hip hop together they used AI to generate a unique",
+      "word_count": 52,
+      "source_segment_ids": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "created_at": "2026-06-16T12:54:12.888848",
+      "keywords": [
+        "let"
+      ],
+      "summary": "it has a lot of tools like Sunodot AI okay so let us do one thing I have an idea in the mind let us make a fusion let us start classical dance now and the...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.367,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.394336"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0008",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 8,
+      "start": 960.9,
+      "end": 1023.99,
+      "duration": 63.09,
+      "text": "one next performance this performance demonstrates how artificial intelligence can help to correct human posture by using AI generated postures the students were guided to improve their alignment enabling them to adopt healthier postures in their day-to-day lives hello guys how are you? hello is everything ready? yes remember guys three months ago what happened to us and look at us now we have improved so much exactly when we started practicing for 4-5 years we started practicing for 3 months we were preparing for a competition true we were not physically active for 3 months and we had a lot of health issues but when we started practicing for 4 months our postures and other things are improved",
+      "word_count": 122,
+      "source_segment_ids": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "created_at": "2026-06-16T12:54:12.889222",
+      "keywords": [
+        "artificial intelligence",
+        "health",
+        "competition",
+        "students",
+        "months",
+        "postures",
+        "started",
+        "practicing",
+        "performance",
+        "hello",
+        "guys",
+        "improved"
+      ],
+      "summary": "one next performance this performance demonstrates how artificial intelligence can help to correct human posture by using AI generated postures the students were guided to improve their alignment enabling them to adopt healthier postures in their...",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "competition"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "competition"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.399798"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0009",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 9,
+      "start": 1023.99,
+      "end": 1193.92,
+      "duration": 169.93,
+      "text": "and look at us now we have to combine them today exactly true my posture was not going to be the same but this skill will help me to correct my posture see my video? how much health has helped me? how do I have to guide the posture? look and look at the correct posture let's go to our performance let's welcome our next performance",
+      "word_count": 68,
+      "source_segment_ids": [
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "created_at": "2026-06-16T12:54:12.889392",
+      "keywords": [
+        "health",
+        "welcome",
+        "posture",
+        "look",
+        "correct",
+        "let's",
+        "performance"
+      ],
+      "summary": "and look at us now we have to combine them today exactly true my posture was not going to be the same but this skill will help me to correct my posture see my video?",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "welcome"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.402574"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0010",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 10,
+      "start": 1193.92,
+      "end": 1541.56,
+      "duration": 347.64,
+      "text": "now we have something truly special our young performers guided by their teacher are presenting a unique act of fusion symphony and jughal bandhi in this performance one line of music is being generated and played by artificial intelligence while the children accompany it using a variety of traditional instrument together this creates a beautiful harmony between technology and talent between artificial intelligence and human creativity which promises to be just as captivating",
+      "word_count": 73,
+      "source_segment_ids": [
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "created_at": "2026-06-16T12:54:12.889543",
+      "keywords": [
+        "artificial intelligence",
+        "music",
+        "creativity",
+        "children",
+        "artificial",
+        "intelligence"
+      ],
+      "summary": "now we have something truly special our young performers guided by their teacher are presenting a unique act of fusion symphony and jughal bandhi in this performance one line of music is being generated and played...",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music",
+            "creativity"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music",
+            "creativity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "children"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.6,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.867,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.406639"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0011",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 11,
+      "start": 1541.56,
+      "end": 1613.84,
+      "duration": 72.28,
+      "text": "in this drama we witness the incredible power of artificial intelligence in making the world more accessible the story shows how AI can guide a visually impaired girl helping her to learn music and to prepare for a competition it is a moving reminder that technology when used with the purpose can break barriers and create opportunities for all Papa, where are you? my dear, one minute what happened? I am feeling very happy come here sit here sit great my daughter is feeling very happy today what happened? Papa, my selection is gone selection? which selection was it? in singing wow, great! where did you sing? my daughter is there in my school, the reality show was on the team",
+      "word_count": 121,
+      "source_segment_ids": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "created_at": "2026-06-16T12:54:12.890069",
+      "keywords": [
+        "artificial intelligence",
+        "school",
+        "music",
+        "competition",
+        "accessible",
+        "selection",
+        "papa",
+        "happened",
+        "feeling",
+        "happy",
+        "here",
+        "sit",
+        "great",
+        "daughter"
+      ],
+      "summary": "in this drama we witness the incredible power of artificial intelligence in making the world more accessible the story shows how AI can guide a visually impaired girl helping her to learn music and to prepare...",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "school",
+            "music"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "competition"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "competition"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessible"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "school"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.412096"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0012",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 12,
+      "start": 1613.84,
+      "end": 1673.14,
+      "duration": 59.3,
+      "text": "so I cleared the audition very good field audition is cleared now I have a TV round you will go out for TV round dear, you know what is your situation what is your father's situation? how many problems do you have with me? office work, work load you don't get a lot of work load expenses, travelling expenses how is that possible? tell me Papa, you listen to me once please it is hot, isn't it? hot? yes, okay in that school, this was also a team of reality show okay I cleared the audition round then my father will go with him I will go with him I understood that the father's condition is fine",
+      "word_count": 121,
+      "source_segment_ids": [
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135
+      ],
+      "created_at": "2026-06-16T12:54:12.890534",
+      "keywords": [
+        "school",
+        "cleared",
+        "audition",
+        "round",
+        "work",
+        "situation",
+        "father's",
+        "load",
+        "expenses",
+        "hot",
+        "okay",
+        "him"
+      ],
+      "summary": "so I cleared the audition very good field audition is cleared now I have a TV round you will go out for TV round dear, you know what is your situation what is your father's situation?",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "school"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "school"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.967,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.417363"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0013",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 13,
+      "start": 1673.14,
+      "end": 1720.24,
+      "duration": 47.1,
+      "text": "he is also going with you yes will he take him? yes, and one more thing I know is that the reality show's team will take all our travelling expenses okay, that is fine but you have to take care of yourself I will talk to him okay when do you want to go? this is coming Saturday coming Saturday okay dear, I will prepare for you but you have to take care of yourself you have to take care of yourself all the best okay child? yes okay, bye hello, those two how are you? I hope you all are doing well so, those two after the live music round we reached the second round I hope you all are doing well",
+      "word_count": 124,
+      "source_segment_ids": [
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ],
+      "created_at": "2026-06-16T12:54:12.891208",
+      "keywords": [
+        "music",
+        "take",
+        "okay",
+        "all",
+        "yes",
+        "care",
+        "yourself",
+        "him",
+        "coming",
+        "saturday",
+        "two",
+        "hope",
+        "doing",
+        "well",
+        "round"
+      ],
+      "summary": "he is also going with you yes will he take him?",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "music"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.967,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.422489"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0014",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 14,
+      "start": 1930.12,
+      "end": 2024.15,
+      "duration": 94.03,
+      "text": "Aagosh! Thank you. How are you feeling now? I will listen to Lajja. Sound please. Lajja. Lajja again. Lajja. The comments are very good. You can see that the comments are very good. It seems that the comments are very good.",
+      "word_count": 41,
+      "source_segment_ids": [
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179
+      ],
+      "created_at": "2026-06-16T12:54:12.891373",
+      "keywords": [
+        "lajja",
+        "comments",
+        "good"
+      ],
+      "summary": "You can see that the comments are very good.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.7,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.333,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.424855"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0015",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 15,
+      "start": 2024.15,
+      "end": 2100.67,
+      "duration": 76.52,
+      "text": "You can see that the comments are very good. Friends, this is the end of our performance. And now I will request to you who are going to the contest in our Grand Finale. Thank you very much to all the participants. You all have been very good. And for us, you all are the winners. And you all are the winners. As the show's role is we have to send a contestant to the final. So, the decision that Jajja has made is the two contestants. The contestants are going to the final. Priya, Chauhan and Prajya Ghosh. Thank you very much. So friends, this is the end of our performance.",
+      "word_count": 113,
+      "source_segment_ids": [
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196
+      ],
+      "created_at": "2026-06-16T12:54:12.891742",
+      "keywords": [
+        "all",
+        "good",
+        "friends",
+        "end",
+        "performance",
+        "going",
+        "winners",
+        "final",
+        "contestants"
+      ],
+      "summary": "You can see that the comments are very good.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.383,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.429592"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0016",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 16,
+      "start": 2100.67,
+      "end": 2179.85,
+      "duration": 79.18,
+      "text": "Next will be our classical based Jajja's choice round. So, we will meet you in the next round. Till then, take care. Bye bye. Yes, absolutely. AI? What is AI? Artificial intelligence. Did you not hear that? Artificial intelligence? Yes. AI is our own AI application. I am learning piano. And I am learning Tabla. And I have started learning guitar. What are you talking about? I don't understand anything. How can AI teach you? Prajya, don't worry. My friend Rohan is the AI champion. He will definitely do something to us. We go to the house of Shyam. Yes. Okay. How is it?",
+      "word_count": 107,
+      "source_segment_ids": [
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      "created_at": "2026-06-16T12:54:12.892209",
+      "keywords": [
+        "artificial intelligence",
+        "learning",
+        "yes",
+        "next",
+        "round",
+        "bye",
+        "artificial",
+        "intelligence",
+        "don't"
+      ],
+      "summary": "Next will be our classical based Jajja's choice round.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.7,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.9,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.434242"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0017",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 17,
+      "start": 2179.85,
+      "end": 2223.12,
+      "duration": 43.27,
+      "text": "Rohan, I am fine. Sit down. Tell me. I talked to you on the phone. This is my friend, Prajya. He has been selected in reality show. Wow. The final round has reached. He has to learn classical based singing. But he has to learn classical based singing. Can you help him? Yes, absolutely. I had told you about the AI application of piano. So I had told you about Tabla. It is also about classical. It is also about the AI application. It is also about the AI and non-AI application. But the best thing is the AI application which is called Riaz app. This Riaz app has to be installed in your phone. And it works like this.",
+      "word_count": 121,
+      "source_segment_ids": [
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241
+      ],
+      "created_at": "2026-06-16T12:54:12.892591",
+      "keywords": [
+        "application",
+        "classical",
+        "phone",
+        "learn",
+        "based",
+        "singing",
+        "had",
+        "told",
+        "riaz",
+        "app"
+      ],
+      "summary": "But he has to learn classical based singing.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.383,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.439054"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0018",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 18,
+      "start": 2223.12,
+      "end": 2332.73,
+      "duration": 109.61,
+      "text": "It has levels. You have to pick your course. You have to learn Rakh. Then this will come first. Then this will come first. Then this will come after this. And if you are right, you will be able to reach the next level. If you have wronged, you will reset the level. You can explain this to him. All the best. I have put the tag. Okay? Come on. Let's go. Let's go for the tag. If you have come, you will be able to reach the next level. Okay. Now I am going to sing. Come on. Come on. Come on. Come on. Come on.",
+      "word_count": 109,
+      "source_segment_ids": [
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264
+      ],
+      "created_at": "2026-06-16T12:54:12.893052",
+      "keywords": [
+        "come",
+        "level",
+        "first",
+        "able",
+        "reach",
+        "next",
+        "tag",
+        "okay",
+        "let's"
+      ],
+      "summary": "And if you are right, you will be able to reach the next level.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.65,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.317,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.443389"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0019",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 19,
+      "start": 2332.73,
+      "end": 2451.43,
+      "duration": 118.7,
+      "text": "I am going to write this in the phone. I will have to use the headphones. Headphones. Yes. Otherwise, you won't go with this. I will not listen to this voice. I am not going to be able to reach the next level. Yes. People will come back. Tell me. Tell me. Rakh. You are going to be able to reach the next level. Now you can go with this. Okay. Try once. Wow. How did you know? How did you know? Do you want to win? Show me.",
+      "word_count": 90,
+      "source_segment_ids": [
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285
+      ],
+      "created_at": "2026-06-16T12:54:12.893422",
+      "keywords": [
+        "going",
+        "headphones",
+        "yes",
+        "able",
+        "reach",
+        "next",
+        "level",
+        "tell",
+        "did",
+        "know"
+      ],
+      "summary": "I am going to write this in the phone.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.65,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.317,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.447180"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0020",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 20,
+      "start": 2451.43,
+      "end": 2672.07,
+      "duration": 220.64,
+      "text": "Show me. Show me. Show me. So, he is female band. Show me. Show me. Show me. So, get ready for the 1st episode, so please welcome our grand finale contestant Priya and Pragya Gorshin. Some please. Tridhulina. Both of you are very good, you both have changed completely.",
+      "word_count": 49,
+      "source_segment_ids": [
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297
+      ],
+      "created_at": "2026-06-16T12:54:12.893547",
+      "keywords": [
+        "welcome",
+        "show",
+        "both"
+      ],
+      "summary": "So, get ready for the 1st episode, so please welcome our grand finale contestant Priya and Pragya Gorshin.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "welcome"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.7,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.617,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.449619"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0021",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 21,
+      "start": 2672.07,
+      "end": 2729.95,
+      "duration": 57.88,
+      "text": "But now you can take your seat. You will know the result in a few days. So, friends. As I told you, our voting lines were open. But now, our voting lines are closed. And in a few days, the results will be in front of us. So, I will request you to come to that stage. And tell our audience, who is today's singing, sir? Jajas. First of all, I would like both of you to perform very well. Both of you have outstanding performances. You can't tell anyone that this guy is very good. Both of you have good points. And both of you, who are our participants, I would like to say to them as well.",
+      "word_count": 121,
+      "source_segment_ids": [
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311
+      ],
+      "created_at": "2026-06-16T12:54:12.893847",
+      "keywords": [
+        "audience",
+        "both",
+        "now",
+        "few",
+        "days",
+        "voting",
+        "lines",
+        "tell",
+        "well",
+        "good"
+      ],
+      "summary": "You will know the result in a few days.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "audience"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.667,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.454444"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0022",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 22,
+      "start": 2729.95,
+      "end": 2811.33,
+      "duration": 81.38,
+      "text": "Priya and Pragya. Priya and Pragya. Both of you have been very beautiful. You have been very beautiful. But because every performance has this role, we can have one winner. Right? We have two winners. But the rule is that we have to make one winner. So, anybody can guess who is today's winner? Priya. Priya. Priya. Priya. Priya. Priya. Priya. Priya. So, voting line has been closed. Our results are in front of us. So, our results are in front of us. Today's winner is Pragya. Congratulations, Priya. Thank you. You also went very well. And winner of all goes to Pragya.",
+      "word_count": 105,
+      "source_segment_ids": [
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337
+      ],
+      "created_at": "2026-06-16T12:54:12.894318",
+      "keywords": [
+        "priya",
+        "winner",
+        "pragya",
+        "beautiful",
+        "one",
+        "today's",
+        "results",
+        "front"
+      ],
+      "summary": "But because every performance has this role, we can have one winner.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.7,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.333,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.458954"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0023",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 23,
+      "start": 2811.33,
+      "end": 2890.1,
+      "duration": 78.77,
+      "text": "And for our second participant, we will also give him the right hand. Because he also performed very well. His performance was also outstanding. So, please. Thank you. What a charming display of talent. And now, saving the best for last. We now invite you to enjoy the next performance by the youngest performers of the evening. With AI as their guide, these children are not only imagining their future selves, but also shaping the world of tomorrow. A teacher. A teacher. I want to be a lawyer. I want to become a businesswoman. As we come to the conclusion of this wonderful evening, I extend my heartful gratitude to fame academy and its founders, Mrs. Phunam Shastri, Mr. Kailash Shastri,",
+      "word_count": 121,
+      "source_segment_ids": [
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354
+      ],
+      "created_at": "2026-06-16T12:54:12.894713",
+      "keywords": [
+        "children",
+        "performance",
+        "now",
+        "evening",
+        "teacher",
+        "want",
+        "shastri"
+      ],
+      "summary": "And for our second participant, we will also give him the right hand.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "children"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.667,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.464211"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0024",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 24,
+      "start": 2890.1,
+      "end": 2963.32,
+      "duration": 73.22,
+      "text": "and Mr. Santi Kopta for their constant guidance and support. A special thanks also goes to our talented choreographers and performers, whose dedication brought such magic to the evening tonight. We are deeply grateful to our recording and editing partners, Gospels Studio, for capturing these moments so beautifully. I would also like to acknowledge the incredible efforts of the team behind this event. Mr. Supri Singh, Mrs. Harmandeep Kaur, Ms. Ananya Pasi, Ms. Sanjole Singh, Ms. Lee Shu Singh, and Harshika Gujella. Without their hard work and management, this evening would not have been possible, especially for the children and students who performed today. And now, to honor every single contributor from performers, to choreographer, to our entire support team,",
+      "word_count": 120,
+      "source_segment_ids": [
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366
+      ],
+      "created_at": "2026-06-16T12:54:12.895016",
+      "keywords": [
+        "students",
+        "children",
+        "event",
+        "singh",
+        "support",
+        "performers",
+        "evening",
+        "team"
+      ],
+      "summary": "Santi Kopta for their constant guidance and support.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "students",
+            "children"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.470274"
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0025",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "fragment_index": 25,
+      "start": 2963.32,
+      "end": 2994.32,
+      "duration": 31.0,
+      "text": "we request you to please look at the screen as their names appear. Before we close, I warmly invite all to visit aiforiacconference.com to explore all the worldwide satellite events, and to listen to 70-plus global expert speakers. Don't forget to register and join us on September 28th on the Gatherdown platform. Thank you.",
+      "word_count": 57,
+      "source_segment_ids": [
+        367,
+        368,
+        369,
+        370,
+        371,
+        372
+      ],
+      "created_at": "2026-06-16T12:54:12.895124",
+      "keywords": [
+        "satellite",
+        "all"
+      ],
+      "summary": "we request you to please look at the screen as their names appear.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "satellite"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "satellite"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:19.473223"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:19.473233"
+}

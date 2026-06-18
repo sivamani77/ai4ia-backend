@@ -1,0 +1,25 @@
+{
+  "video_id": "ljIzHkoh1lY",
+  "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+  "title": "Krishna Sunkara - THE MIRROR THAT THINKS",
+  "speakers": [
+    {
+      "name": "Krishna Sunkara",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Krishna Sankara",
+      "role": "Speaker|Unknown",
+      "affiliation": null,
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Krishna Sunkara",
+  "title_name_hint": "Krishna Sunkara",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:27:44.711795"
+}

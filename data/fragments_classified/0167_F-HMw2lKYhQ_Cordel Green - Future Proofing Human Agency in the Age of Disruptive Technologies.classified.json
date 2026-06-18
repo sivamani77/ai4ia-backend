@@ -1,0 +1,856 @@
+{
+  "source_transcript": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies.json",
+  "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+  "video_id": "F-HMw2lKYhQ",
+  "fragment_count": 8,
+  "created_at": "2026-06-16T12:54:13.715957",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0001",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "fragment_index": 1,
+      "start": 0.4,
+      "end": 73.7,
+      "duration": 73.3,
+      "text": "Ladies and gentlemen, good morning, good afternoon, good evening, wherever you are. My presentation raises questions about the future of human agency in the face of rapid incursion by machines and technology in all aspects of everyday life, including AI with the potential to become autonomous moral agents. Mankind has always been dependent on information, and it could be argued that we are information beings with everything about us coded in genes. So the quality of being human might be for some people no more than complex coding. This thinking comports with transhumanist philosophy which aspires to a redesign of humanity to allow us to transcend our biological limitations and to shape the human species through the direct application of technology.",
+      "word_count": 121,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "created_at": "2026-06-16T12:54:13.713994",
+      "keywords": [
+        "information",
+        "philosophy",
+        "moral",
+        "humanity",
+        "good",
+        "human",
+        "technology"
+      ],
+      "summary": "Ladies and gentlemen, good morning, good afternoon, good evening, wherever you are.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "philosophy",
+            "moral",
+            "humanity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.955140"
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0002",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "fragment_index": 2,
+      "start": 73.7,
+      "end": 143.08,
+      "duration": 69.38,
+      "text": "In a March 23 interview, Jaron Leneer, the godfather of virtual reality, warns about this perhaps cover layer type of thinking. He said, and I quote, a lot of modern enlightenment thinkers and technical people feel that there is something old fashioned about believing that people are special. For instance, that consciousness is a thing. They tend to think that there is an equivalence between what a computer could be and what a human brain could be end of court. That type of thinking would seek to approximate machine agency to core aspects of human cognition. So we are told, for example, that AI can lift the quality of our experience with democracy by moderating our political conversations, identifying our common positions, surfacing arguments",
+      "word_count": 124,
+      "source_segment_ids": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "created_at": "2026-06-16T12:54:13.714258",
+      "keywords": [
+        "court",
+        "type",
+        "thinking",
+        "people",
+        "human"
+      ],
+      "summary": "In a March 23 interview, Jaron Leneer, the godfather of virtual reality, warns about this perhaps cover layer type of thinking.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "court"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.961313"
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0003",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "fragment_index": 3,
+      "start": 143.08,
+      "end": 217.18,
+      "duration": 74.1,
+      "text": "of merit, whilst minimizing vitriolic and divisive speech. This type of machine agency will scale through large language models such as Facebook's massively multilingual speech project which is described as court speech recognition for the entire world end of court. These developments in the field of language and speech will, of course, ameliorate some of the deficiencies, perhaps many of the deficiencies that we experience in communication. But there is something unsettling about the domains of language and speech becoming dependent on machines. The risk of losing agency over the basics of communication is disturbing because language is the means by which humans give expression to our innermost thoughts, interpretations, feelings, reactions and memories, all of which takes place in our minds.",
+      "word_count": 123,
+      "source_segment_ids": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "created_at": "2026-06-16T12:54:13.714545",
+      "keywords": [
+        "language",
+        "risk",
+        "court",
+        "speech",
+        "agency",
+        "deficiencies",
+        "communication"
+      ],
+      "summary": "of merit, whilst minimizing vitriolic and divisive speech.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "language"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "court"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.25,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.967343"
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0004",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "fragment_index": 4,
+      "start": 217.18,
+      "end": 290.14,
+      "duration": 72.96,
+      "text": "Beyond the notion of colonizing language, our brain, which is the last bastion of freedom, is being decoded by machines. And insights from neural technology are mainstreaming the theory that there is no such thing as a free will. Following that line of thought, it might not be considered unethical, for example, to purposely design technologies that bypass our rational defenses. What does that pretend for the theoretical assumptions on which we have based concepts of legal decision-making, such as the presumption of innocence, the capacity to freely contract informed consent and the rights and obligations that flow from such concepts? I want to make some specific recommendations on how we could respond. And I do so fully conscious of the need to avoid rights inflation.",
+      "word_count": 127,
+      "source_segment_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "created_at": "2026-06-16T12:54:13.714825",
+      "keywords": [
+        "legal",
+        "rights",
+        "freedom",
+        "language",
+        "concepts"
+      ],
+      "summary": "Beyond the notion of colonizing language, our brain, which is the last bastion of freedom, is being decoded by machines.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "rights",
+            "freedom"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "freedom",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.972681"
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0005",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "fragment_index": 5,
+      "start": 290.14,
+      "end": 358.08,
+      "duration": 67.94,
+      "text": "First, digital media and information literacy I contend should be promoted as a specific human right, something I might be repeating here, but worth repeating a nauseam, not just as a derivative of the right to freedom of expression in Article 19 of the Universal Declaration, as the IEEE asserts in its ethically aligned design and I quote, human rights in the digital sphere do not exist until individuals globally are empowered with means, including tools and policies, that ensure their dignity through some form of sovereignty, agency, symmetry, or control regarding their identity and personal data, end of court. Second, we should consider creating a new set of rights that are new or specific, encompassing the right to cognitive liberty or mental self-determination.",
+      "word_count": 125,
+      "source_segment_ids": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "created_at": "2026-06-16T12:54:13.715079",
+      "keywords": [
+        "human rights",
+        "rights",
+        "freedom",
+        "media",
+        "information",
+        "literacy",
+        "court",
+        "sovereignty",
+        "right",
+        "digital",
+        "specific",
+        "human",
+        "repeating",
+        "new"
+      ],
+      "summary": "First, digital media and information literacy I contend should be promoted as a specific human right, something I might be repeating here, but worth repeating a nauseam, not just as a derivative of the right to...",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights",
+            "freedom"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "media",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.167,
+          "matched_keywords": [
+            "literacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "freedom",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "court",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.167,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.167,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.167,
+          "matched_keywords": [
+            "sovereignty"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.977927"
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0006",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "fragment_index": 6,
+      "start": 358.08,
+      "end": 431.16,
+      "duration": 73.08,
+      "text": "As Nita Farani observes, there are no legal protections from having our mind involuntarily read. The law contemplates externalities in the sense that we should not be constrained from formulating thoughts and expressing them freely. But jurisprudence of the mind is about something else. It protects the brain as an operating system which should be invalid to intrusion by means of neural computation, meaning that third parties should not access a person's mental information or make inferences from their mental data whether it be neurological, cognitive, or effective information or collect any such data without the consent of the data subject. Third, the law should impose fiduciary responsibilities on technology companies as a response to information, asymmetry, and power imbalance between big tech governments and ordinary people.",
+      "word_count": 128,
+      "source_segment_ids": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "created_at": "2026-06-16T12:54:13.715356",
+      "keywords": [
+        "law",
+        "information",
+        "legal",
+        "data",
+        "mind",
+        "third",
+        "mental"
+      ],
+      "summary": "As Nita Farani observes, there are no legal protections from having our mind involuntarily read.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "legal"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "law"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "law"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.983362"
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0007",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "fragment_index": 7,
+      "start": 431.8,
+      "end": 508.41,
+      "duration": 76.61,
+      "text": "We can model other relations of power and trust, such as lawyer, client, doctor, and patient where the fiduciary, in this case, big tech, has an obligation to protect the interest of the vulnerable party, ordinary citizens, with likely very low levels of digital literacy. Fourth, there needs to be strong advocacy for a global framework of humane realism built on principles such as the UNESCO recommendation on the ethics of AI and the other considerable body of international South law that has emerged from intergovernmental and standard setting bodies. But expectations of multilateralism must be tempered because multilateral organizations sadly seem to be getting weaker or experiencing stasis at a time when they are needed most to be very strong. So civil society, although very often those organizations are poorly funded and need",
+      "word_count": 134,
+      "source_segment_ids": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "created_at": "2026-06-16T12:54:13.715619",
+      "keywords": [
+        "ethics",
+        "law",
+        "trust",
+        "framework",
+        "principles",
+        "unesco",
+        "patient",
+        "recommendation",
+        "unesco recommendation",
+        "digital literacy",
+        "model",
+        "other",
+        "strong",
+        "organizations"
+      ],
+      "summary": "We can model other relations of power and trust, such as lawyer, client, doctor, and patient where the fiduciary, in this case, big tech, has an obligation to protect the interest of the vulnerable party, ordinary...",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics",
+            "trust",
+            "framework",
+            "principles"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.25,
+          "matched_keywords": [
+            "patient"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "recommendation",
+            "unesco recommendation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.6,
+          "matched_keywords": [
+            "ethics",
+            "principles",
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.6,
+          "matched_keywords": [
+            "digital literacy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.6,
+          "matched_keywords": [
+            "digital literacy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.4,
+          "matched_keywords": [
+            "framework",
+            "model"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.988646"
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0008",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "fragment_index": 8,
+      "start": 508.41,
+      "end": 580.66,
+      "duration": 72.25,
+      "text": "capacity building, civil society needs to be a key player in a global coalition of progressive forces involving actors across all vectors of society and culture. In other words, we need a new multilateralism which builds from the bottom up. Finally, I should say that the future of human agency need not be dystopian if we look through the lens of an alternative universe that rejects technological determinism and information feudalism. We can preserve a world which is human-centric, with values such as human dignity, mental, physical and digital privacy and freedom of information intact. And at the same time, we can build a better future with the help of technology and not better technology at the expense of most of humanity as Carlos Marriera and David Ferguson observe in their book The Transhuman Code. Thank you.",
+      "word_count": 138,
+      "source_segment_ids": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "created_at": "2026-06-16T12:54:13.715942",
+      "keywords": [
+        "information",
+        "freedom of information",
+        "privacy",
+        "freedom",
+        "culture",
+        "values",
+        "humanity",
+        "society",
+        "need",
+        "future",
+        "human",
+        "better",
+        "technology"
+      ],
+      "summary": "capacity building, civil society needs to be a key player in a global coalition of progressive forces involving actors across all vectors of society and culture.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "freedom of information"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.4,
+          "matched_keywords": [
+            "privacy",
+            "freedom"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.2,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "values",
+            "humanity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy",
+            "freedom"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.994757"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:31.994766"
+}

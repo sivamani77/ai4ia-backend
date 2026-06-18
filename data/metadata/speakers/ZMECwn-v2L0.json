@@ -1,0 +1,25 @@
+{
+  "video_id": "ZMECwn-v2L0",
+  "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
+  "title": "Pavel Vega - AI4IA 2025",
+  "speakers": [
+    {
+      "name": "Pavel Vega",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Pavel Bega",
+      "role": "Speaker",
+      "affiliation": "Guatemala",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Pavel Vega",
+  "title_name_hint": "Pavel Vega",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:26:51.990308"
+}

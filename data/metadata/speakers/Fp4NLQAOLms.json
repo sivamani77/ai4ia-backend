@@ -1,0 +1,31 @@
+{
+  "video_id": "Fp4NLQAOLms",
+  "source_video": "0146_Fp4NLQAOLms_Mike Johns - AI what's all the hype really about",
+  "title": "Mike Johns - AI what's all the hype really about",
+  "speakers": [
+    {
+      "name": "Mike Johns",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Vinnie Brown",
+      "role": "Moderator",
+      "affiliation": null,
+      "confidence": 1.0
+    },
+    {
+      "name": "Mike John's",
+      "role": "Speaker",
+      "affiliation": "digital mind state",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Mike Johns",
+  "title_name_hint": "Mike Johns",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:30:55.878118"
+}

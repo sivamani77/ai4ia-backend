@@ -1,0 +1,17 @@
+{
+  "job_id": "job_20260616_070457_b81b6d1d",
+  "type": "generate_export_latest",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-16T07:04:57.420148",
+  "started_at": "2026-06-16T07:04:57.420620",
+  "completed_at": "2026-06-16T07:06:42.453509",
+  "payload": {
+    "output": "ai4ia_demo_mvp.mp4",
+    "manifest_path": "string",
+    "burn_subtitles": true
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_070457_b81b6d1d.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/exports/ai4ia_demo_v4_refined.mp4",
+  "error": null
+}

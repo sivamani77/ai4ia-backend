@@ -1,0 +1,1239 @@
+{
+  "source_transcript": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation.json",
+  "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+  "video_id": "aFtkmF49jCQ",
+  "fragment_count": 10,
+  "created_at": "2026-06-16T12:54:13.649011",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0001",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 1,
+      "start": 1.33,
+      "end": 74.15,
+      "duration": 72.82,
+      "text": "Good morning. First I'd like to thank the organizers of the AI for Information Accessibility Conference for inviting me to present to you today. My presentation is going to be focused on how the public accounts' committees in Parliament can harness the digital transformation to provide a better oversight over the government operations. The presentation will include first to highlight what we consider as a key aspect of the digital transformation that will enable the oversight and most importantly the use of data and the digital technologies such as the AI to improve the way that the Parliament works, particularly on Israel on the oversight of public finances for the executive. If you look at that particular role that role usually is executed through Parliamentary",
+      "word_count": 126,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "created_at": "2026-06-16T12:54:13.646608",
+      "keywords": [
+        "information accessibility",
+        "accessibility",
+        "information",
+        "conference",
+        "oversight",
+        "government",
+        "digital",
+        "first",
+        "presentation",
+        "public",
+        "parliament",
+        "transformation",
+        "role"
+      ],
+      "summary": "First I'd like to thank the organizers of the AI for Information Accessibility Conference for inviting me to present to you today.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "information",
+            "conference"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.6,
+          "matched_keywords": [
+            "oversight"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.2,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "oversight"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "conference"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.851867"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0002",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 2,
+      "start": 74.15,
+      "end": 142.07,
+      "duration": 67.92,
+      "text": "committees that are established as appropriate mechanism to execute this oversight mandate and specifically public accounts' committees act as a parliamentary stock over where taxpayers' money is spent. It is therefore important to focus on how the digital technologies as well as the availability of data can actually be harnessed to improve the transparency of these operations, improving the transparency of these operations all not only increase the oversight but also has the public trust in government. Now research has shown that in the eastern and southern African countries the right of access to information really varies. From those where the public accounts' committees can only have access to national government departments, to the areas where you would find that",
+      "word_count": 120,
+      "source_segment_ids": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "created_at": "2026-06-16T12:54:13.646873",
+      "keywords": [
+        "access to information",
+        "public trust",
+        "information",
+        "transparency",
+        "oversight",
+        "trust",
+        "government",
+        "committees",
+        "public",
+        "accounts",
+        "operations",
+        "only",
+        "access"
+      ],
+      "summary": "committees that are established as appropriate mechanism to execute this oversight mandate and specifically public accounts' committees act as a parliamentary stock over where taxpayers' money is spent.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.833,
+          "matched_keywords": [
+            "oversight",
+            "transparency",
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "public trust"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "trust",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 25",
+          "chapter": "Ch 25: AI & Intellectual Property",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.75,
+          "matched_keywords": [
+            "public trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "oversight"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.856840"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0003",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 3,
+      "start": 142.07,
+      "end": 207.61,
+      "duration": 65.54,
+      "text": "the public accounts' committee has both access to the national government and the sub-national government departments as well as all other types that receive public funding. This will include the NGOs and government service providers and this is the case for sub-Africa for instance. Now how can we use the digital transformation to improve these public accounts? Now the first really thing that we want to highlight here is to improve the transparency and accountability by making government data available and transparent it will increase the accountability in the government to make oversight more efficient and effective. Some of the ways in which the digital technologies can be used by public account committees and this is some of them, it includes the collect and analyze data",
+      "word_count": 128,
+      "source_segment_ids": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "created_at": "2026-06-16T12:54:13.647137",
+      "keywords": [
+        "oversight",
+        "accountability",
+        "transparency",
+        "government",
+        "public",
+        "accounts",
+        "now",
+        "digital",
+        "improve",
+        "data"
+      ],
+      "summary": "the public accounts' committee has both access to the national government and the sub-national government departments as well as all other types that receive public funding.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "oversight",
+            "accountability",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.833,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "transparency",
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "oversight",
+            "accountability"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.861991"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0004",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 4,
+      "start": 207.61,
+      "end": 271.38,
+      "duration": 63.77,
+      "text": "to enable the engagements with citizens and civil society to collaborate with other stakeholders that may not necessarily be included in the unless and to improve transparency in the government operations. And this last point is the one that is the main focus of this particular presentation but before we go to the improvement of the transparency in government operations we just want to highlight how digital technologies can be used to collect and analyze data that can help the committees. Now with that once the data is available which the committees can enable the departments to make that data available they can easily identify the patterns and trends in government spending for instance which could also be where in which it can flag the potential areas of waste and corruption",
+      "word_count": 131,
+      "source_segment_ids": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "created_at": "2026-06-16T12:54:13.647396",
+      "keywords": [
+        "transparency",
+        "government",
+        "citizens",
+        "data",
+        "enable",
+        "operations",
+        "committees",
+        "available"
+      ],
+      "summary": "to enable the engagements with citizens and civil society to collaborate with other stakeholders that may not necessarily be included in the unless and to improve transparency in the government operations.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government",
+            "citizens",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.867127"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0005",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 5,
+      "start": 271.38,
+      "end": 333.46,
+      "duration": 62.08,
+      "text": "by just analyzing the spending data against the budget that has been provided and can make more informed decisions about the way to focus their oversight efforts and some of the tools that they can actually use to do this include predictive analysis, analytics and to put the machine learning capabilities whilst the data is available to them. Now the second part would be the engagement of citizens and civil societies and the public account committee can use these technologies to engage with citizens and civil society in a variety of ways which will influence through online platforms whereas citizens can submit complaints and feedback or by using social media to share information about their work and soliciting put from the public.",
+      "word_count": 122,
+      "source_segment_ids": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "created_at": "2026-06-16T12:54:13.647641",
+      "keywords": [
+        "media",
+        "information",
+        "oversight",
+        "learning",
+        "citizens",
+        "data",
+        "use",
+        "put",
+        "civil",
+        "public"
+      ],
+      "summary": "by just analyzing the spending data against the budget that has been provided and can make more informed decisions about the way to focus their oversight efforts and some of the tools that they can actually...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "oversight"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "citizens"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "oversight"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.871926"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0006",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 6,
+      "start": 333.46,
+      "end": 397.97,
+      "duration": 64.51,
+      "text": "And some of the areas that could be used is to include the online service, social media, listening tools and video conferencing platforms. Currently most of those are used one way but they should also be used in a way to collect the information and by collaboration with other stakeholders and public account committees can use these digital technologies to collaborate with others such as government agencies, civil society and private sector and by sharing data and information by working together on joint investigations and audits by developing common standards and frameworks. Now the final anecdote that will focus on would be more on the improvement of transparency in government operations which in a sense is embracing the concept of open government.",
+      "word_count": 122,
+      "source_segment_ids": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "created_at": "2026-06-16T12:54:13.647904",
+      "keywords": [
+        "media",
+        "information",
+        "transparency",
+        "standards",
+        "government",
+        "used",
+        "way"
+      ],
+      "summary": "And some of the areas that could be used is to include the online service, social media, listening tools and video conferencing platforms.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "transparency",
+            "standards"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "standards"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.876766"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0007",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 7,
+      "start": 397.97,
+      "end": 467.45,
+      "duration": 69.48,
+      "text": "The concept of open government is embraced globally as the use and governance of data and digital technologies to improve transparency in government operations. And some of Africa is one of the founding members of the open government partnership that was established in 2011 to really drive this issue of the use and governance of data and digital technologies. The initiatives main aims are to promote transparency, to empower citizens and to fight corruption and to harness new technologies to strengthen governance. Now each member commits to an action plan, developed with public consultation and committed to reporting on the progress. Now this is a mechanism that could be used by the public accounts committees as well to understand the commitments towards these particular ideals by many of the countries that are there.",
+      "word_count": 133,
+      "source_segment_ids": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "created_at": "2026-06-16T12:54:13.648192",
+      "keywords": [
+        "governance",
+        "transparency",
+        "africa",
+        "government",
+        "citizens",
+        "technologies",
+        "open",
+        "use",
+        "data",
+        "digital",
+        "now",
+        "public"
+      ],
+      "summary": "The concept of open government is embraced globally as the use and governance of data and digital technologies to improve transparency in government operations.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "governance",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.4,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.2,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "government",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government",
+            "citizens",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.167,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.882144"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0008",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 8,
+      "start": 467.45,
+      "end": 536.4,
+      "duration": 68.95,
+      "text": "And again that being done in the parliamentary committees really would find benefit in engaging in the open government process which is really open to parliament as well as the other branches of government and it supports many of the aspirations of parliament. For the executive branch for instance, parliamentary engagement opens up the opportunities for security and legislation that actually enables executive branch commitments, resource for implementations as well as the situation reforms. Then example, if the commitment is to have open data and open data exchange platforms, then the parliament will enable that by opening up the legislation where there is a need. For parliament themselves is from the domestic perspective is to mechanism to hear from citizens and society",
+      "word_count": 122,
+      "source_segment_ids": [
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "created_at": "2026-06-16T12:54:13.648442",
+      "keywords": [
+        "open data",
+        "legislation",
+        "security",
+        "government",
+        "citizens",
+        "open",
+        "parliament",
+        "parliamentary",
+        "really",
+        "well",
+        "executive",
+        "branch",
+        "data"
+      ],
+      "summary": "And again that being done in the parliamentary committees really would find benefit in engaging in the open government process which is really open to parliament as well as the other branches of government and it...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "open data"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "legislation"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.167,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "open data"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "legislation",
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "government",
+            "citizens"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.167,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.887032"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0009",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 9,
+      "start": 536.4,
+      "end": 610.78,
+      "duration": 74.38,
+      "text": "between electoral circles on how they can better serve the people, they represent. These mechanisms will really enable better accountability in the long run. For civil society organization is the parliamentary engagement is a crucial aspect of securing the sustainability of reforms across administrations and political circles. So some of the options that the parliament have to engage in open government is really into aspects. First aspect is action plan development. An action plan development could be both in the identification, solution mapping and identifying priorities or through co-creation of commitments with governments. And a number of governments when the African continent already engaging in this particular aspect, and good examples will be kept wet in Nigeria and Kenya, which are using this form of engagements from the parliamentary perspective.",
+      "word_count": 131,
+      "source_segment_ids": [
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "created_at": "2026-06-16T12:54:13.648700",
+      "keywords": [
+        "accountability",
+        "sustainability",
+        "government",
+        "aspect",
+        "circles",
+        "better",
+        "really",
+        "parliamentary",
+        "action",
+        "plan",
+        "development",
+        "governments"
+      ],
+      "summary": "between electoral circles on how they can better serve the people, they represent.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "accountability"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "sustainability"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "sustainability"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.892305"
+    },
+    {
+      "fragment_id": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation_0010",
+      "source_video": "0152_aFtkmF49jCQ_Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformation",
+      "video_id": "aFtkmF49jCQ",
+      "fragment_index": 10,
+      "start": 610.78,
+      "end": 682.93,
+      "duration": 72.15,
+      "text": "The second aspect is implementation and monitoring of action plans. And this is really a key aspect and this can be done through legislative action to implement the open government commitments or through the legislative oversight of the open government commitments and activities. This would really require that the executive does reporting on the commitments as well as the activities in those particular commitments. So in conclusion, we see that the digital transformations offer a number of opportunities for public accounts committees to improve their oversight work. And by using these digital technologies to connect and analyze data, engage with citizens and civil society and to collaborate with other stakeholders. Public accounts committees can make more significant contribution to transparency and accountability in government. Thank you.",
+      "word_count": 126,
+      "source_segment_ids": [
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92
+      ],
+      "created_at": "2026-06-16T12:54:13.648994",
+      "keywords": [
+        "oversight",
+        "accountability",
+        "transparency",
+        "government",
+        "citizens",
+        "commitments",
+        "aspect",
+        "action",
+        "really",
+        "legislative",
+        "open",
+        "activities",
+        "digital",
+        "public",
+        "accounts"
+      ],
+      "summary": "The second aspect is implementation and monitoring of action plans.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "oversight",
+            "accountability",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government",
+            "citizens",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.6,
+          "matched_keywords": [
+            "oversight",
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.6,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.4,
+          "matched_keywords": [
+            "transparency",
+            "accountability"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.897334"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:30.897340"
+}

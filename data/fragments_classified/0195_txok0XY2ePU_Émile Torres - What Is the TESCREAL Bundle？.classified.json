@@ -1,0 +1,1077 @@
+{
+  "source_transcript": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？.json",
+  "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+  "video_id": "txok0XY2ePU",
+  "fragment_count": 14,
+  "created_at": "2026-06-16T12:54:13.870011",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0001",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 1,
+      "start": 0.27,
+      "end": 42.51,
+      "duration": 42.24,
+      "text": "Hello, I'm Emil Petoras, and this talk is titled What Is The Test Group Bundle, Understanding the Race to Create Artificial General Intelligence. Billions of dollars are currently being poured into research projects to build artificial general intelligence, or AGI, defined roughly as any system capable of performing as well as, or better than, humans in every cognitive domain of interest. The two most notable examples are DeepMind, which is acquired by Google in 2014, and OpenAI, which has received $13 billion in funding for Microsoft. But why? What explains the billion dollar back to race to create AGI? The most obvious answer is profit. Microsoft and Google expect to make huge amounts of money from AGI. But this is only half the story.",
+      "word_count": 125,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "created_at": "2026-06-16T12:54:13.865262",
+      "keywords": [
+        "race",
+        "research",
+        "agi",
+        "create",
+        "artificial",
+        "general",
+        "intelligence",
+        "most",
+        "google",
+        "billion",
+        "microsoft"
+      ],
+      "summary": "Hello, I'm Emil Petoras, and this talk is titled What Is The Test Group Bundle, Understanding the Race to Create Artificial General Intelligence.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "race"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "race"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.897921"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0002",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 2,
+      "start": 42.51,
+      "end": 93.63,
+      "duration": 51.12,
+      "text": "The other half concerns a cluster of overlapping and interconnected ideologies that the computer scientist Timnay Gepprew and I call the test group bundle. The acronym test group stands for Transhumanism, Extropanism, Singularitarianism, Cosmism, Rationalism, Effective Ultrism, and Long Termism. We don't need to discuss each of these ideologies here, though it would be useful to briefly explain Transhumanism, Effective Ultrism, and Long Termism. Transhumanism is a version of eugenics, which claims that we should radically reengineer humanity using advanced technologies to create a superior new race of post-humans. These post-humans could be immortal, superhumanly intelligent, and have perfect control over their emotions. Leading transhumanists include Nick Bostrom and Ray Kurzweil. Effective Ultrism, or EA, is an attempt to use reason and evidence to figure out the",
+      "word_count": 130,
+      "source_segment_ids": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "created_at": "2026-06-16T12:54:13.865651",
+      "keywords": [
+        "race",
+        "humanity",
+        "transhumanism",
+        "effective",
+        "ultrism",
+        "ideologies",
+        "test",
+        "group",
+        "long",
+        "termism",
+        "post-humans"
+      ],
+      "summary": "The other half concerns a cluster of overlapping and interconnected ideologies that the computer scientist Timnay Gepprew and I call the test group bundle.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "race"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "humanity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "race"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.903454"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0003",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 3,
+      "start": 93.63,
+      "end": 135.83,
+      "duration": 42.2,
+      "text": "best ways to do the most good in the world. This might sound compelling at first, but in practice, EA has, many would argue, done significant harm in the world. For example, some people in the global south have argued that it makes their grassroots organizations even less likely to get funding. And EA organizations have encouraged young people like Sam Bankman Freed to pursue lucrative jobs on Wall Street or in crypto, so they can donate more to EA-approved charities. Right now, Bankman Freed, arguably the most prominent EA in the world, is facing multiple felony charges for perpetrating one of the biggest financial frauds in US history. Long Termism is an ideology developed by transhumanists and Effective Ultras over the past two",
+      "word_count": 125,
+      "source_segment_ids": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "created_at": "2026-06-16T12:54:13.865976",
+      "keywords": [
+        "global south",
+        "young people",
+        "jobs",
+        "harm",
+        "world",
+        "most",
+        "people",
+        "organizations",
+        "bankman",
+        "freed"
+      ],
+      "summary": "best ways to do the most good in the world.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "global south",
+            "young people"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "global south"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "young people"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "jobs"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.333,
+          "matched_keywords": [
+            "harm"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.908386"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0004",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 4,
+      "start": 135.83,
+      "end": 175.95,
+      "duration": 40.12,
+      "text": "decades. It claims that the best way to do the most good is to focus on the very far future, millions of billions and even trillions of years from now. The reason is that there could be far more people in the future than exist at present. This is especially true if we colonize space and create digital beings living in vast computer simulations spread throughout the accessible universe. According to Bostrom, at least 10 to the 58 digital people could exist in the future that's a one followed by 58 zeros, which is unfathomably larger than the 8 billion people alive today. Hence, if one's goal is to positively influence the greatest number of people, and if most",
+      "word_count": 121,
+      "source_segment_ids": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "created_at": "2026-06-16T12:54:13.866300",
+      "keywords": [
+        "accessible",
+        "people",
+        "future",
+        "most",
+        "far",
+        "exist",
+        "digital"
+      ],
+      "summary": "It claims that the best way to do the most good is to focus on the very far future, millions of billions and even trillions of years from now.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessible"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.912895"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0005",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 5,
+      "start": 175.95,
+      "end": 220.35,
+      "duration": 44.4,
+      "text": "people who could exist, will exist in the far future. The rational altruist ought to focus on how their actions might affect these future beings rather than those living today. It's not that future people matter more, it's just a numbers game. One person, whether actual or hypothetical, counts for one, and the number of possible future people is orders of magnitude greater than the number of current people on earth. Transhumanism, effective altruism, and long-termism are central components of the test-grill bundle. Together they serve two important functions. First, they articulate and foreground a particular technic utopian vision of the future in which we become radically enhanced post-humans, plunder the universe for its vast resources, build",
+      "word_count": 122,
+      "source_segment_ids": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+      ],
+      "created_at": "2026-06-16T12:54:13.866588",
+      "keywords": [
+        "future",
+        "people",
+        "exist",
+        "it's",
+        "one",
+        "number"
+      ],
+      "summary": "people who could exist, will exist in the far future.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.917808"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0006",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 6,
+      "start": 220.35,
+      "end": 269.99,
+      "duration": 49.64,
+      "text": "giant computer simulations to house trillions of digital people, and ultimately creates quote astronomical amounts of value. Second, they provide a superficially moral case for why realizing this vision should be our top global priority. It's something that humanity ought to strive toward, they argue, and it should take precedence over everything else or nearly everything else. The connection with AGI is this. Many test-grillists, by which I mean someone who accepts one or more of the test-grill ideologies, believe that a so-called value-aligned AGI is our surest path to paradise. It's our golden ticket to a utopian state of radical abundance, immortality, and space colonization. Since test-grillists tend to see everything as an engineering problem, many believe that",
+      "word_count": 126,
+      "source_segment_ids": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "created_at": "2026-06-16T12:54:13.866921",
+      "keywords": [
+        "moral",
+        "humanity",
+        "everything",
+        "it's",
+        "else",
+        "agi",
+        "many",
+        "test-grillists",
+        "believe"
+      ],
+      "summary": "giant computer simulations to house trillions of digital people, and ultimately creates quote astronomical amounts of value.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "moral",
+            "humanity"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.922800"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0007",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 7,
+      "start": 269.99,
+      "end": 318.82,
+      "duration": 48.83,
+      "text": "AGI will solve literally all of our problems. However, some test-grillists also claim that AGI could pose the single greatest existential risk to humanity this century. If the AGI is value misaligned, it will immediately kill everyone on Earth, thereby destroying our quote vast and glorious future among the stars. The result is a catch-22, creating technotopia may be impossible without AGI, yet building AGI could backfire if we fail to properly align its goals. There is only one way forward, but it takes us through a field of deadly landmines. The supposed techno-utopian promises and apocalyptic dangers associated with AGI played an integral role in the founding of deep-minded open AGI. The profit motive is one half of the picture, as we noted.",
+      "word_count": 128,
+      "source_segment_ids": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "created_at": "2026-06-16T12:54:13.867309",
+      "keywords": [
+        "risk",
+        "humanity",
+        "agi",
+        "one"
+      ],
+      "summary": "AGI will solve literally all of our problems.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "humanity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.929068"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0008",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 8,
+      "start": 318.82,
+      "end": 361.46,
+      "duration": 42.64,
+      "text": "Well, the other half is the test-grill worldview, according to which AGI will either usher in utopia or completely destroy us. As we should want to create utopia, we need to figure out how to build a safe AGI, though not everyone agrees that deep-mind and open AGI are developing their AIS systems in a sufficiently safe manner. Here it's useful to distinguish between two major camps within the test-grill movement, AI accelerationists and AI doomers. Both are in broad agreement about the ultimate goal, to re-engineer humanity, spread into space, overcome scarcity, and maximize value. What they disagree about is the probability of an existential catastrophe if AGI is created in the near future.",
+      "word_count": 120,
+      "source_segment_ids": [
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "created_at": "2026-06-16T12:54:13.867684",
+      "keywords": [
+        "humanity",
+        "agi",
+        "test-grill",
+        "utopia",
+        "safe"
+      ],
+      "summary": "Well, the other half is the test-grill worldview, according to which AGI will either usher in utopia or completely destroy us.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "humanity"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.934110"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0009",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 9,
+      "start": 361.46,
+      "end": 407.62,
+      "duration": 46.16,
+      "text": "Accelerationists like the tech billionaire Mark Injuryson believe the probability is very low, and hence we should accelerate progress toward AGI. Doomers, like Elias Ryakowski, disagree, arguing that the probability of an existential catastrophe is extremely high if we create AGI in the near future, and hence we should ban or at least pause AGI research projects. In Kalski, in fact, recently argued in the Pages of Time magazine that countries should engage in military strikes against data centers to prevent AGI, even at the risk of trickering in all-out thermonuclear war that kills billions of people. In his view, a thermonuclear war probably wouldn't obliterate our long-term chances of creating a tech utopian world among the heavens, but a value misaligned AGI would.",
+      "word_count": 127,
+      "source_segment_ids": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "created_at": "2026-06-16T12:54:13.867993",
+      "keywords": [
+        "risk",
+        "research",
+        "agi",
+        "tech",
+        "probability",
+        "hence",
+        "thermonuclear",
+        "war"
+      ],
+      "summary": "Accelerationists like the tech billionaire Mark Injuryson believe the probability is very low, and hence we should accelerate progress toward AGI.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "risk"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "risk"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.939237"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0010",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 10,
+      "start": 407.62,
+      "end": 452.88,
+      "duration": 45.26,
+      "text": "Hence, when he was asked how many people should be, quote, allowed to die to stop AGI from being built in the near future, he responded that so long as a viable reproductive population remains, which might be about 40,000 people, then in his words, there's still a chance of reaching the stars someday. Although AI accelerationism and AI humorism might appear to be completely different positions at first glance, they are both versions of the test cruel movement. So test realism is at the heart of both the race to create AGI, and the Doomers backlash led by people like Yadkowski. Let me conclude with several reasons why all of this should be very disconcerting. First, the utopian vision at the center of test cruelism is profoundly impoverished.",
+      "word_count": 131,
+      "source_segment_ids": [
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "created_at": "2026-06-16T12:54:13.868442",
+      "keywords": [
+        "race",
+        "people",
+        "test",
+        "agi",
+        "might",
+        "first",
+        "both"
+      ],
+      "summary": "Hence, when he was asked how many people should be, quote, allowed to die to stop AGI from being built in the near future, he responded that so long as a viable reproductive population remains, which...",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "race"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "race"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.944856"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0011",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 11,
+      "start": 452.88,
+      "end": 501.12,
+      "duration": 48.24,
+      "text": "It was developed almost entirely by privileged white men in Silicon Valley and at elite universities like Oxford, and it embodies many of the worst aspects of the Baconian-capitalistic worldview that dominates in the West. If the test cruel worldview were fully realized, I believe it would be catastrophic for most of humanity, as many cultures, nations, groups, and traditions don't share the western desiderada of subjugation, exploitation, and maximization that underlie the core ethos of test realism. Second, the pursuit of these utopian fantasies, egg-donned by the accelerationists, will cause immense harms along the way, especially to marginalized communities. History is full of utopian movements that left a trail of destruction in their wake, and this time will be no different.",
+      "word_count": 125,
+      "source_segment_ids": [
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118
+      ],
+      "created_at": "2026-06-16T12:54:13.868853",
+      "keywords": [
+        "marginalized",
+        "humanity",
+        "communities",
+        "many",
+        "worldview",
+        "test",
+        "utopian"
+      ],
+      "summary": "It was developed almost entirely by privileged white men in Silicon Valley and at elite universities like Oxford, and it embodies many of the worst aspects of the Baconian-capitalistic worldview that dominates in the West.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "marginalized"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "humanity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "communities"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.950577"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0012",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 12,
+      "start": 501.12,
+      "end": 544.32,
+      "duration": 43.2,
+      "text": "We're already seeing this with companies like OpenAI, which hired another company that paid Kenyan workers a mere $1.32 per hour to sift through some of the darkest corners of the internet. The systems that OpenAI has developed, such as ChatGPT, were also built on massive intellectual property theft, causing serious harms to artists and writers whose work was used without permission, attribution, or compensation. And the third, the AI-Dumer branch of the test group movement, has become so convinced that AGI poses an existential risk that some are now advocating for extreme actions to stop AGI from being developed in the near future, including military strikes that could trigger a nuclear catastrophe that kills literally billions of people.",
+      "word_count": 122,
+      "source_segment_ids": [
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128
+      ],
+      "created_at": "2026-06-16T12:54:13.869196",
+      "keywords": [
+        "intellectual property",
+        "risk",
+        "openai",
+        "developed",
+        "agi"
+      ],
+      "summary": "We're already seeing this with companies like OpenAI, which hired another company that paid Kenyan workers a mere $1.32 per hour to sift through some of the darkest corners of the internet.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "intellectual property"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 25",
+          "chapter": "Ch 25: AI & Intellectual Property",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "intellectual property"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.333,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 25: AI & Intellectual Property",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.956682"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0013",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 13,
+      "start": 544.32,
+      "end": 588.68,
+      "duration": 44.36,
+      "text": "If 7 billion deaths is what it takes to safeguard our techno-utopian future among the heavens, then so be it, these doomer test queries would claim. This is an immensely dangerous and volatile situation, and much of the blame should be placed on the test group bundle of ideologies. The promise of utopia is driving the rush to build AGI, while the threat of annihilation could, quote, unquote, justify, extreme measures that result in billions of deaths. Meanwhile, the intense hype surrounding AGI, both utopian and apocalyptic, is distracting from the many real world harms that AI companies are already causing to currently people, especially the most vulnerable and disadvantaged, while simultaneously concentrating even more power in the hands of the tech elite.",
+      "word_count": 124,
+      "source_segment_ids": [
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138
+      ],
+      "created_at": "2026-06-16T12:54:13.869530",
+      "keywords": [
+        "threat",
+        "deaths",
+        "test",
+        "agi",
+        "while"
+      ],
+      "summary": "If 7 billion deaths is what it takes to safeguard our techno-utopian future among the heavens, then so be it, these doomer test queries would claim.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "threat"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.962913"
+    },
+    {
+      "fragment_id": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？_0014",
+      "source_video": "0195_txok0XY2ePU_Émile Torres - What Is the TESCREAL Bundle？",
+      "video_id": "txok0XY2ePU",
+      "fragment_index": 14,
+      "start": 588.68,
+      "end": 618.93,
+      "duration": 30.25,
+      "text": "In my view, one of the most insidious dangers facing humanity right now is the test group bundle itself. To counteract its growing and pernicious influence, one needs some understanding of what these ideologies are, how they're shaping the contemporary discourse on AGI, and why their techno-utopian vision of the future would be devastating for most of humanity. I hope in this talk was modest. To introduce viewers to the test group bundle and gesture at why this topic matters so much to me and why I believe it should matter to you as well. Thank you.",
+      "word_count": 99,
+      "source_segment_ids": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147
+      ],
+      "created_at": "2026-06-16T12:54:13.869818",
+      "keywords": [
+        "humanity",
+        "one",
+        "most",
+        "test",
+        "group",
+        "bundle"
+      ],
+      "summary": "In my view, one of the most insidious dangers facing humanity right now is the test group bundle itself.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "humanity"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.65,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:33.967959"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:33.967968"
+}

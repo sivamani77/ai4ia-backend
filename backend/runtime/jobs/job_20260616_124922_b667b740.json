@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_124922_b667b740",
+  "type": "generate_storyline",
+  "status": "failed",
+  "progress": 100,
+  "created_at": "2026-06-16T12:49:22.763686",
+  "started_at": "2026-06-16T12:49:22.764514",
+  "completed_at": "2026-06-16T12:50:34.255061",
+  "payload": {
+    "prompt": "Create a 1-minute AI Equity, Inclusion & Social Justice\nCh 11: Disabilities, Assistive Tech & Accessibility\n",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_124922_b667b740.log",
+  "result_path": null,
+  "error": "Script failed with exit code -2"
+}

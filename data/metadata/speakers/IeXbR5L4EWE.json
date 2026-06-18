@@ -1,0 +1,25 @@
+{
+  "video_id": "IeXbR5L4EWE",
+  "source_video": "0182_IeXbR5L4EWE_Ashwini Kotaru - Implications of Large Language Models",
+  "title": "Ashwini Kotaru - Implications of Large Language Models",
+  "speakers": [
+    {
+      "name": "Ashwini Kotaru",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Ashwini Kutaro",
+      "role": "Speaker",
+      "affiliation": "Gayan Solutions",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Ashwini Kotaru",
+  "title_name_hint": "Ashwini Kotaru",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:31:53.758942"
+}

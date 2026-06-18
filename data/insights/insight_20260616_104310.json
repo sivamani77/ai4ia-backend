@@ -1,0 +1,232 @@
+{
+  "insight_id": "insight_20260616_104310",
+  "title": "AI Governance: Ensuring Ethics and Inclusion",
+  "query": "ai governance\n",
+  "filters": {},
+  "summary": "Effective AI governance requires a multifaceted approach that prioritizes ethics, inclusivity, and accountability. UNESCO's recommendation on the ethics of artificial intelligence serves as a landmark framework for nations to place human rights at the forefront. Countries are developing national strategies to ensure responsible AI development, but challenges persist in balancing governance with innovation.",
+  "patterns": [
+    {
+      "statement": "AI governance is crucial for ensuring ethics and inclusivity",
+      "fragment_refs": [
+        1,
+        2,
+        4
+      ],
+      "support_count": 3
+    },
+    {
+      "statement": "National strategies and frameworks are being developed to guide AI governance",
+      "fragment_refs": [
+        2,
+        5,
+        7
+      ],
+      "support_count": 3
+    }
+  ],
+  "contrasts": [
+    {
+      "statement": "Intellectual property regimes can present challenges for AI governance",
+      "fragment_refs": [
+        3,
+        6
+      ],
+      "support_count": 2
+    },
+    {
+      "statement": "Balancing governance with innovation is a persistent challenge",
+      "fragment_refs": [
+        6,
+        9
+      ],
+      "support_count": 2
+    }
+  ],
+  "recommended_clips": [
+    {
+      "fragment_id": "0044_RuzVGjU8erE_Lwandle_Simelane_-_AI4IA_2025_0006",
+      "ref": 1,
+      "reason": "Lwandle Simelane's statement sets the tone for the importance of AI governance and ethics",
+      "stream_url": "/api/archive/videos/0044_RuzVGjU8erE_Lwandle_Simelane_-_AI4IA_2025/stream",
+      "start": 319.22,
+      "end": 390.68
+    },
+    {
+      "fragment_id": "0013_jw43O1tmqtg_Sandrea_Maynard_-_AI4IA_2025_0011",
+      "ref": 4,
+      "reason": "Sandrea Maynard's example of the Caribbean Telecommunications Union's AI task force provides a concrete illustration of regional cooperation on AI governance",
+      "stream_url": "/api/archive/videos/0013_jw43O1tmqtg_Sandrea_Maynard_-_AI4IA_2025/stream",
+      "start": 746.24,
+      "end": 832.13
+    }
+  ],
+  "unsupported_claims": [],
+  "evidence_coverage": 1.0,
+  "evidence_pool": [
+    {
+      "ref": 1,
+      "fragment_id": "0044_RuzVGjU8erE_Lwandle_Simelane_-_AI4IA_2025_0006",
+      "speaker": "Lwandle Simelane",
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "start": 319.22,
+      "end": 390.68,
+      "duration": 71.46,
+      "stream_url": "/api/archive/videos/0044_RuzVGjU8erE_Lwandle_Simelane_-_AI4IA_2025/stream",
+      "similarity": 0.7468,
+      "text": "Colleagues, expectations, representation is not just a technical question. It is a governance question. How do we ensure that AI is guided by ethics, inclusivity and accountability? How do we ensure that our countries, our communities are represented and not left behind as we develop our artificial intelligence systems? UNESCO has taken a leading role through the recommendation of the ethics of artificial intelligence, which was adopted in the year 2021. This landmark framework calls on all nations to place human rights on the forefront. And dignity and diversity at the heart of artificial intelligence governance. It is important that we take the responsibility to not just be consumers, but also contribute to these technologies as African nations. So in SWADini, we really are advocating for artificial intelligence that reflects African"
+    },
+    {
+      "ref": 2,
+      "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0002",
+      "speaker": "Virginia Pardo",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "start": 53.52,
+      "end": 102.52,
+      "duration": 49.0,
+      "stream_url": "/api/archive/videos/0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility/stream",
+      "similarity": 0.741,
+      "text": "that each time has higher quality standards and that is really a good solution. It is clear and fundamental that it is aligned to a solid strategy that guarantees and precisely certainty and confidence in the implementation of these new technologies. In Uruguay, we tell you, in that sense, with a national strategy of artificial intelligence with a vision towards 2030, which was elaborated by a broad consensus and this multi-actor work during all a great period of work, where it is taking us as a framework of reference in that sense. Its three goals are governance, capacities and sustainable development and its principles, in particular in this context of equity and inclusion, allow us to advance with responsibility."
+    },
+    {
+      "ref": 3,
+      "fragment_id": "0073_pVEl3eoURS0_Faith_Majekolagbe_-_Generative_AI_Intellectual_Property_Public_Trust_0002",
+      "speaker": "Faith Majekolagbe",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 25: AI & Intellectual Property",
+      "start": 46.22,
+      "end": 94.38,
+      "duration": 48.16,
+      "stream_url": "/api/archive/videos/0073_pVEl3eoURS0_Faith_Majekolagbe_-_Generative_AI_Intellectual_Property_Public_Trust/stream",
+      "similarity": 0.7384,
+      "text": "law as the dominant regime of knowledge governance is deeply implicated in artificial intelligence. Some of the trust issues with generative AI are directly linked to intellectuals. Questions about what training data are available, how they are curated and how they are used as central to building public trust in AI. The intellectual property regime, which has become the dominant knowledge governance framework even in non-western countries, presents put opportunities and risks for the developments and use of generative AI tools. A key area of public distrust connected to the intellectual property regime is the use of human-created walks to train large language models without creating its compensation or consent. Many people believe that this should not be allowed."
+    },
+    {
+      "ref": 4,
+      "fragment_id": "0013_jw43O1tmqtg_Sandrea_Maynard_-_AI4IA_2025_0011",
+      "speaker": "Sandrea Maynard",
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "start": 746.24,
+      "end": 832.13,
+      "duration": 85.89,
+      "stream_url": "/api/archive/videos/0013_jw43O1tmqtg_Sandrea_Maynard_-_AI4IA_2025/stream",
+      "similarity": 0.7192,
+      "text": "And those give to other nations looking or other smaller nations looking to implement their own AI governance. So not taking in any particular order we have first of all the Caribbean telecommunications union which was launched they launched an AI task force in July of 2025 and they have that strategic initiative to coordinate AI development and governance across the region. Now the CTU launched with a view to guiding ethical and inclusive artificial intelligence development in the region. Now the task force really focuses on what they say is four critical objectives. First of all harmonizing AI policies and regional frameworks across Caribbean countries. Building regional AI capacity and talent, especially for young persons and unrepresented communities, promoting ethical and responsible AI aligned policies with the United Nations sustainable development goals and fostering cross sector collaboration between governments, academia, private sector and civil society."
+    },
+    {
+      "ref": 5,
+      "fragment_id": "0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025_0002",
+      "speaker": "Felipe Chibas Ortiz",
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "start": 70.94,
+      "end": 148.03,
+      "duration": 77.09,
+      "stream_url": "/api/archive/videos/0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025/stream",
+      "similarity": 0.706,
+      "text": "Milal Cities metric inspired by UNESCO's vision and my other book Marketing Communication Technology and Innovation in Milal Cities organized together with Professor Mixuro Janace and chapters, authors from more than 20 countries are recommended by UNESCO. We talk about the relationships of these three topics, artificial intelligence, policy and ethics. Thus, with the advancement of increment of recent technologies in the field of artificial intelligence accompanied by the fourth industrial revolution in the field of data governance and by the automation of process and exponential development in several areas like education, health, art, entrepreneurship, which gives rise to numerous potentially innovative and at the same time disruptive tools. This situation have two new ethics challenges. The artificial intelligence is nowadays used in"
+    },
+    {
+      "ref": 6,
+      "fragment_id": "0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025_0004",
+      "speaker": "Felipe Chibas Ortiz",
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "start": 225.82,
+      "end": 303.1,
+      "duration": 77.28,
+      "stream_url": "/api/archive/videos/0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025/stream",
+      "similarity": 0.7001,
+      "text": "about authorities, about which government decides or what to do. As public policies are a set of projects, programs and activities carried out by the government. According to our research and surveys, we see that there is still nothing is not enough emphasis of ethics as part of public policies for the implementation and stimulation of the use of artificial intelligence in the areas of education, technology, innovation and entrepreneurship. For example, even today technology-based companies and startups do not have a transparency policy regarding their algorithms and weight of selecting the members. Even today, technology, basket companies and startups have a few women's programmers and leaders of teams and companies. This makes many of the program and artificial"
+    },
+    {
+      "ref": 7,
+      "fragment_id": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2_0001",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "start": 0.5,
+      "end": 80.02,
+      "duration": 79.52,
+      "stream_url": "/api/archive/videos/0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2/stream",
+      "similarity": 0.6996,
+      "text": "artificial intelligence is no longer an abstract or futuristic concept it is shaping the way we learn, communicate, gather and even tackle some of the world's most pressing challenges. As the Zimbabwe National Commission for UNESCO we are committed to creating platforms where young people can contribute to shaping ethical, sustainable and inclusive AI policies. AI is not in everybody's physical environment because we have already missed the inclusion bus. UNESCO has been working closely with the government on the national AI strategy and it's hard to see the emphasis on inclusion, ethics and local capacity because it's not just about having the latest technology in Zimbabwe it's about having an inclusive and accessible development. It will"
+    },
+    {
+      "ref": 8,
+      "fragment_id": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity_0007",
+      "speaker": "Megan Roberts",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "start": 343.24,
+      "end": 402.16,
+      "duration": 58.92,
+      "stream_url": "/api/archive/videos/0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity/stream",
+      "similarity": 0.698,
+      "text": "So the accelerator works with public institutions, universities, innovators, entrepreneurs, the private sector, and others to collect and digitize data. And very importantly, just as importantly, to pioneer community grounded governance models that help support public interest, artificial intelligence. So that's a bit on our work at the country level. Now, now turn to some of our work at the global level because we at UNDP, we work to leverage the insights that are generated through our country level partnerships and through our country level programming to inform global policy dialogues on AI and digital technologies. So this includes, for instance, our support to the UN Global Digital Compact, which emphasized the importance of digital capacity building. It also includes our thought leadership role"
+    },
+    {
+      "ref": 9,
+      "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0050",
+      "speaker": "Maria Dolores Souza",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "start": 2969.46,
+      "end": 3021.72,
+      "duration": 52.26,
+      "stream_url": "/api/archive/videos/0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”/stream",
+      "similarity": 0.6934,
+      "text": "and what is misinformed And also as said where the intervention of human rights and human rights and the decision that we make is a different value, as well as artificial intelligence, but given by us. And the last one, it seems to me that it is a relevant topic and in the best way we do not have such a proactive ingestion, but yes, from the academic point of view, we can generate a lot of dialogue with respect to the legislation of regulation and governance of artificial intelligence. So, in this sense, we have already promoted, and we continue to work collaboratively, as this and as others that promote the key rights of author, protection of data, territorial responsibility,"
+    },
+    {
+      "ref": 10,
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0023",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "start": 1285.06,
+      "end": 1368.94,
+      "duration": 83.88,
+      "stream_url": "/api/archive/videos/0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence/stream",
+      "similarity": 0.6924,
+      "text": "Let me first begin with the opportunities. Artificial intelligence has enormous potential to improve administration. We know this because there are efficiencies, for example, studies suggest that nearly two-thirds of administrative tasks from scheduling to compliance checks are repetitive. AI can handle these very reliably forcing staff to focus on higher order work. So imagine immigration officers who can no longer have to be drowned with paperwork, but instead focus on the human dimensions of the cases that they are before them. Also in terms of better decision making, artificial intelligence can help identify trends, whether in case law, backlogs, benefits claims or public health records. So policy makers act on evidence rather than on instinct. In terms of consistency, sorry, in terms of accuracy and consistency, properly designed AI systems can reduce errors that creep into the manual process."
+    }
+  ],
+  "models": {
+    "llm": "llama3.1:70b",
+    "embedding": "nomic-embed-text:v1.5"
+  },
+  "created_at": "2026-06-16T10:43:10.748023"
+}

@@ -1,0 +1,1191 @@
+{
+  "source_transcript": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education.json",
+  "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+  "video_id": "qmnmNym0-h0",
+  "fragment_count": 10,
+  "created_at": "2026-06-16T12:54:13.673747",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0001",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 1,
+      "start": 0.43,
+      "end": 55.87,
+      "duration": 55.44,
+      "text": "Hello everyone, thank you for joining us today at the Artificial Intelligence for Information Accessibility Conference of 2023. Our short talk is titled, Can Artificial Become Assistive Navigating AI in Accessibility and Education. My name is Kate Sanka, and I'm the Executive Director at Teach Access. We're a nonprofit organization working to support educators to teach about accessibility to students. So that as they graduate, they're prepared to include accessibility from the beginning of any product or design phase. Presenting with me today is Bill Hart Davidson, Associate Dean of Research and Graduate Education in the College of Arts and Letters at Michigan State University, Casey McCartle, Director of Experience Architecture Program in the College of Arts and Letters at Michigan",
+      "word_count": 124,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "created_at": "2026-06-16T12:54:13.671178",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "accessibility",
+        "education",
+        "students",
+        "research",
+        "university",
+        "arts",
+        "information",
+        "conference",
+        "assistive",
+        "artificial",
+        "director",
+        "teach",
+        "graduate"
+      ],
+      "summary": "Hello everyone, thank you for joining us today at the Artificial Intelligence for Information Accessibility Conference of 2023.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "students",
+            "research",
+            "university",
+            "arts"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.714,
+          "matched_keywords": [
+            "information accessibility",
+            "information",
+            "conference"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.714,
+          "matched_keywords": [
+            "accessibility",
+            "assistive"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "assistive",
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.8,
+          "matched_keywords": [
+            "information accessibility",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.6,
+          "matched_keywords": [
+            "education",
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.4,
+          "matched_keywords": [
+            "arts"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.4,
+          "matched_keywords": [
+            "research",
+            "university"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.267770"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0002",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 2,
+      "start": 55.87,
+      "end": 105.56,
+      "duration": 49.69,
+      "text": "State University, and Rolando Mendez Fernandez, Director of Education for Teach Access. We'll begin by sharing how we've all come together around this topic and how we view the intersection of AI both in accessibility and education. So I'll turn it over to Bill now. Thanks Kate. As educators, one of the things we must always be ready to do is to prepare our students to use new technologies, both while they are in school and in their lives beyond school and in the workforce. New technologies always introduce new challenges to teaching and learning. As we have seen in the recent past with cell phones or before that, with the internet, and before that, with computers in the classroom.",
+      "word_count": 123,
+      "source_segment_ids": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "created_at": "2026-06-16T12:54:13.671471",
+      "keywords": [
+        "accessibility",
+        "education",
+        "learning",
+        "students",
+        "university",
+        "school",
+        "classroom",
+        "workforce",
+        "new",
+        "both",
+        "always",
+        "technologies",
+        "before"
+      ],
+      "summary": "State University, and Rolando Mendez Fernandez, Director of Education for Teach Access.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "learning",
+            "students",
+            "university",
+            "school"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.143,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "learning",
+            "students",
+            "school",
+            "classroom"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "workforce"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.143,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.143,
+          "matched_keywords": [
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.143,
+          "matched_keywords": [
+            "university"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.272905"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0003",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 3,
+      "start": 105.56,
+      "end": 155.94,
+      "duration": 50.38,
+      "text": "Teach Access and MSU as organizations both have an interest in helping students become critical users of new technologies, making sure we are creating with an accessible first mindset. We were challenged this year because chat GPT and other generative AI programs emerged suddenly. And within an academic year, we had technologies in wide use that few, if any, institutions had a chance to review and approve using our standards and guidelines for accessibility, safety, and security. This year, we're all sprinting to set new guidelines as the academic year begins. I will hand things off to Casey now to talk about why it's important for disability advocates and professionals to be involved when new technologies arrive on our campuses and in",
+      "word_count": 124,
+      "source_segment_ids": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "created_at": "2026-06-16T12:54:13.671752",
+      "keywords": [
+        "accessibility",
+        "students",
+        "academic",
+        "disability",
+        "security",
+        "safety",
+        "accessible",
+        "standards",
+        "year",
+        "new",
+        "technologies",
+        "had",
+        "guidelines"
+      ],
+      "summary": "Teach Access and MSU as organizations both have an interest in helping students become critical users of new technologies, making sure we are creating with an accessible first mindset.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "students",
+            "academic"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "disability",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.667,
+          "matched_keywords": [
+            "security",
+            "safety"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disability",
+            "accessibility",
+            "accessible"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.667,
+          "matched_keywords": [
+            "safety",
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.667,
+          "matched_keywords": [
+            "academic"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "standards"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.278130"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0004",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 4,
+      "start": 155.94,
+      "end": 212.49,
+      "duration": 56.55,
+      "text": "our workspaces. Thanks Bill. We want to focus on a wide higher education and disability advocates must be involved. Institutions can remove barriers and do more than just provide accommodations for students. They can work with generative AI to be proactive about removing such barriers. In doing so, institutions can become a supportive space for AI accessibility research, connect with industry, and amplify conversations about equity. Faculty can then become facilitators of change, facilitators of conversations for students to take with them after they graduate. Faculty can create courses on accessibility and design studies, like a one credit accessibility course for an entire campus. In doing this, working with generative AI can allow faculty to design, deploy, and model accessible classes or systems for students to take with them and deploy in their own",
+      "word_count": 134,
+      "source_segment_ids": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ],
+      "created_at": "2026-06-16T12:54:13.672069",
+      "keywords": [
+        "accessibility",
+        "education",
+        "equity",
+        "disability",
+        "students",
+        "research",
+        "accessible",
+        "model",
+        "industry",
+        "faculty",
+        "institutions",
+        "barriers",
+        "generative",
+        "doing",
+        "become"
+      ],
+      "summary": "We want to focus on a wide higher education and disability advocates must be involved.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "equity",
+            "disability",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "students",
+            "research"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disability",
+            "accessibility",
+            "accessible"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.8,
+          "matched_keywords": [
+            "education",
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.6,
+          "matched_keywords": [
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "model"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "industry"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.284227"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0005",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 5,
+      "start": 212.49,
+      "end": 265.02,
+      "duration": 52.53,
+      "text": "spaces after they graduate. Faculty can also support events that generate discussions around AI, accessibility, and provide a space for students to voice their concerns. Students then become the drivers of change, as they are the primary users of educational spaces. They advocate for themselves and for one another. Students create organizations of support, and they are researching the landscape. They will inhabit once they graduate. A landscape where AI can help when it comes to assessing, building, testing, and deploying accessible spaces and systems. I'll turn it over to Kate now. Thanks, Casey. So a group that we absolutely must include in anything we're doing are people with disabilities. Not only do people with disabilities exist in our institutions, among our faculty, and",
+      "word_count": 126,
+      "source_segment_ids": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "created_at": "2026-06-16T12:54:13.672401",
+      "keywords": [
+        "accessibility",
+        "disabilities",
+        "students",
+        "accessible",
+        "spaces",
+        "graduate",
+        "faculty",
+        "support",
+        "landscape",
+        "people"
+      ],
+      "summary": "Faculty can also support events that generate discussions around AI, accessibility, and provide a space for students to voice their concerns.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disabilities",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disabilities",
+            "accessibility",
+            "accessible"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.75,
+          "matched_keywords": [
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.75,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.289876"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0006",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 6,
+      "start": 265.02,
+      "end": 316.27,
+      "duration": 51.25,
+      "text": "within our students, but we know that more than one billion people with disabilities exist across the world. But this is a world not built for them or generally for them with them in mind. Existing in this world as a person with a disability requires constant ingenuity and creativity. They are often required to develop sophisticated capabilities for innovation in order to participate in spaces and places designed for non-disabled people. Many of us may be familiar with common assistive technologies like voice-to-text, closed or open captions, and curb cuts. These were, and in some ways still are, examples of innovations that were created so that people with disabilities were able to engage with various digital technologies and physical",
+      "word_count": 123,
+      "source_segment_ids": [
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "created_at": "2026-06-16T12:54:13.672673",
+      "keywords": [
+        "disability",
+        "disabilities",
+        "assistive",
+        "students",
+        "creativity",
+        "innovation",
+        "people",
+        "world",
+        "technologies"
+      ],
+      "summary": "within our students, but we know that more than one billion people with disabilities exist across the world.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disability",
+            "disabilities",
+            "assistive"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "students",
+            "creativity"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disability",
+            "disabilities",
+            "assistive"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "innovation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.25,
+          "matched_keywords": [
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "creativity"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.295070"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0007",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 7,
+      "start": 316.27,
+      "end": 362.04,
+      "duration": 45.77,
+      "text": "built environments that had already been created through a non-disabled lens. If we take a moment now to ensure that we're genuinely and deeply including people with disabilities and current and future iterations of AI, that only would we make a more inclusive product. We would also find ourselves with a more innovative set of solution. So what does all of this mean? I think we can certainly expect that in the near future, AI will become more embedded in our everyday lives. It will be a part of products whether we know or not. So I'll turn it over to Orlando now to help us consider what's ahead. Thanks, Gabe. As we move forward, we need to keep various things in mind.",
+      "word_count": 127,
+      "source_segment_ids": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "created_at": "2026-06-16T12:54:13.672972",
+      "keywords": [
+        "inclusive",
+        "disabilities",
+        "now",
+        "future"
+      ],
+      "summary": "built environments that had already been created through a non-disabled lens.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusive",
+            "disabilities"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disabilities"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.299775"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0008",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 8,
+      "start": 362.04,
+      "end": 418.59,
+      "duration": 56.55,
+      "text": "First, the ultimate goal for AI should be access to access. AI presents numerous opportunities for people with disabilities, especially as assistive technology. So, it is very important to include their voices as we keep exploring and developing. As we scale AI, we should procure not to add extra barriers or costs to access and equity. Also, we should focus on the public good. Educational institutions play and will play a critical role in shaping current and future workforces driven by AI. Second, we need to keep in mind AI's limitations and realities. We are still exploring AI's capabilities and possibilities. As we explore them, how can we help students navigate through them? How can we help them define future iterations and applications?",
+      "word_count": 125,
+      "source_segment_ids": [
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "created_at": "2026-06-16T12:54:13.673265",
+      "keywords": [
+        "equity",
+        "disabilities",
+        "assistive",
+        "students",
+        "access",
+        "keep",
+        "exploring",
+        "play",
+        "future",
+        "ai's",
+        "help"
+      ],
+      "summary": "First, the ultimate goal for AI should be access to access.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "equity",
+            "disabilities",
+            "assistive"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disabilities",
+            "assistive"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "equity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.84,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.305867"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0009",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 9,
+      "start": 418.59,
+      "end": 480.3,
+      "duration": 61.71,
+      "text": "We must always keep in mind that AI may include incorrect bias and or harmful information. How can we help our students develop a critical approach to its use? Laying the path forward requires continuous collaboration, adaptation, learning and unlearning. Finally, we must refrain from this force around AI. Let's focus on the possibilities instead of the threats. For example, in academia, we could shift the conversation to how we can improve learning and engage learners using AI. Let's think of AI as a systems technology, exploring how it will improve professions. And finally, let's make accessibility as we keep exploring and developing AI. We want to thank you all for joining us today. We hope that you learn something or you have a new way to think about AI and what needs",
+      "word_count": 136,
+      "source_segment_ids": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "created_at": "2026-06-16T12:54:13.673578",
+      "keywords": [
+        "accessibility",
+        "learning",
+        "students",
+        "bias",
+        "information",
+        "let's",
+        "must",
+        "keep",
+        "finally",
+        "improve",
+        "think",
+        "exploring"
+      ],
+      "summary": "We must always keep in mind that AI may include incorrect bias and or harmful information.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning",
+            "students"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "bias"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning",
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "bias"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "bias"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.312407"
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0010",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "fragment_index": 10,
+      "start": 480.3,
+      "end": 510.58,
+      "duration": 30.28,
+      "text": "to happen moving forward. We also want to give an additional thank you to our team member, Caroline White, who is an education and learning manager at the Michigan State University Museum. Again, thank you all for joining us today. If you'd like to connect with us here at TeachAxis, you can visit our website at teachaccess.org. You can send an email to info, I-N-F-O, at teachaccess.org, or find us on LinkedIn, Twitter and Facebook. Thanks, everybody.",
+      "word_count": 83,
+      "source_segment_ids": [
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "created_at": "2026-06-16T12:54:13.673723",
+      "keywords": [
+        "education",
+        "learning",
+        "university",
+        "teachaccess",
+        "org"
+      ],
+      "summary": "We also want to give an additional thank you to our team member, Caroline White, who is an education and learning manager at the Michigan State University Museum.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "learning",
+            "university"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "learning"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "university"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.315971"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:31.315979"
+}

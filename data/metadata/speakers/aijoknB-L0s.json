@@ -1,0 +1,19 @@
+{
+  "video_id": "aijoknB-L0s",
+  "source_video": "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference",
+  "title": "Dr Tabani Moyo - AI4AI Conference",
+  "speakers": [
+    {
+      "name": "Dr Tabani Moyo",
+      "role": "Speaker|Host",
+      "affiliation": null,
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Dr Tabani Moyo",
+  "title_name_hint": "Dr Tabani Moyo",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:27:03.701167"
+}

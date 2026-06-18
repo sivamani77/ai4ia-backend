@@ -1,0 +1,1943 @@
+{
+  "created_at": "2026-06-17T09:25:41.268111",
+  "user_prompt": "Create a 1-minute documentary on ethics and governance",
+  "target_duration_seconds": 60,
+  "style": "documentary",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 90,
+    "selected_candidate_count": 35,
+    "top_semantic_score": 0.70024
+  },
+  "planning_summary": {
+    "video_mode": "narration_led_explainer",
+    "evidence_strength": "high",
+    "exact_clip_count": 35,
+    "related_clip_count": 0,
+    "fallback_risk": "low",
+    "planning_notes": [
+      "Speaker diversity is limited, so narration carries more of the connective explanation."
+    ]
+  },
+  "validation_issues": [],
+  "selected_candidates": [
+    {
+      "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0030",
+      "source_video": "0136_AL8la33n0dw_India Satellite Event",
+      "video_id": "AL8la33n0dw",
+      "start": 1812.43,
+      "end": 1876.3,
+      "duration": 63.87,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "countries, you'll see a lot of AI government led AI initiatives.",
+      "keywords": [
+        "ethics",
+        "unesco",
+        "warfare",
+        "panel",
+        "event",
+        "government",
+        "industry",
+        "together",
+        "first"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.70024,
+      "selection_score": 1.04373,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "countries, you'll see a lot of AI government led AI initiatives. So therefore, I would say industry leaders and governments do work together, sharing expertise and resources to advance AI capabilities. Professor Bord, your insights into regulating AI are invaluable. I have two interrelated questions for you. First, how much do ethics feature in the discourse surrounding AI and warfare? And second, do you believe policymakers fully grasp the complexity of the regulatory challenges they face? Yeah, thank you so much. Some really first of all for putting together this event. And I'm very grateful to be speaking as part of this panel. And thank you to UNESCO for convening this whole series. So..."
+    },
+    {
+      "fragment_id": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity_0005",
+      "source_video": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity",
+      "video_id": "8Kd0lD6d83U",
+      "start": 276.9,
+      "end": 347.31,
+      "duration": 70.41,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "and there are only a couple of them, let's say worldwide, there are ten rather roughly ten of companies who concentrate this power in their form.",
+      "keywords": [
+        "ethics",
+        "ethical",
+        "accountability",
+        "transparency",
+        "principles",
+        "risk",
+        "fairness",
+        "unesco",
+        "humanity",
+        "focus"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.75,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.663207,
+      "selection_score": 1.033697,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "and there are only a couple of them, let's say worldwide, there are ten rather roughly ten of companies who concentrate this power in their form. What we should focus on in the future, it should be human-centric, so all AI development should be human-centric. It should not be some AI-centric or company-centric or something, the human and humanity individuality should be in the center of our focus. To achieve this goal, we need to focus on ethical principles, as was defined in UNESCO AI ethics recommendations, so from 2020-21, which includes fairness and non-discrimination, transparency and explainability and accountability. There is the dark side, I will focus more on the dark side and on..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0080",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 4750.81,
+      "end": 4800.87,
+      "duration": 50.06,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "So I think it's very important to include the youth in terms of ethics, ethical considerations, policy development, so that it becomes all inclusive.",
+      "keywords": [
+        "information integrity",
+        "youth",
+        "ethics",
+        "policy",
+        "ethical",
+        "content",
+        "information",
+        "knowledge",
+        "terms",
+        "out"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.669738,
+      "selection_score": 1.016628,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "and also preserving indigenous knowledge. So I think it's very important to include the youth in terms of ethics, ethical considerations, policy development, so that it becomes all inclusive. Thank you. Thank you. At least this one was a bit faster, quicker, and you went straight to the point. You came out of the visual classroom, I appreciate it. Thank you so much. You are a fast learner, you are so used to making others learners, I appreciate it. Let me just make a follow-up on that. We are speaking a lot on these issues of ethics. There's a lot of information and content is going out every now and then. In terms of information integrity, who guards this, how do you safeguard this,..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0006",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 325.24,
+      "end": 393.34,
+      "duration": 68.1,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "of us with these new digital technologies, I now respect the youth.",
+      "keywords": [
+        "youth",
+        "governance",
+        "policy",
+        "inclusive",
+        "africa",
+        "ethical",
+        "knowledge",
+        "unesco",
+        "dialogue",
+        "panelists"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.657291,
+      "selection_score": 1.004181,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "and",
+        "governance"
+      ],
+      "text": "of us with these new digital technologies, I now respect the youth. Let's today's discussion, self-execord to action, for policy makers to embrace inclusive governance of AI, for academia and innovators to prioritize ethical and climate conscious applications, for the civil society to keep raising awareness on how technology intersects with rights and access. And for citizens to be an incentive to broaden your knowledge about AI. Through a more distinct hold approach, we can shape an AI ecosystem in our country, that is both technically advanced and socially responsible and where romantically sustainable and expert driven. I think the UNESCO original office for Southern Africa for convening..."
+    },
+    {
+      "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
+      "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
+      "video_id": "Txl1nmb84VA",
+      "start": 297.56,
+      "end": 352.42,
+      "duration": 54.86,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "For championing transparency, ethical governance and global collaboration, we can ensure AI becomes a force for good and not a vector for harm.",
+      "keywords": [
+        "governance",
+        "ethical",
+        "transparency",
+        "responsible ai",
+        "content",
+        "safety",
+        "values",
+        "harm",
+        "all",
+        "mission"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.70016,
+      "selection_score": 1.00385,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "For championing transparency, ethical governance and global collaboration, we can ensure AI becomes a force for good and not a vector for harm. The Christchurch call community is deeply invested in this mission. Together, governments, platforms, civil society and researchers, we work to uphold the values of safety, dignity and respect online. We invite all stakeholders to join us in advancing responsible AI practices that protect communities, preserve democratic integrity and foster a safer digital future for all, with a clear focus on managing the risks and eliminating terrorist and violent extremist content online. Thank you for your time today. I hope that's been a helpful outline of the..."
+    },
+    {
+      "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0116",
+      "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
+      "video_id": "MVEKzZJ2t58",
+      "start": 7330.7,
+      "end": 7388.93,
+      "duration": 58.23,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "analogy with let's say commission for journalism ethics.",
+      "keywords": [
+        "human rights",
+        "ethics",
+        "rights",
+        "ethical",
+        "standards",
+        "journalism",
+        "industry",
+        "titiana",
+        "follow",
+        "only"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.672719,
+      "selection_score": 0.989609,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "create",
+        "ethics",
+        "and"
+      ],
+      "text": "analogy with let's say commission for journalism ethics. And now I propose to go around the vice versa and to start with Titiana again with Titiana Vdeva. I just want to briefly present the example from Ukrainian experience. I think Victoria will follow up me on that a little bit. We already have the initiative regarding the self-regulatory development of ethical standards and in my opinion they can only work when the biggest players in the industry and those who are developing the most critical projects which might undermine human rights the most or which might create the biggest challenges in their implementation only when they agree to voluntarily follow those rules because otherwise and..."
+    },
+    {
+      "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+      "source_video": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future",
+      "video_id": "aCcsjR1b87M",
+      "start": 173.98,
+      "end": 213.0,
+      "duration": 39.02,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "summary": "we anchor AI governance to what is currently accepted, we risk reinforcing the very systems that we're trying to improve.",
+      "keywords": [
+        "governance",
+        "policy",
+        "education",
+        "ethical",
+        "transparency",
+        "framework",
+        "risk",
+        "students",
+        "teachers",
+        "build"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.66456,
+      "selection_score": 0.98565,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "we anchor AI governance to what is currently accepted, we risk reinforcing the very systems that we're trying to improve. So how do we actually build an ethical framework for AI in education? We start with an environmental scan, taking a clear look at how AI is already showing up in classrooms, officially or not, because AI is there whether you've endorsed it or not, and policy has to be built on truth and transparency. Next we need to build a governance team that's diverse and cross-functional, not just IT and administrators, but teachers, librarians, parents, and yes, even students with equal voice. If they're the ones who are most impacted, they need a seat at the table."
+    },
+    {
+      "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0013",
+      "source_video": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future",
+      "video_id": "aCcsjR1b87M",
+      "start": 520.51,
+      "end": 566.78,
+      "duration": 46.27,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "AI touches everything from curriculum to data infrastructure to the emotional lives of students.",
+      "keywords": [
+        "ethics",
+        "governance",
+        "education",
+        "oversight",
+        "trust",
+        "framework",
+        "fairness",
+        "bias",
+        "students",
+        "curriculum"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.681105,
+      "selection_score": 0.984795,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "has to be. AI touches everything from curriculum to data infrastructure to the emotional lives of students. You can use the framework to vet tools and vendors, asking hard questions about bias, explainability, and student impact. You can use it to develop governance processes guiding everything from procurement to oversight. At its core, this is about alignment, making sure every AI-related decision is consistent with your institutional mission and educational values. Whether you're a community college, a K-12 district, or a research university, this framework can be adapted to your local context. Because ultimately ethics is not about preventing harm, it's about enabling a future where..."
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0010",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "start": 543.3,
+      "end": 605.55,
+      "duration": 62.25,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "summary": "they must urgently legislate a new class of AI governance mostly focused on autonomy without awarding any kind of person to these cognitive twins in the future.",
+      "keywords": [
+        "governance",
+        "education",
+        "security",
+        "culture",
+        "different",
+        "kind",
+        "cognitive",
+        "enforce",
+        "way",
+        "totally"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.666497,
+      "selection_score": 0.980907,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "and",
+        "governance"
+      ],
+      "text": "they must urgently legislate a new class of AI governance mostly focused on autonomy without awarding any kind of person to these cognitive twins in the future. So how can we exactly enforce the way how enforce this cognitive security? So something we can do it like through God rest because it is like totally fragmented, right? Like AI is totally fragment. Each country has their own culture, education, situations. So the AI also is evolving to reflect that and to respect that, which means we have a diversified AI where it works in a different kind of, it works in a different way in a different place. But yet when it comes to the security, it has no boundaries at all."
+    },
+    {
+      "fragment_id": "0126_FrL_B3kTDSY_Tanja Kerševan - Epistemic authority of journalism in the era of Al-powered newsrooms_0009",
+      "source_video": "0126_FrL_B3kTDSY_Tanja Kerševan - Epistemic authority of journalism in the era of Al-powered newsrooms",
+      "video_id": "FrL",
+      "start": 464.27,
+      "end": 510.59,
+      "duration": 46.32,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "To inform the public, hold power accountable and support democratic processes.",
+      "keywords": [
+        "ethical",
+        "knowledge",
+        "responsibility",
+        "public",
+        "democratic",
+        "its"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.660177,
+      "selection_score": 0.977067,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "To inform the public, hold power accountable and support democratic processes. It is important, though, to recognize that given the severity of the challenges, current risk-based approaches and codes of conduct do not suffice. We must rethink how AI and its development are being managed, treating it as a public service under democratic control, and with regulations that prioritize ethical responsibility, knowledge integrity, and long-term societal benefit, rather than allowing its and our future to be dictated by tech companies in hands of just a few power-planes."
+    },
+    {
+      "fragment_id": "0094_otyBopReCRs_Jan Christopher Kalbhenn - AI ⧸ Information Access： Importance of media law_0006",
+      "source_video": "0094_otyBopReCRs_Jan Christopher Kalbhenn - AI ⧸ Information Access： Importance of media law",
+      "video_id": "otyBopReCRs",
+      "start": 307.1,
+      "end": 364.45,
+      "duration": 57.35,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "It is important to develop ethical standards and create legal frameworks to ensure that AI is used responsibility responsibly and in accordance with the principles of journalism.",
+      "keywords": [
+        "law",
+        "journalism",
+        "media",
+        "content",
+        "information",
+        "transparency",
+        "ethical",
+        "framework",
+        "standards",
+        "principles"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.658913,
+      "selection_score": 0.975803,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "create",
+        "ethics",
+        "and"
+      ],
+      "text": "It is important to develop ethical standards and create legal frameworks to ensure that AI is used responsibility responsibly and in accordance with the principles of journalism. Only in this way can the opportunities offered by AI be fully exploited without jeopardizing the integrity and diversity of the media landscape and the right to access information. The law plays a crucial role in balancing the opportunities and risks of AI in the media landscape. It can create framework conditions that both promote the innovative power of AI and mitigate its potential risks. There are already initial legal regulations in Germany and Europe on one of the central issues, namely the starting point of..."
+    },
+    {
+      "fragment_id": "0070_Fr6xJrMW8EU_Dominique_Varela_-_How_AI_Promotes_Public_Access_to_Government_Information_0012",
+      "source_video": "0070_Fr6xJrMW8EU_Dominique_Varela_-_How_AI_Promotes_Public_Access_to_Government_Information",
+      "video_id": "Fr6xJrMW8EU",
+      "start": 740.23,
+      "end": 786.36,
+      "duration": 46.13,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "supporting institutions and implementing an AI ethically and responsibly aligned with regulatory frameworks.",
+      "keywords": [
+        "access to information",
+        "information",
+        "transparency",
+        "equity",
+        "gender"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.669277,
+      "selection_score": 0.972967,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "and"
+      ],
+      "text": "supporting institutions and implementing an AI ethically and responsibly aligned with regulatory frameworks. EDS also works to integrate gender and equity perspectives into research and training. So, to conclude, my invitation to you is on this international access to information day is for us to commit not only demanding more transparency but also to actively participate in building a future where AI becomes a tool that strengthens our democracy and powers every citizen. By working together, we can turn AI into our greatest life for transparency. Thank you very much."
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0009",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "start": 478.15,
+      "end": 534.2,
+      "duration": 56.05,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "A good example is deepfakes and the difficulty of the average population to more and more determine if something was generated by AI or it was actually true.",
+      "keywords": [
+        "deepfakes",
+        "governance",
+        "regulation",
+        "ethical",
+        "accountability",
+        "transparency",
+        "fairness",
+        "africa",
+        "innovation",
+        "good"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.652833,
+      "selection_score": 0.969723,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "A good example is deepfakes and the difficulty of the average population to more and more determine if something was generated by AI or it was actually true. Governance gaps that we have identified means that innovation often moves faster than regulation. And that's why for Africa, a continental position on the various applications of AI is essential for shaping global rules. And so deep diving into ethical frameworks and global governance, what we are doing to address some of these risks and challenges. Fortunately, we're not starting from zero. I mean, discussions of AI regulations did not start with child GPT. There have been systems that have been developed. A good example is the..."
+    },
+    {
+      "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+      "source_video": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South",
+      "video_id": "pps7x1QyHII",
+      "start": 1.04,
+      "end": 58.57,
+      "duration": 57.53,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "Welcome to the fourth Artificial Intelligence for Information Accessibility Conference.",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "governance",
+        "policy",
+        "accessibility",
+        "environment",
+        "responsible ai",
+        "economy",
+        "information",
+        "conference"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.66421,
+      "selection_score": 0.9679,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "Welcome to the fourth Artificial Intelligence for Information Accessibility Conference. My name is Shamir Ahmed, I'm the Executive Director and founder of the Data Economy Policy Hub, the Deb Hub. Deb Hub is the first independent think tank that is founded by an Indigenous African woman in South Africa. Today, I will discuss with you responsible AI governance, structural inequalities and sustainability in the global solve. My discussion will be broken down into three parts. I will start with exploring the nexus of responsible AI, data governance and the environment. Second part, I will delve into what do intersectional inequality have to do with right data governance and the environment. In..."
+    },
+    {
+      "fragment_id": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI_0007",
+      "source_video": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI",
+      "video_id": "OSjQ",
+      "start": 401.78,
+      "end": 472.31,
+      "duration": 70.53,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "So it's a combination of all principles together that would enable us to have a good ethical AI system.",
+      "keywords": [
+        "governance",
+        "policy",
+        "accessibility",
+        "education",
+        "ethical",
+        "accountability",
+        "principles",
+        "information",
+        "unesco",
+        "values"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.672073,
+      "selection_score": 0.953963,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "accountability. So it's a combination of all principles together that would enable us to have a good ethical AI system. On top of the principles and the values we have the policy areas, which are the last layers, the basic impacts, the values and the principles, into concrete 11 domains that touch on the expertise domain of UNESCO where we provide guidelines for governance and other AI stakeholders on how the recommendations should be followed. Basically, just to give you again a few examples related to accessibility of information. In education, for example, we call on member states to ensure that courses on AI systems are available to ensure the accessibility of the information in..."
+    },
+    {
+      "fragment_id": "0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy_0010",
+      "source_video": "0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy",
+      "video_id": "TUieQkV",
+      "start": 478.14,
+      "end": 530.77,
+      "duration": 52.63,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "around ethical impact assessment, we covered the point around fostering an equitable and inclusive ecosystem for AI knowledge sharing, as well as the importance of transparency mechanisms, including access to information of public interest by private...",
+      "keywords": [
+        "access to information",
+        "misinformation",
+        "governance",
+        "policy",
+        "information",
+        "transparency",
+        "knowledge",
+        "ethical",
+        "oversight",
+        "freedom"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.679702,
+      "selection_score": 0.953392,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "create",
+        "and",
+        "governance"
+      ],
+      "text": "around ethical impact assessment, we covered the point around fostering an equitable and inclusive ecosystem for AI knowledge sharing, as well as the importance of transparency mechanisms, including access to information of public interest by private entities. In policy area number two, ethical governance and stewardship, we urged governments to create oversight mechanisms on training data sets to ensure that they do not foster the spreading of this information and misinformation and the structure of freedom of expression and access to information. We also insisted that they do not foster stereotypes or biases, but rather strive to fight them. Finally, in policy area number three, regarding..."
+    },
+    {
+      "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0008",
+      "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
+      "video_id": "LfWtMRCA5kE",
+      "start": 547.29,
+      "end": 626.36,
+      "duration": 79.07,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "This implies overcoming knowledge fragmentation by articulating scientific, technical, and humanistic perspective.",
+      "keywords": [
+        "ethics",
+        "privacy",
+        "data protection",
+        "rights",
+        "ethical",
+        "disabilities",
+        "marginalized",
+        "protection",
+        "communities",
+        "knowledge"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.65914,
+      "selection_score": 0.94183,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "This implies overcoming knowledge fragmentation by articulating scientific, technical, and humanistic perspective. All of this plays before us enormous ethical and anthropological changes. AI confronts us with fundamental rights, the rights to truth, to identity, to privacy, to equality and non-discrimination, to cultural access, and to personal data protection. It also requires us to protect the most vulnerable people with disabilities, older adults, and marginalized communities, and topologically, the challenge is to resist the humanization, and remain faithful to ourselves and to our communities, to foster cultures of hope and sharing, and to sustain genuine encounters with the others...."
+    },
+    {
+      "fragment_id": "0194_Sa96z9ElooQ_Paul Thompson - How Autonomous Reasoning Agents are Paving the Way for Ethical AI Governance_0010",
+      "source_video": "0194_Sa96z9ElooQ_Paul Thompson - How Autonomous Reasoning Agents are Paving the Way for Ethical AI Governance",
+      "video_id": "Sa96z9ElooQ",
+      "start": 535.39,
+      "end": 586.99,
+      "duration": 51.6,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "and reasoning models to accommodate these new types of information to accept and ingest updated real-time data.",
+      "keywords": [
+        "information",
+        "ethical",
+        "there's",
+        "obviously",
+        "systems",
+        "mayor",
+        "may",
+        "cost"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.657504,
+      "selection_score": 0.935394,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "and"
+      ],
+      "text": "and reasoning models to accommodate these new types of information to accept and ingest updated real-time data. There's obviously the ethical dilemma of how information is sourced, how it is processed, how it is stored, and ultimately how it is trained within these systems. There's obviously the user resistance and skepticism that happens because you know, or Mayor Marlon might find that he may not be, need to be mayor at some point in the future because there's an AI system capable of making very complex decisions in the much the same way as he would. There are obviously resource constraints also. Many governments, cities, towns, countries may not be able to afford the cost of developing..."
+    },
+    {
+      "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0011",
+      "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
+      "video_id": "yZAAZZ",
+      "start": 624.43,
+      "end": 677.04,
+      "duration": 52.61,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "As well as AI and ethics with a focus on Textual and web-related data Dr.",
+      "keywords": [
+        "ethics",
+        "policy",
+        "university",
+        "school",
+        "culture",
+        "cultural",
+        "media",
+        "social",
+        "digital",
+        "communication"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.660935,
+      "selection_score": 0.929635,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "As well as AI and ethics with a focus on Textual and web-related data Dr. Florence M. Chi is an associate professor of digital communication In the school of communication and And the director of the Center for Digital Ethics and Policy At Loyola University Chicago She is also the founding director of the social and interactive media lab The sim lab Devoted to the in-depth study of social phenomena at the intersection of society and technology And her book digital game culture in Korea The social let play 2023 Lexington books Vertiques commonly held notions of online game addiction By taking an ethnographic look At the social and cultural roles that games fulfill in everyday life Tuva..."
+    },
+    {
+      "fragment_id": "0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy_0001",
+      "source_video": "0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy",
+      "video_id": "TUieQkV",
+      "start": 4.11,
+      "end": 48.35,
+      "duration": 44.24,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "Thank you very much for joining the session and many thanks to UNESCO and the IFAP team for organizing this event and for inviting me.",
+      "keywords": [
+        "access to information",
+        "ethics",
+        "information",
+        "conference",
+        "ifap",
+        "unesco",
+        "session",
+        "event",
+        "recommendation",
+        "good"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.664194,
+      "selection_score": 0.917884,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "Good morning, good afternoon, good evening, everyone. Thank you very much for joining the session and many thanks to UNESCO and the IFAP team for organizing this event and for inviting me. As vice chair of the ad hoc expert group that drafted the recommendation on the ethics of AI, which would hopefully be adopted by the UNESCO General Conference in a few weeks, I thought my contribution today could be focused on highlighting the relevant aspects of the recommendation to today this topic, namely access to information. I thought the best way to do that would be to walk you through the structure of the document and highlight relevant parts as we go. You can find the latest draft of the..."
+    },
+    {
+      "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0050",
+      "source_video": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation",
+      "video_id": "ikdcwVcRSPo",
+      "start": 3021.21,
+      "end": 3065.47,
+      "duration": 44.26,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "and I know we are excited to hear from our panelists.",
+      "keywords": [
+        "access to information",
+        "disinformation",
+        "misinformation",
+        "ethics",
+        "policy",
+        "information",
+        "unesco",
+        "panel",
+        "panelists",
+        "want"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.654734,
+      "selection_score": 0.917424,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "and I know we are excited to hear from our panelists. They come with diverse experiences and they will also be able to answer some of the brain questions that you have in the chat whether based on what you've been asking already or the ones that have been generated from their presentations. So what are the objectives? What do we want to achieve with this panel discussion? We want to raise, of course, awareness of generative AI's impact on misinformation and disinformation. That's what we've been doing all morning, but we also want to promote the recommendations of UNESCO on the ethics of the AI policy in terms of communication and information and how do we improve access to information"
+    },
+    {
+      "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0004",
+      "source_video": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks",
+      "video_id": "FEfUiDQppGs",
+      "start": 263.73,
+      "end": 343.08,
+      "duration": 79.35,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "It is a call to action to ensure that access is shaped by ethics, guided by empathy and directed towards human flourishing.",
+      "keywords": [
+        "information accessibility",
+        "ethics",
+        "accessibility",
+        "information",
+        "conference",
+        "regional",
+        "ifap",
+        "unesco",
+        "africa",
+        "caribbean"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.660251,
+      "selection_score": 0.913941,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "It is a call to action to ensure that access is shaped by ethics, guided by empathy and directed towards human flourishing. In closing, I extend heartfelt thanks to the members of the UNESCO IFAP working group on information accessibility, which I have the honor of sharing, members of the AI for IA planning committee, and I salute in particular the dedicated AI for IA conference satellite organizers from India, Jamaica, Canada, Chile, Ukraine, Germany, the UK, South Africa and Zimbabwe. All of us supported by the UNESCO IFAP secretariat in Paris, the UNESCO regional office for Southern Africa, the UNESCO cluster office for the Caribbean, the Broadcasting Commission of Jamaica and the..."
+    },
+    {
+      "fragment_id": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI_0001",
+      "source_video": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI",
+      "video_id": "OSjQ",
+      "start": 4.72,
+      "end": 82.45,
+      "duration": 77.73,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "I have a program specialist at UNESCO in the social and human sciences sector and the section of ethics of science and technology and I'm very happy to talk to you about today about the recommendation...",
+      "keywords": [
+        "information accessibility",
+        "ethics",
+        "accessibility",
+        "information",
+        "unesco",
+        "recommendation",
+        "talk",
+        "used",
+        "facilitate"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.655079,
+      "selection_score": 0.913569,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "Hello everyone. Thank you for having me. My name is Dua Abolyunas. I have a program specialist at UNESCO in the social and human sciences sector and the section of ethics of science and technology and I'm very happy to talk to you about today about the recommendation on the AI ethics and how it can be used to facilitate information accessibility. Let me go ahead and share my screen. Alright so as I said I would talk to you about the recommendation on the AI ethics of UNESCO and how it can be used to facilitate information accessibility. Why did we at UNESCO adopted this recommendation in 2021? Perhaps the best example to"
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0010",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 545.54,
+      "end": 611.45,
+      "duration": 65.91,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "To generate legal documents, what are the opportunities and dangers and whether AI promises to help with the administration of education, of governance, medical decision making, justice, public policy and or technology.",
+      "keywords": [
+        "governance",
+        "policy",
+        "education",
+        "law",
+        "legal",
+        "justice",
+        "government",
+        "public policy",
+        "administrative",
+        "remarks"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.658147,
+      "selection_score": 0.911837,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "and",
+        "governance"
+      ],
+      "text": "To generate legal documents, what are the opportunities and dangers and whether AI promises to help with the administration of education, of governance, medical decision making, justice, public policy and or technology. So I want to first introduce Faith Magikolabe, assistant professor, the faculty law to address us. Thank you everyone for coming and thank you for the kind invitation. Today I would like to offer some brief remarks on the automation of decisions and the context of administrative decisions of government and also decision making in the justice sector. A good starting point is to know that administrative decisions and legal or justice related decisions are not bureaucratic..."
+    },
+    {
+      "fragment_id": "0245_C8ER_ryRXfE_7(H) D Davis -  AI, decision-making and the role of human judgment_0001",
+      "source_video": "0245_C8ER_ryRXfE_7(H) D Davis -  AI, decision-making and the role of human judgment",
+      "video_id": "C8ER",
+      "start": 0.34,
+      "end": 59.74,
+      "duration": 59.4,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Hello, my name is Danielle Davis and I am the tech and telecom policy council for the multicultural media and telecom Internet council more commonly known as MMTC.",
+      "keywords": [
+        "information accessibility",
+        "ethics",
+        "policy",
+        "accessibility",
+        "media",
+        "information",
+        "ethical",
+        "legal",
+        "communities",
+        "telecom"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.659881,
+      "selection_score": 0.887771,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "Hello, my name is Danielle Davis and I am the tech and telecom policy council for the multicultural media and telecom Internet council more commonly known as MMTC. I would like to thank the information for all working group on information accessibility for their invitation to present on AI policy and ethics. In my presentation, I will discuss AI and its role in society and the legal and ethical implications it presents to black and other marginalized communities. Because at the end of the day, today, AI is everywhere in society. Sometimes it's fairly obvious and other times it's hidden under the covers. It can help us request rides. It can help us make our online purchases possible. It..."
+    },
+    {
+      "fragment_id": "0123_Fuxk-tT6ngg_UNESCO Caribbean AI Policy Roadmap_0002",
+      "source_video": "0123_Fuxk-tT6ngg_UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "Fuxk-tT6ngg",
+      "start": 77.14,
+      "end": 145.74,
+      "duration": 68.6,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "to the global standard UNESCO recommendation on the ethics of AI.",
+      "keywords": [
+        "artificial intelligence",
+        "ethics",
+        "policy",
+        "information",
+        "unesco",
+        "caribbean",
+        "recommendation",
+        "unesco recommendation",
+        "initiative",
+        "really"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.662459,
+      "selection_score": 0.885959,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "to the global standard UNESCO recommendation on the ethics of AI. Well, the Caribbean AI initiative began, the current really was the thinking of the Broadcasting Commission that we couldn't have exponential technologies, frontier technologies, changing all the operating systems of the society and we sit by and observe the Commission put the initiative to engage with the UNESCO information for all program and the Caribbean cluster office for UNESCO and the subject and that gave birth to the Caribbean AI initiative which really is more of a grassroots type movement, thinking about artificial intelligence and engaging around artificial intelligence from the ground up, that the other way..."
+    },
+    {
+      "fragment_id": "0163_Zk3Dm2JUtGo_Karsten Mundel - Generative AI and Academic Citizenship： A Call to Action_0005",
+      "source_video": "0163_Zk3Dm2JUtGo_Karsten Mundel - Generative AI and Academic Citizenship： A Call to Action",
+      "video_id": "Zk3Dm2JUtGo",
+      "start": 193.76,
+      "end": 252.19,
+      "duration": 58.43,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "of the work of a faculty member at a university.",
+      "keywords": [
+        "ethics",
+        "students",
+        "academic",
+        "university",
+        "moral",
+        "civic",
+        "work",
+        "note",
+        "citizenship",
+        "one"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.660147,
+      "selection_score": 0.883837,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "of the work of a faculty member at a university. They also note that this is a rather narrow definition and are being challenging us to reimagine. And conclude, academic citizenship should be examined as a practice of enactment, one that pays attention not only to the undertaking of certain activities having moral, altruistic or civic merit, but also to how academics draw on freedoms, autonomy, and individual motivations in their participation in a range of academic work viewed integratively. The University of Alberta has a requirement that all of its graduate students complete an ethics and academic citizenship component. Conversations are also underway about how to translate that from the..."
+    },
+    {
+      "fragment_id": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People_0001",
+      "source_video": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People",
+      "video_id": "xehafx7DAEs",
+      "start": 1.14,
+      "end": 50.17,
+      "duration": 49.03,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Hello, mostly to have you listen to this presentation today.",
+      "keywords": [
+        "youth",
+        "ethics",
+        "young people",
+        "university",
+        "presentation",
+        "able",
+        "really",
+        "oxford",
+        "jesus",
+        "college"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.669261,
+      "selection_score": 0.874951,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "Hello, mostly to have you listen to this presentation today. I'm so glad that you were able to tune in. I am quite delighted to be able to speak on behalf of my team regarding the presentation on co-designing ethics for the metaverse and we're really going to look through the eyes of Jamaican young people. So, by way of an introduction, my name is Dr. Savannah Key Johnson. I am a researcher at the University of Oxford and a fellow at Jesus College, which is also based here in Oxford. And so, what I will be speaking on today is really at this around a project that we did with a collaborative effort between Jesus College, who founded the project and local youth organization."
+    },
+    {
+      "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0038",
+      "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
+      "video_id": "yZAAZZ",
+      "start": 2295.26,
+      "end": 2355.57,
+      "duration": 60.31,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "And you know we're in the process of looking at This intersection of the constitution And human rights as it is in the US context with respect to the AI Bill of rights that's built upon...",
+      "keywords": [
+        "human rights",
+        "ethics",
+        "policy",
+        "rights",
+        "principles",
+        "safety",
+        "know",
+        "leave",
+        "annual",
+        "one"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.655923,
+      "selection_score": 0.873833,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "minute",
+        "ethics",
+        "and"
+      ],
+      "text": "And you know we're in the process of looking at This intersection of the constitution And human rights as it is in the US context with respect to the AI Bill of rights that's built upon constitutional principles and I'm with this AI Safety consortium. So be at it in terms of AI safety So I without Taking too much from the collective discussion time which I know we need to leave some minutes for I leave you with just a little plug for This coming spring for a center for digital ethics and policy annual consortia annual symposium So if you like what you're hearing today vatina and jeffery have been co- Conspirators in in conducting one of these for our 10th anniversary one so"
+    },
+    {
+      "fragment_id": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People_0034",
+      "source_video": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People",
+      "video_id": "xehafx7DAEs",
+      "start": 1708.1,
+      "end": 1770.49,
+      "duration": 62.39,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "And these are just visualizations of their visit.",
+      "keywords": [
+        "ethics",
+        "students",
+        "university",
+        "news",
+        "top",
+        "one",
+        "metaphors",
+        "invited",
+        "jamaica",
+        "high"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.660762,
+      "selection_score": 0.855452,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "And these are just visualizations of their visit. The top corner, the top visualization is one of our students, with another of the participants showcasing her metaphors space. We were also invited by the Jamaica High Commissioner, to the, we were invited by the UK High Commissioner, the Jamaica, to present or find their, and then also by City University, where we had the opportunity to trial their metaphors spaces. So, it was very eventful for the students. And of course, one of our program coordinators, Christopher Durrell, visited Brazil, where he discussed quite extensively ethics and privacy with metal. All right, so we've come to the end of the talk today. And what I want to do, you..."
+    },
+    {
+      "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0082",
+      "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
+      "video_id": "MVEKzZJ2t58",
+      "start": 5319.53,
+      "end": 5384.02,
+      "duration": 64.49,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "which will basically help to identify possible biases, improve fairness and make sure that AI models are more predictable and also that they are used within the design scope of the application.",
+      "keywords": [
+        "human rights",
+        "public trust",
+        "regulation",
+        "rights",
+        "trust",
+        "fairness",
+        "recommendation",
+        "make",
+        "conduct",
+        "basically"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.657092,
+      "selection_score": 0.840302,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "and"
+      ],
+      "text": "which will basically help to identify possible biases, improve fairness and make sure that AI models are more predictable and also that they are used within the design scope of the application. Next one is voluntary code of conduct. We already make some steps to make it happen. So last week we had the meeting with the AI companies which signed a declaration and delegated the lawyers to work further on the voluntary code of conduct. So basically, kind of conduct is the main event of the self-regulation, which will ensure the fairness, protect human rights and build the public trust. Next section is recommendation, we have already published few, which has recommendation for journalists or..."
+    },
+    {
+      "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0042",
+      "source_video": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation",
+      "video_id": "ikdcwVcRSPo",
+      "start": 2490.74,
+      "end": 2560.88,
+      "duration": 70.14,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "And so now I want to ask you to take your smartphones out because there'll be a QR code that you will need to activate on at the end of this video.",
+      "keywords": [
+        "artificial intelligence",
+        "ethics",
+        "policy",
+        "caribbean",
+        "unesco",
+        "recommendation",
+        "artificial",
+        "intelligence",
+        "roadmap",
+        "now"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.66117,
+      "selection_score": 0.81686,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "to be able to release our roadmap. And so now I want to ask you to take your smartphones out because there'll be a QR code that you will need to activate on at the end of this video. And now we invite you to look at our launch video. Yeah, enjoy. Back in 2020 around the time when UNESCO's recommendation on the ethics of artificial intelligence was being drafted, we started to come together in the Caribbean really to understand where we were with artificial intelligence. And so the Caribbean AI initiative was started. The UNESCO Caribbean Artificial Intelligence AI Policy Roadmap was developed under the Caribbean AI initiative through extensive consultation with experts, policymakers, and..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0004",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 195.89,
+      "end": 266.44,
+      "duration": 70.55,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "deepening inequalities, and erode trust in information systems.",
+      "keywords": [
+        "artificial intelligence",
+        "human rights",
+        "ethics",
+        "information",
+        "information systems",
+        "conference",
+        "unesco",
+        "rights",
+        "right to information",
+        "neuro technology"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.657486,
+      "selection_score": 0.969576,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and"
+      ],
+      "text": "deepening inequalities, and erode trust in information systems. That is why UNESCO's global frameworks, including the recommendation on the ethics of artificial intelligence adopted by Member States, must guide our efforts. By localizing this principle, we can ensure that AI development in Zimbabwe respects human rights, cultural diversity, and the right to information. And actually for your information, UNESCO holds its general conference every two years. It is the highest decision making body within UNESCO, that is the general conference. And the next general conference is actually starting at the end of next month. One of the items on the agenda, we are seeking Member States to adopt a..."
+    },
+    {
+      "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0014",
+      "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
+      "video_id": "MVEKzZJ2t58",
+      "start": 953.76,
+      "end": 1025.68,
+      "duration": 71.92,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "is to create data points, which are ready for AI processing to produce the trust-versi, be reliable, and be accurate result without any discrimination, without any concerns about ethics.",
+      "keywords": [
+        "ethics",
+        "standards",
+        "information",
+        "discrimination",
+        "data",
+        "convention",
+        "access",
+        "official",
+        "any",
+        "council"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.67473,
+      "selection_score": 0.95322,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "create",
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "is to create data points, which are ready for AI processing to produce the trust-versi, be reliable, and be accurate result without any discrimination, without any concerns about ethics. And in most strongly, the first and the very important instrument we can use for this, is so-called tronce convention. The Council of Europe Convention on Access to Official Information, other access to official data, sometimes I make this mistake, because Council of Europe Convention on Access to Official Documents has kind of a fashion name, and many people say that, well, it's about traditional incremental approach, and there is no space to apply these standards for the digital data. And I may argue that..."
+    },
+    {
+      "fragment_id": "0194_Sa96z9ElooQ_Paul Thompson - How Autonomous Reasoning Agents are Paving the Way for Ethical AI Governance_0005",
+      "source_video": "0194_Sa96z9ElooQ_Paul Thompson - How Autonomous Reasoning Agents are Paving the Way for Ethical AI Governance",
+      "video_id": "Sa96z9ElooQ",
+      "start": 241.9,
+      "end": 298.93,
+      "duration": 57.03,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "consider alternatives, consider ethics and make informed decisions that align with human values.",
+      "keywords": [
+        "ethics",
+        "governance",
+        "education",
+        "health",
+        "ethical",
+        "information",
+        "public health",
+        "values",
+        "it's",
+        "able"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.678571,
+      "selection_score": 0.952261,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "ethics",
+        "and",
+        "governance"
+      ],
+      "text": "consider alternatives, consider ethics and make informed decisions that align with human values. This is the key difference here. Now, what makes an AI special is that it's able to interpret and understand the context in which it operates. It's able to adapt and handle multi-reasoning scenarios. It's programmed to incorporate ethical considerations and critical thinking into its decision process, decision-making process. And it's able to adapt based on new information or changing circumstances or updating data. Very much the same that leaders have to operate with changing and evolving information. Now, there are broad applications for AIAs in governance, in public health, in education and..."
+    }
+  ],
+  "storyline": {
+    "title": "The Ethics of AI Governance: Ensuring Responsible Development and Use",
+    "logline": "This documentary explores the importance of ethics in AI governance, highlighting the need for responsible development and use of artificial intelligence.",
+    "style": "documentary",
+    "target_duration_seconds": 60,
+    "estimated_duration_seconds": 59.99,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "narration_led_explainer",
+      "evidence_strength": "high",
+      "exact_clip_count": 35,
+      "related_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 24,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI Equity, Inclusion & Social Justice",
+        "AI Ethics, Governance & Policy",
+        "AI in Education & Creative Industries",
+        "AI, Law & Human Rights",
+        "Disinformation, Deepfakes & AI Safety"
+      ],
+      "chapter_coverage": [
+        "Ch 12: Youth, Aging & Generational Perspectives",
+        "Ch 13: AI in Healthcare & Medicine",
+        "Ch 18: AI Safety, Cybersecurity & Warfare",
+        "Ch 1: Foundations of AI Ethics & Philosophy",
+        "Ch 22: AI in Academic Research & Knowledge Production",
+        "Ch 24: Privacy, Human Rights & Civil Liberties",
+        "Ch 2: AI Governance Models & Oversight",
+        "Ch 3: AI Policy, Regulation & Legislation",
+        "Ch 5: Open Data & Information Accessibility",
+        "Ch 8: Regional & Satellite Conference Events",
+        "Ch 9: AI Equity in the Global South & Developing Nations"
+      ],
+      "average_similarity": 0.665719,
+      "average_quote_strength": 0.568571,
+      "recommended_structure": [
+        "opening_context",
+        "exact_evidence_clip",
+        "related_theme_clip",
+        "synthesis_narration",
+        "related_supporting_clip",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    },
+    "narrative_arc": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook"
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context"
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension"
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective"
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence"
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction"
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis"
+      }
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 5,
+        "director_role": "opening_context",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Welcome to the world of artificial intelligence, where machines are learning to think and act like humans.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI_0001",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 5,
+            "reason": "Sets the tone for the documentary"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the documentary title and logline",
+            "on_screen_text": "The Ethics of AI Governance: Ensuring Responsible Development and Use"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 10,
+        "director_role": "exact_evidence_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "AI has the potential to revolutionize many industries, but it also raises important ethical concerns.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity_0005",
+            "usage": "evidence_visual",
+            "start": 10,
+            "end": 20,
+            "reason": "Provides context for the importance of ethics in AI development"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity_0005",
+            "start": 10,
+            "end": 20,
+            "quote_summary": "AI has the potential to revolutionize many industries, but it also raises important ethical concerns.",
+            "reason": "Provides expert perspective on the importance of ethics in AI development"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 10,
+        "director_role": "related_theme_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "One of the biggest challenges in AI development is ensuring that machines are transparent and accountable.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+            "usage": "background_visual",
+            "start": 20,
+            "end": 30,
+            "reason": "Provides context for the importance of transparency in AI development"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+            "start": 20,
+            "end": 30,
+            "quote_summary": "One of the biggest challenges in AI development is ensuring that machines are transparent and accountable.",
+            "reason": "Provides expert perspective on the importance of transparency in AI development"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 10,
+        "director_role": "related_supporting_clip",
+        "evidence_role": "synthesis",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "But what does it mean to be transparent and accountable in AI development?",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0080",
+            "usage": "context_visual",
+            "start": 30,
+            "end": 40,
+            "reason": "Provides context for the importance of transparency in AI development"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0080",
+            "start": 30,
+            "end": 40,
+            "quote_summary": "But what does it mean to be transparent and accountable in AI development?",
+            "reason": "Provides expert perspective on the importance of transparency in AI development"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 10,
+        "director_role": "synthesis_narration",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "According to experts, transparency and accountability are crucial in AI development.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
+            "usage": "evidence_visual",
+            "start": 40,
+            "end": 50,
+            "reason": "Provides expert perspective on the importance of transparency in AI development"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
+            "start": 40,
+            "end": 50,
+            "quote_summary": "According to experts, transparency and accountability are crucial in AI development.",
+            "reason": "Provides expert perspective on the importance of transparency in AI development"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 10,
+        "director_role": "closing_takeaway",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "So what can we do to ensure that AI is developed responsibly?",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0116",
+            "usage": "background_visual",
+            "start": 50,
+            "end": 60,
+            "reason": "Provides context for the importance of responsible AI development"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0116",
+            "start": 50,
+            "end": 60,
+            "quote_summary": "So what can we do to ensure that AI is developed responsibly?",
+            "reason": "Provides expert perspective on the importance of responsible AI development"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 5,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "The future of AI development is uncertain, but one thing is clear: we must prioritize ethics and responsibility.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI_0001",
+            "usage": "background_visual",
+            "start": 55,
+            "end": 60,
+            "reason": "Provides context for the importance of ethics in AI development"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the documentary title and logline",
+            "on_screen_text": "The Ethics of AI Governance: Ensuring Responsible Development and Use"
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to the world of artificial intelligence, where machines are learning to think and act like humans.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "AI has the potential to revolutionize many industries, but it also raises important ethical concerns.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "One of the biggest challenges in AI development is ensuring that machines are transparent and accountable.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "But what does it mean to be transparent and accountable in AI development?",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "According to experts, transparency and accountability are crucial in AI development.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "So what can we do to ensure that AI is developed responsibly?",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "The future of AI development is uncertain, but one thing is clear: we must prioritize ethics and responsibility.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity_0005",
+        "source_video": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity",
+        "start": 10,
+        "end": 20,
+        "quote_summary": "AI has the potential to revolutionize many industries, but it also raises important ethical concerns.",
+        "use_in_section": "S2"
+      },
+      {
+        "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+        "source_video": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future",
+        "start": 20,
+        "end": 30,
+        "quote_summary": "One of the biggest challenges in AI development is ensuring that machines are transparent and accountable.",
+        "use_in_section": "S3"
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0080",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "start": 30,
+        "end": 40,
+        "quote_summary": "But what does it mean to be transparent and accountable in AI development?",
+        "use_in_section": "S4"
+      },
+      {
+        "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
+        "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
+        "start": 40,
+        "end": 50,
+        "quote_summary": "According to experts, transparency and accountability are crucial in AI development.",
+        "use_in_section": "S5"
+      },
+      {
+        "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0116",
+        "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
+        "start": 50,
+        "end": 60,
+        "quote_summary": "So what can we do to ensure that AI is developed responsibly?",
+        "use_in_section": "S6"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI_0001",
+        "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity_0005",
+        "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+        "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0080",
+        "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
+        "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0116"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "Title card with the documentary title and logline",
+          "on_screen_text": "The Ethics of AI Governance: Ensuring Responsible Development and Use"
+        }
+      ],
+      "internet_assets": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "fragment_id": null,
+        "duration_seconds": 5,
+        "description": "Welcome to the world of artificial intelligence, where machines are learning to think and act like humans."
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S1",
+        "fragment_id": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI_0001",
+        "duration_seconds": 5,
+        "description": "Background visual for opening hook"
+      },
+      {
+        "order": 3,
+        "timeline_type": "voiceover",
+        "section_id": "S2",
+        "fragment_id": null,
+        "duration_seconds": 10,
+        "description": "AI has the potential to revolutionize many industries, but it also raises important ethical concerns."
+      },
+      {
+        "order": 4,
+        "timeline_type": "speaker_clip",
+        "section_id": "S2",
+        "fragment_id": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity_0005",
+        "duration_seconds": 10,
+        "description": "Expert perspective on the importance of ethics in AI development"
+      },
+      {
+        "order": 5,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity_0005",
+        "duration_seconds": 10,
+        "description": "Evidence visual for AI development"
+      },
+      {
+        "order": 6,
+        "timeline_type": "voiceover",
+        "section_id": "S3",
+        "fragment_id": null,
+        "duration_seconds": 10,
+        "description": "One of the biggest challenges in AI development is ensuring that machines are transparent and accountable."
+      },
+      {
+        "order": 7,
+        "timeline_type": "speaker_clip",
+        "section_id": "S3",
+        "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+        "duration_seconds": 10,
+        "description": "Expert perspective on the importance of transparency in AI development"
+      },
+      {
+        "order": 8,
+        "timeline_type": "archive_visual",
+        "section_id": "S3",
+        "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+        "duration_seconds": 10,
+        "description": "Background visual for transparency in AI development"
+      },
+      {
+        "order": 9,
+        "timeline_type": "voiceover",
+        "section_id": "S4",
+        "fragment_id": null,
+        "duration_seconds": 10,
+        "description": "But what does it mean to be transparent and accountable in AI development?"
+      },
+      {
+        "order": 10,
+        "timeline_type": "speaker_clip",
+        "section_id": "S4",
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0080",
+        "duration_seconds": 10,
+        "description": "Expert perspective on the importance of transparency in AI development"
+      },
+      {
+        "order": 11,
+        "timeline_type": "archive_visual",
+        "section_id": "S4",
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0080",
+        "duration_seconds": 10,
+        "description": "Context visual for transparency in AI development"
+      },
+      {
+        "order": 12,
+        "timeline_type": "voiceover",
+        "section_id": "S5",
+        "fragment_id": null,
+        "duration_seconds": 10,
+        "description": "According to experts, transparency and accountability are crucial in AI development."
+      },
+      {
+        "order": 13,
+        "timeline_type": "speaker_clip",
+        "section_id": "S5",
+        "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
+        "duration_seconds": 10,
+        "description": "Expert perspective on the importance of transparency in AI development"
+      },
+      {
+        "order": 14,
+        "timeline_type": "archive_visual",
+        "section_id": "S5",
+        "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
+        "duration_seconds": 10,
+        "description": "Evidence visual for AI development"
+      },
+      {
+        "order": 15,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "fragment_id": null,
+        "duration_seconds": 10,
+        "description": "So what can we do to ensure that AI is developed responsibly?"
+      },
+      {
+        "order": 16,
+        "timeline_type": "speaker_clip",
+        "section_id": "S6",
+        "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0116",
+        "duration_seconds": 10,
+        "description": "Expert perspective on the importance of responsible AI development"
+      },
+      {
+        "order": 17,
+        "timeline_type": "archive_visual",
+        "section_id": "S6",
+        "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0116",
+        "duration_seconds": 10,
+        "description": "Background visual for responsible AI development"
+      },
+      {
+        "order": 18,
+        "timeline_type": "voiceover",
+        "section_id": "S7",
+        "fragment_id": null,
+        "duration_seconds": 5,
+        "description": "The future of AI development is uncertain, but one thing is clear: we must prioritize ethics and responsibility."
+      },
+      {
+        "order": 19,
+        "timeline_type": "archive_visual",
+        "section_id": "S7",
+        "fragment_id": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI_0001",
+        "duration_seconds": 5,
+        "description": "Background visual for closing takeaway"
+      }
+    ],
+    "editor_notes": [
+      "Please ensure that the voiceover script is delivered in a calm and neutral tone.",
+      "Please use the provided archive visuals to support the narration and speaker soundbites.",
+      "Please ensure that the generated assets are of high quality and meet the required specifications."
+    ],
+    "planning_summary": {
+      "video_mode": "narration_led_explainer",
+      "evidence_strength": "high",
+      "exact_clip_count": 35,
+      "related_clip_count": 0,
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    }
+  }
+}

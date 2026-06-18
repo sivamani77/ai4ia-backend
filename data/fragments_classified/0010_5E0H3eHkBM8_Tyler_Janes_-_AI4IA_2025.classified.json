@@ -1,0 +1,811 @@
+{
+  "source_transcript": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025.json",
+  "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+  "video_id": "5E0H3eHkBM8",
+  "fragment_count": 9,
+  "created_at": "2026-06-16T12:54:12.664221",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0001",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 1,
+      "start": 0.91,
+      "end": 70.06,
+      "duration": 69.15,
+      "text": "Hello, my name is Tyler James, and I am an independent ethicist who focuses on medicine and emerging technologies. And true to form, I want to cover a subject that doesn't really have a lot of attention today. Being the utilization of AI and cognitive technologies and how they impact our individual and societal rights and obligations to know and to have knowledge and to disseminate knowledge. So I'm going to just come in with a little disclaimer. Just notifying y'all that the beliefs and opinions that I share here are not necessarily reflected by the institutions that I'm affiliated with. So now let me hop into the background of this subject. So obviously we've been advancing as a society, more towards more effective or fish methods of interfacing with information, whether that be in the natural world, the written word or in the computerized systems that we've developed.",
+      "word_count": 155,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "created_at": "2026-06-16T12:54:12.662674",
+      "keywords": [
+        "information",
+        "knowledge",
+        "medicine",
+        "rights",
+        "technologies",
+        "subject",
+        "i'm",
+        "we've"
+      ],
+      "summary": "Hello, my name is Tyler James, and I am an independent ethicist who focuses on medicine and emerging technologies.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "knowledge"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.333,
+          "matched_keywords": [
+            "medicine"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "knowledge",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.333,
+          "matched_keywords": [
+            "medicine"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.991388"
+    },
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0002",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 2,
+      "start": 70.06,
+      "end": 139.06,
+      "duration": 69.0,
+      "text": "From the early computers to the wearables and implantables that we're seeing proliferate in society today. Now, the areas obviously that I want to hop on specifically are cognitive technologies. So think of virtual reality, metaverse, and then neuro technologies, you know, ionic prosthetics that interface directly within nervous system. Both of these technologies can utilize artificial intelligence be driven by them. So I'm just going to consolidate them all into the AI driven of cognitive technology. And I know that's not necessarily the most appropriate, but very short on time. So I'm not going to have time to just need between neuro tech and cognitive tech the entire time I am presenting here. Because several different or issues that we do need to have very thorough discussions on still that we haven't necessarily taken out of other spheres like bioethics, forgotten because that does feed into the conversation to some degree.",
+      "word_count": 157,
+      "source_segment_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "created_at": "2026-06-16T12:54:12.662932",
+      "keywords": [
+        "artificial intelligence",
+        "cognitive",
+        "technologies",
+        "time",
+        "neuro",
+        "know",
+        "driven",
+        "i'm",
+        "going",
+        "necessarily",
+        "need",
+        "tech"
+      ],
+      "summary": "From the early computers to the wearables and implantables that we're seeing proliferate in society today.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.997376"
+    },
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0003",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 3,
+      "start": 139.06,
+      "end": 204.22,
+      "duration": 65.16,
+      "text": "My concern is that with the implementation of the large language models utilizing them for chatbots and how we are being able to groom them. And as it were to disseminate specific began information, what have you, depending on how you structure the lm, it'll give you out a set of outputs that is tailored for that system. And we see the different between chat gbt and different systems that are out there commercially available and freely available to the public for use. Now, the problem is that we're creating affirmative systems or that we are using them for comfort to affirm as of our world views. And there's a danger in that because if we don't have denials or refutations of truth.",
+      "word_count": 127,
+      "source_segment_ids": [
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "created_at": "2026-06-16T12:54:12.663114",
+      "keywords": [
+        "information",
+        "truth",
+        "language",
+        "out",
+        "different",
+        "systems",
+        "available"
+      ],
+      "summary": "My concern is that with the implementation of the large language models utilizing them for chatbots and how we are being able to groom them.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "truth"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "truth"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.002783"
+    },
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0004",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 4,
+      "start": 204.22,
+      "end": 260.44,
+      "duration": 56.22,
+      "text": "In fact, respective to world views, respective to perspectives that we might develop and hold and share them with another. We're going to create an environment much like we see with social media where we're developing ourselves where we put up barriers and it gets harder for us to be able to interact. And it gets harder for us to be able to empathize, sympathize with one another and we just go into our corners and we just stay there. And that's an altogether negative for society because we are social creatures. And if we're only socialized with cuters, that's kind of contrary to the point of being able to engage into create societies. So obviously we're going to be able to use the prior technologies that have come before social media being a good example here.",
+      "word_count": 143,
+      "source_segment_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "created_at": "2026-06-16T12:54:12.663335",
+      "keywords": [
+        "environment",
+        "media",
+        "we're",
+        "able",
+        "social",
+        "respective",
+        "another",
+        "going",
+        "create",
+        "gets",
+        "harder",
+        "that's"
+      ],
+      "summary": "In fact, respective to world views, respective to perspectives that we might develop and hold and share them with another.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "environment"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "environment"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.007872"
+    },
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0005",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 5,
+      "start": 260.44,
+      "end": 317.21,
+      "duration": 56.77,
+      "text": "And then take those techniques that we have developed to manipulate information to cause chaos to disrupt and harm or cause good, obviously. We're going to be able to take those into the AI driven cognitive technologies. And if it's not properly regulated, it's going to cause a significant amount of. And why some I argue here in the US, we're having a very difficult conversation when it comes to what is truth, what is fact, what is opinion. We can see that on a more global scale and at a much more rapid pace than we saw with social media because obviously AI being as prolific as it is. And as easy to manipulate as it is, we can see that at a much much more accelerated pace, you know, the span of weeks instead of years.",
+      "word_count": 142,
+      "source_segment_ids": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "created_at": "2026-06-16T12:54:12.663566",
+      "keywords": [
+        "media",
+        "information",
+        "truth",
+        "harm",
+        "cause",
+        "take",
+        "manipulate",
+        "obviously",
+        "we're",
+        "going",
+        "it's",
+        "see",
+        "pace"
+      ],
+      "summary": "And then take those techniques that we have developed to manipulate information to cause chaos to disrupt and harm or cause good, obviously.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "truth"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "truth"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "harm"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.012746"
+    },
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0006",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 6,
+      "start": 317.21,
+      "end": 409.73,
+      "duration": 92.52,
+      "text": "Now, again, coming back to right to know, right not to know, similar to the right to be for them. We need to bring this into the sphere of computer and informational sciences, more because we have to have an understanding of what does a person have a right to know, what does a person have a right not to know, what are the obligations that they have to society and vice versa. That brings me to this whole segment on classifying information content and the very, very complex and nuanced discussions that exist within the sphere because how do we define fact, what is false, what is appropriate and appropriate for home and for which aspects of society. What is bias, how do we ensure that by I hate to say positive censorship, but the, the antenna, I guess you could say of censorship in the sense such that tent, that is harmful or negative work destructive to society is being suppressed, being removed such that it's not able to cause that harm that we expect it to wreck as it were.",
+      "word_count": 184,
+      "source_segment_ids": [
+        34,
+        35,
+        36,
+        37
+      ],
+      "created_at": "2026-06-16T12:54:12.663805",
+      "keywords": [
+        "right not to know",
+        "content",
+        "information",
+        "bias",
+        "right to know",
+        "harm",
+        "right",
+        "know",
+        "society",
+        "sphere",
+        "does",
+        "person",
+        "appropriate",
+        "say",
+        "censorship"
+      ],
+      "summary": "Now, again, coming back to right to know, right not to know, similar to the right to be for them.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "right not to know"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "content",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.167,
+          "matched_keywords": [
+            "bias"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "right to know",
+            "right not to know"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.083,
+          "matched_keywords": [
+            "bias"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.083,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.083,
+          "matched_keywords": [
+            "bias"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.083,
+          "matched_keywords": [
+            "harm"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.019050"
+    },
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0007",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 7,
+      "start": 410.79,
+      "end": 472.62,
+      "duration": 61.83,
+      "text": "And these are all very, very nuanced, very complex discussions that we'll have to have and it's not going to be still where obviously going to have many, many circumstances where some of these discussions are based on individual cultures, individual forms and whether we have an international agreement on what some of these things are or not. It's going to take us a lot of time to come around and resolve it. There are some recommendations that we could start implementing now as this technology is coming up, obviously ensuring that we have proper amount and level of AI literacy, much as we implement internet literacy back in the early 90s, thousands. And in many senses, we are still proliferating that internet literacy today to populations around below.",
+      "word_count": 132,
+      "source_segment_ids": [
+        38,
+        39,
+        40
+      ],
+      "created_at": "2026-06-16T12:54:12.663970",
+      "keywords": [
+        "ai literacy",
+        "literacy",
+        "going",
+        "many",
+        "discussions",
+        "it's",
+        "still",
+        "obviously",
+        "individual",
+        "around",
+        "internet"
+      ],
+      "summary": "And these are all very, very nuanced, very complex discussions that we'll have to have and it's not going to be still where obviously going to have many, many circumstances where some of these discussions are...",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "literacy",
+            "ai literacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "ai literacy"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.023926"
+    },
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0008",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 8,
+      "start": 472.62,
+      "end": 535.78,
+      "duration": 63.16,
+      "text": "Another aspect is to try indeed incentivize organizations from developing solely affirmative systems, try to give them an incentive to add in a bit of that refutation, bit of that disagreement. So that we can challenge people's world views and we can prevent them from completely siloing themselves such that it's causing harm not only to society, but to themselves as well. And then the last of it obviously is going to be embedding aspects of right to know, right not to know into existing legislature and regulatory frameworks and that's not going to be fully easy to address. But if we can start building these notions into our societal obligations, maybe some of those more complex discussions that I alluded to earlier will be easier to tackle.",
+      "word_count": 131,
+      "source_segment_ids": [
+        41,
+        42,
+        43,
+        44
+      ],
+      "created_at": "2026-06-16T12:54:12.664139",
+      "keywords": [
+        "right not to know",
+        "right to know",
+        "harm",
+        "try",
+        "bit",
+        "themselves",
+        "going",
+        "right",
+        "know"
+      ],
+      "summary": "Another aspect is to try indeed incentivize organizations from developing solely affirmative systems, try to give them an incentive to add in a bit of that refutation, bit of that disagreement.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "right not to know"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "right to know",
+            "right not to know"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.167,
+          "matched_keywords": [
+            "harm"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.029261"
+    },
+    {
+      "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0009",
+      "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
+      "video_id": "5E0H3eHkBM8",
+      "fragment_index": 9,
+      "start": 536.78,
+      "end": 550.78,
+      "duration": 14.0,
+      "text": "Now, running over time here, so I'm just going to leave the contact, the bibliography here. So I'll be running around the algorithm and will be available for questions if you guys need me. So thank you for your time and hope to chat with you soon.",
+      "word_count": 49,
+      "source_segment_ids": [
+        45,
+        46,
+        47
+      ],
+      "created_at": "2026-06-16T12:54:12.664206",
+      "keywords": [
+        "running",
+        "time",
+        "here"
+      ],
+      "summary": "Now, running over time here, so I'm just going to leave the contact, the bibliography here.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.367,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.031500"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:16.031506"
+}

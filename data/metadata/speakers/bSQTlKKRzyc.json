@@ -1,0 +1,25 @@
+{
+  "video_id": "bSQTlKKRzyc",
+  "source_video": "0177_bSQTlKKRzyc_Bettina Berendt - Consensual counterfeit people",
+  "title": "Bettina Berendt - Consensual counterfeit people",
+  "speakers": [
+    {
+      "name": "Bettina Berendt",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Bettina Berent",
+      "role": "Speaker",
+      "affiliation": "Oberlin by Zimbarm Institute and K.U. Lüven",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Bettina Berendt",
+  "title_name_hint": "Bettina Berendt",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:31:44.405798"
+}

@@ -1,0 +1,1314 @@
+{
+  "source_transcript": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability.json",
+  "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+  "video_id": "0WRL9pWmrvk",
+  "fragment_count": 14,
+  "created_at": "2026-06-16T12:54:13.616377",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0001",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 1,
+      "start": 2.48,
+      "end": 53.64,
+      "duration": 51.16,
+      "text": "Hi, my name is James Sheer. I'm a partner with the law firm Baker and Haas Tetler in New York City and I co chair our emerging tech team, which leads the client facing practices of information governance, Web 3 and digital currency, as well as artificial intelligence. And I'm going to speak today for the AI4IA conference, the fifth artificial intelligence for information accessibility conference here in 2024. And I'm going to speak at length about AI program development and different elements of programs. I'm going to speak from actual experience that I've had with clients and how we've seen a lot of areas come into alignment through the work that we've done for our clients.",
+      "word_count": 124,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "created_at": "2026-06-16T12:54:13.614127",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "governance",
+        "accessibility",
+        "law",
+        "information",
+        "conference",
+        "i'm",
+        "going",
+        "speak",
+        "artificial",
+        "intelligence",
+        "clients",
+        "we've"
+      ],
+      "summary": "I'm a partner with the law firm Baker and Haas Tetler in New York City and I co chair our emerging tech team, which leads the client facing practices of information governance, Web 3 and digital...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "information",
+            "conference"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.143,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.4,
+          "matched_keywords": [
+            "law",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.4,
+          "matched_keywords": [
+            "conference"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.2,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.370011"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0002",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 2,
+      "start": 53.64,
+      "end": 106.06,
+      "duration": 52.42,
+      "text": "So let me start with the different component or elements of AI programs and how those speak to presenting what's happening within AI in a way that is accessible to people, explainable, interpretable, that comes with, if not a layer of transparency to all of this, at least of interpretability and a further ability to understand what's happening within organizations and their uses of AI. And I'll outline the component parts of these programs and then dig in a little bit deeper on some of those areas to explain what clients have been concerned about and how they may have addressed some of the challenges that are presented. Let's start with an area that we've dealt with, I think it's north of 30 clients now, so more than 30 clients have had AI use policies put into place.",
+      "word_count": 144,
+      "source_segment_ids": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "created_at": "2026-06-16T12:54:13.614312",
+      "keywords": [
+        "transparency",
+        "accessible",
+        "clients",
+        "start",
+        "component",
+        "programs",
+        "what's",
+        "happening"
+      ],
+      "summary": "So let me start with the different component or elements of AI programs and how those speak to presenting what's happening within AI in a way that is accessible to people, explainable, interpretable, that comes with,...",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessible"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.375513"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0003",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 3,
+      "start": 106.06,
+      "end": 161.57,
+      "duration": 55.51,
+      "text": "And we're seeing additional policies come into play each and every day. So AI use policy, a core component of a lot of the program development. We also see focus on AI training and that's for both personnel and partners with organizations who are using AI. We see a focus on an AI governance committee charter and that's something that's provided for both under the NIST AI risk management framework here in the United States and also a new Colorado law that we have that is due to go into effect in January of 2026. We see executive leadership responsibilities. And this is something that's similar to European ideals as well, where you've got responsibilities at a higher level within an organization that should filter down due to appropriate delegation, but also support from the executive and leaderships as far as both responsibilities and financial support.",
+      "word_count": 152,
+      "source_segment_ids": [
+        10,
+        11,
+        12,
+        13
+      ],
+      "created_at": "2026-06-16T12:54:13.614501",
+      "keywords": [
+        "governance",
+        "policy",
+        "law",
+        "framework",
+        "risk",
+        "training",
+        "that's",
+        "see",
+        "both",
+        "responsibilities",
+        "focus",
+        "something",
+        "due",
+        "executive",
+        "support"
+      ],
+      "summary": "And we're seeing additional policies come into play each and every day.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "governance",
+            "policy",
+            "framework",
+            "risk"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "law",
+            "policy"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "training"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "policy",
+            "law",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "governance",
+            "framework"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.333,
+          "matched_keywords": [
+            "risk"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "training"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "law"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.381275"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0004",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 4,
+      "start": 161.57,
+      "end": 211.57,
+      "duration": 50.0,
+      "text": "We've got a focus on third party contracting. This is an area that's gotten a lot more focus within our client work where organizations that are purchasing AI technologies or maybe deploying them in their environments. Look to see exactly how much support they're going to get from their contracting partners, especially if there are instances where the employers of the technology. We are being asked by say regulators or in the course of litigation or some kind of investigation about what's going on and we'll speak to notice at the back end too where this may be required. We see the requirement to compile and update legal and regulatory requirements associated with AI. This one makes sense in order to do the things that are required under law, you have to keep up to date with what's happening in the law.",
+      "word_count": 148,
+      "source_segment_ids": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "created_at": "2026-06-16T12:54:13.614681",
+      "keywords": [
+        "law",
+        "legal",
+        "focus",
+        "contracting",
+        "see",
+        "going",
+        "what's",
+        "required"
+      ],
+      "summary": "We've got a focus on third party contracting.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "legal"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "law"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "law"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.386845"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0005",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 5,
+      "start": 211.57,
+      "end": 270.98,
+      "duration": 59.41,
+      "text": "Many of those laws have some sort of specific requirements for disclosure to regulators and this may be upon request and we're not speaking about notice out to data subjects come back to, but this is two regulators. It may be the requirements for the developers or the employers to register the uses of these technologies or to put them in databases. Then we also see some more components about internal operations we see a requirement for integration of trust for the AI into the design and that design can be both the technologies itself, but also the way in which they're deployed. So thinking about trust for the AI design throughout both the development of a program, but also how it's being utilized. So AI program as the AI technology, but also program for its implementation and utilization within an environment, but putting it into practice is not the only thing you're required to do.",
+      "word_count": 160,
+      "source_segment_ids": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "created_at": "2026-06-16T12:54:13.614872",
+      "keywords": [
+        "environment",
+        "trust",
+        "design",
+        "program",
+        "requirements",
+        "regulators",
+        "may",
+        "technologies",
+        "see",
+        "both"
+      ],
+      "summary": "Many of those laws have some sort of specific requirements for disclosure to regulators and this may be upon request and we're not speaking about notice out to data subjects come back to, but this is...",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "environment"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "environment"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.392931"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0006",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 6,
+      "start": 270.98,
+      "end": 317.34,
+      "duration": 46.36,
+      "text": "We also may have a requirement to monitor it and review it on a periodic basis. So looking at the AI program, looking at how it's operating, making sure we can accommodate those opportunities for the AI technology to drift or to change and how we might mitigate some of those issues or determine whether or not we have to deprecate a program and start to wind it down. Within that, therefore, we have to provide for feedback integration for the AI program. So how are we going to re-informed the program about what's happening? Are we going to keep track of all of that and have a mechanism by which we can change the status quo and we can make sure that the program is still working as intended, how do we apply back the feedback from that monitoring or periodic review.",
+      "word_count": 146,
+      "source_segment_ids": [
+        22,
+        23,
+        24
+      ],
+      "created_at": "2026-06-16T12:54:13.615038",
+      "keywords": [
+        "program",
+        "review",
+        "periodic",
+        "looking",
+        "sure",
+        "change",
+        "feedback",
+        "going"
+      ],
+      "summary": "We also may have a requirement to monitor it and review it on a periodic basis.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.398252"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0007",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 7,
+      "start": 317.34,
+      "end": 361.34,
+      "duration": 44.0,
+      "text": "Important to all of this, how do we document it? How do we document the AI program? How do we document its development? One of the roles I've had over the course of the past year has been a training partner with the IIPP's AIGP certification exam, and we speak at length about the requirements to prospectively document an AI program. You may have these conformity assessments under laws like the European AI Act. The United States also speaks to these requirements to contemporaneously document an AI program before it starts. It's difficult to ask the computer program what has happened after it's already been going. We've seen these issues with hallucinations within generative AI platforms.",
+      "word_count": 121,
+      "source_segment_ids": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "created_at": "2026-06-16T12:54:13.615192",
+      "keywords": [
+        "training",
+        "document",
+        "program",
+        "requirements",
+        "it's"
+      ],
+      "summary": "Important to all of this, how do we document it?",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "training"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "training"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.63,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.402852"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0008",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 8,
+      "start": 361.34,
+      "end": 423.75,
+      "duration": 62.41,
+      "text": "You can ask the program. It may give you an answer. It may give you a very confident answer. It may give you a very confident and very incorrect answer. Documenting it at the first side, dealing with that on that level so that you've got confidence that not only is your program operating correctly, but you'll be able to answer perhaps some of those regulatory questions later on. And the initial documentation is going to help support the assertion that those documents are business records and are accurate for what the program is doing and what it was designed to do. And then got requirements for security that also orient toward both NIST and the UAI Act as well as some guidance we've seen in the United States for the National Insurance Association and their commissioners, the NAIC, where they said, this is the way in which you need to protect the use of AI, not only do you have to protect the AI itself, but also prevent it from doing things that are untoward that are going to cause problems.",
+      "word_count": 185,
+      "source_segment_ids": [
+        29,
+        30,
+        31,
+        32
+      ],
+      "created_at": "2026-06-16T12:54:13.615411",
+      "keywords": [
+        "security",
+        "business",
+        "answer",
+        "program",
+        "may",
+        "give",
+        "confident",
+        "got",
+        "only",
+        "going",
+        "doing",
+        "protect"
+      ],
+      "summary": "It may give you a very confident answer.",
+      "theme_tags": [
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "business"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.35,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.409509"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0009",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 9,
+      "start": 423.75,
+      "end": 470.75,
+      "duration": 47.0,
+      "text": "And lying with the documentation of the AI program itself is a data mapping exercise around it. How does AI intersect with the broader operation of a company, how they're working, what they're doing. I want to think very carefully about that. One of the guidance and rules we've seen in a lot of AI training has been you don't come into an environment and assume AI is the only thing that matters. And that you need a completely new compliance regime to properly deal with it. Instead, you want to look at the environment in which you're coming, look at existing compliance regimes. You want to avoid what's called the Cobra effect, the law of unintended consequences, look to see what the lay of the land is, see what firm foundations you have and then integrate in the AI program on top of that.",
+      "word_count": 151,
+      "source_segment_ids": [
+        33,
+        34,
+        35,
+        36
+      ],
+      "created_at": "2026-06-16T12:54:13.615601",
+      "keywords": [
+        "environment",
+        "law",
+        "compliance",
+        "training",
+        "want",
+        "look",
+        "program",
+        "they're",
+        "see"
+      ],
+      "summary": "And lying with the documentation of the AI program itself is a data mapping exercise around it.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "compliance"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.667,
+          "matched_keywords": [
+            "environment"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "training"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "compliance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "compliance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.667,
+          "matched_keywords": [
+            "environment"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "training"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.415188"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0010",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 10,
+      "start": 470.75,
+      "end": 532.85,
+      "duration": 62.1,
+      "text": "And also with data mapping, which speaks to the areas and resources within the organization. Then the next part of this assessment process is, in fact, an audit and assessment similar to what we see in the privacy regime, looking at the assets and the processing activities, how we're using personal data, where the AI is functioning, if it's in multiple environments. And then what it's trying to do, what other types of data is it using. Finally, one of the biggest component parts that's going to build off of everything else I've outlined here has been this transparency slash notice slash responses to data subject requests given this build out within an environment. And then how can organizations responsibly respond to inquiries made about its AI program operation. We've already seen part of this within the EU AI act where it's looking to say, well, what degree of transparency or translucency or explainability.",
+      "word_count": 161,
+      "source_segment_ids": [
+        37,
+        38,
+        39
+      ],
+      "created_at": "2026-06-16T12:54:13.615788",
+      "keywords": [
+        "environment",
+        "transparency",
+        "assessment",
+        "audit",
+        "data",
+        "it's",
+        "part",
+        "looking",
+        "using",
+        "build",
+        "slash"
+      ],
+      "summary": "And also with data mapping, which speaks to the areas and resources within the organization.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "assessment"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "assessment"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "audit"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "environment"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.421545"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0011",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 11,
+      "start": 532.85,
+      "end": 581.85,
+      "duration": 49.0,
+      "text": "Or are we going to provide given certain use cases for the technologies use. We also want to think about transparency down the pipeline that is through the supply chain for the uses of these technologies. If you are a employer, you may not have perfect access to all of the information associated with the tool that you've deployed that's interacting with your customers or your potential customers. If you as a employer may be entirely dependent upon the developer for some of that information, this goes all the way back to that prior use of third party contracting. The importance of negotiating within that contracting process access to information related to the AI product that you are purchasing to deploy.",
+      "word_count": 123,
+      "source_segment_ids": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "created_at": "2026-06-16T12:54:13.615953",
+      "keywords": [
+        "access to information",
+        "information",
+        "transparency",
+        "use",
+        "technologies",
+        "employer",
+        "may",
+        "access",
+        "all",
+        "customers",
+        "contracting"
+      ],
+      "summary": "Or are we going to provide given certain use cases for the technologies use.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.167,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.167,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.426373"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0012",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 12,
+      "start": 581.85,
+      "end": 628.94,
+      "duration": 47.09,
+      "text": "There are going to be requirements for certain third party audits. We've seen this more and that idea of audit as a part of the audit and assessment criteria within a program. Well, who's going to pay for that audit? Who may have access to information for an audit? We've seen pressures both in Europe and the United States for not only audits, but then the states back to guidance from the FTC dating back to 2013. Perhaps the best audits are independent third party audits. You've got auditors who are required under their specific professional strictures to abide by certain codes of conduct. So they're going to go ahead and audit AI programs in a way that works with their licensure requirements.",
+      "word_count": 128,
+      "source_segment_ids": [
+        44,
+        45,
+        46,
+        47
+      ],
+      "created_at": "2026-06-16T12:54:13.616123",
+      "keywords": [
+        "access to information",
+        "information",
+        "assessment",
+        "audit",
+        "audits",
+        "going",
+        "requirements",
+        "certain",
+        "third",
+        "party",
+        "we've",
+        "seen",
+        "states",
+        "back"
+      ],
+      "summary": "There are going to be requirements for certain third party audits.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "assessment"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "audit"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.8,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.2,
+          "matched_keywords": [
+            "assessment"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.431141"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0013",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 13,
+      "start": 628.94,
+      "end": 676.94,
+      "duration": 48.0,
+      "text": "But in order to do a true independent third party audit, you have to have access to the information. You have to act as in this case to the core components of AI programs. Those may be in the possession of the developer. There may not be a lot of opportunity to get those, but for integrating that into the contracting process. And I think I'll end this presentation as I'm at time with the combination there for an AI policy and program that accommodates for all of these different steps. And it's for warned is for armed thinking about all these issues, even before you step up and start to purchase a technology because that procurement step may be critical, especially if you're a deployer rather than a developer.",
+      "word_count": 134,
+      "source_segment_ids": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "created_at": "2026-06-16T12:54:13.616289",
+      "keywords": [
+        "policy",
+        "information",
+        "audit",
+        "may",
+        "developer",
+        "all",
+        "step"
+      ],
+      "summary": "But in order to do a true independent third party audit, you have to have access to the information.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "policy"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "policy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "audit"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "policy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.436003"
+    },
+    {
+      "fragment_id": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability_0014",
+      "source_video": "0144_0WRL9pWmrvk_James Sherer - Improving Accessibility through AI Program Accountability",
+      "video_id": "0WRL9pWmrvk",
+      "fragment_index": 14,
+      "start": 677.94,
+      "end": 694.94,
+      "duration": 17.0,
+      "text": "You get the most attention toward your questions and best answers when someone is trying to sell you a technology, rather than when you're already working with that technology, you've paid for it, and they're not further incentivized. So thank you so much for this opportunity to present on this topic.",
+      "word_count": 54,
+      "source_segment_ids": [
+        52,
+        53
+      ],
+      "created_at": "2026-06-16T12:54:13.616361",
+      "keywords": [
+        "technology"
+      ],
+      "summary": "You get the most attention toward your questions and best answers when someone is trying to sell you a technology, rather than when you're already working with that technology, you've paid for it, and they're not...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.438323"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:30.438333"
+}

@@ -1,0 +1,1251 @@
+{
+  "source_transcript": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital.json",
+  "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+  "video_id": "wsoTjtOISmY",
+  "fragment_count": 18,
+  "created_at": "2026-06-16T12:54:12.823358",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0001",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 1,
+      "start": 2.51,
+      "end": 78.62,
+      "duration": 76.11,
+      "text": "Hello, I'm Daniel Kaur, Professor of Computer Science in the Department of Computing at UIMONO. I'd like to discuss in this talk the unseen threat of a generative AI to a human capital. It's widely expected that the incorporation of generative AI is going to lead to a significant productivity boosts. By some estimates, as has 4.4 trillion dollars globally, annually. The sources of this value increase are broad and not really speaks to the general nature of generative AI. And these estimates are not unreasonable because their numerous studies that will support this idea. Here's one example to the right where in a particular introduction of generative AI to a business communication task, not only did the use of AI reduce the average time to complete the task, but it even improved the average quality of the awkward as well.",
+      "word_count": 146,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "created_at": "2026-06-16T12:54:12.819915",
+      "keywords": [
+        "productivity",
+        "business",
+        "threat",
+        "science",
+        "generative",
+        "estimates",
+        "task",
+        "average"
+      ],
+      "summary": "Hello, I'm Daniel Kaur, Professor of Computer Science in the Department of Computing at UIMONO.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "productivity",
+            "business"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "threat"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "science"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.308522"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0002",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 2,
+      "start": 78.62,
+      "end": 143.02,
+      "duration": 64.4,
+      "text": "So these expectations are well-founded. However, while that picture at a macro scale might be quite clear, when we examine the impact of generative AI on the individual level, the picture is less clear. First of all, the impact of AI on individuals is not uniform. It seems that those with lower skills stand to benefit more. Secondly, it may be that the use of elements reduces our cognitive engagement with the tasks, whether it's we are being assisted by AI. And then that reduced cognitive engagement leads to reduced ability to recall details, as well as possibly reaching critically about the tasks that we were assisted with. Now, of course, that would be a very significant result.",
+      "word_count": 120,
+      "source_segment_ids": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "created_at": "2026-06-16T12:54:12.820158",
+      "keywords": [
+        "picture",
+        "clear",
+        "impact",
+        "cognitive",
+        "engagement",
+        "tasks",
+        "assisted",
+        "reduced"
+      ],
+      "summary": "However, while that picture at a macro scale might be quite clear, when we examine the impact of generative AI on the individual level, the picture is less clear.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.313879"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0003",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 3,
+      "start": 143.02,
+      "end": 204.25,
+      "duration": 61.23,
+      "text": "And at this point, it's still preliminary. This particular paper was produced earlier this year. It is still on the peer review, but the data collected in the EEG brain signals, as well as some qualitative analyses, and extends the analysis is extensive. And so it's reasonable to expect these results to be upheld even after the peer review is finished. Thirdly, it's already known that there's strong evidence that frequent engagement with automation actually induces skill decay. This is known, this is seen, for example, with airline pilot. And so, my Amara et al, have postulated that given that the claim in skills is actually accelerated when you're dealing with cognitive-based skills, and that those are exactly the kinds of skills and tasks that generative AI is most likely to be targeted towards,",
+      "word_count": 140,
+      "source_segment_ids": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "created_at": "2026-06-16T12:54:12.820410",
+      "keywords": [
+        "it's",
+        "skills",
+        "still",
+        "peer",
+        "review",
+        "known",
+        "actually"
+      ],
+      "summary": "This particular paper was produced earlier this year.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.321015"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0004",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 4,
+      "start": 204.25,
+      "end": 264.03,
+      "duration": 59.78,
+      "text": "that we can then anticipate that there should be an AI induced skill decay as more and more AI is incorporated into more and more tasks. So this brings up a very important question. Given the anticipated boom in productivity that we're expecting from the use of generative AI, does that mean that the decline, there's a inevitable decline in competence and cognitive abilities of the workers in those spaces? It's a very serious question to have an answer to. Now, I'm an optimist, and so I believe that that is noise not inevitable, but I think a concerted and deliberate action will be required. To support this point, to make my point, I'm going to need to introduce a concert that I'm going to call deliberate attention.",
+      "word_count": 134,
+      "source_segment_ids": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "created_at": "2026-06-16T12:54:12.820667",
+      "keywords": [
+        "productivity",
+        "i'm",
+        "question",
+        "decline",
+        "inevitable",
+        "deliberate",
+        "point",
+        "going"
+      ],
+      "summary": "that we can then anticipate that there should be an AI induced skill decay as more and more AI is incorporated into more and more tasks.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "productivity"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.84,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.326325"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0005",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 5,
+      "start": 264.03,
+      "end": 315.7,
+      "duration": 51.67,
+      "text": "So, deliberate attention refers to a way of using generative AI. And what I'm, how I put this is that when a user is using deliberate attention, using generative AI with deliberate attention, they are anticipating the result or prompt even before receiving it. They validate that the AI is output, and they will only use those parts that they will be willing to be accountable for. And then during the course of using the generative AI tool, they would seek to understand the causes of any variances between what the AI actually output and what they were expecting when they were prompting it. I'm not just observed, but while observing, also try and recognize and address any deficiencies in their own understanding,",
+      "word_count": 125,
+      "source_segment_ids": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "created_at": "2026-06-16T12:54:12.820850",
+      "keywords": [
+        "using",
+        "deliberate",
+        "attention",
+        "generative",
+        "i'm",
+        "output",
+        "any"
+      ],
+      "summary": "So, deliberate attention refers to a way of using generative AI.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.333344"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0006",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 6,
+      "start": 315.7,
+      "end": 367.54,
+      "duration": 51.84,
+      "text": "or if that's not what was the issue, if they were actually right, in other words, maybe there's a variation, and they're perfectly right, and maybe what the AI produced might either be wrong or right in a different way, either way, those things have to reinforce that individual mental models of the task that was being addressed. Now I submit these are the three characteristics of what I'm calling deliberate attention. And I submit that users who exercise deliberate attention when using generative AI will not only avoid the cognitive decline alluded to by McNamara et al, but I also believe that in fact, they will become more proficient at more tasks, and thereby through a kind of synergy because now they're getting better at using AI,",
+      "word_count": 133,
+      "source_segment_ids": [
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "created_at": "2026-06-16T12:54:12.821034",
+      "keywords": [
+        "right",
+        "maybe",
+        "they're",
+        "either",
+        "way",
+        "now",
+        "submit",
+        "deliberate",
+        "attention",
+        "using"
+      ],
+      "summary": "or if that's not what was the issue, if they were actually right, in other words, maybe there's a variation, and they're perfectly right, and maybe what the AI produced might either be wrong or right...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.367,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.342713"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0007",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 7,
+      "start": 367.54,
+      "end": 429.26,
+      "duration": 61.72,
+      "text": "and so they're using AI in a more powerful way, at more things in a better way, and therefore become even more productive in a superlative way than without any of those. This I anticipate that this is actually going to know the cone, an additional benefit of using deliberate attention, so not just about avoiding the cognitive decline. The reasons that these tasks are a part of what deliberate attention is about is really the aiming at engaging users' mind with the methodology, so it's not just about getting to the end with the AI assistance, but also observing how it's getting there, and in fact making sure that that methodology is part of, so they might be learning on part of the user in that case, or in fact guidance from the user to the AI assistance, but the method of getting there is part of the process is an important part of the process.",
+      "word_count": 160,
+      "source_segment_ids": [
+        46,
+        47,
+        48,
+        49
+      ],
+      "created_at": "2026-06-16T12:54:12.821223",
+      "keywords": [
+        "learning",
+        "part",
+        "way",
+        "getting",
+        "using",
+        "deliberate",
+        "attention",
+        "methodology",
+        "it's",
+        "assistance",
+        "fact",
+        "user",
+        "process"
+      ],
+      "summary": "and so they're using AI in a more powerful way, at more things in a better way, and therefore become even more productive in a superlative way than without any of those.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.348486"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0008",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 8,
+      "start": 429.26,
+      "end": 473.51,
+      "duration": 44.25,
+      "text": "That it awakens the mind of the user to as possible before they get down, so this is important, for example, to defend against something called the illusion of exploratory breadth. I might not be able to speak about this, that a user could be fooled into thinking that the response from the AI is actually comprehensive or complete, and what this approach of deliberate attention in trying to anticipate what the genitive AI is going to return first before you actually see it, it opens your mind to what kind of possibilities could come, and therefore when they don't come you are aware of a limit in breadth, for example, and therefore you're less likely to be fooled by that illusion.",
+      "word_count": 124,
+      "source_segment_ids": [
+        50,
+        51,
+        52
+      ],
+      "created_at": "2026-06-16T12:54:12.821372",
+      "keywords": [
+        "mind",
+        "user",
+        "before",
+        "example",
+        "illusion",
+        "breadth",
+        "fooled",
+        "actually",
+        "come",
+        "therefore"
+      ],
+      "summary": "That it awakens the mind of the user to as possible before they get down, so this is important, for example, to defend against something called the illusion of exploratory breadth.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.383,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.353206"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0009",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 9,
+      "start": 473.51,
+      "end": 524.02,
+      "duration": 50.51,
+      "text": "The requirement of basically owning the output, any output that you're going to use as your own, you need to own it and be willing to be held accountable for it, that forces a user to consider ramifications of that output. And therefore, this sort of hopefully is trying to address that problem of sort of if you're just using the AI to get to a point and you just say, okay, I got my output and I'm going to go with it. This requires to think, no, no, where does that go next, and is that somewhere that you're willing to take? Are you willing to stand behind that old cone? And finally it induces critical reflection on the user's own competence, and in fact, I think this is perhaps the most powerful aspect of this because it effectively helps the user to grow internally.",
+      "word_count": 151,
+      "source_segment_ids": [
+        53,
+        54,
+        55,
+        56
+      ],
+      "created_at": "2026-06-16T12:54:12.821563",
+      "keywords": [
+        "output",
+        "you're",
+        "own",
+        "willing",
+        "going",
+        "user",
+        "sort",
+        "think"
+      ],
+      "summary": "The requirement of basically owning the output, any output that you're going to use as your own, you need to own it and be willing to be held accountable for it, that forces a user to...",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.4,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.359084"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0010",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 10,
+      "start": 524.02,
+      "end": 584.01,
+      "duration": 59.99,
+      "text": "There's a kind of self improvement component of this in doing that reflection. And in a way, you can think of this as if the AI is exhibiting advanced knowledge, advanced competence. When the user is reflecting on why there's expected output was different, or in fact, whether that difference represents a deficiency in their understanding or in fact a reinforcement of their mental model. What you're actually doing in that case is it's like when you're working with an expert and you're gaining that benefit of working with the expert by inquiring about how what you did is comparable, and whether or not, you know, it's a viable alternative or not. So in this way, it's almost like the user is in some way using the AI as a kind of mentor while an assistant and a mentor.",
+      "word_count": 147,
+      "source_segment_ids": [
+        57,
+        58,
+        59,
+        60
+      ],
+      "created_at": "2026-06-16T12:54:12.821743",
+      "keywords": [
+        "knowledge",
+        "model",
+        "way",
+        "you're",
+        "it's",
+        "there's",
+        "kind",
+        "doing",
+        "advanced",
+        "user",
+        "fact",
+        "whether",
+        "working",
+        "expert",
+        "mentor"
+      ],
+      "summary": "There's a kind of self improvement component of this in doing that reflection.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "model"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.967,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.364262"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0011",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 11,
+      "start": 584.01,
+      "end": 641.45,
+      "duration": 57.44,
+      "text": "And these are the elements of deliberate attention that I believe will help to stave off that cognitive decline. Now, interestingly, this is actually going to end up creating a divide of its own, a source, another source of division. What I mean by that, this diagram is just meant to be illustrative. So the blue lines represent the users who would exercise deliberate attention while engaging with some kind of generative AI. And the red lines represent the users who do not, and perhaps are subjected to the kind of cognitive decline and competence decline decay that might not matter at all alluded to. Now, in this case, what I'm anticipating would happen because of that kind of compound effect of benefit that deliberate attention is likely to grant to its users.",
+      "word_count": 134,
+      "source_segment_ids": [
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "created_at": "2026-06-16T12:54:12.821928",
+      "keywords": [
+        "deliberate",
+        "attention",
+        "decline",
+        "users",
+        "kind",
+        "cognitive",
+        "now",
+        "its",
+        "source",
+        "lines",
+        "represent"
+      ],
+      "summary": "And these are the elements of deliberate attention that I believe will help to stave off that cognitive decline.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.4,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.369400"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0012",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 12,
+      "start": 641.45,
+      "end": 695.86,
+      "duration": 54.41,
+      "text": "It's quite plausible to anticipate that those users, even without the AI tools, so the solid line represent the competence level with the AI and not the line without the AI. It's quite plausible that those users become even more competent without the AI than those who are passively using the AI even when they have the AI. This is going to lead to a major division in the workforce, and I don't think one that would be favorable if it, in fact, did become manifested. So how can we avoid this? First of all, I think schools and education institutions would have a very significant role to play in this. And by the way, now we're talking about avoiding two kinds of things.",
+      "word_count": 128,
+      "source_segment_ids": [
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "created_at": "2026-06-16T12:54:12.822139",
+      "keywords": [
+        "education",
+        "workforce",
+        "even",
+        "it's",
+        "quite",
+        "plausible",
+        "users",
+        "line",
+        "become",
+        "think"
+      ],
+      "summary": "It's quite plausible to anticipate that those users, even without the AI tools, so the solid line represent the competence level with the AI and not the line without the AI.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "workforce"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.374461"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0013",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 13,
+      "start": 695.86,
+      "end": 745.14,
+      "duration": 49.28,
+      "text": "One is, first of all, how do I avoid that cognitive decline of that might arise from use of generative AI. And second, if, in fact, we do employ something like deliberate attention to avoid that, how do we then mitigate the divide as inevitably going to arise because of that difference in usage pattern. I think, first of all, institutions, education institutions have to embrace AI responsibly within their curricula and operations because that's the only way that they're going to have an influence by their outputs on the society in terms of being capable AI users. I know there are two separate things that, even today, institutions are grappling with, and in trying to address this, this becomes even more important.",
+      "word_count": 125,
+      "source_segment_ids": [
+        72,
+        73,
+        74,
+        75
+      ],
+      "created_at": "2026-06-16T12:54:12.822333",
+      "keywords": [
+        "education",
+        "institutions",
+        "first",
+        "all",
+        "avoid",
+        "arise",
+        "going",
+        "even"
+      ],
+      "summary": "One is, first of all, how do I avoid that cognitive decline of that might arise from use of generative AI.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.379376"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0014",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 14,
+      "start": 745.14,
+      "end": 798.53,
+      "duration": 53.39,
+      "text": "The first one is, there are going to be many lower level competencies that the generative AI can readily solve. However, they might very well be required for building on the build, they require that sort of building blocks for building more advanced competences. So we have to find ways of meaningfully assessing those lower level competencies because we still need our human learners to master them in order to rise to the next level. How do we achieve that? That's a major challenge, and addressing that is going to be important in addressing this issue. The second one is that among those tasks that can readily be handed over to AI to be addressed, let's call those the lower level competencies.",
+      "word_count": 124,
+      "source_segment_ids": [
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "created_at": "2026-06-16T12:54:12.822510",
+      "keywords": [
+        "level",
+        "lower",
+        "competencies",
+        "building",
+        "one",
+        "going",
+        "readily",
+        "addressing"
+      ],
+      "summary": "The first one is, there are going to be many lower level competencies that the generative AI can readily solve.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.77,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.385698"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0015",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 15,
+      "start": 798.53,
+      "end": 864.82,
+      "duration": 66.29,
+      "text": "The curricula of these education institutions need to modify and change so that rather than trying to impart certain learning outcomes that are targeting those dispensable lower level tasks to our human learners. Instead, what we'll do, try and teach our learners to do is use AI to address and solve those tasks. But here's where the deliberate attention will come in because we need our learners not just to use AI in a passive way to accomplish those level tasks, low level tasks, but actually to use it with something like deliberate attention so that they're not going to suffer that kind of cognitive decline. And finally, it's important that the curricula incorporate AI assisted innovation, for example, innovation in general, but AI assisted in particular because it is this sort of use of AI for different things that's going to enable or encourage the use of deliberate attention.",
+      "word_count": 155,
+      "source_segment_ids": [
+        81,
+        82,
+        83,
+        84
+      ],
+      "created_at": "2026-06-16T12:54:12.822719",
+      "keywords": [
+        "education",
+        "learning",
+        "innovation",
+        "use",
+        "tasks",
+        "level",
+        "learners",
+        "deliberate",
+        "attention",
+        "curricula",
+        "need",
+        "going",
+        "assisted"
+      ],
+      "summary": "The curricula of these education institutions need to modify and change so that rather than trying to impart certain learning outcomes that are targeting those dispensable lower level tasks to our human learners.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "innovation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.391439"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0016",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 16,
+      "start": 864.82,
+      "end": 916.38,
+      "duration": 51.56,
+      "text": "One thing I have to keep in mind, deliberate attention requires extra energy, extra effort while choosing the AI. And therefore, the more things that encourage that, the easier it will be for our people, our learners and our future workers to engage with AI using deliberate attention. Beyond the schools, we're going to need to make sure we teach our citizens in general about responsible use of AI and encourage our accountability for AI generated material. So that it becomes a norm that the way that you use output from AI is with that view that anything I put out there that I took from a generative AI tool I could stand behind. I'm comfortable, I can, I'm comfortable being accountable for it.",
+      "word_count": 127,
+      "source_segment_ids": [
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "created_at": "2026-06-16T12:54:12.822903",
+      "keywords": [
+        "accountability",
+        "citizens",
+        "deliberate",
+        "attention",
+        "extra",
+        "encourage",
+        "use",
+        "i'm",
+        "comfortable"
+      ],
+      "summary": "One thing I have to keep in mind, deliberate attention requires extra energy, extra effort while choosing the AI.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "accountability"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "citizens"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.396852"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0017",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 17,
+      "start": 916.38,
+      "end": 962.69,
+      "duration": 46.31,
+      "text": "And then employers in their business places have to be strategic about AI integration, of course, for productivity, they're going to want to put it there. But while they're doing that, they're going to need to make sure that they foster an attitude of self improvement and independent learning among their employees because that's the kind of attitude that's going to encourage deliberate attention while using it. And of course, encouraging innovation in those spaces as well is what's going to encourage the additional new uses of AI to tasks that might be hitherto on, on, on, on explored. So in summary, generative AI is promised to provide huge productivity boosts that seems to be accepted at this point.",
+      "word_count": 125,
+      "source_segment_ids": [
+        90,
+        91,
+        92,
+        93
+      ],
+      "created_at": "2026-06-16T12:54:12.823069",
+      "keywords": [
+        "learning",
+        "productivity",
+        "innovation",
+        "business",
+        "going",
+        "they're",
+        "course",
+        "while",
+        "attitude",
+        "that's",
+        "encourage"
+      ],
+      "summary": "And then employers in their business places have to be strategic about AI integration, of course, for productivity, they're going to want to put it there.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "productivity",
+            "innovation",
+            "business"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.403071"
+    },
+    {
+      "fragment_id": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital_0018",
+      "source_video": "0048_wsoTjtOISmY_Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital",
+      "video_id": "wsoTjtOISmY",
+      "fragment_index": 18,
+      "start": 962.69,
+      "end": 1012.84,
+      "duration": 50.15,
+      "text": "However, the potential for deterioration and workforce is a plausible threat. There is sufficient evidence at this stage to not ignore that and to try and do something about it. I have positive and deliberate attention is one way of trying to address that because it emphasizes cognitive engagement of the user with the task. But in order for this to really work, it's going to require a concerted and deliberate action, and it's not just on the parts of the individuals, but it's going to be the schools, the businesses and other organizations as well. This is a list of the references that I have used within this presentation and I look forward to the conversations and discussions that will arise from this presentation. Thank you.",
+      "word_count": 130,
+      "source_segment_ids": [
+        94,
+        95,
+        96,
+        97,
+        98
+      ],
+      "created_at": "2026-06-16T12:54:12.823323",
+      "keywords": [
+        "workforce",
+        "threat",
+        "it's",
+        "deliberate",
+        "going",
+        "presentation"
+      ],
+      "summary": "However, the potential for deterioration and workforce is a plausible threat.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "workforce"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "threat"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.408296"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:18.408305"
+}

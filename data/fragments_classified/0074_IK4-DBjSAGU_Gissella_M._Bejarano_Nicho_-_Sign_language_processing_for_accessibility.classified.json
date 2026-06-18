@@ -1,0 +1,1104 @@
+{
+  "source_transcript": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility.json",
+  "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+  "video_id": "IK4-DBjSAGU",
+  "fragment_count": 11,
+  "created_at": "2026-06-16T12:54:13.009878",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0001",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 1,
+      "start": 1.65,
+      "end": 56.61,
+      "duration": 54.96,
+      "text": "Hello everyone, my name is Gisela Beyerano, and I am a system professor at Marys University in New York. I'm going to talk today to you about my work in sign language processing for accessibility. I would like you to think for a while how is COVID-pandemic for all of us? Remember how those times were so difficult for all of us? Now, I would like you to imagine how difficult those times could have been for communities such as the Deaf Communities. Not all the TV shows or sources of information would provide interpreters to guarantee the access to information on this key topic to Deaf Communities. There are 700 millions of Deaf people around the world, according to the word Federation of the Deaf.",
+      "word_count": 128,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "created_at": "2026-06-16T12:54:13.007971",
+      "keywords": [
+        "access to information",
+        "accessibility",
+        "information",
+        "sign language",
+        "university",
+        "language",
+        "communities",
+        "deaf",
+        "all",
+        "times",
+        "difficult"
+      ],
+      "summary": "Hello everyone, my name is Gisela Beyerano, and I am a system professor at Marys University in New York.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.8,
+          "matched_keywords": [
+            "accessibility",
+            "sign language"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.4,
+          "matched_keywords": [
+            "university",
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.8,
+          "matched_keywords": [
+            "accessibility",
+            "sign language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.6,
+          "matched_keywords": [
+            "communities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.2,
+          "matched_keywords": [
+            "language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.2,
+          "matched_keywords": [
+            "university"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.052906"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0002",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 2,
+      "start": 56.61,
+      "end": 125.53,
+      "duration": 68.92,
+      "text": "And some of them, of course, or most of them, have sign languages as their first language or native language. That means that some of them may not know the oral language in their country. In fact, there are 300 more or less sign language in the world. There is no unique sign language for all the Deaf Communities in different countries. So, that's why lip-reading or captioning may not always be the best way to go to assist and support the communication of these communities. Not also the gloves that have been a technology that was provided as helpful. When in reality, they would focus more on the movement of hands. Sign languages imply not only movement of hands, shapes, or other characteristics, but facial gestures and pose two of the body.",
+      "word_count": 135,
+      "source_segment_ids": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "created_at": "2026-06-16T12:54:13.008224",
+      "keywords": [
+        "sign language",
+        "language",
+        "communities",
+        "sign",
+        "languages",
+        "may",
+        "movement",
+        "hands"
+      ],
+      "summary": "And some of them, of course, or most of them, have sign languages as their first language or native language.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.833,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.833,
+          "matched_keywords": [
+            "language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "communities"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.057719"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0003",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 3,
+      "start": 125.53,
+      "end": 198.87,
+      "duration": 73.34,
+      "text": "It's very striking to see how AI is being applied in several contexts. And even more striking to find apps like mined generations being funded while assisted technology that can improve lives of others are still struggling to find this kind of funding. I guess we can do much better to bridge the gap that is currently separating the access to education information of the different countries, different communities and countries. Here, I want to present potential tools based on AI that can help in the communication of deaf communities and hearing people. We can build sign languages, a build translator of sign languages, and text and audio. For example, to have as an input a sequence of frames to trap the movement and the shape and other characteristics of the signs to audio or text in different or languages.",
+      "word_count": 141,
+      "source_segment_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "created_at": "2026-06-16T12:54:13.008472",
+      "keywords": [
+        "education",
+        "information",
+        "communities",
+        "hearing",
+        "different",
+        "languages",
+        "striking",
+        "find",
+        "countries",
+        "build",
+        "sign",
+        "text",
+        "audio"
+      ],
+      "summary": "It's very striking to see how AI is being applied in several contexts.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "communities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "hearing"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.063075"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0004",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 4,
+      "start": 198.87,
+      "end": 260.9,
+      "duration": 62.03,
+      "text": "By English, Spanish, Japanese, we could also be talking about translating in the other way around, like receiving a input, a speech, or a document in translating that to sign language, for example, generating avatars that sign whatever was the input. This is an example of CMAX avatar and initiative funded by WSA by United Nations. But more importantly, I would like to remind us all that this kind of technology should be designed and developed for and with deaf communities. In this case, these are the most important users and they should be present at every stage of the cycle for developing such tools. We can not only rely at the very end on final tests, we need to include them from the very beginning.",
+      "word_count": 126,
+      "source_segment_ids": [
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "created_at": "2026-06-16T12:54:13.008695",
+      "keywords": [
+        "sign language",
+        "language",
+        "communities",
+        "translating",
+        "input",
+        "sign",
+        "example"
+      ],
+      "summary": "By English, Spanish, Japanese, we could also be talking about translating in the other way around, like receiving a input, a speech, or a document in translating that to sign language, for example, generating avatars that...",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "communities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.067663"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0005",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 5,
+      "start": 260.9,
+      "end": 313.39,
+      "duration": 52.49,
+      "text": "Also, part of these communities might be the interpreters, who shouldn't be just replaced by avatars because they are still key in translating very important topics to the deaf communities. So we should think about using these kind of avatars into more simple contexts like translating instructions in the public transportation or in restaurants or entertainment. This has been mentioned by deaf communities around the world and we should listen how they want to be, how they want to use the technology. I would like to talk a little bit about how this kind of technology is built in the insight for everyone to know how this works and do not just believe anything that is presented in the web.",
+      "word_count": 121,
+      "source_segment_ids": [
+        27,
+        28,
+        29,
+        30
+      ],
+      "created_at": "2026-06-16T12:54:13.008873",
+      "keywords": [
+        "communities",
+        "avatars",
+        "translating",
+        "deaf",
+        "kind",
+        "want",
+        "technology"
+      ],
+      "summary": "Also, part of these communities might be the interpreters, who shouldn't be just replaced by avatars because they are still key in translating very important topics to the deaf communities.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "communities"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.071944"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0006",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 6,
+      "start": 313.39,
+      "end": 370.91,
+      "duration": 57.52,
+      "text": "To start training a sign language model, we need to collect data, record videos and annotate samples. In this case, I am presenting to you the interface of Elon, a platform that helps us to annotate the video in two tires, for example. The first one will help us to annotate individual signs, sign by sign when it starts, when it ends. And another tire that can help us to provide the whole sentence that several signs or glosses are part of. Another stage in this training model is when we have to track the key point landmarks. This is just one way or one type of model to train in this case, we're using this type of information, which are the key point landmarks.",
+      "word_count": 126,
+      "source_segment_ids": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "created_at": "2026-06-16T12:54:13.009073",
+      "keywords": [
+        "sign language",
+        "language",
+        "training",
+        "information",
+        "model",
+        "sign",
+        "annotate",
+        "one",
+        "case",
+        "help",
+        "signs",
+        "another",
+        "key",
+        "point",
+        "landmarks"
+      ],
+      "summary": "To start training a sign language model, we need to collect data, record videos and annotate samples.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "language",
+            "training"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "model"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.667,
+          "matched_keywords": [
+            "training"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.076566"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0007",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 7,
+      "start": 370.91,
+      "end": 435.71,
+      "duration": 64.8,
+      "text": "And this important to track not only the hands movements and shapes, but also as I mentioned before, the pose and the facial gestures, which are all part of the signs and sign languages. We have tools like MediaPipe by Google, and I can see very gladly that more and more research is being done in this area. After we have these annotations of the data, we can start training the model and giving the model several examples of one sign in this case for the sign to open the door. For example, in the first, with the first subject, now, hello, cat, and not only several variations or examples from one same individual, but examples from several individuals will help to train the model and be able to recognize the sign of any other person that stands in front of the camera, which is using them all.",
+      "word_count": 148,
+      "source_segment_ids": [
+        37,
+        38,
+        39,
+        40
+      ],
+      "created_at": "2026-06-16T12:54:13.009256",
+      "keywords": [
+        "research",
+        "training",
+        "model",
+        "sign",
+        "several",
+        "examples",
+        "only",
+        "all",
+        "one",
+        "first"
+      ],
+      "summary": "And this important to track not only the hands movements and shapes, but also as I mentioned before, the pose and the facial gestures, which are all part of the signs and sign languages.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research",
+            "training"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "model"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "training"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.081836"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0008",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 8,
+      "start": 435.71,
+      "end": 498.26,
+      "duration": 62.55,
+      "text": "I would like now to show you a platform that we built in Peru, a collaboration of Marys University and Condificent University, a Catholic Peru. I'm very glad to lead along with Dr. Rodriguez Mondaniel, this platform that can present instructions in Spanish and in sign language. As you can see, this helped the user to identify the bottom in the right side panel, in the right side corner in the bottom, and then to be able to sign in front of the camera and to locate in front of the camera in a good position to perform the sign. So we present a template that test if the condition is met of position with eyes in the hands and in three to one starts recording.",
+      "word_count": 127,
+      "source_segment_ids": [
+        41,
+        42,
+        43,
+        44
+      ],
+      "created_at": "2026-06-16T12:54:13.009436",
+      "keywords": [
+        "sign language",
+        "university",
+        "language",
+        "panel",
+        "sign",
+        "platform",
+        "peru",
+        "present",
+        "bottom",
+        "right",
+        "side",
+        "front",
+        "camera",
+        "position"
+      ],
+      "summary": "I would like now to show you a platform that we built in Peru, a collaboration of Marys University and Condificent University, a Catholic Peru.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "university",
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.667,
+          "matched_keywords": [
+            "university"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "panel"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.086574"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0009",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 9,
+      "start": 498.26,
+      "end": 570.22,
+      "duration": 71.96,
+      "text": "The key points that are estimated are sent to the server and the server returns a list of words related to that sign. So the user can check if those words are really related or one of those words is the one related to the sign they did. They can also see a sentence of an example for the meaning of that word in Spanish, for example. I'm very glad to be leading this platform, this work, and especially glad because it's an interdisciplinary team of not only researchers, but also volunteers, students that have been contributing a lot to this platform. We have linguists, computer scientists, interpreters, deaf consultants, and several people trying to contribute as they can as they want in this platform.",
+      "word_count": 127,
+      "source_segment_ids": [
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "created_at": "2026-06-16T12:54:13.009629",
+      "keywords": [
+        "students",
+        "words",
+        "related",
+        "platform",
+        "server",
+        "sign",
+        "one",
+        "example",
+        "glad"
+      ],
+      "summary": "The key points that are estimated are sent to the server and the server returns a list of words related to that sign.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "students"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.091263"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0010",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 10,
+      "start": 570.22,
+      "end": 635.51,
+      "duration": 65.29,
+      "text": "Also another point that stands out is that we've been able to pass from research to a product that is a website totally developed by us. And using the cloud services of AWS, for example, to put these as a public website, you actually are able to see our dictionary if you follow the link in the QR code. And this is very interesting because research usually stays in the book, stays in paper, stays in somewhere store, but we've been able to pass from research to product and development. We have more than 130 signs, recognizable signs in front of the camera, and we have many more in the other translation part, which is from Spanish to sign language that retrieves the videos for a specific word.",
+      "word_count": 130,
+      "source_segment_ids": [
+        50,
+        51,
+        52,
+        53
+      ],
+      "created_at": "2026-06-16T12:54:13.009789",
+      "keywords": [
+        "research",
+        "language",
+        "sign language",
+        "translation",
+        "services",
+        "able",
+        "stays",
+        "we've",
+        "pass",
+        "product",
+        "website",
+        "signs"
+      ],
+      "summary": "Also another point that stands out is that we've been able to pass from research to a product that is a website totally developed by us.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research",
+            "language"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.75,
+          "matched_keywords": [
+            "sign language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.667,
+          "matched_keywords": [
+            "language",
+            "translation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "services"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.095909"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0011",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "fragment_index": 11,
+      "start": 635.51,
+      "end": 663.54,
+      "duration": 28.03,
+      "text": "We, as I mentioned, provide a Peruvian sign language instructions and instructions in a video and also provide links to double check the results that are returned by the model. So I'm happy to talk to you in any other context or along the platform in this event, and I just would like to thank you for listening to my presentation. Thank you.",
+      "word_count": 64,
+      "source_segment_ids": [
+        54,
+        55
+      ],
+      "created_at": "2026-06-16T12:54:13.009859",
+      "keywords": [
+        "sign language",
+        "language",
+        "model",
+        "event",
+        "provide",
+        "instructions"
+      ],
+      "summary": "We, as I mentioned, provide a Peruvian sign language instructions and instructions in a video and also provide links to double check the results that are returned by the model.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "sign language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "model"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.098446"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:21.098452"
+}

@@ -1,0 +1,762 @@
+{
+  "source_transcript": "0247_yXjpp6POJRk_(C2) T Bell - Comedy.json",
+  "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+  "video_id": "yXjpp6POJRk",
+  "fragment_count": 8,
+  "created_at": "2026-06-16T12:54:13.910556",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0001",
+      "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+      "video_id": "yXjpp6POJRk",
+      "fragment_index": 1,
+      "start": 0.24,
+      "end": 42.14,
+      "duration": 41.9,
+      "text": "Hello everyone. Thank you for having me. My name is Trudy Bell and I'm about to present and I just wanted to say that it's a little bit of humor. I appreciate artificial intelligence for a much technological advancement and technology, but you know what's life with a little bit of humor, right? So I hope you enjoy my presentation and have a smile. Good night. Welcome to Faith's Life. I'm your host, the Peter Smart. Tonight, we have a special feature on AI and privacy. It's the government doing enough moderating how people use AI to access all the people's information. A team of faith-lines staff, set up cameras, and went on the cover.",
+      "word_count": 123,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "created_at": "2026-06-16T12:54:13.907820",
+      "keywords": [
+        "artificial intelligence",
+        "information",
+        "privacy",
+        "government",
+        "welcome",
+        "i'm",
+        "it's",
+        "little",
+        "bit",
+        "humor",
+        "life"
+      ],
+      "summary": "My name is Trudy Bell and I'm about to present and I just wanted to say that it's a little bit of humor.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "welcome"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:34.426839"
+    },
+    {
+      "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0002",
+      "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+      "video_id": "yXjpp6POJRk",
+      "fragment_index": 2,
+      "start": 42.14,
+      "end": 118.95,
+      "duration": 76.81,
+      "text": "200 semances. And what we found is very polling. Take a look. Good morning, Da. Good morning, Lena. Have a seat. Thank you. Prescription? Yes, but you don't know I'm here. Sure, you came in here for your hemorrhoids. Hemorrhoids? Who has hemorrhoids? Not me. Well, it's either the hemorrhoids or the age. Whoa, whoa, whoa, whoa, whoa, whoa, whoa. What? Lena, there's absolutely nothing for you to be embarrassed about. Yes, I know, but how did you know? Don't tell me that you didn't know that once you visit a doctor, all doctors in the club you have access to. Don't tell me that. What? Yes, remember that chip that you swapped when you just came in?",
+      "word_count": 125,
+      "source_segment_ids": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "created_at": "2026-06-16T12:54:13.908140",
+      "keywords": [
+        "doctor",
+        "whoa",
+        "know",
+        "hemorrhoids",
+        "yes",
+        "don't",
+        "good",
+        "morning",
+        "lena",
+        "here",
+        "came",
+        "tell"
+      ],
+      "summary": "Sure, you came in here for your hemorrhoids.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "doctor"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.667,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:34.431749"
+    },
+    {
+      "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0003",
+      "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+      "video_id": "yXjpp6POJRk",
+      "fragment_index": 3,
+      "start": 118.95,
+      "end": 158.14,
+      "duration": 39.19,
+      "text": "So all of that information was stored on my chip as well? Of course, what year do you think this is 2021? But isn't that invasion of privacy? What privacy, weren't you going to disclose it to me anyway? Well, yes. Well this way is way more efficient. It saves you a lot of time. You don't have to be spending all hours at the doctor's office. Is this legal though? Because I don't think that my personal information should be available to anyone and everybody just like that without my knowledge or permission. But technically it's not everyone, it's just every dog. It doesn't matter! I understand your concerns. What such is the nature of artificial intelligence? Smart technology designed to increase efficiency right across industries.",
+      "word_count": 135,
+      "source_segment_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "created_at": "2026-06-16T12:54:13.908507",
+      "keywords": [
+        "artificial intelligence",
+        "information",
+        "knowledge",
+        "legal",
+        "privacy",
+        "well",
+        "all",
+        "think",
+        "way",
+        "don't",
+        "it's"
+      ],
+      "summary": "So all of that information was stored on my chip as well?",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "knowledge"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "privacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "knowledge",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.667,
+          "matched_keywords": [
+            "privacy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.7,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.9,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:34.436952"
+    },
+    {
+      "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0004",
+      "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+      "video_id": "yXjpp6POJRk",
+      "fragment_index": 4,
+      "start": 158.14,
+      "end": 196.66,
+      "duration": 38.52,
+      "text": "The medical field is no different. Yeah, but do you do understand that even though this might be legal, it is unethical, right? Well, that's a small price to pay for the many advantages that come with it. Well, and ask the pharmacist for generic, okay? Because I know that you're going through a difficult time, especially since they recently seized your vehicle because they couldn't afford to pay on that. So I know you're dealing with that. So the AI technology is not- I'm just holding that cheap way as possible, alright? You just got to me. She's really good. There are many stories like this one where even though increased uses of AI applications",
+      "word_count": 122,
+      "source_segment_ids": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "created_at": "2026-06-16T12:54:13.908841",
+      "keywords": [
+        "medical",
+        "legal",
+        "even",
+        "though",
+        "well",
+        "pay",
+        "many",
+        "know",
+        "you're"
+      ],
+      "summary": "Yeah, but do you do understand that even though this might be legal, it is unethical, right?",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "medical"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "medical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:34.443296"
+    },
+    {
+      "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0005",
+      "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+      "video_id": "yXjpp6POJRk",
+      "fragment_index": 5,
+      "start": 196.66,
+      "end": 244.82,
+      "duration": 48.16,
+      "text": "have yielded us fruits that just not too long ago seemed impossible to bear. How far is too far when compromising people's privacy and trust on your host, The Vita Sparks? Join us again next time for Family Life. Good night guys! Welcome to my life! Well, we have life, what? 10,000 people on the life tonight. Oh my god, I'm so excited! Of course, as you guys know, today is the day that I launched my candy line and I had to do that because I'm a sweeper. I'm sorry, I'm so hard at it anyway. So I launched my candy line today and of course, you know, we specialize in chocolates, candy canes, fruit chews,",
+      "word_count": 123,
+      "source_segment_ids": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62
+      ],
+      "created_at": "2026-06-16T12:54:13.909154",
+      "keywords": [
+        "trust",
+        "privacy",
+        "welcome",
+        "life",
+        "i'm",
+        "candy",
+        "too",
+        "far",
+        "guys",
+        "course",
+        "know",
+        "launched",
+        "line"
+      ],
+      "summary": "have yielded us fruits that just not too long ago seemed impossible to bear.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "welcome"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:34.448596"
+    },
+    {
+      "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0006",
+      "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+      "video_id": "yXjpp6POJRk",
+      "fragment_index": 6,
+      "start": 244.82,
+      "end": 310.61,
+      "duration": 65.79,
+      "text": "and the fruit chews that we're starting off with comes in 5 flavors. That's peach, watermelon, apple, lemon, and grape. Right? No, I'm sorry, we don't have strawberry in strawberry. I think strawberry is the worst flavor ever. What happened to this? Oh gosh, the internet. Ugh. Ugh. Okay, sorry about that guys, we are back. I'm not sure what happened. The light just caught, but I think we... Yeah, I think we're good to go now. So I'm gonna still speak. I will give the guys time to come back on to rejoin the light. So as I was saying, somebody asked about strawberry flavor. Strawberry flavor. And I'm saying that strawberry is the worst flavor.",
+      "word_count": 125,
+      "source_segment_ids": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "created_at": "2026-06-16T12:54:13.909589",
+      "keywords": [
+        "strawberry",
+        "i'm",
+        "flavor",
+        "think",
+        "we're",
+        "sorry",
+        "worst",
+        "happened",
+        "ugh",
+        "guys",
+        "back",
+        "light",
+        "saying"
+      ],
+      "summary": "and the fruit chews that we're starting off with comes in 5 flavors.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.383,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:34.453450"
+    },
+    {
+      "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0007",
+      "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+      "video_id": "yXjpp6POJRk",
+      "fragment_index": 7,
+      "start": 310.61,
+      "end": 359.85,
+      "duration": 49.24,
+      "text": "Whoa, whoa, whoa, whoa, whoa. Hi there. What are you doing? Yeah, your platform is well-functioning. No, it's not. You've been flat for making politically incorrect statements. Wow, but I didn't say anything wrong. You said, and I quote, strawberry is the worst flavor. But that's my opinion. Yes, but of course, you know that might have implications, as not everyone would agree with you. Some may find it offensive. But that's my opinion. Opinions are not factual and may cause misinformation. Oh. So, so, so real. What? I'm not allowed to have an opinion. Sure. Just not on this platform. Yes, but you can't just censor anyone who does not agree with popular beliefs.",
+      "word_count": 123,
+      "source_segment_ids": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104
+      ],
+      "created_at": "2026-06-16T12:54:13.910083",
+      "keywords": [
+        "misinformation",
+        "whoa",
+        "opinion",
+        "platform",
+        "that's",
+        "yes",
+        "agree",
+        "may"
+      ],
+      "summary": "You've been flat for making politically incorrect statements.",
+      "theme_tags": [
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "misinformation"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "misinformation"
+          ]
+        }
+      ],
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:34.458123"
+    },
+    {
+      "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0008",
+      "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+      "video_id": "yXjpp6POJRk",
+      "fragment_index": 8,
+      "start": 359.85,
+      "end": 409.91,
+      "duration": 50.06,
+      "text": "You know that, right? Yes, we can. No, you can't. Yes, we can. Even Barack said so. We literally own and control all social media platforms. So, we regulate media. Remember the community guidelines, okay? I hear what you're saying. But I will use my voice to anyone who will listen. I said it before and I will say it again. Strawberry is the worst. Oh. What? Just... Did you just mute me? Absolutely. When you registered, you agreed to our terms and conditions that allows for us to physically mute you, should in case you become problematic.",
+      "word_count": 100,
+      "source_segment_ids": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124
+      ],
+      "created_at": "2026-06-16T12:54:13.910509",
+      "keywords": [
+        "media",
+        "yes",
+        "said",
+        "mute"
+      ],
+      "summary": "We literally own and control all social media platforms.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:34.462138"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:34.462144"
+}

@@ -1,0 +1,25 @@
+{
+  "video_id": "LUbG539H0Y8",
+  "source_video": "0119_LUbG539H0Y8_Yasmeen Abu-Laban - Human Rights Centered Migration and the Question of AI",
+  "title": "Yasmeen Abu-Laban - Human Rights Centered Migration and the Question of AI",
+  "speakers": [
+    {
+      "name": "Yasmeen Abu-Laban",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Yasmin Abu Lubben",
+      "role": "Speaker",
+      "affiliation": "University of Alberta, Canada",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Yasmeen Abu-Laban",
+  "title_name_hint": "Yasmeen Abu-Laban",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:30:09.118766"
+}

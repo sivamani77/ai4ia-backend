@@ -1,0 +1,1038 @@
+{
+  "source_transcript": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information.json",
+  "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+  "video_id": "WnBpODYMnj8",
+  "fragment_count": 8,
+  "created_at": "2026-06-16T12:54:12.611555",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0001",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "fragment_index": 1,
+      "start": 2.96,
+      "end": 71.7,
+      "duration": 68.74,
+      "text": "Good afternoon. My name is Tijana Luxiyuk and I am a Vice President of the Council of Europe accessing for Group. The monitoring body established under the Council of Europe Convention on Access to Official Documents, also known as the Tromsa Convention. It is my pleasure to speak with you today about how artificial intelligence can help unlock and promote access to government information. We live in a time when access to reliable information is more important than ever. Information allows citizens to hold their governments accountable to take part in public debates and to make informed decisions. During times of crisis, it stands as a conestone of democracy. Without equal access to trustworthy information, societies become vulnerable to disinformation and mistrust. Access to official information is not optional. It's a fundamental",
+      "word_count": 133,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "created_at": "2026-06-16T12:54:12.609237",
+      "keywords": [
+        "artificial intelligence",
+        "disinformation",
+        "information",
+        "government information",
+        "government",
+        "citizens",
+        "access",
+        "council",
+        "europe",
+        "convention",
+        "official"
+      ],
+      "summary": "My name is Tijana Luxiyuk and I am a Vice President of the Council of Europe accessing for Group.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "government information"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.125,
+          "matched_keywords": [
+            "disinformation"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government information",
+            "government",
+            "citizens"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.2,
+          "matched_keywords": [
+            "disinformation"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.125439"
+    },
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0002",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "fragment_index": 2,
+      "start": 71.7,
+      "end": 145.87,
+      "duration": 74.17,
+      "text": "right. UNESCO reminds us that access to official information empowers citizens to participate meaningfully in democratic life. For this reason, the United Nations proclaims 28 September as the International Day for Universal Access to Official Information, recognizing its vital role. Each year, this day brings governments, civil societies and citizens together to reflect on progress and recommit to ensuring that the right to know is respected everywhere. The Council of Europe Convention on Access to Official Documents, the Tromsa Convention, becomes the first binding international treaty to guarantee the right of everyone to access official information. Entering into force in 2020, it affirms that transparency is a democratic obligation and this right should be guaranteed without discrimination. Across Europe, most countries",
+      "word_count": 121,
+      "source_segment_ids": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "created_at": "2026-06-16T12:54:12.609657",
+      "keywords": [
+        "information",
+        "transparency",
+        "unesco",
+        "citizens",
+        "right to know",
+        "right",
+        "access",
+        "official",
+        "democratic",
+        "international",
+        "day",
+        "europe",
+        "convention"
+      ],
+      "summary": "UNESCO reminds us that access to official information empowers citizens to participate meaningfully in democratic life.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "transparency",
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "citizens",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "right to know"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "unesco"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.967,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.130920"
+    },
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0003",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "fragment_index": 3,
+      "start": 145.87,
+      "end": 220.51,
+      "duration": 74.64,
+      "text": "have adopted national freedom of information laws. At the European Union level, access to official information is governed by this special regulation. And in addition, there are open data directives, which set minimum standards for making public sector digital data accessible and reusable. Together, these frameworks create a strong foundation, but they also highlight practical challenges, delays, big projective disclosure and limited events. Let's have a look at the Tromsa Convention and how it ensures access to digital data. Article 1 of the Tromsa Convention defines official documents as all information recorded in any form, drawn up or received and held by public authorities. Article 9 goes further, requiring state parties to take measures to ensure that the information is managed efficiently, though it is easily accessible",
+      "word_count": 128,
+      "source_segment_ids": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "created_at": "2026-06-16T12:54:12.609980",
+      "keywords": [
+        "open data",
+        "regulation",
+        "information",
+        "freedom of information",
+        "standards",
+        "freedom",
+        "public sector",
+        "accessible",
+        "data",
+        "access",
+        "official",
+        "public",
+        "digital",
+        "tromsa",
+        "convention"
+      ],
+      "summary": "At the European Union level, access to official information is governed by this special regulation.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "open data",
+            "information",
+            "freedom of information"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "regulation",
+            "standards"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.2,
+          "matched_keywords": [
+            "regulation",
+            "freedom"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "open data",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.429,
+          "matched_keywords": [
+            "public sector"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.286,
+          "matched_keywords": [
+            "accessible"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "standards"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "regulation"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.136414"
+    },
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0004",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "fragment_index": 4,
+      "start": 220.51,
+      "end": 300.98,
+      "duration": 80.47,
+      "text": "and there are clear rules for its preservation or destruction. Even with this framework, significant challenges remain. This includes insufficient infrastructure, limited knowledge and skills among public officials, and low level of legal literacy among requesters. Other common desubstacles requires investment in digital infrastructure, creation of user-friendly data portals and clear guidelines for publishing and managing official information in digital formats. The Tromsa Convention urges public authorities to actively publish information online and to make data open in digital formats, objectives that become much more achievable through the use of automated systems. By introducing AI tools to organize and release information, governments can fulfill the mandate of openness set out in international agreements like the Tromsa Convention. What AI can do for us? All the legal instruments mentioned before",
+      "word_count": 130,
+      "source_segment_ids": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "created_at": "2026-06-16T12:54:12.610265",
+      "keywords": [
+        "information",
+        "knowledge",
+        "legal",
+        "framework",
+        "infrastructure",
+        "investment",
+        "digital",
+        "clear",
+        "among",
+        "public",
+        "data",
+        "formats",
+        "tromsa",
+        "convention"
+      ],
+      "summary": "and there are clear rules for its preservation or destruction.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "knowledge"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "legal"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "framework"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "knowledge",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "infrastructure"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "legal"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "framework"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "investment"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.142560"
+    },
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0005",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "fragment_index": 5,
+      "start": 300.98,
+      "end": 366.69,
+      "duration": 65.71,
+      "text": "provide the basis for digital public administration built on accurate, timely official information which AI tools could support. This is where artificial intelligence can make a real difference. First, effective management. AI can help to process massive volumes of data, identify patterns and sort documents quickly. This enables governments to respond to requests faster. For example, public officials facing thousands of information requests who'd use AI to review catalog and process documents, ensuring that information once produced by the government flows more freely to the public. Second, providing digital information on demand. AI can also personalize information in response to a request. Virtual assistance and chat boards can provide immediate answers guiding citizens step-by-step through procedures in their",
+      "word_count": 121,
+      "source_segment_ids": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46
+      ],
+      "created_at": "2026-06-16T12:54:12.610554",
+      "keywords": [
+        "artificial intelligence",
+        "information",
+        "government",
+        "citizens",
+        "public",
+        "provide",
+        "digital",
+        "process",
+        "documents",
+        "requests"
+      ],
+      "summary": "provide the basis for digital public administration built on accurate, timely official information which AI tools could support.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.4,
+          "matched_keywords": [
+            "government",
+            "citizens"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "government"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.147590"
+    },
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0006",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "fragment_index": 6,
+      "start": 366.69,
+      "end": 441.6,
+      "duration": 74.91,
+      "text": "own languages at any time of day. And meaningful transparency, like something about publishing data is not enough if people cannot understand it. AI can structure, analyze and present complex information in accessible formats. Governments can use AI to summarize budgets or legislative drafts in plain language or to explain policy outcomes in a way that ordinary citizens can understand. Managing risks at the same time it is important to recognize certain risks. AI should be transparent self, explainable and accountable to support openness truly. For citizens it is essential to have clarity about how AI process information reaches decision and correct mistakes. Regular assessments of fairness, accuracy and inclusivity help to ensure that AI does not unintentionally spread bias or misinformation. Ideally citizens should be able to see the outcomes",
+      "word_count": 131,
+      "source_segment_ids": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "created_at": "2026-06-16T12:54:12.610810",
+      "keywords": [
+        "misinformation",
+        "policy",
+        "transparency",
+        "fairness",
+        "bias",
+        "information",
+        "citizens",
+        "time",
+        "understand",
+        "outcomes",
+        "risks"
+      ],
+      "summary": "And meaningful transparency, like something about publishing data is not enough if people cannot understand it.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "policy",
+            "transparency",
+            "fairness",
+            "bias"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.75,
+          "matched_keywords": [
+            "information",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.25,
+          "matched_keywords": [
+            "misinformation"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "citizens",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "fairness",
+            "bias",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "bias",
+            "fairness"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "policy"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.153147"
+    },
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0007",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "fragment_index": 7,
+      "start": 441.6,
+      "end": 515.46,
+      "duration": 73.86,
+      "text": "generated by AI, the reasoning behind them, having at the same time clear possibilities for appeals. A secondary of risk concerns the integrity of information itself. The value of access to government information is in the trust-verseness and accuracy of its content. Automated tools must never change the meaning of legal texts, public records or official data. Safe guards such as anonymization, careful reduction or strong quality control are vital to prevent errors on issues. European frameworks such as DGGPR and the AI Act provide a solid foundation. They set data protection principles, human oversight and risk management into public sector AIUs offering an important model of how innovation and coexist with fundamental rights. In conclusion, we face considerable opportunities where artificial intelligence can develop",
+      "word_count": 126,
+      "source_segment_ids": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "created_at": "2026-06-16T12:54:12.611121",
+      "keywords": [
+        "artificial intelligence",
+        "content",
+        "information",
+        "government information",
+        "legal",
+        "data protection",
+        "rights",
+        "oversight",
+        "principles",
+        "risk",
+        "public sector",
+        "government",
+        "public records",
+        "protection",
+        "model"
+      ],
+      "summary": "generated by AI, the reasoning behind them, having at the same time clear possibilities for appeals.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "content",
+            "information",
+            "government information"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.833,
+          "matched_keywords": [
+            "legal",
+            "data protection",
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "oversight",
+            "principles",
+            "risk"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government information",
+            "public sector",
+            "government",
+            "public records"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "data protection",
+            "rights",
+            "protection"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "oversight",
+            "model"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.2,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.2,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.158560"
+    },
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0008",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "fragment_index": 8,
+      "start": 515.46,
+      "end": 584.66,
+      "duration": 69.2,
+      "text": "government transparency, improve access to public information and strengthen trust in society. At its core access to government information is a matter of trust. AI is available not only when it increases transparency but also when it safeguards the rights of citizens. Progress will depend on continued investment in digital infrastructure, the development of AI skills in the public sector and the effective application of international standards such as the Trumps Convention. It is also required the involvement of citizens, journalists and researchers to ensure that technology, strength and democracy are rather than undermines it. Combined with strong legal guarantees and commitments to openness, AI can support the development of more inclusive, accountable and democratic societies. Thank you for being part of this important conversation.",
+      "word_count": 125,
+      "source_segment_ids": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73
+      ],
+      "created_at": "2026-06-16T12:54:12.611468",
+      "keywords": [
+        "information",
+        "public information",
+        "government information",
+        "transparency",
+        "trust",
+        "standards",
+        "public sector",
+        "government",
+        "citizens",
+        "access",
+        "public",
+        "development"
+      ],
+      "summary": "government transparency, improve access to public information and strengthen trust in society.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "public information",
+            "government information",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "transparency",
+            "trust",
+            "standards"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.2,
+          "matched_keywords": [
+            "trust"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "government information",
+            "public sector",
+            "government",
+            "citizens",
+            "public information",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.267,
+          "matched_keywords": [
+            "trust",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.133,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.133,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.133,
+          "matched_keywords": [
+            "trust"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.163990"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:15.163996"
+}

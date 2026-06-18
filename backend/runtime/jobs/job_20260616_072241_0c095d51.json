@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_072241_0c095d51",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-16T07:22:41.354573",
+  "started_at": "2026-06-16T07:22:41.355461",
+  "completed_at": "2026-06-16T07:25:13.683457",
+  "payload": {
+    "prompt": "Create a 1 -minute AI Ethics, Governance & Policy ,Foundations of AI Ethics & Philosophy",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_072241_0c095d51.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260616_125513.json",
+  "error": null
+}

@@ -1,0 +1,1572 @@
+{
+  "source_transcript": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation.json",
+  "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+  "video_id": "WnFYalsZKts",
+  "fragment_count": 13,
+  "created_at": "2026-06-16T12:54:12.767794",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0001",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 1,
+      "start": 1.17,
+      "end": 59.84,
+      "duration": 58.67,
+      "text": "Good day, ladies and gentlemen. My name is Barbara Glover, and I work for the African Union Development Agency, AEDNepad. It's a pleasure to speak on AI for Peace, Security, and Development in Africa. I thank you next to in the organizing committee for inviting me to share my thoughts in this session. Now, over the next 10 minutes, I'll share how artificial intelligence can advance peace and development across our continent, while also highlighting the risks and the responsibilities that we must manage together. Now, I thought to share more about the African Union Development Agency. Our mandate is to coordinate and execute priority regional and continental projects as part of the work of the African Union.",
+      "word_count": 120,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "created_at": "2026-06-16T12:54:12.765253",
+      "keywords": [
+        "artificial intelligence",
+        "regional",
+        "africa",
+        "security",
+        "session",
+        "development",
+        "african",
+        "union",
+        "share",
+        "work",
+        "agency",
+        "peace",
+        "next",
+        "now"
+      ],
+      "summary": "My name is Barbara Glover, and I work for the African Union Development Agency, AEDNepad.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "regional"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "africa"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "regional",
+            "session"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "africa"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.453191"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0002",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 2,
+      "start": 59.84,
+      "end": 121.74,
+      "duration": 61.9,
+      "text": "We strengthen the capacity of African Union member states and regional bodies, and also provide knowledge-based advisory support, mobilized resources, and African technical interface with global partners. Now, this work gives us a unique vantage point when it comes to guiding AEDN option in Africa in the support of peace, development, and security. Today, I'm going to discuss with you a few points. First, I'm going to talk about technologies, evolution, and human progress, and then move on to AI as a catalyst for peace and development. I also touch on risk and ethical challenges. Africa's context and governance frameworks and also lastly wrap up with opportunities and a call to action. Now, if you're an AEDN of history, you'd understand that major technological breakthroughs have reshaped our human society,",
+      "word_count": 136,
+      "source_segment_ids": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "created_at": "2026-06-16T12:54:12.765521",
+      "keywords": [
+        "governance",
+        "ethical",
+        "risk",
+        "regional",
+        "africa",
+        "member states",
+        "security",
+        "african",
+        "support",
+        "now",
+        "aedn",
+        "peace",
+        "development",
+        "i'm",
+        "going"
+      ],
+      "summary": "We strengthen the capacity of African Union member states and regional bodies, and also provide knowledge-based advisory support, mobilized resources, and African technical interface with global partners.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethical",
+            "governance",
+            "risk"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "regional"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "member states",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "security",
+            "risk"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "regional"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.459477"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0003",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 3,
+      "start": 121.74,
+      "end": 174.03,
+      "duration": 52.29,
+      "text": "and I've also opened new possibilities, while also disrupting existing systems. So, in the interest of concerns about AI being a huge disruptor, we need to understand that this has been something that has happened with past innovations, and learn from them to be able to guide a responsible adoption of artificial intelligence moving force. I'll give you a good example in the 15th century when the printing press was developed. It's democratized knowledge. So knowledge was now not dependent on a multi-mod interaction or wet interaction, but it also shifted power in that people could get access to information and knowledge through the printing press outputs. And then when you look at the industrial evolution, where there was mechanization and urbanization of labor,",
+      "word_count": 128,
+      "source_segment_ids": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "created_at": "2026-06-16T12:54:12.765735",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "press",
+        "information",
+        "knowledge",
+        "labor",
+        "printing",
+        "interaction"
+      ],
+      "summary": "and I've also opened new possibilities, while also disrupting existing systems.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "press",
+            "information",
+            "knowledge"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "knowledge",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.286,
+          "matched_keywords": [
+            "press"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "labor"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.464729"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0004",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 4,
+      "start": 174.03,
+      "end": 224.6,
+      "duration": 50.57,
+      "text": "there were urbanized economies that were developed out of this, there were new labor reforms, and those were huge disruptions in the way of work was known then. Moving onto the information age, we have the internet, we have global networks, we have what we now call the digital economy that came out of it, and also in a way disrupted our society and our way of work. And now we end AI era, we stand at that threshold where machine intelligence and data driven decisions can transform how we govern, how we learn, how we heal, and how we save that peace in Africa and also globally. So I wanted to share a few insights into the global AI landscape.",
+      "word_count": 121,
+      "source_segment_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "created_at": "2026-06-16T12:54:12.765940",
+      "keywords": [
+        "economy",
+        "information",
+        "africa",
+        "labor",
+        "way",
+        "out",
+        "work",
+        "global",
+        "now"
+      ],
+      "summary": "there were urbanized economies that were developed out of this, there were new labor reforms, and those were huge disruptions in the way of work was known then.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "economy"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "economy",
+            "labor"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.469452"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0005",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 5,
+      "start": 224.6,
+      "end": 283.53,
+      "duration": 58.93,
+      "text": "The market is projected to grow almost fivefold by 2030, and then the 90th stage remains the largest private investor, while adoption across organizations already exceed 75% worldwide. When you look at these trends and this said it underscores both opportunity, and also agency for Africa to position itself, ensuring our voices, shape, norms, standards, and market benefits. We need to learn from the past, the various revolutions, and what Africa can do to ideally position itself in the global AI era. Why is this important? Where can policymakers have come to understand the value in explain why technology is important as it supports adoption and utilization? So this analysis is on AI and sustainable development goals, and it's potential to accelerate progress across the SDGs,",
+      "word_count": 127,
+      "source_segment_ids": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "created_at": "2026-06-16T12:54:12.766158",
+      "keywords": [
+        "standards",
+        "market",
+        "africa",
+        "sustainable",
+        "adoption",
+        "position",
+        "itself",
+        "important"
+      ],
+      "summary": "The market is projected to grow almost fivefold by 2030, and then the 90th stage remains the largest private investor, while adoption across organizations already exceed 75% worldwide.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "standards",
+            "market"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "africa"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "standards"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "sustainable"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.474777"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0006",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 6,
+      "start": 283.53,
+      "end": 353.84,
+      "duration": 70.31,
+      "text": "whether economically, socially, environmentally, or even in governance. Economically, you see that AI has the potential to double Africa's GDP by 2035 based on current research. It can boost productivity and entrepreneurship. So socially, AI enhances education, health, and equality from virtual clinics to personalized learning for underserved communities. Environmentally, it supports climate-focused and sustainable agriculture, and also biodiversity efforts, munching biodiversity outcomes and roses. And when you look at governance, AI improves service delivery, anyone in an accountability. So the message is clear that AI has great potential to help us accelerate our SDGs. However, there are also bias and privacy consents that these benefits raise. And so it's important that inclusion and equity must guide AI design, adoption, and regulation across the globe, and continually.",
+      "word_count": 130,
+      "source_segment_ids": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "created_at": "2026-06-16T12:54:12.766428",
+      "keywords": [
+        "governance",
+        "regulation",
+        "education",
+        "health",
+        "agriculture",
+        "accountability",
+        "bias",
+        "biodiversity",
+        "equity",
+        "inclusion",
+        "underserved",
+        "communities",
+        "sustainable",
+        "economically",
+        "socially"
+      ],
+      "summary": "whether economically, socially, environmentally, or even in governance.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "governance",
+            "regulation",
+            "accountability",
+            "bias"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.8,
+          "matched_keywords": [
+            "health",
+            "agriculture",
+            "biodiversity"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.6,
+          "matched_keywords": [
+            "equity",
+            "inclusion",
+            "underserved"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "equity",
+            "inclusion",
+            "underserved",
+            "communities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "governance",
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "regulation",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.75,
+          "matched_keywords": [
+            "biodiversity",
+            "sustainable"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "bias",
+            "accountability"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.480341"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0007",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 7,
+      "start": 353.84,
+      "end": 413.84,
+      "duration": 60.0,
+      "text": "So let's share a few use cases of parent AI applications and peace and security. When you look at across Africa, AI is powering anyone in systems, conflict prevention, humanitarian aid, and cyber security. Under anyone in systems, the integration of acoustic sensors, for instance, like shots, water, satellite imagery, and social media analytics to detect risks in real time, is beneficial use of AI and peace and security. There is conflict prevention projects, like an example in Mali, the Women Peace and Security Initiative, the use of AI and anticipating resource-driven tensions and support mediation. And also in humanitarian aid, the use of drones in Rwanda, Tanzania, Ghana, as an example, where they deliver essential medical supplies, also beneficial use of AI.",
+      "word_count": 125,
+      "source_segment_ids": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "created_at": "2026-06-16T12:54:12.766621",
+      "keywords": [
+        "security",
+        "medical",
+        "water",
+        "satellite",
+        "media",
+        "africa",
+        "women",
+        "use",
+        "peace",
+        "anyone",
+        "systems",
+        "conflict",
+        "prevention",
+        "humanitarian",
+        "aid"
+      ],
+      "summary": "So let's share a few use cases of parent AI applications and peace and security.",
+      "theme_tags": [
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.75,
+          "matched_keywords": [
+            "medical",
+            "water",
+            "satellite"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "media"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "water",
+            "satellite"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.25,
+          "matched_keywords": [
+            "africa"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.25,
+          "matched_keywords": [
+            "women"
+          ]
+        }
+      ],
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.485706"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0008",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 8,
+      "start": 413.84,
+      "end": 478.15,
+      "duration": 64.31,
+      "text": "There is also the potential applications of predictive models to help allocate resources across the continent. When you look at cyber security and counterterrorism, AI strengthens the threat detection and disrupts illicit finance. Of course, all of this must be saved guided by misuse, and that moves me to my next slide, which looks at the risk and ethical challenges. So the use of AI in military applications, it's highly significant risks. Military applications include autonomous weapons, you know, and these are creating to outpace parents international law. And they are prompted calls for a global ban by Chinese 26 from the UN. Digital divide is another risk, leaving women, rural communities, and minorities behind. Buyers, privacy breaches, and this information can also undermine trust and equality in our systems.",
+      "word_count": 131,
+      "source_segment_ids": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "created_at": "2026-06-16T12:54:12.766869",
+      "keywords": [
+        "digital divide",
+        "law",
+        "rural",
+        "minorities",
+        "ethical",
+        "trust",
+        "risk",
+        "security",
+        "communities",
+        "threat",
+        "women",
+        "applications",
+        "military"
+      ],
+      "summary": "There is also the potential applications of predictive models to help allocate resources across the continent.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "rural",
+            "digital divide",
+            "minorities"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.8,
+          "matched_keywords": [
+            "ethical",
+            "trust",
+            "risk"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.4,
+          "matched_keywords": [
+            "trust",
+            "security"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "digital divide",
+            "rural",
+            "communities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.8,
+          "matched_keywords": [
+            "security",
+            "threat",
+            "risk"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.4,
+          "matched_keywords": [
+            "ethical",
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.4,
+          "matched_keywords": [
+            "women",
+            "minorities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "law"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.491257"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0009",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 9,
+      "start": 478.15,
+      "end": 534.2,
+      "duration": 56.05,
+      "text": "A good example is deepfakes and the difficulty of the average population to more and more determine if something was generated by AI or it was actually true. Governance gaps that we have identified means that innovation often moves faster than regulation. And that's why for Africa, a continental position on the various applications of AI is essential for shaping global rules. And so deep diving into ethical frameworks and global governance, what we are doing to address some of these risks and challenges. Fortunately, we're not starting from zero. I mean, discussions of AI regulations did not start with child GPT. There have been systems that have been developed. A good example is the UNESCO's 21 guidelines that emphasize transparency, accountability, and fairness in the use of AI.",
+      "word_count": 132,
+      "source_segment_ids": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "created_at": "2026-06-16T12:54:12.767099",
+      "keywords": [
+        "deepfakes",
+        "governance",
+        "regulation",
+        "ethical",
+        "accountability",
+        "transparency",
+        "fairness",
+        "africa",
+        "innovation",
+        "good",
+        "example",
+        "global"
+      ],
+      "summary": "A good example is deepfakes and the difficulty of the average population to more and more determine if something was generated by AI or it was actually true.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethical",
+            "governance",
+            "regulation",
+            "accountability",
+            "transparency",
+            "fairness"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.143,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.143,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethical",
+            "fairness",
+            "transparency",
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "governance",
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "regulation",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "innovation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "transparency"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.497405"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0010",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 10,
+      "start": 534.2,
+      "end": 585.0,
+      "duration": 50.8,
+      "text": "We have the UN General Assembly that has resolutions that recognize AI or sustainable development and call for capacity building, while also addressing military use. The global digital compact that was launched at last year's UN General Assembly promotes universal connectivity and responsible technology development. In Africa, the African Union Peace and Security Council has convened a number of thematic sessions on AI and also are guided by our continental AI strategy. We have an advisory group on AI and peace security and governance all in efforts to ensure the responsibility use of AI and peace and security. African and development agency had a white paper and remarked that complement some of these efforts in responsible AI and defining what that means for Africa.",
+      "word_count": 125,
+      "source_segment_ids": [
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "created_at": "2026-06-16T12:54:12.767278",
+      "keywords": [
+        "governance",
+        "responsible ai",
+        "strategy",
+        "security",
+        "africa",
+        "responsibility",
+        "development",
+        "peace",
+        "general",
+        "assembly",
+        "use",
+        "responsible",
+        "african",
+        "efforts"
+      ],
+      "summary": "We have the UN General Assembly that has resolutions that recognize AI or sustainable development and call for capacity building, while also addressing military use.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "governance",
+            "responsible ai",
+            "strategy"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.6,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.4,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "responsible ai"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "governance",
+            "responsibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "strategy",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.502584"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0011",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 11,
+      "start": 585.0,
+      "end": 648.43,
+      "duration": 63.43,
+      "text": "I believe that together all these efforts establish guiding principles, some of which are transparency, fairness, human rights, inclusivity, accountability, and safety. Now, I'm going to talk about opportunities and actions. AI can contribute nearly $2.9 trillion to Africa's economy by 2030. With Africa having the world's youngest population, harnessing this technology is central to our prosperity and stability. We need to seize the moment. We need to invest in broadband cloud and computing infrastructure and the economies on the continent are ready to or are able to absorb some of these infrastructure. We need to build vibrant startup and investment ecosystem for the innovators that we have. We need to develop AI skills to stem education and upskilling. We need to strengthen partnerships across Africa and globally.",
+      "word_count": 132,
+      "source_segment_ids": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "created_at": "2026-06-16T12:54:12.767492",
+      "keywords": [
+        "human rights",
+        "education",
+        "accountability",
+        "transparency",
+        "principles",
+        "fairness",
+        "economy",
+        "rights",
+        "africa",
+        "infrastructure",
+        "investment",
+        "upskilling",
+        "need"
+      ],
+      "summary": "I believe that together all these efforts establish guiding principles, some of which are transparency, fairness, human rights, inclusivity, accountability, and safety.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "accountability",
+            "transparency",
+            "principles",
+            "fairness",
+            "economy"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.8,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.4,
+          "matched_keywords": [
+            "africa"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "principles",
+            "fairness",
+            "transparency",
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "africa",
+            "infrastructure"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "economy",
+            "investment"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "education",
+            "upskilling"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.508157"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0012",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 12,
+      "start": 648.43,
+      "end": 712.1,
+      "duration": 63.67,
+      "text": "We need to support homegrown research and innovation hubs. I believe that with these steps would uncover responsible inclusive AI for peace, security, and development in Africa. Now, this is my closing slide where I speak to the fact that AI as a tool, its impacts will depend on our values and our choices. It's like dealing with a knife. A knife can be used to cut through difficult things and cook and do great things, but it can also be used for metal. Or dealing with fire by ourselves, basic challenges, supports our industries, but it can also cause so much harm. And so in that regard, we need to look at artificial intelligence, not as a silver bullet, but one that when designed ethically and govern wisely can be a powerful enabler of peace security and sustainable development for Africa.",
+      "word_count": 143,
+      "source_segment_ids": [
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "created_at": "2026-06-16T12:54:12.767715",
+      "keywords": [
+        "artificial intelligence",
+        "inclusive",
+        "africa",
+        "security",
+        "research",
+        "harm",
+        "values",
+        "innovation",
+        "sustainable",
+        "need",
+        "peace",
+        "development",
+        "dealing",
+        "knife",
+        "used"
+      ],
+      "summary": "We need to support homegrown research and innovation hubs.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusive",
+            "africa"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.667,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security",
+            "harm"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "africa"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "values"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "innovation"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.333,
+          "matched_keywords": [
+            "sustainable"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.514026"
+    },
+    {
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0013",
+      "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+      "video_id": "WnFYalsZKts",
+      "fragment_index": 13,
+      "start": 712.1,
+      "end": 731.58,
+      "duration": 19.48,
+      "text": "We need to work together, governments, private sector, academia, civil society, and our young innovators. We need to build an AI future that serves our Africans. Thank you for your attention, and I welcome any questions that you may have.",
+      "word_count": 40,
+      "source_segment_ids": [
+        83,
+        84,
+        85
+      ],
+      "created_at": "2026-06-16T12:54:12.767777",
+      "keywords": [
+        "young innovators",
+        "welcome",
+        "need"
+      ],
+      "summary": "We need to work together, governments, private sector, academia, civil society, and our young innovators.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "young innovators"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "welcome"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.516181"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:17.516188"
+}

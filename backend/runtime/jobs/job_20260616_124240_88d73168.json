@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_124240_88d73168",
+  "type": "generate_storyline",
+  "status": "failed",
+  "progress": 100,
+  "created_at": "2026-06-16T12:42:40.435073",
+  "started_at": "2026-06-16T12:42:40.435336",
+  "completed_at": "2026-06-16T12:50:34.231699",
+  "payload": {
+    "prompt": "Create a 1-minute AI in Health, Science & Environment\nCh 14: AI for Environment, Climate & Sustainability",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_124240_88d73168.log",
+  "result_path": null,
+  "error": "Script failed with exit code -2"
+}

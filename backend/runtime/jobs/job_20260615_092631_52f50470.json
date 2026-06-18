@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260615_092631_52f50470",
+  "type": "generate_storyline",
+  "status": "failed",
+  "progress": 100,
+  "created_at": "2026-06-15T09:26:31.952061",
+  "started_at": "2026-06-15T09:26:31.952470",
+  "completed_at": "2026-06-15T09:26:44.074390",
+  "payload": {
+    "prompt": "Create a 5-minute documentary on AI inclusion, youth empowerment, access to information, and responsible governance.",
+    "duration": 300,
+    "style": "National Geographic-style documentary explainer",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260615_092631_52f50470.log",
+  "result_path": null,
+  "error": "Script failed with exit code 1"
+}

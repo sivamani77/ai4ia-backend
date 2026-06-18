@@ -1,0 +1,1432 @@
+{
+  "created_at": "2026-06-16T09:38:48.917198",
+  "user_prompt": "Create a 1-minute AI in Education & Creative Industries\nCh 22: AI in Academic Research & Knowledge Production",
+  "target_duration_seconds": 60,
+  "style": "documentary",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 90,
+    "selected_candidate_count": 35,
+    "top_semantic_score": 0.608064
+  },
+  "validation_issues": [],
+  "selected_candidates": [
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0016",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 972.55,
+      "end": 1046.05,
+      "duration": 73.5,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "Of course, one explanation that we explore is whether AI may be helping some authors and poets to professionalize the work and derive perhaps more from some of the hobbyist to paid opportunities to enhance productivity...",
+      "keywords": [
+        "copyright",
+        "research",
+        "creative",
+        "authors",
+        "cultural",
+        "caribbean",
+        "poets",
+        "productivity",
+        "one",
+        "time"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.568804,
+      "selection_score": 0.932294,
+      "text": "Of course, one explanation that we explore is whether AI may be helping some authors and poets to professionalize the work and derive perhaps more from some of the hobbyist to paid opportunities to enhance productivity through a bit of social time, etc. What are the survey participants saying about AI? As I mentioned, we've done a few bond on one individuals. Well, one of the general sense is that currentment authors, they see AI as pretty much a double-edged sword on the opportunity side. They highlight its potential to boost the productivity, for example, supporting the editing and research, expanding the global reach and identifying new creative possibilities. At the same time, they..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0155",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 8962.31,
+      "end": 8999.35,
+      "duration": 37.04,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "Any gym sun, you say AI is doing a great job but I think we need more content creators from home so that we share our own unique story about our own culture.",
+      "keywords": [
+        "content",
+        "research",
+        "culture",
+        "own",
+        "think",
+        "time"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.75,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.606172,
+      "selection_score": 0.931162,
+      "text": "Any gym sun, you say AI is doing a great job but I think we need more content creators from home so that we share our own unique story about our own culture. More needs to be done to have our own content and research is uploaded on the internet about dance. These are the two comments that I've received straight there from my colleague Allegra and the third comment says, Tony, please be first food is already ready. You're taking too much time. I think it's about time. So I'm just listening to the instructions. Thank you so much for your contribution, your efforts, your input towards this. Please let's give it all of our applause to our moderators."
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0044",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 2547.9,
+      "end": 2617.65,
+      "duration": 69.75,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "And of course, the effects of AI technologies.",
+      "keywords": [
+        "research",
+        "university",
+        "information",
+        "conference",
+        "africa",
+        "services",
+        "speaker",
+        "here",
+        "opposed",
+        "we're"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.599216,
+      "selection_score": 0.928106,
+      "text": "And of course, the effects of AI technologies. Thank you. Thank you. And now last speaker is John Simpson, who is director of digital research services information services and technology here at the University of Africa. Well, this should say good day at an international conference as opposed to tomorrow because we're not sure where we are. So thank you very much for for having me and making the space for me and I recognize that I stand a little apart from from my esteemed colleagues because I'm part of the administration of the university directly as opposed to being a faculty member, which is also part of the administration but in a different way. So I want to thank for for having the..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0063",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 3914.85,
+      "end": 3963.89,
+      "duration": 49.04,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "You need to know what to tell AI so that you can get the answers like you see it.",
+      "keywords": [
+        "music",
+        "creativity",
+        "prompt engineering",
+        "artist",
+        "screenwriter",
+        "need",
+        "tell",
+        "get",
+        "general",
+        "exactly"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.562093,
+      "selection_score": 0.924983,
+      "text": "Prompt engineering is very important. You need to know what to tell AI so that you can get the answers like you see it. Because if you've experimented with AI, if you ask a general question, it will give you a general answer. But if you tell it exactly what you want, you will get a tailored solution to exactly what you're looking for. And also, we are going to need emotional intelligence and as well as complex problem-solving. And in terms of creativity, I'm about to end, AI is the ultimate collaborator. So these are some of the opportunities, for example, an artist can use AI, maybe a musician to experiment with fusion of music, or maybe even a screenwriter can use AI to write scripts"
+    },
+    {
+      "fragment_id": "0043_tdQ9dt3zJCc_Matias_Karlsson_-_Representation_Is_a_Right_-_Equitable_AI_in_Health._0007",
+      "source_video": "0043_tdQ9dt3zJCc_Matias_Karlsson_-_Representation_Is_a_Right_-_Equitable_AI_in_Health.",
+      "video_id": "tdQ9dt3zJCc",
+      "start": 452.55,
+      "end": 492.57,
+      "duration": 40.02,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "I would like to leave you with three takes away, take a ways about my presentation.",
+      "keywords": [
+        "medicine",
+        "medical",
+        "diagnosis",
+        "safety",
+        "representation",
+        "one"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.57364,
+      "selection_score": 0.89754,
+      "text": "I would like to leave you with three takes away, take a ways about my presentation. The first one, if you are not in the data, you are not in the diagnosis. This is important to see. The second one, furnace, is safety in medicine. This is a synonym. The last one, models don't travel well. Demand local validation and subgroup metrics. So, I want to thank you all. I am Matthias Carson from Chromodata. Let's make representation right in medical AI. Thank you."
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0005",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 298.09,
+      "end": 362.88,
+      "duration": 64.79,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "In this context, a lot of critical voices heard regarding the place of Europe in this process, claiming that the European Union became an outsider of the race, not least because of its over-regulatory approach.",
+      "keywords": [
+        "law",
+        "research",
+        "university",
+        "race",
+        "synthetic",
+        "european",
+        "data",
+        "professor"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.578774,
+      "selection_score": 0.891264,
+      "text": "In this context, a lot of critical voices heard regarding the place of Europe in this process, claiming that the European Union became an outsider of the race, not least because of its over-regulatory approach. However, is it so? Today we will discuss such European initiatives as the AI Continent Action Plan, AI factories, common European data spaces, along with the emerging issues such as the use of synthetic data in shaping AI ecosystems. Let me introduce you to our remarkable speakers. Dr. Stefan Pihust, a co-founder of the GovLab and the Data Tank, a research professor at the New York University. Professor Natalie Helberger, a distinguished university professor of informational law and..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0027",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 1944.89,
+      "end": 2005.13,
+      "duration": 60.24,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "like to believe that most internet users have had the opportunity to interact with an compositional AI tool such that AI is no longer just a password, but it is a reality and it is a...",
+      "keywords": [
+        "students",
+        "school",
+        "heritage",
+        "group",
+        "working",
+        "time",
+        "great",
+        "young"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.83,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.562718,
+      "selection_score": 0.888008,
+      "text": "like to believe that most internet users have had the opportunity to interact with an compositional AI tool such that AI is no longer just a password, but it is a reality and it is a solution. Today, I am happy to be here with a group from the Heritage School, part of our coding and robotics club, these are students who have been working hard, they have been putting on their own towards the technology. So this group, they will spend their break time, their lunch time, those period in the lab, just to debug the code and get it working. And I think that is what makes the great programmers great working on it until it works. So I am excited with what the future holds for this group of young,..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0026",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 1880.61,
+      "end": 1944.89,
+      "duration": 64.28,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "All right, we will skip straight to the presentation of the Heritage School students which is going to be led to us by Ms.",
+      "keywords": [
+        "accessibility",
+        "students",
+        "school",
+        "heritage",
+        "information",
+        "give",
+        "round",
+        "applause",
+        "all",
+        "same"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.576961,
+      "selection_score": 0.884851,
+      "text": "Please give me a round of applause. All right, we will skip straight to the presentation of the Heritage School students which is going to be led to us by Ms. Ropapha Zomak Khazla. Thank you so much, ma'am. Please give you a round of applause. Thank you. Good morning, everybody. It is an honor to be amongst the great minds we are gathered here today. Mines will all share the same vision, the same goals that is to see AI being implemented so as to widen the accessibility of information around the globe. This is from, I would say, 2023 to up to today. We have seen an impressive stage in the adoption and development of AI tools such that I would"
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0036",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 2135.82,
+      "end": 2187.62,
+      "duration": 51.8,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "So again, I think we need to look at these technologies in their own context to really decide what the opportunities and dangers are.",
+      "keywords": [
+        "research",
+        "things",
+        "know",
+        "again",
+        "think",
+        "opportunities",
+        "done",
+        "her",
+        "does",
+        "matter"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.55,
+      "semantic_score": 0.58073,
+      "selection_score": 0.87914,
+      "text": "So again, I think we need to look at these technologies in their own context to really decide what the opportunities and dangers are. Again, some more sort of specific things that I was thinking about, you know, as a researcher, there's so much paperwork and process in research and I'm so grateful for the help I get from my research coordinator with all of that practice. Could that be done. Could that be done by AI? It actually seems like maybe there are some opportunities there to make some things flow a little bit easier. I already worried that I've downloaded so much to her offloaded I think is the better term that I don't know how to do these things without her, which might, you know,..."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0077",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 4206.78,
+      "end": 4260.19,
+      "duration": 53.41,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "paper that we released in the last three months and again this is not a new area of research but is an area that is moving very very fast so on the technical side of the...",
+      "keywords": [
+        "learning",
+        "research",
+        "content",
+        "science",
+        "synthetic",
+        "area",
+        "inputs",
+        "lot"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.586231,
+      "selection_score": 0.874541,
+      "text": "paper that we released in the last three months and again this is not a new area of research but is an area that is moving very very fast so on the technical side of the moon let's say that your inputs are very useful no one on the computer science aspect will never had worked on synthetic data or on learning or explainability by example without your inputs so what I bring back to my lab today is a lot of ideas mainly for medias we are now in the middle of elections here in Europe and the other point for me is the something like the content credentials probably we need to work a lot on that because we can"
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0031",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 1875.5,
+      "end": 1926.5,
+      "duration": 51.0,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "We need to look at each technology for itself and for the manner in which it's being used.",
+      "keywords": [
+        "ethics",
+        "research",
+        "healthcare",
+        "that's",
+        "way",
+        "look",
+        "it's",
+        "change",
+        "work"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.590909,
+      "selection_score": 0.872799,
+      "text": "We need to look at each technology for itself and for the manner in which it's being used. It's context. That's the way I've been trained to do research. That's sort of an underlying idea. That's hard. To me, as a researcher first, this means interrogating the ethics and effects of individual technologies and the way they shape and change the work they're meant to be doing. When I received this invitation, I was thinking about AI and administration is a little bit different than the way I typically think about it, which tends to be in AI and healthcare or nursing practices and how it will change our relationships with patients. AI in research. So, you know, our LLM is really going to help..."
+    },
+    {
+      "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0011",
+      "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+      "video_id": "cL04heQOsKo",
+      "start": 606.18,
+      "end": 658.74,
+      "duration": 52.56,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "Once we collect this data, we can essentially set up teams to label this data, clean this data, to essentially have it in such a way that we can train AI months.",
+      "keywords": [
+        "research",
+        "training",
+        "framework",
+        "citizens",
+        "infrastructure",
+        "data",
+        "essentially",
+        "train",
+        "going",
+        "we're"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.591856,
+      "selection_score": 0.870346,
+      "text": "Once we collect this data, we can essentially set up teams to label this data, clean this data, to essentially have it in such a way that we can train AI months. So in fact, the GI has already begun that effort. We've begun creating a framework around creating teams that can label data. Also research and training. This is going to be a key component of this initiative because we're going to need workers that essentially know how to train AI models. We know how to do AI research and we're looking to partner with international partners to essentially train our Jamaican citizens to become more proficient in these areas. We're going to need infrastructure."
+    },
+    {
+      "fragment_id": "0028_V6m-XNuWH-I_Azizi_Seixas_-_AI_the_Great_Equalizer_for_the_Global_South_0005",
+      "source_video": "0028_V6m-XNuWH-I_Azizi_Seixas_-_AI_the_Great_Equalizer_for_the_Global_South",
+      "video_id": "V6m-XNuWH-I",
+      "start": 226.01,
+      "end": 281.69,
+      "duration": 55.68,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "But I'm in laser in and let me focus on some areas, some specific sectors in which global south nations can be for their own nation building.",
+      "keywords": [
+        "global south",
+        "policy",
+        "education",
+        "health",
+        "medicine",
+        "medical",
+        "patient",
+        "disease",
+        "learning",
+        "research"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.580216,
+      "selection_score": 0.858106,
+      "text": "as well as through policy support. But I'm in laser in and let me focus on some areas, some specific sectors in which global south nations can be for their own nation building. First, education that AI can revolutionize learning, provide impersonalized learning, remote access, intelligent tutoring, as well as scale gap analysis. They can also, AI can also revolutionize health care, whether lead to greater disease detection and patient care and medical research, as well as health care access. But in addition to that, AI can help us to enhance global medicine, provide in personalized treatment and with more diagnostics, and be to great a drug discovery, where instead of waiting 17 years to..."
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0131",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 6673.91,
+      "end": 6724.12,
+      "duration": 50.21,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "into, right, and that one looks on it on a bigger level and your points that you brought out here today will be ventilated there as well, so can join us there on September 28th, the...",
+      "keywords": [
+        "information accessibility",
+        "accessibility",
+        "information",
+        "conference",
+        "event",
+        "one",
+        "right",
+        "here",
+        "free",
+        "pay"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.593562,
+      "selection_score": 0.842072,
+      "text": "into, right, and that one looks on it on a bigger level and your points that you brought out here today will be ventilated there as well, so can join us there on September 28th, the conference continues this important conversation that we have started here and it connects Jamaica to the Global Movement on Information Accessibility, you can also register for this event and let me say, this event is also free, you don't pay for that one, so anything that tells you going to pay for it, that's not the right one, this event is also free, it's at AI4, the number 4, IA, conference as C-O-N-F-E-R-E-N-C-E.com,"
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0003",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 193.42,
+      "end": 241.45,
+      "duration": 48.03,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "the Digital Foundation, the Digital Jamaica, the Public Broadcasting Corporation of Jamaica and the National Health Fund.",
+      "keywords": [
+        "health",
+        "session",
+        "welcome",
+        "event",
+        "digital",
+        "put",
+        "together",
+        "jamaica",
+        "national",
+        "time"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.580156,
+      "selection_score": 0.838046,
+      "text": "the Digital Foundation, the Digital Jamaica, the Public Broadcasting Corporation of Jamaica and the National Health Fund. Of course, to our extra special guests today or seniors, we welcome you. We welcome you for taking the time out to be here today. We celebrate you as a national treasure and that is why we would have set apart the time for you to be here today. This event is designed to empower you to navigate the digital space safely and confidently. Whether you're joining us in person or online, we are going to put together this session, or you have put together, sorry, we have put together this session for you, to be interactive and lightning and an uplifting session."
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0113",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 5906.24,
+      "end": 5951.21,
+      "duration": 44.97,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "say, ones have to be patient with ones and ones, you know, it's very important.",
+      "keywords": [
+        "patient",
+        "ones",
+        "here",
+        "phone",
+        "right",
+        "see",
+        "know",
+        "quote",
+        "reverse",
+        "image"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.590193,
+      "selection_score": 0.831203,
+      "text": "say, ones have to be patient with ones and ones, you know, it's very important. And we connect with that this thing of here, you know, we're talking about the use here, I want to quote my phone as I do it because I wanted to ask you to, if you have a phone and all of these grantees, the reverse image search, right? So I'm doing it as I am here now and to my, my dear brothers and sisters, mothers and fathers online, bless upon the self, the quote of phone as well. We are going to do the reverse search image, right? So you see the icon, right? You see the icon up there looking well and colorful and for those who can see and"
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0004",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 241.45,
+      "end": 290.28,
+      "duration": 48.83,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "If you're here for the first time, the restroom is to the side, so you may go around, not past the cameras, you may go around and access the bathroom there.",
+      "keywords": [
+        "information accessibility",
+        "accessibility",
+        "information",
+        "conference",
+        "unesco",
+        "remarks",
+        "you're",
+        "may",
+        "around",
+        "sorry"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.572322,
+      "selection_score": 0.826012,
+      "text": "Just a bit of housekeeping matters. If you're here for the first time, the restroom is to the side, so you may go around, not past the cameras, you may go around and access the bathroom there. If you're online for closed captioning, please click on the double-c, the CC, at the bottom of your screen. We will now have the old minute, sorry, the welcoming remarks for Mr. Cordell Green. Mr. Green is the vice chairman of the UNESCO Information for All Programs. He's also the chairman of UNESCO Information for All Working Group on Information Accessibility, sorry, the organizers of the Global AI for AI Conference. He's also the Executive Director of the Broadcasting Commission."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0006",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 364.4,
+      "end": 435.92,
+      "duration": 71.52,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "these challenges and their effectiveness with our distinguished speakers.",
+      "keywords": [
+        "ethics",
+        "law",
+        "journalism",
+        "media",
+        "information",
+        "unesco",
+        "academic",
+        "research",
+        "university",
+        "school"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.568428,
+      "selection_score": 0.808918,
+      "text": "these challenges and their effectiveness with our distinguished speakers. Professor Dr. Manuela Frantoni, who is professor in computer science with the University of Machirata, and a co-director of the AI laboratory. Professor Dr. Victoria Romanyuk, a director of Memorial School of Journalism, deputy chief editor of Stockfake Org, chair of the UNESCO FAAP Working Group on Information Ethics. Mr. Ali Abbas Ali, director of Broadcasting Competition of CUM, Dr. Olga Batura, a senior scientist at the Dutch organization for Appliance Scientific Research, TNO-Bector, and professor Dr. Marco Cole, a professor for media and telecommunications law at the University of Luxembourg, and director for..."
+    },
+    {
+      "fragment_id": "0065_CpgTUDyaQJU_Utsav_Patel_-_AI_to_Reduce_Medicine_Waste_0002",
+      "source_video": "0065_CpgTUDyaQJU_Utsav_Patel_-_AI_to_Reduce_Medicine_Waste",
+      "video_id": "CpgTUDyaQJU",
+      "start": 50.7,
+      "end": 98.66,
+      "duration": 47.96,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "If you visualize a single 500 bed hospitals and your discards, you are looking at pallets not to send a shoebox.",
+      "keywords": [
+        "healthcare",
+        "patient",
+        "industry",
+        "single",
+        "medications",
+        "often",
+        "easier"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.57794,
+      "selection_score": 0.80643,
+      "text": "If you visualize a single 500 bed hospitals and your discards, you are looking at pallets not to send a shoebox. One single digit efficiency gains more real money and access. So what drives the waste? In the long-term care pharmacies, medications are dispensed in 30-day blister cards. If the treatment is changed, the patient is transferred or dies that can cause a lot of unused medications. Anything opened, relabelled or with uncertain chain of custody can't be reused. In the healthcare industry, staff is often overloaded, so it's often easier to discard than verify, unless you make the verification faster and easier. And when the peers have already paid for their drug, there's little..."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0058",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 3348.78,
+      "end": 3384.38,
+      "duration": 35.6,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "would say to start but there is one last point in that first question I would like to make and that is it's interesting that the UN Global Principles for Information Integrity which you mentioned in...",
+      "keywords": [
+        "information integrity",
+        "learning",
+        "research",
+        "transparency",
+        "principles",
+        "information",
+        "interesting",
+        "look",
+        "question",
+        "right"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.6,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.574951,
+      "selection_score": 0.797361,
+      "text": "would say to start but there is one last point in that first question I would like to make and that is it's interesting that the UN Global Principles for Information Integrity which you mentioned in your question and also which are the underlying issue why we're discussing this year today put transparency together with research right that's interesting and why is that interesting because we are all learning look look at today look at what we learned from Emmanuel's input right through to all the other speakers we are learning we have to learn at a very high speed we are trying to understand we can't even understand a lot of things that are happening the the institutions which"
+    },
+    {
+      "fragment_id": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity_0001",
+      "source_video": "0039_8Kd0lD6d83U_Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity",
+      "video_id": "8Kd0lD6d83U",
+      "start": 0.0,
+      "end": 66.9,
+      "duration": 66.9,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "Dear colleagues, let me introduce my speech, which is entitled Coexistence of AI and Humanity.",
+      "keywords": [
+        "artificial intelligence",
+        "information",
+        "unesco",
+        "university",
+        "strategy",
+        "science",
+        "humanity",
+        "coexistence",
+        "slovak",
+        "artificial"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.567418,
+      "selection_score": 0.791108,
+      "text": "Dear colleagues, let me introduce my speech, which is entitled Coexistence of AI and Humanity. I'm Ivan Kotuliak from Slovak University of Technology, and in the same time, I am representative of Slovak Council of UNESCO, so I am responsible for information for all programs. I am a professor at the University in Computer Science. I've participated on more than 100 scientific papers and articles, and currently I'm cooperating with Slovak Republic on Quantum Strategy and Policies. Although I will do this speech, artificial intelligence is reshaping our society, so as we will learn a bit later, artificial intelligence is something which is today with us, so everybody from us is using..."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0014",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 794.69,
+      "end": 837.81,
+      "duration": 43.12,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "And everything we use here is based on a huge amount of new data, a huge amount of computational power and very nice new algorithms.",
+      "keywords": [
+        "patient",
+        "huge",
+        "amount",
+        "computational",
+        "power",
+        "new",
+        "data",
+        "three"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.57014,
+      "selection_score": 0.77403,
+      "text": "switch on subtitles, nothing's patient. And everything we use here is based on a huge amount of new data, a huge amount of computational power and very nice new algorithms. So these three things are those that change totally the way of playing the game of AI and the last three years. And we really have a huge amount of computational power also Europe. We are not far away from other countries. We have AI factories now going on in the European Union with the huge amount of computational power. But together with this, we also need a huge amount of data. There are many of them you fill it in, clicking on traffic signs, cars, bikes, and so on."
+    },
+    {
+      "fragment_id": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025_0016",
+      "source_video": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025",
+      "video_id": "1y0l",
+      "start": 680.82,
+      "end": 726.43,
+      "duration": 45.61,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "And so we did the experiment that our nature colleagues did, where they added synthetic plus real.",
+      "keywords": [
+        "patient",
+        "synthetic",
+        "did",
+        "wanted",
+        "normal",
+        "movement",
+        "experiment",
+        "see",
+        "producing",
+        "end"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.562247,
+      "selection_score": 0.772737,
+      "text": "And so we did the experiment that our nature colleagues did, where they added synthetic plus real. And we did that, it went from 85% to 90%. But then we wanted to just make it purely synthetic. We wanted to see if we only use synthetic data. Can we get similar results or better? And so here we have a normal patient producing the end movement and a normal patient producing the end movement. You would see also that some of normal patients that have this droopy or a tosis of the eyelid that we didn't want to capture. We wanted this to be a pure eye movement experiment. So we extracted what eye movements should look like in one patient with MG and one"
+    },
+    {
+      "fragment_id": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025_0006",
+      "source_video": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025",
+      "video_id": "1y0l",
+      "start": 232.42,
+      "end": 269.86,
+      "duration": 37.44,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "As a clinician, we wouldn't be able to tell what's really going on by looking at this that this patient had in a stagmas or not.",
+      "keywords": [
+        "patient",
+        "diagnosis",
+        "learning",
+        "model",
+        "using",
+        "came",
+        "each",
+        "individual",
+        "frame"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.563893,
+      "selection_score": 0.766883,
+      "text": "As a clinician, we wouldn't be able to tell what's really going on by looking at this that this patient had in a stagmas or not. And so that in itself would be a barrier to using this in low resource areas for diagnosis. So what we came up with back then was a way around that by using the videos themselves without relying on the waveforms. And so we came up with a deep learning model that used a convolution neural network to essentially look at each individual frame in the video and combine each individual frame to infer the movement across those frames. And for the video's data set that we use, it was 60 hertz."
+    },
+    {
+      "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0002",
+      "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
+      "video_id": "Na4L8xXcusY",
+      "start": 64.35,
+      "end": 121.46,
+      "duration": 57.11,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "AI churning out content like a digital sugar factory, sweet, addictive, and ultimately hollow.",
+      "keywords": [
+        "content",
+        "artist",
+        "doesn't",
+        "tell"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.587615,
+      "selection_score": 0.742105,
+      "text": "AI churning out content like a digital sugar factory, sweet, addictive, and ultimately hollow. This is our new reality. Generative AI doesn't sleep, doesn't doubt itself, doesn't struggle with writer's block. It just produces endlessly, efficiently, impressively. But here's what keeps me awake at night. When everyone can generate everything, what makes anything special? Let me tell you about a conversation I had last month with a veteran reggae producer, a man who worked with legends, whose hands shaped zones that moved nations. He played me two trucks, one crafted by AI in 30 minutes, another he spent three months perfecting with a young artist from Waterhouse. Can you tell which is which..."
+    },
+    {
+      "fragment_id": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025_0015",
+      "source_video": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025",
+      "video_id": "1y0l",
+      "start": 639.53,
+      "end": 680.82,
+      "duration": 41.29,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "summary": "any individual normal or abnormal, they have to produce this eye movement here, which is no stagnant, which is physiologic.",
+      "keywords": [
+        "disease",
+        "model",
+        "movement",
+        "fatigue",
+        "over",
+        "time"
+      ],
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.582619,
+      "selection_score": 0.738309,
+      "text": "any individual normal or abnormal, they have to produce this eye movement here, which is no stagnant, which is physiologic. And so if they're looking at this image for a two-minute sustained, this involuntary movement that occurs will fatigue over time. And so we could measure the fatigue by extracting the waveform and see how that kind of pans off over time and use that as a biomarker for this disease. And so we did this with our initial sweetie model back in 2021. The accuracy wasn't so hot to 7%. When we used the newer 3D model that we created in 2024, it went up to 85%, but that's still not perfect. So we needed to make it a little bit better."
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0005",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "start": 236.23,
+      "end": 294.16,
+      "duration": 57.93,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "It's monitoring their blood sugar, so you don't have problems with either excesses of high or low.",
+      "keywords": [
+        "health",
+        "older",
+        "persons",
+        "once",
+        "accept",
+        "assist",
+        "siri",
+        "google",
+        "necessary"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.580517,
+      "selection_score": 0.735007,
+      "text": "It's monitoring their blood sugar, so you don't have problems with either excesses of high or low. Technology is now believed to be able to resolve the gap between older persons wishes and their needs. And it has great potential once we accept it and once we make sure older people accept it to assist and prolong older persons independent living. And then, as another benefit, it can help improve mental, as well as physical health and increase well-being. Voice-activated devices like Alexa, Siri and Google assist, where necessary and when necessary are easy to use because they provide hands-free assistance for persons with mobility and cardiovascular issues. You just turn around and ask Siri..."
+    },
+    {
+      "fragment_id": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025_0007",
+      "source_video": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025",
+      "video_id": "1y0l",
+      "start": 269.86,
+      "end": 313.98,
+      "duration": 44.12,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "summary": "So we're looking at essentially moving across 16.67 milliseconds.",
+      "keywords": [
+        "model",
+        "we're",
+        "looking",
+        "build",
+        "movement",
+        "stagmas",
+        "see",
+        "don't",
+        "sample"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.578985,
+      "selection_score": 0.724985,
+      "text": "So we're looking at essentially moving across 16.67 milliseconds. And we use that to build the models of distinguish between movement, abnormal movement that we're looking for in this case in stagmas versus known as stagmas, which is normal. And then we got a very good, as you see. We've also experimented with what would happen if we don't sample the videos. Similarly to how we don't sample the waveform. And here, and we build a model with those, and we see that our model didn't perform so great. The accuracy is at 7.9%, but believe it or not, this is much better than trainees or emergency room physicians back then. Since our initial 2020 model,"
+    },
+    {
+      "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0063",
+      "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+      "video_id": "6l915YUMnWE",
+      "start": 3562.7,
+      "end": 3601.7,
+      "duration": 39.0,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "If you will do it in ways I really like the word enter into right now.",
+      "keywords": [
+        "right",
+        "things",
+        "it's",
+        "going",
+        "need",
+        "places",
+        "all"
+      ],
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.590986,
+      "selection_score": 0.724596,
+      "text": "If you will do it in ways I really like the word enter into right now. Like they were in this space where things are bumping around and it's going to be chaotic we're not sure it's going to come of it. And so I think we can be prepared in part by becoming recognized we need to be comfortable being uncomfortable for the next a lot. We need to recognize that as certain places accelerate other places may not be right because the most one to all of a sudden I can make PowerPoint presentations or anybody can faster I can calendars I can get lists I can find all sorts of things at speeds that I wouldn't be able to normally do."
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0022",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "start": 2729.95,
+      "end": 2811.33,
+      "duration": 81.38,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "But because every performance has this role, we can have one winner.",
+      "keywords": [
+        "priya",
+        "winner",
+        "pragya",
+        "beautiful",
+        "one",
+        "today's",
+        "results",
+        "front"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.7,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.566849,
+      "selection_score": 0.721839,
+      "text": "Priya and Pragya. Priya and Pragya. Both of you have been very beautiful. You have been very beautiful. But because every performance has this role, we can have one winner. Right? We have two winners. But the rule is that we have to make one winner. So, anybody can guess who is today's winner? Priya. Priya. Priya. Priya. Priya. Priya. Priya. Priya. So, voting line has been closed. Our results are in front of us. So, our results are in front of us. Today's winner is Pragya. Congratulations, Priya. Thank you. You also went very well. And winner of all goes to Pragya."
+    },
+    {
+      "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0021",
+      "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
+      "video_id": "QP",
+      "start": 2672.07,
+      "end": 2729.95,
+      "duration": 57.88,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "You will know the result in a few days.",
+      "keywords": [
+        "audience",
+        "both",
+        "now",
+        "few",
+        "days",
+        "voting",
+        "lines",
+        "tell",
+        "well",
+        "good"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.564337,
+      "selection_score": 0.705347,
+      "text": "But now you can take your seat. You will know the result in a few days. So, friends. As I told you, our voting lines were open. But now, our voting lines are closed. And in a few days, the results will be in front of us. So, I will request you to come to that stage. And tell our audience, who is today's singing, sir? Jajas. First of all, I would like both of you to perform very well. Both of you have outstanding performances. You can't tell anyone that this guy is very good. Both of you have good points. And both of you, who are our participants, I would like to say to them as well."
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0003",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 113.5,
+      "end": 172.76,
+      "duration": 59.26,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "the job market, AI's automation of tasks in sectors like data entry, customer service and even basic coding is a genuine concern.",
+      "keywords": [
+        "youth",
+        "creative",
+        "music",
+        "creativity",
+        "risk",
+        "market",
+        "employment",
+        "job",
+        "generate",
+        "muscles"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.570343,
+      "selection_score": 0.869233,
+      "text": "the job market, AI's automation of tasks in sectors like data entry, customer service and even basic coding is a genuine concern. It can feel like the goalposts are moving just as they are about to score. The risk isn't just job loss. It's a potential erosion of creative confidence. If AI can generate art, if it can generate music and essays in seconds, what is the value of human creativity? This can lead to a dependency where we stop exercising our own creative muscles, the very muscles that make us innovative and resilient. However, focusing on the risks is a disservice to our youth. The real conversation is about transition and not replacement. So when we talk of employment, AI is a..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0119",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 6855.02,
+      "end": 6907.78,
+      "duration": 52.76,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "help in one person understanding how AI works and how it functions?",
+      "keywords": [
+        "literacy",
+        "university",
+        "training",
+        "content",
+        "patient",
+        "digital literacy",
+        "local repository",
+        "creating",
+        "sure",
+        "think"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.588211,
+      "selection_score": 0.867101,
+      "text": "help in one person understanding how AI works and how it functions? Thank you. Very key. She spoke of creating and creating the content, making sure that we feed greater on-local repository, very rich, but I think the fundamental also goes through the digital literacy. How people informed and how do we train and make sure that we don't leave anyone behind in terms of the basic training. I think too many times we take it for granted and very quick take. I wanted to say, it takes time, we have to be very patient, we should do it in digital, literacy, so we don't come to official intelligence, I come from an engineering faculty at the University"
+    },
+    {
+      "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0010",
+      "source_video": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+      "video_id": "yqqiJmWKZ9I",
+      "start": 578.14,
+      "end": 654.19,
+      "duration": 76.05,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "Various resources and resources are supported by the University of Leyden, the United States and the United States.",
+      "keywords": [
+        "education",
+        "university",
+        "cultural",
+        "information",
+        "science",
+        "agricultural",
+        "resources",
+        "united",
+        "states",
+        "working"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.59063,
+      "selection_score": 0.86432,
+      "text": "Various resources and resources are supported by the University of Leyden, the United States and the United States. We have been invited to the University of Science and Education, and we also have a communication with the University of Agricultural and Agricultural. And we have been working with the National Development Council at the same time as the University of Chile. For 30 years, the Department of Education developed a development of educational and cultural education within the organization. This is an excellent function of working in African American University of Agricultural and Agricultural. And this information of the progress of information all. Bienvenido a verdad y gracias..."
+    },
+    {
+      "fragment_id": "0069_n9lB4-IGjqw_Claudio_Pinhanez_-_The_Yegatu_Digital_Project_0001",
+      "source_video": "0069_n9lB4-IGjqw_Claudio_Pinhanez_-_The_Yegatu_Digital_Project",
+      "video_id": "n9lB4-IGjqw",
+      "start": 3.66,
+      "end": 65.05,
+      "duration": 61.39,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "Hello, my name is Claude Piannis, I'm from IBM Research Brazil in the University of São Paulo.",
+      "keywords": [
+        "research",
+        "university",
+        "indigenous",
+        "language",
+        "information",
+        "i'm",
+        "ibm",
+        "paulo",
+        "project",
+        "amazon"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.577448,
+      "selection_score": 0.855938,
+      "text": "Hello, my name is Claude Piannis, I'm from IBM Research Brazil in the University of São Paulo. And I'm going to talk to you about the inyengato digital project, which is a collaboration between the University of São Paulo, IBM Research, the Federation of Organizations Indigenous of Hyundai Group, and of the work of a very extensive team that you can see in this slide. The context of this project is what's happening in the Amazon today. Fast internet is arriving in the Amazon through devices like Starlink. And this influx of new information at a much faster speed than before is really threatening the language and the cultures of Indigenous peoples there. And we have to understand that those..."
+    }
+  ],
+  "storyline": {
+    "title": "AI in Academic Research & Knowledge Production",
+    "logline": "Exploring the impact of AI on academic research and knowledge production, from enhancing productivity to revolutionizing the way we approach education.",
+    "style": "documentary",
+    "target_duration_seconds": 60,
+    "estimated_duration_seconds": 61.5,
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 5,
+        "narration": "Welcome to the world of academic research, where AI is changing the game.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "AI in Academic Research & Knowledge Production",
+            "on_screen_text": "AI in Academic Research & Knowledge Production"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 10,
+        "narration": "Academic research is a cornerstone of human progress, but it's facing new challenges in the digital age.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0044",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "sets the scene for academic research"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 10,
+        "narration": "One of the biggest challenges is the sheer volume of data being produced, making it hard to sift through and find meaningful insights.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0077",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "illustrates the problem of data overload"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 10,
+        "narration": "But what does this mean for the researchers themselves, who are struggling to keep up with the pace of change?",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0016",
+            "usage": "context_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "shows the human side of research"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0016",
+            "start": 0,
+            "end": 10,
+            "quote_summary": "Researchers are struggling to keep up with the pace of change.",
+            "reason": "adds a personal perspective"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 10,
+        "narration": "But experts say that AI can be a game-changer, helping researchers to analyze data more efficiently and accurately.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0031",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "illustrates the benefits of AI in research"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0031",
+            "start": 0,
+            "end": 10,
+            "quote_summary": "AI can help researchers analyze data more efficiently and accurately.",
+            "reason": "adds expert evidence"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 10,
+        "narration": "So what does the future of academic research look like, and how can we harness the power of AI to drive progress?",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0011",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "sets the scene for the future of research"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 5,
+        "narration": "The future of academic research is exciting and uncertain, but one thing is clear: AI will play a major role in shaping its direction.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "The Future of Academic Research",
+            "on_screen_text": "The Future of Academic Research"
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to the world of academic research, where AI is changing the game.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "Academic research is a cornerstone of human progress, but it's facing new challenges in the digital age.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "One of the biggest challenges is the sheer volume of data being produced, making it hard to sift through and find meaningful insights.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "But what does this mean for the researchers themselves, who are struggling to keep up with the pace of change?",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "But experts say that AI can be a game-changer, helping researchers to analyze data more efficiently and accurately.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "So what does the future of academic research look like, and how can we harness the power of AI to drive progress?",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "The future of academic research is exciting and uncertain, but one thing is clear: AI will play a major role in shaping its direction.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0016",
+        "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+        "start": 0,
+        "end": 10,
+        "quote_summary": "Researchers are struggling to keep up with the pace of change.",
+        "use_in_section": "S4"
+      },
+      {
+        "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0031",
+        "source_video": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence",
+        "start": 0,
+        "end": 10,
+        "quote_summary": "AI can help researchers analyze data more efficiently and accurately.",
+        "use_in_section": "S5"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0016",
+        "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0031"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "AI in Academic Research & Knowledge Production"
+        },
+        {
+          "asset_type": "title_card",
+          "description": "The Future of Academic Research"
+        }
+      ],
+      "internet_assets_needed": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "fragment_id": null,
+        "duration_seconds": 5,
+        "description": "Opening narration"
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0044",
+        "duration_seconds": 10,
+        "description": "Context visual"
+      },
+      {
+        "order": 3,
+        "timeline_type": "archive_visual",
+        "section_id": "S3",
+        "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0077",
+        "duration_seconds": 10,
+        "description": "Problem visual"
+      },
+      {
+        "order": 4,
+        "timeline_type": "speaker_clip",
+        "section_id": "S4",
+        "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0016",
+        "duration_seconds": 10,
+        "description": "Human perspective"
+      },
+      {
+        "order": 5,
+        "timeline_type": "archive_visual",
+        "section_id": "S5",
+        "fragment_id": "0054_6l915YUMnWE_Canada_Satellite_Event_-_AI_and_Administrative_Intelligence_0031",
+        "duration_seconds": 10,
+        "description": "Expert evidence"
+      },
+      {
+        "order": 6,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "fragment_id": null,
+        "duration_seconds": 10,
+        "description": "Solution direction"
+      },
+      {
+        "order": 7,
+        "timeline_type": "title_card",
+        "section_id": "S7",
+        "fragment_id": null,
+        "duration_seconds": 5,
+        "description": "Final title card"
+      }
+    ],
+    "editor_notes": []
+  }
+}

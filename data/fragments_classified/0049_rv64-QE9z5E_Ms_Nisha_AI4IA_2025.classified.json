@@ -1,0 +1,314 @@
+{
+  "source_transcript": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025.json",
+  "source_video": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025",
+  "video_id": "rv64-QE9z5E",
+  "fragment_count": 2,
+  "created_at": "2026-06-16T12:54:12.825107",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025_0001",
+      "source_video": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025",
+      "video_id": "rv64-QE9z5E",
+      "fragment_index": 1,
+      "start": 1.55,
+      "end": 78.46,
+      "duration": 76.91,
+      "text": "warm greetings from southern Africa. In this digital age, how do we harness artificial intelligence to build resilient and inclusive societies? There are many ideas. I have a few too. And I would like to share them with you. AI holds promise, but raises concerns around trust, rights, and equity. Trust requires transparency, accountability, and ethical data use. UNESCO's Ethics of AI recommendations remind us that trust must be turned by AI developers too. UNESCO's Roommakes Indicators assess whether AI promotes openness, accessibility, participation, and inclusion in public services and governance. AI, particularly generative AI boosts creativity and engagement. But it also spreads misunderstanding information.",
+      "word_count": 107,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "created_at": "2026-06-16T12:54:12.824929",
+      "keywords": [
+        "artificial intelligence",
+        "ethics",
+        "governance",
+        "accessibility",
+        "ethical",
+        "accountability",
+        "transparency",
+        "trust",
+        "information",
+        "public services",
+        "equity",
+        "inclusion",
+        "inclusive",
+        "africa",
+        "services"
+      ],
+      "summary": "In this digital age, how do we harness artificial intelligence to build resilient and inclusive societies?",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics",
+            "ethical",
+            "governance",
+            "accountability",
+            "transparency",
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.625,
+          "matched_keywords": [
+            "information",
+            "public services",
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.625,
+          "matched_keywords": [
+            "equity",
+            "inclusion",
+            "inclusive",
+            "africa",
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics",
+            "ethical",
+            "trust",
+            "transparency",
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.714,
+          "matched_keywords": [
+            "public services",
+            "services",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.429,
+          "matched_keywords": [
+            "africa",
+            "equity",
+            "inclusion"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.429,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.286,
+          "matched_keywords": [
+            "governance",
+            "accountability"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.7,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.9,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.414764"
+    },
+    {
+      "fragment_id": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025_0002",
+      "source_video": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025",
+      "video_id": "rv64-QE9z5E",
+      "fragment_index": 2,
+      "start": 78.46,
+      "end": 119.81,
+      "duration": 41.35,
+      "text": "Public education, as shown in UNESCO's media and information literacy campaigns, is key to prevention of misuse. AI can bridge or widen gaps. To bridge gaps, UNESCO supports digital skills and protects health issues through digital tools. AI improves access to government data as seen in information for all programs of UNESCO. But ethical oversight is essential across all sectors and by all the season makers.",
+      "word_count": 67,
+      "source_segment_ids": [
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "created_at": "2026-06-16T12:54:12.825095",
+      "keywords": [
+        "education",
+        "health",
+        "media",
+        "information",
+        "unesco",
+        "ethical",
+        "oversight",
+        "literacy",
+        "government",
+        "all",
+        "bridge",
+        "gaps",
+        "digital"
+      ],
+      "summary": "Public education, as shown in UNESCO's media and information literacy campaigns, is key to prevention of misuse.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information",
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.4,
+          "matched_keywords": [
+            "ethical",
+            "oversight"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.4,
+          "matched_keywords": [
+            "education",
+            "literacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "unesco"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "oversight"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "government"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.418036"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:18.418048"
+}

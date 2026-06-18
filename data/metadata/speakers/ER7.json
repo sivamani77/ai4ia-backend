@@ -1,0 +1,25 @@
+{
+  "video_id": "ER7",
+  "source_video": "0124_ER7_5jzIrbI_Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes",
+  "title": "Jaimee Stuart  - Women, Peace, Cybersecurity, and AI: The rise of deepfakes",
+  "speakers": [
+    {
+      "name": "Jaimee Stuart",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Dr. James Stewart",
+      "role": "Speaker",
+      "affiliation": "United Nations University Institute in Macau",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Jaimee Stuart",
+  "title_name_hint": "Jaimee Stuart",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:30:16.842727"
+}

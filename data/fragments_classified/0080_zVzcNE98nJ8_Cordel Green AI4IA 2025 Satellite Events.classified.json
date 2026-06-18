@@ -1,0 +1,155 @@
+{
+  "source_transcript": "0080_zVzcNE98nJ8_Cordel Green AI4IA 2025 Satellite Events.json",
+  "source_video": "0080_zVzcNE98nJ8_Cordel Green AI4IA 2025 Satellite Events",
+  "video_id": "zVzcNE98nJ8",
+  "fragment_count": 1,
+  "created_at": "2026-06-16T12:54:13.031254",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0080_zVzcNE98nJ8_Cordel Green AI4IA 2025 Satellite Events_0001",
+      "source_video": "0080_zVzcNE98nJ8_Cordel Green AI4IA 2025 Satellite Events",
+      "video_id": "zVzcNE98nJ8",
+      "fragment_index": 1,
+      "start": 1.42,
+      "end": 91.71,
+      "duration": 90.29,
+      "text": "Hello and welcome. I am pleased to join you for this satellite event, one of nine being convened in the lead up to the sixth AI for IAA conference on September 28th. Gatherings like this help bring into focus a wide spectrum of perspectives, technical, ethical, cultural, legal and social. They offer space for thoughtful exchange and creative expression for surfacing local insights and deepening our shared understanding of artificial intelligence and its impact on our lives. I thank all participants, the local organizers and partners for bringing this event to life. I also thank the AI for IAA planning committee for their continued work. Your contributions are helping to build a richer, more connected conversation, one that will carry forward into the main conference. See you on the Gathertown platform on September 28th for the sixth AI for IAA virtual conference.",
+      "word_count": 142,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "created_at": "2026-06-16T12:54:13.031244",
+      "keywords": [
+        "artificial intelligence",
+        "satellite event",
+        "conference",
+        "creative",
+        "cultural",
+        "ethical",
+        "welcome",
+        "event",
+        "satellite",
+        "legal",
+        "iaa",
+        "one",
+        "sixth",
+        "september",
+        "local"
+      ],
+      "summary": "I am pleased to join you for this satellite event, one of nine being convened in the lead up to the sixth AI for IAA conference on September 28th.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "satellite event",
+            "conference"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "creative",
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.167,
+          "matched_keywords": [
+            "ethical"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "conference",
+            "satellite event",
+            "welcome",
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.111,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.111,
+          "matched_keywords": [
+            "satellite"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.111,
+          "matched_keywords": [
+            "creative"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.111,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:21.343565"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:21.343571"
+}

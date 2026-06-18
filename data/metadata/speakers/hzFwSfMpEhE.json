@@ -1,0 +1,31 @@
+{
+  "video_id": "hzFwSfMpEhE",
+  "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+  "title": "Jamaica Event - From Airwaves to Algorithms: Empowering senior citizens in a digital age",
+  "speakers": [
+    {
+      "name": "Roxanne Anderson",
+      "role": "Moderator",
+      "affiliation": "Broadcasting Commission of Jamaica",
+      "confidence": 1.0
+    },
+    {
+      "name": "Prof. Denise Eldemire-Shearer",
+      "role": "Speaker",
+      "affiliation": "Mona Aging and Wellness Centre",
+      "confidence": 1.0
+    },
+    {
+      "name": "Debra Berlyn",
+      "role": "Speaker",
+      "affiliation": "Project to Get Older Adults Online (Project GOAL)",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": null,
+  "title_name_hint": null,
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:28:03.207810"
+}

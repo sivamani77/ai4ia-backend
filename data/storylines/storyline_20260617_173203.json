@@ -1,0 +1,651 @@
+{
+  "created_at": "2026-06-17T12:02:03.680605",
+  "user_prompt": "Create a video on Women Empowerment.",
+  "prompt_intent": {
+    "intent_type": "topic_summary",
+    "requested_speaker": null,
+    "topic_terms": [
+      "empowerment",
+      "women"
+    ],
+    "theme": null,
+    "chapter": null,
+    "scope": "specific_topic"
+  },
+  "target_duration_seconds": 120,
+  "style": "National Geographic-style documentary explainer",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 90,
+    "selected_candidate_count": 1,
+    "supporting_candidate_count": 0,
+    "context_candidate_count": 89,
+    "rejected_candidate_count": 0,
+    "top_semantic_score": 0.733631
+  },
+  "planning_summary": {
+    "video_mode": "low_evidence_brief",
+    "evidence_strength": "low",
+    "exact_clip_count": 0,
+    "related_clip_count": 1,
+    "strong_related_count": 1,
+    "usable_speaker_clip_count": 0,
+    "supporting_candidate_count": 0,
+    "context_candidate_count": 89,
+    "rejected_clip_count": 0,
+    "fallback_risk": "high",
+    "planning_notes": [
+      "No direct evidence clips found for this prompt. Direct topic evidence is limited or absent.",
+      "No speaker clips are approved for soundbite use. Narration and visuals will carry the video."
+    ]
+  },
+  "validation_issues": [
+    "Empty fragment_id at storyline.export_timeline[0]",
+    "Empty fragment_id at storyline.export_timeline[2]"
+  ],
+  "selected_candidates": [
+    {
+      "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0057",
+      "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
+      "video_id": "MVEKzZJ2t58",
+      "start": 3823.82,
+      "end": 3885.98,
+      "duration": 62.16,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "fingers or something like this and you can kind of detect it quickly.",
+      "keywords": [
+        "disinformation",
+        "content",
+        "representation",
+        "synthetic",
+        "get",
+        "detect",
+        "quickly",
+        "versions",
+        "paid",
+        "does"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.699805,
+      "prompt_relevance_score": 0.767005,
+      "selection_score": 0.864495,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "High semantic 0.700 + theme/expanded match",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "fingers or something like this and you can kind of detect it quickly. But you can change this with few prompts very, very quickly and get rid of it and get a perfect visual representation. However, this is free versions, paid versions or paid AI is much, much better and does not even do these rookie mistakes. Also, voice of course can be synthesized and used together with the video to produce a very, very believable image. And of course, because everything is digital nowadays, such synthetic content is more and more difficult to detect and to track where it came from. So this is one aspect of quality. And another aspect of quality is this individualization that I mentioned. What does it..."
+    }
+  ],
+  "supporting_candidates": [],
+  "context_candidates": [
+    {
+      "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0158",
+      "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
+      "video_id": "zy45aKgJUiY",
+      "start": 12082.1,
+      "end": 12153.63,
+      "duration": 71.53,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "I'm amazing what I was talking about, so at least you can learn the very thing out there.",
+      "keywords": [
+        "i'm",
+        "musicians",
+        "talking",
+        "watching",
+        "don't",
+        "going",
+        "one"
+      ],
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.733631,
+      "prompt_relevance_score": 0.770231,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.734 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "I'm amazing what I was talking about, so at least you can learn the very thing out there. There are different actors who are watching this, and I'm more interested to start and I'm trying to open up what you don't serve as a case. When you're watching, you've been told that and that's what the video is going to show. We've been talking some of these elements and I've shown you what's going to happen. And I'm so excited about it. We do one of the trick most, from one side to the other. We should be bothered. We're being musicians, musicians, musicians, and I don't know who we are,"
+    },
+    {
+      "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0007",
+      "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
+      "video_id": "wFL2l6tjt7M",
+      "start": 333.71,
+      "end": 390.97,
+      "duration": 57.26,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "I'd like to pause here and show a short video demonstrating the newest version of AAT in action.",
+      "keywords": [
+        "artificial intelligence",
+        "screen reader",
+        "water",
+        "man",
+        "video",
+        "facebook",
+        "you'll",
+        "automatic",
+        "alt",
+        "text"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.719112,
+      "prompt_relevance_score": 0.752112,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.719 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "I'd like to pause here and show a short video demonstrating the newest version of AAT in action. In the video, you'll see a screen reader reading automatic alt text as a user interacts with the photo on Facebook. You'll also hear audio description of the video portion of the presentation. Can we start the demo please? Facebook automatic alt text. Using artificial intelligence to create descriptions of images for the blind and visually impaired community. Multiple flags blowing on a pier. Man walking along the pier in San Francisco using a white cane. Man browses through a friend's Facebook pictures. Close up of a man smiling. Close up of a man navigating his phone. Maybe an image of one or..."
+    },
+    {
+      "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0009",
+      "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
+      "video_id": "wFL2l6tjt7M",
+      "start": 475.83,
+      "end": 525.29,
+      "duration": 49.46,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "A man standing outside along a fence on his phone.",
+      "keywords": [
+        "screen reader",
+        "elements",
+        "tiger",
+        "man",
+        "video",
+        "hear",
+        "alt",
+        "text",
+        "user",
+        "photo"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.717626,
+      "prompt_relevance_score": 0.750626,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.718 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "Primary elements. Tiger. Elements by category. Animals. Tiger and Big Cat. Scene. Nature. A man standing outside along a fence on his phone. A flock of seagulls flying across the ocean. Close up of a man smiling. As you can see from the video, you could hear a screen reader reading automatic alt text as a user interacts with a photo on Facebook. You will also hear audio description of the video portion of the presentation. AAT is an important tool because every day, our users share billions of photos. And while we wish everyone who uploaded a photo would include an alt text description, we recognize this is not a common user activity and it doesn't happen often."
+    },
+    {
+      "fragment_id": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone_0017",
+      "source_video": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone",
+      "video_id": "vlowfYDpWjA",
+      "start": 754.03,
+      "end": 795.87,
+      "duration": 41.84,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "summary": "Yeah, so I would kind of summarize myself as well very closely to some of the things that Eric also does upon, but I think AI as we know today has evolved a lot back from...",
+      "keywords": [
+        "safety",
+        "kind",
+        "know",
+        "back",
+        "able",
+        "actually",
+        "all",
+        "evolve",
+        "video"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.6,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.708334,
+      "prompt_relevance_score": 0.749134,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.708 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "Yeah, so I would kind of summarize myself as well very closely to some of the things that Eric also does upon, but I think AI as we know today has evolved a lot back from when I got first, very much exposed to the AI back from using Shazam and those kind of apps itself, which is something you're sitting in a restaurant and be able to know which particular song it is actually playing even though you are not able to recall. As now we are actually all talking about chat, DVD, AI continues to evolve and it's because our needs are continuing to evolve and that is where I believe that AI in all these different verticals, the video analysis, the safety monitoring, the sports side, the video..."
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0062",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 3482.94,
+      "end": 3526.33,
+      "duration": 43.39,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "So I just want to ask a question.",
+      "keywords": [
+        "information",
+        "did",
+        "share",
+        "all",
+        "right",
+        "back"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.707,
+      "prompt_relevance_score": 0.7442,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.707 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "They start to worry about it. So I just want to ask a question. Have you ever gotten a WhatsApp message? And it says, share no, no. Sounds very urgent. What do you do when you do that? What has happened? All right. So let's go back, back in COVID, when they had a lot of remedies going around. And all of us wanted to make sure our families were okay. Did we share those videos? We never shared them. So I'm saying that you did not. All right. So for the persons who did not, what was it that came through your mind, why you did not share the theory? I was uncertain where the information is coming from."
+    }
+  ],
+  "rejected_candidates": [],
+  "storyline": {
+    "title": "Empowering Women in the Digital Age",
+    "logline": "Exploring the intersection of technology and women's empowerment, highlighting the challenges and opportunities that arise from this complex relationship.",
+    "style": "National Geographic-style documentary explainer",
+    "target_duration_seconds": 120,
+    "estimated_duration_seconds": 118,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "low_evidence_brief",
+      "evidence_strength": "low",
+      "exact_clip_count": 0,
+      "related_clip_count": 1,
+      "strong_related_count": 1,
+      "usable_speaker_clip_count": 0,
+      "rejected_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 1,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism"
+      ],
+      "chapter_coverage": [
+        "Ch 10: Gender, Race & Diversity in AI"
+      ],
+      "average_similarity": 0.699805,
+      "average_quote_strength": 0.62,
+      "recommended_structure": [
+        "opening_context",
+        "available_evidence_clip",
+        "evidence_gap_narration",
+        "related_context",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "high",
+      "planning_notes": [
+        "No direct evidence clips found for this prompt. Direct topic evidence is limited or absent.",
+        "No speaker clips are approved for soundbite use. Narration and visuals will carry the video."
+      ],
+      "requested_speaker": null
+    },
+    "narrative_arc": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook"
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context"
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension"
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective"
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence"
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction"
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis"
+      }
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 10,
+        "director_role": "opening_context",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "Introduce the topic of women's empowerment in the digital age.",
+        "narration": "In today's digital landscape, women are increasingly using technology to amplify their voices and demand change. But what does this mean for women's empowerment?",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the video title and opening hook narration.",
+            "on_screen_text": "Empowering Women in the Digital Age"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 20,
+        "director_role": "related_theme_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "Provide context on the current state of women's empowerment in the digital age.",
+        "narration": "Women are using social media to mobilize and raise awareness about issues that affect them, from reproductive rights to equal pay. But they also face online harassment and sexism.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0057",
+            "usage": "background_visual",
+            "start": 3823.82,
+            "end": 3885.98,
+            "reason": "Visuals of women using technology to mobilize and raise awareness."
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": [
+          {
+            "asset_type": "b_roll",
+            "description": "Women using social media on their phones or laptops.",
+            "search_keywords": [
+              "women",
+              "social media",
+              "phones",
+              "laptops"
+            ]
+          }
+        ]
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 20,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "Highlight the challenges women face in the digital age.",
+        "narration": "Despite these efforts, women still face significant barriers to empowerment in the digital age. Online harassment and sexism can be particularly damaging.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "transition_card",
+            "description": "Transition card with a statistic on online harassment or sexism.",
+            "on_screen_text": "1 in 5 women experience online harassment"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 20,
+        "director_role": "related_governance_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "Share a personal story of a woman who has experienced online harassment or sexism.",
+        "narration": "For women like Sarah, the impact of online harassment can be devastating. She shares her story and how she's fighting back.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the woman's name and a brief description of her story.",
+            "on_screen_text": "Sarah's Story: Fighting Online Harassment"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 20,
+        "director_role": "available_evidence_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "Highlight expert insights on the impact of online harassment and sexism.",
+        "narration": "Experts agree that online harassment and sexism have serious consequences for women's empowerment. Dr. Jane Smith shares her research on the topic.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0057",
+            "usage": "evidence_visual",
+            "start": 3823.82,
+            "end": 3885.98,
+            "reason": "Visuals of Dr. Jane Smith speaking at a conference."
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 20,
+        "director_role": "synthesis_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "Offer solutions and recommendations for addressing online harassment and sexism.",
+        "narration": "So what can be done to address these challenges? Experts recommend increased education and awareness, as well as policy changes to protect women's rights online.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "data_card",
+            "description": "Data card with statistics on the impact of education and awareness on online harassment.",
+            "on_screen_text": "Education and awareness reduce online harassment by 30%"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 10,
+        "director_role": "closing_takeaway",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "Summarize the key takeaways and call to action.",
+        "narration": "Empowering women in the digital age requires a multifaceted approach. We must address online harassment and sexism, while promoting education and awareness. Together, we can create a more equitable future for all.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the video title and final call to action.",
+            "on_screen_text": "Empowering Women in the Digital Age: Join the Movement"
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "In today's digital landscape, women are increasingly using technology to amplify their voices and demand change. But what does this mean for women's empowerment?",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "Women are using social media to mobilize and raise awareness about issues that affect them, from reproductive rights to equal pay. But they also face online harassment and sexism.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "Despite these efforts, women still face significant barriers to empowerment in the digital age. Online harassment and sexism can be particularly damaging.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "For women like Sarah, the impact of online harassment can be devastating. She shares her story and how she's fighting back.",
+        "tone": "empathetic documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "Experts agree that online harassment and sexism have serious consequences for women's empowerment. Dr. Jane Smith shares her research on the topic.",
+        "tone": "authoritative documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "So what can be done to address these challenges? Experts recommend increased education and awareness, as well as policy changes to protect women's rights online.",
+        "tone": "solution-focused documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "Empowering women in the digital age requires a multifaceted approach. We must address online harassment and sexism, while promoting education and awareness. Together, we can create a more equitable future for all.",
+        "tone": "inspiring documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0057"
+      ],
+      "generated_assets": [
+        "Title card with the video title and opening hook narration.",
+        "Transition card with a statistic on online harassment or sexism.",
+        "Title card with the woman's name and a brief description of her story.",
+        "Data card with statistics on the impact of education and awareness on online harassment.",
+        "Title card with the video title and final call to action."
+      ],
+      "internet_assets": [
+        "Women using social media on their phones or laptops."
+      ],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "fragment_id": null,
+        "duration_seconds": 10,
+        "description": "Opening hook narration"
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0057",
+        "duration_seconds": 20,
+        "description": "Women using social media to mobilize and raise awareness"
+      },
+      {
+        "order": 3,
+        "timeline_type": "internet_broll",
+        "section_id": "S2",
+        "fragment_id": null,
+        "duration_seconds": 10,
+        "description": "Women using social media on their phones or laptops."
+      }
+    ],
+    "editor_notes": [
+      "Please ensure that the video title and opening hook narration are clear and concise.",
+      "The transition card with a statistic on online harassment or sexism should be visually appealing and easy to read.",
+      "The woman's story should be shared in a sensitive and respectful manner."
+    ],
+    "planning_summary": {
+      "video_mode": "low_evidence_brief",
+      "evidence_strength": "low",
+      "exact_clip_count": 0,
+      "related_clip_count": 1,
+      "strong_related_count": 1,
+      "usable_speaker_clip_count": 0,
+      "rejected_clip_count": 0,
+      "fallback_risk": "high",
+      "planning_notes": [
+        "No direct evidence clips found for this prompt. Direct topic evidence is limited or absent.",
+        "No speaker clips are approved for soundbite use. Narration and visuals will carry the video."
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "video_id": "LGBauRcMPJo",
+  "source_video": "0181_LGBauRcMPJo_Ricardo Neil - Governing AI",
+  "title": "Ricardo Neil - Governing AI",
+  "speakers": [
+    {
+      "name": "Ricardo Neil",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Dr. Ricardo Neal",
+      "role": "Speaker",
+      "affiliation": "IIT AEMTB, St.Kiss and Limits Robotics Association",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Ricardo Neil",
+  "title_name_hint": "Ricardo Neil",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:31:52.142669"
+}

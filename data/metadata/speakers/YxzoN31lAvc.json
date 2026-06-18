@@ -1,0 +1,25 @@
+{
+  "video_id": "YxzoN31lAvc",
+  "source_video": "0058_YxzoN31lAvc_Nancy_Nkwanga_-_AI4IA_2025",
+  "title": "Nancy Nkwanga - AI4IA 2025",
+  "speakers": [
+    {
+      "name": "Nancy Nkwanga",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Dr Nancy Kwangwa",
+      "role": "Speaker",
+      "affiliation": "Zimbabwe",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Nancy Nkwanga",
+  "title_name_hint": "Nancy Nkwanga",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:28:17.913406"
+}

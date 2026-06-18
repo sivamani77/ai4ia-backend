@@ -1,0 +1,25 @@
+{
+  "video_id": "OSjQ",
+  "source_video": "0188_OSjQ_espqtw_Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI",
+  "title": "Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the ethics of AI",
+  "speakers": [
+    {
+      "name": "Doaa Abu Elyounes",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Dua Abolyunas",
+      "role": "Speaker",
+      "affiliation": "UNESCO",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Doaa Abu Elyounes",
+  "title_name_hint": "Doaa Abu Elyounes",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:32:02.931436"
+}

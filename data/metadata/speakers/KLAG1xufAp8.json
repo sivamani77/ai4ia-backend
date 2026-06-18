@@ -1,0 +1,25 @@
+{
+  "video_id": "KLAG1xufAp8",
+  "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
+  "title": "Kilian Gross - The AI act",
+  "speakers": [
+    {
+      "name": "Kilian Gross",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Kejan Gose",
+      "role": "Speaker",
+      "affiliation": "DigiConnect Unit A2, Europe",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Kilian Gross",
+  "title_name_hint": "Kilian Gross",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:31:42.551739"
+}

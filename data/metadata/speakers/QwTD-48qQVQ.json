@@ -1,0 +1,25 @@
+{
+  "video_id": "QwTD-48qQVQ",
+  "source_video": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+  "title": "Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+  "speakers": [
+    {
+      "name": "Guilherme Canela",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Guilherme Canela De Souza Godoi",
+      "role": "Speaker|Host|Unknown",
+      "affiliation": "UNESCO/IFAP Secretary",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Guilherme Canela",
+  "title_name_hint": "Guilherme Canela",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:28:53.067841"
+}

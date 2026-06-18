@@ -1,0 +1,25 @@
+{
+  "video_id": "HxBvfY5Qb9I",
+  "source_video": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025",
+  "title": "Al Arik Yusuph - AI4IA 2025",
+  "speakers": [
+    {
+      "name": "Al Arik Yusuph",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Alaricus",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Al Arik Yusuph",
+  "title_name_hint": "Al Arik Yusuph",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:27:02.180533"
+}

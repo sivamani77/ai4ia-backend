@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260617_092226_205f5ba3",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-17T09:22:26.683926",
+  "started_at": "2026-06-17T09:22:26.684221",
+  "completed_at": "2026-06-17T09:25:41.300689",
+  "payload": {
+    "prompt": "Create a 1-minute documentary on ethics and governance",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260617_092226_205f5ba3.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260617_145541.json",
+  "error": null
+}

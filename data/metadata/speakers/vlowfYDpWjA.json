@@ -1,0 +1,31 @@
+{
+  "video_id": "vlowfYDpWjA",
+  "source_video": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone",
+  "title": "How AI Can Help Bring Educational Content to Everyone",
+  "speakers": [
+    {
+      "name": "Madeline Nolan",
+      "role": "Host",
+      "affiliation": "Advanced Television Systems Committee",
+      "confidence": 1.0
+    },
+    {
+      "name": "Eric Langer",
+      "role": "Speaker",
+      "affiliation": "Information Equity Initiative",
+      "confidence": 1.0
+    },
+    {
+      "name": "Ashish",
+      "role": "Speaker",
+      "affiliation": "Eon Media, Toronto",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": null,
+  "title_name_hint": null,
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:31:48.797891"
+}

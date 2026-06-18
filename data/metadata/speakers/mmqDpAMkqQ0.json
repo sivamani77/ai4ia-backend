@@ -1,0 +1,25 @@
+{
+  "video_id": "mmqDpAMkqQ0",
+  "source_video": "0084_mmqDpAMkqQ0_Prof. Dr. Jan Oster - AI and competition",
+  "title": "Prof. Dr. Jan Oster - AI and competition",
+  "speakers": [
+    {
+      "name": "Prof. Dr. Jan Oster",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Jan Oster",
+      "role": "Speaker",
+      "affiliation": "Osnabrück University",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Prof. Dr. Jan Oster",
+  "title_name_hint": "Prof. Dr. Jan Oster",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:29:10.102111"
+}

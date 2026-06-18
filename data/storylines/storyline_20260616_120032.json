@@ -1,0 +1,1432 @@
+{
+  "created_at": "2026-06-16T06:30:32.567225",
+  "user_prompt": "string",
+  "target_duration_seconds": 180,
+  "style": "National Geographic-style documentary explainer",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 90,
+    "selected_candidate_count": 35,
+    "top_semantic_score": 0.636063
+  },
+  "validation_issues": [
+    "Invalid fragment_id at storyline.export_timeline[0].fragment_id: ",
+    "Invalid fragment_id at storyline.export_timeline[2].fragment_id: "
+  ],
+  "selected_candidates": [
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0129",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 7477.75,
+      "end": 7518.04,
+      "duration": 40.29,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "well done for that, and then the rest of the team, everybody.",
+      "keywords": [
+        "learning",
+        "research",
+        "accessible",
+        "guys",
+        "solution",
+        "zimbabwe",
+        "don't",
+        "ocean",
+        "right",
+        "start"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.613721,
+      "selection_score": 0.981211,
+      "text": "well done for that, and then the rest of the team, everybody. Today, you have been challenged multiple times by Dr. Havanyangri, he's been challenging you guys saying you guys are developing a solution for oceans, and we're in Zimbabwe, we don't have an ocean, right? Don't be discouraged, right? Keep going, and why do I say this? I want you guys to use what you guys are learning from what you're doing with the ocean research, as a foundation for implementing a solution that could work in Zimbabwe, because you need to start from somewhere, I think we heard that Rome isn't built in one day, so start by learning using what you have accessible, it's easy to find"
+    },
+    {
+      "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0004",
+      "source_video": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information",
+      "video_id": "WnBpODYMnj8",
+      "start": 220.51,
+      "end": 300.98,
+      "duration": 80.47,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "and there are clear rules for its preservation or destruction.",
+      "keywords": [
+        "information",
+        "knowledge",
+        "legal",
+        "framework",
+        "infrastructure",
+        "investment",
+        "digital",
+        "clear",
+        "among",
+        "public"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.601003,
+      "selection_score": 0.968493,
+      "text": "and there are clear rules for its preservation or destruction. Even with this framework, significant challenges remain. This includes insufficient infrastructure, limited knowledge and skills among public officials, and low level of legal literacy among requesters. Other common desubstacles requires investment in digital infrastructure, creation of user-friendly data portals and clear guidelines for publishing and managing official information in digital formats. The Tromsa Convention urges public authorities to actively publish information online and to make data open in digital formats, objectives that become much more achievable through the use of automated systems. By introducing AI..."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0063",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 3914.85,
+      "end": 3963.89,
+      "duration": 49.04,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "You need to know what to tell AI so that you can get the answers like you see it.",
+      "keywords": [
+        "music",
+        "creativity",
+        "prompt engineering",
+        "artist",
+        "screenwriter",
+        "need",
+        "tell",
+        "get",
+        "general",
+        "exactly"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.605164,
+      "selection_score": 0.968054,
+      "text": "Prompt engineering is very important. You need to know what to tell AI so that you can get the answers like you see it. Because if you've experimented with AI, if you ask a general question, it will give you a general answer. But if you tell it exactly what you want, you will get a tailored solution to exactly what you're looking for. And also, we are going to need emotional intelligence and as well as complex problem-solving. And in terms of creativity, I'm about to end, AI is the ultimate collaborator. So these are some of the opportunities, for example, an artist can use AI, maybe a musician to experiment with fusion of music, or maybe even a screenwriter can use AI to write scripts"
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0027",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 1944.89,
+      "end": 2005.13,
+      "duration": 60.24,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "like to believe that most internet users have had the opportunity to interact with an compositional AI tool such that AI is no longer just a password, but it is a reality and it is a...",
+      "keywords": [
+        "students",
+        "school",
+        "heritage",
+        "group",
+        "working",
+        "time",
+        "great",
+        "young"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.83,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.634865,
+      "selection_score": 0.960155,
+      "text": "like to believe that most internet users have had the opportunity to interact with an compositional AI tool such that AI is no longer just a password, but it is a reality and it is a solution. Today, I am happy to be here with a group from the Heritage School, part of our coding and robotics club, these are students who have been working hard, they have been putting on their own towards the technology. So this group, they will spend their break time, their lunch time, those period in the lab, just to debug the code and get it working. And I think that is what makes the great programmers great working on it until it works. So I am excited with what the future holds for this group of young,..."
+    },
+    {
+      "fragment_id": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2_0005",
+      "source_video": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2",
+      "video_id": "M1pldnhhORc",
+      "start": 264.94,
+      "end": 315.46,
+      "duration": 50.52,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "jealousy say my go-go is in Beringua over there is not understanding my robotics.",
+      "keywords": [
+        "media",
+        "information",
+        "literacy",
+        "communities",
+        "skills",
+        "say",
+        "robotics",
+        "understand",
+        "look",
+        "it's"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.624414,
+      "selection_score": 0.940704,
+      "text": "jealousy say my go-go is in Beringua over there is not understanding my robotics. How can I make it understand my robotics by making sure that I can translate what I am saying into simplistic shikaranga so that she can actually go I didn't understand. Just a quick follow-up. When we look at information gaps it's there a whole lot of parameters. It's not just the technology but we also look at the skills. Sometimes the information is there but if communities don't have the skills they'll say the information is not there. So let's capacitate our communities with relevant media and information literacy skills so that they're able to navigate and get the correct information. AI is not"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0006",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "start": 313.11,
+      "end": 370.66,
+      "duration": 57.55,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "summary": "this AI, and then eventually realizes that the AI is in love with close to 600 people, and then the protagonist understands the real value of a human relationship.",
+      "keywords": [
+        "security",
+        "legal",
+        "real",
+        "cognitive",
+        "data"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.597767,
+      "selection_score": 0.927257,
+      "text": "this AI, and then eventually realizes that the AI is in love with close to 600 people, and then the protagonist understands the real value of a human relationship. So even in the movie Blade Runner, if a memory is implanted and indistinguishable from a real one, is the life and is as real? See, this is where why this cognitive security matches a lot. So what exactly is this cognitive security is nothing but, is not like encryption of our data, and then putting some firewalls to stop somebody stealing or taking away our data. It's about some boundaries, which are very philosophical, legal and withkill. So it means defining what a cognitive between can do, and more importantly, what it must..."
+    },
+    {
+      "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0008",
+      "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
+      "video_id": "U31ADgIRLH4",
+      "start": 393.28,
+      "end": 445.66,
+      "duration": 52.38,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "create art, music and stories that touch souls.",
+      "keywords": [
+        "ai literacy",
+        "ethics",
+        "literacy",
+        "school",
+        "music",
+        "creativity",
+        "inclusive",
+        "diverse",
+        "stories",
+        "must"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.604608,
+      "selection_score": 0.920898,
+      "text": "create art, music and stories that touch souls. But to do this right, we must build human-centered AI. That means designing AI that respects human emotion, enforcing ethics in development, inclusive diverse voices in tech and teaching AI literacy in school. As someone who codes by day and poems by night, I forget to tell you, I am a programmer and a student, but besides that I am a writer. I love to write poems, stories and novels, and even I am a singer also. I also play guitar and harmonium. So let's back to the point. I believe that creativity and empathy must be part of every algorithm we design. I don't want to build a machine, just think."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0091",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 5321.1,
+      "end": 5374.46,
+      "duration": 53.36,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "AI can really drill down for us to say, what is the initial basic truth for any information which you are actually having?",
+      "keywords": [
+        "content",
+        "information",
+        "truth",
+        "cultural",
+        "actually",
+        "doing",
+        "sufficient",
+        "search",
+        "nature",
+        "algorithms"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.615366,
+      "selection_score": 0.914256,
+      "text": "AI can really drill down for us to say, what is the initial basic truth for any information which you are actually having? But as we are actually saying that the issue of us putting in sufficient of our data, sufficient of our information, sufficient of our ways of doing things, even the nature of the algorithms. The nature of the algorithms, are you doing deep search, are you doing breadth-first search, are you doing deep-first search, whatever you are actually doing, depends on the setting, the cultural setting in some sense of how you are actually doing that. So the more we actually then put in our own content online, the more the truth can actually go ahead and come out."
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0024",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 1446.34,
+      "end": 1508.05,
+      "duration": 61.71,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "And we have to see to what extent the new regulatory framework and especially Article 40 DSA will help in that, but even if we get platform data, we never could be sure that it's complete...",
+      "keywords": [
+        "inclusive",
+        "gender",
+        "research",
+        "language",
+        "framework",
+        "representation",
+        "information",
+        "synthetic",
+        "harm",
+        "data"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.603757,
+      "selection_score": 0.911457,
+      "text": "And we have to see to what extent the new regulatory framework and especially Article 40 DSA will help in that, but even if we get platform data, we never could be sure that it's complete and qualitative. So synthetic data is also a really important opportunity for us to researches to validate and together essential information. If you're interested, I put you the link or the what-if program into the chat. So we are the beginning of this project and one of the topics that really keeps us awake at night is of course also the issue of biases and how to make data collections inclusive, but also prevent harm for representation, which is a major issue with AI, but also with Gen AI and plenty of..."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0077",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 4206.78,
+      "end": 4260.19,
+      "duration": 53.41,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "paper that we released in the last three months and again this is not a new area of research but is an area that is moving very very fast so on the technical side of the...",
+      "keywords": [
+        "learning",
+        "research",
+        "content",
+        "science",
+        "synthetic",
+        "area",
+        "inputs",
+        "lot"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.617339,
+      "selection_score": 0.905649,
+      "text": "paper that we released in the last three months and again this is not a new area of research but is an area that is moving very very fast so on the technical side of the moon let's say that your inputs are very useful no one on the computer science aspect will never had worked on synthetic data or on learning or explainability by example without your inputs so what I bring back to my lab today is a lot of ideas mainly for medias we are now in the middle of elections here in Europe and the other point for me is the something like the content credentials probably we need to work a lot on that because we can"
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0009",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "start": 498.26,
+      "end": 570.22,
+      "duration": 71.96,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "The key points that are estimated are sent to the server and the server returns a list of words related to that sign.",
+      "keywords": [
+        "students",
+        "words",
+        "related",
+        "platform",
+        "server",
+        "sign",
+        "one",
+        "example",
+        "glad"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.633151,
+      "selection_score": 0.902841,
+      "text": "The key points that are estimated are sent to the server and the server returns a list of words related to that sign. So the user can check if those words are really related or one of those words is the one related to the sign they did. They can also see a sentence of an example for the meaning of that word in Spanish, for example. I'm very glad to be leading this platform, this work, and especially glad because it's an interdisciplinary team of not only researchers, but also volunteers, students that have been contributing a lot to this platform. We have linguists, computer scientists, interpreters, deaf consultants, and several people trying to contribute as they can as they want in this..."
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0010",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "start": 570.22,
+      "end": 635.51,
+      "duration": 65.29,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "Also another point that stands out is that we've been able to pass from research to a product that is a website totally developed by us.",
+      "keywords": [
+        "research",
+        "language",
+        "sign language",
+        "translation",
+        "services",
+        "able",
+        "stays",
+        "we've",
+        "pass",
+        "product"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.62181,
+      "selection_score": 0.8995,
+      "text": "Also another point that stands out is that we've been able to pass from research to a product that is a website totally developed by us. And using the cloud services of AWS, for example, to put these as a public website, you actually are able to see our dictionary if you follow the link in the QR code. And this is very interesting because research usually stays in the book, stays in paper, stays in somewhere store, but we've been able to pass from research to product and development. We have more than 130 signs, recognizable signs in front of the camera, and we have many more in the other translation part, which is from Spanish to sign language that retrieves the videos for a specific word."
+    },
+    {
+      "fragment_id": "0067_K2diz4VIa2o_Byeongjo_Kong_-_AI4IA_2025_0007",
+      "source_video": "0067_K2diz4VIa2o_Byeongjo_Kong_-_AI4IA_2025",
+      "video_id": "K2diz4VIa2o",
+      "start": 376.14,
+      "end": 442.74,
+      "duration": 66.6,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "AI can turn all these multisource data into situational and personalized recommendations.",
+      "keywords": [
+        "information",
+        "knowledge",
+        "language",
+        "farmers",
+        "device",
+        "help",
+        "internet",
+        "application"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.611141,
+      "selection_score": 0.897831,
+      "text": "AI can turn all these multisource data into situational and personalized recommendations. And we also have to think about digital device, you know. But with the help of undivided AI, such as open source nice language models that can actually operate on your own device, any internet connectivity, and also the knowledge packs, cash or save on your device, those can really help farmers to use essential information and answers that this application provide without internet connections. And then the application will sync automatically when the connection returns. So I spoke about like some of the opportunities and benefits that AI can offer in terms of helping people to access the right..."
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0010",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 636.17,
+      "end": 694.62,
+      "duration": 58.45,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "And that's actually the result of what I call Gen AI anxiety, meaning that many have seen that data that was initially open, including, for instance, public web data, has actually become more and more closed...",
+      "keywords": [
+        "creative",
+        "legal",
+        "science",
+        "actually",
+        "data",
+        "instance",
+        "open",
+        "result",
+        "gen",
+        "many"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.623143,
+      "selection_score": 0.896833,
+      "text": "And that's actually the result of what I call Gen AI anxiety, meaning that many have seen that data that was initially open, including, for instance, public web data, has actually become more and more closed as a result of technical devices, as Robotex, for instance, but also the fact that many that there are all kinds of legal efforts to limit access to data. Because one fears that that data will be used by only a few companies to actually train Gen AI bundles. And so it's this extractive behavior that actually has led to also an increased enclosure as well. And then when we look at open science, for instance, we see also the client there. And it's actually very interesting. If you look..."
+    },
+    {
+      "fragment_id": "0070_Fr6xJrMW8EU_Dominique_Varela_-_How_AI_Promotes_Public_Access_to_Government_Information_0002",
+      "source_video": "0070_Fr6xJrMW8EU_Dominique_Varela_-_How_AI_Promotes_Public_Access_to_Government_Information",
+      "video_id": "Fr6xJrMW8EU",
+      "start": 59.68,
+      "end": 119.42,
+      "duration": 59.74,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "It's a labyrinth in these types of channels.",
+      "keywords": [
+        "information",
+        "language",
+        "legal",
+        "government",
+        "documents",
+        "often",
+        "other"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.610613,
+      "selection_score": 0.893303,
+      "text": "It's a labyrinth in these types of channels. We often encounter the following challenges. First, is the overwhelming amount of data. The Chilean government, like any other, generates millions of documents each year, including loss, resolutions, contracts, and financial reports. This is an enormous volume of information. The second is the complexity of the documents. Many of these texts are written in a technical and legal language that is inaccessible to the average citizen. We are talking about documents full of yagand and references to other regulations, with the styles that makes them difficult to understand. And the third problem is the difficulty in finding what you are looking for...."
+    },
+    {
+      "fragment_id": "0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information_0001",
+      "source_video": "0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information",
+      "video_id": "XQ7aWaXW3dw",
+      "start": 0.14,
+      "end": 57.47,
+      "duration": 57.33,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Hello everyone, my name is Rapa Kazzuma Kazz.",
+      "keywords": [
+        "information integrity",
+        "information",
+        "trust",
+        "accessible",
+        "generative",
+        "models",
+        "integrity",
+        "trained",
+        "able",
+        "produce"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.616159,
+      "selection_score": 0.889849,
+      "text": "Hello everyone, my name is Rapa Kazzuma Kazz. Today we'll be discussing about AI and the question of trust. What focus will be on generative AI and information integrity. Generative models are being trained, such that they are able to produce different forms of data, ranging from text, images, audio or videos. So those models are trained using vast amounts of data to develop what we call large language models, such that they are able to produce output based on the user's prompt. So with the search of generative AI also comes contents on the integrity of information that is generated by those two. Because information is now widely accessible, it's now readily available, anybody who knows..."
+    },
+    {
+      "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0009",
+      "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
+      "video_id": "BsXQ4bm-lNI",
+      "start": 412.38,
+      "end": 461.42,
+      "duration": 49.04,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "summary": "I mean it can really have a big impact With the advent of AI and technology to solve the problem that Louis voice is doing There has to be a lot of responsibility with which user...",
+      "keywords": [
+        "environment",
+        "security",
+        "privacy",
+        "responsibility",
+        "louis",
+        "voice",
+        "user",
+        "data",
+        "happy",
+        "extremely"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.6,
+      "selection_score": 0.88891,
+      "text": "I mean it can really have a big impact With the advent of AI and technology to solve the problem that Louis voice is doing There has to be a lot of responsibility with which user data privacy security are all happening Louis voice has come up with a very clean solution Something that the banks are happy with regulators happy with The entire Louis system actually runs within the environment of the bank customer Within their complete control Running on their own cloud no data is taken out no external server hits Why this is important because there are some AI solutions which have started Which are if you ask me extremely unsafe and extremely user entry Example They are taking screenshots"
+    },
+    {
+      "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0008",
+      "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
+      "video_id": "iV4oapjVTuY",
+      "start": 378.24,
+      "end": 452.24,
+      "duration": 74.0,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "So we also have seen other so called knowledge comments declining or selling their data in ways that was previously unimaginative, but also is actually against the whole spirit of the knowledge comments as well.",
+      "keywords": [
+        "content",
+        "knowledge",
+        "training",
+        "investment",
+        "data",
+        "web",
+        "seen",
+        "actually",
+        "called",
+        "comments"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.616203,
+      "selection_score": 0.885903,
+      "text": "So we also have seen other so called knowledge comments declining or selling their data in ways that was previously unimaginative, but also is actually against the whole spirit of the knowledge comments as well. And then more recently we also have seen that training data is running out and that a lot of corporations that are working on AI development are calling for an investment in AI data because they feel that the data that powers AI is also disappearing fast and that is also quite often a result of actually data being closed so that it cannot be scrapped as well. And as it relates to scraping what we also have seen is a massive closure of what typically was called the public web,..."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0015",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 837.81,
+      "end": 887.39,
+      "duration": 49.58,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "You can say, okay, for understanding if I am a human or if I am a robot.",
+      "keywords": [
+        "doing",
+        "really",
+        "huge",
+        "amount",
+        "normal",
+        "collecting",
+        "data",
+        "autonomous",
+        "driving",
+        "way"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "semantic_score": 0.603411,
+      "selection_score": 0.883321,
+      "text": "Normal and normal. So why we are doing this? You can say, okay, for understanding if I am a human or if I am a robot. So it's an anti-spam system. But in reality, this is collecting data for autonomous driving. This is a way of collecting worldwide data for autonomous driving. So we can think about that really, really in a very proper way. Not always. We are doing a charge GPT or LLM or generating images, but we are doing a huge amount of nice things. And we can work on preterm infants, for example, using generative AI. We need to enlarge a little bit our vision because now we can do really a huge amount of things. Fashion is there with a huge amount of"
+    },
+    {
+      "fragment_id": "0069_n9lB4-IGjqw_Claudio_Pinhanez_-_The_Yegatu_Digital_Project_0001",
+      "source_video": "0069_n9lB4-IGjqw_Claudio_Pinhanez_-_The_Yegatu_Digital_Project",
+      "video_id": "n9lB4-IGjqw",
+      "start": 3.66,
+      "end": 65.05,
+      "duration": 61.39,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "summary": "Hello, my name is Claude Piannis, I'm from IBM Research Brazil in the University of São Paulo.",
+      "keywords": [
+        "research",
+        "university",
+        "indigenous",
+        "language",
+        "information",
+        "i'm",
+        "ibm",
+        "paulo",
+        "project",
+        "amazon"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.601404,
+      "selection_score": 0.879894,
+      "text": "Hello, my name is Claude Piannis, I'm from IBM Research Brazil in the University of São Paulo. And I'm going to talk to you about the inyengato digital project, which is a collaboration between the University of São Paulo, IBM Research, the Federation of Organizations Indigenous of Hyundai Group, and of the work of a very extensive team that you can see in this slide. The context of this project is what's happening in the Amazon today. Fast internet is arriving in the Amazon through devices like Starlink. And this influx of new information at a much faster speed than before is really threatening the language and the cultures of Indigenous peoples there. And we have to understand that those..."
+    },
+    {
+      "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0008",
+      "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
+      "video_id": "2TsnrzcJczA",
+      "start": 367.04,
+      "end": 422.8,
+      "duration": 55.76,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "they need to be able to interact with digital opportunities such as translation and AI programs those data sets are the conduit to the information super highway they are the interface this way communities have practical...",
+      "keywords": [
+        "governance",
+        "language",
+        "content",
+        "information",
+        "data sets",
+        "translation",
+        "model",
+        "communities",
+        "quality",
+        "digital"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.606395,
+      "selection_score": 0.878305,
+      "text": "they need to be able to interact with digital opportunities such as translation and AI programs those data sets are the conduit to the information super highway they are the interface this way communities have practical assets that modernize their language into digital resources that are really useful in a plethora of applications it's quality home language data sets that we are we really are key to to make sure that it is quality because translation apps are only as useful as the quality of the home language assets that are populating them and well I also want you to know that the Australian model generates community approval and accurate approval of the content so that it is in their..."
+    },
+    {
+      "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0001",
+      "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
+      "video_id": "UfD8",
+      "start": 0.18,
+      "end": 61.9,
+      "duration": 61.72,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Today we will be discussing about AI and the question of trust.",
+      "keywords": [
+        "information integrity",
+        "information",
+        "trust",
+        "accessible",
+        "generative",
+        "models",
+        "integrity",
+        "trained",
+        "able",
+        "produce"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.602874,
+      "selection_score": 0.876564,
+      "text": "Hello everyone, my name is Rapa Katsumakas. Today we will be discussing about AI and the question of trust. What focus will be on generative AI and information integrity. Generative models are being trained such that they are able to produce different forms of data ranging from text, images, audio or videos. So those models are trained using vast amounts of data to develop what we call large language models, such that they are able to produce output based on the user's prompt. So with the search of generative AI also comes contents on the integrity of information that is generated by those two. Because information is now widely accessible, it's now readily available, anybody who needs..."
+    },
+    {
+      "fragment_id": "0077_AYiHCig7BS8_Karam Saify - Accessible, explainable forecasting for smallholders using minimal local data_0006",
+      "source_video": "0077_AYiHCig7BS8_Karam Saify - Accessible, explainable forecasting for smallholders using minimal local data",
+      "video_id": "AYiHCig7BS8",
+      "start": 357.84,
+      "end": 419.26,
+      "duration": 61.42,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "summary": "To sustain accuracy we monitor a VAE reconstruction error, material increase trigger, schedule it retrain on the latest window with community approved candidates, governance and privacy and data ownership, farmers own their data, without exceptions, collection...",
+      "keywords": [
+        "governance",
+        "equity",
+        "privacy",
+        "farmers",
+        "agricultural",
+        "accessible",
+        "data",
+        "encrypted"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.609389,
+      "selection_score": 0.873099,
+      "text": "AI, only creates one people act. To sustain accuracy we monitor a VAE reconstruction error, material increase trigger, schedule it retrain on the latest window with community approved candidates, governance and privacy and data ownership, farmers own their data, without exceptions, collection via whatsapp is ingress, encrypted, message metadata is not reused for moderning, any farmer level data for correlation is normalized, encrypted and segregated, the platform is GDPR component aligned with, and party space and ISOTC 347 for agricultural data governance, driver cards keeps output except plainable supporting accessible or the double decisions, equity in access and delivery, equity is at..."
+    },
+    {
+      "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0004",
+      "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
+      "video_id": "VOlpG0QlEbE",
+      "start": 167.97,
+      "end": 231.18,
+      "duration": 63.21,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "You can see when the transformer paper was released in June of 2017.",
+      "keywords": [
+        "content",
+        "training",
+        "data sets",
+        "science",
+        "data",
+        "released",
+        "common",
+        "crawl",
+        "see",
+        "gpt"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.598603,
+      "selection_score": 0.872293,
+      "text": "in Google Scholar until January of 2025. You can see when the transformer paper was released in June of 2017. You can see when OpenAI released GPT-2 in February of 2019, and when big science bloom was released in July of 2022. For comparison, the Hubble Space Telescope is cited in a thousand papers per year. Common crawl is the backbone of modern AI. Over 80% of GPT-3's training tokens came from common crawl data. foundational data sets like Oscar, MC4, and the pile all rely on common crawl. So whenever you hear about a breakthrough in AI, the chances are it was fueled by open web data. There's a problem, however, with multi-lingual data. Our crawls contain much less content"
+    },
+    {
+      "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0085",
+      "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
+      "video_id": "yZAAZZ",
+      "start": 4570.9,
+      "end": 4622.94,
+      "duration": 52.04,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "Um the AI act applies to AI systems in place on the market or being put into service or generally a general purpose AI models being placed on the market in the EU or European economic...",
+      "keywords": [
+        "regulation",
+        "market",
+        "economic",
+        "data protection",
+        "protection",
+        "business",
+        "act",
+        "general",
+        "whether",
+        "successful"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.611213,
+      "selection_score": 0.870923,
+      "text": "Um the AI act applies to AI systems in place on the market or being put into service or generally a general purpose AI models being placed on the market in the EU or European economic area Regardless of whether the providers are established or located there or in a third country In other words, if you want to do business with anyone in the EU, you'd better follow our rules And that can be an extremely successful approach to regulating also across borders Of course, you need to have a certain economic standing first Um But I'm very curious To see whether the AI act the EU's AI act will be as successful in this respect as the GDPR that general data protection regulation has been"
+    },
+    {
+      "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0044",
+      "source_video": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+      "video_id": "yqqiJmWKZ9I",
+      "start": 2548.21,
+      "end": 2624.15,
+      "duration": 75.94,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "correct or not correct for example the subject of which is to be eliminated for example for example for example it is super alive there are a lot of topics and I would like to know...",
+      "keywords": [
+        "regulation",
+        "content",
+        "example",
+        "correct",
+        "super",
+        "topics",
+        "know",
+        "course"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.609558,
+      "selection_score": 0.869268,
+      "text": "correct or not correct for example the subject of which is to be eliminated for example for example for example it is super alive there are a lot of topics and I would like to know about the course of audio or not yes the platform has its own finishes and they do it because there is no there is no there is no there is no there is no there is no there is no regulation and but of course it is also part of the most easy topics that would be I would like to know about the data but in terms of content it is super competitive and in the whole world there was"
+    },
+    {
+      "fragment_id": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025_0005",
+      "source_video": "0032_1y0l_mzlJgk_Kemar_Green_-_AI4IA_2025",
+      "video_id": "1y0l",
+      "start": 192.62,
+      "end": 232.42,
+      "duration": 39.8,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "summary": "You can see that the image quality isn't always so great and this is done under clinical environment, clinical scenarios.",
+      "keywords": [
+        "environment",
+        "clinical",
+        "learning",
+        "waveform",
+        "here",
+        "see",
+        "sawtooth",
+        "pattern"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.597506,
+      "selection_score": 0.867196,
+      "text": "You can see that the image quality isn't always so great and this is done under clinical environment, clinical scenarios. And so if we were supposed to extract the waveform from this, from these videos over here, for example, we wouldn't be able to get the most or the cleanest data to be used for machine learning. And so we have to figure out a way around that. And so that's what we kind of did. And we also showed here that if you don't sample a waveform. So this is a waveform of eye movement type colonostagmas, which has this characteristic sawtooth pattern. You see here, if you move from 240 to 15 hertz, they will lose the sawtooth pattern."
+    },
+    {
+      "fragment_id": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025_0003",
+      "source_video": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025",
+      "video_id": "HxBvfY5Qb9I",
+      "start": 102.78,
+      "end": 154.23,
+      "duration": 51.45,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Along with competitions, I'm also the captain of my school's coding and robotics club.",
+      "keywords": [
+        "health",
+        "young people",
+        "water",
+        "pollution",
+        "knowledge",
+        "legal",
+        "club"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.611129,
+      "selection_score": 0.864219,
+      "text": "Along with competitions, I'm also the captain of my school's coding and robotics club. Leading the club has been just as important to me as competing because it's about sharing knowledge, inspiring my teammates, and showing others that AI is something we can all explore. My team and I are also an example of the positive impacts that AI can make on young people. Together we became National Champions of the First Legal League Zimbabwe with a project we designed also, an AI part C serverless and litter detection system. The idea came from realizing how serious the problem of ocean pollution is, because every year millions of tons of plastic end up in the water, harming marine life, and even..."
+    },
+    {
+      "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0011",
+      "source_video": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility",
+      "video_id": "IK4-DBjSAGU",
+      "start": 635.51,
+      "end": 663.54,
+      "duration": 28.03,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "We, as I mentioned, provide a Peruvian sign language instructions and instructions in a video and also provide links to double check the results that are returned by the model.",
+      "keywords": [
+        "sign language",
+        "language",
+        "model",
+        "event",
+        "provide",
+        "instructions"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.606249,
+      "selection_score": 0.859939,
+      "text": "We, as I mentioned, provide a Peruvian sign language instructions and instructions in a video and also provide links to double check the results that are returned by the model. So I'm happy to talk to you in any other context or along the platform in this event, and I just would like to thank you for listening to my presentation. Thank you."
+    },
+    {
+      "fragment_id": "0041_OVjN2Ve6elw_Caleb_Levy_-_Beyond_the_Buzzword_-_Responsibility_of_Platforms_in_the_Age_of_Artificial_intelligence_0005",
+      "source_video": "0041_OVjN2Ve6elw_Caleb_Levy_-_Beyond_the_Buzzword_-_Responsibility_of_Platforms_in_the_Age_of_Artificial_intelligence",
+      "video_id": "OVjN2Ve6elw",
+      "start": 215.98,
+      "end": 266.68,
+      "duration": 50.7,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "just trace every single line of code and exactly predict the behavior of the software.",
+      "keywords": [
+        "transparency",
+        "research",
+        "behavior",
+        "predict",
+        "systems",
+        "makes",
+        "unexpected"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.624248,
+      "selection_score": 0.838938,
+      "text": "just trace every single line of code and exactly predict the behavior of the software. They're really huge statistical systems in the case of LLM's billions of parameters. While that makes them very powerful, it also makes them quite hard to predict. We see a lot of emergent behavior, unexpected behavior, unexpected biases, and the need for a constant fine tuning in order to address these issues that arise, typically after deployment. So even the platforms themselves don't fully understand why these systems behave the way they do, because this is still a very active area of research. And so this is why I think transparency is key. Users deserve to know that the technology isn't just magic...."
+    },
+    {
+      "fragment_id": "0024__tkZ7W9QiiI_Stella_Njogo_-_Building_Inclusive_AI_Systems_Through_Cultural_Awareness_1_0013",
+      "source_video": "0024__tkZ7W9QiiI_Stella_Njogo_-_Building_Inclusive_AI_Systems_Through_Cultural_Awareness_1",
+      "video_id": "",
+      "start": 642.7,
+      "end": 694.22,
+      "duration": 51.52,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "And then the other example is Semanami from Kenya.",
+      "keywords": [
+        "health",
+        "young people",
+        "medical",
+        "media",
+        "services",
+        "accessible",
+        "kenya",
+        "bot",
+        "other",
+        "semanami"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.615088,
+      "selection_score": 0.838778,
+      "text": "And then the other example is Semanami from Kenya. So and the other system I'd like to introduce you to is a bot from Kenya called Semanami. So Shujaz Inc from Kenya has developed this AI bot that helps young people make better decisions with their sexual health. So why I love this bot is because it's easily accessible through what's up so that that cat has to individual agency. And it is also grounded in legacy because it recommends different service providers to young people who need extra care, who need medical services. So there's a partnership between Shujaz, which is a media brand with established medical professionals. So it's grounded in real medical insights."
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0012",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "start": 660.38,
+      "end": 718.02,
+      "duration": 57.64,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "not to enforce uniformity, but to establish a common floor of transparency, a count built in distal rights.",
+      "keywords": [
+        "transparency",
+        "standards",
+        "legal",
+        "rights",
+        "moral",
+        "citizens",
+        "common",
+        "distal",
+        "must",
+        "call"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.601042,
+      "selection_score": 0.833732,
+      "text": "not to enforce uniformity, but to establish a common floor of transparency, a count built in distal rights. So these frameworks must be open to audits and should not call or should not always seek help from governments, but this is something should come from technologies, legal scholars, civil society and the people most effectively like the common users. So even when a lot of systems diverge, these shared standards become moral anchors enabling transparency when enforcement falls short and allowing citizens and watch dogs to call or misuse openly and in a transparent way and just as important. So we must also strengthen the distal literacy. People deserve to understand the systems acting..."
+    },
+    {
+      "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0001",
+      "source_video": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025",
+      "video_id": "jgnObufjIRE",
+      "start": 2.74,
+      "end": 47.74,
+      "duration": 45.0,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "Thank you so much for having me today.",
+      "keywords": [
+        "trust",
+        "safety",
+        "research",
+        "productivity",
+        "innovation",
+        "i'm",
+        "really",
+        "question",
+        "topic"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.604265,
+      "selection_score": 0.832455,
+      "text": "Hi, everyone. Thank you so much for having me today. I'm really excited to present AI in the question of trust from binary thinking to nuance choices. I'm a list of a scopes. I'm the director of AI trust and safety at the Alberta Machine Intelligence Institute. At Amy, we have a trust and safety research program that is really looking at the types of risks and opportunities for AI, the type of research we can contribute to the field to not only help AI solutions be safer and more explainable and clear to people using them. But also to promote productivity, innovation and adoption. So, you know, tough to cover this topic in about 10 minutes, like AI in the question of trust is a massive..."
+    },
+    {
+      "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0066",
+      "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+      "video_id": "5aoew3DYz7Y",
+      "start": 3671.04,
+      "end": 3712.0,
+      "duration": 40.96,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "are trying to use AI in order to make their voice better heard so maybe we would implement new obligations on them as well which would make it again more difficult for them to survive in...",
+      "keywords": [
+        "human rights",
+        "environment",
+        "rights",
+        "media",
+        "news",
+        "information",
+        "court",
+        "make",
+        "difficult",
+        "obligation"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.60554,
+      "selection_score": 0.81925,
+      "text": "are trying to use AI in order to make their voice better heard so maybe we would implement new obligations on them as well which would make it again more difficult for them to survive in this really difficult environment so would they be the right address of a high-risk obligation which is quite extensive in the AI act could we separate the AI system from the news providers I am not so sure on the other hand Daria you're rightly asking a question because we're not allowed to forget plurality of the media landscape access to reliable information at least in the understanding of the Court of Human Rights under the European Convention on Human Rights is an obligation of stats they"
+    },
+    {
+      "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0002",
+      "source_video": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1",
+      "video_id": "DMaOd1",
+      "start": 80.45,
+      "end": 167.06,
+      "duration": 86.61,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "summary": "neurotechnology, artificial intelligence, and the socio-cultural on the currents they set in motion.",
+      "keywords": [
+        "artificial intelligence",
+        "legal",
+        "legal systems",
+        "neurotechnology",
+        "trust",
+        "creativity",
+        "artificial",
+        "intelligence",
+        "same",
+        "time"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.601708,
+      "selection_score": 0.817898,
+      "text": "neurotechnology, artificial intelligence, and the socio-cultural on the currents they set in motion. Legal systems that strain to keep up, trust that is on the stress, creativity, being liberated, but at the same time blurring the lines between creation and control, the hidden biases in algorithms, the silent exclusions in access. The song at the same time is demonstrable of AI's capacity for expression, but it is meant to remind us that AI does not really understand meaning. It mimics we interpret artificial intelligence, learns patterns as humans, we carry purpose. So I hope the subtle message comes out. That's my intention in this, in this song."
+    }
+  ],
+  "storyline": {
+    "title": "The Power of AI: Unlocking Human Potential",
+    "logline": "Exploring the intersection of artificial intelligence and human progress, from education to healthcare and beyond.",
+    "style": "National Geographic-style documentary explainer",
+    "target_duration_seconds": 180,
+    "estimated_duration_seconds": 175,
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 10,
+        "narration": "Imagine a world where technology enhances human capabilities, rather than replacing them.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "The Power of AI: Unlocking Human Potential",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 20,
+        "narration": "Artificial intelligence is transforming industries and revolutionizing the way we live.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0004",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Visuals of Tetyana Olesksiyuk speaking about AI and information access"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 30,
+        "narration": "But as AI advances, concerns about bias, job displacement, and accountability grow.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0006",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Visuals of Krishna Sunkara discussing AI and bias"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0006",
+            "start": 0,
+            "end": 10,
+            "quote_summary": "AI can perpetuate existing biases if not designed with care.",
+            "reason": "Krishna Sunkara's insight on AI bias"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 30,
+        "narration": "Meet the individuals who are harnessing AI to drive positive change.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0009",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Visuals of Gissella Bejarano discussing sign language processing"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0009",
+            "start": 0,
+            "end": 10,
+            "quote_summary": "AI can help bridge the gap for individuals with disabilities.",
+            "reason": "Gissella Bejarano's insight on AI and accessibility"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 30,
+        "narration": "Experts weigh in on the potential of AI to transform industries and society.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0008",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Visuals of Stefaan Verhulst discussing AI and open data"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0008",
+            "start": 0,
+            "end": 10,
+            "quote_summary": "AI can unlock new insights from open data.",
+            "reason": "Stefaan Verhulst's insight on AI and open data"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 20,
+        "narration": "As we move forward, it's essential to prioritize responsible AI development and deployment.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "transition_card",
+            "description": "Transition to the final section",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 10,
+        "narration": "The future of AI is in our hands. Let's harness its power to create a better world.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Closing title card",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Imagine a world where technology enhances human capabilities, rather than replacing them.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "Artificial intelligence is transforming industries and revolutionizing the way we live.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "But as AI advances, concerns about bias, job displacement, and accountability grow.",
+        "tone": "concerned documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "Meet the individuals who are harnessing AI to drive positive change.",
+        "tone": "inspired documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "Experts weigh in on the potential of AI to transform industries and society.",
+        "tone": "authoritative documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "As we move forward, it's essential to prioritize responsible AI development and deployment.",
+        "tone": "cautious documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "The future of AI is in our hands. Let's harness its power to create a better world.",
+        "tone": "optimistic documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0006",
+        "source_video": "string",
+        "start": 0,
+        "end": 10,
+        "quote_summary": "AI can perpetuate existing biases if not designed with care.",
+        "use_in_section": "S3"
+      },
+      {
+        "fragment_id": "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0009",
+        "source_video": "string",
+        "start": 0,
+        "end": 10,
+        "quote_summary": "AI can help bridge the gap for individuals with disabilities.",
+        "use_in_section": "S4"
+      },
+      {
+        "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0008",
+        "source_video": "string",
+        "start": 0,
+        "end": 10,
+        "quote_summary": "AI can unlock new insights from open data.",
+        "use_in_section": "S5"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0004",
+        "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0006",
+        "0074_IK4-DBjSAGU_Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility_0009",
+        "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0008"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "The Power of AI: Unlocking Human Potential",
+          "on_screen_text": ""
+        },
+        {
+          "asset_type": "transition_card",
+          "description": "Transition to the final section",
+          "on_screen_text": ""
+        }
+      ],
+      "internet_assets_needed": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "Opening narration"
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0004_WnBpODYMnj8_Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information_0004",
+        "duration_seconds": 10,
+        "description": "Visuals of Tetyana Olesksiyuk speaking about AI and information access"
+      },
+      {
+        "order": 3,
+        "timeline_type": "voiceover",
+        "section_id": "S2",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "Narration about AI transforming industries"
+      }
+    ],
+    "editor_notes": [
+      "Note: This is a sample output and may require adjustments based on the actual content and tone of the documentary."
+    ]
+  }
+}

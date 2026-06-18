@@ -1,0 +1,25 @@
+{
+  "video_id": "I3Pkdd",
+  "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
+  "title": "David Harel - The Human or Machine Issue",
+  "speakers": [
+    {
+      "name": "David Harel",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 1.0
+    },
+    {
+      "name": "Dr. Asaf Maorn",
+      "role": "Unknown",
+      "affiliation": null,
+      "confidence": 0.9
+    }
+  ],
+  "primary_speaker": "David Harel",
+  "title_name_hint": "David Harel",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:31:40.937869"
+}

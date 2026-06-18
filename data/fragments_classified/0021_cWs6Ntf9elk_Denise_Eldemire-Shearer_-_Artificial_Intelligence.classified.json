@@ -1,0 +1,1061 @@
+{
+  "source_transcript": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence.json",
+  "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+  "video_id": "cWs6Ntf9elk",
+  "fragment_count": 13,
+  "created_at": "2026-06-16T12:54:12.697844",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0001",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 1,
+      "start": 0.21,
+      "end": 67.59,
+      "duration": 67.38,
+      "text": "Good morning, and thank you for the invitation to present at this extremely important conference with official intelligence access with old playing playing and with regard to the old, the old is new again. So what is aging? Aging is a process which can, the emphasis on can, not will, bring about changes in older persons, so reducing their ability to function to the maximum. But equally older persons are protective of their independence, their right to choice, and they want to age in place. So who are older adults? The Jamaican situation is one that we have to take note of. We are moving from just under 265,000 persons in 2001 to 375,000 persons know 2021. PIOJ also predicts that by 2030, which is around the corner, we will have over 500,000 persons over the age of 60.",
+      "word_count": 142,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "created_at": "2026-06-16T12:54:12.695423",
+      "keywords": [
+        "aging",
+        "conference",
+        "persons",
+        "old",
+        "older",
+        "playing",
+        "age",
+        "over"
+      ],
+      "summary": "Good morning, and thank you for the invitation to present at this extremely important conference with official intelligence access with old playing playing and with regard to the old, the old is new again.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "conference"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "aging"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "conference"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.458351"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0002",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 2,
+      "start": 67.59,
+      "end": 121.62,
+      "duration": 54.03,
+      "text": "One in four will be in fact over 60. It's also important to note the under 15 population, which over that time period has decreased from 32.5% to 21%. And this raises questions about caregiving and support. In all of this, we have to pay attention to the fastest growing age group and that's the over 80. We are moving from 49,000 to 90,000 persons for the period under discussion. So this increase in the ageing population will bring, has brought, a significant impact on society and healthcare systems. When the older adults get older, their cognitive, physical, and sensory impairments will increase. Not necessarily to the point of dementia, but we get a little forgetful.",
+      "word_count": 121,
+      "source_segment_ids": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "created_at": "2026-06-16T12:54:12.695663",
+      "keywords": [
+        "healthcare",
+        "over",
+        "under",
+        "population",
+        "period",
+        "increase",
+        "older",
+        "get"
+      ],
+      "summary": "One in four will be in fact over 60.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "healthcare"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "healthcare"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.462910"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0003",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 3,
+      "start": 121.62,
+      "end": 179.14,
+      "duration": 57.52,
+      "text": "Hence, more health-related issues will occur. So, what is the role in all of this for artificial intelligence? It can support, it does support older adults by providing tools for independent living. Remember I said persons want to live without having to be cared for. And they have virtual assessments, smart home devices, all which can provide reminders. They can help to manage finances and most importantly monitor safety and health. We have apps now on telephones that can turn off lights, turn off the stove that you forgot to turn off, turn off the fan, and these are the sort of things that help older persons live independently. And most importantly, help family members not to worry. So, AI can play a constructive role in improving the physical and psychological well-being,",
+      "word_count": 134,
+      "source_segment_ids": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "created_at": "2026-06-16T12:54:12.695928",
+      "keywords": [
+        "artificial intelligence",
+        "health",
+        "safety",
+        "turn",
+        "off",
+        "help",
+        "role",
+        "all",
+        "support",
+        "older",
+        "persons",
+        "live",
+        "most",
+        "importantly"
+      ],
+      "summary": "So, what is the role in all of this for artificial intelligence?",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "safety"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "safety"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.468027"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0004",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 4,
+      "start": 179.14,
+      "end": 236.23,
+      "duration": 57.09,
+      "text": "as well as the quality of life and the independence of older adults. Older adults, as I said previously, want to live alone. Well, I shouldn't say that I live alone. They want to live independently. The number one issue raised by older persons in all of our surveys dating back to 1989 is loneliness. Some live alone and are not lonely, but you have others that are lonely. And that is more important to an older person than either health or finance. So, you have many different technologies, many different AI's that have been introduced to provide older people with assistance in daily activities. Computers remind you of appointments. The internet allows you to search. Digital healthcare technology is invaluable. You will notice no persons walking around with a little wrong thing on their arm.",
+      "word_count": 138,
+      "source_segment_ids": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "created_at": "2026-06-16T12:54:12.696181",
+      "keywords": [
+        "health",
+        "healthcare",
+        "older",
+        "live",
+        "alone",
+        "well",
+        "adults",
+        "want",
+        "persons",
+        "lonely",
+        "many",
+        "different"
+      ],
+      "summary": "as well as the quality of life and the independence of older adults.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health",
+            "healthcare"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health",
+            "healthcare"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.473044"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0005",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 5,
+      "start": 236.23,
+      "end": 294.16,
+      "duration": 57.93,
+      "text": "It's monitoring their blood sugar, so you don't have problems with either excesses of high or low. Technology is now believed to be able to resolve the gap between older persons wishes and their needs. And it has great potential once we accept it and once we make sure older people accept it to assist and prolong older persons independent living. And then, as another benefit, it can help improve mental, as well as physical health and increase well-being. Voice-activated devices like Alexa, Siri and Google assist, where necessary and when necessary are easy to use because they provide hands-free assistance for persons with mobility and cardiovascular issues. You just turn around and ask Siri or Google for whatever you want. What time is it? Tell me what to do.",
+      "word_count": 135,
+      "source_segment_ids": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
+      "created_at": "2026-06-16T12:54:12.696390",
+      "keywords": [
+        "health",
+        "older",
+        "persons",
+        "once",
+        "accept",
+        "assist",
+        "siri",
+        "google",
+        "necessary"
+      ],
+      "summary": "It's monitoring their blood sugar, so you don't have problems with either excesses of high or low.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.477933"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0006",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 6,
+      "start": 294.16,
+      "end": 353.18,
+      "duration": 59.02,
+      "text": "It can tell you about medication. And most importantly, as well, the social support, going back to what I said about loneliness. Staying connected with loved ones is vital for the mental health and emotional health of older persons. And it's made easier by AI-driven tools. The virtual reality tools actually allow for interaction. We have many grandparents that have not physically met their grandchildren, especially after COVID when many stop traveling. It's video calls and virtual visits that keep families connected. We have families that when you ask who's your nearest relative, they live in some far-off country. Older people are also part of social media and online communities. Seniors can join social media platforms and have online communities that cater to their interests and hobbies.",
+      "word_count": 132,
+      "source_segment_ids": [
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "created_at": "2026-06-16T12:54:12.696594",
+      "keywords": [
+        "health",
+        "media",
+        "communities",
+        "social",
+        "connected",
+        "older",
+        "it's",
+        "tools",
+        "virtual",
+        "many",
+        "families",
+        "online"
+      ],
+      "summary": "And most importantly, as well, the social support, going back to what I said about loneliness.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "communities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.482909"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0007",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 7,
+      "start": 353.18,
+      "end": 402.98,
+      "duration": 49.8,
+      "text": "And saves, again, families, because the seniors are not lonely and therefore are not calling you when you get home at six o'clock with things to do for long conversations. There's online gaming. Many seniors enjoy playing online games. There are puzzles that you can play for hours and never get bored. I can talk about that. They challenge your mind and they provide opportunities for social interactions because some of the games you can either do them alone or you can join a group. The virtual support groups, seniors facing specific challenges or health conditions can benefit from virtual support groups. Nobody can help more you accept an issue, accept a problem, even what to do about a problem than somebody who's gone through it.",
+      "word_count": 129,
+      "source_segment_ids": [
+        49,
+        50,
+        51,
+        52
+      ],
+      "created_at": "2026-06-16T12:54:12.696761",
+      "keywords": [
+        "health",
+        "seniors",
+        "get",
+        "online",
+        "games",
+        "virtual",
+        "support",
+        "groups",
+        "accept",
+        "problem"
+      ],
+      "summary": "And saves, again, families, because the seniors are not lonely and therefore are not calling you when you get home at six o'clock with things to do for long conversations.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.487579"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0008",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 8,
+      "start": 402.98,
+      "end": 460.5,
+      "duration": 57.52,
+      "text": "Do I need to contact my doctor? It's the support groups that can help you decide. And most importantly, artificial intelligence for the reasons that I've just gone through, improved mood, they can reduce anxiety, they give freedom from moderation of family and they help with loneliness, again improving quality of life. And there are health benefits. And you notice I put the help out of the social because I said loneliness came before health. In addition to fostering connections, technology offers a range of health benefits, the mental stimulation. I did mention that sometimes you get forgetful, you're going to get more forgetful if you do not use it. People who are at home with nothing to do, no one to talk to are more likely to be forgetful, not to have dementia, but to be forgetful.",
+      "word_count": 141,
+      "source_segment_ids": [
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "created_at": "2026-06-16T12:54:12.696956",
+      "keywords": [
+        "artificial intelligence",
+        "health",
+        "freedom",
+        "doctor",
+        "forgetful",
+        "help",
+        "loneliness",
+        "benefits",
+        "get"
+      ],
+      "summary": "It's the support groups that can help you decide.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "freedom"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health",
+            "doctor"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.25,
+          "matched_keywords": [
+            "freedom"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.63,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.492518"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0009",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 9,
+      "start": 460.5,
+      "end": 517.62,
+      "duration": 57.12,
+      "text": "So you have apps and games designed to challenge memory and problem solving. You may have mobility issues because of arthritis, but now you have screens that you can just move it. It's telehealth. Telehealth has revolutionized healthcare accessibility for seniors. You can know or senior can know consult with healthcare professionals and caregivers from the comfort of their own. Medication management, another very important activity of seniors, 72% of Jamaica seniors have at least one chronic disease and many rely on medications to manage their health. Remember what I said about memory, so a machine or a medication reminder that beeps when your tablet is due again gives you independence and ensures that the seniors take the prescription on time, again relieving the stress on family.",
+      "word_count": 128,
+      "source_segment_ids": [
+        58,
+        59,
+        60,
+        61
+      ],
+      "created_at": "2026-06-16T12:54:12.697125",
+      "keywords": [
+        "accessibility",
+        "health",
+        "healthcare",
+        "disease",
+        "seniors",
+        "memory",
+        "telehealth",
+        "know",
+        "medication",
+        "again"
+      ],
+      "summary": "So you have apps and games designed to challenge memory and problem solving.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health",
+            "healthcare",
+            "disease"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.25,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health",
+            "healthcare",
+            "disease"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.25,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.497295"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0010",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 10,
+      "start": 517.62,
+      "end": 571.8,
+      "duration": 54.18,
+      "text": "The health monitoring devices, wearable technologies such as fitness tractors, smart watches, allow seniors to monitor their health in real time. And a really important one is the fall detection devices. There's actually a cushion that makes a noise when somebody gets out of the chair. This is invaluable. The caregiver can go to the kitchen, can start the food and not sit there watching the person who has a tendency to fall. They have the bed rails that when somebody's getting out of the bed can be and these are important aspects of keeping older people independent. We all want to age in place. Nobody likes nursing homes or residential facilities and AI powered security systems and devices can support independent living.",
+      "word_count": 125,
+      "source_segment_ids": [
+        62,
+        63,
+        64,
+        65,
+        66
+      ],
+      "created_at": "2026-06-16T12:54:12.697306",
+      "keywords": [
+        "health",
+        "security",
+        "devices",
+        "important",
+        "fall",
+        "out",
+        "bed",
+        "independent"
+      ],
+      "summary": "The health monitoring devices, wearable technologies such as fitness tractors, smart watches, allow seniors to monitor their health in real time.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "health"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.501851"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0011",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 11,
+      "start": 571.8,
+      "end": 623.6,
+      "duration": 51.8,
+      "text": "I have patients whose families monitor them from abroad through the cameras and then call somebody if something is wrong. So you're putting the family members mind to rest. The other AI tools help with household management I mentioned already, turning off lights, the stove, and now you have the robot that can do the cleaning so you don't have to worry about the older person losing balance and falling. So what are the key considerations? Acceptance and adoption. I know that we say old people can't learn new tricks. Somebody who has no older person in their life may take a little more time. It may be slower. They can if they want to. So you have to understand the factors that influence the older person you're speaking to accept the new technology. Is it useful?",
+      "word_count": 141,
+      "source_segment_ids": [
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "created_at": "2026-06-16T12:54:12.697519",
+      "keywords": [
+        "older",
+        "person",
+        "somebody",
+        "you're",
+        "new",
+        "may"
+      ],
+      "summary": "I have patients whose families monitor them from abroad through the cameras and then call somebody if something is wrong.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.506701"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0012",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 12,
+      "start": 623.6,
+      "end": 677.79,
+      "duration": 54.19,
+      "text": "And I can assure you telling somebody that accepting an AI device will allow the family member to leave them alone and not insist on somebody being there calling every minute will convince them to use it. The ease of use is important. Big phones, big numbers on phones is important. And of course social support their friends are doing it. But accessibility and affordability also come into play. But not a problem. Christmas is coming. Everybody is wondering what to give the older person in their life. Give them one of the technologies. They have to be accessible regardless of socioeconomic background. And you cannot forget the ethical considerations which relate to privacy. You have to convince the older person that this is not going all over the world and the potential for social isolation.",
+      "word_count": 136,
+      "source_segment_ids": [
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "created_at": "2026-06-16T12:54:12.697739",
+      "keywords": [
+        "accessibility",
+        "ethical",
+        "privacy",
+        "accessible",
+        "somebody",
+        "convince",
+        "use",
+        "important",
+        "big",
+        "phones",
+        "social",
+        "give",
+        "older",
+        "person"
+      ],
+      "summary": "And I can assure you telling somebody that accepting an AI device will allow the family member to leave them alone and not insist on somebody being there calling every minute will convince them to use...",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "accessibility",
+            "accessible"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.511686"
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0013",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "fragment_index": 13,
+      "start": 677.79,
+      "end": 708.46,
+      "duration": 30.67,
+      "text": "So while it can help social interaction, if you get addicted, as happens with some age groups, they also can become isolated. So you do have to address that. And so in conclusion, artificial intelligence will significant potential for enriching the lives of our senior citizens by promoting independence, improving cognitive and physical health and fostering social connections. And thank you.",
+      "word_count": 61,
+      "source_segment_ids": [
+        77,
+        78,
+        79
+      ],
+      "created_at": "2026-06-16T12:54:12.697826",
+      "keywords": [
+        "artificial intelligence",
+        "health",
+        "senior citizens",
+        "citizens",
+        "social"
+      ],
+      "summary": "So while it can help social interaction, if you get addicted, as happens with some age groups, they also can become isolated.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "senior citizens"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.333,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "senior citizens"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "citizens"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.333,
+          "matched_keywords": [
+            "health"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:16.514686"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:16.514691"
+}

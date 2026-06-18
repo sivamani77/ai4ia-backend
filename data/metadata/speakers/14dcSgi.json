@@ -1,0 +1,25 @@
+{
+  "video_id": "14dcSgi",
+  "source_video": "0011_14dcSgi_oZU_Andres_Burbano_-_AI4IA_2025",
+  "title": "Andres Burbano - AI4IA 2025",
+  "speakers": [
+    {
+      "name": "Andres Burbano",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Andrés Bulbano",
+      "role": "Speaker",
+      "affiliation": "Open University of Catalonia, Barcelona, Spain",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Andres Burbano",
+  "title_name_hint": "Andres Burbano",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:26:50.478618"
+}

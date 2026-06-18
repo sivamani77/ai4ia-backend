@@ -1,0 +1,19 @@
+{
+  "video_id": "WnFYalsZKts",
+  "source_video": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation",
+  "title": "Barbara Glover - AI4IA Presentation",
+  "speakers": [
+    {
+      "name": "Barbara Glover",
+      "role": "Speaker",
+      "affiliation": "African Union Development Agency, AEDNepad",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Barbara Glover",
+  "title_name_hint": "Barbara Glover",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:27:31.245962"
+}

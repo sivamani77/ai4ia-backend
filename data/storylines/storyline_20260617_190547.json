@@ -1,0 +1,1452 @@
+{
+  "created_at": "2026-06-17T13:35:47.971919",
+  "user_prompt": "Create a video on Women Empowerment.",
+  "prompt_intent": {
+    "intent_type": "topic_summary",
+    "requested_speaker": null,
+    "topic_terms": [
+      "empowerment",
+      "women"
+    ],
+    "theme": null,
+    "chapter": null,
+    "scope": "specific_topic"
+  },
+  "target_duration_seconds": 120,
+  "style": "National Geographic-style documentary explainer",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 135,
+    "selected_candidate_count": 5,
+    "supporting_candidate_count": 39,
+    "context_candidate_count": 89,
+    "rejected_candidate_count": 0,
+    "top_semantic_score": 0.733631
+  },
+  "candidate_bucket_summary": {
+    "selected": 5,
+    "supporting": 39,
+    "context": 89,
+    "rejected": 0,
+    "selected_cap": 5,
+    "pre_cap_count": 7,
+    "cap_reason": "video_mode=low_evidence_brief"
+  },
+  "candidate_contract": {
+    "selected_candidates": "final-video-safe evidence only",
+    "supporting_candidates": "narration support only — not for speaker soundbites",
+    "context_candidates": "background/context only — not for final video",
+    "rejected_candidates": "not for final video"
+  },
+  "planning_summary": {
+    "video_mode": "low_evidence_brief",
+    "evidence_strength": "medium",
+    "exact_clip_count": 0,
+    "related_clip_count": 5,
+    "strong_related_count": 5,
+    "usable_speaker_clip_count": 1,
+    "usable_speaker_visual_count": 0,
+    "supporting_candidate_count": 39,
+    "context_candidate_count": 89,
+    "rejected_clip_count": 0,
+    "fallback_risk": "medium",
+    "planning_notes": [
+      "No direct evidence clips found for this prompt. Direct topic evidence is limited or absent.",
+      "Speaker diversity is limited, so narration carries more of the connective explanation.",
+      "No direct evidence clips were found for this prompt. The video should be narration-led and should not present adjacent material as direct evidence.",
+      "No direct women/empowerment clips were found. Adjacent gender, diversity, or inclusion clips may be used only as contextual support."
+    ]
+  },
+  "validation_issues": [],
+  "selected_candidates": [
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0128",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 7424.55,
+      "end": 7477.75,
+      "duration": 53.2,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "These are the elders amongst us, so you can't just pass them, you need to make sure that again, yes.",
+      "keywords": [
+        "creative",
+        "girls",
+        "all",
+        "right",
+        "it's",
+        "really",
+        "great",
+        "get",
+        "here",
+        "first"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "context_visual"
+      ],
+      "quote_strength": 0.84,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.632263,
+      "prompt_relevance_score": 0.742663,
+      "selection_score": 0.917673,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Topic/theme overlap at moderate semantic 0.632: meaningful=[], theme=[], expanded=['gender', 'girls']",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "enablers in our solutions, thank you. All right, greetings. These are the elders amongst us, so you can't just pass them, you need to make sure that again, yes. Right, it's really great to be here and great to have opportunity to speak, and first of all, I'd like to address the kids that we have here, right? First of all, recognizing Mrs. Alizia, because I think we just didn't recognize the fact that she's the only girl in a team of boys, so let's just clap for her, and I think it's really great to just encourage more girls to really get into STEM, to get into technology, coding is not just for boys, and it's actually quite a creative sport that girls can actually get involved in, so"
+    },
+    {
+      "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0056",
+      "source_video": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation",
+      "video_id": "ikdcwVcRSPo",
+      "start": 3323.82,
+      "end": 3366.98,
+      "duration": 43.16,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "The teachers, the schools, the students simply did not have access to the internet.",
+      "keywords": [
+        "students",
+        "teachers",
+        "economic",
+        "gender",
+        "women",
+        "girls",
+        "business",
+        "access",
+        "internet",
+        "companies"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.633942,
+      "prompt_relevance_score": 0.795342,
+      "selection_score": 1.000832,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Topic/theme overlap at moderate semantic 0.634: meaningful=['women'], theme=[], expanded=['gender', 'girls']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "The teachers, the schools, the students simply did not have access to the internet. And that means that businesses in those areas also don't have access to the internet. And that explains why we have so few companies whether they're startups or established companies in Jamaica that use digital business models. And that has significant implications for economic restructuring, which we haven't done very well out for the last 40 years. Generative AI is a new moment, a new opportunity, and we need to be prepared to deal with it. Finally, it's always important to look at the issue of sex or gender. It turns out that it's not relevant in Jamaica. And those of us who live here know that girls,..."
+    },
+    {
+      "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0002",
+      "source_video": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？",
+      "video_id": "YARuy59msOk",
+      "start": 51.15,
+      "end": 107.62,
+      "duration": 56.47,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "It has become customary to hear stories on how AI has wronged X group or community.",
+      "keywords": [
+        "accessibility",
+        "inclusion",
+        "learning",
+        "research",
+        "women",
+        "equitable",
+        "image generation",
+        "datasets",
+        "stories",
+        "work"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.637479,
+      "prompt_relevance_score": 0.760479,
+      "selection_score": 0.945969,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Topic/theme overlap at moderate semantic 0.637: meaningful=['women'], theme=[], expanded=['gender']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "It has become customary to hear stories on how AI has wronged X group or community. We heard it with artists whose work was stolen for datasets in image generation with facial recognition software that couldn't distinguish between two different individuals of Asian descent and with hiring systems that actively discriminated against women. These are not one-off events nor are they isolated. They tell us something about our societies, how inclusion and existence on equitable terms is lacking and furthermore being exacerbated by AI. Of course, there are good stories too. AI being used to help in cancer research, accessibility tech, and learning as well. However, those harmful stories still..."
+    },
+    {
+      "fragment_id": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits_0008",
+      "source_video": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits",
+      "video_id": "",
+      "start": 411.07,
+      "end": 464.66,
+      "duration": 53.59,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "to the SDGs, and based on technology, including AI, from Southeast Asia, from Asia to large, are really increasingly connected to this initiative.",
+      "keywords": [
+        "artificial intelligence",
+        "economy",
+        "security",
+        "women",
+        "asia",
+        "really",
+        "one",
+        "sdgs",
+        "southeast",
+        "project"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.647583,
+      "prompt_relevance_score": 0.799983,
+      "selection_score": 0.875473,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Topic/theme overlap at moderate semantic 0.648: meaningful=['women'], theme=[], expanded=['gender', 'participation']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": true,
+      "use_as": "narration_support",
+      "text": "to the SDGs, and based on technology, including AI, from Southeast Asia, from Asia to large, are really increasingly connected to this initiative. And this is why we organized with ANGTA, a series of master classes, one in Jakarta, one in Delhi, and soon one in Manila, precisely to increase participation from Southeast Asia. Another project where we are really trying to understand the linkages between artificial intelligence and the SDGs is an activity that we are jointly undertaking with the ASAN Institute for Peace and Reconciliation, ASAN IPR. We have a joint project to try to understand the connection between the Women Peace and Security Agenda and the Women in the Digital Economy..."
+    },
+    {
+      "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0057",
+      "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
+      "video_id": "MVEKzZJ2t58",
+      "start": 3823.82,
+      "end": 3885.98,
+      "duration": 62.16,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "fingers or something like this and you can kind of detect it quickly.",
+      "keywords": [
+        "disinformation",
+        "content",
+        "representation",
+        "synthetic",
+        "get",
+        "detect",
+        "quickly",
+        "versions",
+        "paid",
+        "does"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.699805,
+      "prompt_relevance_score": 0.767005,
+      "selection_score": 0.864495,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "High semantic 0.700 + theme/expanded match",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "fingers or something like this and you can kind of detect it quickly. But you can change this with few prompts very, very quickly and get rid of it and get a perfect visual representation. However, this is free versions, paid versions or paid AI is much, much better and does not even do these rookie mistakes. Also, voice of course can be synthesized and used together with the video to produce a very, very believable image. And of course, because everything is digital nowadays, such synthetic content is more and more difficult to detect and to track where it came from. So this is one aspect of quality. And another aspect of quality is this individualization that I mentioned. What does it..."
+    }
+  ],
+  "supporting_candidates": [
+    {
+      "fragment_id": "0124_ER7_5jzIrbI_Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes_0002",
+      "source_video": "0124_ER7_5jzIrbI_Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes",
+      "video_id": "ER7",
+      "start": 53.58,
+      "end": 107.04,
+      "duration": 53.46,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "of conflict and violence that women and girls experience.",
+      "keywords": [
+        "human rights",
+        "security",
+        "safety",
+        "rights",
+        "gender",
+        "women",
+        "girls",
+        "technology",
+        "conflict",
+        "women's"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.568053,
+      "prompt_relevance_score": 0.720453,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women'], theme=[], expanded=['gender', 'participation', 'girls']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "of conflict and violence that women and girls experience. Women's even countries have national action plans for the Women Peace and Security Agenda as of 2023, but notably none of those, with majority of those, cyber security is absent in terms of its discussion, even though we've come a long way from the year 2000 in terms of our thinking about what security means. If we align the pillars of the WPS to technology and technology development, there are critical issues that we can see that we need to address for women. The first is strengthening women's leadership and meaningful participation in technology, safeguarding their human rights and safety, leveraging conflict, sensitive and gender..."
+    },
+    {
+      "fragment_id": "0124_ER7_5jzIrbI_Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes_0013",
+      "source_video": "0124_ER7_5jzIrbI_Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes",
+      "video_id": "ER7",
+      "start": 658.87,
+      "end": 703.83,
+      "duration": 44.96,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "it can accelerate development, but it can also be used to a press and to harm, particularly important to note here that it can recreate and reinforce existing power structures and within the space of artificial...",
+      "keywords": [
+        "artificial intelligence",
+        "digital divide",
+        "press",
+        "deepfake",
+        "women",
+        "girls",
+        "values",
+        "important",
+        "particularly"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.584278,
+      "prompt_relevance_score": 0.737278,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women'], theme=[], expanded=['gender', 'empower', 'girls']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "it can accelerate development, but it can also be used to a press and to harm, particularly important to note here that it can recreate and reinforce existing power structures and within the space of artificial intelligence and deepfake the idea of virtual domination and what that looks like for women and girls is particularly important for us to consider. But design developing deployed thoughtfully can also reduce gender-digital divide, it can support women and girls within leadership spaces, it can empower them to protect themselves within online environments. And it's very important for us to think about how to create a human-centered AI that aligns with values of developers and end..."
+    },
+    {
+      "fragment_id": "0139_64i4w2jgUWg_Xianhong Hu - Steering AI for Knowledge Societies_0009",
+      "source_video": "0139_64i4w2jgUWg_Xianhong Hu - Steering AI for Knowledge Societies",
+      "video_id": "64i4w2jgUWg",
+      "start": 545.87,
+      "end": 614.38,
+      "duration": 68.51,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "African countries to identify their needs and priorities.",
+      "keywords": [
+        "human rights",
+        "governance",
+        "ethical",
+        "trust",
+        "bias",
+        "algorithmic",
+        "gender",
+        "diversity",
+        "rights",
+        "women"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.579141,
+      "prompt_relevance_score": 0.732141,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women'], theme=[], expanded=['gender', 'girls']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "African countries to identify their needs and priorities. As you can see, the number one need is to protect personal data and enhance the data governance. Other priorities such as addressing the ethical implications, human rights, AI for cultural diversity, gender bias are equally important. I trust other continents might also share the same needs and priorities. Gender equality is another UNESCO global priority. The current AI development brings gender bias to challenges, such as a lack of representativeness within the AI workforce, which has only 30% of women. The algorithmic discrimination and a deep-fake videos against women. As reviewed by the recent UNESCO report, the challenging..."
+    },
+    {
+      "fragment_id": "0139_64i4w2jgUWg_Xianhong Hu - Steering AI for Knowledge Societies_0007",
+      "source_video": "0139_64i4w2jgUWg_Xianhong Hu - Steering AI for Knowledge Societies",
+      "video_id": "64i4w2jgUWg",
+      "start": 409.81,
+      "end": 473.58,
+      "duration": 63.77,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "to the internet, leading to further divide exclusion in AI usage.",
+      "keywords": [
+        "inclusion",
+        "disabilities",
+        "marginalized",
+        "literacy",
+        "culture",
+        "language",
+        "bias",
+        "women",
+        "girls",
+        "persons with disabilities"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.578625,
+      "prompt_relevance_score": 0.735825,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women'], theme=[], expanded=['gender', 'girls']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "to the internet, leading to further divide exclusion in AI usage. Those already connected are faced with the challenge of meaningful connectivity, which means to allow users to have a safe sex-fying and productive online experience, which to be enabled by digital literacy skills and competences. Six, digital inclusion and access ability needs to be fostered for AI development to ensure those marginalized groups, such as women, girls, youths, children, persons with disabilities are equally benefiting from the AI technology. Seven, the issues of multilingualism, culture and linguistic bias persist in AI era and are often ignored. Most of languages are not represented in separate space,..."
+    },
+    {
+      "fragment_id": "0124_ER7_5jzIrbI_Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes_0007",
+      "source_video": "0124_ER7_5jzIrbI_Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes",
+      "video_id": "ER7",
+      "start": 318.2,
+      "end": 377.02,
+      "duration": 58.82,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "As digital technologies platforms have become vectors for gendered violence and that they are committed, assisted, aggravated or amplified through ICTs or digital tools.",
+      "keywords": [
+        "artificial intelligence",
+        "media",
+        "security",
+        "women",
+        "girls",
+        "threat",
+        "violence",
+        "against",
+        "online",
+        "digital"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.570277,
+      "prompt_relevance_score": 0.723277,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women'], theme=[], expanded=['gender', 'girls']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "this number is hugely on the increase. As digital technologies platforms have become vectors for gendered violence and that they are committed, assisted, aggravated or amplified through ICTs or digital tools. We do know that around 58% of women and girls have experienced some form of online harassment on social media and the majority of women have witnessed violence against other women online. So this third, the cyber threat that violence against women and online spaces is going to continue to be one of the major challenges that we face. One of the key places where issues of violence against women and cyber security come together is within the discourse around AI. Specifically, artificial..."
+    },
+    {
+      "fragment_id": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers_0003",
+      "source_video": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers",
+      "video_id": "wSKcjA2uFfw",
+      "start": 130.15,
+      "end": 201.2,
+      "duration": 71.05,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how AI can make hiring practices fairer and digital skills more accessible.",
+      "keywords": [
+        "ai literacy",
+        "equity",
+        "inclusion",
+        "inclusive",
+        "gender",
+        "empowerment",
+        "literacy",
+        "risk",
+        "fairness",
+        "economic"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.561661,
+      "prompt_relevance_score": 0.718861,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "empowerment"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['empowerment'], theme=[], expanded=['gender', 'participation']",
+      "meaningful_prompt_overlap": [
+        "empowerment"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how AI can make hiring practices fairer and digital skills more accessible. Another example is the inaugural AI and data science boot camp, where we built AI literacy amongst underrepresented groups to help redress intersectional gender imbalances and broaden participation in digital economies. So these slides or these examples show that while AI systems can mirror and reinforce inequitable social and economic models, they also hold the potential to challenge them. By embedding fairness, access and inclusion into design and deployment, AI can shift..."
+    },
+    {
+      "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0007",
+      "source_video": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy",
+      "video_id": "bwDlgox764s",
+      "start": 344.12,
+      "end": 397.7,
+      "duration": 53.58,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "between gender equality and digital development are still weak and that we focus a lot of our attention on bridging the digital divide.",
+      "keywords": [
+        "digital divide",
+        "gender",
+        "women",
+        "discrimination",
+        "equality",
+        "digital",
+        "development",
+        "still",
+        "lot",
+        "access"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.558359,
+      "prompt_relevance_score": 0.706559,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women'], theme=[], expanded=['gender', 'participation']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "between gender equality and digital development are still weak and that we focus a lot of our attention on bridging the digital divide. So making sure that women have access to the internet and how rescue the skills to participate in AI development. But there's still a lot of other issues notably the one that I mentioned that the technology based themselves can increase gender inequality and that the barriers to participation can be quite systemic lack of access to financing for example is really critical in that. So what is the cost of ignoring gender equality in digitization. So the first cost is that the growth of AI adoption globally contribute to losses in gender equality particularly..."
+    },
+    {
+      "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0007",
+      "source_video": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South",
+      "video_id": "pps7x1QyHII",
+      "start": 386.5,
+      "end": 463.74,
+      "duration": 77.24,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to understand the intersection of impacts of existing and AI use cases in the...",
+      "keywords": [
+        "governance",
+        "policy",
+        "environment",
+        "accountability",
+        "responsible ai",
+        "risk",
+        "gender",
+        "marginalized",
+        "empowerment",
+        "women"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.555634,
+      "prompt_relevance_score": 0.760834,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women",
+        "empowerment"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women', 'empowerment'], theme=[], expanded=['gender', 'participation']",
+      "meaningful_prompt_overlap": [
+        "women",
+        "empowerment"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to understand the intersection of impacts of existing and AI use cases in the ecosystem. We know that robust gender integration and personality, women's empowerment and can mitigate the risk associated with AI, women are not a monolith. We need an intersectional length to mitigate structural constraints at the nexus of responsible AI, data governance and environment. Thirdly, we need to ensure a marginalized group have equitable access, participation and engagement in data collection processes, decision making at the nexus of AI, data governance and the..."
+    },
+    {
+      "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0002",
+      "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
+      "video_id": "7oJovXpImg8",
+      "start": 46.52,
+      "end": 82.56,
+      "duration": 36.04,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "And foremost, in all of our lives has been the loss and the grief felt by the people of Orlando.",
+      "keywords": [
+        "health",
+        "legal",
+        "women",
+        "get",
+        "care",
+        "medicare"
+      ],
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.611636,
+      "prompt_relevance_score": 0.768836,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women'], theme=[], expanded=['woman', 'gender']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "And foremost, in all of our lives has been the loss and the grief felt by the people of Orlando. Most of us don't get our health care through the marketplace. We get it through our job, or through Medicare, or Medicare. And what you should know is that thanks to the Affordable Care Act, your coverage is better today than it was before. Women can get free checkups, and you can't get charged or just for being a woman. To give his employees home together to pass a commoners a bill that would boost Americans in very, very hard times. Some progress, at least within the small confines of the legal community, I think it's real important. Here we go."
+    },
+    {
+      "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0002",
+      "source_video": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy",
+      "video_id": "bwDlgox764s",
+      "start": 71.94,
+      "end": 131.9,
+      "duration": 59.96,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "used for many years in a variety of domains to make predictions in my case as a data scientist we were predicting humanitarian crises or needs during humanitarian crises for example.",
+      "keywords": [
+        "health",
+        "inclusion",
+        "gender",
+        "women",
+        "business",
+        "small business",
+        "many",
+        "humanitarian",
+        "crises",
+        "leave"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.60345,
+      "prompt_relevance_score": 0.72645,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "women"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['women'], theme=[], expanded=['gender']",
+      "meaningful_prompt_overlap": [
+        "women"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "used for many years in a variety of domains to make predictions in my case as a data scientist we were predicting humanitarian crises or needs during humanitarian crises for example. There's robotics, autonomous agents and we also see the integration of AI into various other digital products. But these are not the only areas where the importance of understanding gender equality and the gender inclusion are important. We have an increase in mobile health which can be very beneficial for women who are particularly in places where it's more difficult for them to leave their homes or leave their villages. We have the rise of e-commerce which has actually been extremely interesting for many..."
+    }
+  ],
+  "context_candidates": [
+    {
+      "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0158",
+      "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
+      "video_id": "zy45aKgJUiY",
+      "start": 12082.1,
+      "end": 12153.63,
+      "duration": 71.53,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "I'm amazing what I was talking about, so at least you can learn the very thing out there.",
+      "keywords": [
+        "i'm",
+        "musicians",
+        "talking",
+        "watching",
+        "don't",
+        "going",
+        "one"
+      ],
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.733631,
+      "prompt_relevance_score": 0.770231,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.734 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "I'm amazing what I was talking about, so at least you can learn the very thing out there. There are different actors who are watching this, and I'm more interested to start and I'm trying to open up what you don't serve as a case. When you're watching, you've been told that and that's what the video is going to show. We've been talking some of these elements and I've shown you what's going to happen. And I'm so excited about it. We do one of the trick most, from one side to the other. We should be bothered. We're being musicians, musicians, musicians, and I don't know who we are,"
+    },
+    {
+      "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0007",
+      "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
+      "video_id": "wFL2l6tjt7M",
+      "start": 333.71,
+      "end": 390.97,
+      "duration": 57.26,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "I'd like to pause here and show a short video demonstrating the newest version of AAT in action.",
+      "keywords": [
+        "artificial intelligence",
+        "screen reader",
+        "water",
+        "man",
+        "video",
+        "facebook",
+        "you'll",
+        "automatic",
+        "alt",
+        "text"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.719112,
+      "prompt_relevance_score": 0.752112,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.719 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "I'd like to pause here and show a short video demonstrating the newest version of AAT in action. In the video, you'll see a screen reader reading automatic alt text as a user interacts with the photo on Facebook. You'll also hear audio description of the video portion of the presentation. Can we start the demo please? Facebook automatic alt text. Using artificial intelligence to create descriptions of images for the blind and visually impaired community. Multiple flags blowing on a pier. Man walking along the pier in San Francisco using a white cane. Man browses through a friend's Facebook pictures. Close up of a man smiling. Close up of a man navigating his phone. Maybe an image of one or..."
+    },
+    {
+      "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0009",
+      "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
+      "video_id": "wFL2l6tjt7M",
+      "start": 475.83,
+      "end": 525.29,
+      "duration": 49.46,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "A man standing outside along a fence on his phone.",
+      "keywords": [
+        "screen reader",
+        "elements",
+        "tiger",
+        "man",
+        "video",
+        "hear",
+        "alt",
+        "text",
+        "user",
+        "photo"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.717626,
+      "prompt_relevance_score": 0.750626,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.718 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "Primary elements. Tiger. Elements by category. Animals. Tiger and Big Cat. Scene. Nature. A man standing outside along a fence on his phone. A flock of seagulls flying across the ocean. Close up of a man smiling. As you can see from the video, you could hear a screen reader reading automatic alt text as a user interacts with a photo on Facebook. You will also hear audio description of the video portion of the presentation. AAT is an important tool because every day, our users share billions of photos. And while we wish everyone who uploaded a photo would include an alt text description, we recognize this is not a common user activity and it doesn't happen often."
+    },
+    {
+      "fragment_id": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone_0017",
+      "source_video": "0179_vlowfYDpWjA_How AI Can Help Bring Educational Content to Everyone",
+      "video_id": "vlowfYDpWjA",
+      "start": 754.03,
+      "end": 795.87,
+      "duration": 41.84,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "summary": "Yeah, so I would kind of summarize myself as well very closely to some of the things that Eric also does upon, but I think AI as we know today has evolved a lot back from...",
+      "keywords": [
+        "safety",
+        "kind",
+        "know",
+        "back",
+        "able",
+        "actually",
+        "all",
+        "evolve",
+        "video"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.6,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.708334,
+      "prompt_relevance_score": 0.749134,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.708 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "Yeah, so I would kind of summarize myself as well very closely to some of the things that Eric also does upon, but I think AI as we know today has evolved a lot back from when I got first, very much exposed to the AI back from using Shazam and those kind of apps itself, which is something you're sitting in a restaurant and be able to know which particular song it is actually playing even though you are not able to recall. As now we are actually all talking about chat, DVD, AI continues to evolve and it's because our needs are continuing to evolve and that is where I believe that AI in all these different verticals, the video analysis, the safety monitoring, the sports side, the video..."
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0062",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 3482.94,
+      "end": 3526.33,
+      "duration": 43.39,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "So I just want to ask a question.",
+      "keywords": [
+        "information",
+        "did",
+        "share",
+        "all",
+        "right",
+        "back"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "semantic_score": 0.707,
+      "prompt_relevance_score": 0.7442,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.707 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "They start to worry about it. So I just want to ask a question. Have you ever gotten a WhatsApp message? And it says, share no, no. Sounds very urgent. What do you do when you do that? What has happened? All right. So let's go back, back in COVID, when they had a lot of remedies going around. And all of us wanted to make sure our families were okay. Did we share those videos? We never shared them. So I'm saying that you did not. All right. So for the persons who did not, what was it that came through your mind, why you did not share the theory? I was uncertain where the information is coming from."
+    }
+  ],
+  "rejected_candidates": [],
+  "storyline": {
+    "title": "Empowering Women through Technology and Inclusion",
+    "logline": "Exploring how technology can be used to promote women's empowerment and inclusion in various sectors.",
+    "style": "National Geographic-style documentary explainer",
+    "target_duration_seconds": 120,
+    "estimated_duration_seconds": 118,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "low_evidence_brief",
+      "evidence_strength": "medium",
+      "exact_clip_count": 0,
+      "related_clip_count": 5,
+      "strong_related_count": 5,
+      "usable_speaker_clip_count": 1,
+      "usable_speaker_visual_count": 0,
+      "rejected_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 5,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI Equity, Inclusion & Social Justice",
+        "AI Ethics, Governance & Policy",
+        "AI in Education & Creative Industries"
+      ],
+      "chapter_coverage": [
+        "Ch 10: Gender, Race & Diversity in AI"
+      ],
+      "average_similarity": 0.590671,
+      "average_quote_strength": 0.585682,
+      "recommended_structure": [
+        "opening_context",
+        "available_evidence_clip",
+        "evidence_gap_narration",
+        "related_context",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "medium",
+      "planning_notes": [
+        "No direct evidence clips found for this prompt. Direct topic evidence is limited or absent.",
+        "Speaker diversity is limited, so narration carries more of the connective explanation.",
+        "No direct evidence clips were found for this prompt. The video should be narration-led and should not present adjacent material as direct evidence.",
+        "No direct women/empowerment clips were found. Adjacent gender, diversity, or inclusion clips may be used only as contextual support."
+      ],
+      "requested_speaker": null
+    },
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 10,
+        "director_role": "opening_context",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Welcome to the world of women empowerment, where technology plays a crucial role in promoting inclusion and equality.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the title 'Empowering Women through Technology and Inclusion'",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 20,
+        "director_role": "related_theme_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Women's empowerment is not just a social issue, but also an economic one. Technology can play a significant role in promoting women's participation in the workforce.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0056",
+            "usage": "background_visual",
+            "start": 3323.82,
+            "end": 3366.98,
+            "reason": "Visuals of women working in a technology-related field"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 20,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "However, there are still many challenges that women face in the technology sector, including lack of representation and unequal pay.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "data_card",
+            "description": "Data card showing statistics on women's representation in the tech industry",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 20,
+        "director_role": "related_governance_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "But there are also many success stories of women who have overcome these challenges and achieved great things in the tech industry.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0002",
+            "usage": "background_visual",
+            "start": 51.15,
+            "end": 107.62,
+            "reason": "Visuals of women working in a technology-related field"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0002",
+            "start": 51.15,
+            "end": 107.62,
+            "quote_summary": "Women can achieve great things in the tech industry with the right support and resources.",
+            "reason": "Quote from a woman who has achieved success in the tech industry"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 20,
+        "director_role": "available_evidence_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Experts agree that technology can play a significant role in promoting women's empowerment and inclusion.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits_0008",
+            "usage": "background_visual",
+            "start": 411.07,
+            "end": 464.66,
+            "reason": "Visuals of experts discussing women's empowerment and inclusion"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits_0008",
+            "start": 411.07,
+            "end": 464.66,
+            "quote_summary": "Technology can play a significant role in promoting women's empowerment and inclusion.",
+            "reason": "Quote from an expert on women's empowerment and inclusion"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 20,
+        "director_role": "synthesis_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "So what can we do to promote women's empowerment and inclusion in the tech industry?",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "transition_card",
+            "description": "Transition card with a call-to-action",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 10,
+        "director_role": "closing_takeaway",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Empowering women through technology and inclusion is a crucial step towards achieving equality and promoting economic growth.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the title 'Empowering Women through Technology and Inclusion'",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to the world of women empowerment, where technology plays a crucial role in promoting inclusion and equality.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "Women's empowerment is not just a social issue, but also an economic one. Technology can play a significant role in promoting women's participation in the workforce.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "However, there are still many challenges that women face in the technology sector, including lack of representation and unequal pay.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "But there are also many success stories of women who have overcome these challenges and achieved great things in the tech industry.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "Experts agree that technology can play a significant role in promoting women's empowerment and inclusion.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "So what can we do to promote women's empowerment and inclusion in the tech industry?",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "Empowering women through technology and inclusion is a crucial step towards achieving equality and promoting economic growth.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0002",
+        "source_video": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？",
+        "start": 51.15,
+        "end": 107.62,
+        "quote_summary": "Women can achieve great things in the tech industry with the right support and resources.",
+        "use_in_section": "S4"
+      },
+      {
+        "fragment_id": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits_0008",
+        "source_video": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits",
+        "start": 411.07,
+        "end": 464.66,
+        "quote_summary": "Technology can play a significant role in promoting women's empowerment and inclusion.",
+        "use_in_section": "S5"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0056",
+        "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0002",
+        "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits_0008"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "Title card with the title 'Empowering Women through Technology and Inclusion'"
+        },
+        {
+          "asset_type": "data_card",
+          "description": "Data card showing statistics on women's representation in the tech industry"
+        },
+        {
+          "asset_type": "transition_card",
+          "description": "Transition card with a call-to-action"
+        }
+      ],
+      "internet_assets": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0056",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 3,
+        "timeline_type": "voiceover",
+        "section_id": "S2",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 4,
+        "timeline_type": "generated_card",
+        "section_id": "S3",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 5,
+        "timeline_type": "archive_visual",
+        "section_id": "S4",
+        "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0002",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 6,
+        "timeline_type": "speaker_clip",
+        "section_id": "S4",
+        "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0002",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 7,
+        "timeline_type": "archive_visual",
+        "section_id": "S5",
+        "fragment_id": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits_0008",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 8,
+        "timeline_type": "speaker_clip",
+        "section_id": "S5",
+        "fragment_id": "0014__BbGGt_FGXI_Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits_0008",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 9,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 10,
+        "timeline_type": "generated_card",
+        "section_id": "S7",
+        "duration_seconds": 10,
+        "description": ""
+      }
+    ],
+    "editor_notes": [],
+    "planning_summary": {
+      "video_mode": "low_evidence_brief",
+      "evidence_strength": "medium",
+      "exact_clip_count": 0,
+      "related_clip_count": 5,
+      "strong_related_count": 5,
+      "usable_speaker_clip_count": 1,
+      "rejected_clip_count": 0,
+      "fallback_risk": "medium",
+      "planning_notes": [
+        "No direct evidence clips found for this prompt. Direct topic evidence is limited or absent.",
+        "Speaker diversity is limited, so narration carries more of the connective explanation.",
+        "No direct evidence clips were found for this prompt. The video should be narration-led and should not present adjacent material as direct evidence.",
+        "No direct women/empowerment clips were found. Adjacent gender, diversity, or inclusion clips may be used only as contextual support."
+      ]
+    }
+  }
+}

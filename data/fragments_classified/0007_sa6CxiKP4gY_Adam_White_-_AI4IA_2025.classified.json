@@ -1,0 +1,1190 @@
+{
+  "source_transcript": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025.json",
+  "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+  "video_id": "sa6CxiKP4gY",
+  "fragment_count": 16,
+  "created_at": "2026-06-16T12:54:12.650460",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0001",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 1,
+      "start": 0.34,
+      "end": 39.18,
+      "duration": 38.84,
+      "text": "Hi, my name is Adam White, and I'm professor of the University of Alberta. I work as a scientific director at Amy, and I also work as a startup co-founder of our core. Today, I'd like to talk to you about what I call the future of automated decision making. This is the idea that we can move machine learning and AI methods out into the real world. The way we're going to do this is we're going to focus on a particular technology called Reinforce Learning, and we're going to focus on a specific domain which is industrial control. So let's see how far we can get in ten minutes. So like I said, I work in Reinforce Learning, and I think this is key to making this happen.",
+      "word_count": 137,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "created_at": "2026-06-16T12:54:12.645675",
+      "keywords": [
+        "learning",
+        "university",
+        "work",
+        "we're",
+        "going",
+        "making",
+        "focus",
+        "reinforce"
+      ],
+      "summary": "Hi, my name is Adam White, and I'm professor of the University of Alberta.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning",
+            "university"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "university"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.709501"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0002",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 2,
+      "start": 39.18,
+      "end": 77.16,
+      "duration": 37.98,
+      "text": "So what is Reinforce Learning? Reinforce Learning actually comes from psychology where animals learn by trial and error, interaction in the world. In fact, so do people. And this is basically the idea that you do some things. You see what gives good payoffs, good consequences, and then you do those things more when you're in those situations again. And so the key aspect of this is that this is a type of learning that the agent for itself can tell when it's right or wrong. This is a different than classical supervised learning where people provide the labels. People say that's a cat, that's a dog, that's a hot dog. And Reinforce Learning, the agent, figures out on his own if what is doing is working",
+      "word_count": 132,
+      "source_segment_ids": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "created_at": "2026-06-16T12:54:12.646003",
+      "keywords": [
+        "learning",
+        "reinforce",
+        "people",
+        "that's",
+        "things",
+        "good",
+        "agent",
+        "dog"
+      ],
+      "summary": "Reinforce Learning actually comes from psychology where animals learn by trial and error, interaction in the world.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.714669"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0003",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 3,
+      "start": 77.16,
+      "end": 121.39,
+      "duration": 44.23,
+      "text": "well or what it's doing is working out poorly. And as you can see in a little diagram there, Reinforce Learning is a subfield of machine learning and more broadly artificial intelligence. So of course, Reinforce Learning has had some really nice successes and maybe going backwards to the slide here. Many of you have probably heard about AlphaGo where a Reinforce Learning program written by DeepMind played better go than the world champion in Go. Maybe more practically, the animation on the top there you can see is controlling a fusion reactor. And so this is an actual interesting problem where they train this thing in simulation and actually control the real fusion reactor and of course the Atari game simulator",
+      "word_count": 123,
+      "source_segment_ids": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "created_at": "2026-06-16T12:54:12.646292",
+      "keywords": [
+        "artificial intelligence",
+        "learning",
+        "reinforce",
+        "see",
+        "course",
+        "maybe",
+        "fusion",
+        "reactor"
+      ],
+      "summary": "well or what it's doing is working out poorly.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.720149"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0004",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 4,
+      "start": 121.39,
+      "end": 165.34,
+      "duration": 43.95,
+      "text": "where the famous DQN agent learned how to play Atari games better than people can. And so when I think about taking the next steps here, I think about what does it mean to apply Reinforce Learning to something like water treatment or an industrial control problem. And so here I'm drawing the typical interaction diagram that we see in Reinforce Learning. You have an agent and it's continually interacting with the world. And so the interaction just goes in a loop and goes on and on and on forever. The agent makes decisions, those decisions affect the world which then causes the agent to perceive the changes in the world through its sensation. And of course the world also gives a numerical feedback signal called a reward.",
+      "word_count": 130,
+      "source_segment_ids": [
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "created_at": "2026-06-16T12:54:12.646594",
+      "keywords": [
+        "learning",
+        "water",
+        "agent",
+        "world",
+        "think",
+        "here",
+        "reinforce",
+        "interaction",
+        "goes",
+        "decisions"
+      ],
+      "summary": "where the famous DQN agent learned how to play Atari games better than people can.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.725256"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0005",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 5,
+      "start": 165.34,
+      "end": 205.76,
+      "duration": 40.42,
+      "text": "And this is modeled just after our daily life. We might do things and those things have consequences in the world and we get feedback signals from the world. You know, I touched a hot stove and it hurts. So that's the negative reward I would get or I made a bunch of people happy by doing a good job in this talk. And then I get a bunch of positive feedback from people so that's a positive reward for me. So punishing bad behavior, rewarding good behavior so that the system can learn. Unfortunately, this picture is still a cartoon in the sense that we're not really widely deploying these methods in the real world. We use them in simulations but we don't use them much in the real world.",
+      "word_count": 135,
+      "source_segment_ids": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "created_at": "2026-06-16T12:54:12.646912",
+      "keywords": [
+        "world",
+        "get",
+        "things",
+        "feedback",
+        "that's",
+        "reward",
+        "bunch",
+        "people",
+        "good",
+        "positive",
+        "behavior",
+        "real",
+        "use"
+      ],
+      "summary": "And this is modeled just after our daily life.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.367,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.730146"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0006",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 6,
+      "start": 205.76,
+      "end": 241.58,
+      "duration": 35.82,
+      "text": "And so one of the chief reasons for this is these systems are not sample efficient. They don't learn as fast as you or I do, or even basic animals. And so let's just take a tiring, for example. The agent trains on each game for roughly a month playing 24, 7, 60 frames per second in every single Atari game. I had imagined that if I gave you an Atari game that you'd never seen before, you would probably learn to play it much faster than that. Because these systems learn like we do through trial and error learning, that requires exploration that requires doing things and figuring out whether they're good or bad. But when you try things out, there's also an opportunity to break things.",
+      "word_count": 133,
+      "source_segment_ids": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "created_at": "2026-06-16T12:54:12.647200",
+      "keywords": [
+        "learning",
+        "learn",
+        "game",
+        "things",
+        "systems",
+        "atari",
+        "requires",
+        "out"
+      ],
+      "summary": "And so one of the chief reasons for this is these systems are not sample efficient.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.45,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.735092"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0007",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 7,
+      "start": 241.58,
+      "end": 280.01,
+      "duration": 38.43,
+      "text": "So if we think of a water treatment plant, maybe increasing the amount of chemicals that's added to the water will help the agent learn that that's bad, but that would also be bad because we don't want people drinking water that have lots of chemicals in it. And the other unfortunate thing is the agent that played well in Atari and the agent that did fusion control in the agent that was alpha-go, all those agents are very, very different. And if you took one and applied it to the other situation, it wouldn't work at all. So researchers carefully tune and design these agents for very bespoke deployments. And that's basically a non-starter when you think about moving things into the real world",
+      "word_count": 132,
+      "source_segment_ids": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72
+      ],
+      "created_at": "2026-06-16T12:54:12.647455",
+      "keywords": [
+        "water",
+        "agent",
+        "that's",
+        "think",
+        "chemicals",
+        "bad",
+        "other",
+        "all",
+        "agents"
+      ],
+      "summary": "So if we think of a water treatment plant, maybe increasing the amount of chemicals that's added to the water will help the agent learn that that's bad, but that would also be bad because we...",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.739844"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0008",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 8,
+      "start": 280.01,
+      "end": 319.78,
+      "duration": 39.77,
+      "text": "because that's too slow, that's too expensive. We want general purpose solutions. That's probably the biggest reason why reinforcement methods are not really widely deployed. And so let's talk about water treatment, which is the application that really got me into all this. So this is the Norse's catch on glacier in the Rocky Mountains. That thing provides water for the Norse's catch on river, which flows past right in valley, which where I started working on this project all the way to M2, where I'm sitting today. This is a huge watershed. You can imagine all kinds of chemicals and actions by humans and whether all along that river affects this treatment process.",
+      "word_count": 121,
+      "source_segment_ids": [
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84
+      ],
+      "created_at": "2026-06-16T12:54:12.647753",
+      "keywords": [
+        "water",
+        "all",
+        "that's",
+        "too",
+        "really",
+        "treatment",
+        "norse's",
+        "catch",
+        "river"
+      ],
+      "summary": "That's probably the biggest reason why reinforcement methods are not really widely deployed.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.744302"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0009",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 9,
+      "start": 319.78,
+      "end": 355.38,
+      "duration": 35.6,
+      "text": "But luckily water treatment, especially in Drayton Valley, but generally speaking, is very, very simple. It's basically a two-stage process. You have water that comes in from a water source, in our case, the Norse's catch on river. It goes through a pre-treatment phase where basically you add some chemicals that cause solids to clump in the water. And the reason you do that is because the next stage filtration, we want to pull the clean water through and leave the solids there. And so if the solids are clumped together, it's easier to filter them up. So pre-treatment, filtration, and then into storage. Of course, there's a little bit of chlorine and chlorine added after the filtration stage, but that's basically it.",
+      "word_count": 131,
+      "source_segment_ids": [
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      "created_at": "2026-06-16T12:54:12.648072",
+      "keywords": [
+        "water",
+        "basically",
+        "solids",
+        "filtration",
+        "it's",
+        "pre-treatment",
+        "stage",
+        "chlorine"
+      ],
+      "summary": "But luckily water treatment, especially in Drayton Valley, but generally speaking, is very, very simple.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.75,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.917,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.749161"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0010",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 10,
+      "start": 355.38,
+      "end": 391.88,
+      "duration": 36.5,
+      "text": "It's a basic two-stage procedure. And so this is the actual water-shooting plant in Drayton Valley, Alberta, and we can match that cartoon to this real system. So on the left, we have this really large tank, and that's where the water comes in. It's mixed slowly, and we add our coagulant chemicals there to clump the solids together. And then on the right side, we have these two rectangular boxes with a yellow outline on the top. Those are the two filter banks that have two parallel streams of filters, because if one goes down for maintenance, you still want to be able to make water. So very basic setup, two-stage process, just like I described.",
+      "word_count": 123,
+      "source_segment_ids": [
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "created_at": "2026-06-16T12:54:12.648358",
+      "keywords": [
+        "water",
+        "two",
+        "it's",
+        "basic",
+        "two-stage"
+      ],
+      "summary": "And so this is the actual water-shooting plant in Drayton Valley, Alberta, and we can match that cartoon to this real system.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.753729"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0011",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 11,
+      "start": 391.88,
+      "end": 426.91,
+      "duration": 35.03,
+      "text": "And what's nice is, as a controlled person, as an optimization person, I can step back and say, how can I make this plant better? And so if you look at some of the things in here, how fast that big tank mixes, how much chemicals we add, how do we control the cleaning? So this is called backwashing. So we literally run the water backwards through the filter, that blasts all the gunk off the filter membrane, but that process is controlled by a bunch of set points, like how much air do you blow across the filter when you do that? And when does the backwashing start, and how long does it last? All these decisions in these white bubbles here are processed control variables that were",
+      "word_count": 130,
+      "source_segment_ids": [
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117
+      ],
+      "created_at": "2026-06-16T12:54:12.648765",
+      "keywords": [
+        "water",
+        "filter",
+        "controlled",
+        "person",
+        "here",
+        "control",
+        "backwashing",
+        "all",
+        "does"
+      ],
+      "summary": "And what's nice is, as a controlled person, as an optimization person, I can step back and say, how can I make this plant better?",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.758392"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0012",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 12,
+      "start": 426.91,
+      "end": 473.24,
+      "duration": 46.33,
+      "text": "configured by engineers when the plant was commissioned. And so those could be better if they were changed with time, and of course because the plant has changed with time, some of those set points are not ideal and we're actually wasting money, water, and chemical. And so this is not about replacing operators. Think of Canada, think of rural communities, specifically indigenous communities in the north. We have communities that have had boil water orders for the past 20 years, which is totally unacceptable. Those communities can get federal grant money to build mobile water treatment centers, but the issue is finding operators. Sometimes operators are unreliable, sometimes you just don't have someone in the community, or sometimes you train someone, and then they move to Evanton to get a better job.",
+      "word_count": 135,
+      "source_segment_ids": [
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130
+      ],
+      "created_at": "2026-06-16T12:54:12.649168",
+      "keywords": [
+        "water",
+        "rural",
+        "indigenous",
+        "communities",
+        "operators",
+        "sometimes",
+        "plant",
+        "better",
+        "changed",
+        "time",
+        "money",
+        "think",
+        "get",
+        "someone"
+      ],
+      "summary": "configured by engineers when the plant was commissioned.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "rural"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "indigenous"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "rural",
+            "communities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.6,
+          "matched_keywords": [
+            "water"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.2,
+          "matched_keywords": [
+            "indigenous"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.763751"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0013",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 13,
+      "start": 473.24,
+      "end": 509.64,
+      "duration": 36.4,
+      "text": "And if you don't have those operators there every single day, the filters get fouled. We use lots of chemicals, and eventually there's just no water for the community because the treatment plant breaks down. And even in the case when we have skilled operators like Andre and Valley, they're very, very busy, and they need to focus on lots of different jobs and they can't spend time fiddling with those set points to optimize things. So they're busy. We want to allow them to focus on the key parts of their job, do the boring stuff in behind the scenes for them, and improve efficiency of the entire plant. And so we've made a startup to do exactly this. It's called RO Core Technologies.",
+      "word_count": 132,
+      "source_segment_ids": [
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141
+      ],
+      "created_at": "2026-06-16T12:54:12.649583",
+      "keywords": [
+        "water",
+        "jobs",
+        "operators",
+        "lots",
+        "plant",
+        "they're",
+        "busy",
+        "focus"
+      ],
+      "summary": "And if you don't have those operators there every single day, the filters get fouled.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "jobs"
+          ]
+        },
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.768674"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0014",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 14,
+      "start": 509.64,
+      "end": 550.36,
+      "duration": 40.72,
+      "text": "We have 12 full-time employees, $7 million in VC funding, and currently we have three active deployments in Alberta. These are systems that are running 24-7 optimizing things in real time. And so at the EPCOR wastewater treatment plant at Goldbar, we have sour gas removal, so that's basically cleaning the air that comes out of the plant, so it doesn't smell bad. This friends 24-7, Andre and Valley are controlling both chemical dosing in the pre-treatment stage and backwashing to clean the filter. These again are running 24-7 all the time adjusting those set points up and down, saving money, reducing the amount of water we're using, and reducing the amount of chemicals",
+      "word_count": 122,
+      "source_segment_ids": [
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150
+      ],
+      "created_at": "2026-06-16T12:54:12.649899",
+      "keywords": [
+        "water",
+        "running",
+        "time",
+        "plant",
+        "reducing",
+        "amount"
+      ],
+      "summary": "We have 12 full-time employees, $7 million in VC funding, and currently we have three active deployments in Alberta.",
+      "theme_tags": [
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 14",
+          "chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "water"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.773655"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0015",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 15,
+      "start": 550.36,
+      "end": 593.01,
+      "duration": 42.65,
+      "text": "we're using. And this is just the start, this formula, this general approach can be applied across industrial control. You can think of desalination, you can think of oil and gas, you can think of food and beverage. All these things look similar, and these kind of approaches based on reinforcement can be applied in these situations. So for the first time, we're moving AI systems out of research labs, out of video games, and into the real world where it's societal and monetary benefits are right there. And this is happening, Alberta is leading the charge in this. These are, there's still fundamental research questions that remain, and they're going to be tackled here at the U of A and the U of A.",
+      "word_count": 130,
+      "source_segment_ids": [
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161
+      ],
+      "created_at": "2026-06-16T12:54:12.650208",
+      "keywords": [
+        "research",
+        "think",
+        "we're",
+        "applied",
+        "out"
+      ],
+      "summary": "And this is just the start, this formula, this general approach can be applied across industrial control.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.778359"
+    },
+    {
+      "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0016",
+      "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
+      "video_id": "sa6CxiKP4gY",
+      "fragment_index": 16,
+      "start": 593.01,
+      "end": 608.86,
+      "duration": 15.85,
+      "text": "And this is just a little picture of the number of researchers that work in specifically in reinforcement learning, the key technology that my system is built on, to show you the vast pipeline that we have access to. So hopefully that little teaser talk was useful, and it will help you encourage you to look into this more. Thanks again.",
+      "word_count": 61,
+      "source_segment_ids": [
+        162,
+        163,
+        164,
+        165,
+        166,
+        167
+      ],
+      "created_at": "2026-06-16T12:54:12.650393",
+      "keywords": [
+        "learning",
+        "little"
+      ],
+      "summary": "And this is just a little picture of the number of researchers that work in specifically in reinforcement learning, the key technology that my system is built on, to show you the vast pipeline that we...",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:15.780939"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:15.780944"
+}

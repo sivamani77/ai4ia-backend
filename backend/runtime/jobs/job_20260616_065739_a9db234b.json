@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_065739_a9db234b",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-16T06:57:39.080577",
+  "started_at": "2026-06-16T06:57:39.081396",
+  "completed_at": "2026-06-16T07:00:30.819558",
+  "payload": {
+    "prompt": "Create a 1-minute AI in Education & Creative Industries, AI in Creative Arts, Music & Culture",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_065739_a9db234b.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260616_123030.json",
+  "error": null
+}

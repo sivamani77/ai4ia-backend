@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_075737_cc812a17",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-16T07:57:37.941900",
+  "started_at": "2026-06-16T07:57:37.942528",
+  "completed_at": "2026-06-16T07:59:11.999194",
+  "payload": {
+    "prompt": "Create a 1-minute AI Ethics, Governance & Policy\nCh 4: AI Economics, Competition & Markets\n",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_075737_cc812a17.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260616_132911.json",
+  "error": null
+}

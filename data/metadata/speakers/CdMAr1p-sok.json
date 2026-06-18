@@ -1,0 +1,25 @@
+{
+  "video_id": "CdMAr1p-sok",
+  "source_video": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI",
+  "title": "Alvaro Soto - Chilean National Center for AI",
+  "speakers": [
+    {
+      "name": "Alvaro Soto",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Alvaro Soca",
+      "role": "Speaker",
+      "affiliation": "Chilean National Center for AI/Catholic University",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Alvaro Soto",
+  "title_name_hint": "Alvaro Soto",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:30:34.398158"
+}

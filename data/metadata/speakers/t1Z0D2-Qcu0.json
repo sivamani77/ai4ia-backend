@@ -1,0 +1,25 @@
+{
+  "video_id": "t1Z0D2-Qcu0",
+  "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
+  "title": "Vincent Obia - Who Makes AI Decisions",
+  "speakers": [
+    {
+      "name": "Vincent Obia",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Vincent Ovia",
+      "role": "Speaker",
+      "affiliation": "University of Lagos, Sweden University (note: unclear if Swedish University is a real org)",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Vincent Obia",
+  "title_name_hint": "Vincent Obia",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:32:21.882731"
+}

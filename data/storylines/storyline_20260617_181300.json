@@ -1,0 +1,771 @@
+{
+  "created_at": "2026-06-17T12:43:00.588414",
+  "user_prompt": "Create a video on what Codrel Green on all themes",
+  "prompt_intent": {
+    "intent_type": "speaker_summary",
+    "requested_speaker": "Cordel Green",
+    "topic_terms": [
+      "codrel",
+      "green"
+    ],
+    "theme": null,
+    "chapter": null,
+    "scope": "all_themes"
+  },
+  "target_duration_seconds": 180,
+  "style": "National Geographic-style documentary explainer",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 13,
+    "selected_candidate_count": 5,
+    "supporting_candidate_count": 0,
+    "context_candidate_count": 0,
+    "rejected_candidate_count": 0,
+    "top_semantic_score": 0.632493
+  },
+  "candidate_bucket_summary": {
+    "selected": 5,
+    "supporting": 0,
+    "context": 0,
+    "rejected": 0,
+    "selected_cap": 5,
+    "pre_cap_count": 7,
+    "cap_reason": "evidence_strength=low"
+  },
+  "candidate_contract": {
+    "selected_candidates": "final-video-safe evidence only",
+    "supporting_candidates": "narration support only — not for speaker soundbites",
+    "context_candidates": "background/context only — not for final video",
+    "rejected_candidates": "not for final video"
+  },
+  "planning_summary": {
+    "video_mode": "low_evidence_speaker_brief",
+    "evidence_strength": "low",
+    "exact_clip_count": 5,
+    "related_clip_count": 0,
+    "strong_related_count": 0,
+    "usable_speaker_clip_count": 1,
+    "supporting_candidate_count": 0,
+    "context_candidate_count": 0,
+    "rejected_clip_count": 0,
+    "fallback_risk": "medium",
+    "planning_notes": [
+      "Limited archive evidence was found for Cordel Green. The video uses only available Cordel Green clips and does not include unrelated speakers.",
+      "Speaker diversity is limited, so narration carries more of the connective explanation.",
+      "Only 1 usable speaker clip(s) found for Cordel Green. Do not use unrelated speakers as filler."
+    ]
+  },
+  "validation_issues": [
+    "Invalid fragment_id at storyline.sections[4].archive_visual_fragments[0].fragment_id: 0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+    "Invalid fragment_id at storyline.sections[4].speaker_soundbites[0].fragment_id: 0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+    "Invalid fragment_id at storyline.selected_speaker_soundbites[2].fragment_id: 0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+    "Invalid fragment_id at storyline.export_timeline[11].fragment_id: 0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+    "Invalid fragment_id at storyline.export_timeline[12].fragment_id: 0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+    "Invalid export_timeline fragment_id at storyline.export_timeline[11]: 0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+    "Invalid export_timeline fragment_id at storyline.export_timeline[12]: 0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002"
+  ],
+  "selected_candidates": [
+    {
+      "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
+      "source_video": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks",
+      "video_id": "FEfUiDQppGs",
+      "start": 173.35,
+      "end": 263.73,
+      "duration": 90.38,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "This is where the principle of human dignity must be most fiercely protected.",
+      "keywords": [
+        "artificial intelligence",
+        "media",
+        "information",
+        "literacy",
+        "moral",
+        "children",
+        "must",
+        "artificial",
+        "intelligence",
+        "access"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.632493,
+      "prompt_relevance_score": 0.673293,
+      "selection_score": 0.948783,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker matched; selected as one of the strongest clips across available themes.",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "This is where the principle of human dignity must be most fiercely protected. It requires openness, inclusivity and enlightened access. People from all walks of life must have a say in the shaping of the future of AI. Second, we must teach moral literacy alongside digital media and information literacy. It's simply not good enough to show children and adults how to use artificial intelligence or to talk about the opportunities or the risks of artificial intelligence. No, that's not good enough. We must equally ensure that we help people to engage with artificial intelligence in ways that preserve their sense of self. As you explore the more than 60 video presentations at your own pace in..."
+    },
+    {
+      "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0001",
+      "source_video": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks",
+      "video_id": "FEfUiDQppGs",
+      "start": 3.31,
+      "end": 85.3,
+      "duration": 81.99,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Hello, wherever and whenever you're joining us, from morning in Mumbai to midnight in Montego Bay, Jamaica, welcome to the sixth AI4IA conference.",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "governance",
+        "information",
+        "conference",
+        "equity",
+        "empowerment",
+        "truth",
+        "welcome",
+        "access"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.636381,
+      "prompt_relevance_score": 0.672981,
+      "selection_score": 0.898471,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker matched; selected as one of the strongest clips across available themes.",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": true,
+      "use_as": "narration_support",
+      "text": "Hello, wherever and whenever you're joining us, from morning in Mumbai to midnight in Montego Bay, Jamaica, welcome to the sixth AI4IA conference. This year we gather to commemorate the International Day for Universal Access to Information on our theme AI Access in Focus. Access is not just about connectivity, it's about dignity, equity and empowerment. And so as artificial intelligence becomes more deeply embedded in our lives, let us begin with a truth that should never be a rebuttable presumption. Human dignity is and must always remain the first principle of AI governance. This foundational truth becomes even more critical as we confront the strange but serious reality that we are now..."
+    },
+    {
+      "fragment_id": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies_0002",
+      "source_video": "0167_F-HMw2lKYhQ_Cordel Green - Future Proofing Human Agency in the Age of Disruptive Technologies",
+      "video_id": "F-HMw2lKYhQ",
+      "start": 73.7,
+      "end": 143.08,
+      "duration": 69.38,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "summary": "In a March 23 interview, Jaron Leneer, the godfather of virtual reality, warns about this perhaps cover layer type of thinking.",
+      "keywords": [
+        "court",
+        "type",
+        "thinking",
+        "people",
+        "human"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.45,
+      "semantic_score": 0.583545,
+      "prompt_relevance_score": 0.620145,
+      "selection_score": 0.787145,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker matched; selected as one of the strongest clips across available themes.",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "In a March 23 interview, Jaron Leneer, the godfather of virtual reality, warns about this perhaps cover layer type of thinking. He said, and I quote, a lot of modern enlightenment thinkers and technical people feel that there is something old fashioned about believing that people are special. For instance, that consciousness is a thing. They tend to think that there is an equivalence between what a computer could be and what a human brain could be end of court. That type of thinking would seek to approximate machine agency to core aspects of human cognition. So we are told, for example, that AI can lift the quality of our experience with democracy by moderating our political conversations,..."
+    },
+    {
+      "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0001",
+      "source_video": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1",
+      "video_id": "DMaOd1",
+      "start": 0.82,
+      "end": 80.45,
+      "duration": 79.63,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "So what I propose to do is less talking and I'm going to get to a rhythm because my demonstration or conversation is at the intersection of artificial intelligence and human creativity.",
+      "keywords": [
+        "artificial intelligence",
+        "creativity",
+        "information",
+        "intelligence",
+        "song",
+        "i'm",
+        "rhythm",
+        "artificial",
+        "human",
+        "trouble"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.615719,
+      "prompt_relevance_score": 0.643919,
+      "selection_score": 0.771409,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker matched; selected as one of the strongest clips across available themes.",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "Hi, everyone. So what I propose to do is less talking and I'm going to get to a rhythm because my demonstration or conversation is at the intersection of artificial intelligence and human creativity. I'm using a rhythm and lyrics and song because sometimes the most urgent truths are best carried in melody. So I'll be offering you a song created by myself and artificial intelligence. It is a collaboration between human intention and machine intelligence. It is titled Trouble in the Code, inspired by Bob Marley's So Much Trouble in the World. The song, it's a duet of creativity and computation. It also reflects the crux in our digital realities, the convergence of nanotechnology,..."
+    },
+    {
+      "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0003",
+      "source_video": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1",
+      "video_id": "DMaOd1",
+      "start": 167.06,
+      "end": 337.86,
+      "duration": 170.8,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "Who's let us is unseen perpetuating in a digital dream.",
+      "keywords": [
+        "freedom",
+        "let's",
+        "we're"
+      ],
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.55,
+      "semantic_score": 0.599044,
+      "prompt_relevance_score": 0.635644,
+      "selection_score": 0.667634,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Cordel Green",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Cordel Green",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker matched; selected as one of the strongest clips across available themes.",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": true,
+      "use_as": "narration_support",
+      "text": "It is born of hope and caution. Let's enjoy Trouble in the Code. Who's let us is unseen perpetuating in a digital dream. We're a chase-vation, but we can't put your vanity on you. That's just transparent, let's ragged and ensure not just a privileged few benefits so grand, but in the hands we're to decide, our fate, our freedom, our future, to abide."
+    }
+  ],
+  "supporting_candidates": [],
+  "context_candidates": [],
+  "rejected_candidates": [],
+  "storyline": {
+    "title": "Cordel Green: Exploring AI's Impact on Human Dignity and Creativity",
+    "logline": "Join Cordel Green as he delves into the intersection of artificial intelligence, human creativity, and dignity.",
+    "style": "National Geographic-style documentary explainer",
+    "target_duration_seconds": 180,
+    "estimated_duration_seconds": 175,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "low_evidence_speaker_brief",
+      "evidence_strength": "low",
+      "exact_clip_count": 5,
+      "related_clip_count": 0,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 1,
+      "rejected_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 3,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI in Education & Creative Industries",
+        "AI, Law & Human Rights"
+      ],
+      "chapter_coverage": [
+        "Ch 1: Foundations of AI Ethics & Philosophy",
+        "Ch 20: AI in Creative Arts, Music & Culture",
+        "Ch 23: AI & Legal Systems / Access to Justice",
+        "Ch 24: Privacy, Human Rights & Civil Liberties",
+        "Ch 5: Open Data & Information Accessibility"
+      ],
+      "average_similarity": 0.613436,
+      "average_quote_strength": 0.596,
+      "recommended_structure": [
+        "opening_context",
+        "available_evidence_clip",
+        "evidence_gap_narration",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "medium",
+      "planning_notes": [
+        "Limited archive evidence was found for Cordel Green. The video uses only available Cordel Green clips and does not include unrelated speakers.",
+        "Speaker diversity is limited, so narration carries more of the connective explanation.",
+        "Only 1 usable speaker clip(s) found for Cordel Green. Do not use unrelated speakers as filler."
+      ],
+      "requested_speaker": "Cordel Green"
+    },
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 15,
+        "director_role": "opening_context",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Welcome to the world of artificial intelligence, where creativity and human dignity are being redefined.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0001",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Sets the tone for the video"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with Cordel Green's name and topic",
+            "on_screen_text": "Cordel Green: Exploring AI's Impact on Human Dignity and Creativity"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 30,
+        "director_role": "exact_evidence_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Cordel Green emphasizes the importance of human dignity in the age of AI.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 20,
+            "reason": "Supports the narration"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
+            "start": 0,
+            "end": 20,
+            "quote_summary": "Human dignity must be fiercely protected in the age of AI.",
+            "reason": "Key quote from Cordel Green"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 30,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "However, the rise of AI also raises concerns about job displacement and bias.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "Visual representation of AI's impact on jobs",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 30,
+        "director_role": "synthesis_narration",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Cordel Green explores the intersection of AI and human creativity.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0001",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 20,
+            "reason": "Sets the tone for the section"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0001",
+            "start": 0,
+            "end": 20,
+            "quote_summary": "AI can collaborate with humans to create new forms of art.",
+            "reason": "Key quote from Cordel Green"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 30,
+        "director_role": "available_evidence_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Cordel Green discusses the importance of human agency in the age of AI.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 20,
+            "reason": "Supports the narration"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+            "start": 0,
+            "end": 20,
+            "quote_summary": "Human agency is crucial in the age of AI.",
+            "reason": "Key quote from Cordel Green"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 30,
+        "director_role": "closing_takeaway",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "As we move forward, it's essential to prioritize human dignity and agency in the age of AI.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0003",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Sets the tone for the conclusion"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "transition_card",
+            "description": "Transition card with a call to action",
+            "on_screen_text": "Join the conversation on AI and human dignity."
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 15,
+        "director_role": "closing_takeaway",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Cordel Green's insights offer a powerful reminder of the importance of human dignity in the age of AI.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with Cordel Green's name and topic",
+            "on_screen_text": "Cordel Green: Exploring AI's Impact on Human Dignity and Creativity"
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to the world of artificial intelligence, where creativity and human dignity are being redefined.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "Cordel Green emphasizes the importance of human dignity in the age of AI.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "However, the rise of AI also raises concerns about job displacement and bias.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "Cordel Green explores the intersection of AI and human creativity.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "Cordel Green discusses the importance of human agency in the age of AI.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "As we move forward, it's essential to prioritize human dignity and agency in the age of AI.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "Cordel Green's insights offer a powerful reminder of the importance of human dignity in the age of AI.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
+        "source_video": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks",
+        "start": 0,
+        "end": 20,
+        "quote_summary": "Human dignity must be fiercely protected in the age of AI.",
+        "use_in_section": "S2"
+      },
+      {
+        "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0001",
+        "source_video": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1",
+        "start": 0,
+        "end": 20,
+        "quote_summary": "AI can collaborate with humans to create new forms of art.",
+        "use_in_section": "S4"
+      },
+      {
+        "fragment_id": "0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+        "source_video": "0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies",
+        "start": 0,
+        "end": 20,
+        "quote_summary": "Human agency is crucial in the age of AI.",
+        "use_in_section": "S5"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0001",
+        "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
+        "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0001",
+        "0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "Title card with Cordel Green's name and topic",
+          "on_screen_text": "Cordel Green: Exploring AI's Impact on Human Dignity and Creativity"
+        },
+        {
+          "asset_type": "abstract_ai_visual",
+          "description": "Visual representation of AI's impact on jobs",
+          "on_screen_text": ""
+        },
+        {
+          "asset_type": "transition_card",
+          "description": "Transition card with a call to action",
+          "on_screen_text": "Join the conversation on AI and human dignity."
+        }
+      ],
+      "internet_assets": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "duration_seconds": 15,
+        "description": ""
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S1",
+        "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0001",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 3,
+        "timeline_type": "voiceover",
+        "section_id": "S2",
+        "duration_seconds": 30,
+        "description": ""
+      },
+      {
+        "order": 4,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 5,
+        "timeline_type": "speaker_clip",
+        "section_id": "S2",
+        "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 6,
+        "timeline_type": "voiceover",
+        "section_id": "S3",
+        "duration_seconds": 30,
+        "description": ""
+      },
+      {
+        "order": 7,
+        "timeline_type": "generated_card",
+        "section_id": "S3",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 8,
+        "timeline_type": "voiceover",
+        "section_id": "S4",
+        "duration_seconds": 30,
+        "description": ""
+      },
+      {
+        "order": 9,
+        "timeline_type": "archive_visual",
+        "section_id": "S4",
+        "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0001",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 10,
+        "timeline_type": "speaker_clip",
+        "section_id": "S4",
+        "fragment_id": "0016_DMaOd1_0lko_Cordel_Green-_Trouble_in_the_Code_1_0001",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 11,
+        "timeline_type": "voiceover",
+        "section_id": "S5",
+        "duration_seconds": 30,
+        "description": ""
+      },
+      {
+        "order": 12,
+        "timeline_type": "archive_visual",
+        "section_id": "S5",
+        "fragment_id": "0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 13,
+        "timeline_type": "speaker_clip",
+        "section_id": "S5",
+        "fragment_id": "0167_F-HMw2lKYhQ_Cordel_Green_-_Future_Proofing_Human_Agency_in_the_Age_of_Disruptive_Technologies_0002",
+        "duration_seconds": 20,
+        "description": ""
+      },
+      {
+        "order": 14,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "duration_seconds": 30,
+        "description": ""
+      },
+      {
+        "order": 15,
+        "timeline_type": "generated_card",
+        "section_id": "S6",
+        "duration_seconds": 10,
+        "description": ""
+      },
+      {
+        "order": 16,
+        "timeline_type": "voiceover",
+        "section_id": "S7",
+        "duration_seconds": 15,
+        "description": ""
+      }
+    ],
+    "editor_notes": [],
+    "planning_summary": {
+      "video_mode": "low_evidence_speaker_brief",
+      "evidence_strength": "low",
+      "exact_clip_count": 5,
+      "related_clip_count": 0,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 1,
+      "rejected_clip_count": 0,
+      "fallback_risk": "medium",
+      "planning_notes": [
+        "Limited archive evidence was found for Cordel Green. The video uses only available Cordel Green clips and does not include unrelated speakers.",
+        "Speaker diversity is limited, so narration carries more of the connective explanation.",
+        "Only 1 usable speaker clip(s) found for Cordel Green. Do not use unrelated speakers as filler."
+      ]
+    }
+  }
+}

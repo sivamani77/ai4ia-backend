@@ -1,0 +1,25 @@
+{
+  "video_id": "ScveXViL-ZI",
+  "source_video": "0114_ScveXViL-ZI_Eduardo Villanueva Mansilla - AI and Globalization",
+  "title": "Eduardo Villanueva Mansilla - AI and Globalization",
+  "speakers": [
+    {
+      "name": "Eduardo Villanueva Mansilla",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Eduardo Ianera Mancilla",
+      "role": "Speaker|Unknown",
+      "affiliation": "Pontificio University of Catolegal Peru",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Eduardo Villanueva Mansilla",
+  "title_name_hint": "Eduardo Villanueva Mansilla",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:30:01.108603"
+}

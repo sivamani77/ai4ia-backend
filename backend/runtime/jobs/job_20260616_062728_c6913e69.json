@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_062728_c6913e69",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-16T06:27:28.949235",
+  "started_at": "2026-06-16T06:27:28.949464",
+  "completed_at": "2026-06-16T06:30:32.590800",
+  "payload": {
+    "prompt": "string",
+    "duration": 180,
+    "style": "National Geographic-style documentary explainer",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_062728_c6913e69.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260616_120032.json",
+  "error": null
+}

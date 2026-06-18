@@ -1,0 +1,25 @@
+{
+  "video_id": "yqqiJmWKZ9I",
+  "source_video": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+  "title": "Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”",
+  "speakers": [
+    {
+      "name": "Maria Dolores Souza",
+      "role": "Speaker",
+      "affiliation": "AI4IA working group",
+      "confidence": 1.0
+    },
+    {
+      "name": "Director of the Center for Communication and Access",
+      "role": "Host",
+      "affiliation": "University of San Ruyo, Santiago de Chile",
+      "confidence": 0.8
+    }
+  ],
+  "primary_speaker": "Maria Dolores Souza",
+  "title_name_hint": null,
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:26:30.572754"
+}

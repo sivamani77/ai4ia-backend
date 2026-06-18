@@ -1,0 +1,1459 @@
+{
+  "source_transcript": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology.json",
+  "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+  "video_id": "7U6BChawgJY",
+  "fragment_count": 13,
+  "created_at": "2026-06-16T12:54:13.587090",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0001",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 1,
+      "start": 2.06,
+      "end": 71.22,
+      "duration": 69.16,
+      "text": "Hello everyone, such a great pleasure to be here on AI for AI conference. I thank you disco for the invitation. I'm really happy to share some thoughts with you for the next 10 minutes. And hopefully I'll be there on the live discussion that will be hold on the 26th of September. My name is Aleksandr Levosisayat. I'm a Brazilian researcher. Our start here showing my presentation because we have only 10 minutes. So I need to hurry and also to be precise on my presentation here. Hopefully you can see it now. I choose a specific topic that's not very common to be discussed when you touch AI. And information literacy, which is how to develop local AI's.",
+      "word_count": 125,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "created_at": "2026-06-16T12:54:13.584368",
+      "keywords": [
+        "information",
+        "conference",
+        "literacy",
+        "here",
+        "i'm",
+        "minutes",
+        "hopefully",
+        "presentation"
+      ],
+      "summary": "Hello everyone, such a great pleasure to be here on AI for AI conference.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information",
+            "conference"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "literacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "conference"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:29.962680"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0002",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 2,
+      "start": 71.22,
+      "end": 139.95,
+      "duration": 68.73,
+      "text": "And believe AI as a global technology. Global is that a new world that's a fusion of global and local. And I like to advocate AI as a global technology. It has some elements and characteristics that need to follow up the global site guys or spirit of the time. It's indeniable if we look to the big tech companies. They act globally with our tools. The language, the English language, the most used AI language to develop, to generate an AI generative AI or even to other kind of families of AI will use English. But when you think about access to information, an equality of access of AI systems to get information and accuracy is also a matter of local cultures.",
+      "word_count": 125,
+      "source_segment_ids": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "created_at": "2026-06-16T12:54:13.584578",
+      "keywords": [
+        "access to information",
+        "information",
+        "language",
+        "global",
+        "technology",
+        "local",
+        "english",
+        "access"
+      ],
+      "summary": "Global is that a new world that's a fusion of global and local.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.6,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.6,
+          "matched_keywords": [
+            "language"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:29.967323"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0003",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 3,
+      "start": 139.95,
+      "end": 217.71,
+      "duration": 77.76,
+      "text": "Some accuracy and some understanding of concepts on AI generative depends on local context and not only global context as culture. This is a definition that comes from anthropology to culture. So I want to give you some topics that we can discuss about how to develop local AI systems for the benefit of the accuracy of information. And for the benefit also to the equal access to AI platforms. So moving forward, as I said, I'm a Brazilian educator, journalist and researcher. I work as an advisor that consented for UNESCO and the field of media and information leaders in two offices. First one is Uruguay Montevideo and the second one in Paris, the headquarters in France. I also am also a master's, I hold a master in AI networks, more precisely critical thinking in AI.",
+      "word_count": 139,
+      "source_segment_ids": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "created_at": "2026-06-16T12:54:13.584824",
+      "keywords": [
+        "media",
+        "information",
+        "unesco",
+        "culture",
+        "local context",
+        "accuracy",
+        "local",
+        "context",
+        "benefit",
+        "one"
+      ],
+      "summary": "Some accuracy and some understanding of concepts on AI generative depends on local context and not only global context as culture.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information",
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "local context"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.667,
+          "matched_keywords": [
+            "culture"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "unesco"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:29.972671"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0004",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 4,
+      "start": 217.71,
+      "end": 274.9,
+      "duration": 57.19,
+      "text": "This is a book that I released just released last year in Portuguese and this year in Spanish. And I host a TV show in Brazil about media literacy. Actually, I've been working with media literacy for the last 20 years. And AI and media literacy have a connection that's very strong. And I'm always underlining these connections in my speeches, I'm underlining these connections in my participations around them. I choose this image to open my lecture. My lecture, not my talk, it's more a talk. That's a painting in North America, from the North America, painting Edward Hopper. Where is a guy, a worker looking to anywhere, to know where, lost a little bit lost with the US development in the 50s, the 40s, 1940s.",
+      "word_count": 133,
+      "source_segment_ids": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "created_at": "2026-06-16T12:54:13.585068",
+      "keywords": [
+        "media literacy",
+        "media",
+        "literacy",
+        "released",
+        "last",
+        "year",
+        "that's",
+        "i'm",
+        "underlining",
+        "connections",
+        "lecture",
+        "talk",
+        "painting",
+        "north",
+        "america"
+      ],
+      "summary": "This is a book that I released just released last year in Portuguese and this year in Spanish.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "literacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "media literacy"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:29.977446"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0005",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 5,
+      "start": 274.9,
+      "end": 328.9,
+      "duration": 54.0,
+      "text": "And I choose this picture as a cover of this book, Artificial Intelligence, a critical thinking that's available for everyone. Because I think AI is giving us the same impression to the human being. If you don't have the awareness and the literacy to understand AI and how to use it for the public, we are lost to get lost from fiction. We got lost in other fields of domination that is not a human agency. We need to guarantee human agency for AI. So this is the book I told you. Of course, when we talk about the development of AI, we talk, of course, about access to information. We talk about freedom of expression. We talk about cultural and political participation and also of privacy.",
+      "word_count": 129,
+      "source_segment_ids": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "created_at": "2026-06-16T12:54:13.585338",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "information",
+        "literacy",
+        "cultural",
+        "privacy",
+        "freedom",
+        "talk",
+        "human",
+        "lost",
+        "book",
+        "agency",
+        "course"
+      ],
+      "summary": "And I choose this picture as a cover of this book, Artificial Intelligence, a critical thinking that's available for everyone.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "literacy",
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "privacy",
+            "freedom"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "privacy",
+            "freedom"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.75,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:29.982185"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0006",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 6,
+      "start": 328.9,
+      "end": 385.06,
+      "duration": 56.16,
+      "text": "Those are hot topics, those are ethical impacts where the artificial intelligence system does in society. We need to address with the human agency ethics and media information literacy, all those topics. And they are not isolated, they cross to each other. And there are topics that need to be addressed in the global level, but also in the community level. It's stimulating the creation, the local creation of AI systems. I'll give an example of how it's important to think about it in a globally way. The global risk report of the global economy for January, British last January. But misinformation is the first threat to nations for the next two years and for the next ten years.",
+      "word_count": 122,
+      "source_segment_ids": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "created_at": "2026-06-16T12:54:13.585559",
+      "keywords": [
+        "artificial intelligence",
+        "misinformation",
+        "ethics",
+        "ethical",
+        "risk",
+        "economy",
+        "media",
+        "information",
+        "threat",
+        "topics",
+        "global",
+        "need",
+        "level",
+        "it's",
+        "creation"
+      ],
+      "summary": "Those are hot topics, those are ethical impacts where the artificial intelligence system does in society.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics",
+            "ethical",
+            "risk",
+            "economy"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "media",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.25,
+          "matched_keywords": [
+            "misinformation"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics",
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "threat",
+            "risk"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "economy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "media"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:29.986829"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0007",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 7,
+      "start": 385.06,
+      "end": 450.44,
+      "duration": 65.38,
+      "text": "It's the adverse outcomes of AI technology as the sixth most important risk to nations for the next ten years. What brings us to understand that this is a global trend. There are a lot of countries together in Switzerland and in Davos to discuss the threats for economy, for society, for politics, for human rights. And we can see as a global thing, and we can see that all the spots of the threats are interconnected in this complex world. But at the same time, I encourage us to think, how can we make an AI that's more reliable, trustful in its governance. At the same time, more connected to the real culture of the countries, if it's not also a local phenomenon.",
+      "word_count": 127,
+      "source_segment_ids": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "created_at": "2026-06-16T12:54:13.585779",
+      "keywords": [
+        "human rights",
+        "governance",
+        "rights",
+        "risk",
+        "economy",
+        "culture",
+        "it's",
+        "global",
+        "countries",
+        "threats",
+        "see",
+        "same",
+        "time"
+      ],
+      "summary": "It's the adverse outcomes of AI technology as the sixth most important risk to nations for the next ten years.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "governance",
+            "risk",
+            "economy"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "economy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.25,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:29.991390"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0008",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 8,
+      "start": 450.44,
+      "end": 515.44,
+      "duration": 65.0,
+      "text": "When we think about language, when we think about thoughts, when we think about ideas, we are always thinking from a local perspective of culture. Most of the AI laboratories, they try to emulate, when you ask some general information, they try to emulate the English terms and sometimes bring us an inaccurate result. So when we think about AI as a local phenomenon, we need to think about you, who is this Hong Kong philosopher, that thinks about techno diversity. We must not depend to guarantee the human agency, the human governance on AI. We cannot be only based in a global level. We need to develop local technologies. The human who is in his book, techno diversity, he says, there should be not only one unique technology, but what I call, you call, techno diversity.",
+      "word_count": 137,
+      "source_segment_ids": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "created_at": "2026-06-16T12:54:13.586098",
+      "keywords": [
+        "governance",
+        "diversity",
+        "culture",
+        "language",
+        "information",
+        "think",
+        "local",
+        "techno",
+        "human",
+        "try",
+        "emulate",
+        "need",
+        "only",
+        "call"
+      ],
+      "summary": "When we think about language, when we think about thoughts, when we think about ideas, we are always thinking from a local perspective of culture.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "diversity"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.667,
+          "matched_keywords": [
+            "culture",
+            "language"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "governance"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "diversity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:29.996916"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0009",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 9,
+      "start": 515.44,
+      "end": 573.21,
+      "duration": 57.77,
+      "text": "Either diversity, cosmotechnics, they are different from each other in its values, epistemology, and existence. So, for example, in Portuguese language, we have some, now the first attempts to develop a Brazilian AI that brings us, not only with the Portuguese language, but also with the Brazilian culture, the Brazilian art modernness, the Brazilian identity of nation, the Brazilian literature, the Brazilian books in bed on this system. Train with data, from Brazilian data, to bring us a more accurate information when we access this information. So, you who believe, and I believe too, that technology can set you free and humanistic too. All those ethical impacts that can be one hour talking to you about AI ethical impacts, they can be addressed in the local level too.",
+      "word_count": 128,
+      "source_segment_ids": [
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "created_at": "2026-06-16T12:54:13.586289",
+      "keywords": [
+        "culture",
+        "language",
+        "ethical",
+        "information",
+        "values",
+        "diversity",
+        "brazilian",
+        "too",
+        "portuguese",
+        "data",
+        "believe",
+        "impacts"
+      ],
+      "summary": "Either diversity, cosmotechnics, they are different from each other in its values, epistemology, and existence.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "culture",
+            "language"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethical",
+            "values"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.667,
+          "matched_keywords": [
+            "language"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.333,
+          "matched_keywords": [
+            "diversity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.002781"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0010",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 10,
+      "start": 573.21,
+      "end": 639.68,
+      "duration": 66.47,
+      "text": "I'll give you one of those ethical impacts that made a list here in my presentation, but if you think about representativeness in AI, it's very important. Ethnicum, the national local representativeness in AI, it's important to think about the local basis. How can you going to represent the natives, the indigenous population in AI results, generative AI results all around the world? The segregate populations, how are they represented with AI, generative AI systems? This is how developing local AI system is going to enrich the global landscape of AI technology. I like to bring this example of this band from Jamaica, from the Caribbean. They like to report their songs in the Caribbean, because the Caribbean studios, they use the global software to report that song.",
+      "word_count": 131,
+      "source_segment_ids": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "created_at": "2026-06-16T12:54:13.586523",
+      "keywords": [
+        "caribbean",
+        "ethical",
+        "indigenous",
+        "local",
+        "think",
+        "representativeness",
+        "it's",
+        "important",
+        "going",
+        "results",
+        "generative",
+        "global",
+        "report"
+      ],
+      "summary": "I'll give you one of those ethical impacts that made a list here in my presentation, but if you think about representativeness in AI, it's very important.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "caribbean"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "indigenous"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "caribbean"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "ethical"
+          ]
+        },
+        {
+          "chapter_id": "Ch 21",
+          "chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "indigenous"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.63,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.008048"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0011",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 11,
+      "start": 639.68,
+      "end": 694.45,
+      "duration": 54.77,
+      "text": "But at the same time, they make it a unique way to combine the Caribbean style, like Timbalado or Eletto Timber. They don't go to LA, for example, to report their songs, because it becomes something more with the American face or go to England or go to Italy or to Brazil. They like to report in the Caribbean to keep the sound original authentic by that. This is a concept that I think is a very easy sample, example, about techno diversity that we need to bring to AI. And of course, people need to understand how to access information that makes sense exactly enough for their own local reality. For that, the concept of media and information literacy that UNESCO defines here, it's very important.",
+      "word_count": 129,
+      "source_segment_ids": [
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+      ],
+      "created_at": "2026-06-16T12:54:13.586723",
+      "keywords": [
+        "media",
+        "information",
+        "unesco",
+        "caribbean",
+        "diversity",
+        "literacy",
+        "example",
+        "report",
+        "concept",
+        "need"
+      ],
+      "summary": "But at the same time, they make it a unique way to combine the Caribbean style, like Timbalado or Eletto Timber.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information",
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.75,
+          "matched_keywords": [
+            "caribbean",
+            "diversity"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "literacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "caribbean"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "media"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "unesco"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.5,
+          "matched_keywords": [
+            "diversity"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.012924"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0012",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 12,
+      "start": 694.45,
+      "end": 751.9,
+      "duration": 57.45,
+      "text": "We need to educate and to train all citizens to be media information literary, to deal with AI systems and bring it more to the local reality and know how to access the accurate information. So what I believe just to finalize is an immune stakeholder approach for a fair digital governance and valorization of AI development. We need to have governments that and big techs who believes in a stickholder approach, bring us the community together to decide the governance itself and to encourage the local developers to develop their own AI. Brazil now has developed the government's developing Brazilian AI to not only the startups, but the government itself is developing its own AI. We need to check out how it's going to connect all each other.",
+      "word_count": 131,
+      "source_segment_ids": [
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "created_at": "2026-06-16T12:54:13.586913",
+      "keywords": [
+        "governance",
+        "media",
+        "information",
+        "government",
+        "citizens",
+        "need",
+        "all",
+        "bring",
+        "local",
+        "approach",
+        "itself",
+        "own",
+        "developing"
+      ],
+      "summary": "We need to educate and to train all citizens to be media information literary, to deal with AI systems and bring it more to the local reality and know how to access the accurate information.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "media",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "governance"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "government",
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "government",
+            "citizens"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "media"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.017872"
+    },
+    {
+      "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0013",
+      "source_video": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology",
+      "video_id": "7U6BChawgJY",
+      "fragment_index": 13,
+      "start": 751.9,
+      "end": 791.9,
+      "duration": 40.0,
+      "text": "I suggest you to read the guidelines for the governance of digital platforms where this concept of multistakeholder governance is very explicit and is very obvious. To address including the local culture. So let's keep the local culture alive with AI. This is my message. So those are my contacts. You can get in contact with me whenever you want to follow up this conversation. I must say that it's really a pleasure to be with you and hope to discuss with you live. I'll see you soon. Thank you. Thank you very much.",
+      "word_count": 97,
+      "source_segment_ids": [
+        88,
+        89,
+        90,
+        91,
+        92
+      ],
+      "created_at": "2026-06-16T12:54:13.587063",
+      "keywords": [
+        "governance",
+        "culture",
+        "local"
+      ],
+      "summary": "I suggest you to read the guidelines for the governance of digital platforms where this concept of multistakeholder governance is very explicit and is very obvious.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.95,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:30.021620"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:30.021626"
+}

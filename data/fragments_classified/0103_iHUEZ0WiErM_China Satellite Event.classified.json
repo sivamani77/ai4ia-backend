@@ -1,0 +1,1609 @@
+{
+  "source_transcript": "0103_iHUEZ0WiErM_China Satellite Event.json",
+  "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+  "video_id": "iHUEZ0WiErM",
+  "fragment_count": 14,
+  "created_at": "2026-06-16T12:54:13.395579",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0001",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 1,
+      "start": 443.98,
+      "end": 534.08,
+      "duration": 90.1,
+      "text": "I have come to welcome Dr. Zhu Zhai Zhang, Director of police and comprehensive testing. Dear viewers and viewers to you all at the current impact, I welcome you all to the special mission Startup",
+      "word_count": 35,
+      "source_segment_ids": [
+        1,
+        2,
+        3
+      ],
+      "created_at": "2026-06-16T12:54:13.390968",
+      "keywords": [
+        "welcome",
+        "viewers",
+        "all"
+      ],
+      "summary": "Zhu Zhai Zhang, Director of police and comprehensive testing.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "welcome"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.65,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.820262"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0002",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 2,
+      "start": 534.08,
+      "end": 638.28,
+      "duration": 104.2,
+      "text": "Lian He, the core department of the school, should be welcomed China's scientific technology technology research is the core source of research and diversity. In order to help the professor of science, the cooperation of the eastern universities in the state, we welcome all the Chinese University of University of University of University of China and all the indigenous and cultural museums and all the famous students in the university of Wuhan that can meet everyone in the city. First of all, please welcome to China's University of University A course by Ms. Ran-sic, Lin Hai Bo, Zhi, Kai Mu Ci. I would like to express my sincere gratitude to all the leaders and guests of the Chinese Communist Party.",
+      "word_count": 123,
+      "source_segment_ids": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "created_at": "2026-06-16T12:54:13.391290",
+      "keywords": [
+        "students",
+        "research",
+        "university",
+        "school",
+        "indigenous",
+        "cultural",
+        "diversity",
+        "science",
+        "welcome",
+        "all",
+        "core",
+        "china's",
+        "technology",
+        "chinese"
+      ],
+      "summary": "Lian He, the core department of the school, should be welcomed China's scientific technology technology research is the core source of research and diversity.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "students",
+            "research",
+            "university",
+            "school",
+            "indigenous",
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.077,
+          "matched_keywords": [
+            "diversity"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research",
+            "university",
+            "science"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.2,
+          "matched_keywords": [
+            "welcome"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.2,
+          "matched_keywords": [
+            "students",
+            "school"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.1,
+          "matched_keywords": [
+            "diversity"
+          ]
+        },
+        {
+          "chapter_id": "Ch 12",
+          "chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.1,
+          "matched_keywords": [
+            "students"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.8,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.933,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.826790"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0003",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 3,
+      "start": 638.28,
+      "end": 697.71,
+      "duration": 59.43,
+      "text": "I would like to express my sincere gratitude to all the leaders and guests of the Chinese Communist Party. I would like to express my sincere gratitude to all the leaders and guests of the Chinese Communist Party. I would like to express my sincere gratitude to all the leaders and guests of the Chinese Communist Party. I would like to express my sincere gratitude to all the leaders and guests of the Chinese Communist Party. I would like to express my sincere gratitude to all the leaders and guests of the Chinese Communist Party. I would like to express my sincere gratitude to all the leaders and guests of the Chinese Communist Party. Today, the Mining of Human Rights can be in a more positive and more innovative way of life.",
+      "word_count": 132,
+      "source_segment_ids": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "created_at": "2026-06-16T12:54:13.391515",
+      "keywords": [
+        "human rights",
+        "rights",
+        "express",
+        "sincere",
+        "gratitude",
+        "all",
+        "leaders",
+        "guests",
+        "chinese",
+        "communist",
+        "party"
+      ],
+      "summary": "I would like to express my sincere gratitude to all the leaders and guests of the Chinese Communist Party.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.25,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.832758"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0004",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 4,
+      "start": 697.71,
+      "end": 743.96,
+      "duration": 46.25,
+      "text": "How can we maintain the full capacity of AI in the country to let the people of the society think about the trust and culture of the country, and to promote the trust and culture of the society, and the culture of the society, and the culture of the society, and the culture of the society? The United States is a very different country. It is a new issue that has been developed in the past. This year, as a state-owned communications industry, China's traditional university, has been able to meet the potential of the international community to meet the world's potential of international communications. The UN has been in the UN for the first time in the whole of China,",
+      "word_count": 124,
+      "source_segment_ids": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "created_at": "2026-06-16T12:54:13.391788",
+      "keywords": [
+        "university",
+        "culture",
+        "trust",
+        "industry",
+        "society",
+        "country",
+        "communications",
+        "meet",
+        "potential",
+        "international"
+      ],
+      "summary": "How can we maintain the full capacity of AI in the country to let the people of the society think about the trust and culture of the country, and to promote the trust and culture of...",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "university",
+            "culture"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.333,
+          "matched_keywords": [
+            "trust"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "culture"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.4,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.4,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.2,
+          "matched_keywords": [
+            "industry"
+          ]
+        },
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.2,
+          "matched_keywords": [
+            "university"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.838111"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0005",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 5,
+      "start": 743.96,
+      "end": 820.38,
+      "duration": 76.42,
+      "text": "and the UN has been able to develop a more common UN in the UN, and to build a more inclusive UN in the UN, to develop a global society, to build a relationship with the UN, to build a relationship with China, to build a relationship with China, In our study, China and New York, we have agreed to continue our communication with China, which is green and vital to all nationality. In addition to all the great differences between the Chinese and New York, we have agreed to build a Charme of State Psychology. We have agreed to deepen our communication of nationality, 中宣部本權管理局的研究課題 助力馬拉卡斯條約落地中國 在學術期刊上 策劃推出了無在信息傳播專欄 從學術產市的角度 展示中國的發展館文明館和人權館 在時間創新方面 我們堅持打造光明營院",
+      "word_count": 113,
+      "source_segment_ids": [
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "created_at": "2026-06-16T12:54:13.392299",
+      "keywords": [
+        "inclusive",
+        "build",
+        "china",
+        "relationship",
+        "agreed",
+        "develop",
+        "new",
+        "york",
+        "communication",
+        "all",
+        "nationality"
+      ],
+      "summary": "and the UN has been able to develop a more common UN in the UN, and to build a more inclusive UN in the UN, to develop a global society, to build a relationship with the...",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusive"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.667,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.843984"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0006",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 6,
+      "start": 820.5,
+      "end": 870.93,
+      "duration": 50.43,
+      "text": "無在信息傳播工程 cation is jointly created, it is called the High Education Digital, it is designed tounts the Government's Chinaémonology and the whole world. In 2017, the Government was able to control 700 countries without any Side buttons. The world has the same level of government in scale. The state of the world is obviously developed by the European Union. The overall state of the world is the general national education of the world. It is very impressive to see Now, the public hospital has not been a simple public activity. It has caused a cultural忙. It has caused four people to feel happy and safe. It has caused people to feel safe and safe. This is the biggest human rights.",
+      "word_count": 121,
+      "source_segment_ids": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "created_at": "2026-06-16T12:54:13.392763",
+      "keywords": [
+        "human rights",
+        "education",
+        "rights",
+        "cultural",
+        "hospital",
+        "government",
+        "world",
+        "caused",
+        "safe",
+        "state",
+        "public",
+        "people",
+        "feel"
+      ],
+      "summary": "無在信息傳播工程 cation is jointly created, it is called the High Education Digital, it is designed tounts the Government's Chinaémonology and the whole world.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.75,
+          "matched_keywords": [
+            "education",
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.25,
+          "matched_keywords": [
+            "hospital"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "education"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.25,
+          "matched_keywords": [
+            "hospital"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.850397"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0007",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 7,
+      "start": 870.93,
+      "end": 934.39,
+      "duration": 63.46,
+      "text": "In the international exchange, we are leading the global stage to participate in international cooperation. We are looking forward to accepting the awareness of the global cultural and cultural history of International Collegium, and we are focusing on a record of Chinese equality and China. the strongest economic activity in the history of China, the awarding goal to the core of the global World War, the CCP's official history, the human history of history the word of the national people is the word of the line of truth, the word of a���cola, and the words of the word of truth will be published in China's voice. Ladies and gentlemen, China has a strong perspective called the Chinese People's Food and Fire High",
+      "word_count": 126,
+      "source_segment_ids": [
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91
+      ],
+      "created_at": "2026-06-16T12:54:13.393207",
+      "keywords": [
+        "truth",
+        "cultural",
+        "economic",
+        "history",
+        "word",
+        "international",
+        "global",
+        "china",
+        "chinese"
+      ],
+      "summary": "In the international exchange, we are leading the global stage to participate in international cooperation.",
+      "theme_tags": [
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "truth"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "economic"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "truth"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "economic"
+          ]
+        }
+      ],
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.857983"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0008",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 8,
+      "start": 934.39,
+      "end": 980.85,
+      "duration": 46.46,
+      "text": "We come to the event of the top 8 events in the Chinese Sea of China. The event will lead a great amazed people with a bright future. The event will lead a grand event with a bright future. The event will lead a great marine life of today's Metropolitan Space Platform. The benefits of our oneself being members of the National Anthem will be achieved by the great broad-scale power of the China Sea of China. In the shared, education we have, affairs of the art of cultural heritage, social development and development of cultural traditions, and cultural development of our terms, technology and its implementation of cultural and cultural heritage. Next, I invite you to understand",
+      "word_count": 120,
+      "source_segment_ids": [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104
+      ],
+      "created_at": "2026-06-16T12:54:13.393562",
+      "keywords": [
+        "education",
+        "cultural",
+        "heritage",
+        "event",
+        "china",
+        "lead",
+        "great",
+        "development",
+        "sea",
+        "bright",
+        "future"
+      ],
+      "summary": "We come to the event of the top 8 events in the Chinese Sea of China.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "cultural",
+            "heritage"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.2,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.863434"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0009",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 9,
+      "start": 980.95,
+      "end": 1043.77,
+      "duration": 62.82,
+      "text": "all the stories of each scholar's economic and cultural heritage. I invite you to try and develop the tools and sharing of cultural heritage to provide more practical considerations and practical experiences. Thank you, Mr. Lin. Thank you, Mr. Lin. This year was the 70th anniversary of the Chinese university's university. It was a 70th anniversary of the university's university. In the past years, I have been very grateful to the university. For the university's research and research and the great support of the university, especially for the international education and education of the university. The university's foundation is also the national stage. At the end of the ceremony of Wuhan, the【 the Chinese government is ready to do so,",
+      "word_count": 125,
+      "source_segment_ids": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120
+      ],
+      "created_at": "2026-06-16T12:54:13.393949",
+      "keywords": [
+        "education",
+        "research",
+        "university",
+        "cultural",
+        "heritage",
+        "economic",
+        "government",
+        "university's",
+        "practical",
+        "lin",
+        "anniversary",
+        "chinese"
+      ],
+      "summary": "all the stories of each scholar's economic and cultural heritage.",
+      "theme_tags": [
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "research",
+            "university",
+            "cultural",
+            "heritage"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.077,
+          "matched_keywords": [
+            "economic"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research",
+            "university"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.286,
+          "matched_keywords": [
+            "education"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "government"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.143,
+          "matched_keywords": [
+            "economic"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.143,
+          "matched_keywords": [
+            "government"
+          ]
+        }
+      ],
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.869544"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0010",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 10,
+      "start": 1043.77,
+      "end": 1098.8,
+      "duration": 55.03,
+      "text": "please enter the dialogue for the Chinese Department of Foreign Affairs. The meeting takes place now. The Chinese ministry of Foreign Affairs is now ready to do so. A large number of NATO members have participated in the European Union and becomes director of the international community. Thank you for your presence. Next week, the communication news of China, dear distinguished professors, dear experts, ladies and gentlemen. We're very good afternoon and a very warm welcome to the International Seminar on AI-Our Accessibility, redefining digital inclusion. Capably organized by the communication industry of China, It is my distinct honor to deliver this opening remarks for this event under the esteemed umbrella of UNESCO's Information for All Program.",
+      "word_count": 120,
+      "source_segment_ids": [
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136
+      ],
+      "created_at": "2026-06-16T12:54:13.394309",
+      "keywords": [
+        "accessibility",
+        "news",
+        "information",
+        "inclusion",
+        "remarks",
+        "welcome",
+        "dialogue",
+        "event",
+        "industry",
+        "chinese",
+        "foreign",
+        "affairs",
+        "now",
+        "international",
+        "communication"
+      ],
+      "summary": "please enter the dialogue for the Chinese Department of Foreign Affairs.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "news",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusion",
+            "accessibility"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "remarks",
+            "welcome",
+            "dialogue",
+            "event"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "industry"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 6",
+          "chapter": "Ch 6: AI in Journalism & the Media Landscape",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "news"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.25,
+          "matched_keywords": [
+            "inclusion"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.874722"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0011",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 11,
+      "start": 1098.8,
+      "end": 1173.72,
+      "duration": 74.92,
+      "text": "Ladies and gentlemen, first and foremost, I would like to extend my warmest congratulations to CUC on the occasion of its 70th anniversary. Your unweaving commitment to fostering digital inclusion and accessibility is commendable and aligns perfectly with UNESCO's mission to promote equal access to information and knowledge for all. UNESCO's Information for All Program supports member states in creating equitable societies by promoting universal access to information and knowledge for sustainable development. At UNESCO, we focus on six key areas, information for development, information literacy, information preservation, information ethics, information accessibility, and multilingualism. In the age of artificial intelligence, UNESCO's at the forefront of ensuring that the technologies are developed ethically and used responsibly. We are committed to bridging the digital divides and ensuring that everyone has equal access",
+      "word_count": 133,
+      "source_segment_ids": [
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148
+      ],
+      "created_at": "2026-06-16T12:54:13.394638",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "information accessibility",
+        "ethics",
+        "accessibility",
+        "information",
+        "knowledge",
+        "unesco",
+        "inclusion",
+        "member states",
+        "equitable",
+        "unesco's",
+        "access",
+        "digital",
+        "equal"
+      ],
+      "summary": "Ladies and gentlemen, first and foremost, I would like to extend my warmest congratulations to CUC on the occasion of its 70th anniversary.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information accessibility",
+            "information",
+            "knowledge",
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.15,
+          "matched_keywords": [
+            "inclusion",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.05,
+          "matched_keywords": [
+            "ethics"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "information accessibility",
+            "access to information",
+            "knowledge",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.158,
+          "matched_keywords": [
+            "member states"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.105,
+          "matched_keywords": [
+            "inclusion",
+            "equitable"
+          ]
+        },
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.105,
+          "matched_keywords": [
+            "accessibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.053,
+          "matched_keywords": [
+            "ethics"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.882534"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0012",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 12,
+      "start": 1173.72,
+      "end": 1232.06,
+      "duration": 58.34,
+      "text": "to the benefits of technologies. UNESCO's commitment to promoting accessibility and inclusion is exemplified by our work in China. Through initiatives like the UN Joint Program on Disability in China, we have been actively engaged in empowering persons with disabilities by ensuring their equal access to digital technologies, and ensuring their full participation in the digital economy and through improved access to quality education, through cultural life, and through employment opportunities. I must take a moment to command the one-wing Sinai and one-wing museum project, a shining example of CUC's innovation. By making films and museums more accessible to persons with disabilities, this initiative showcases how technology and innovation can be hardness to create inclusive, educational",
+      "word_count": 120,
+      "source_segment_ids": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159
+      ],
+      "created_at": "2026-06-16T12:54:13.394901",
+      "keywords": [
+        "accessibility",
+        "education",
+        "inclusion",
+        "inclusive",
+        "disability",
+        "disabilities",
+        "cultural",
+        "economy",
+        "accessible",
+        "persons with disabilities",
+        "innovation",
+        "employment",
+        "technologies",
+        "china",
+        "persons"
+      ],
+      "summary": "UNESCO's commitment to promoting accessibility and inclusion is exemplified by our work in China.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "inclusion",
+            "inclusive",
+            "disability",
+            "disabilities",
+            "accessibility"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "education",
+            "cultural"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.167,
+          "matched_keywords": [
+            "economy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disability",
+            "disabilities",
+            "accessibility",
+            "accessible",
+            "persons with disabilities"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.364,
+          "matched_keywords": [
+            "economy",
+            "innovation",
+            "employment"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.091,
+          "matched_keywords": [
+            "inclusion"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.091,
+          "matched_keywords": [
+            "inclusion"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.091,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.887800"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0013",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 13,
+      "start": 1232.06,
+      "end": 1290.23,
+      "duration": 58.17,
+      "text": "and cultural experiences for all, leaving no one behind. The theme of our seminar today is particularly relevant to our ongoing work. As we explore the potential of AI to enhance accessibility, we are also looking at how it can be used to empower disadvantaged groups such as persons with disabilities and promote their full participation in society. AI has the potential to transform the way we interact with technology. It can make it more intuitive and responsive to individual needs. For instance, AI can be used to develop assistive technologies that can help persons with disabilities navigate the digital world more easily. It can also be used to analyze and predict user behavior. It can enable the creation of more personalized and accessible digital experiences.",
+      "word_count": 126,
+      "source_segment_ids": [
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170
+      ],
+      "created_at": "2026-06-16T12:54:13.395186",
+      "keywords": [
+        "accessibility",
+        "disabilities",
+        "assistive",
+        "cultural",
+        "accessible",
+        "persons with disabilities",
+        "used",
+        "experiences",
+        "potential",
+        "persons",
+        "digital"
+      ],
+      "summary": "and cultural experiences for all, leaving no one behind.",
+      "theme_tags": [
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disabilities",
+            "accessibility",
+            "assistive"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "cultural"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 11",
+          "chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "disabilities",
+            "assistive",
+            "accessibility",
+            "accessible",
+            "persons with disabilities"
+          ]
+        }
+      ],
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.65,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.893179"
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0014",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "fragment_index": 14,
+      "start": 1290.23,
+      "end": 1364.36,
+      "duration": 74.13,
+      "text": "Furthermore, AI can play crucial role in making content more accessible by automating the translation of text, generating subtitles for videos and by converting speech to text. However, the benefits of AI can be fully realized only if we ensure that its development and application are guided by the principles of inclusivity, diversity and equity. This is where the work of UNESCO comes in through the information for our program and other UNESCO initiatives we aim to foster a global dialogue on the ethical use of AI and to promote the development of inclusive policies and practices. As we embark on the seminar, I extend my wishes for a fruitful and engaging seminar. May the ideas and solutions we discuss today contribute to the future, but digital inclusion is not just a goal, but a reality for everyone. I can't do.",
+      "word_count": 142,
+      "source_segment_ids": [
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "created_at": "2026-06-16T12:54:13.395556",
+      "keywords": [
+        "content",
+        "information",
+        "unesco",
+        "equity",
+        "inclusion",
+        "inclusive",
+        "diversity",
+        "ethical",
+        "principles",
+        "dialogue",
+        "text",
+        "development",
+        "seminar"
+      ],
+      "summary": "Furthermore, AI can play crucial role in making content more accessible by automating the translation of text, generating subtitles for videos and by converting speech to text.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "content",
+            "information",
+            "unesco"
+          ]
+        },
+        {
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 1.0,
+          "matched_keywords": [
+            "equity",
+            "inclusion",
+            "inclusive",
+            "diversity"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethical",
+            "principles"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "unesco",
+            "dialogue"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "ethical",
+            "principles"
+          ]
+        },
+        {
+          "chapter_id": "Ch 9",
+          "chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "equity",
+            "inclusion"
+          ]
+        },
+        {
+          "chapter_id": "Ch 10",
+          "chapter": "Ch 10: Gender, Race & Diversity in AI",
+          "theme_id": "T3",
+          "theme": "AI Equity, Inclusion & Social Justice",
+          "score": 0.667,
+          "matched_keywords": [
+            "diversity",
+            "inclusion"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.333,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.83,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:26.900220"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:26.900233"
+}

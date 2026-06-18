@@ -1,0 +1,25 @@
+{
+  "video_id": "xQEY8yxyR1c",
+  "source_video": "0183_xQEY8yxyR1c_Tugba Yoldas - Thinking About Future Artificial Moral Patients",
+  "title": "Tugba Yoldas - Thinking About Future Artificial Moral Patients",
+  "speakers": [
+    {
+      "name": "Tugba Yoldas",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Tobio Aldash",
+      "role": "Speaker",
+      "affiliation": "University of Alberta",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Tugba Yoldas",
+  "title_name_hint": "Tugba Yoldas",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:31:55.193994"
+}

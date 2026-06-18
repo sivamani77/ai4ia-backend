@@ -1,0 +1,19 @@
+{
+  "video_id": "NLqa-0IUNdM",
+  "source_video": "0117_NLqa-0IUNdM_Shanti Williams - When I asked AI to compose a Haiku",
+  "title": "Shanti Williams - When I asked AI to compose a Haiku",
+  "speakers": [
+    {
+      "name": "Shanti Williams",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Shanti Williams",
+  "title_name_hint": "Shanti Williams",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:30:05.999024"
+}

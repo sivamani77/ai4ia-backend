@@ -1,0 +1,1103 @@
+{
+  "source_transcript": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times.json",
+  "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+  "video_id": "adepAgpuGOM",
+  "fragment_count": 11,
+  "created_at": "2026-06-16T12:54:13.687711",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0001",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 1,
+      "start": 1.23,
+      "end": 53.82,
+      "duration": 52.59,
+      "text": "Thank you. I am honored and very happy to be here today to discuss how artificial intelligence is transforming our lives of both for good and bad. In the days of the Great Explorers, they had as part of their navigational aids, maps would often show potential dangers. These maps would have artistic depictions of mythical and real creatures that would be encountered. They would include lines and bears and whales, as well as a host of imagined creatures. Also including a variety of serpents, and warned of far away land cell dangers, as began inhabited by dragons. So they ventured forth in search of new worlds, exotic spices, treasures with the caution of danger, both real and imagined, of what lay ahead.",
+      "word_count": 123,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "created_at": "2026-06-16T12:54:13.684790",
+      "keywords": [
+        "artificial intelligence",
+        "both",
+        "maps",
+        "dangers",
+        "real",
+        "creatures",
+        "imagined"
+      ],
+      "summary": "I am honored and very happy to be here today to discuss how artificial intelligence is transforming our lives of both for good and bad.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.449415"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0002",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 2,
+      "start": 53.82,
+      "end": 114.41,
+      "duration": 60.59,
+      "text": "We find ourselves again explorers, today, where exploring the new world of artificial intelligence, and at two has some real and imagined treasures and risks. Some of these rewards include the promise of unimaginable whales, the scoffery of new knowledge, more civilized lives, curated and facilitated by technology. We have already experienced some of these benefits with vehicle automation, improved diagnostic tools in medicine, voice-actuated services and equipment, and the list growing every day. One AI technology that must be given special mention is effective computing. This AI technology has a potential to reach children's autism, treat those with troubled minds or suffering with PTSD, a very powerful treasure indeed. But with any very powerful tool, it can also bring the risk of great harm, the capability",
+      "word_count": 129,
+      "source_segment_ids": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "created_at": "2026-06-16T12:54:13.685052",
+      "keywords": [
+        "artificial intelligence",
+        "risk",
+        "knowledge",
+        "medicine",
+        "harm",
+        "services",
+        "technology",
+        "new",
+        "powerful"
+      ],
+      "summary": "We find ourselves again explorers, today, where exploring the new world of artificial intelligence, and at two has some real and imagined treasures and risks.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "risk"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        },
+        {
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 1.0,
+          "matched_keywords": [
+            "medicine"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "risk",
+            "harm"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "services"
+          ]
+        },
+        {
+          "chapter_id": "Ch 13",
+          "chapter": "Ch 13: AI in Healthcare & Medicine",
+          "theme_id": "T4",
+          "theme": "AI in Health, Science & Environment",
+          "score": 0.5,
+          "matched_keywords": [
+            "medicine"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.454577"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0003",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 3,
+      "start": 114.41,
+      "end": 169.96,
+      "duration": 55.55,
+      "text": "of modifying a person's balances, emotional states, even beliefs, without that person's knowledge or consent, is by its very nature high risk and even dangerous if placed in the wrong hands. As a society, how do we choose who should have control of such risks? The intricacies of subtle complex that is difficult to imagine any individual with the knowledge and wisdom to protect basic human rights. And a group also designated to make those choices would carry those same human frailties. So not only is the issue of who decides, but who decides and the deciders must be addressed. Even in today's fledgling applications have been shown to be susceptible to weaknesses in its governance. So how do we manage the risks of, as AI continues to grow in its capabilities?",
+      "word_count": 135,
+      "source_segment_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "created_at": "2026-06-16T12:54:13.685341",
+      "keywords": [
+        "human rights",
+        "governance",
+        "rights",
+        "risk",
+        "knowledge",
+        "even",
+        "its",
+        "person's",
+        "risks",
+        "human",
+        "decides"
+      ],
+      "summary": "of modifying a person's balances, emotional states, even beliefs, without that person's knowledge or consent, is by its very nature high risk and even dangerous if placed in the wrong hands.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "governance",
+            "risk"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.5,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.25,
+          "matched_keywords": [
+            "risk"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.459453"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0004",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 4,
+      "start": 169.96,
+      "end": 230.6,
+      "duration": 60.64,
+      "text": "Is the mythical all-powerful AI dragon? Or is it the specter of real human dragons that we need to fear and do battle? And we find and recognize modern-day dragon slayers Galahad's guild dimensions. The world literature dating back thousands of years, and the present future spend stories of heroes rescuing the world by facing mythical and real monsters. How do we choose, or even recognize, the capabilities protect human rights, allow for those potential, enormous benefits of AI while eliminating the real human dragons? This governance of AI is the dilemma we now face, and must address. The one common characteristic, whether he heuristic expert systems, data-centric mission learning, chat box, general purpose AI, and there's some future superhuman intelligence,",
+      "word_count": 126,
+      "source_segment_ids": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "created_at": "2026-06-16T12:54:13.685614",
+      "keywords": [
+        "human rights",
+        "governance",
+        "rights",
+        "learning",
+        "real",
+        "human",
+        "mythical",
+        "dragon",
+        "dragons",
+        "recognize",
+        "world",
+        "future"
+      ],
+      "summary": "Or is it the specter of real human dragons that we need to fear and do battle?",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "learning"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "learning"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.25,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.464600"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0005",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 5,
+      "start": 230.6,
+      "end": 285.79,
+      "duration": 55.19,
+      "text": "is that data acquisition is the lifeblood of all AI. So let's take a closer look at two examples of how we just might be able to accept this challenge, and that's smart cities in the metaverse. And realizing the benefits of smart city, data share it among the technology domains, energy usage, travel patterns, social activities are shared with utilities, city administrators and law enforcement, and what is called data fusion. This can create new knowledge to predict the needs and activities. It also can be used to trace past activities, including very private activities. This creates enormous human rights challenges, and affect an AI version of smart control. Additionally, this data fusion can be used to ration limited resources, including energy,",
+      "word_count": 125,
+      "source_segment_ids": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "created_at": "2026-06-16T12:54:13.685871",
+      "keywords": [
+        "human rights",
+        "law",
+        "rights",
+        "knowledge",
+        "data",
+        "activities",
+        "smart",
+        "city",
+        "energy",
+        "fusion",
+        "used",
+        "including"
+      ],
+      "summary": "is that data acquisition is the lifeblood of all AI.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "law",
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.2,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "law",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "law"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "knowledge"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.469534"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0006",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 6,
+      "start": 285.79,
+      "end": 346.12,
+      "duration": 60.33,
+      "text": "communications, transportation, and leisure activities. It makes systems extremely prone to social credit use and promotes AI biases. Metaverse also uses data fusion, but brings a whole new dimension to the blurring lines between illusion and reality. When someone enters a carnival funhouse, they explore a distorted reality, and it's all done and fun. However, in the metaverse, our average has interact, whether for metacresams, educational purposes, litigating traffic violations, or social activities. So what if a virtual crime is committed in the metaverse? No real human is actually physically harmed, but the victim of such an instance may have feelings that persist into the real world. Well, such experiences carry over into the world for victims, perpetrators, and even witnesses.",
+      "word_count": 122,
+      "source_segment_ids": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "created_at": "2026-06-16T12:54:13.686152",
+      "keywords": [
+        "metaverse",
+        "activities",
+        "social",
+        "reality",
+        "real",
+        "world"
+      ],
+      "summary": "It makes systems extremely prone to social credit use and promotes AI biases.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.417,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.474412"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0007",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 7,
+      "start": 346.12,
+      "end": 403.56,
+      "duration": 57.44,
+      "text": "What if a simple fantasy promise made in the metaverse? Will it carry over into the real world as litigation, as an enforceable contract? Or will we adopt a what happens in the metaverse stays in the metaverse philosophy? Where and how will we set the boundaries of personal privacy between the virtual worlds versus the real worlds? Privacy is a globally recognized fundamental human right. Will it be respected in the world's created and facilitated by AI? Well, the one thing we know as privacy, especially in the world of AI, is not easy. We are social beings. We need to interact with others. We need to share parts of our private lives. However, we have a need for privacy, it is not a luxury, it's a basic human need.",
+      "word_count": 133,
+      "source_segment_ids": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "created_at": "2026-06-16T12:54:13.686463",
+      "keywords": [
+        "privacy",
+        "philosophy",
+        "need",
+        "metaverse",
+        "real",
+        "world",
+        "worlds",
+        "human"
+      ],
+      "summary": "What if a simple fantasy promise made in the metaverse?",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "philosophy"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.479261"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0008",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 8,
+      "start": 403.56,
+      "end": 462.98,
+      "duration": 59.42,
+      "text": "Without the autonomy to control our privacy, we suffer greatly. But this is not a one size fits all world. Each of us have different needs and levels for privacy. We each have different personality traits and these differences are measured by a Briggs, Myers Briggs personality type indicator. With these eight personality traits, there are 16 combinations that are on a spectrum between pairs. And are we extroverts or introverts? Are we somewhere in between? Are we outgoing in some situations and while flowers at other times? We always use hard logic and guiding our decisions. Or do we temper those choices with emotions? Or do we even make choices completely on emotional own, devoid of any kind of logic?",
+      "word_count": 121,
+      "source_segment_ids": [
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "created_at": "2026-06-16T12:54:13.686783",
+      "keywords": [
+        "privacy",
+        "personality",
+        "each",
+        "different",
+        "traits",
+        "briggs",
+        "logic",
+        "choices"
+      ],
+      "summary": "Without the autonomy to control our privacy, we suffer greatly.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.483857"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0009",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 9,
+      "start": 462.98,
+      "end": 509.38,
+      "duration": 46.4,
+      "text": "Now for the hard question. Would you trust anyone else to know you sufficiently well to make your life choices for you, to know what would make you happy and have a fulfilling and rich in life? Would you trust an aggregated average to determine your life choices? Would you trust a smart city administration to make those choices? Or metaverse providers to make those choices for you? And even if you did trust these other agents, are they worthy of that trust? So here we are with a seemingly impossible task. We need our privacy, but we also need to share for a full and enriching life. So how do we reach that balance? Who do we trust in making those decisions on that balance?",
+      "word_count": 126,
+      "source_segment_ids": [
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ],
+      "created_at": "2026-06-16T12:54:13.687067",
+      "keywords": [
+        "trust",
+        "privacy",
+        "make",
+        "life",
+        "choices",
+        "know",
+        "need",
+        "balance"
+      ],
+      "summary": "Would you trust anyone else to know you sufficiently well to make your life choices for you, to know what would make you happy and have a fulfilling and rich in life?",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.167,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.167,
+          "matched_keywords": [
+            "privacy"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.488338"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0010",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 10,
+      "start": 509.38,
+      "end": 571.7,
+      "duration": 62.32,
+      "text": "It would seem that the status quo and recent history of leaving it to the discretion of AI developers, regulators and experts has been proven to be wholly unsatisfactory. And while the individual may know that balance better than anyone else, it is an unreasonable expectation and burden that we all become aware of our all the complexities and consequences of accepting or denying disclosures of our private data. However, it is contended that AI technology itself can provide a solution. What if each of us employed a personal AI agent that transparently oversees and curates those decisions? It is well within AI technology today. However, although technically feasible, it will require a change of current methods, a paradigm shift that is human-centric facing human rights and human dignity as a top priority.",
+      "word_count": 134,
+      "source_segment_ids": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ],
+      "created_at": "2026-06-16T12:54:13.687414",
+      "keywords": [
+        "human rights",
+        "rights",
+        "all",
+        "however",
+        "technology",
+        "human"
+      ],
+      "summary": "It would seem that the status quo and recent history of leaving it to the discretion of AI developers, regulators and experts has been proven to be wholly unsatisfactory.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.25,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.493394"
+    },
+    {
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0011",
+      "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+      "video_id": "adepAgpuGOM",
+      "fragment_index": 11,
+      "start": 571.7,
+      "end": 617.98,
+      "duration": 46.28,
+      "text": "This personal AI agent would decide on what information to share, when to share it with who and for what duration. It would keep records for auditing processes, ensuring that the system was working properly and in compliance with the negotiated disclosures. This AI agent would decide on our smart phones laptops or in the clouds and be our constant companion acting as our personal agent and guardian of our data. Is it time to finally have AI work for us, creating a global respect for our human rights and human dignity? Thank you for listening. I am eager to continue the discussion at our QA session, or you can contact me directly. Thank you again.",
+      "word_count": 116,
+      "source_segment_ids": [
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122
+      ],
+      "created_at": "2026-06-16T12:54:13.687693",
+      "keywords": [
+        "human rights",
+        "compliance",
+        "rights",
+        "information",
+        "session",
+        "agent",
+        "personal",
+        "decide",
+        "share",
+        "human"
+      ],
+      "summary": "This personal AI agent would decide on what information to share, when to share it with who and for what duration.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "compliance",
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.2,
+          "matched_keywords": [
+            "information"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "human rights",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "compliance",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "compliance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 8",
+          "chapter": "Ch 8: Regional & Satellite Conference Events",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.25,
+          "matched_keywords": [
+            "session"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:31.497765"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:31.497771"
+}

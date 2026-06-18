@@ -1,0 +1,1353 @@
+{
+  "created_at": "2026-06-17T12:14:06.744478",
+  "user_prompt": "Create a 1-minute video on what Paul Hector spoke about all the themes.",
+  "prompt_intent": {
+    "intent_type": "speaker_topic_summary",
+    "requested_speaker": "Paul Hector",
+    "topic_terms": [],
+    "theme": null,
+    "chapter": null,
+    "scope": "general"
+  },
+  "target_duration_seconds": 60,
+  "style": "National Geographic-style documentary explainer",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 47,
+    "selected_candidate_count": 6,
+    "supporting_candidate_count": 1,
+    "context_candidate_count": 30,
+    "rejected_candidate_count": 10,
+    "top_semantic_score": 0.689674
+  },
+  "planning_summary": {
+    "video_mode": "low_evidence_speaker_brief",
+    "evidence_strength": "low",
+    "exact_clip_count": 2,
+    "related_clip_count": 4,
+    "strong_related_count": 4,
+    "usable_speaker_clip_count": 1,
+    "supporting_candidate_count": 1,
+    "context_candidate_count": 30,
+    "rejected_clip_count": 10,
+    "fallback_risk": "medium",
+    "planning_notes": [
+      "Limited archive evidence was found for Paul Hector. The video uses only available Paul Hector clips and does not include unrelated speakers.",
+      "Speaker diversity is limited, so narration carries more of the connective explanation."
+    ]
+  },
+  "validation_issues": [
+    "Empty fragment_id at storyline.export_timeline[0]",
+    "Empty fragment_id at storyline.export_timeline[2]",
+    "Empty fragment_id at storyline.export_timeline[5]",
+    "Empty fragment_id at storyline.export_timeline[6]",
+    "Empty fragment_id at storyline.export_timeline[7]",
+    "Empty fragment_id at storyline.export_timeline[10]",
+    "Empty fragment_id at storyline.export_timeline[13]",
+    "Empty fragment_id at storyline.export_timeline[14]",
+    "Empty fragment_id at storyline.export_timeline[15]"
+  ],
+  "selected_candidates": [
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0001",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 2.26,
+      "end": 61.42,
+      "duration": 59.16,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "I am the advice of communication information in UNESCO's regional office for the Caribbean, which covers 20 Dutch and English speaking Caribbean countries.",
+      "keywords": [
+        "artificial intelligence",
+        "policy",
+        "accessibility",
+        "information",
+        "conference",
+        "regional",
+        "unesco",
+        "caribbean",
+        "latin america",
+        "artificial"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.624276,
+      "prompt_relevance_score": 0.772476,
+      "selection_score": 0.927966,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "paul",
+        "hector"
+      ],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['paul', 'hector']) + semantic 0.624",
+      "meaningful_prompt_overlap": [
+        "paul",
+        "hector"
+      ],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "Good day, everyone. My name is Paul Hector. I am the advice of communication information in UNESCO's regional office for the Caribbean, which covers 20 Dutch and English speaking Caribbean countries. Surely it is my pleasure to be here to join you for the 2025 edition of the Artificial Intelligence for International Accessibility Conference. Over the next few minutes, I'll be sharing with you information about an exploratory survey that the UNESCO regional office for the Caribbean in Jamaica is conducting to understand how artificial intelligence is impacting the Caribbean's creative sector. This study is part of our efforts to implement the Caribbean Artificial Intelligence Policy World..."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 2.1,
+      "end": 58.76,
+      "duration": 56.66,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "Whatever time of day or wherever you are connecting from, I bring you very warm Caribbean greetings from the UNESCO Kingston office and my co-presenter, Miss Erica Simmons.",
+      "keywords": [
+        "artificial intelligence",
+        "policy",
+        "information",
+        "conference",
+        "unesco",
+        "caribbean",
+        "presentation",
+        "work",
+        "roadmap",
+        "during"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.68692,
+      "prompt_relevance_score": 0.84412,
+      "selection_score": 0.88161,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "paul",
+        "hector"
+      ],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['paul', 'hector']) + semantic 0.687",
+      "meaningful_prompt_overlap": [
+        "paul",
+        "hector"
+      ],
+      "final_video_allowed": true,
+      "use_as": "narration_support",
+      "text": "Whatever time of day or wherever you are connecting from, I bring you very warm Caribbean greetings from the UNESCO Kingston office and my co-presenter, Miss Erica Simmons. I am Paul Hector, Advise of Communication and Information, and I'd like to express appreciation for the opportunity to share our work on the Caribbean AI Policy Roadmap. And, of course, special thanks to Mr. Cordell Green, EFAP, and all the amazing partners who are making this conference possible. Now, during my presentation, I will provide, next slide, during my presentation, I will provide an overview of UNESCO's work in the area of artificial intelligence. I will also highlight some Caribbean-specific initiatives, so..."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0022",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 1293.68,
+      "end": 1344.22,
+      "duration": 50.54,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "Principle number four an important one for the region and a unique one for the region because so much of our economies in the region are dependent on our creative and orange economy are our tourism...",
+      "keywords": [
+        "creative",
+        "music",
+        "creativity",
+        "caribbean",
+        "economy",
+        "region",
+        "lot",
+        "think",
+        "important",
+        "one"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.64566,
+      "prompt_relevance_score": 0.74706,
+      "selection_score": 0.88956,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [
+        "paul"
+      ],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Topic/theme overlap at moderate semantic 0.646: meaningful=['paul'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "paul"
+      ],
+      "final_video_allowed": true,
+      "use_as": "narration_support",
+      "text": "Principle number four an important one for the region and a unique one for the region because so much of our economies in the region are dependent on our creative and orange economy are our tourism and other industries music and film so safeguarding the Caribbean creativity will be an important pillar for us to focus on and develop some policies are out. So that was a lot and normally you know we try to think about how to get started Paul so that was a lot where do we get started a couple of things that I think we should think about as a region is really coming together the Caribbean has a lot of islands we have a lot of smart people in the region could we come together and have certain."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0025",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 1445.22,
+      "end": 1518.28,
+      "duration": 73.06,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "New business models around data getting every citizen in the region to really understand that they are data you make data every day you're making data we're making data by reporting just this this presentation to...",
+      "keywords": [
+        "education",
+        "information",
+        "conference",
+        "unesco",
+        "literacy",
+        "strategy",
+        "welcome",
+        "business",
+        "data",
+        "work"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.71,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.65371,
+      "prompt_relevance_score": 0.75631,
+      "selection_score": 1.04681,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [
+        "paul"
+      ],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Topic/theme overlap at moderate semantic 0.654: meaningful=['paul'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "paul"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "New business models around data getting every citizen in the region to really understand that they are data you make data every day you're making data we're making data by reporting just this this presentation to you also how do we use that and scale that for our benefit. And again important work is around literacy campaigns education and skill development and as Paul alluded to earlier UNESCO has done a ton of work in this area we need to continue that work we need to scale that work across all the countries in the region and really focus on that education and skill development for the future so those are just some areas of starting focus. Now we are open for feedback on all of that..."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0005",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 257.78,
+      "end": 322.7,
+      "duration": 64.92,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "And, of course, new developments like the rise of large language models and the extensive views by the public and the business sector.",
+      "keywords": [
+        "access to information",
+        "policy",
+        "information",
+        "conference",
+        "caribbean",
+        "business",
+        "industry",
+        "over",
+        "course",
+        "erica"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.654059,
+      "prompt_relevance_score": 0.742259,
+      "selection_score": 0.907749,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [
+        "paul"
+      ],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Topic/theme overlap at moderate semantic 0.654: meaningful=['paul'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "paul"
+      ],
+      "final_video_allowed": true,
+      "use_as": "narration_support",
+      "text": "And, of course, new developments like the rise of large language models and the extensive views by the public and the business sector. Of course, this is against the backdrop of a growing appetite of the Caribbean governments to engage around this area and to really ensure that AI delivers its potential for the sustainable development of the region. I know hand over Erica to going to greater depth about the Caribbean AI policy roadmap, Erica, over to you. All right. Thank you so much, Paul, and I would like to just add my greetings to everyone attending the AI for IA conference on this universal day of access to information. And Paul had gone over a little bit about how the roadmap came to..."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0026",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 1518.28,
+      "end": 1572.28,
+      "duration": 54.0,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "The documents the draft paper we have in the folder as well there is also a survey that is available to you to take to share your feedback on you know what you think AI will...",
+      "keywords": [
+        "policy",
+        "caribbean",
+        "documents",
+        "survey",
+        "share",
+        "feedback",
+        "look",
+        "presentation"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.631661,
+      "prompt_relevance_score": 0.728261,
+      "selection_score": 0.863751,
+      "relevance_role": "strong_related",
+      "prompt_keyword_overlap": [
+        "paul"
+      ],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Topic/theme overlap at moderate semantic 0.632: meaningful=['paul'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "paul"
+      ],
+      "final_video_allowed": true,
+      "use_as": "narration_support",
+      "text": "The documents the draft paper we have in the folder as well there is also a survey that is available to you to take to share your feedback on you know what you think AI will look like and will need to look like in the Caribbean so we're inviting everybody who can hear this recording today. To share your feedback that you have on AI and best practices for AI so that we can incorporate that into the document and our policy roadmap that we have for the future and with that I believe that is the end of the presentation. The QR code you see on the screen you can scan that and get right into the survey documents with that Paul I have done with my presentation."
+    }
+  ],
+  "supporting_candidates": [
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0006",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 322.7,
+      "end": 376.7,
+      "duration": 54.0,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "I'm a researcher and expert on the future of work AI in the Caribbean and software for big business.",
+      "keywords": [
+        "information accessibility",
+        "ethics",
+        "policy",
+        "accessibility",
+        "information",
+        "conference",
+        "unesco",
+        "caribbean",
+        "i'm",
+        "expert"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.613078,
+      "prompt_relevance_score": 0.705478,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "paul"
+      ],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['paul'], theme=[], expanded=[]",
+      "meaningful_prompt_overlap": [
+        "paul"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "I'm a researcher and expert on the future of work AI in the Caribbean and software for big business. I'm also a member of the UNESCO information for all program working group on information accessibility, the team that's putting on the conference today. And also a member of UNESCO expert group on the implementation of the recommendations on the ethics of AI Paul alluded to that to that instrument. For the last two years from 2020 to 2022, I was the chair of the Institute of electrical and electronics engineers here in Jamaica. And it's been my pleasure really to work on this UNESCO Caribbean AI policy roadmap from back in 2021 and also being engaged with UNESCO Caribbean office on the..."
+    }
+  ],
+  "context_candidates": [
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0018",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 1113.98,
+      "end": 1177.94,
+      "duration": 63.96,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "We can see this clearly reflected in a number of the quotes, which they have shared with us.",
+      "keywords": [
+        "disinformation",
+        "misinformation",
+        "caribbean",
+        "language",
+        "cultural",
+        "dialogue",
+        "one",
+        "based",
+        "new",
+        "another"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.689674,
+      "prompt_relevance_score": 0.722674,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.690 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "We can see this clearly reflected in a number of the quotes, which they have shared with us. For example, one of the dimensions that the most promising opportunity that AI offers to make an offer is the ability to create many movies based on their stories. AI opened new possibilities in new fields of endeavor. They also, another one mentions AI systems often generate content based on global data that overlooks all this represents Caribbean history, dialogue, tradition, and perspectives. So again, concerns about misinformation, disinformation, a similar, along similar lines. Another author expressed the so on that AI could promote cultural homogenization and others, you know, here's a..."
+    },
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0005",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 252.04,
+      "end": 323.19,
+      "duration": 71.15,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "AI can boost creativity in areas such as tourism, media, and the arts.",
+      "keywords": [
+        "youth",
+        "policy",
+        "creative",
+        "arts",
+        "culture",
+        "creativity",
+        "heritage",
+        "media",
+        "news",
+        "content"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.674585,
+      "prompt_relevance_score": 0.711785,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.675 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "AI can boost creativity in areas such as tourism, media, and the arts. This is really crucial in helping to keep the region's heritage alive and of course relevant to its youth and also to persons outside the region. Now, some key areas for policy action and intervention within this pillar include, for example, looking at digitizing and protecting culture heritage, updating laws so that Caribbean artists can own and control the digital creations of both teaching people, including artists about the creative news is to which AI and various AI tools can be can be put to work. And of course, promoting safe ethical and respect respectful AI use as part of this. It's also crucial to thinking..."
+    },
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0014",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 825.46,
+      "end": 898.96,
+      "duration": 73.5,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "I guess as we move further in this survey, with more data and of course surely exploratory interviews that we have for the long and long interviews, we will gain more and more insights.",
+      "keywords": [
+        "media",
+        "content",
+        "authors",
+        "poets",
+        "course",
+        "using",
+        "interviews",
+        "long",
+        "incomes",
+        "work"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.662513,
+      "prompt_relevance_score": 0.690713,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.663 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "I guess as we move further in this survey, with more data and of course surely exploratory interviews that we have for the long and long interviews, we will gain more and more insights. We're also of course quite interested in understanding how AI was impacting the incomes and all the perceptions of the incomes among these authors and poets. So of course one of the things that we of course looked into very much the use of AI and we found that at least 60% of respondents using AI in the work. And we saw a range of uses, for example, some of them were using it for brainstorming ideas, others for translating content into other languages. We saw some authors and poets using it for anything and..."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0014",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 782.87,
+      "end": 842.32,
+      "duration": 59.45,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "How are we going to be using AI across various industry sectors how do we use AI potentially to support sustainability in the area of climate change.",
+      "keywords": [
+        "policy",
+        "creative",
+        "music",
+        "creativity",
+        "principles",
+        "economic",
+        "caribbean",
+        "industry",
+        "climate",
+        "sustainability"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.660868,
+      "prompt_relevance_score": 0.697468,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.661 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "How are we going to be using AI across various industry sectors how do we use AI potentially to support sustainability in the area of climate change. And the fourth principle here is around preservation and creativity and safeguarding the unique Caribbean identity that we have here in the region we're very creative human centric in our music our film. And so we know AI has the possibility to cannibalize creativity copy creativity so we should be thinking about what we can do to preserve our creativity here in the Caribbean and not only preserve preserve it and use it in the future for economic and social development. All right, now we're going to go into each of the principles and get a..."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0020",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 1156.59,
+      "end": 1237.68,
+      "duration": 81.09,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "In terms of the products that we have even products in the industry sectors such as agriculture and tourism and hospitality medicine communication we should be looking at how AI will help us to become more...",
+      "keywords": [
+        "agriculture",
+        "creativity",
+        "cultural",
+        "heritage",
+        "medicine",
+        "sustainability",
+        "caribbean",
+        "industry",
+        "citizens",
+        "looking"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.650398,
+      "prompt_relevance_score": 0.686998,
+      "selection_score": null,
+      "relevance_role": "contextual",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Broad semantic similarity 0.650 only, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "context_only",
+      "text": "In terms of the products that we have even products in the industry sectors such as agriculture and tourism and hospitality medicine communication we should be looking at how AI will help us to become more efficient. And then of being able to being able to make sure that we can implement those changes that we have going on around resiliency and sustainability. And again take international collaboration here but we should be looking at how we use AI to digitally transform our industries making sure that we can benefit the citizens of the region. And principle number four which is kind of unique I think for the region but really we should be focusing on preservation of our human creativity..."
+    }
+  ],
+  "rejected_candidates": [
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0008",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 445.11,
+      "end": 506.71,
+      "duration": 61.6,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "So I think the Caribbean we cannot ignore the opportunity for artificial intelligence here.",
+      "keywords": [
+        "artificial intelligence",
+        "education",
+        "health",
+        "food security",
+        "economy",
+        "economic",
+        "caribbean",
+        "industry",
+        "agricultural",
+        "security"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.599465,
+      "prompt_relevance_score": 0.645065,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.599, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "So I think the Caribbean we cannot ignore the opportunity for artificial intelligence here. We have a number that says that by 2030 AI is going to contribute about 15.7 trillion dollars to the global economy and 26% of that boost is going to be in local economies from 2030. We do know that AI and ML can stimulate economic growth foster better education and skill development enhance industry sectors such as health care and contribute to agricultural and food security. In the Caribbean because we have challenges in many of these areas, it's going to be important that we try to look to AI as a level setting tool for us to be able to increase that economic potential and social development of..."
+    },
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0024",
+      "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+      "video_id": "5OeVuMjEAUs",
+      "start": 1401.22,
+      "end": 1445.22,
+      "duration": 44.0,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "The ethical and regulatory frameworks is an important part of that we see that around the world that's actually the area that a lot of the countries are starting around is the ethical and regulatory frameworks...",
+      "keywords": [
+        "governance",
+        "policy",
+        "ethical",
+        "privacy",
+        "protection",
+        "around",
+        "regulatory",
+        "frameworks",
+        "data",
+        "world"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.85,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.595707,
+      "prompt_relevance_score": 0.632907,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.596, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "The ethical and regulatory frameworks is an important part of that we see that around the world that's actually the area that a lot of the countries are starting around is the ethical and regulatory frameworks we have some great examples about what's going on in the EU right now with the EU act. The US is also trying to you know co less around their policy for AI so we have lots of really good examples of ethical and regulatory frameworks happening around the world that I think we can leverage again if data is the oil and gas for AI we have to really be serious about data our data strategies our governance the privacy protection."
+    },
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0009",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 523.71,
+      "end": 584.73,
+      "duration": 61.02,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "And we are also seeing that Jordan authors, also writing the variety of languages, English, French, Spanish, Dutch, up your mentor, Saran, Tongo.",
+      "keywords": [
+        "caribbean",
+        "diversity",
+        "poetry",
+        "authors",
+        "course",
+        "region",
+        "involved",
+        "see",
+        "ages"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.591561,
+      "prompt_relevance_score": 0.628761,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.592, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "And we are also seeing that Jordan authors, also writing the variety of languages, English, French, Spanish, Dutch, up your mentor, Saran, Tongo. And of course, the various Creoles and partners across the region. And this is very important because it points to the diversity of the region. And of course, the Caribbean's legacy as a point of interaction, intersectionality between cultures, religions, trade and so much more. So we thought it would be quite interesting to understand, you know, what age range of persons are involved in poetry and authorship. And what we see is that Caribbean people of all ages are involved in the true activities. Otherwise, you can see from the graph, most of..."
+    },
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0008",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 464.69,
+      "end": 523.71,
+      "duration": 59.02,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "Of course, by capturing these perceptions about AI related novel showing fees and risk as well as needs, these insights will give us a bigger picture.",
+      "keywords": [
+        "risk",
+        "caribbean",
+        "authors",
+        "poets",
+        "women",
+        "diverse",
+        "course",
+        "far",
+        "respondents"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.589615,
+      "prompt_relevance_score": 0.622015,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.590, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "Of course, by capturing these perceptions about AI related novel showing fees and risk as well as needs, these insights will give us a bigger picture. And of course, enable UNESCO to develop targeted programs which can help in terms of creating more opportunities and of course addressing the risk that potentially impact this. So far, this survey chooses on the 25th of October has already reached a diverse group of some 55 Caribbean authors. Interestingly, we found that women, so far seem to form the majority of the respondents and appear to make up the bulk of Caribbean poets and authors. So far from our study, we are seeing that something like 78% of the respondents are human, 22% male."
+    },
+    {
+      "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0013",
+      "source_video": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets",
+      "video_id": "v7JyLZIfxPw",
+      "start": 765.01,
+      "end": 825.46,
+      "duration": 60.45,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+      "summary": "So the easier comparability across the Caribbean islands, which are of course different types of the size, capital income, et cetera.",
+      "keywords": [
+        "poetry",
+        "authors",
+        "caribbean",
+        "poets",
+        "income",
+        "comparability",
+        "specific",
+        "number",
+        "see"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "semantic_score": 0.586871,
+      "prompt_relevance_score": 0.615071,
+      "selection_score": null,
+      "relevance_role": "reject",
+      "prompt_keyword_overlap": [],
+      "requested_speaker": "Paul Hector",
+      "speaker_match": true,
+      "speaker_match_reason": "source_video contains Paul Hector",
+      "speaker_clip_allowed": false,
+      "broll_allowed": false,
+      "relevance_reason": "Low semantic 0.587, no topic overlap",
+      "meaningful_prompt_overlap": [],
+      "final_video_allowed": false,
+      "use_as": "reject",
+      "text": "So the easier comparability across the Caribbean islands, which are of course different types of the size, capital income, et cetera. And for comparability with authors from the Caribbean living in the diaspora, we thought it would be easiest to explore borrowings from poetry and authorship as a percentage of the overall income. That is of the specific author point, rather than looking at a specific number. When we look at their incomes, what we see is that most authors survey around less than 10% of the income from writing or poetry. This was a bit surprising as quite a number of the authors and poets have been practicing their craft for more than five years. So we did see that there's a..."
+    }
+  ],
+  "storyline": {
+    "title": "Paul Hector: Exploring AI's Impact on Caribbean Creativity",
+    "logline": "Discover how Paul Hector, UNESCO's regional office advisor, envisions AI's role in shaping the Caribbean's creative sector.",
+    "style": "National Geographic-style documentary explainer",
+    "target_duration_seconds": 60,
+    "estimated_duration_seconds": 59,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "low_evidence_speaker_brief",
+      "evidence_strength": "low",
+      "exact_clip_count": 2,
+      "related_clip_count": 4,
+      "strong_related_count": 4,
+      "usable_speaker_clip_count": 1,
+      "rejected_clip_count": 10,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 2,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI Ethics, Governance & Policy",
+        "AI in Education & Creative Industries"
+      ],
+      "chapter_coverage": [
+        "Ch 20: AI in Creative Arts, Music & Culture",
+        "Ch 3: AI Policy, Regulation & Legislation",
+        "Ch 5: Open Data & Information Accessibility",
+        "Ch 8: Regional & Satellite Conference Events",
+        "Ch 9: AI Equity in the Global South & Developing Nations"
+      ],
+      "average_similarity": 0.644195,
+      "average_quote_strength": 0.587143,
+      "recommended_structure": [
+        "opening_context",
+        "available_evidence_clip",
+        "evidence_gap_narration",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "medium",
+      "planning_notes": [
+        "Limited archive evidence was found for Paul Hector. The video uses only available Paul Hector clips and does not include unrelated speakers.",
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ],
+      "requested_speaker": "Paul Hector"
+    },
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 5,
+        "director_role": "opening_context",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Welcome to the Artificial Intelligence for International Accessibility Conference. Today, we'll explore how AI is impacting the Caribbean's creative sector.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0001",
+            "usage": "background_visual",
+            "start": 2.26,
+            "end": 10.42,
+            "reason": "sets the context for Paul Hector's talk"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Paul Hector: Exploring AI's Impact on Caribbean Creativity",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 15,
+        "director_role": "related_theme_clip",
+        "evidence_role": "strong_related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "Paul Hector, UNESCO's regional office advisor, shares his insights on AI's impact on the Caribbean's creative sector.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+            "usage": "context_visual",
+            "start": 2.1,
+            "end": 17.76,
+            "reason": "provides context for Paul Hector's talk"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+            "start": 2.1,
+            "end": 17.76,
+            "quote_summary": "Paul Hector introduces himself and the topic of AI's impact on the Caribbean's creative sector.",
+            "reason": "sets the stage for Paul Hector's talk"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 10,
+        "director_role": "evidence_gap_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "However, there are concerns about the impact of AI on the Caribbean's creative sector. What does this mean for the region's artists and creators?",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "representing AI's impact on creativity",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 15,
+        "director_role": "available_evidence_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Paul Hector shares his thoughts on the importance of safeguarding Caribbean creativity in the face of AI.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0022",
+            "usage": "evidence_visual",
+            "start": 1293.68,
+            "end": 1308.22,
+            "reason": "highlights Paul Hector's concerns about AI's impact on creativity"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0022",
+            "start": 1293.68,
+            "end": 1308.22,
+            "quote_summary": "Paul Hector emphasizes the need to safeguard Caribbean creativity in the face of AI.",
+            "reason": "supports the narrative"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 10,
+        "director_role": "related_governance_clip",
+        "evidence_role": "strong_related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "UNESCO's Caribbean AI Policy Roadmap aims to address these concerns and ensure that AI benefits the region's creative sector.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0005",
+            "usage": "context_visual",
+            "start": 257.78,
+            "end": 272.7,
+            "reason": "provides context for the policy roadmap"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0005",
+            "start": 257.78,
+            "end": 272.7,
+            "quote_summary": "Paul Hector discusses the importance of a regional approach to addressing AI's impact on creativity.",
+            "reason": "supports the narrative"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 10,
+        "director_role": "synthesis_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "By working together, we can ensure that AI benefits the Caribbean's creative sector and promotes sustainable development.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "representing collaboration and innovation",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 5,
+        "director_role": "closing_takeaway",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Join us in exploring the potential of AI to shape a brighter future for the Caribbean's creative sector.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0001",
+            "usage": "background_visual",
+            "start": 2.26,
+            "end": 10.42,
+            "reason": "closes the narrative"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Paul Hector: Exploring AI's Impact on Caribbean Creativity",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to the Artificial Intelligence for International Accessibility Conference. Today, we'll explore how AI is impacting the Caribbean's creative sector.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "Paul Hector, UNESCO's regional office advisor, shares his insights on AI's impact on the Caribbean's creative sector.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "However, there are concerns about the impact of AI on the Caribbean's creative sector. What does this mean for the region's artists and creators?",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "Paul Hector shares his thoughts on the importance of safeguarding Caribbean creativity in the face of AI.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "UNESCO's Caribbean AI Policy Roadmap aims to address these concerns and ensure that AI benefits the region's creative sector.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "By working together, we can ensure that AI benefits the Caribbean's creative sector and promotes sustainable development.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "Join us in exploring the potential of AI to shape a brighter future for the Caribbean's creative sector.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+        "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+        "start": 2.1,
+        "end": 17.76,
+        "quote_summary": "Paul Hector introduces himself and the topic of AI's impact on the Caribbean's creative sector.",
+        "use_in_section": "S2"
+      },
+      {
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0022",
+        "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+        "start": 1293.68,
+        "end": 1308.22,
+        "quote_summary": "Paul Hector emphasizes the need to safeguard Caribbean creativity in the face of AI.",
+        "use_in_section": "S4"
+      },
+      {
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0005",
+        "source_video": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap",
+        "start": 257.78,
+        "end": 272.7,
+        "quote_summary": "Paul Hector discusses the importance of a regional approach to addressing AI's impact on creativity.",
+        "use_in_section": "S5"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0001",
+        "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+        "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0022",
+        "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0005"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "Paul Hector: Exploring AI's Impact on Caribbean Creativity"
+        },
+        {
+          "asset_type": "abstract_ai_visual",
+          "description": "representing AI's impact on creativity"
+        },
+        {
+          "asset_type": "abstract_ai_visual",
+          "description": "representing collaboration and innovation"
+        }
+      ],
+      "internet_assets": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "fragment_id": "",
+        "duration_seconds": 5,
+        "description": "Opening narration"
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S1",
+        "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0001",
+        "duration_seconds": 8.16,
+        "description": "Background visual for opening narration"
+      },
+      {
+        "order": 3,
+        "timeline_type": "voiceover",
+        "section_id": "S2",
+        "fragment_id": "",
+        "duration_seconds": 15,
+        "description": "Narration introducing Paul Hector"
+      },
+      {
+        "order": 4,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+        "duration_seconds": 15.66,
+        "description": "Context visual for Paul Hector's introduction"
+      },
+      {
+        "order": 5,
+        "timeline_type": "speaker_clip",
+        "section_id": "S2",
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0001",
+        "duration_seconds": 15.66,
+        "description": "Paul Hector introduces himself"
+      },
+      {
+        "order": 6,
+        "timeline_type": "voiceover",
+        "section_id": "S3",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "Narration highlighting concerns about AI's impact on creativity"
+      },
+      {
+        "order": 7,
+        "timeline_type": "generated_card",
+        "section_id": "S3",
+        "fragment_id": "",
+        "duration_seconds": 5,
+        "description": "Abstract AI visual representing AI's impact on creativity"
+      },
+      {
+        "order": 8,
+        "timeline_type": "voiceover",
+        "section_id": "S4",
+        "fragment_id": "",
+        "duration_seconds": 15,
+        "description": "Narration introducing Paul Hector's thoughts on safeguarding Caribbean creativity"
+      },
+      {
+        "order": 9,
+        "timeline_type": "archive_visual",
+        "section_id": "S4",
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0022",
+        "duration_seconds": 14.54,
+        "description": "Evidence visual for Paul Hector's thoughts on safeguarding creativity"
+      },
+      {
+        "order": 10,
+        "timeline_type": "speaker_clip",
+        "section_id": "S4",
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0022",
+        "duration_seconds": 14.54,
+        "description": "Paul Hector emphasizes the need to safeguard Caribbean creativity"
+      },
+      {
+        "order": 11,
+        "timeline_type": "voiceover",
+        "section_id": "S5",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "Narration introducing UNESCO's Caribbean AI Policy Roadmap"
+      },
+      {
+        "order": 12,
+        "timeline_type": "archive_visual",
+        "section_id": "S5",
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0005",
+        "duration_seconds": 14.92,
+        "description": "Context visual for UNESCO's policy roadmap"
+      },
+      {
+        "order": 13,
+        "timeline_type": "speaker_clip",
+        "section_id": "S5",
+        "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0005",
+        "duration_seconds": 14.92,
+        "description": "Paul Hector discusses the importance of a regional approach"
+      },
+      {
+        "order": 14,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "fragment_id": "",
+        "duration_seconds": 10,
+        "description": "Narration highlighting the need for collaboration and innovation"
+      },
+      {
+        "order": 15,
+        "timeline_type": "generated_card",
+        "section_id": "S6",
+        "fragment_id": "",
+        "duration_seconds": 5,
+        "description": "Abstract AI visual representing collaboration and innovation"
+      },
+      {
+        "order": 16,
+        "timeline_type": "voiceover",
+        "section_id": "S7",
+        "fragment_id": "",
+        "duration_seconds": 5,
+        "description": "Closing narration"
+      },
+      {
+        "order": 17,
+        "timeline_type": "archive_visual",
+        "section_id": "S7",
+        "fragment_id": "0029_v7JyLZIfxPw_Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets_0001",
+        "duration_seconds": 8.16,
+        "description": "Background visual for closing narration"
+      }
+    ],
+    "editor_notes": [
+      "Please ensure that the abstract AI visuals are consistent in style and tone throughout the video.",
+      "Consider adding more context about UNESCO's Caribbean AI Policy Roadmap to provide a clearer understanding of its goals and objectives."
+    ],
+    "planning_summary": {
+      "video_mode": "low_evidence_speaker_brief",
+      "evidence_strength": "low",
+      "exact_clip_count": 2,
+      "related_clip_count": 4,
+      "strong_related_count": 4,
+      "usable_speaker_clip_count": 1,
+      "rejected_clip_count": 10,
+      "fallback_risk": "medium",
+      "planning_notes": [
+        "Limited archive evidence was found for Paul Hector. The video uses only available Paul Hector clips and does not include unrelated speakers.",
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    }
+  }
+}

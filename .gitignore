@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+
+# Logs / temp
+logs/
+temp/
+tmp/
+*.log
+*.tmp
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# AI4IA heavy generated/runtime data
+data/raw/
+data/audio/
+data/videos/
+data/exports/
+data/generated_assets/
+data/embeddings/
+data/transcripts/
+data/fragments/
+data/processed/
+data/cache/
+
+# Large media files anywhere
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.aac
+
+# Large model / vector artifacts
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.bin
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# Reports/generated artifacts that can be recreated
+*_qa_report.json
+*_export_manifest.json
+transcription_report.csv
+fragment_creation_report.csv
+embedding_generation_report.csv
+
+# Keep folders if needed
+!data/.gitkeep
+!data/**/.gitkeep
+
+# Subtitle files generated from videos
+*.srt
+*.vtt
+data/subtitles/
+
+# Backup files
+*.bak

@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_055412_f4dddd00",
+  "type": "generate_storyline",
+  "status": "failed",
+  "progress": 100,
+  "created_at": "2026-06-16T05:54:12.163167",
+  "started_at": "2026-06-16T05:54:12.164250",
+  "completed_at": "2026-06-16T06:18:43.931672",
+  "payload": {
+    "prompt": "Create a 3-minute documentary on AI inclusion, youth empowerment, access to information, and responsible governance.",
+    "duration": 180,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_055412_f4dddd00.log",
+  "result_path": null,
+  "error": "Script failed with exit code -2"
+}

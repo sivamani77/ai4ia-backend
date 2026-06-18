@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260617_122500_35d5a395",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-17T12:25:00.416915",
+  "started_at": "2026-06-17T12:25:00.418793",
+  "completed_at": "2026-06-17T12:26:20.720784",
+  "payload": {
+    "prompt": "Create a video on what codrel green spoke on all the themes",
+    "duration": 120,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260617_122500_35d5a395.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260617_175620.json",
+  "error": null
+}

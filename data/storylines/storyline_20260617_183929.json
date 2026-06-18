@@ -1,0 +1,1939 @@
+{
+  "created_at": "2026-06-17T13:09:29.150021",
+  "user_prompt": "Create a video on AI inclusion, youth empowerment, access to information, and responsible governance.",
+  "prompt_intent": {
+    "intent_type": "topic_summary",
+    "requested_speaker": null,
+    "topic_terms": [
+      "access",
+      "empowerment",
+      "governance",
+      "inclusion",
+      "responsible",
+      "youth"
+    ],
+    "theme": "AI Ethics, Governance & Policy",
+    "chapter": null,
+    "scope": "specific_topic"
+  },
+  "target_duration_seconds": 180,
+  "style": "documentary",
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "llama3.1:70b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/home/ash/ai4ia-demo-pipeline/data/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/home/ash/ai4ia-demo-pipeline/data/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 135,
+    "selected_candidate_count": 24,
+    "supporting_candidate_count": 1,
+    "context_candidate_count": 0,
+    "rejected_candidate_count": 0,
+    "top_semantic_score": 0.775816
+  },
+  "candidate_bucket_summary": {
+    "selected": 24,
+    "supporting": 1,
+    "context": 0,
+    "rejected": 0,
+    "selected_cap": 24,
+    "pre_cap_count": 35,
+    "cap_reason": "target_duration_seconds=180"
+  },
+  "candidate_contract": {
+    "selected_candidates": "final-video-safe evidence only",
+    "supporting_candidates": "narration support only — not for speaker soundbites",
+    "context_candidates": "background/context only — not for final video",
+    "rejected_candidates": "not for final video"
+  },
+  "planning_summary": {
+    "video_mode": "speaker_led_documentary",
+    "evidence_strength": "high",
+    "exact_clip_count": 24,
+    "related_clip_count": 0,
+    "strong_related_count": 0,
+    "usable_speaker_clip_count": 20,
+    "usable_speaker_visual_count": 0,
+    "supporting_candidate_count": 1,
+    "context_candidate_count": 0,
+    "rejected_clip_count": 0,
+    "fallback_risk": "low",
+    "planning_notes": [
+      "Speaker diversity is limited, so narration carries more of the connective explanation."
+    ]
+  },
+  "validation_issues": [],
+  "selected_candidates": [
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 63.2,
+      "end": 131.37,
+      "duration": 68.17,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Access to information is not simply about connectivity or technology.",
+      "keywords": [
+        "access to information",
+        "youth",
+        "education",
+        "information",
+        "knowledge",
+        "inclusive",
+        "empowerment",
+        "early warning",
+        "accountability",
+        "civic"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.775816,
+      "prompt_relevance_score": 1.011416,
+      "selection_score": 1.096906,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access",
+        "youth",
+        "empowerment"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['access', 'youth', 'empowerment']) + semantic 0.776",
+      "meaningful_prompt_overlap": [
+        "access",
+        "youth",
+        "empowerment"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only if it is inclusive, transparent and trusted. Even Zimbabwean, we face a dual imperative. The agent needs to address access to information for all and the necessity of empowering our youth with the skills and tools necessary to thrive in a digital era. AI can support more accurate modeling, improve early warning systems, Indian hands, communication, the same time, AI can also transform education, expand access to knowledge, and open new pathways for civic engagement. However, this requires..."
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0013",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "start": 718.02,
+      "end": 776.45,
+      "duration": 58.43,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "So without this informed users, governance loses power.",
+      "keywords": [
+        "access to information",
+        "governance",
+        "education",
+        "information",
+        "standards",
+        "responsibility",
+        "defense",
+        "world",
+        "totally",
+        "calling"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.721533,
+      "prompt_relevance_score": 0.882333,
+      "selection_score": 1.087823,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access",
+        "governance"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['access', 'governance']) + semantic 0.722",
+      "meaningful_prompt_overlap": [
+        "access",
+        "governance"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "access to information is totally incomplete. So without this informed users, governance loses power. So we are not calling for a world where everything would agree. We are just calling for a world where everyone is seen heard and protected. It's totally fragmented world. So Godrails would connect us. So let them be our shared responsibility and our shared defense. So if we really lack in such a kind of education, how these cognitive things would work and then if we're to represent me without this education, we're really just becoming by standards in our own life. So let me end with a small reflection. So the self is not just a data set actually, it is a contradiction, it is a change,"
+    },
+    {
+      "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0012",
+      "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+      "video_id": "cL04heQOsKo",
+      "start": 658.74,
+      "end": 718.7,
+      "duration": 59.96,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "We're going to need compute partnerships with different cloud providers or even for us to have our own hardware here in Jamaica, so buying GPUs for example.",
+      "keywords": [
+        "youth",
+        "ethics",
+        "policy",
+        "empowerment",
+        "research",
+        "training",
+        "jobs",
+        "values",
+        "jamaica",
+        "we're"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.716961,
+      "prompt_relevance_score": 1.078961,
+      "selection_score": 1.080451,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "youth",
+        "governance",
+        "empowerment"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker and requested theme matched.",
+      "meaningful_prompt_overlap": [
+        "youth",
+        "governance",
+        "empowerment"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "We're going to need compute partnerships with different cloud providers or even for us to have our own hardware here in Jamaica, so buying GPUs for example. And lastly, we can't forget this one policy and ethics. We'll be working with various groups across Jamaica to ensure that whatever that's created aligns with Jamaican laws and values. Now what are the benefits to Jamaica? We're talking skills training on youth empowerment. Now, we hear a lot about AI taking jobs, but if we embrace AI and we see the opportunity that exists, it can actually create jobs. It can empower people to gain new skills. So we'll have more jobs being created in AI, things like data, data labeling and research."
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0006",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 325.24,
+      "end": 393.34,
+      "duration": 68.1,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "of us with these new digital technologies, I now respect the youth.",
+      "keywords": [
+        "youth",
+        "governance",
+        "policy",
+        "inclusive",
+        "africa",
+        "ethical",
+        "knowledge",
+        "unesco",
+        "dialogue",
+        "panelists"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.731598,
+      "prompt_relevance_score": 0.962998,
+      "selection_score": 1.078488,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "responsible",
+        "access",
+        "youth",
+        "governance",
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['responsible', 'access', 'youth', 'governance', 'inclusion']) + semantic 0.732",
+      "meaningful_prompt_overlap": [
+        "responsible",
+        "access",
+        "youth",
+        "governance",
+        "inclusion"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "of us with these new digital technologies, I now respect the youth. Let's today's discussion, self-execord to action, for policy makers to embrace inclusive governance of AI, for academia and innovators to prioritize ethical and climate conscious applications, for the civil society to keep raising awareness on how technology intersects with rights and access. And for citizens to be an incentive to broaden your knowledge about AI. Through a more distinct hold approach, we can shape an AI ecosystem in our country, that is both technically advanced and socially responsible and where romantically sustainable and expert driven. I think the UNESCO original office for Southern Africa for convening..."
+    },
+    {
+      "fragment_id": "0040_u380jaSpZmY_Laura_Kupe_-_Unleashing_Africa_s_AI_Potential_-_From_Minerals_to_Innovation_0009",
+      "source_video": "0040_u380jaSpZmY_Laura_Kupe_-_Unleashing_Africa_s_AI_Potential_-_From_Minerals_to_Innovation",
+      "video_id": "u380jaSpZmY",
+      "start": 481.67,
+      "end": 539.15,
+      "duration": 57.48,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "Mobile money platforms are also again enabling financial inclusion without traditional banking infrastructure.",
+      "keywords": [
+        "governance",
+        "inclusion",
+        "empowerment",
+        "local capacity",
+        "infrastructure",
+        "enabling",
+        "building",
+        "technology",
+        "everyone",
+        "own"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.726634,
+      "prompt_relevance_score": 0.928634,
+      "selection_score": 1.074124,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "governance",
+        "empowerment",
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['governance', 'empowerment', 'inclusion']) + semantic 0.727",
+      "meaningful_prompt_overlap": [
+        "governance",
+        "empowerment",
+        "inclusion"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "Mobile money platforms are also again enabling financial inclusion without traditional banking infrastructure. These are building blocks of transformation proof that with the right approach, technology can indeed serve everyone. So how do we ensure AI-led growth reaches everyone? How do we prevent AI from becoming another tool of exclusion? That is a very important question. And I have some recommendations or enabling frameworks to help reshape that thinking. So one thing I think about is first, how can international governance models facilitate technology transfer? This can be done, in my opinion, by building local capacity. This isn't about dependence, it's about empowerment. Countries..."
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0014",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "start": 1290.23,
+      "end": 1364.36,
+      "duration": 74.13,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "Furthermore, AI can play crucial role in making content more accessible by automating the translation of text, generating subtitles for videos and by converting speech to text.",
+      "keywords": [
+        "content",
+        "information",
+        "unesco",
+        "equity",
+        "inclusion",
+        "inclusive",
+        "diversity",
+        "ethical",
+        "principles",
+        "dialogue"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.83,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.748767,
+      "prompt_relevance_score": 0.918567,
+      "selection_score": 1.074057,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access",
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['access', 'inclusion']) + semantic 0.749",
+      "meaningful_prompt_overlap": [
+        "access",
+        "inclusion"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "Furthermore, AI can play crucial role in making content more accessible by automating the translation of text, generating subtitles for videos and by converting speech to text. However, the benefits of AI can be fully realized only if we ensure that its development and application are guided by the principles of inclusivity, diversity and equity. This is where the work of UNESCO comes in through the information for our program and other UNESCO initiatives we aim to foster a global dialogue on the ethical use of AI and to promote the development of inclusive policies and practices. As we embark on the seminar, I extend my wishes for a fruitful and engaging seminar. May the ideas and..."
+    },
+    {
+      "fragment_id": "0168_0bfeuwvSKLA_Esther Ngamba - The impact of AI usage base on the digital rights of children between 6-12 years old_0005",
+      "source_video": "0168_0bfeuwvSKLA_Esther Ngamba - The impact of AI usage base on the digital rights of children between 6-12 years old",
+      "video_id": "0bfeuwvSKLA",
+      "start": 299.78,
+      "end": 376.06,
+      "duration": 76.28,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "For instance, in our country, Tanzania, the WAHR, that means we are the hope of WIRRINGA.",
+      "keywords": [
+        "misinformation",
+        "health",
+        "security",
+        "safety",
+        "knowledge",
+        "students",
+        "children",
+        "harm",
+        "classroom",
+        "session"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.8,
+      "semantic_score": 0.662662,
+      "prompt_relevance_score": 0.824062,
+      "selection_score": 1.063552,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "youth"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['youth']) + high semantic 0.663",
+      "meaningful_prompt_overlap": [
+        "youth"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "For instance, in our country, Tanzania, the WAHR, that means we are the hope of WIRRINGA. They are used to how they facilitate a connected classrooms campaign through a future classroom where students from the WIRRINGA shared and HRND ideas in the knowledge that they learn through the club session. Impacting of AI to children. AI is an important technology that can affect children's rights and their security in both positive and negative ways. Exposed children to online homes, such as sexual exploitation, misinformation, and radicalization. For example, Pono and their tertiary movies, this can harm children. Whereas it affected the mental health safety in their development. This may happen..."
+    },
+    {
+      "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0010",
+      "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
+      "video_id": "UuQ4vKFOdvM",
+      "start": 547.76,
+      "end": 605.39,
+      "duration": 57.63,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Artificial intelligence is not just a tool of efficiency.",
+      "keywords": [
+        "artificial intelligence",
+        "law",
+        "information",
+        "knowledge",
+        "inclusion",
+        "justice",
+        "accessible",
+        "tool",
+        "make"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.9,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.702883,
+      "prompt_relevance_score": 0.876883,
+      "selection_score": 1.062373,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access",
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['access', 'inclusion']) + semantic 0.703",
+      "meaningful_prompt_overlap": [
+        "access",
+        "inclusion"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "accessible information creates inequality. Accessible information builds justice. Artificial intelligence is not just a tool of efficiency. It is a tool of inclusion. It brings light into dark corners of knowledge and in doing so, it strengthens democracy, enterprise and society. So yes, I am a lawyer who spends part of the day with algorithms. But I believe if AI can make the law more accessible, it can make justice more real. And that to me is the most powerful case for why we must embrace AI thoughtfully. Thank you for giving me the opportunity to share my journey. And if anyone wants to know how to survive both regulators and investors with a little help from AI, my door is always open...."
+    },
+    {
+      "fragment_id": "0006_6hO-9e7hMCs_Lovely Tembani Fundisi - AI4IA 2025_0011",
+      "source_video": "0006_6hO-9e7hMCs_Lovely Tembani Fundisi - AI4IA 2025",
+      "video_id": "6hO-9e7hMCs",
+      "start": 647.38,
+      "end": 748.23,
+      "duration": 100.85,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "community center data collection, deep biasing techniques, the modeling core modules, then police framework for inclusive AI development.",
+      "keywords": [
+        "ethical",
+        "oversight",
+        "accountability",
+        "transparency",
+        "responsible ai",
+        "framework",
+        "language",
+        "cultural",
+        "heritage",
+        "inclusive"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.69624,
+      "prompt_relevance_score": 1.05764,
+      "selection_score": 1.05313,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "responsible",
+        "governance",
+        "empowerment"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker and requested theme matched.",
+      "meaningful_prompt_overlap": [
+        "responsible",
+        "governance",
+        "empowerment"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "community center data collection, deep biasing techniques, the modeling core modules, then police framework for inclusive AI development. There's also need again for intentional design and ethical oversight which is the best practice that any technologist or any AI module program should do to ensure these best practice for responsible AI. So mostly it is everyone decision to ensure that there's also transparency and explainability in terms of AI decisions, fostering human oversight and accountability, cultivating diverse inclusive development practices and in conclusion, it is really important that AI development, the future of AI for language and the most prioritized linguistic deficit...."
+    },
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 413.78,
+      "end": 467.42,
+      "duration": 53.64,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils.",
+      "keywords": [
+        "youth",
+        "policy",
+        "education",
+        "young people",
+        "ethical",
+        "creativity",
+        "innovation",
+        "employment",
+        "its",
+        "future"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.704818,
+      "prompt_relevance_score": 0.926218,
+      "selection_score": 1.051708,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "youth",
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['youth', 'inclusion']) + semantic 0.705",
+      "meaningful_prompt_overlap": [
+        "youth",
+        "inclusion"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils. Building a future that is not only smart, but also just and uniting African. In conclusion, the relationship between AI and the youth isn't a passive one. It's a dynamic dance. Yes, there are risks to employment and creativity that we must mitigate through education and policy, but the overwhelming narrative must be one of opportunity and agency. By empowering our youth with the right skills, ethical frameworks and platforms for innovation, we can ensure they are the architects of Zimbabwe's AI-powered future. Not just its subjects, thank you."
+    },
+    {
+      "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+      "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+      "video_id": "",
+      "start": 816.98,
+      "end": 863.09,
+      "duration": 46.11,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems.",
+      "keywords": [
+        "education",
+        "knowledge",
+        "empowerment",
+        "informed",
+        "role",
+        "lives",
+        "narratives",
+        "actively",
+        "shaping"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.75,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.72802,
+      "prompt_relevance_score": 0.92302,
+      "selection_score": 1.04851,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access",
+        "empowerment"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['access', 'empowerment']) + semantic 0.728",
+      "meaningful_prompt_overlap": [
+        "access",
+        "empowerment"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to make informed decisions about the role of technologies in their lives. Finally, we must recognize that the stories and narratives about AI have as much power as we give them by actively shaping these narratives and encouraging critical engagement. We can influence how AI is perceived, used and integrated in our lives. Our goal is not just to adapt to AI but to actively participate in shaping its role in society. Through education awareness empowerment, we can ensure that humans remain at the..."
+    },
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0002",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 55.8,
+      "end": 108.3,
+      "duration": 52.5,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "We are standing at a pivotal moment and our discussion today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it.",
+      "keywords": [
+        "youth",
+        "conference",
+        "unesco",
+        "young people",
+        "creativity",
+        "employment",
+        "many"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.701062,
+      "prompt_relevance_score": 0.891862,
+      "selection_score": 1.047352,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access",
+        "youth"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['access', 'youth']) + semantic 0.701",
+      "meaningful_prompt_overlap": [
+        "access",
+        "youth"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "We are standing at a pivotal moment and our discussion today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it. Many thanks to the conveners of the conference who are UNESCO, and thank you for giving us this incredible platform, that is AI for IA. Also, I want to thank UNESCO Rosa for inviting me as a panelist on the conference. It's a privilege to be here among many distinguished scholars to discuss a topic so close to my heart. Firstly, I'd like to talk about the risks and opportunities in terms of how AI affects the youth, employment and creativity. Let's address the elephant in the room first."
+    },
+    {
+      "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0009",
+      "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
+      "video_id": "zy45aKgJUiY",
+      "start": 945.9,
+      "end": 1019.99,
+      "duration": 74.09,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "and social events all aimed at fostering dialogue on artificial intelligence, information accessibility, and the media's critical role in advocating for media and information literacy among professionals and the broader public.",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "accessibility",
+        "media",
+        "information",
+        "inclusive",
+        "literacy",
+        "panel",
+        "dialogue",
+        "event"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.696527,
+      "prompt_relevance_score": 0.797927,
+      "selection_score": 1.043417,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['access']) + high semantic 0.697",
+      "meaningful_prompt_overlap": [
+        "access"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "and social events all aimed at fostering dialogue on artificial intelligence, information accessibility, and the media's critical role in advocating for media and information literacy among professionals and the broader public. This event marks a milestone as we convene the first in situ panel for AI for IA, and we are proud to have such a large and diverse panel of experts with us. We have intentionally structured this as an interactive conversation style panel to ensure that no voice is left behind and that everyone has the opportunity to engage and contribute meaningfully to these discussions. We believe this inclusive approach is key to advancing our understanding and collective action..."
+    },
+    {
+      "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0027",
+      "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
+      "video_id": "MVEKzZJ2t58",
+      "start": 1875.45,
+      "end": 1930.45,
+      "duration": 55.0,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "And in this presentation, I'll try to explore how AI can improve citizens access to information under these laws and how it can aid in the better implementation of such laws in practice.",
+      "keywords": [
+        "access to information",
+        "information",
+        "citizens",
+        "services",
+        "access",
+        "presentation",
+        "improve",
+        "laws",
+        "technology",
+        "think"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.711145,
+      "prompt_relevance_score": 0.811945,
+      "selection_score": 1.027435,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['access']) + high semantic 0.711",
+      "meaningful_prompt_overlap": [
+        "access"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "And in this presentation, I'll try to explore how AI can improve citizens access to information under these laws and how it can aid in the better implementation of such laws in practice. And the one thing I would like to emphasize in this presentation, and I hope to prove my point, is that when we're talking about access to information and AI, as for any other technology, I think we really need to approach it as an enabler to achieve a goal, which is access to information. So the technology and AI is not the goal in itself. It basically exists to improve services and people's life. And I think this is something that should guide our decisions towards it."
+    },
+    {
+      "fragment_id": "0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information_0010",
+      "source_video": "0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information",
+      "video_id": "4h5HbeOFkIk",
+      "start": 482.02,
+      "end": 532.14,
+      "duration": 50.12,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "As we continue to develop AI systems, we also have to ensure that they're built with fairness, transparency, and accountability at their core.",
+      "keywords": [
+        "access to information",
+        "information",
+        "transparency",
+        "accountability",
+        "fairness",
+        "healthcare",
+        "responsibility",
+        "innovation",
+        "continue",
+        "all"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.710087,
+      "prompt_relevance_score": 0.810887,
+      "selection_score": 1.026377,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['access']) + high semantic 0.710",
+      "meaningful_prompt_overlap": [
+        "access"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "Whether it is hiring, lending, or healthcare. As we continue to develop AI systems, we also have to ensure that they're built with fairness, transparency, and accountability at their core. The power of AI is immense. There's no second thoughts about it, but it must be harnessed responsibility, too. We all have to have a collective responsibility to make sure that AI remains a force for good, one that blifts all of society and not just a select few. So in my conclusion, as we look to the future, it's clear that generative AI and AI in general, will continue to close the gap between those with access to information and those without. It will continue to bridge the divide between industries,..."
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0005",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 235.42,
+      "end": 301.24,
+      "duration": 65.82,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "It lowers the barriers to entry, allowing more young people to become creators, builders, and entrepreneurs.",
+      "keywords": [
+        "misinformation",
+        "youth",
+        "young people",
+        "ethical",
+        "bias",
+        "young innovators",
+        "diverse",
+        "african faces",
+        "communities",
+        "young"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.77,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.704396,
+      "prompt_relevance_score": 0.930596,
+      "selection_score": 1.026086,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "youth",
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['youth', 'inclusion']) + semantic 0.704",
+      "meaningful_prompt_overlap": [
+        "youth",
+        "inclusion"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "with new sounds rooted in beer rhythms. AI does not kill creativity. It democratizes it. It lowers the barriers to entry, allowing more young people to become creators, builders, and entrepreneurs. The opportunity is to move from being passive consumers of global tech to active creators of local solutions. Secondly, I will discuss the role of young innovators in developing ethical AI solutions. Why must the youth lead just this charge? It's because the ethical challenges of AI, which are bias, privacy, misinformation, they are not abstract. They have real world consequences and if AI is built by a homogeneous group without diverse perspectives, it will bake in their biases. We've seen..."
+    },
+    {
+      "fragment_id": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2_0001",
+      "source_video": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2",
+      "video_id": "M1pldnhhORc",
+      "start": 0.5,
+      "end": 80.02,
+      "duration": 79.52,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "artificial intelligence is no longer an abstract or futuristic concept it is shaping the way we learn, communicate, gather and even tackle some of the world's most pressing challenges.",
+      "keywords": [
+        "artificial intelligence",
+        "national ai strategy",
+        "ethics",
+        "environment",
+        "inclusion",
+        "inclusive",
+        "young people",
+        "ethical",
+        "strategy",
+        "unesco"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.653803,
+      "prompt_relevance_score": 0.819403,
+      "selection_score": 1.024893,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Non-generic expanded overlap (['young', 'regulation', 'policy']) + semantic 0.654",
+      "meaningful_prompt_overlap": [
+        "inclusion"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "artificial intelligence is no longer an abstract or futuristic concept it is shaping the way we learn, communicate, gather and even tackle some of the world's most pressing challenges. As the Zimbabwe National Commission for UNESCO we are committed to creating platforms where young people can contribute to shaping ethical, sustainable and inclusive AI policies. AI is not in everybody's physical environment because we have already missed the inclusion bus. UNESCO has been working closely with the government on the national AI strategy and it's hard to see the emphasis on inclusion, ethics and local capacity because it's not just about having the latest technology in Zimbabwe it's about..."
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0007",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 361.9,
+      "end": 420.94,
+      "duration": 59.04,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "safe spaces to experiment, to fail, to unlearn.",
+      "keywords": [
+        "governance",
+        "policy",
+        "young people",
+        "indigenous",
+        "generation",
+        "young innovators",
+        "innovation",
+        "crop",
+        "local",
+        "must"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.6,
+      "semantic_score": 0.702595,
+      "prompt_relevance_score": 0.963395,
+      "selection_score": 1.014885,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "youth",
+        "governance",
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Strong meaningful overlap (['youth', 'governance', 'inclusion']) + semantic 0.703",
+      "meaningful_prompt_overlap": [
+        "youth",
+        "governance",
+        "inclusion"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "safe spaces to experiment, to fail, to unlearn. This means supporting local hackathons, incubators, and innovation hubs focused on solving African problems, like using AI for drug-resistant crop analysis, diagnosing local diseases, or preserving indigenous languages. Then we need to demand a seat at the table. Finally, we must encourage young innovators to not just build apps, but to actively engage in policy discussions. They must be in the room when regulations are drafted to ensure their voices shape the governance of technology that will define their lives. So the goal is to foster a generation of techno optimists with a critical lens. Young people who are excited by AI's potential, but..."
+    },
+    {
+      "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0033",
+      "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+      "video_id": "xmkczLmiOf0",
+      "start": 2029.14,
+      "end": 2109.14,
+      "duration": 80.0,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+      "summary": "So why are these AI factories and this is something so let's stick with this new initiative.",
+      "keywords": [
+        "policy",
+        "research",
+        "innovation",
+        "public sector",
+        "science",
+        "infrastructure",
+        "access",
+        "users",
+        "activities",
+        "factories"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.643005,
+      "prompt_relevance_score": 0.968605,
+      "selection_score": 1.014095,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access",
+        "governance"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker and requested theme matched.",
+      "meaningful_prompt_overlap": [
+        "access",
+        "governance"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "So why are these AI factories and this is something so let's stick with this new initiative. So why are they important to the questions already being raised. The first one I think is clear in clear connection to the questions Stefan raised the access issues and the access to infrastructure. So these AI factories part of the coal and part of the obligations they were launched is a very strict access policy. This access policy is about the usage of free of charge for users from the public sector, for industrial users, for applications related to research and innovation activities and for SMEs. Private innovation activities. Also this access policy forces open science approach, except to SMEs..."
+    },
+    {
+      "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+      "source_video": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future",
+      "video_id": "aCcsjR1b87M",
+      "start": 173.98,
+      "end": 213.0,
+      "duration": 39.02,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "summary": "we anchor AI governance to what is currently accepted, we risk reinforcing the very systems that we're trying to improve.",
+      "keywords": [
+        "governance",
+        "policy",
+        "education",
+        "ethical",
+        "transparency",
+        "framework",
+        "risk",
+        "students",
+        "teachers",
+        "build"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.76,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.677467,
+      "prompt_relevance_score": 0.943067,
+      "selection_score": 0.998557,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "governance"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": true,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": true,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker and requested theme matched.",
+      "meaningful_prompt_overlap": [
+        "governance"
+      ],
+      "final_video_allowed": true,
+      "use_as": "speaker_soundbite",
+      "text": "we anchor AI governance to what is currently accepted, we risk reinforcing the very systems that we're trying to improve. So how do we actually build an ethical framework for AI in education? We start with an environmental scan, taking a clear look at how AI is already showing up in classrooms, officially or not, because AI is there whether you've endorsed it or not, and policy has to be built on truth and transparency. Next we need to build a governance team that's diverse and cross-functional, not just IT and administrators, but teachers, librarians, parents, and yes, even students with equal voice. If they're the ones who are most impacted, they need a seat at the table."
+    },
+    {
+      "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+      "source_video": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South",
+      "video_id": "pps7x1QyHII",
+      "start": 1.04,
+      "end": 58.57,
+      "duration": 57.53,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "Welcome to the fourth Artificial Intelligence for Information Accessibility Conference.",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "governance",
+        "policy",
+        "accessibility",
+        "environment",
+        "responsible ai",
+        "economy",
+        "information",
+        "conference"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.73467,
+      "prompt_relevance_score": 1.01287,
+      "selection_score": 1.03836,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "responsible",
+        "governance"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker and requested theme matched.",
+      "meaningful_prompt_overlap": [
+        "responsible",
+        "governance"
+      ],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "Welcome to the fourth Artificial Intelligence for Information Accessibility Conference. My name is Shamir Ahmed, I'm the Executive Director and founder of the Data Economy Policy Hub, the Deb Hub. Deb Hub is the first independent think tank that is founded by an Indigenous African woman in South Africa. Today, I will discuss with you responsible AI governance, structural inequalities and sustainability in the global solve. My discussion will be broken down into three parts. I will start with exploring the nexus of responsible AI, data governance and the environment. Second part, I will delve into what do intersectional inequality have to do with right data governance and the environment. In..."
+    },
+    {
+      "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
+      "source_video": "0136_AL8la33n0dw_India Satellite Event",
+      "video_id": "AL8la33n0dw",
+      "start": 303.47,
+      "end": 366.82,
+      "duration": 63.35,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "This year's global theme which is mainstreaming access to information and participation in the public sector shines the spotlight on the importance of access to information as a fundamental right and a cornerstone of democracy and...",
+      "keywords": [
+        "access to information",
+        "law",
+        "information",
+        "unesco",
+        "public sector",
+        "session",
+        "remarks",
+        "sustainable",
+        "access",
+        "forward"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.734254,
+      "prompt_relevance_score": 0.852454,
+      "selection_score": 1.037944,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "access"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Meaningful overlap (['access']) + high semantic 0.734",
+      "meaningful_prompt_overlap": [
+        "access"
+      ],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "and sustainable ways. This year's global theme which is mainstreaming access to information and participation in the public sector shines the spotlight on the importance of access to information as a fundamental right and a cornerstone of democracy and sustainable development. I thank you and we look forward to insightful discussions during this session and further collaboration will move forward. Thank you very much. Thank you Ezekiel for the welcoming speech. Now I would like to invite Mr. Kodel Green for presenting the opening remarks. Mr. Green is an alternate law and the executive director the broadcasting commission in Jamaica and also former assistant to Tonya General of Jamaica. His..."
+    },
+    {
+      "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
+      "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
+      "video_id": "Txl1nmb84VA",
+      "start": 297.56,
+      "end": 352.42,
+      "duration": 54.86,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "For championing transparency, ethical governance and global collaboration, we can ensure AI becomes a force for good and not a vector for harm.",
+      "keywords": [
+        "governance",
+        "ethical",
+        "transparency",
+        "responsible ai",
+        "content",
+        "safety",
+        "values",
+        "harm",
+        "all",
+        "mission"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.72046,
+      "prompt_relevance_score": 0.99866,
+      "selection_score": 1.02415,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "responsible",
+        "governance"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker and requested theme matched.",
+      "meaningful_prompt_overlap": [
+        "responsible",
+        "governance"
+      ],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "For championing transparency, ethical governance and global collaboration, we can ensure AI becomes a force for good and not a vector for harm. The Christchurch call community is deeply invested in this mission. Together, governments, platforms, civil society and researchers, we work to uphold the values of safety, dignity and respect online. We invite all stakeholders to join us in advancing responsible AI practices that protect communities, preserve democratic integrity and foster a safer digital future for all, with a clear focus on managing the risks and eliminating terrorist and violent extremist content online. Thank you for your time today. I hope that's been a helpful outline of the..."
+    },
+    {
+      "fragment_id": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+      "source_video": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh",
+      "video_id": "zJLv8sreIiQ",
+      "start": 387.57,
+      "end": 428.65,
+      "duration": 41.08,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "run several programs like the AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation of more than 80,000 people from almost 81 countries across the world.",
+      "keywords": [
+        "responsible ai",
+        "empowerment",
+        "government",
+        "workforce",
+        "industry",
+        "india",
+        "based",
+        "solutions",
+        "partners"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.733682,
+      "prompt_relevance_score": 1.090282,
+      "selection_score": 1.015772,
+      "relevance_role": "exact",
+      "prompt_keyword_overlap": [
+        "responsible",
+        "governance",
+        "empowerment"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Speaker and requested theme matched.",
+      "meaningful_prompt_overlap": [
+        "responsible",
+        "governance",
+        "empowerment"
+      ],
+      "final_video_allowed": true,
+      "use_as": "archive_visual",
+      "text": "run several programs like the AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation of more than 80,000 people from almost 81 countries across the world. And that showed what India, India strength is in building AI based solutions at scale. For upscaling government, we see government team members in the field of AI, we are not the digital India dialog series in which we get partners from academy and partners of industry to give to showcase and demos of AI based solutions that can be customized and adopted across the country. In order to look at the future and to ensure that we are able to build AI based workforce"
+    }
+  ],
+  "supporting_candidates": [
+    {
+      "fragment_id": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People_0011",
+      "source_video": "0091_xehafx7DAEs_Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Young People",
+      "video_id": "xehafx7DAEs",
+      "start": 520.02,
+      "end": 573.4,
+      "duration": 53.38,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "And also through our sessions when we were engaging with the young students our own avatar development.",
+      "keywords": [
+        "young people",
+        "students",
+        "metaverse",
+        "young",
+        "phase",
+        "zero",
+        "wanted",
+        "around"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.77,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "semantic_score": 0.580689,
+      "prompt_relevance_score": 0.806889,
+      "selection_score": null,
+      "relevance_role": "weak_related",
+      "prompt_keyword_overlap": [
+        "youth",
+        "inclusion"
+      ],
+      "requested_speaker": null,
+      "speaker_match": true,
+      "speaker_match_reason": "no speaker requested",
+      "speaker_soundbite_allowed": false,
+      "speaker_visual_allowed": false,
+      "speaker_clip_allowed": false,
+      "broll_allowed": true,
+      "relevance_reason": "Partial overlap below semantic threshold: meaningful=['youth', 'inclusion'], theme=['youth', 'inclusion'], expanded=['young', 'generational', 'students']",
+      "meaningful_prompt_overlap": [
+        "youth",
+        "inclusion"
+      ],
+      "final_video_allowed": false,
+      "use_as": "narration_support",
+      "text": "And also through our sessions when we were engaging with the young students our own avatar development. Alright, so next, what I will do is to quickly bring you through the different phases, what happened, what did we find some of the key highlights. So, let's start with phase zero. So, phase zero essentially was sort of what you call a warm up we wanted to understand. What were students' concerns around the metaverse and also around co-designing? And so, a lot of the students wouldn't necessarily have prior experience with being in the metaverse, even though YCDI has done some amazing brilliant work in this space. We also wanted to acknowledge that young people who are participating might..."
+    }
+  ],
+  "context_candidates": [],
+  "rejected_candidates": [],
+  "storyline": {
+    "title": "Empowering Youth, Ensuring Responsible Governance: The Future of AI Inclusion",
+    "logline": "As AI transforms our world, it's crucial to prioritize youth empowerment and responsible governance to ensure a future where technology benefits all.",
+    "style": "documentary",
+    "target_duration_seconds": 180,
+    "estimated_duration_seconds": 179.7,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "speaker_led_documentary",
+      "evidence_strength": "high",
+      "exact_clip_count": 24,
+      "related_clip_count": 0,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 20,
+      "usable_speaker_visual_count": 0,
+      "rejected_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 21,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI Equity, Inclusion & Social Justice",
+        "AI Ethics, Governance & Policy",
+        "Disinformation, Deepfakes & AI Safety"
+      ],
+      "chapter_coverage": [
+        "Ch 12: Youth, Aging & Generational Perspectives",
+        "Ch 1: Foundations of AI Ethics & Philosophy",
+        "Ch 2: AI Governance Models & Oversight",
+        "Ch 3: AI Policy, Regulation & Legislation",
+        "Ch 4: AI Economics, Competition & Markets",
+        "Ch 5: Open Data & Information Accessibility",
+        "Ch 8: Regional & Satellite Conference Events",
+        "Ch 9: AI Equity in the Global South & Developing Nations"
+      ],
+      "average_similarity": 0.704791,
+      "average_quote_strength": 0.6932,
+      "recommended_structure": [
+        "opening_hook",
+        "exact_evidence_clip",
+        "speaker_voice_two",
+        "bridge_narration",
+        "speaker_voice_three",
+        "closing_takeaway"
+      ],
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ],
+      "requested_speaker": null
+    },
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 10,
+        "director_role": "opening_context",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Welcome to the world of AI, where technology is transforming our lives at an unprecedented rate.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Sets the stage for the documentary"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the documentary's title and logline",
+            "on_screen_text": "Empowering Youth, Ensuring Responsible Governance: The Future of AI Inclusion"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S2",
+        "section_type": "context",
+        "target_duration_seconds": 20,
+        "director_role": "exact_evidence_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "AI is no longer just a tool, but an integral part of our daily lives.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 20,
+            "reason": "Provides context on AI's impact"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+            "start": 0,
+            "end": 20,
+            "quote_summary": "Access to information is not simply about connectivity or technology.",
+            "reason": "Sets the stage for the importance of access"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S3",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 30,
+        "director_role": "speaker_voice_two",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "However, with great power comes great responsibility.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0013",
+            "usage": "context_visual",
+            "start": 0,
+            "end": 30,
+            "reason": "Provides context on the risks of AI"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0013",
+            "start": 0,
+            "end": 30,
+            "quote_summary": "So without this informed users, governance loses power.",
+            "reason": "Highlights the importance of responsible AI"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S4",
+        "section_type": "human_perspective",
+        "target_duration_seconds": 30,
+        "director_role": "related_theme_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "So what does this mean for our youth?",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+            "usage": "context_visual",
+            "start": 0,
+            "end": 30,
+            "reason": "Provides context on the impact of AI on youth"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+            "start": 0,
+            "end": 30,
+            "quote_summary": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils.",
+            "reason": "Highlights the importance of empowering youth"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S5",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 30,
+        "director_role": "exact_evidence_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "So what can we do to ensure responsible AI?",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+            "usage": "evidence_visual",
+            "start": 0,
+            "end": 30,
+            "reason": "Provides expert evidence on responsible AI"
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+            "start": 0,
+            "end": 30,
+            "quote_summary": "we anchor AI governance to what is currently accepted, we risk reinforcing the very systems that we're trying to improve.",
+            "reason": "Highlights the importance of transparent frameworks"
+          }
+        ],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S6",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 30,
+        "director_role": "synthesis_narration",
+        "evidence_role": "low_evidence",
+        "evidence_confidence": "low",
+        "fallback_allowed": true,
+        "planning_note": "",
+        "narration": "So what's the way forward?",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 30,
+            "reason": "Provides a conclusion to the documentary"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Title card with the documentary's title and logline",
+            "on_screen_text": "Empowering Youth, Ensuring Responsible Governance: The Future of AI Inclusion"
+          }
+        ],
+        "internet_assets_needed": []
+      },
+      {
+        "section_id": "S7",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 10,
+        "director_role": "closing_takeaway",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "",
+        "narration": "Empowering youth and ensuring responsible governance is crucial for a future where AI benefits all.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+            "usage": "background_visual",
+            "start": 0,
+            "end": 10,
+            "reason": "Provides a conclusion to the documentary"
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [],
+        "internet_assets_needed": []
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "Welcome to the world of AI, where technology is transforming our lives at an unprecedented rate.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "AI is no longer just a tool, but an integral part of our daily lives.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "However, with great power comes great responsibility.",
+        "tone": "serious documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "So what does this mean for our youth?",
+        "tone": "concerned documentary narrator"
+      },
+      {
+        "section_id": "S5",
+        "text": "So what can we do to ensure responsible AI?",
+        "tone": "thoughtful documentary narrator"
+      },
+      {
+        "section_id": "S6",
+        "text": "So what's the way forward?",
+        "tone": "hopeful documentary narrator"
+      },
+      {
+        "section_id": "S7",
+        "text": "Empowering youth and ensuring responsible governance is crucial for a future where AI benefits all.",
+        "tone": "concluding documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "start": 0,
+        "end": 20,
+        "quote_summary": "Access to information is not simply about connectivity or technology.",
+        "use_in_section": "S2"
+      },
+      {
+        "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0013",
+        "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+        "start": 0,
+        "end": 30,
+        "quote_summary": "So without this informed users, governance loses power.",
+        "use_in_section": "S3"
+      },
+      {
+        "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+        "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+        "start": 0,
+        "end": 30,
+        "quote_summary": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils.",
+        "use_in_section": "S4"
+      },
+      {
+        "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+        "source_video": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future",
+        "start": 0,
+        "end": 30,
+        "quote_summary": "we anchor AI governance to what is currently accepted, we risk reinforcing the very systems that we're trying to improve.",
+        "use_in_section": "S5"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+        "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+        "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0013",
+        "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+        "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005"
+      ],
+      "generated_assets": [
+        {
+          "asset_type": "title_card",
+          "description": "Title card with the documentary's title and logline",
+          "on_screen_text": "Empowering Youth, Ensuring Responsible Governance: The Future of AI Inclusion"
+        }
+      ],
+      "internet_assets": [],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "order": 1,
+        "timeline_type": "voiceover",
+        "section_id": "S1",
+        "duration_seconds": 10,
+        "description": "Opening narration"
+      },
+      {
+        "order": 2,
+        "timeline_type": "archive_visual",
+        "section_id": "S1",
+        "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+        "duration_seconds": 10,
+        "description": "Background visual for opening narration"
+      },
+      {
+        "order": 3,
+        "timeline_type": "voiceover",
+        "section_id": "S2",
+        "duration_seconds": 20,
+        "description": "Context narration"
+      },
+      {
+        "order": 4,
+        "timeline_type": "archive_visual",
+        "section_id": "S2",
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+        "duration_seconds": 20,
+        "description": "Evidence visual for context narration"
+      },
+      {
+        "order": 5,
+        "timeline_type": "speaker_soundbite",
+        "section_id": "S2",
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+        "duration_seconds": 20,
+        "description": "Speaker soundbite for context narration"
+      },
+      {
+        "order": 6,
+        "timeline_type": "voiceover",
+        "section_id": "S3",
+        "duration_seconds": 30,
+        "description": "Problem or tension narration"
+      },
+      {
+        "order": 7,
+        "timeline_type": "archive_visual",
+        "section_id": "S3",
+        "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0013",
+        "duration_seconds": 30,
+        "description": "Context visual for problem or tension narration"
+      },
+      {
+        "order": 8,
+        "timeline_type": "speaker_soundbite",
+        "section_id": "S3",
+        "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0013",
+        "duration_seconds": 30,
+        "description": "Speaker soundbite for problem or tension narration"
+      },
+      {
+        "order": 9,
+        "timeline_type": "voiceover",
+        "section_id": "S4",
+        "duration_seconds": 30,
+        "description": "Human perspective narration"
+      },
+      {
+        "order": 10,
+        "timeline_type": "archive_visual",
+        "section_id": "S4",
+        "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+        "duration_seconds": 30,
+        "description": "Context visual for human perspective narration"
+      },
+      {
+        "order": 11,
+        "timeline_type": "speaker_soundbite",
+        "section_id": "S4",
+        "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+        "duration_seconds": 30,
+        "description": "Speaker soundbite for human perspective narration"
+      },
+      {
+        "order": 12,
+        "timeline_type": "voiceover",
+        "section_id": "S5",
+        "duration_seconds": 30,
+        "description": "Expert evidence narration"
+      },
+      {
+        "order": 13,
+        "timeline_type": "archive_visual",
+        "section_id": "S5",
+        "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+        "duration_seconds": 30,
+        "description": "Evidence visual for expert evidence narration"
+      },
+      {
+        "order": 14,
+        "timeline_type": "speaker_soundbite",
+        "section_id": "S5",
+        "fragment_id": "0059_aCcsjR1b87M_Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_Future_0005",
+        "duration_seconds": 30,
+        "description": "Speaker soundbite for expert evidence narration"
+      },
+      {
+        "order": 15,
+        "timeline_type": "voiceover",
+        "section_id": "S6",
+        "duration_seconds": 30,
+        "description": "Solution direction narration"
+      },
+      {
+        "order": 16,
+        "timeline_type": "archive_visual",
+        "section_id": "S6",
+        "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+        "duration_seconds": 30,
+        "description": "Background visual for solution direction narration"
+      },
+      {
+        "order": 17,
+        "timeline_type": "voiceover",
+        "section_id": "S7",
+        "duration_seconds": 10,
+        "description": "Final synthesis narration"
+      },
+      {
+        "order": 18,
+        "timeline_type": "archive_visual",
+        "section_id": "S7",
+        "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0001",
+        "duration_seconds": 10,
+        "description": "Background visual for final synthesis narration"
+      }
+    ],
+    "editor_notes": [],
+    "planning_summary": {
+      "video_mode": "speaker_led_documentary",
+      "evidence_strength": "high",
+      "exact_clip_count": 24,
+      "related_clip_count": 0,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 20,
+      "rejected_clip_count": 0,
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    }
+  }
+}

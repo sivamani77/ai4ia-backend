@@ -1,0 +1,31 @@
+{
+  "video_id": "wSKcjA2uFfw",
+  "source_video": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers",
+  "title": "Dr Meena D. Lysko - Justice and inclusivity as crucial enablers",
+  "speakers": [
+    {
+      "name": "Dr Meena D. Lysko",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 0.9
+    },
+    {
+      "name": "Shamir Ahmed",
+      "role": "Speaker",
+      "affiliation": "Data Economy Policy Hub/Deb Hub",
+      "confidence": 1.0
+    },
+    {
+      "name": "Mina Lisco",
+      "role": "Speaker",
+      "affiliation": "Move Beyond Consulting",
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Dr Meena D. Lysko",
+  "title_name_hint": "Dr Meena D. Lysko",
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:27:00.851601"
+}

@@ -1,0 +1,20 @@
+{
+  "job_id": "job_20260616_073437_8f647600",
+  "type": "generate_storyline",
+  "status": "completed",
+  "progress": 100,
+  "created_at": "2026-06-16T07:34:37.889614",
+  "started_at": "2026-06-16T07:34:37.890022",
+  "completed_at": "2026-06-16T07:37:14.205378",
+  "payload": {
+    "prompt": "Create a 1-minute AI Equity, Inclusion & Social Justice ,AI Equity in the Global South & Developing Nations",
+    "duration": 60,
+    "style": "documentary",
+    "top_k": 90,
+    "final_candidates": 35,
+    "fallback_only": false
+  },
+  "log_path": "/home/ash/ai4ia-demo-pipeline/logs/jobs/job_20260616_073437_8f647600.log",
+  "result_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260616_130714.json",
+  "error": null
+}

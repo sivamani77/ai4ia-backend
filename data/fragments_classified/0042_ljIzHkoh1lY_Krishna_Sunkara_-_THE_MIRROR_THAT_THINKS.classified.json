@@ -1,0 +1,1515 @@
+{
+  "source_transcript": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS.json",
+  "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+  "video_id": "ljIzHkoh1lY",
+  "fragment_count": 14,
+  "created_at": "2026-06-16T12:54:12.799075",
+  "fragmenting_config": {
+    "min_duration_seconds": 35,
+    "target_duration_seconds": 75,
+    "max_duration_seconds": 130,
+    "min_words": 35,
+    "target_words": 120,
+    "max_words": 230
+  },
+  "fragments": [
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0001",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 1,
+      "start": 2.03,
+      "end": 71.76,
+      "duration": 69.73,
+      "text": "Hello, good morning, good afternoon, and good evening. This is Krishna Sankara. I work as an engineering manager in AI Ethics and Governments and a data center engineering and cloud security. So today I would like to talk about a concept called Cognitive Twin, both pros and cons and what is the need for us to get educated about this cognitive twin. In those lines, I will also talk about a concept called Cognitive Security as well. Yeah, before that, I would like to slide in my slide deck. So this is about Cognitive Twins and then the right to remain ourselves, mostly yourselves. So imagine you wake up one day to find a version of you speaking your voice, making your decisions,",
+      "word_count": 123,
+      "source_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "created_at": "2026-06-16T12:54:12.794362",
+      "keywords": [
+        "ethics",
+        "security",
+        "cognitive",
+        "good",
+        "engineering",
+        "talk",
+        "concept",
+        "called",
+        "twin",
+        "slide"
+      ],
+      "summary": "Hello, good morning, good afternoon, and good evening.",
+      "theme_tags": [
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethics"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethics"
+          ]
+        }
+      ],
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.47,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.972291"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0002",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 2,
+      "start": 71.76,
+      "end": 130.72,
+      "duration": 58.96,
+      "text": "but actually you're not in the room. This is not a sci-fi trader, but it's nothing but a Cognitive twin. And it's already here. So we are actually stepping in an era where our identities are digitized more than that I would call as AIification of our identities. Our in that our mind is model and then our and the intent can be replayed without you itself. So the question is no longer like can you build it? It's now what if it stops being you? So what exactly are these Cognitive twins? So these are nothing but the AI models trained on your personal data, for instance, your decision making, the situation, the situations how you react,",
+      "word_count": 123,
+      "source_segment_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "created_at": "2026-06-16T12:54:12.794732",
+      "keywords": [
+        "model",
+        "it's",
+        "actually",
+        "nothing",
+        "cognitive",
+        "identities"
+      ],
+      "summary": "This is not a sci-fi trader, but it's nothing but a Cognitive twin.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.15,
+          "matched_keywords": []
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "model"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.35,
+      "classification_confidence": 0.7,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.978045"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0003",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 3,
+      "start": 130.72,
+      "end": 196.61,
+      "duration": 65.89,
+      "text": "the ethics you have, and then Yamaris can sometimes and then your tone and then the values. It learns everything and evolves and acts sometime on your behalf, sometimes even beyond your intent. It's it's nothing but a data set which was built on exactly how the maybe the psychology or the personality or the physiology or the mind or yourself. So think of it as a granting power of autonomy, not to trust friend but like to an algorithmic brain that defines itself every day, possibly drifting from who you are to what are things you might become. So would you really trust a Cognitive twin to to act on behalf of you to execute a will maybe to execute an estate?",
+      "word_count": 125,
+      "source_segment_ids": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "created_at": "2026-06-16T12:54:12.795027",
+      "keywords": [
+        "ethics",
+        "trust",
+        "algorithmic",
+        "values",
+        "sometimes",
+        "behalf",
+        "it's",
+        "maybe",
+        "execute"
+      ],
+      "summary": "the ethics you have, and then Yamaris can sometimes and then your tone and then the values.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics",
+            "trust",
+            "algorithmic"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "trust"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics",
+            "values",
+            "trust"
+          ]
+        },
+        {
+          "chapter_id": "Ch 17",
+          "chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "trust"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.984567"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0004",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 4,
+      "start": 196.61,
+      "end": 247.21,
+      "duration": 50.6,
+      "text": "Possibly we don't know, maybe there is a possibility to happen so in the future, but if that's the case, what kind of God risk or security do we have to make sure that this Cognitive twin would not go beyond my intent if that person were to live at that time. So for instance, like if you take an estate planning or a will, those are all static, but it would not change through the time, but a lot of things the world would evolve maybe after 100 years, is it still valid the will? Is it really adaptive? This is where the cognitive twin comes into the picture, where the decisions made by this entity, by this Cognitive twin",
+      "word_count": 123,
+      "source_segment_ids": [
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "created_at": "2026-06-16T12:54:12.795314",
+      "keywords": [
+        "risk",
+        "security",
+        "cognitive",
+        "twin",
+        "maybe",
+        "time"
+      ],
+      "summary": "Possibly we don't know, maybe there is a possibility to happen so in the future, but if that's the case, what kind of God risk or security do we have to make sure that this Cognitive...",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "risk"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security",
+            "risk"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.55,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.991239"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0005",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 5,
+      "start": 247.21,
+      "end": 313.11,
+      "duration": 65.9,
+      "text": "exactly mimics of its master where it was thankful. But what about the ethics? So are these allowed really? So the legal system, what we have is built on different certainties like maintenance statements, fixed documents, signatures, discoveries, but what happens when our wise or large, you can, and even our regrets can be synthetically regenerated. We are building a systems that know us alternately, but intimacy does not equal consent, but can it still mind truly represent us when we are not there to object? Let's see, like in a movie, her, we can see that the voice system, which is based off of, yeah, I call this. Yes, some of that, if I'm not wrong. So the protagonist, the protagonist would fall in love with",
+      "word_count": 129,
+      "source_segment_ids": [
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "created_at": "2026-06-16T12:54:12.795688",
+      "keywords": [
+        "ethics",
+        "legal",
+        "system",
+        "see",
+        "protagonist"
+      ],
+      "summary": "exactly mimics of its master where it was thankful.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "ethics"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:17.998095"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0006",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 6,
+      "start": 313.11,
+      "end": 370.66,
+      "duration": 57.55,
+      "text": "this AI, and then eventually realizes that the AI is in love with close to 600 people, and then the protagonist understands the real value of a human relationship. So even in the movie Blade Runner, if a memory is implanted and indistinguishable from a real one, is the life and is as real? See, this is where why this cognitive security matches a lot. So what exactly is this cognitive security is nothing but, is not like encryption of our data, and then putting some firewalls to stop somebody stealing or taking away our data. It's about some boundaries, which are very philosophical, legal and withkill. So it means defining what a cognitive between can do, and more importantly, what it must never do.",
+      "word_count": 126,
+      "source_segment_ids": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86
+      ],
+      "created_at": "2026-06-16T12:54:12.796051",
+      "keywords": [
+        "security",
+        "legal",
+        "real",
+        "cognitive",
+        "data"
+      ],
+      "summary": "this AI, and then eventually realizes that the AI is in love with close to 600 people, and then the protagonist understands the real value of a human relationship.",
+      "theme_tags": [
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.5,
+          "matched_keywords": [
+            "legal"
+          ]
+        }
+      ],
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "context_visual"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.004051"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0007",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 7,
+      "start": 370.66,
+      "end": 429.7,
+      "duration": 59.04,
+      "text": "So it means like granting rights to be represented. How to quantify the rights? How to enforce these rights? For instance, if I have a cognitive to execute in a state, I would say, hey, please, you can, you have a capacity to talk or make decisions about everything, but should not talk about my assert in New York. So this is something, like I would say, like a God frame, or also establish a kind of skills switch. So a distal, like, I object part on that reclaims identity when it begins to misalign. So we must, but because without boundaries, we drift into distal positions where our twin outlifters, outworts us, maybe even outworts us, we must call, urgently, for laws that anchoring these limits.",
+      "word_count": 127,
+      "source_segment_ids": [
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101
+      ],
+      "created_at": "2026-06-16T12:54:12.796416",
+      "keywords": [
+        "rights",
+        "say",
+        "talk",
+        "distal",
+        "must",
+        "outworts"
+      ],
+      "summary": "So it means like granting rights to be represented.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "clip_usage_candidates": [
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.009563"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0008",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 8,
+      "start": 429.7,
+      "end": 486.86,
+      "duration": 57.16,
+      "text": "It is time to draft some regulatory frameworks that treat these entities not as miracles, but as rights to autonomy. The purpose of some policies and regulations on cognitive distal between should not parallelize research, we should not analyze the research or the innovation in these technologies, but regulate the usage of such technology. And should more encourage explainability, accountability, and liability. So policy makers here today should shape the scaffolding before the structure even becomes irreversible. So what we have in the future, it's like where do we go from here, so every decision, like, when we, when made by these cognitive instruments must be traceable. That's what I call as auditability or inspectable. And individuals should define use cases and exploration",
+      "word_count": 125,
+      "source_segment_ids": [
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117
+      ],
+      "created_at": "2026-06-16T12:54:12.796781",
+      "keywords": [
+        "policy",
+        "rights",
+        "liability",
+        "accountability",
+        "research",
+        "innovation",
+        "cognitive",
+        "here"
+      ],
+      "summary": "It is time to draft some regulatory frameworks that treat these entities not as miracles, but as rights to autonomy.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "rights",
+            "liability",
+            "policy"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "policy",
+            "accountability"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.667,
+          "matched_keywords": [
+            "research"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 22",
+          "chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "research"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "accountability"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "policy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 4",
+          "chapter": "Ch 4: AI Economics, Competition & Markets",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "innovation"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 22: AI in Academic Research & Knowledge Production",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.61,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.015212"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0009",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 9,
+      "start": 486.86,
+      "end": 543.3,
+      "duration": 56.44,
+      "text": "timelines for their twins, for the decisions, even sometimes, maybe for the data sets, that these models, where these cognitive twins were born out of form. So this is something like a concerned architecture, right? And the other part is like the immutable training data, like the data which is used to train these A models that build these cognitive twins, they must be have a provision to destroy in future, if it is related to why. And this data, and also if it is mandated, must also be preserved and would not be able to be modified or altered or abused in any form at all. So and the other part is the AI legal rights. So the most of the policy makers, the policy agencies,",
+      "word_count": 127,
+      "source_segment_ids": [
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132
+      ],
+      "created_at": "2026-06-16T12:54:12.797121",
+      "keywords": [
+        "policy",
+        "legal",
+        "rights",
+        "training",
+        "data sets",
+        "data",
+        "twins",
+        "models",
+        "cognitive",
+        "form",
+        "other",
+        "part",
+        "must"
+      ],
+      "summary": "timelines for their twins, for the decisions, even sometimes, maybe for the data sets, that these models, where these cognitive twins were born out of form.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "legal",
+            "rights",
+            "policy"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "policy"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.25,
+          "matched_keywords": [
+            "training"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "data sets"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.667,
+          "matched_keywords": [
+            "policy"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.667,
+          "matched_keywords": [
+            "legal",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.333,
+          "matched_keywords": [
+            "training"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.021133"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0010",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 10,
+      "start": 543.3,
+      "end": 605.55,
+      "duration": 62.25,
+      "text": "they must urgently legislate a new class of AI governance mostly focused on autonomy without awarding any kind of person to these cognitive twins in the future. So how can we exactly enforce the way how enforce this cognitive security? So something we can do it like through God rest because it is like totally fragmented, right? Like AI is totally fragment. Each country has their own culture, education, situations. So the AI also is evolving to reflect that and to respect that, which means we have a diversified AI where it works in a different kind of, it works in a different way in a different place. But yet when it comes to the security, it has no boundaries at all.",
+      "word_count": 122,
+      "source_segment_ids": [
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "created_at": "2026-06-16T12:54:12.797518",
+      "keywords": [
+        "governance",
+        "education",
+        "security",
+        "culture",
+        "different",
+        "kind",
+        "cognitive",
+        "enforce",
+        "way",
+        "totally",
+        "works"
+      ],
+      "summary": "they must urgently legislate a new class of AI governance mostly focused on autonomy without awarding any kind of person to these cognitive twins in the future.",
+      "theme_tags": [
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 1.0,
+          "matched_keywords": [
+            "education",
+            "culture"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "governance"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 1.0,
+          "matched_keywords": [
+            "security"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "education"
+          ]
+        },
+        {
+          "chapter_id": "Ch 20",
+          "chapter": "Ch 20: AI in Creative Arts, Music & Culture",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "culture"
+          ]
+        }
+      ],
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.69,
+      "clarity_score": 0.9,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.967,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.026135"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0011",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 11,
+      "start": 605.55,
+      "end": 660.38,
+      "duration": 54.83,
+      "text": "So there are some other system AI systems also like distal twins, which is not exactly a cognitive thing, but is also throwing on our data. But the speciality of these cognitive twins as it all was, it can make decisions and it can also even mimic our behavior. But there are sometimes countries mainly with strong ethics, others may choose like speed or safety or control or concern. So when these kind of things happen, there can be a situation where an imbalance comes into the picture, one where the misuse of AI in one region can actually impact the rights of, the rights of people across many others. So what exactly we can do? So we must build global card rates,",
+      "word_count": 123,
+      "source_segment_ids": [
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165
+      ],
+      "created_at": "2026-06-16T12:54:12.797895",
+      "keywords": [
+        "ethics",
+        "rights",
+        "safety",
+        "twins",
+        "exactly",
+        "cognitive",
+        "others",
+        "one"
+      ],
+      "summary": "So there are some other system AI systems also like distal twins, which is not exactly a cognitive thing, but is also throwing on our data.",
+      "theme_tags": [
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "rights"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethics"
+          ]
+        },
+        {
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "safety"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 1.0,
+          "matched_keywords": [
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "ethics"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.5,
+          "matched_keywords": [
+            "safety"
+          ]
+        }
+      ],
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+      "clip_usage_candidates": [
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.032911"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0012",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 12,
+      "start": 660.38,
+      "end": 718.02,
+      "duration": 57.64,
+      "text": "not to enforce uniformity, but to establish a common floor of transparency, a count built in distal rights. So these frameworks must be open to audits and should not call or should not always seek help from governments, but this is something should come from technologies, legal scholars, civil society and the people most effectively like the common users. So even when a lot of systems diverge, these shared standards become moral anchors enabling transparency when enforcement falls short and allowing citizens and watch dogs to call or misuse openly and in a transparent way and just as important. So we must also strengthen the distal literacy. People deserve to understand the systems acting on their behalf without this kind of understanding",
+      "word_count": 122,
+      "source_segment_ids": [
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183
+      ],
+      "created_at": "2026-06-16T12:54:12.798298",
+      "keywords": [
+        "transparency",
+        "standards",
+        "legal",
+        "rights",
+        "moral",
+        "citizens",
+        "common",
+        "distal",
+        "must",
+        "call",
+        "people",
+        "systems"
+      ],
+      "summary": "not to enforce uniformity, but to establish a common floor of transparency, a count built in distal rights.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "transparency",
+            "standards"
+          ]
+        },
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 0.667,
+          "matched_keywords": [
+            "transparency"
+          ]
+        },
+        {
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.667,
+          "matched_keywords": [
+            "legal",
+            "rights"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "moral",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 7",
+          "chapter": "Ch 7: Government Information & Public Services",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "citizens",
+            "transparency"
+          ]
+        },
+        {
+          "chapter_id": "Ch 23",
+          "chapter": "Ch 23: AI & Legal Systems / Access to Justice",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.667,
+          "matched_keywords": [
+            "legal",
+            "rights"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "standards"
+          ]
+        },
+        {
+          "chapter_id": "Ch 24",
+          "chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+          "theme_id": "T7",
+          "theme": "AI, Law & Human Rights",
+          "score": 0.333,
+          "matched_keywords": [
+            "rights"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.62,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.038497"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0013",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 13,
+      "start": 718.02,
+      "end": 776.45,
+      "duration": 58.43,
+      "text": "access to information is totally incomplete. So without this informed users, governance loses power. So we are not calling for a world where everything would agree. We are just calling for a world where everyone is seen heard and protected. It's totally fragmented world. So Godrails would connect us. So let them be our shared responsibility and our shared defense. So if we really lack in such a kind of education, how these cognitive things would work and then if we're to represent me without this education, we're really just becoming by standards in our own life. So let me end with a small reflection. So the self is not just a data set actually, it is a contradiction, it is a change,",
+      "word_count": 126,
+      "source_segment_ids": [
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201
+      ],
+      "created_at": "2026-06-16T12:54:12.798707",
+      "keywords": [
+        "access to information",
+        "governance",
+        "education",
+        "information",
+        "standards",
+        "responsibility",
+        "defense",
+        "world",
+        "totally",
+        "calling",
+        "let",
+        "shared",
+        "really",
+        "we're"
+      ],
+      "summary": "So without this informed users, governance loses power.",
+      "theme_tags": [
+        {
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.5,
+          "matched_keywords": [
+            "governance",
+            "standards"
+          ]
+        },
+        {
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "education"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 5",
+          "chapter": "Ch 5: Open Data & Information Accessibility",
+          "theme_id": "T2",
+          "theme": "AI & Information Access / Media / Journalism",
+          "score": 1.0,
+          "matched_keywords": [
+            "access to information",
+            "information"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.75,
+          "matched_keywords": [
+            "governance",
+            "standards",
+            "responsibility"
+          ]
+        },
+        {
+          "chapter_id": "Ch 19",
+          "chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+          "theme_id": "T6",
+          "theme": "AI in Education & Creative Industries",
+          "score": 0.5,
+          "matched_keywords": [
+            "education"
+          ]
+        },
+        {
+          "chapter_id": "Ch 3",
+          "chapter": "Ch 3: AI Policy, Regulation & Legislation",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.25,
+          "matched_keywords": [
+            "governance"
+          ]
+        },
+        {
+          "chapter_id": "Ch 18",
+          "chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+          "theme_id": "T5",
+          "theme": "Disinformation, Deepfakes & AI Safety",
+          "score": 0.25,
+          "matched_keywords": [
+            "defense"
+          ]
+        }
+      ],
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.68,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.7,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.043297"
+    },
+    {
+      "fragment_id": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS_0014",
+      "source_video": "0042_ljIzHkoh1lY_Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS",
+      "video_id": "ljIzHkoh1lY",
+      "fragment_index": 14,
+      "start": 776.45,
+      "end": 824.71,
+      "duration": 48.26,
+      "text": "it is saying one thing and meaning another and that messy, beautiful, unreliable ambiguity, inconsistency, that's what actually that makes us a human. That's not engineering it out. Let us create AI, not the image, not in the image of perfection, but in the image of humility, that's not chase immortality in machines but responsibility in design like a responsible AI. So end of my one cognitive dream. Should you ever hear this? You're not my replacement. You are my reflection and reflection, don't speak until spoken to. Thank you very much, have a good one. Thank you.",
+      "word_count": 103,
+      "source_segment_ids": [
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217
+      ],
+      "created_at": "2026-06-16T12:54:12.799046",
+      "keywords": [
+        "responsible ai",
+        "responsibility",
+        "one",
+        "that's",
+        "image",
+        "reflection"
+      ],
+      "summary": "it is saying one thing and meaning another and that messy, beautiful, unreliable ambiguity, inconsistency, that's what actually that makes us a human.",
+      "theme_tags": [
+        {
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "responsible ai"
+          ]
+        }
+      ],
+      "chapter_tags": [
+        {
+          "chapter_id": "Ch 1",
+          "chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 1.0,
+          "matched_keywords": [
+            "responsible ai"
+          ]
+        },
+        {
+          "chapter_id": "Ch 2",
+          "chapter": "Ch 2: AI Governance Models & Oversight",
+          "theme_id": "T1",
+          "theme": "AI Ethics, Governance & Policy",
+          "score": 0.333,
+          "matched_keywords": [
+            "responsibility"
+          ]
+        }
+      ],
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.55,
+      "clarity_score": 0.95,
+      "narration_support_score": 0.5,
+      "classification_confidence": 0.983,
+      "classification_method": "rule_based_mvp_v1",
+      "classified_at": "2026-06-16T12:54:18.047453"
+    }
+  ],
+  "classification_method": "rule_based_mvp_v1",
+  "classified_at": "2026-06-16T12:54:18.047462"
+}

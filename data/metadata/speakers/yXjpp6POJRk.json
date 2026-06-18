@@ -1,0 +1,25 @@
+{
+  "video_id": "yXjpp6POJRk",
+  "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
+  "title": "(C2) T Bell - Comedy",
+  "speakers": [
+    {
+      "name": "Trudy Bell",
+      "role": "Speaker",
+      "affiliation": null,
+      "confidence": 1.0
+    },
+    {
+      "name": "Peter Smart",
+      "role": "Host",
+      "affiliation": null,
+      "confidence": 1.0
+    }
+  ],
+  "primary_speaker": "Trudy Bell",
+  "title_name_hint": null,
+  "attribution": "video-level",
+  "method": "llm+title",
+  "model": "llama3.1:8b",
+  "extracted_at": "2026-06-16T18:32:28.727769"
+}
