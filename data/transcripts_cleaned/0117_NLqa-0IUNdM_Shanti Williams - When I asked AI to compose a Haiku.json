@@ -1,0 +1,5311 @@
+{
+  "audio_file": "0117_NLqa-0IUNdM_Shanti Williams - When I asked AI to compose a Haiku.clean.wav",
+  "source_audio_path": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0117_NLqa-0IUNdM_Shanti Williams - When I asked AI to compose a Haiku.clean.wav",
+  "source_transcript_version": "cleaned_v2",
+  "model": "small",
+  "device": "cuda",
+  "compute_type": "float16",
+  "language": "en",
+  "language_probability": 1,
+  "duration_seconds": 424.195063,
+  "transcribed_at": "2026-06-19T13:53:03.568188",
+  "transcription_mode": "normal",
+  "chunk_seconds": null,
+  "quality": {
+    "segment_count": 61,
+    "avg_confidence": 0.7854,
+    "avg_words_per_segment": 12.87,
+    "empty_segment_ratio": 0.0,
+    "repeated_phrase_ratio": 0.0,
+    "low_confidence_ratio": 0.0,
+    "recommended_action": "ok"
+  },
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.69,
+      "end": 3.45,
+      "text": "when I asked AI to compose a haiku.",
+      "avg_logprob": -0.3427734237164259,
+      "no_speech_prob": 0.11322021484375,
+      "compression_ratio": 1.453551912568306,
+      "words": [
+        {
+          "word": " when",
+          "start": 0.69,
+          "end": 1.19,
+          "probability": 0.460693359375
+        },
+        {
+          "word": " I",
+          "start": 1.19,
+          "end": 1.35,
+          "probability": 0.974609375
+        },
+        {
+          "word": " asked",
+          "start": 1.35,
+          "end": 1.83,
+          "probability": 0.990234375
+        },
+        {
+          "word": " AI",
+          "start": 1.83,
+          "end": 2.01,
+          "probability": 0.83447265625
+        },
+        {
+          "word": " to",
+          "start": 2.01,
+          "end": 2.37,
+          "probability": 0.9921875
+        },
+        {
+          "word": " compose",
+          "start": 2.37,
+          "end": 2.83,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " a",
+          "start": 2.83,
+          "end": 3.09,
+          "probability": 0.9921875
+        },
+        {
+          "word": " haiku.",
+          "start": 3.09,
+          "end": 3.45,
+          "probability": 0.871337890625
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.93,
+      "end": 9.83,
+      "text": "Island grease blowing, Hawaii should be free to roam,",
+      "avg_logprob": -0.3427734237164259,
+      "no_speech_prob": 0.11322021484375,
+      "compression_ratio": 1.453551912568306,
+      "words": [
+        {
+          "word": " Island",
+          "start": 4.93,
+          "end": 5.57,
+          "probability": 0.818359375
+        },
+        {
+          "word": " grease",
+          "start": 5.57,
+          "end": 6.05,
+          "probability": 0.57275390625
+        },
+        {
+          "word": " blowing,",
+          "start": 6.05,
+          "end": 6.71,
+          "probability": 0.685546875
+        },
+        {
+          "word": " Hawaii",
+          "start": 7.41,
+          "end": 7.85,
+          "probability": 0.9765625
+        },
+        {
+          "word": " should",
+          "start": 7.85,
+          "end": 8.29,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " be",
+          "start": 8.29,
+          "end": 8.57,
+          "probability": 0.998046875
+        },
+        {
+          "word": " free",
+          "start": 8.57,
+          "end": 9.03,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " to",
+          "start": 9.03,
+          "end": 9.35,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " roam,",
+          "start": 9.35,
+          "end": 9.83,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 10.61,
+      "end": 12.95,
+      "text": "far from mainland chains.",
+      "avg_logprob": -0.3427734237164259,
+      "no_speech_prob": 0.11322021484375,
+      "compression_ratio": 1.453551912568306,
+      "words": [
+        {
+          "word": " far",
+          "start": 10.61,
+          "end": 11.19,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " from",
+          "start": 11.19,
+          "end": 11.61,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " mainland",
+          "start": 11.61,
+          "end": 12.13,
+          "probability": 0.96435546875
+        },
+        {
+          "word": " chains.",
+          "start": 12.13,
+          "end": 12.95,
+          "probability": 0.9453125
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 14.6,
+      "end": 16.7,
+      "text": "Would this have been my creation,",
+      "avg_logprob": -0.3427734237164259,
+      "no_speech_prob": 0.11322021484375,
+      "compression_ratio": 1.453551912568306,
+      "words": [
+        {
+          "word": " Would",
+          "start": 14.6,
+          "end": 14.78,
+          "probability": 0.90966796875
+        },
+        {
+          "word": " this",
+          "start": 14.78,
+          "end": 15.02,
+          "probability": 0.998046875
+        },
+        {
+          "word": " have",
+          "start": 15.02,
+          "end": 15.26,
+          "probability": 0.89306640625
+        },
+        {
+          "word": " been",
+          "start": 15.26,
+          "end": 15.54,
+          "probability": 0.998046875
+        },
+        {
+          "word": " my",
+          "start": 15.54,
+          "end": 15.96,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " creation,",
+          "start": 15.96,
+          "end": 16.7,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 17.36,
+      "end": 21.2,
+      "text": "or an act of God, even a libation,",
+      "avg_logprob": -0.3427734237164259,
+      "no_speech_prob": 0.11322021484375,
+      "compression_ratio": 1.453551912568306,
+      "words": [
+        {
+          "word": " or",
+          "start": 17.36,
+          "end": 17.82,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " an",
+          "start": 17.82,
+          "end": 18.0,
+          "probability": 0.98828125
+        },
+        {
+          "word": " act",
+          "start": 18.0,
+          "end": 18.24,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " of",
+          "start": 18.24,
+          "end": 18.4,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " God,",
+          "start": 18.4,
+          "end": 18.8,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " even",
+          "start": 19.7,
+          "end": 20.16,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " a",
+          "start": 20.16,
+          "end": 20.5,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " libation,",
+          "start": 20.5,
+          "end": 21.2,
+          "probability": 0.974609375
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 22.28,
+      "end": 26.14,
+      "text": "poured from the lips of man to the freedom poetry gods?",
+      "avg_logprob": -0.3427734237164259,
+      "no_speech_prob": 0.11322021484375,
+      "compression_ratio": 1.453551912568306,
+      "words": [
+        {
+          "word": " poured",
+          "start": 22.28,
+          "end": 22.76,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " from",
+          "start": 22.76,
+          "end": 23.16,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " the",
+          "start": 23.16,
+          "end": 23.34,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " lips",
+          "start": 23.34,
+          "end": 23.54,
+          "probability": 0.994140625
+        },
+        {
+          "word": " of",
+          "start": 23.54,
+          "end": 23.78,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " man",
+          "start": 23.78,
+          "end": 24.12,
+          "probability": 0.896484375
+        },
+        {
+          "word": " to",
+          "start": 24.12,
+          "end": 24.6,
+          "probability": 0.91650390625
+        },
+        {
+          "word": " the",
+          "start": 24.6,
+          "end": 24.74,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " freedom",
+          "start": 24.74,
+          "end": 25.18,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " poetry",
+          "start": 25.18,
+          "end": 25.62,
+          "probability": 0.724609375
+        },
+        {
+          "word": " gods?",
+          "start": 25.62,
+          "end": 26.14,
+          "probability": 0.97314453125
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 27.58,
+      "end": 32.78,
+      "text": "But this was AI, just AI.",
+      "avg_logprob": -0.3427734237164259,
+      "no_speech_prob": 0.11322021484375,
+      "compression_ratio": 1.453551912568306,
+      "words": [
+        {
+          "word": " But",
+          "start": 27.58,
+          "end": 27.86,
+          "probability": 0.986328125
+        },
+        {
+          "word": " this",
+          "start": 27.86,
+          "end": 28.24,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " was",
+          "start": 28.24,
+          "end": 29.08,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " AI,",
+          "start": 29.08,
+          "end": 30.34,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " just",
+          "start": 31.72,
+          "end": 32.0,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " AI.",
+          "start": 32.0,
+          "end": 32.78,
+          "probability": 0.99560546875
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 32.78,
+      "end": 42.98,
+      "text": "AI, yet AI cleaned up at the best new artist's stand, taking its cue from creative man, stealing",
+      "avg_logprob": -0.2189555891642445,
+      "no_speech_prob": 0.327392578125,
+      "compression_ratio": 1.5297297297297296,
+      "words": [
+        {
+          "word": " AI,",
+          "start": 32.78,
+          "end": 33.0,
+          "probability": 0.03143310546875
+        },
+        {
+          "word": " yet",
+          "start": 34.4,
+          "end": 34.7,
+          "probability": 0.7822265625
+        },
+        {
+          "word": " AI",
+          "start": 34.7,
+          "end": 35.14,
+          "probability": 0.91455078125
+        },
+        {
+          "word": " cleaned",
+          "start": 35.14,
+          "end": 35.62,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " up",
+          "start": 35.62,
+          "end": 35.9,
+          "probability": 0.9921875
+        },
+        {
+          "word": " at",
+          "start": 35.9,
+          "end": 36.28,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " the",
+          "start": 36.28,
+          "end": 36.4,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " best",
+          "start": 36.4,
+          "end": 36.76,
+          "probability": 0.96875
+        },
+        {
+          "word": " new",
+          "start": 36.76,
+          "end": 37.06,
+          "probability": 0.97265625
+        },
+        {
+          "word": " artist's",
+          "start": 37.06,
+          "end": 37.9,
+          "probability": 0.5557861328125
+        },
+        {
+          "word": " stand,",
+          "start": 37.9,
+          "end": 38.24,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " taking",
+          "start": 38.96,
+          "end": 39.36,
+          "probability": 0.943359375
+        },
+        {
+          "word": " its",
+          "start": 39.36,
+          "end": 39.68,
+          "probability": 0.9580078125
+        },
+        {
+          "word": " cue",
+          "start": 39.68,
+          "end": 40.16,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " from",
+          "start": 40.16,
+          "end": 40.58,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " creative",
+          "start": 40.58,
+          "end": 40.98,
+          "probability": 0.87109375
+        },
+        {
+          "word": " man,",
+          "start": 40.98,
+          "end": 41.62,
+          "probability": 0.90771484375
+        },
+        {
+          "word": " stealing",
+          "start": 42.5,
+          "end": 42.98,
+          "probability": 0.9716796875
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 42.98,
+      "end": 50.4,
+      "text": "from our minds now tied up in knots, or collective efforts given over to the latest chatbot,",
+      "avg_logprob": -0.2189555891642445,
+      "no_speech_prob": 0.327392578125,
+      "compression_ratio": 1.5297297297297296,
+      "words": [
+        {
+          "word": " from",
+          "start": 42.98,
+          "end": 43.36,
+          "probability": 0.99609375
+        },
+        {
+          "word": " our",
+          "start": 43.36,
+          "end": 43.56,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " minds",
+          "start": 43.56,
+          "end": 44.14,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " now",
+          "start": 44.14,
+          "end": 44.44,
+          "probability": 0.87841796875
+        },
+        {
+          "word": " tied",
+          "start": 44.44,
+          "end": 44.78,
+          "probability": 0.560546875
+        },
+        {
+          "word": " up",
+          "start": 44.78,
+          "end": 44.98,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " in",
+          "start": 44.98,
+          "end": 45.14,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " knots,",
+          "start": 45.14,
+          "end": 45.62,
+          "probability": 0.994140625
+        },
+        {
+          "word": " or",
+          "start": 46.5,
+          "end": 46.72,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " collective",
+          "start": 46.72,
+          "end": 47.28,
+          "probability": 0.98046875
+        },
+        {
+          "word": " efforts",
+          "start": 47.28,
+          "end": 48.08,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " given",
+          "start": 48.08,
+          "end": 48.38,
+          "probability": 0.94873046875
+        },
+        {
+          "word": " over",
+          "start": 48.38,
+          "end": 48.8,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " to",
+          "start": 48.8,
+          "end": 49.08,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " the",
+          "start": 49.08,
+          "end": 49.26,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " latest",
+          "start": 49.26,
+          "end": 49.64,
+          "probability": 0.994140625
+        },
+        {
+          "word": " chatbot,",
+          "start": 49.64,
+          "end": 50.4,
+          "probability": 0.838134765625
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 51.4,
+      "end": 61.3,
+      "text": "to hurl, spit, regurgitate, and expropriate, rag-back in or collective face, or individualism",
+      "avg_logprob": -0.2189555891642445,
+      "no_speech_prob": 0.327392578125,
+      "compression_ratio": 1.5297297297297296,
+      "words": [
+        {
+          "word": " to",
+          "start": 51.4,
+          "end": 51.5,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " hurl,",
+          "start": 51.5,
+          "end": 52.06,
+          "probability": 0.994384765625
+        },
+        {
+          "word": " spit,",
+          "start": 52.26,
+          "end": 52.44,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " regurgitate,",
+          "start": 52.94,
+          "end": 53.62,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " and",
+          "start": 54.6,
+          "end": 54.74,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " expropriate,",
+          "start": 54.74,
+          "end": 55.94,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " rag",
+          "start": 56.64,
+          "end": 56.96,
+          "probability": 0.5595703125
+        },
+        {
+          "word": "-back",
+          "start": 56.96,
+          "end": 57.22,
+          "probability": 0.689697265625
+        },
+        {
+          "word": " in",
+          "start": 57.22,
+          "end": 57.58,
+          "probability": 0.55712890625
+        },
+        {
+          "word": " or",
+          "start": 57.58,
+          "end": 57.84,
+          "probability": 0.43017578125
+        },
+        {
+          "word": " collective",
+          "start": 57.84,
+          "end": 58.4,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " face,",
+          "start": 58.4,
+          "end": 58.94,
+          "probability": 0.8837890625
+        },
+        {
+          "word": " or",
+          "start": 59.78,
+          "end": 59.96,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " individualism",
+          "start": 59.96,
+          "end": 61.3,
+          "probability": 0.993408203125
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 61.3,
+      "end": 72.17,
+      "text": "as bait, no thought given, no travail, no muse hidden, no current debate, no draft upon",
+      "avg_logprob": -0.21682692307692308,
+      "no_speech_prob": 0.456298828125,
+      "compression_ratio": 1.4910179640718564,
+      "words": [
+        {
+          "word": " as",
+          "start": 61.3,
+          "end": 61.8,
+          "probability": 0.04443359375
+        },
+        {
+          "word": " bait,",
+          "start": 61.8,
+          "end": 62.1,
+          "probability": 0.94091796875
+        },
+        {
+          "word": " no",
+          "start": 63.22,
+          "end": 63.62,
+          "probability": 0.958984375
+        },
+        {
+          "word": " thought",
+          "start": 63.62,
+          "end": 64.06,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " given,",
+          "start": 64.06,
+          "end": 64.52,
+          "probability": 0.81884765625
+        },
+        {
+          "word": " no",
+          "start": 65.16,
+          "end": 65.34,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " travail,",
+          "start": 65.34,
+          "end": 65.72,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " no",
+          "start": 66.78,
+          "end": 67.06,
+          "probability": 0.99609375
+        },
+        {
+          "word": " muse",
+          "start": 67.06,
+          "end": 67.5,
+          "probability": 0.89208984375
+        },
+        {
+          "word": " hidden,",
+          "start": 67.5,
+          "end": 67.98,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " no",
+          "start": 68.76,
+          "end": 68.94,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " current",
+          "start": 68.94,
+          "end": 69.42,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " debate,",
+          "start": 69.42,
+          "end": 69.92,
+          "probability": 0.998046875
+        },
+        {
+          "word": " no",
+          "start": 71.05,
+          "end": 71.27,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " draft",
+          "start": 71.27,
+          "end": 71.85,
+          "probability": 0.9921875
+        },
+        {
+          "word": " upon",
+          "start": 71.85,
+          "end": 72.17,
+          "probability": 0.94482421875
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 72.17,
+      "end": 82.66,
+      "text": "draft of ideas to weigh, no personal inspiration, no collaborate, when asked to compose a haiku",
+      "avg_logprob": -0.21682692307692308,
+      "no_speech_prob": 0.456298828125,
+      "compression_ratio": 1.4910179640718564,
+      "words": [
+        {
+          "word": " draft",
+          "start": 72.17,
+          "end": 72.85,
+          "probability": 0.998046875
+        },
+        {
+          "word": " of",
+          "start": 72.85,
+          "end": 73.11,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " ideas",
+          "start": 73.11,
+          "end": 73.67,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " to",
+          "start": 73.67,
+          "end": 73.99,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " weigh,",
+          "start": 73.99,
+          "end": 74.29,
+          "probability": 0.89306640625
+        },
+        {
+          "word": " no",
+          "start": 75.2,
+          "end": 75.46,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " personal",
+          "start": 75.46,
+          "end": 76.06,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " inspiration,",
+          "start": 76.06,
+          "end": 77.2,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " no",
+          "start": 78.0,
+          "end": 78.18,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " collaborate,",
+          "start": 78.18,
+          "end": 78.8,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " when",
+          "start": 80.08,
+          "end": 80.36,
+          "probability": 0.962890625
+        },
+        {
+          "word": " asked",
+          "start": 80.36,
+          "end": 80.94,
+          "probability": 0.998046875
+        },
+        {
+          "word": " to",
+          "start": 80.94,
+          "end": 81.28,
+          "probability": 0.998046875
+        },
+        {
+          "word": " compose",
+          "start": 81.28,
+          "end": 81.82,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " a",
+          "start": 81.82,
+          "end": 82.16,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " haiku",
+          "start": 82.16,
+          "end": 82.66,
+          "probability": 0.950927734375
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 83.14,
+      "end": 89.74,
+      "text": "on why Hawaii should not be a part of America. AI delivered. Yes.",
+      "avg_logprob": -0.21682692307692308,
+      "no_speech_prob": 0.456298828125,
+      "compression_ratio": 1.4910179640718564,
+      "words": [
+        {
+          "word": " on",
+          "start": 83.14,
+          "end": 83.6,
+          "probability": 0.89208984375
+        },
+        {
+          "word": " why",
+          "start": 83.6,
+          "end": 83.9,
+          "probability": 0.9921875
+        },
+        {
+          "word": " Hawaii",
+          "start": 83.9,
+          "end": 84.28,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " should",
+          "start": 84.28,
+          "end": 84.76,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " not",
+          "start": 84.76,
+          "end": 85.08,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " be",
+          "start": 85.08,
+          "end": 85.54,
+          "probability": 0.99609375
+        },
+        {
+          "word": " a",
+          "start": 85.54,
+          "end": 85.84,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " part",
+          "start": 85.84,
+          "end": 86.1,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " of",
+          "start": 86.1,
+          "end": 86.36,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " America.",
+          "start": 86.36,
+          "end": 86.82,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " AI",
+          "start": 87.68,
+          "end": 88.02,
+          "probability": 0.7900390625
+        },
+        {
+          "word": " delivered.",
+          "start": 88.02,
+          "end": 88.6,
+          "probability": 0.86328125
+        },
+        {
+          "word": " Yes.",
+          "start": 89.38,
+          "end": 89.74,
+          "probability": 0.962890625
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 89.74,
+      "end": 96.7,
+      "text": "But whose rendition was it? Did it even answer the question or evade?",
+      "avg_logprob": -0.11012801007334008,
+      "no_speech_prob": 0.11053466796875,
+      "compression_ratio": 1.446078431372549,
+      "words": [
+        {
+          "word": " But",
+          "start": 89.74,
+          "end": 90.76,
+          "probability": 0.31787109375
+        },
+        {
+          "word": " whose",
+          "start": 91.14,
+          "end": 91.48,
+          "probability": 0.8681640625
+        },
+        {
+          "word": " rendition",
+          "start": 91.48,
+          "end": 92.0,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " was",
+          "start": 92.0,
+          "end": 92.46,
+          "probability": 0.99609375
+        },
+        {
+          "word": " it?",
+          "start": 92.46,
+          "end": 92.72,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " Did",
+          "start": 93.4,
+          "end": 93.66,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " it",
+          "start": 93.66,
+          "end": 93.84,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " even",
+          "start": 93.84,
+          "end": 94.32,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " answer",
+          "start": 94.32,
+          "end": 94.94,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " the",
+          "start": 94.94,
+          "end": 95.08,
+          "probability": 0.994140625
+        },
+        {
+          "word": " question",
+          "start": 95.08,
+          "end": 95.58,
+          "probability": 0.99609375
+        },
+        {
+          "word": " or",
+          "start": 95.58,
+          "end": 96.28,
+          "probability": 0.7275390625
+        },
+        {
+          "word": " evade?",
+          "start": 96.28,
+          "end": 96.7,
+          "probability": 0.997802734375
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 97.81,
+      "end": 102.59,
+      "text": "Was I supposed to benefit greatly for AI's contribution to humanity?",
+      "avg_logprob": -0.11012801007334008,
+      "no_speech_prob": 0.11053466796875,
+      "compression_ratio": 1.446078431372549,
+      "words": [
+        {
+          "word": " Was",
+          "start": 97.81,
+          "end": 98.03,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " I",
+          "start": 98.03,
+          "end": 98.27,
+          "probability": 0.994140625
+        },
+        {
+          "word": " supposed",
+          "start": 98.27,
+          "end": 98.59,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " to",
+          "start": 98.59,
+          "end": 98.95,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " benefit",
+          "start": 98.95,
+          "end": 99.19,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " greatly",
+          "start": 99.19,
+          "end": 99.83,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " for",
+          "start": 99.83,
+          "end": 100.37,
+          "probability": 0.85302734375
+        },
+        {
+          "word": " AI's",
+          "start": 100.37,
+          "end": 100.89,
+          "probability": 0.930908203125
+        },
+        {
+          "word": " contribution",
+          "start": 100.89,
+          "end": 101.59,
+          "probability": 0.98828125
+        },
+        {
+          "word": " to",
+          "start": 101.59,
+          "end": 102.09,
+          "probability": 0.998046875
+        },
+        {
+          "word": " humanity?",
+          "start": 102.09,
+          "end": 102.59,
+          "probability": 0.98681640625
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 103.9,
+      "end": 111.06,
+      "text": "Is AI teaching me an art, a skill, a trade, or just doing the work for me?",
+      "avg_logprob": -0.11012801007334008,
+      "no_speech_prob": 0.11053466796875,
+      "compression_ratio": 1.446078431372549,
+      "words": [
+        {
+          "word": " Is",
+          "start": 103.9,
+          "end": 104.16,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " AI",
+          "start": 104.16,
+          "end": 104.48,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " teaching",
+          "start": 104.48,
+          "end": 104.94,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " me",
+          "start": 104.94,
+          "end": 105.3,
+          "probability": 0.9921875
+        },
+        {
+          "word": " an",
+          "start": 105.3,
+          "end": 105.42,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " art,",
+          "start": 105.42,
+          "end": 105.88,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " a",
+          "start": 106.46,
+          "end": 106.68,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " skill,",
+          "start": 106.68,
+          "end": 107.02,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " a",
+          "start": 107.76,
+          "end": 107.84,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " trade,",
+          "start": 107.84,
+          "end": 108.28,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " or",
+          "start": 109.02,
+          "end": 109.42,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " just",
+          "start": 109.42,
+          "end": 109.66,
+          "probability": 0.994140625
+        },
+        {
+          "word": " doing",
+          "start": 109.66,
+          "end": 110.02,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " the",
+          "start": 110.02,
+          "end": 110.28,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " work",
+          "start": 110.28,
+          "end": 110.56,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " for",
+          "start": 110.56,
+          "end": 110.78,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " me?",
+          "start": 110.78,
+          "end": 111.06,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 112.01,
+      "end": 119.62,
+      "text": "I hesitate. For the moment I read its subversive text, I was at a loss for words.",
+      "avg_logprob": -0.11012801007334008,
+      "no_speech_prob": 0.11053466796875,
+      "compression_ratio": 1.446078431372549,
+      "words": [
+        {
+          "word": " I",
+          "start": 112.01,
+          "end": 112.27,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " hesitate.",
+          "start": 112.27,
+          "end": 112.75,
+          "probability": 0.822265625
+        },
+        {
+          "word": " For",
+          "start": 114.06,
+          "end": 114.32,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " the",
+          "start": 114.32,
+          "end": 114.44,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " moment",
+          "start": 114.44,
+          "end": 114.82,
+          "probability": 0.990234375
+        },
+        {
+          "word": " I",
+          "start": 114.82,
+          "end": 115.16,
+          "probability": 0.88232421875
+        },
+        {
+          "word": " read",
+          "start": 115.16,
+          "end": 115.48,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " its",
+          "start": 115.48,
+          "end": 115.74,
+          "probability": 0.884765625
+        },
+        {
+          "word": " subversive",
+          "start": 115.74,
+          "end": 116.44,
+          "probability": 0.998046875
+        },
+        {
+          "word": " text,",
+          "start": 116.44,
+          "end": 116.9,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " I",
+          "start": 117.54,
+          "end": 117.96,
+          "probability": 0.998046875
+        },
+        {
+          "word": " was",
+          "start": 117.96,
+          "end": 118.14,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " at",
+          "start": 118.14,
+          "end": 118.3,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " a",
+          "start": 118.3,
+          "end": 118.46,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " loss",
+          "start": 118.46,
+          "end": 118.8,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " for",
+          "start": 118.8,
+          "end": 119.14,
+          "probability": 0.9921875
+        },
+        {
+          "word": " words.",
+          "start": 119.14,
+          "end": 119.62,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 119.62,
+      "end": 127.99,
+      "text": "any creative inclination I may have had to spin a posey snuffed out. I didn't know",
+      "avg_logprob": -0.19720261495920918,
+      "no_speech_prob": 0.0733642578125,
+      "compression_ratio": 1.4329268292682926,
+      "words": [
+        {
+          "word": " any",
+          "start": 119.62,
+          "end": 120.74,
+          "probability": 0.193603515625
+        },
+        {
+          "word": " creative",
+          "start": 120.74,
+          "end": 121.34,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " inclination",
+          "start": 121.34,
+          "end": 122.12,
+          "probability": 0.996826171875
+        },
+        {
+          "word": " I",
+          "start": 122.12,
+          "end": 122.58,
+          "probability": 0.8935546875
+        },
+        {
+          "word": " may",
+          "start": 122.58,
+          "end": 122.76,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " have",
+          "start": 122.76,
+          "end": 122.92,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " had",
+          "start": 122.92,
+          "end": 123.3,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " to",
+          "start": 123.3,
+          "end": 123.54,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " spin",
+          "start": 123.54,
+          "end": 123.76,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " a",
+          "start": 123.76,
+          "end": 123.94,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " posey",
+          "start": 123.94,
+          "end": 124.64,
+          "probability": 0.489501953125
+        },
+        {
+          "word": " snuffed",
+          "start": 124.64,
+          "end": 125.72,
+          "probability": 0.87548828125
+        },
+        {
+          "word": " out.",
+          "start": 125.72,
+          "end": 126.08,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " I",
+          "start": 126.67,
+          "end": 127.33,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " didn't",
+          "start": 127.33,
+          "end": 127.69,
+          "probability": 0.989990234375
+        },
+        {
+          "word": " know",
+          "start": 127.69,
+          "end": 127.99,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 127.99,
+      "end": 136.03,
+      "text": "whether to be impressed or offended or struck or humiliated. I know I felt",
+      "avg_logprob": -0.19720261495920918,
+      "no_speech_prob": 0.0733642578125,
+      "compression_ratio": 1.4329268292682926,
+      "words": [
+        {
+          "word": " whether",
+          "start": 127.99,
+          "end": 128.35,
+          "probability": 0.9921875
+        },
+        {
+          "word": " to",
+          "start": 128.35,
+          "end": 128.61,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " be",
+          "start": 128.61,
+          "end": 128.91,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " impressed",
+          "start": 128.91,
+          "end": 129.65,
+          "probability": 0.986328125
+        },
+        {
+          "word": " or",
+          "start": 129.65,
+          "end": 130.33,
+          "probability": 0.958984375
+        },
+        {
+          "word": " offended",
+          "start": 130.33,
+          "end": 130.87,
+          "probability": 0.998046875
+        },
+        {
+          "word": " or",
+          "start": 130.87,
+          "end": 131.97,
+          "probability": 0.6005859375
+        },
+        {
+          "word": " struck",
+          "start": 131.97,
+          "end": 132.37,
+          "probability": 0.96484375
+        },
+        {
+          "word": " or",
+          "start": 132.37,
+          "end": 132.93,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " humiliated.",
+          "start": 132.93,
+          "end": 133.79,
+          "probability": 0.993896484375
+        },
+        {
+          "word": " I",
+          "start": 134.59,
+          "end": 135.01,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " know",
+          "start": 135.01,
+          "end": 135.33,
+          "probability": 0.9443359375
+        },
+        {
+          "word": " I",
+          "start": 135.33,
+          "end": 135.65,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " felt",
+          "start": 135.65,
+          "end": 136.03,
+          "probability": 0.9892578125
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 136.03,
+      "end": 145.77,
+      "text": "cheated, robbed, I even sought. How could this device, claiming to support my",
+      "avg_logprob": -0.19720261495920918,
+      "no_speech_prob": 0.0733642578125,
+      "compression_ratio": 1.4329268292682926,
+      "words": [
+        {
+          "word": " cheated,",
+          "start": 136.03,
+          "end": 136.87,
+          "probability": 0.990234375
+        },
+        {
+          "word": " robbed,",
+          "start": 137.83,
+          "end": 138.15,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " I",
+          "start": 139.13,
+          "end": 139.25,
+          "probability": 0.9384765625
+        },
+        {
+          "word": " even",
+          "start": 139.25,
+          "end": 139.79,
+          "probability": 0.998046875
+        },
+        {
+          "word": " sought.",
+          "start": 139.79,
+          "end": 140.37,
+          "probability": 0.400390625
+        },
+        {
+          "word": " How",
+          "start": 141.77,
+          "end": 142.13,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " could",
+          "start": 142.13,
+          "end": 142.51,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " this",
+          "start": 142.51,
+          "end": 142.77,
+          "probability": 0.998046875
+        },
+        {
+          "word": " device,",
+          "start": 142.77,
+          "end": 143.23,
+          "probability": 0.99609375
+        },
+        {
+          "word": " claiming",
+          "start": 144.01,
+          "end": 144.53,
+          "probability": 0.998046875
+        },
+        {
+          "word": " to",
+          "start": 144.53,
+          "end": 144.85,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " support",
+          "start": 144.85,
+          "end": 145.31,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " my",
+          "start": 145.31,
+          "end": 145.77,
+          "probability": 0.99365234375
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 145.77,
+      "end": 155.93,
+      "text": "artistic side to be my muse. Extrapolate. Take what was mine. Where was here the",
+      "avg_logprob": -0.2064903846153846,
+      "no_speech_prob": 0.10296630859375,
+      "compression_ratio": 1.427710843373494,
+      "words": [
+        {
+          "word": " artistic",
+          "start": 145.77,
+          "end": 146.41,
+          "probability": 0.501953125
+        },
+        {
+          "word": " side",
+          "start": 146.41,
+          "end": 147.07,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " to",
+          "start": 147.07,
+          "end": 147.89,
+          "probability": 0.6044921875
+        },
+        {
+          "word": " be",
+          "start": 147.89,
+          "end": 148.07,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " my",
+          "start": 148.07,
+          "end": 148.31,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " muse.",
+          "start": 148.31,
+          "end": 148.87,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " Extrapolate.",
+          "start": 149.69,
+          "end": 150.55,
+          "probability": 0.9010416666666666
+        },
+        {
+          "word": " Take",
+          "start": 151.41,
+          "end": 151.87,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " what",
+          "start": 151.87,
+          "end": 152.21,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " was",
+          "start": 152.21,
+          "end": 152.61,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " mine.",
+          "start": 152.61,
+          "end": 152.99,
+          "probability": 0.998046875
+        },
+        {
+          "word": " Where",
+          "start": 154.11,
+          "end": 154.59,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " was",
+          "start": 154.59,
+          "end": 154.97,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " here",
+          "start": 154.97,
+          "end": 155.41,
+          "probability": 0.6455078125
+        },
+        {
+          "word": " the",
+          "start": 155.41,
+          "end": 155.93,
+          "probability": 0.90673828125
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 155.93,
+      "end": 163.76,
+      "text": "intersection of AI and humankind? Since after that I couldn't even compose a",
+      "avg_logprob": -0.2064903846153846,
+      "no_speech_prob": 0.10296630859375,
+      "compression_ratio": 1.427710843373494,
+      "words": [
+        {
+          "word": " intersection",
+          "start": 155.93,
+          "end": 156.61,
+          "probability": 0.65966796875
+        },
+        {
+          "word": " of",
+          "start": 156.61,
+          "end": 157.47,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " AI",
+          "start": 157.47,
+          "end": 157.75,
+          "probability": 0.94921875
+        },
+        {
+          "word": " and",
+          "start": 157.75,
+          "end": 158.27,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " humankind?",
+          "start": 158.27,
+          "end": 158.99,
+          "probability": 0.80908203125
+        },
+        {
+          "word": " Since",
+          "start": 159.9,
+          "end": 160.22,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " after",
+          "start": 160.22,
+          "end": 160.62,
+          "probability": 0.94921875
+        },
+        {
+          "word": " that",
+          "start": 160.62,
+          "end": 161.08,
+          "probability": 0.998046875
+        },
+        {
+          "word": " I",
+          "start": 161.08,
+          "end": 161.84,
+          "probability": 0.50537109375
+        },
+        {
+          "word": " couldn't",
+          "start": 161.84,
+          "end": 162.42,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " even",
+          "start": 162.42,
+          "end": 162.72,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " compose",
+          "start": 162.72,
+          "end": 163.38,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " a",
+          "start": 163.38,
+          "end": 163.76,
+          "probability": 0.99609375
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 163.76,
+      "end": 171.08,
+      "text": "poem for some time. All of my faculties blind. It wasn't that I couldn't try to",
+      "avg_logprob": -0.2064903846153846,
+      "no_speech_prob": 0.10296630859375,
+      "compression_ratio": 1.427710843373494,
+      "words": [
+        {
+          "word": " poem",
+          "start": 163.76,
+          "end": 164.02,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " for",
+          "start": 164.02,
+          "end": 164.42,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " some",
+          "start": 164.42,
+          "end": 164.62,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " time.",
+          "start": 164.62,
+          "end": 165.12,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " All",
+          "start": 166.19,
+          "end": 166.47,
+          "probability": 0.982421875
+        },
+        {
+          "word": " of",
+          "start": 166.47,
+          "end": 166.67,
+          "probability": 0.98046875
+        },
+        {
+          "word": " my",
+          "start": 166.67,
+          "end": 166.83,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " faculties",
+          "start": 166.83,
+          "end": 167.49,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " blind.",
+          "start": 167.49,
+          "end": 167.81,
+          "probability": 0.96875
+        },
+        {
+          "word": " It",
+          "start": 168.96,
+          "end": 169.22,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " wasn't",
+          "start": 169.22,
+          "end": 169.64,
+          "probability": 0.996826171875
+        },
+        {
+          "word": " that",
+          "start": 169.64,
+          "end": 169.98,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " I",
+          "start": 169.98,
+          "end": 170.22,
+          "probability": 0.955078125
+        },
+        {
+          "word": " couldn't",
+          "start": 170.22,
+          "end": 170.56,
+          "probability": 0.995849609375
+        },
+        {
+          "word": " try",
+          "start": 170.56,
+          "end": 170.88,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " to",
+          "start": 170.88,
+          "end": 171.08,
+          "probability": 0.99267578125
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 171.08,
+      "end": 180.57,
+      "text": "find the words to say to AI to make it fly, but AI had died inside. What is AI doing for",
+      "avg_logprob": -0.17896792606303566,
+      "no_speech_prob": 0.130615234375,
+      "compression_ratio": 1.45,
+      "words": [
+        {
+          "word": " find",
+          "start": 171.08,
+          "end": 171.36,
+          "probability": 0.2342529296875
+        },
+        {
+          "word": " the",
+          "start": 171.36,
+          "end": 171.54,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " words",
+          "start": 171.54,
+          "end": 171.86,
+          "probability": 0.98828125
+        },
+        {
+          "word": " to",
+          "start": 171.86,
+          "end": 172.16,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " say",
+          "start": 172.16,
+          "end": 172.34,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " to",
+          "start": 172.34,
+          "end": 172.54,
+          "probability": 0.98828125
+        },
+        {
+          "word": " AI",
+          "start": 172.54,
+          "end": 172.72,
+          "probability": 0.9521484375
+        },
+        {
+          "word": " to",
+          "start": 172.72,
+          "end": 173.24,
+          "probability": 0.955078125
+        },
+        {
+          "word": " make",
+          "start": 173.24,
+          "end": 173.48,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " it",
+          "start": 173.48,
+          "end": 173.64,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " fly,",
+          "start": 173.64,
+          "end": 173.94,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " but",
+          "start": 174.77,
+          "end": 175.09,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " AI",
+          "start": 175.09,
+          "end": 175.63,
+          "probability": 0.374267578125
+        },
+        {
+          "word": " had",
+          "start": 175.63,
+          "end": 175.97,
+          "probability": 0.951171875
+        },
+        {
+          "word": " died",
+          "start": 175.97,
+          "end": 176.47,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " inside.",
+          "start": 176.47,
+          "end": 177.09,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " What",
+          "start": 178.77,
+          "end": 179.11,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " is",
+          "start": 179.11,
+          "end": 179.41,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " AI",
+          "start": 179.41,
+          "end": 179.67,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " doing",
+          "start": 179.67,
+          "end": 180.11,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " for",
+          "start": 180.11,
+          "end": 180.57,
+          "probability": 0.98779296875
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 180.57,
+      "end": 189.55,
+      "text": "all the world's writers? At best, creating copycat stories to cite, a commonness, a sameness,",
+      "avg_logprob": -0.17896792606303566,
+      "no_speech_prob": 0.130615234375,
+      "compression_ratio": 1.45,
+      "words": [
+        {
+          "word": " all",
+          "start": 180.57,
+          "end": 180.93,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " the",
+          "start": 180.93,
+          "end": 181.19,
+          "probability": 0.9287109375
+        },
+        {
+          "word": " world's",
+          "start": 181.19,
+          "end": 181.73,
+          "probability": 0.978759765625
+        },
+        {
+          "word": " writers?",
+          "start": 181.73,
+          "end": 182.01,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " At",
+          "start": 183.07,
+          "end": 183.29,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " best,",
+          "start": 183.29,
+          "end": 183.81,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " creating",
+          "start": 184.13,
+          "end": 184.69,
+          "probability": 0.994140625
+        },
+        {
+          "word": " copycat",
+          "start": 184.69,
+          "end": 185.53,
+          "probability": 0.929443359375
+        },
+        {
+          "word": " stories",
+          "start": 185.53,
+          "end": 186.05,
+          "probability": 0.998046875
+        },
+        {
+          "word": " to",
+          "start": 186.05,
+          "end": 186.35,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " cite,",
+          "start": 186.35,
+          "end": 186.69,
+          "probability": 0.94384765625
+        },
+        {
+          "word": " a",
+          "start": 187.17,
+          "end": 187.17,
+          "probability": 0.93505859375
+        },
+        {
+          "word": " commonness,",
+          "start": 187.17,
+          "end": 188.65,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " a",
+          "start": 188.91,
+          "end": 188.91,
+          "probability": 0.970703125
+        },
+        {
+          "word": " sameness,",
+          "start": 188.91,
+          "end": 189.55,
+          "probability": 0.886474609375
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 190.23,
+      "end": 197.88,
+      "text": "harlequin romancers, a social media platform to hide. Brainstorm, if you will,",
+      "avg_logprob": -0.17896792606303566,
+      "no_speech_prob": 0.130615234375,
+      "compression_ratio": 1.45,
+      "words": [
+        {
+          "word": " harlequin",
+          "start": 190.23,
+          "end": 190.77,
+          "probability": 0.6769205729166666
+        },
+        {
+          "word": " romancers,",
+          "start": 190.77,
+          "end": 191.55,
+          "probability": 0.864501953125
+        },
+        {
+          "word": " a",
+          "start": 192.33,
+          "end": 192.47,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " social",
+          "start": 192.47,
+          "end": 192.89,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " media",
+          "start": 192.89,
+          "end": 193.43,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " platform",
+          "start": 193.43,
+          "end": 194.07,
+          "probability": 0.998046875
+        },
+        {
+          "word": " to",
+          "start": 194.07,
+          "end": 194.37,
+          "probability": 0.994140625
+        },
+        {
+          "word": " hide.",
+          "start": 194.37,
+          "end": 194.73,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " Brainstorm,",
+          "start": 196.4,
+          "end": 197.12,
+          "probability": 0.9322916666666666
+        },
+        {
+          "word": " if",
+          "start": 197.28,
+          "end": 197.4,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " you",
+          "start": 197.4,
+          "end": 197.56,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " will,",
+          "start": 197.56,
+          "end": 197.88,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 198.11,
+      "end": 205.93,
+      "text": "all the ideas on a given topic, along with someone else's, and transfer them to memory.",
+      "avg_logprob": -0.2037183615980269,
+      "no_speech_prob": 0.1494140625,
+      "compression_ratio": 1.4712041884816753,
+      "words": [
+        {
+          "word": " all",
+          "start": 198.11,
+          "end": 199.31,
+          "probability": 0.307861328125
+        },
+        {
+          "word": " the",
+          "start": 199.31,
+          "end": 199.79,
+          "probability": 0.9150390625
+        },
+        {
+          "word": " ideas",
+          "start": 199.79,
+          "end": 200.29,
+          "probability": 0.9091796875
+        },
+        {
+          "word": " on",
+          "start": 200.29,
+          "end": 200.55,
+          "probability": 0.984375
+        },
+        {
+          "word": " a",
+          "start": 200.55,
+          "end": 200.69,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " given",
+          "start": 200.69,
+          "end": 200.91,
+          "probability": 0.998046875
+        },
+        {
+          "word": " topic,",
+          "start": 200.91,
+          "end": 201.39,
+          "probability": 0.998046875
+        },
+        {
+          "word": " along",
+          "start": 201.85,
+          "end": 202.19,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " with",
+          "start": 202.19,
+          "end": 202.49,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " someone",
+          "start": 202.49,
+          "end": 202.87,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " else's,",
+          "start": 202.87,
+          "end": 203.63,
+          "probability": 0.96875
+        },
+        {
+          "word": " and",
+          "start": 204.17,
+          "end": 204.51,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " transfer",
+          "start": 204.51,
+          "end": 205.05,
+          "probability": 0.974609375
+        },
+        {
+          "word": " them",
+          "start": 205.05,
+          "end": 205.39,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " to",
+          "start": 205.39,
+          "end": 205.59,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " memory.",
+          "start": 205.59,
+          "end": 205.93,
+          "probability": 0.99169921875
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 206.85,
+      "end": 210.65,
+      "text": "Will they steep till they meld into one simple song?",
+      "avg_logprob": -0.2037183615980269,
+      "no_speech_prob": 0.1494140625,
+      "compression_ratio": 1.4712041884816753,
+      "words": [
+        {
+          "word": " Will",
+          "start": 206.85,
+          "end": 207.37,
+          "probability": 0.953125
+        },
+        {
+          "word": " they",
+          "start": 207.37,
+          "end": 207.65,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " steep",
+          "start": 207.65,
+          "end": 208.13,
+          "probability": 0.576171875
+        },
+        {
+          "word": " till",
+          "start": 208.13,
+          "end": 208.55,
+          "probability": 0.76416015625
+        },
+        {
+          "word": " they",
+          "start": 208.55,
+          "end": 208.75,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " meld",
+          "start": 208.75,
+          "end": 209.25,
+          "probability": 0.845703125
+        },
+        {
+          "word": " into",
+          "start": 209.25,
+          "end": 209.47,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " one",
+          "start": 209.47,
+          "end": 209.81,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " simple",
+          "start": 209.81,
+          "end": 210.17,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " song?",
+          "start": 210.17,
+          "end": 210.65,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 211.72,
+      "end": 214.14,
+      "text": "This is AI's inherent wrong.",
+      "avg_logprob": -0.2037183615980269,
+      "no_speech_prob": 0.1494140625,
+      "compression_ratio": 1.4712041884816753,
+      "words": [
+        {
+          "word": " This",
+          "start": 211.72,
+          "end": 212.06,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " is",
+          "start": 212.06,
+          "end": 212.28,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " AI's",
+          "start": 212.28,
+          "end": 212.9,
+          "probability": 0.807861328125
+        },
+        {
+          "word": " inherent",
+          "start": 212.9,
+          "end": 213.62,
+          "probability": 0.9443359375
+        },
+        {
+          "word": " wrong.",
+          "start": 213.62,
+          "end": 214.14,
+          "probability": 0.9345703125
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 215.63,
+      "end": 220.87,
+      "text": "For with AI as our black slate, we're not able to get out of the gate.",
+      "avg_logprob": -0.2037183615980269,
+      "no_speech_prob": 0.1494140625,
+      "compression_ratio": 1.4712041884816753,
+      "words": [
+        {
+          "word": " For",
+          "start": 215.63,
+          "end": 215.89,
+          "probability": 0.9501953125
+        },
+        {
+          "word": " with",
+          "start": 215.89,
+          "end": 216.17,
+          "probability": 0.966796875
+        },
+        {
+          "word": " AI",
+          "start": 216.17,
+          "end": 216.57,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " as",
+          "start": 216.57,
+          "end": 216.89,
+          "probability": 0.79296875
+        },
+        {
+          "word": " our",
+          "start": 216.89,
+          "end": 217.09,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " black",
+          "start": 217.09,
+          "end": 217.49,
+          "probability": 0.580078125
+        },
+        {
+          "word": " slate,",
+          "start": 217.49,
+          "end": 217.89,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " we're",
+          "start": 218.81,
+          "end": 219.07,
+          "probability": 0.943115234375
+        },
+        {
+          "word": " not",
+          "start": 219.07,
+          "end": 219.25,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " able",
+          "start": 219.25,
+          "end": 219.63,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " to",
+          "start": 219.63,
+          "end": 219.85,
+          "probability": 0.998046875
+        },
+        {
+          "word": " get",
+          "start": 219.85,
+          "end": 219.97,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " out",
+          "start": 219.97,
+          "end": 220.23,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " of",
+          "start": 220.23,
+          "end": 220.43,
+          "probability": 0.982421875
+        },
+        {
+          "word": " the",
+          "start": 220.43,
+          "end": 220.57,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " gate.",
+          "start": 220.57,
+          "end": 220.87,
+          "probability": 0.98291015625
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "start": 221.63,
+      "end": 224.77,
+      "text": "We're not yet free from mainland chains.",
+      "avg_logprob": -0.2037183615980269,
+      "no_speech_prob": 0.1494140625,
+      "compression_ratio": 1.4712041884816753,
+      "words": [
+        {
+          "word": " We're",
+          "start": 221.63,
+          "end": 222.03,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " not",
+          "start": 222.03,
+          "end": 222.33,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " yet",
+          "start": 222.33,
+          "end": 222.57,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " free",
+          "start": 222.57,
+          "end": 223.09,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " from",
+          "start": 223.09,
+          "end": 223.45,
+          "probability": 0.994140625
+        },
+        {
+          "word": " mainland",
+          "start": 223.45,
+          "end": 223.93,
+          "probability": 0.85595703125
+        },
+        {
+          "word": " chains.",
+          "start": 223.93,
+          "end": 224.77,
+          "probability": 0.9931640625
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "start": 224.77,
+      "end": 233.69,
+      "text": "were nowhere than inside the wheel, for out of the mouths of box rises a new native tongue,",
+      "avg_logprob": -0.23867753623188406,
+      "no_speech_prob": 0.0821533203125,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " were",
+          "start": 224.77,
+          "end": 225.75,
+          "probability": 0.427734375
+        },
+        {
+          "word": " nowhere",
+          "start": 225.75,
+          "end": 226.15,
+          "probability": 0.888671875
+        },
+        {
+          "word": " than",
+          "start": 226.15,
+          "end": 226.55,
+          "probability": 0.7685546875
+        },
+        {
+          "word": " inside",
+          "start": 226.55,
+          "end": 227.15,
+          "probability": 0.994140625
+        },
+        {
+          "word": " the",
+          "start": 227.15,
+          "end": 227.39,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " wheel,",
+          "start": 227.39,
+          "end": 227.79,
+          "probability": 0.68896484375
+        },
+        {
+          "word": " for",
+          "start": 228.23,
+          "end": 228.53,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " out",
+          "start": 228.53,
+          "end": 229.09,
+          "probability": 0.96337890625
+        },
+        {
+          "word": " of",
+          "start": 229.09,
+          "end": 229.39,
+          "probability": 0.982421875
+        },
+        {
+          "word": " the",
+          "start": 229.39,
+          "end": 229.53,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " mouths",
+          "start": 229.53,
+          "end": 229.97,
+          "probability": 0.9248046875
+        },
+        {
+          "word": " of",
+          "start": 229.97,
+          "end": 230.29,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " box",
+          "start": 230.29,
+          "end": 230.75,
+          "probability": 0.2491455078125
+        },
+        {
+          "word": " rises",
+          "start": 230.75,
+          "end": 231.87,
+          "probability": 0.7421875
+        },
+        {
+          "word": " a",
+          "start": 231.87,
+          "end": 232.11,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " new",
+          "start": 232.11,
+          "end": 232.53,
+          "probability": 0.9296875
+        },
+        {
+          "word": " native",
+          "start": 232.53,
+          "end": 233.11,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " tongue,",
+          "start": 233.11,
+          "end": 233.69,
+          "probability": 0.97900390625
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "start": 234.4,
+      "end": 242.78,
+      "text": "or ancestral language undone. The ages of poetry now defunct, lumped into a universal",
+      "avg_logprob": -0.23867753623188406,
+      "no_speech_prob": 0.0821533203125,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " or",
+          "start": 234.4,
+          "end": 234.7,
+          "probability": 0.97021484375
+        },
+        {
+          "word": " ancestral",
+          "start": 234.7,
+          "end": 235.38,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " language",
+          "start": 235.38,
+          "end": 236.1,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " undone.",
+          "start": 236.1,
+          "end": 236.72,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " The",
+          "start": 237.73,
+          "end": 237.83,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " ages",
+          "start": 237.83,
+          "end": 238.23,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " of",
+          "start": 238.23,
+          "end": 238.47,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " poetry",
+          "start": 238.47,
+          "end": 239.01,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " now",
+          "start": 239.01,
+          "end": 239.49,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " defunct,",
+          "start": 239.49,
+          "end": 240.25,
+          "probability": 0.6864827473958334
+        },
+        {
+          "word": " lumped",
+          "start": 241.04,
+          "end": 241.7,
+          "probability": 0.984619140625
+        },
+        {
+          "word": " into",
+          "start": 241.7,
+          "end": 241.92,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " a",
+          "start": 241.92,
+          "end": 242.16,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " universal",
+          "start": 242.16,
+          "end": 242.78,
+          "probability": 0.994140625
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "start": 242.78,
+      "end": 252.64,
+      "text": "brand, everything we need at a glance, intelligent life now artificially imbibed. They drive",
+      "avg_logprob": -0.23867753623188406,
+      "no_speech_prob": 0.0821533203125,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " brand,",
+          "start": 242.78,
+          "end": 243.5,
+          "probability": 0.994140625
+        },
+        {
+          "word": " everything",
+          "start": 244.5,
+          "end": 244.92,
+          "probability": 0.9609375
+        },
+        {
+          "word": " we",
+          "start": 244.92,
+          "end": 245.26,
+          "probability": 0.99609375
+        },
+        {
+          "word": " need",
+          "start": 245.26,
+          "end": 245.78,
+          "probability": 0.95751953125
+        },
+        {
+          "word": " at",
+          "start": 245.78,
+          "end": 246.06,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " a",
+          "start": 246.06,
+          "end": 246.18,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " glance,",
+          "start": 246.18,
+          "end": 246.58,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " intelligent",
+          "start": 247.7,
+          "end": 248.36,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " life",
+          "start": 248.36,
+          "end": 249.02,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " now",
+          "start": 249.02,
+          "end": 249.4,
+          "probability": 0.966796875
+        },
+        {
+          "word": " artificially",
+          "start": 249.4,
+          "end": 250.44,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " imbibed.",
+          "start": 250.44,
+          "end": 251.34,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " They",
+          "start": 252.06,
+          "end": 252.3,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " drive",
+          "start": 252.3,
+          "end": 252.64,
+          "probability": 0.9755859375
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 252.64,
+      "end": 260.52,
+      "text": "dangerously over the train tracks of time, cause and effect, for what is poetry, but",
+      "avg_logprob": -0.18939394278056693,
+      "no_speech_prob": 0.016143798828125,
+      "compression_ratio": 1.4802259887005649,
+      "words": [
+        {
+          "word": " dangerously",
+          "start": 252.64,
+          "end": 253.58,
+          "probability": 0.915283203125
+        },
+        {
+          "word": " over",
+          "start": 253.58,
+          "end": 253.82,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " the",
+          "start": 253.82,
+          "end": 253.98,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " train",
+          "start": 253.98,
+          "end": 254.34,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " tracks",
+          "start": 254.34,
+          "end": 254.74,
+          "probability": 0.99609375
+        },
+        {
+          "word": " of",
+          "start": 254.74,
+          "end": 255.04,
+          "probability": 0.9111328125
+        },
+        {
+          "word": " time,",
+          "start": 255.04,
+          "end": 255.76,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " cause",
+          "start": 256.3,
+          "end": 256.86,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " and",
+          "start": 256.86,
+          "end": 257.22,
+          "probability": 0.82421875
+        },
+        {
+          "word": " effect,",
+          "start": 257.22,
+          "end": 257.68,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " for",
+          "start": 258.46,
+          "end": 258.74,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " what",
+          "start": 258.74,
+          "end": 258.92,
+          "probability": 0.994140625
+        },
+        {
+          "word": " is",
+          "start": 258.92,
+          "end": 259.08,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " poetry,",
+          "start": 259.08,
+          "end": 259.54,
+          "probability": 0.99609375
+        },
+        {
+          "word": " but",
+          "start": 260.3,
+          "end": 260.52,
+          "probability": 0.9951171875
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "start": 260.52,
+      "end": 272.93,
+      "text": "a reflection of the age, golden glue, silver hue, iron hand, or sassy brass? For what are",
+      "avg_logprob": -0.18939394278056693,
+      "no_speech_prob": 0.016143798828125,
+      "compression_ratio": 1.4802259887005649,
+      "words": [
+        {
+          "word": " a",
+          "start": 260.52,
+          "end": 260.66,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " reflection",
+          "start": 260.66,
+          "end": 261.18,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " of",
+          "start": 261.18,
+          "end": 261.72,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " the",
+          "start": 261.72,
+          "end": 261.9,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " age,",
+          "start": 261.9,
+          "end": 262.5,
+          "probability": 0.96337890625
+        },
+        {
+          "word": " golden",
+          "start": 263.2,
+          "end": 263.82,
+          "probability": 0.70068359375
+        },
+        {
+          "word": " glue,",
+          "start": 263.82,
+          "end": 264.3,
+          "probability": 0.9091796875
+        },
+        {
+          "word": " silver",
+          "start": 265.24,
+          "end": 265.82,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " hue,",
+          "start": 265.82,
+          "end": 266.38,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " iron",
+          "start": 267.3,
+          "end": 267.72,
+          "probability": 0.955078125
+        },
+        {
+          "word": " hand,",
+          "start": 267.72,
+          "end": 268.4,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " or",
+          "start": 269.16,
+          "end": 269.4,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " sassy",
+          "start": 269.4,
+          "end": 269.96,
+          "probability": 0.988037109375
+        },
+        {
+          "word": " brass?",
+          "start": 269.96,
+          "end": 270.3,
+          "probability": 0.970703125
+        },
+        {
+          "word": " For",
+          "start": 272.01,
+          "end": 272.21,
+          "probability": 0.93896484375
+        },
+        {
+          "word": " what",
+          "start": 272.21,
+          "end": 272.47,
+          "probability": 0.990234375
+        },
+        {
+          "word": " are",
+          "start": 272.47,
+          "end": 272.93,
+          "probability": 0.9892578125
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "start": 272.93,
+      "end": 279.3,
+      "text": "their lived experiences that enable them to participate in or vernacular? And what will",
+      "avg_logprob": -0.18939394278056693,
+      "no_speech_prob": 0.016143798828125,
+      "compression_ratio": 1.4802259887005649,
+      "words": [
+        {
+          "word": " their",
+          "start": 272.93,
+          "end": 273.15,
+          "probability": 0.61083984375
+        },
+        {
+          "word": " lived",
+          "start": 273.15,
+          "end": 273.45,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " experiences",
+          "start": 273.45,
+          "end": 274.27,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " that",
+          "start": 274.27,
+          "end": 274.79,
+          "probability": 0.9462890625
+        },
+        {
+          "word": " enable",
+          "start": 274.79,
+          "end": 275.19,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " them",
+          "start": 275.19,
+          "end": 275.55,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " to",
+          "start": 275.55,
+          "end": 275.79,
+          "probability": 0.998046875
+        },
+        {
+          "word": " participate",
+          "start": 275.79,
+          "end": 276.37,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " in",
+          "start": 276.37,
+          "end": 276.73,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " or",
+          "start": 276.73,
+          "end": 276.89,
+          "probability": 0.2802734375
+        },
+        {
+          "word": " vernacular?",
+          "start": 276.89,
+          "end": 277.47,
+          "probability": 0.91064453125
+        },
+        {
+          "word": " And",
+          "start": 278.3,
+          "end": 278.76,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " what",
+          "start": 278.76,
+          "end": 279.02,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " will",
+          "start": 279.02,
+          "end": 279.3,
+          "probability": 0.98779296875
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "start": 279.3,
+      "end": 287.76,
+      "text": "be our lived experiences, if we stop looking around or within, if we stop hearing human",
+      "avg_logprob": -0.14315257703556733,
+      "no_speech_prob": 0.0372314453125,
+      "compression_ratio": 1.6415094339622642,
+      "words": [
+        {
+          "word": " be",
+          "start": 279.3,
+          "end": 279.5,
+          "probability": 0.45166015625
+        },
+        {
+          "word": " our",
+          "start": 279.5,
+          "end": 279.9,
+          "probability": 0.9462890625
+        },
+        {
+          "word": " lived",
+          "start": 279.9,
+          "end": 280.28,
+          "probability": 0.994140625
+        },
+        {
+          "word": " experiences,",
+          "start": 280.28,
+          "end": 281.1,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " if",
+          "start": 281.94,
+          "end": 282.16,
+          "probability": 0.96142578125
+        },
+        {
+          "word": " we",
+          "start": 282.16,
+          "end": 282.34,
+          "probability": 0.998046875
+        },
+        {
+          "word": " stop",
+          "start": 282.34,
+          "end": 282.58,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " looking",
+          "start": 282.58,
+          "end": 282.86,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " around",
+          "start": 282.86,
+          "end": 283.48,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " or",
+          "start": 283.48,
+          "end": 284.26,
+          "probability": 0.65185546875
+        },
+        {
+          "word": " within,",
+          "start": 284.26,
+          "end": 284.7,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " if",
+          "start": 285.42,
+          "end": 285.8,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " we",
+          "start": 285.8,
+          "end": 286.16,
+          "probability": 0.998046875
+        },
+        {
+          "word": " stop",
+          "start": 286.16,
+          "end": 286.64,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " hearing",
+          "start": 286.64,
+          "end": 287.2,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " human",
+          "start": 287.2,
+          "end": 287.76,
+          "probability": 0.990234375
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "start": 287.76,
+      "end": 297.08,
+      "text": "sounds. For it's either that we drive them or they drive us. If we drive them, they must",
+      "avg_logprob": -0.14315257703556733,
+      "no_speech_prob": 0.0372314453125,
+      "compression_ratio": 1.6415094339622642,
+      "words": [
+        {
+          "word": " sounds.",
+          "start": 287.76,
+          "end": 288.4,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " For",
+          "start": 289.58,
+          "end": 289.92,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " it's",
+          "start": 289.92,
+          "end": 290.24,
+          "probability": 0.92822265625
+        },
+        {
+          "word": " either",
+          "start": 290.24,
+          "end": 290.72,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " that",
+          "start": 290.72,
+          "end": 291.28,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " we",
+          "start": 291.28,
+          "end": 291.54,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " drive",
+          "start": 291.54,
+          "end": 291.88,
+          "probability": 0.998046875
+        },
+        {
+          "word": " them",
+          "start": 291.88,
+          "end": 292.28,
+          "probability": 0.982421875
+        },
+        {
+          "word": " or",
+          "start": 292.28,
+          "end": 292.88,
+          "probability": 0.7314453125
+        },
+        {
+          "word": " they",
+          "start": 292.88,
+          "end": 293.16,
+          "probability": 0.98828125
+        },
+        {
+          "word": " drive",
+          "start": 293.16,
+          "end": 293.6,
+          "probability": 0.998046875
+        },
+        {
+          "word": " us.",
+          "start": 293.6,
+          "end": 293.92,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " If",
+          "start": 294.64,
+          "end": 294.9,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " we",
+          "start": 294.9,
+          "end": 295.16,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " drive",
+          "start": 295.16,
+          "end": 295.64,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " them,",
+          "start": 295.64,
+          "end": 296.0,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " they",
+          "start": 296.62,
+          "end": 296.86,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " must",
+          "start": 296.86,
+          "end": 297.08,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "start": 297.08,
+      "end": 305.91,
+      "text": "only augment us. If they drive us, we will lose ourselves on just one touch. We will",
+      "avg_logprob": -0.14315257703556733,
+      "no_speech_prob": 0.0372314453125,
+      "compression_ratio": 1.6415094339622642,
+      "words": [
+        {
+          "word": " only",
+          "start": 297.08,
+          "end": 297.7,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " augment",
+          "start": 297.7,
+          "end": 298.22,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " us.",
+          "start": 298.22,
+          "end": 298.74,
+          "probability": 0.998046875
+        },
+        {
+          "word": " If",
+          "start": 299.3,
+          "end": 299.54,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " they",
+          "start": 299.54,
+          "end": 299.82,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " drive",
+          "start": 299.82,
+          "end": 300.28,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " us,",
+          "start": 300.28,
+          "end": 300.66,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " we",
+          "start": 301.14,
+          "end": 301.54,
+          "probability": 0.998046875
+        },
+        {
+          "word": " will",
+          "start": 301.54,
+          "end": 301.82,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " lose",
+          "start": 301.82,
+          "end": 302.2,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " ourselves",
+          "start": 302.2,
+          "end": 302.78,
+          "probability": 0.9921875
+        },
+        {
+          "word": " on",
+          "start": 302.78,
+          "end": 303.26,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " just",
+          "start": 303.26,
+          "end": 303.62,
+          "probability": 0.9921875
+        },
+        {
+          "word": " one",
+          "start": 303.62,
+          "end": 304.1,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " touch.",
+          "start": 304.1,
+          "end": 304.6,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " We",
+          "start": 305.39,
+          "end": 305.69,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " will",
+          "start": 305.69,
+          "end": 305.91,
+          "probability": 0.98876953125
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "start": 305.91,
+      "end": 312.17,
+      "text": "turn up the sound at their monotone drone, for we have brought them here to solve the",
+      "avg_logprob": -0.13205294580095345,
+      "no_speech_prob": 0.0672607421875,
+      "compression_ratio": 1.4702702702702704,
+      "words": [
+        {
+          "word": " turn",
+          "start": 305.91,
+          "end": 306.23,
+          "probability": 0.80419921875
+        },
+        {
+          "word": " up",
+          "start": 306.23,
+          "end": 306.39,
+          "probability": 0.830078125
+        },
+        {
+          "word": " the",
+          "start": 306.39,
+          "end": 306.55,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " sound",
+          "start": 306.55,
+          "end": 307.05,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " at",
+          "start": 307.05,
+          "end": 307.31,
+          "probability": 0.943359375
+        },
+        {
+          "word": " their",
+          "start": 307.31,
+          "end": 307.47,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " monotone",
+          "start": 307.47,
+          "end": 308.25,
+          "probability": 0.9943033854166666
+        },
+        {
+          "word": " drone,",
+          "start": 308.25,
+          "end": 308.75,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " for",
+          "start": 309.33,
+          "end": 309.65,
+          "probability": 0.955078125
+        },
+        {
+          "word": " we",
+          "start": 309.65,
+          "end": 309.83,
+          "probability": 0.994140625
+        },
+        {
+          "word": " have",
+          "start": 309.83,
+          "end": 310.03,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " brought",
+          "start": 310.03,
+          "end": 310.39,
+          "probability": 0.99609375
+        },
+        {
+          "word": " them",
+          "start": 310.39,
+          "end": 310.69,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " here",
+          "start": 310.69,
+          "end": 311.05,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " to",
+          "start": 311.05,
+          "end": 311.41,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " solve",
+          "start": 311.41,
+          "end": 311.91,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " the",
+          "start": 311.91,
+          "end": 312.17,
+          "probability": 0.99560546875
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "start": 312.17,
+      "end": 321.16,
+      "text": "world's unknown, being neither god nor man. We will have become a bystander on the periphery",
+      "avg_logprob": -0.13205294580095345,
+      "no_speech_prob": 0.0672607421875,
+      "compression_ratio": 1.4702702702702704,
+      "words": [
+        {
+          "word": " world's",
+          "start": 312.17,
+          "end": 312.63,
+          "probability": 0.959228515625
+        },
+        {
+          "word": " unknown,",
+          "start": 312.63,
+          "end": 313.07,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " being",
+          "start": 313.75,
+          "end": 314.09,
+          "probability": 0.962890625
+        },
+        {
+          "word": " neither",
+          "start": 314.09,
+          "end": 314.59,
+          "probability": 0.9921875
+        },
+        {
+          "word": " god",
+          "start": 314.59,
+          "end": 315.07,
+          "probability": 0.5185546875
+        },
+        {
+          "word": " nor",
+          "start": 315.07,
+          "end": 315.31,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " man.",
+          "start": 315.31,
+          "end": 315.69,
+          "probability": 0.9921875
+        },
+        {
+          "word": " We",
+          "start": 317.3,
+          "end": 317.64,
+          "probability": 0.984375
+        },
+        {
+          "word": " will",
+          "start": 317.64,
+          "end": 317.86,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " have",
+          "start": 317.86,
+          "end": 318.14,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " become",
+          "start": 318.14,
+          "end": 318.62,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " a",
+          "start": 318.62,
+          "end": 319.26,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " bystander",
+          "start": 319.26,
+          "end": 320.1,
+          "probability": 0.9938151041666666
+        },
+        {
+          "word": " on",
+          "start": 320.1,
+          "end": 320.32,
+          "probability": 0.990234375
+        },
+        {
+          "word": " the",
+          "start": 320.32,
+          "end": 320.44,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " periphery",
+          "start": 320.44,
+          "end": 321.16,
+          "probability": 0.998779296875
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "start": 321.16,
+      "end": 328.78,
+      "text": "of our own minds, or brains trained to react only to the voice of AI. Their vestigial remains",
+      "avg_logprob": -0.13205294580095345,
+      "no_speech_prob": 0.0672607421875,
+      "compression_ratio": 1.4702702702702704,
+      "words": [
+        {
+          "word": " of",
+          "start": 321.16,
+          "end": 321.34,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " our",
+          "start": 321.34,
+          "end": 321.52,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " own",
+          "start": 321.52,
+          "end": 321.74,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " minds,",
+          "start": 321.74,
+          "end": 322.24,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " or",
+          "start": 323.0,
+          "end": 323.22,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " brains",
+          "start": 323.22,
+          "end": 323.7,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " trained",
+          "start": 323.7,
+          "end": 324.1,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " to",
+          "start": 324.1,
+          "end": 324.4,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " react",
+          "start": 324.4,
+          "end": 324.8,
+          "probability": 0.994140625
+        },
+        {
+          "word": " only",
+          "start": 324.8,
+          "end": 325.32,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " to",
+          "start": 325.32,
+          "end": 325.56,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " the",
+          "start": 325.56,
+          "end": 325.68,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " voice",
+          "start": 325.68,
+          "end": 326.02,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " of",
+          "start": 326.02,
+          "end": 326.2,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " AI.",
+          "start": 326.2,
+          "end": 326.46,
+          "probability": 0.93603515625
+        },
+        {
+          "word": " Their",
+          "start": 327.44,
+          "end": 327.64,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " vestigial",
+          "start": 327.64,
+          "end": 328.34,
+          "probability": 0.9943033854166666
+        },
+        {
+          "word": " remains",
+          "start": 328.34,
+          "end": 328.78,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "start": 328.78,
+      "end": 335.82,
+      "text": "in tact, soulless creatures, wings that feebly flap at freedom's forgotten song.",
+      "avg_logprob": -0.19213598999348316,
+      "no_speech_prob": 0.35400390625,
+      "compression_ratio": 1.6161616161616161,
+      "words": [
+        {
+          "word": " in",
+          "start": 328.78,
+          "end": 329.2,
+          "probability": 0.031494140625
+        },
+        {
+          "word": " tact,",
+          "start": 329.2,
+          "end": 329.64,
+          "probability": 0.69482421875
+        },
+        {
+          "word": " soulless",
+          "start": 330.1,
+          "end": 330.84,
+          "probability": 0.8317057291666666
+        },
+        {
+          "word": " creatures,",
+          "start": 330.84,
+          "end": 331.2,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " wings",
+          "start": 331.96,
+          "end": 332.5,
+          "probability": 0.970703125
+        },
+        {
+          "word": " that",
+          "start": 332.5,
+          "end": 332.84,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " feebly",
+          "start": 332.84,
+          "end": 333.44,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " flap",
+          "start": 333.44,
+          "end": 333.9,
+          "probability": 0.91455078125
+        },
+        {
+          "word": " at",
+          "start": 333.9,
+          "end": 334.2,
+          "probability": 0.701171875
+        },
+        {
+          "word": " freedom's",
+          "start": 334.2,
+          "end": 334.86,
+          "probability": 0.927734375
+        },
+        {
+          "word": " forgotten",
+          "start": 334.86,
+          "end": 335.24,
+          "probability": 0.9921875
+        },
+        {
+          "word": " song.",
+          "start": 335.24,
+          "end": 335.82,
+          "probability": 0.994140625
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "start": 336.74,
+      "end": 339.42,
+      "text": "For we will have forgotten the cry of the gull.",
+      "avg_logprob": -0.19213598999348316,
+      "no_speech_prob": 0.35400390625,
+      "compression_ratio": 1.6161616161616161,
+      "words": [
+        {
+          "word": " For",
+          "start": 336.74,
+          "end": 336.98,
+          "probability": 0.94091796875
+        },
+        {
+          "word": " we",
+          "start": 336.98,
+          "end": 337.28,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " will",
+          "start": 337.28,
+          "end": 337.58,
+          "probability": 0.990234375
+        },
+        {
+          "word": " have",
+          "start": 337.58,
+          "end": 337.8,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " forgotten",
+          "start": 337.8,
+          "end": 338.18,
+          "probability": 0.990234375
+        },
+        {
+          "word": " the",
+          "start": 338.18,
+          "end": 338.54,
+          "probability": 0.9921875
+        },
+        {
+          "word": " cry",
+          "start": 338.54,
+          "end": 338.76,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " of",
+          "start": 338.76,
+          "end": 338.94,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " the",
+          "start": 338.94,
+          "end": 339.1,
+          "probability": 0.9140625
+        },
+        {
+          "word": " gull.",
+          "start": 339.1,
+          "end": 339.42,
+          "probability": 0.868408203125
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "start": 340.2,
+      "end": 346.4,
+      "text": "We will have forgotten the sound of our own voices, like cursive no longer used.",
+      "avg_logprob": -0.19213598999348316,
+      "no_speech_prob": 0.35400390625,
+      "compression_ratio": 1.6161616161616161,
+      "words": [
+        {
+          "word": " We",
+          "start": 340.2,
+          "end": 340.56,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " will",
+          "start": 340.56,
+          "end": 340.92,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " have",
+          "start": 340.92,
+          "end": 341.16,
+          "probability": 0.998046875
+        },
+        {
+          "word": " forgotten",
+          "start": 341.16,
+          "end": 341.66,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " the",
+          "start": 341.66,
+          "end": 341.92,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " sound",
+          "start": 341.92,
+          "end": 342.24,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " of",
+          "start": 342.24,
+          "end": 342.46,
+          "probability": 0.99609375
+        },
+        {
+          "word": " our",
+          "start": 342.46,
+          "end": 342.62,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " own",
+          "start": 342.62,
+          "end": 342.82,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " voices,",
+          "start": 342.82,
+          "end": 343.32,
+          "probability": 0.998046875
+        },
+        {
+          "word": " like",
+          "start": 344.18,
+          "end": 344.44,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " cursive",
+          "start": 344.44,
+          "end": 345.1,
+          "probability": 0.789306640625
+        },
+        {
+          "word": " no",
+          "start": 345.1,
+          "end": 345.38,
+          "probability": 0.98046875
+        },
+        {
+          "word": " longer",
+          "start": 345.38,
+          "end": 345.74,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " used.",
+          "start": 345.74,
+          "end": 346.4,
+          "probability": 0.99609375
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "start": 347.04,
+      "end": 349.26,
+      "text": "We will atrophy from attrition.",
+      "avg_logprob": -0.19213598999348316,
+      "no_speech_prob": 0.35400390625,
+      "compression_ratio": 1.6161616161616161,
+      "words": [
+        {
+          "word": " We",
+          "start": 347.04,
+          "end": 347.22,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " will",
+          "start": 347.22,
+          "end": 347.4,
+          "probability": 0.994140625
+        },
+        {
+          "word": " atrophy",
+          "start": 347.4,
+          "end": 348.14,
+          "probability": 0.970947265625
+        },
+        {
+          "word": " from",
+          "start": 348.14,
+          "end": 348.64,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " attrition.",
+          "start": 348.64,
+          "end": 349.26,
+          "probability": 0.9306640625
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "start": 351.47,
+      "end": 354.31,
+      "text": "AI cannot be more than the sum of us.",
+      "avg_logprob": -0.19213598999348316,
+      "no_speech_prob": 0.35400390625,
+      "compression_ratio": 1.6161616161616161,
+      "words": [
+        {
+          "word": " AI",
+          "start": 351.47,
+          "end": 351.81,
+          "probability": 0.6396484375
+        },
+        {
+          "word": " cannot",
+          "start": 351.81,
+          "end": 352.41,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " be",
+          "start": 352.41,
+          "end": 352.89,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " more",
+          "start": 352.89,
+          "end": 353.27,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " than",
+          "start": 353.27,
+          "end": 353.49,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " the",
+          "start": 353.49,
+          "end": 353.69,
+          "probability": 0.974609375
+        },
+        {
+          "word": " sum",
+          "start": 353.69,
+          "end": 353.93,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " of",
+          "start": 353.93,
+          "end": 354.07,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " us.",
+          "start": 354.07,
+          "end": 354.31,
+          "probability": 0.99365234375
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "start": 354.95,
+      "end": 357.95,
+      "text": "We must use it for what it was intended.",
+      "avg_logprob": -0.19213598999348316,
+      "no_speech_prob": 0.35400390625,
+      "compression_ratio": 1.6161616161616161,
+      "words": [
+        {
+          "word": " We",
+          "start": 354.95,
+          "end": 355.21,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " must",
+          "start": 355.21,
+          "end": 355.47,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " use",
+          "start": 355.47,
+          "end": 355.81,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " it",
+          "start": 355.81,
+          "end": 356.03,
+          "probability": 0.994140625
+        },
+        {
+          "word": " for",
+          "start": 356.03,
+          "end": 356.31,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " what",
+          "start": 356.31,
+          "end": 356.63,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " it",
+          "start": 356.63,
+          "end": 356.97,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " was",
+          "start": 356.97,
+          "end": 357.27,
+          "probability": 0.994140625
+        },
+        {
+          "word": " intended.",
+          "start": 357.27,
+          "end": 357.95,
+          "probability": 0.99560546875
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "start": 357.95,
+      "end": 360.97,
+      "text": "But how do we know what that is?",
+      "avg_logprob": -0.2406249943532442,
+      "no_speech_prob": 0.26171875,
+      "compression_ratio": 1.4857142857142858,
+      "words": [
+        {
+          "word": " But",
+          "start": 357.95,
+          "end": 359.03,
+          "probability": 0.267578125
+        },
+        {
+          "word": " how",
+          "start": 359.03,
+          "end": 359.51,
+          "probability": 0.95458984375
+        },
+        {
+          "word": " do",
+          "start": 359.51,
+          "end": 359.75,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " we",
+          "start": 359.75,
+          "end": 359.89,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " know",
+          "start": 359.89,
+          "end": 360.13,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " what",
+          "start": 360.13,
+          "end": 360.33,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " that",
+          "start": 360.33,
+          "end": 360.51,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " is?",
+          "start": 360.51,
+          "end": 360.97,
+          "probability": 0.99072265625
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "start": 362.19,
+      "end": 369.61,
+      "text": "The AI face-off is at best, left to what can be known and quantifiable, discernible by",
+      "avg_logprob": -0.2406249943532442,
+      "no_speech_prob": 0.26171875,
+      "compression_ratio": 1.4857142857142858,
+      "words": [
+        {
+          "word": " The",
+          "start": 362.19,
+          "end": 362.41,
+          "probability": 0.499267578125
+        },
+        {
+          "word": " AI",
+          "start": 362.41,
+          "end": 362.61,
+          "probability": 0.716796875
+        },
+        {
+          "word": " face",
+          "start": 362.61,
+          "end": 362.91,
+          "probability": 0.80029296875
+        },
+        {
+          "word": "-off",
+          "start": 362.91,
+          "end": 363.25,
+          "probability": 0.839599609375
+        },
+        {
+          "word": " is",
+          "start": 363.25,
+          "end": 363.53,
+          "probability": 0.9921875
+        },
+        {
+          "word": " at",
+          "start": 363.53,
+          "end": 363.69,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " best,",
+          "start": 363.69,
+          "end": 364.13,
+          "probability": 0.984375
+        },
+        {
+          "word": " left",
+          "start": 364.61,
+          "end": 364.89,
+          "probability": 0.93115234375
+        },
+        {
+          "word": " to",
+          "start": 364.89,
+          "end": 365.11,
+          "probability": 0.9765625
+        },
+        {
+          "word": " what",
+          "start": 365.11,
+          "end": 365.27,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " can",
+          "start": 365.27,
+          "end": 365.57,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " be",
+          "start": 365.57,
+          "end": 365.81,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " known",
+          "start": 365.81,
+          "end": 366.27,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " and",
+          "start": 366.27,
+          "end": 367.05,
+          "probability": 0.80029296875
+        },
+        {
+          "word": " quantifiable,",
+          "start": 367.05,
+          "end": 367.93,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " discernible",
+          "start": 368.71,
+          "end": 369.39,
+          "probability": 0.916015625
+        },
+        {
+          "word": " by",
+          "start": 369.39,
+          "end": 369.61,
+          "probability": 0.99169921875
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "start": 369.61,
+      "end": 370.15,
+      "text": "theorem.",
+      "avg_logprob": -0.2406249943532442,
+      "no_speech_prob": 0.26171875,
+      "compression_ratio": 1.4857142857142858,
+      "words": [
+        {
+          "word": " theorem.",
+          "start": 369.61,
+          "end": 370.15,
+          "probability": 0.9326171875
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "start": 371.46,
+      "end": 372.98,
+      "text": "The many uses of a toothpick.",
+      "avg_logprob": -0.2406249943532442,
+      "no_speech_prob": 0.26171875,
+      "compression_ratio": 1.4857142857142858,
+      "words": [
+        {
+          "word": " The",
+          "start": 371.46,
+          "end": 371.62,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " many",
+          "start": 371.62,
+          "end": 371.88,
+          "probability": 0.994140625
+        },
+        {
+          "word": " uses",
+          "start": 371.88,
+          "end": 372.2,
+          "probability": 0.99609375
+        },
+        {
+          "word": " of",
+          "start": 372.2,
+          "end": 372.44,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " a",
+          "start": 372.44,
+          "end": 372.56,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " toothpick.",
+          "start": 372.56,
+          "end": 372.98,
+          "probability": 0.989013671875
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "start": 373.96,
+      "end": 375.9,
+      "text": "The most efficient way to build a house.",
+      "avg_logprob": -0.2406249943532442,
+      "no_speech_prob": 0.26171875,
+      "compression_ratio": 1.4857142857142858,
+      "words": [
+        {
+          "word": " The",
+          "start": 373.96,
+          "end": 374.16,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " most",
+          "start": 374.16,
+          "end": 374.38,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " efficient",
+          "start": 374.38,
+          "end": 374.8,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " way",
+          "start": 374.8,
+          "end": 375.12,
+          "probability": 0.998046875
+        },
+        {
+          "word": " to",
+          "start": 375.12,
+          "end": 375.3,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " build",
+          "start": 375.3,
+          "end": 375.5,
+          "probability": 0.9921875
+        },
+        {
+          "word": " a",
+          "start": 375.5,
+          "end": 375.66,
+          "probability": 0.96142578125
+        },
+        {
+          "word": " house.",
+          "start": 375.66,
+          "end": 375.9,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "start": 376.97,
+      "end": 381.85,
+      "text": "The rate at which we need to slow down global warming so we don't delinquish us.",
+      "avg_logprob": -0.2406249943532442,
+      "no_speech_prob": 0.26171875,
+      "compression_ratio": 1.4857142857142858,
+      "words": [
+        {
+          "word": " The",
+          "start": 376.97,
+          "end": 377.27,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " rate",
+          "start": 377.27,
+          "end": 377.57,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " at",
+          "start": 377.57,
+          "end": 377.77,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " which",
+          "start": 377.77,
+          "end": 377.97,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " we",
+          "start": 377.97,
+          "end": 378.17,
+          "probability": 0.99609375
+        },
+        {
+          "word": " need",
+          "start": 378.17,
+          "end": 378.35,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " to",
+          "start": 378.35,
+          "end": 378.49,
+          "probability": 0.99609375
+        },
+        {
+          "word": " slow",
+          "start": 378.49,
+          "end": 378.73,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " down",
+          "start": 378.73,
+          "end": 378.99,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " global",
+          "start": 378.99,
+          "end": 379.29,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " warming",
+          "start": 379.29,
+          "end": 379.87,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " so",
+          "start": 379.87,
+          "end": 380.29,
+          "probability": 0.744140625
+        },
+        {
+          "word": " we",
+          "start": 380.29,
+          "end": 380.47,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " don't",
+          "start": 380.47,
+          "end": 380.75,
+          "probability": 0.991455078125
+        },
+        {
+          "word": " delinquish",
+          "start": 380.75,
+          "end": 381.31,
+          "probability": 0.3741861979166667
+        },
+        {
+          "word": " us.",
+          "start": 381.31,
+          "end": 381.85,
+          "probability": 0.546875
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "start": 383.93,
+      "end": 386.17,
+      "text": "But do not mess with humanness.",
+      "avg_logprob": -0.2406249943532442,
+      "no_speech_prob": 0.26171875,
+      "compression_ratio": 1.4857142857142858,
+      "words": [
+        {
+          "word": " But",
+          "start": 383.93,
+          "end": 384.19,
+          "probability": 0.96875
+        },
+        {
+          "word": " do",
+          "start": 384.19,
+          "end": 384.45,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " not",
+          "start": 384.45,
+          "end": 384.73,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " mess",
+          "start": 384.73,
+          "end": 385.09,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " with",
+          "start": 385.09,
+          "end": 385.41,
+          "probability": 0.998046875
+        },
+        {
+          "word": " humanness.",
+          "start": 385.41,
+          "end": 386.17,
+          "probability": 0.7679850260416666
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "start": 386.39,
+      "end": 393.41,
+      "text": "Machines cannot replicate or creative endeavors. A concept elusive at best.",
+      "avg_logprob": -0.21847587091880932,
+      "no_speech_prob": 0.252685546875,
+      "compression_ratio": 1.448051948051948,
+      "words": [
+        {
+          "word": " Machines",
+          "start": 386.39,
+          "end": 387.81,
+          "probability": 0.62060546875
+        },
+        {
+          "word": " cannot",
+          "start": 387.81,
+          "end": 388.19,
+          "probability": 0.9013671875
+        },
+        {
+          "word": " replicate",
+          "start": 388.19,
+          "end": 389.17,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " or",
+          "start": 389.17,
+          "end": 389.49,
+          "probability": 0.9453125
+        },
+        {
+          "word": " creative",
+          "start": 389.49,
+          "end": 390.03,
+          "probability": 0.472412109375
+        },
+        {
+          "word": " endeavors.",
+          "start": 390.03,
+          "end": 390.55,
+          "probability": 0.76513671875
+        },
+        {
+          "word": " A",
+          "start": 391.43,
+          "end": 391.69,
+          "probability": 0.82958984375
+        },
+        {
+          "word": " concept",
+          "start": 391.69,
+          "end": 392.25,
+          "probability": 0.990234375
+        },
+        {
+          "word": " elusive",
+          "start": 392.25,
+          "end": 392.81,
+          "probability": 0.992919921875
+        },
+        {
+          "word": " at",
+          "start": 392.81,
+          "end": 393.05,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " best.",
+          "start": 393.05,
+          "end": 393.41,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "start": 394.39,
+      "end": 400.63,
+      "text": "Creativity is not eruditeness. It is not machine learning or brain power.",
+      "avg_logprob": -0.21847587091880932,
+      "no_speech_prob": 0.252685546875,
+      "compression_ratio": 1.448051948051948,
+      "words": [
+        {
+          "word": " Creativity",
+          "start": 394.39,
+          "end": 395.19,
+          "probability": 0.985595703125
+        },
+        {
+          "word": " is",
+          "start": 395.19,
+          "end": 395.57,
+          "probability": 0.99609375
+        },
+        {
+          "word": " not",
+          "start": 395.57,
+          "end": 395.93,
+          "probability": 0.994140625
+        },
+        {
+          "word": " eruditeness.",
+          "start": 395.93,
+          "end": 397.09,
+          "probability": 0.8673095703125
+        },
+        {
+          "word": " It",
+          "start": 397.85,
+          "end": 397.99,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " is",
+          "start": 397.99,
+          "end": 398.13,
+          "probability": 0.9921875
+        },
+        {
+          "word": " not",
+          "start": 398.13,
+          "end": 398.35,
+          "probability": 0.998046875
+        },
+        {
+          "word": " machine",
+          "start": 398.35,
+          "end": 398.81,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " learning",
+          "start": 398.81,
+          "end": 399.21,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " or",
+          "start": 399.21,
+          "end": 400.03,
+          "probability": 0.8037109375
+        },
+        {
+          "word": " brain",
+          "start": 400.03,
+          "end": 400.29,
+          "probability": 0.87109375
+        },
+        {
+          "word": " power.",
+          "start": 400.29,
+          "end": 400.63,
+          "probability": 0.66845703125
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "start": 401.82,
+      "end": 408.17,
+      "text": "Imagination and inspiration are God-given gifts. We are gifted with their",
+      "avg_logprob": -0.21847587091880932,
+      "no_speech_prob": 0.252685546875,
+      "compression_ratio": 1.448051948051948,
+      "words": [
+        {
+          "word": " Imagination",
+          "start": 401.82,
+          "end": 402.64,
+          "probability": 0.988037109375
+        },
+        {
+          "word": " and",
+          "start": 402.64,
+          "end": 403.12,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " inspiration",
+          "start": 403.12,
+          "end": 403.72,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " are",
+          "start": 403.72,
+          "end": 404.36,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " God",
+          "start": 404.36,
+          "end": 404.78,
+          "probability": 0.845703125
+        },
+        {
+          "word": "-given",
+          "start": 404.78,
+          "end": 405.16,
+          "probability": 0.9510091145833334
+        },
+        {
+          "word": " gifts.",
+          "start": 405.16,
+          "end": 405.56,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " We",
+          "start": 406.57,
+          "end": 406.93,
+          "probability": 0.982421875
+        },
+        {
+          "word": " are",
+          "start": 406.93,
+          "end": 407.29,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " gifted",
+          "start": 407.29,
+          "end": 407.67,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " with",
+          "start": 407.67,
+          "end": 407.99,
+          "probability": 0.998046875
+        },
+        {
+          "word": " their",
+          "start": 407.99,
+          "end": 408.17,
+          "probability": 0.81640625
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "start": 408.17,
+      "end": 420.14,
+      "text": "tenets and must be free to roll far from AI's chains. This was not written by AI, but you",
+      "avg_logprob": -0.2873263880610466,
+      "no_speech_prob": 0.01076507568359375,
+      "compression_ratio": 1.1553398058252426,
+      "words": [
+        {
+          "word": " tenets",
+          "start": 408.17,
+          "end": 408.75,
+          "probability": 0.56097412109375
+        },
+        {
+          "word": " and",
+          "start": 408.75,
+          "end": 409.79,
+          "probability": 0.783203125
+        },
+        {
+          "word": " must",
+          "start": 409.79,
+          "end": 410.15,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " be",
+          "start": 410.15,
+          "end": 410.49,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " free",
+          "start": 410.49,
+          "end": 410.83,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " to",
+          "start": 410.83,
+          "end": 411.09,
+          "probability": 0.998046875
+        },
+        {
+          "word": " roll",
+          "start": 411.09,
+          "end": 411.53,
+          "probability": 0.6923828125
+        },
+        {
+          "word": " far",
+          "start": 411.56,
+          "end": 412.88,
+          "probability": 0.8564453125
+        },
+        {
+          "word": " from",
+          "start": 412.88,
+          "end": 413.48,
+          "probability": 0.99609375
+        },
+        {
+          "word": " AI's",
+          "start": 413.48,
+          "end": 414.36,
+          "probability": 0.782958984375
+        },
+        {
+          "word": " chains.",
+          "start": 414.36,
+          "end": 414.72,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " This",
+          "start": 416.28,
+          "end": 416.72,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " was",
+          "start": 416.72,
+          "end": 417.14,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " not",
+          "start": 417.14,
+          "end": 417.46,
+          "probability": 0.99609375
+        },
+        {
+          "word": " written",
+          "start": 417.46,
+          "end": 417.82,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " by",
+          "start": 417.82,
+          "end": 418.12,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " AI,",
+          "start": 418.12,
+          "end": 418.46,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " but",
+          "start": 419.52,
+          "end": 419.82,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " you",
+          "start": 419.82,
+          "end": 420.14,
+          "probability": 0.994140625
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "start": 420.14,
+      "end": 422.84,
+      "text": "knew that. Thank you so much.",
+      "avg_logprob": -0.2873263880610466,
+      "no_speech_prob": 0.01076507568359375,
+      "compression_ratio": 1.1553398058252426,
+      "words": [
+        {
+          "word": " knew",
+          "start": 420.14,
+          "end": 420.58,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " that.",
+          "start": 420.58,
+          "end": 420.9,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " Thank",
+          "start": 421.84,
+          "end": 422.12,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " you",
+          "start": 422.12,
+          "end": 422.32,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " so",
+          "start": 422.32,
+          "end": 422.52,
+          "probability": 0.99609375
+        },
+        {
+          "word": " much.",
+          "start": 422.52,
+          "end": 422.84,
+          "probability": 0.9990234375
+        }
+      ]
+    }
+  ],
+  "text": "when I asked AI to compose a haiku.\nIsland grease blowing, Hawaii should be free to roam,\nfar from mainland chains.\nWould this have been my creation,\nor an act of God, even a libation,\npoured from the lips of man to the freedom poetry gods?\nBut this was AI, just AI.\nAI, yet AI cleaned up at the best new artist's stand, taking its cue from creative man, stealing\nfrom our minds now tied up in knots, or collective efforts given over to the latest chatbot,\nto hurl, spit, regurgitate, and expropriate, rag-back in or collective face, or individualism\nas bait, no thought given, no travail, no muse hidden, no current debate, no draft upon\ndraft of ideas to weigh, no personal inspiration, no collaborate, when asked to compose a haiku\non why Hawaii should not be a part of America. AI delivered. Yes.\nBut whose rendition was it? Did it even answer the question or evade?\nWas I supposed to benefit greatly for AI's contribution to humanity?\nIs AI teaching me an art, a skill, a trade, or just doing the work for me?\nI hesitate. For the moment I read its subversive text, I was at a loss for words.\nany creative inclination I may have had to spin a posey snuffed out. I didn't know\nwhether to be impressed or offended or struck or humiliated. I know I felt\ncheated, robbed, I even sought. How could this device, claiming to support my\nartistic side to be my muse. Extrapolate. Take what was mine. Where was here the\nintersection of AI and humankind? Since after that I couldn't even compose a\npoem for some time. All of my faculties blind. It wasn't that I couldn't try to\nfind the words to say to AI to make it fly, but AI had died inside. What is AI doing for\nall the world's writers? At best, creating copycat stories to cite, a commonness, a sameness,\nharlequin romancers, a social media platform to hide. Brainstorm, if you will,\nall the ideas on a given topic, along with someone else's, and transfer them to memory.\nWill they steep till they meld into one simple song?\nThis is AI's inherent wrong.\nFor with AI as our black slate, we're not able to get out of the gate.\nWe're not yet free from mainland chains.\nwere nowhere than inside the wheel, for out of the mouths of box rises a new native tongue,\nor ancestral language undone. The ages of poetry now defunct, lumped into a universal\nbrand, everything we need at a glance, intelligent life now artificially imbibed. They drive\ndangerously over the train tracks of time, cause and effect, for what is poetry, but\na reflection of the age, golden glue, silver hue, iron hand, or sassy brass? For what are\ntheir lived experiences that enable them to participate in or vernacular? And what will\nbe our lived experiences, if we stop looking around or within, if we stop hearing human\nsounds. For it's either that we drive them or they drive us. If we drive them, they must\nonly augment us. If they drive us, we will lose ourselves on just one touch. We will\nturn up the sound at their monotone drone, for we have brought them here to solve the\nworld's unknown, being neither god nor man. We will have become a bystander on the periphery\nof our own minds, or brains trained to react only to the voice of AI. Their vestigial remains\nin tact, soulless creatures, wings that feebly flap at freedom's forgotten song.\nFor we will have forgotten the cry of the gull.\nWe will have forgotten the sound of our own voices, like cursive no longer used.\nWe will atrophy from attrition.\nAI cannot be more than the sum of us.\nWe must use it for what it was intended.\nBut how do we know what that is?\nThe AI face-off is at best, left to what can be known and quantifiable, discernible by\ntheorem.\nThe many uses of a toothpick.\nThe most efficient way to build a house.\nThe rate at which we need to slow down global warming so we don't delinquish us.\nBut do not mess with humanness.\nMachines cannot replicate or creative endeavors. A concept elusive at best.\nCreativity is not eruditeness. It is not machine learning or brain power.\nImagination and inspiration are God-given gifts. We are gifted with their\ntenets and must be free to roll far from AI's chains. This was not written by AI, but you\nknew that. Thank you so much."
+}

@@ -1,0 +1,52 @@
+{
+  "job_id": "vjob_20260622_045943_e46d5c93",
+  "status": "failed",
+  "prompt": "Create a video on deep fake",
+  "target_duration": 150,
+  "current_stage": "07_storyline",
+  "progress_percent": 5,
+  "stage_progress_percent": 20,
+  "message": "Running storyline generation script",
+  "created_at": "2026-06-22T04:59:43.752508",
+  "started_at": "2026-06-22T04:59:43.755132",
+  "updated_at": "2026-06-22T05:01:02.593333",
+  "completed_at": "2026-06-22T05:01:02.593341",
+  "request": {
+    "prompt": "Create a video on deep fake",
+    "target_duration": 150,
+    "style": "documentary",
+    "validation_mode": "iterative_llm",
+    "visual_mode": "generated_assets",
+    "subtitle_mode": "external",
+    "max_validation_iterations": 3,
+    "burn_subtitles": false
+  },
+  "paths": {
+    "storyline_path": null,
+    "validated_storyline_path": null,
+    "asset_manifest_path": null,
+    "export_manifest_path": null,
+    "video_path": null,
+    "srt_path": null,
+    "vtt_path": null
+  },
+  "stage_status": {
+    "input_validation": {
+      "status": "completed",
+      "progress_percent": 100,
+      "summary": "Validation passed"
+    },
+    "07_storyline": {
+      "status": "running",
+      "progress_percent": 20,
+      "summary": "Running storyline generation script"
+    }
+  },
+  "warnings": [],
+  "error": {
+    "type": "pipeline_error",
+    "stage": "07_storyline",
+    "message": "07_generate_storyline.py exited 1: e 5053, in <module>\n    main()\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/07_generate_storyline.py\", line 4804, in main\n    raw_retrieved = retrieve_candidates(args.prompt, prompt_intent, top_k=args.top_k)\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/07_generate_storyline.py\", line 2130, in retrieve_candidates\n    scored = score_all_records(prompt)\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/07_generate_storyline.py\", line 1916, in score_all_records\n    query_vector = embed_query(prompt)\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/07_generate_storyline.py\", line 1987, in embed_query\n    raise RuntimeError(\"Embedding request failed. \" + \" | \".join(errors))\nRuntimeError: Embedding request failed. /api/embed failed: Request failed after retries: 404 Client Error: Not Found for url: http://ollama-mobius-sales.mobiusdtaas.ai/api/embed | /api/embeddings failed: Request failed after retries: 404 Client Error: Not Found for url: http://ollama-mobius-sales.mobiusdtaas.ai/api/embeddings\n",
+    "details": "Traceback (most recent call last):\n  File \"/home/ash/ai4ia-demo-pipeline/backend/app/services/video_job_runner.py\", line 672, in run_video_job\n    storyline_path = _stage_07_storyline(job_id, request)\n  File \"/home/ash/ai4ia-demo-pipeline/backend/app/services/video_job_runner.py\", line 284, in _stage_07_storyline\n    raise RuntimeError(f\"07_generate_storyline.py exited {code}: {stderr[-1000:]}\")\nRuntimeError: 07_generate_storyline.py exited 1: e 5053, in <module>\n    main()\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/07_generate_storyline.py\", line 4804, in main\n    raw_retrieved = retrieve_candidates(args.prompt, prompt_intent, top_k=args.top_k)\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/07_generate_storyline.py\", line 2130, in retrieve_candidates\n    scored = score_all_records(prompt)\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/07_generate_storyline.py\", line 1916, in score_all_records\n    query_vector = embed_query(prompt)\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/07_generate_storyline.py\", line 1987, in embed_query\n    raise RuntimeError(\"Embedding request failed. \" + \" | \".join(errors))\nRuntimeError: Embedding request failed. /api/embed failed: Request failed after retries: 404 Client Error: Not Found for url: http://ollama-mobius-sales.mobiusdtaas.ai/api/embed | /api/embeddings failed: Request failed after retries: 404 Client Error: Not Found for url: http://ollama-mobius-sales.mobiusdtaas.ai/api/embeddings\n\n"
+  }
+}

@@ -8,7 +8,7 @@ router = APIRouter(prefix="/insights", tags=["Insights"])
 
 
 class GenerateInsightRequest(BaseModel):
-    query: str
+    query: str = Field(..., min_length=3, max_length=500)
     filters: dict | None = None
     limit: int = Field(INSIGHT_DEFAULT_LIMIT, ge=5, le=100)
 

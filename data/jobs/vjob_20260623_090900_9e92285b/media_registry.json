@@ -1,0 +1,249 @@
+{
+  "job_id": "vjob_20260623_090900_9e92285b",
+  "storage_backend": "local",
+  "objects": {
+    "video": {
+      "object_id": "video",
+      "kind": "video",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260623_090900_9e92285b_the_deepfake_dilemma.mp4",
+      "filename": "vjob_20260623_090900_9e92285b_the_deepfake_dilemma.mp4",
+      "content_type": "video/mp4",
+      "size_bytes": 16479885,
+      "created_at": "2026-06-23T09:20:12.696548"
+    },
+    "srt": {
+      "object_id": "srt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260623_090900_9e92285b_the_deepfake_dilemma.srt",
+      "filename": "vjob_20260623_090900_9e92285b_the_deepfake_dilemma.srt",
+      "content_type": "application/x-subrip",
+      "size_bytes": 11214,
+      "created_at": "2026-06-23T09:24:20.422528",
+      "subtitle_format": "srt"
+    },
+    "vtt": {
+      "object_id": "vtt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260623_090900_9e92285b_the_deepfake_dilemma.vtt",
+      "filename": "vjob_20260623_090900_9e92285b_the_deepfake_dilemma.vtt",
+      "content_type": "text/vtt",
+      "size_bytes": 10862,
+      "created_at": "2026-06-23T09:24:20.423528",
+      "subtitle_format": "vtt"
+    },
+    "manifest": {
+      "object_id": "manifest",
+      "kind": "manifest",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260623_090900_9e92285b_the_deepfake_dilemma_export_manifest.json",
+      "filename": "export_manifest.json",
+      "content_type": "application/json",
+      "size_bytes": 152594,
+      "created_at": "2026-06-23T09:24:22.085528"
+    },
+    "visual_S2_CONTEXT": {
+      "object_id": "visual_S2_CONTEXT",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/visuals/S2_CONTEXT_visual.png",
+      "filename": "S2_CONTEXT_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 225392,
+      "created_at": "2026-06-23T09:20:09.566548",
+      "section_id": "S2_CONTEXT",
+      "visual_title": "What is a Deepfake?",
+      "visual_asset_type": "diagram",
+      "visual_keywords": [
+        "deepfake",
+        "face",
+        "voice",
+        "video",
+        "synthetic"
+      ]
+    },
+    "voiceover_S2_CONTEXT": {
+      "object_id": "voiceover_S2_CONTEXT",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/audio/sections/S2_CONTEXT_narration_broll_voiceover.mp3",
+      "filename": "S2_CONTEXT_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 353664,
+      "created_at": "2026-06-23T09:19:50.516550",
+      "section_id": "S2_CONTEXT",
+      "voiceover_text": "Across the world, conversations about artificial intelligence are raising a central question: what does it mean for technology to serve people? make them say and do thing that support its narrative. So if you're saying this is not a fictional scenario. because he shop on the Chinese marketplace demo it was a joke but in reality this video is a high quality deep fake created using AR and also we have seen a generated video and audio Ukrainian politicians and military official appear to give false orders and this is not a joke it's absolutely serious information but this information was prepared by AR and study shows 85% to attempts to generate misinformation through images generated success and video generation is advancing rapidly and companies like sensation provide synthetic avatars that can seek in over 120 languages and also open AR Sora models enable text to video generation during photorealistic deepfakes."
+    },
+    "visual_S3_HUMAN_RISK": {
+      "object_id": "visual_S3_HUMAN_RISK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/visuals/S3_HUMAN_RISK_visual.png",
+      "filename": "S3_HUMAN_RISK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 228628,
+      "created_at": "2026-06-23T09:20:14.984547",
+      "section_id": "S3_HUMAN_RISK",
+      "visual_title": "The Personal Toll",
+      "visual_asset_type": "risk_map",
+      "visual_keywords": [
+        "identity",
+        "consent",
+        "reputation",
+        "harm",
+        "safety"
+      ]
+    },
+    "voiceover_S3_HUMAN_RISK": {
+      "object_id": "voiceover_S3_HUMAN_RISK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/audio/sections/S3_HUMAN_RISK_narration_broll_voiceover.mp3",
+      "filename": "S3_HUMAN_RISK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 376992,
+      "created_at": "2026-06-23T09:19:59.228549",
+      "section_id": "S3_HUMAN_RISK",
+      "voiceover_text": "Across the AI4IA conversations, Deep Fake is presented not as an abstraction, but as a challenge with concrete human consequences — for people who depend on these systems to work, and work fairly. make them say and do thing that support its narrative. So if you're saying this is not a fictional scenario. because he shop on the Chinese marketplace demo it was a joke but in reality this video is a high quality deep fake created using AR and also we have seen a generated video and audio Ukrainian politicians and military official appear to give false orders and this is not a joke it's absolutely serious information but this information was prepared by AR and study shows 85% to attempts to generate misinformation through images generated success and video generation is advancing rapidly and companies like sensation provide synthetic avatars that can seek in over 120 languages and also open AR Sora models enable text to video generation during photorealistic deepfakes."
+    },
+    "visual_S5_RESPONSE": {
+      "object_id": "visual_S5_RESPONSE",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/visuals/S5_RESPONSE_visual.png",
+      "filename": "S5_RESPONSE_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 220218,
+      "created_at": "2026-06-23T09:20:19.790547",
+      "section_id": "S5_RESPONSE",
+      "visual_title": "The Governance Challenge",
+      "visual_asset_type": "policy_card",
+      "visual_keywords": [
+        "governance",
+        "policy",
+        "transparency",
+        "accountability",
+        "media literacy"
+      ]
+    },
+    "voiceover_S5_RESPONSE": {
+      "object_id": "voiceover_S5_RESPONSE",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/audio/sections/S5_RESPONSE_narration_broll_voiceover.mp3",
+      "filename": "S5_RESPONSE_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 85392,
+      "created_at": "2026-06-23T09:20:00.483549",
+      "section_id": "S5_RESPONSE",
+      "voiceover_text": "The response requires more than detection. It needs transparency rules, platform accountability, public media literacy, and legal safeguards that treat synthetic harm as seriously as other forms of abuse."
+    },
+    "visual_S6_SYNTHESIS": {
+      "object_id": "visual_S6_SYNTHESIS",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/visuals/S6_SYNTHESIS_visual.png",
+      "filename": "S6_SYNTHESIS_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 232370,
+      "created_at": "2026-06-23T09:20:24.963547",
+      "section_id": "S6_SYNTHESIS",
+      "visual_title": "Trust in the Age of Synthetic Media",
+      "visual_asset_type": "closing_synthesis",
+      "visual_keywords": [
+        "trust",
+        "safety",
+        "governance",
+        "collective",
+        "accountability"
+      ]
+    },
+    "voiceover_S6_SYNTHESIS": {
+      "object_id": "voiceover_S6_SYNTHESIS",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/audio/sections/S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "filename": "S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 85536,
+      "created_at": "2026-06-23T09:20:02.085549",
+      "section_id": "S6_SYNTHESIS",
+      "voiceover_text": "Deepfakes are not just fake media. They are a trust, safety, and governance problem — one that sits at the intersection of gender harm, online safety, disinformation, and democratic accountability."
+    },
+    "title_card": {
+      "object_id": "title_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 251028,
+      "created_at": "2026-06-23T09:18:57.313555",
+      "card_type": "title_card"
+    },
+    "closing_card": {
+      "object_id": "closing_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/cards/closing_card.png",
+      "filename": "closing_card.png",
+      "content_type": "image/png",
+      "size_bytes": 249136,
+      "created_at": "2026-06-23T09:19:04.114554",
+      "card_type": "closing_card"
+    },
+    "section_card_S1": {
+      "object_id": "section_card_S1",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/cards/S1_opening_hook.png",
+      "filename": "S1_opening_hook.png",
+      "content_type": "image/png",
+      "size_bytes": 219143,
+      "created_at": "2026-06-23T09:19:11.033554",
+      "card_type": "section_card",
+      "section_id": "S1"
+    },
+    "section_card_S2": {
+      "object_id": "section_card_S2",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/cards/S2_context.png",
+      "filename": "S2_context.png",
+      "content_type": "image/png",
+      "size_bytes": 220220,
+      "created_at": "2026-06-23T09:19:17.567553",
+      "card_type": "section_card",
+      "section_id": "S2"
+    },
+    "section_card_S3": {
+      "object_id": "section_card_S3",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/cards/S3_problem_or_tension.png",
+      "filename": "S3_problem_or_tension.png",
+      "content_type": "image/png",
+      "size_bytes": 223740,
+      "created_at": "2026-06-23T09:19:24.563552",
+      "card_type": "section_card",
+      "section_id": "S3"
+    },
+    "section_card_S4": {
+      "object_id": "section_card_S4",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/cards/S4_human_perspective.png",
+      "filename": "S4_human_perspective.png",
+      "content_type": "image/png",
+      "size_bytes": 225732,
+      "created_at": "2026-06-23T09:19:31.367552",
+      "card_type": "section_card",
+      "section_id": "S4"
+    },
+    "section_card_S5": {
+      "object_id": "section_card_S5",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/cards/S5_expert_evidence.png",
+      "filename": "S5_expert_evidence.png",
+      "content_type": "image/png",
+      "size_bytes": 227058,
+      "created_at": "2026-06-23T09:19:38.394551",
+      "card_type": "section_card",
+      "section_id": "S5"
+    },
+    "thumbnail": {
+      "object_id": "thumbnail",
+      "kind": "thumbnail",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_144635_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 251028,
+      "created_at": "2026-06-23T09:18:57.313555",
+      "card_type": "title_card"
+    }
+  }
+}

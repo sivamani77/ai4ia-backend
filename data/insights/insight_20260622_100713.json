@@ -1,0 +1,311 @@
+{
+  "insight_id": "insight_20260622_100713",
+  "title": "Building Resilience in the Face of Climate Change",
+  "query": "Climate change, community resilience, and sustainable futures",
+  "filters": {},
+  "summary": "The AI4IA conference archive highlights the importance of building resilience in communities to adapt to climate change and ensure sustainable futures. Experts emphasize the need for decolonial approaches, community-driven AI, and stricter regulations to mitigate environmental harm. The Caribbean region is particularly vulnerable to climate change, and preparing citizens for the digital era is crucial.",
+  "patterns": [
+    {
+      "statement": "Building resilience in communities is essential for adapting to climate change",
+      "fragment_refs": [
+        1,
+        2,
+        11
+      ],
+      "support_count": 3
+    },
+    {
+      "statement": "Decolonial approaches are necessary to avoid repeating extractive patterns in AI governance",
+      "fragment_refs": [
+        3,
+        15
+      ],
+      "support_count": 2
+    }
+  ],
+  "contrasts": [
+    {
+      "statement": "There is a tension between the potential benefits of AI and the risk of exacerbating inequalities",
+      "fragment_refs": [
+        9,
+        10
+      ],
+      "support_count": 2
+    },
+    {
+      "statement": "The need for stricter regulations and sustainability metrics to mitigate environmental harm is debated",
+      "fragment_refs": [
+        15,
+        4
+      ],
+      "support_count": 2
+    }
+  ],
+  "recommended_clips": [
+    {
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0019",
+      "ref": 1,
+      "reason": "This clip sets the tone for the importance of building resilience in communities",
+      "stream_url": "/api/archive/videos/0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap/stream",
+      "start": 1091.58,
+      "end": 1156.59
+    },
+    {
+      "fragment_id": "0093_sR8MsRk0mek_Niza Zulu - Harnessing AI for Sustainable Agriculture and Food Security in Zambia_0008",
+      "ref": 11,
+      "reason": "This clip highlights the transformative potential of AI in tackling climate change and food security challenges",
+      "stream_url": "/api/archive/videos/0093_sR8MsRk0mek_Niza Zulu - Harnessing AI for Sustainable Agriculture and Food Security in Zambia/stream",
+      "start": 394.98,
+      "end": 451.54
+    }
+  ],
+  "unsupported_claims": [],
+  "evidence_coverage": 1.0,
+  "evidence_pool": [
+    {
+      "ref": 1,
+      "fragment_id": "0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap_0019",
+      "speaker": "Paul Hector",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "start": 1091.58,
+      "end": 1156.59,
+      "duration": 65.01,
+      "stream_url": "/api/archive/videos/0165_5OeVuMjEAUs_Paul Hector and Erica Simmons -  UNESCO Caribbean AI Policy Roadmap/stream",
+      "similarity": 0.7292,
+      "text": "But because AI is expected to display so many jobs and really bring a new way of working this is an important area for us in the Caribbean to make sure that we prepare our citizens for the changing demands of the digital era. The third principle about around resiliency and sustainability ensuring that the countries in our region can adapt to the AI revolution and here again we're looking at building that capacity around things like climate change and all of the knowledge that we have in the region around natural disasters. How do we then use that for benefit not only for us in the region, but around the world. And as we look at the digitization and digitalization of the public sector our government and industry transformation we have to make sure that we're keeping up with the changes that are happening globally in order for us to stay competitive."
+    },
+    {
+      "ref": 2,
+      "fragment_id": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers_0004",
+      "speaker": "Dr Meena D. Lysko",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "start": 201.2,
+      "end": 278.4,
+      "duration": 77.2,
+      "stream_url": "/api/archive/videos/0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers/stream",
+      "similarity": 0.7215,
+      "text": "As AI and data driven systems expand, people risk being reduced to mere data points, feeding distant algorithms. The future of human dependency, sorry, the future of human agency depends on shifting this dynamic. Communities themselves must shape the questions asked, the data collected and the decisions made. This means embedding participation, accountability and local knowledge into AI design so that technology strengthens our autonomy rather than eroding it. The United Nations recognized me with a solution is a strong illustration of community driven AI. By crowdsourcing real-time weather data, it shifts communities from being passive recipients of forecasts to active contributors. This not only strengthens local resilience but also enhances early warning and disaster preparedness, showing how AI can embed participation and deliver tangible public good outcomes."
+    },
+    {
+      "ref": 3,
+      "fragment_id": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers_0010",
+      "speaker": "Dr Meena D. Lysko",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "start": 602.92,
+      "end": 670.39,
+      "duration": 67.47,
+      "stream_url": "/api/archive/videos/0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers/stream",
+      "similarity": 0.7124,
+      "text": "Three, justice is non-negotiable. Green and digital transitions must deliver fairness and not exacerbate inequities. That's how we build AI for sustainable futures. This is crucial, especially since technological transitions and industrial revolutions don't happen in a vacuum. May we all keep learning from past global governance successes and failures, including the key takeaways that metrics indicators and standards must have leeway to reflect the contextual realities of the global south and also be adaptable to taking to consideration are rapidly evolving digital space. So, whether in plastics, Gen AI or other emerging digital technologies, we need to design futures that are green, digital and just for everyone, regardless of the body or place you find yourself in. Thank you."
+    },
+    {
+      "ref": 4,
+      "fragment_id": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers_0001",
+      "speaker": "Dr Meena D. Lysko",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "start": 4.3,
+      "end": 57.91,
+      "duration": 53.61,
+      "stream_url": "/api/archive/videos/0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers/stream",
+      "similarity": 0.7099,
+      "text": "Hi, my name is Shamir Ahmed. I am the executive director of the Data Economy Policy Hub or the Deb Hub. Hi, I am Mina Lisco, Director of Move Beyond Consulting. With our global South perspective, we bring insights today based on our work on Gen AI for sustainable futures, from green digital transitions to global digital justice. Our discussion today is based on the thematic track 3, the technical is social. Even though we are focusing on sub-theme, sustainable futures and environmental impact, we think it's crucial to also have a holistic approach and consider the other sub-themes as part of the track. Namely, AI as social systems, human agency and algorithmic coloniality. These are all interconnected with sustainable futures and environmental impact."
+    },
+    {
+      "ref": 5,
+      "fragment_id": "0254_RXXzSGoo0KQ_(6N)： C Nelson - XYNOGENY？ How We Share Decision-Making_0001",
+      "speaker": "Dr. Karen Nelson",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "start": 3.54,
+      "end": 58.53,
+      "duration": 54.99,
+      "stream_url": "/api/archive/videos/0254_RXXzSGoo0KQ_(6N)： C Nelson - XYNOGENY？ How We Share Decision-Making/stream",
+      "similarity": 0.6994,
+      "text": "You wear, beware, I am fearless, and therefore I am powerful to the monster to its maker. Xymagy, how are we sure decision making in the age of AI? I'm Dr. Karen Nelson, futurist and sustainability engineer, I also serve on the advisory board of humans for AI. Now what is Xymagy? Xymagy is a production of offspring totally different from experience. And this is the present we ask in the marriage of human intelligence and AI, will we recognize ourselves? Who? What? When? Where? Why? How? Which? These are some questions we much address as we think about the future we want. We are now in a state of future shock. If we were not before, surely COVID has thrown us into that space. It's a vocal world,"
+    },
+    {
+      "ref": 6,
+      "fragment_id": "0133_F68PbGKPdjs_Siva Prasad Rambhatla - AI and Accessing Indigenous Knowledge Systems for Sustainable Development_0004",
+      "speaker": "Siva Prasad Rambhatla",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "start": 208.31,
+      "end": 271.76,
+      "duration": 63.45,
+      "stream_url": "/api/archive/videos/0133_F68PbGKPdjs_Siva Prasad Rambhatla - AI and Accessing Indigenous Knowledge Systems for Sustainable Development/stream",
+      "similarity": 0.6977,
+      "text": "For this, the policies and legal frameworks of the governments also age. In fact, they go against the principles of sustainable development goals. And because the securing the resources and natural environment is tied with the, you know, sustainable development goal, but that is where the problems arise because of contradictions. Sustainable development goals, 2030, proposes achieving sustainable development without addressing these contradictions. So without addressing the issues of inequality and other things, we cannot achieve sustainable development. In the context of climate change, today we find the knowledge systems and the practices of the indigenous communities are important for finding solutions to a change in sustainable development goals. Since sustainable development continues to follow the same economic loss development,"
+    },
+    {
+      "ref": 7,
+      "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0048",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "start": 3884.69,
+      "end": 3946.69,
+      "duration": 62.0,
+      "stream_url": "/api/archive/videos/0090_zy45aKgJUiY_Botswana Satellite event/stream",
+      "similarity": 0.6971,
+      "text": "and the types of strategic actions that are needed for a resilient and adaptable and flexible and relevant AI ecosystem to emerge and to be supported. There is that element of the data sets. There is a skills gap in regards to the utilization of AI. Computing capacity and the skills force capacity are becoming increasingly important as the technology advances. So part of building, creating a resilient and dynamic AI ecosystem has to do with supplying the system with the necessary skills. That means trying and experimenting with new ways of developing the necessary skills at the speed that is needed. You don't want to develop skills now that will take five years to be available for firms, for government, for other stakeholders"
+    },
+    {
+      "ref": 8,
+      "fragment_id": "0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2_0002",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "start": 80.02,
+      "end": 153.97,
+      "duration": 73.95,
+      "stream_url": "/api/archive/videos/0003_M1pldnhhORc_Zimbabwe_-_AI4IA_2025_2/stream",
+      "similarity": 0.6933,
+      "text": "build resilience for your communities and let's not forget people with disabilities, persons with disabilities, children with disabilities and elderly I'm mentioning elderly because it's a community which is dominating part of our population but we are so obsessed with certain groups it's easier for us to focus. So we focus only on certain groups that we forget that if we leave one group from population demography the other group will get excluded. So let's not forget the elderly who due to their age due to non-practice do not have functional reading, writing, computing skills. AI must therefore be designed to be accessible. Today I am happy to be here with a group from the"
+    },
+    {
+      "ref": 9,
+      "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0006",
+      "speaker": "Barbara Glover",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "start": 283.53,
+      "end": 353.84,
+      "duration": 70.31,
+      "stream_url": "/api/archive/videos/0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation/stream",
+      "similarity": 0.692,
+      "text": "whether economically, socially, environmentally, or even in governance. Economically, you see that AI has the potential to double Africa's GDP by 2035 based on current research. It can boost productivity and entrepreneurship. So socially, AI enhances education, health, and equality from virtual clinics to personalized learning for underserved communities. Environmentally, it supports climate-focused and sustainable agriculture, and also biodiversity efforts, munching biodiversity outcomes and roses. And when you look at governance, AI improves service delivery, anyone in an accountability. So the message is clear that AI has great potential to help us accelerate our SDGs. However, there are also bias and privacy consents that these benefits raise. And so it's important that inclusion and equity must guide AI design, adoption, and regulation across the globe, and continually."
+    },
+    {
+      "ref": 10,
+      "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0130",
+      "speaker": "Christina Williams",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "start": 7129.94,
+      "end": 7180.08,
+      "duration": 50.14,
+      "stream_url": "/api/archive/videos/0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation/stream",
+      "similarity": 0.6891,
+      "text": "exacerbating inequalities, discrimination, biases. And this is where we can have even more issues as a relates to sustainable development of Caribbean countries, but also globally. Thank you, Paula. And thank you to all the panelists. I know it was a very insightful and engaging discussion and I can see based on the feedback in the chat that persons are leaving here with more answers than questions. And where there are questions, it will contribute to an ongoing conversation that is needed as we look at using AI for the development of our region and to mitigate any risk that we may face. Thank you again. And work, they say all good things, you know, must come to an end, but I like to say all good things must come to a pause because I'm"
+    },
+    {
+      "ref": 11,
+      "fragment_id": "0093_sR8MsRk0mek_Niza Zulu - Harnessing AI for Sustainable Agriculture and Food Security in Zambia_0008",
+      "speaker": "Niza Zulu",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 15: AI in Agriculture & Food Security",
+      "start": 394.98,
+      "end": 451.54,
+      "duration": 56.56,
+      "stream_url": "/api/archive/videos/0093_sR8MsRk0mek_Niza Zulu - Harnessing AI for Sustainable Agriculture and Food Security in Zambia/stream",
+      "similarity": 0.6885,
+      "text": "So early outcomes show that enhanced yields reduce water consumption healthier soils among participating farmers and also underscores AI's transformative potential in tackling Zambia's food security challenges So what is our call to action AI represents a pivotal tool in revolutionizing agriculture enhancing food security and building resilience against climate change Let's commit to advancing AI research and equitable access to technology for our country, our economy's vulnerable communities and beyond Thank you for this enriching dialogue Together let's harness AI ethically and inclusively to drive sustainability, developing and also contributing to our sustainable development goals Thank you very much for having me"
+    },
+    {
+      "ref": 12,
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0002",
+      "speaker": "Webster Gumindoga",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "start": 59.96,
+      "end": 113.5,
+      "duration": 53.54,
+      "stream_url": "/api/archive/videos/0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact/stream",
+      "similarity": 0.6852,
+      "text": "today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it. Many thanks to the conveners of the conference who are UNESCO, and thank you for giving us this incredible platform, that is AI for IA. Also, I want to thank UNESCO Rosa for inviting me as a panelist on the conference. It's a privilege to be here among many distinguished scholars to discuss a topic so close to my heart. Firstly, I'd like to talk about the risks and opportunities in terms of how AI affects the youth, employment and creativity. Let's address the elephant in the room first, the risk of displacement. For a young graduate entering"
+    },
+    {
+      "ref": 13,
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0018",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "start": 1235.51,
+      "end": 1319.74,
+      "duration": 84.23,
+      "stream_url": "/api/archive/videos/0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1/stream",
+      "similarity": 0.6845,
+      "text": "group, but your mother tongues, it will build resilience for your communities. And let's not forget people with disabilities, persons with disabilities, children with disabilities. And elderly, I'm mentioning elderly because it's a community which is dominating part of our population, but we are so obsessed with certain groups. It's easier for us to focus, so we focus only on certain groups that we forget that if we leave one group from population demography, the other group will get excluded. So let's not forget the elderly, who, due to their age, due to non-practice, do not have functional reading, writing, computing skills. AI must therefore be designed to be accessible from this start, whether through screen readers,"
+    },
+    {
+      "ref": 14,
+      "fragment_id": "0028_V6m-XNuWH-I_Azizi_Seixas_-_AI_the_Great_Equalizer_for_the_Global_South_0009",
+      "speaker": "Azizi Seixas",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "start": 457.52,
+      "end": 522.2,
+      "duration": 64.68,
+      "stream_url": "/api/archive/videos/0028_V6m-XNuWH-I_Azizi_Seixas_-_AI_the_Great_Equalizer_for_the_Global_South/stream",
+      "similarity": 0.6844,
+      "text": "systems and resource allocation and damage assessment, as well as optimizing the recovery plan. AI can also help not just during disasters, but also in nation creation, such as urban planning, where AI has led to many smart cities, as well as increasing green spaces, as well as leading to greater optimization of transportation, having more intelligence traffic management. It can also provide some social services, increasing human rights advocacy through robust data collection and pattern recognition of how systems impact societies, as well as awareness about different forms of campaigns. It can lead to a clean energy transition, particularly in the global south where they can have greater and smarter grids, and more renewable forecasting, as well as energy storage, which"
+    },
+    {
+      "ref": 15,
+      "fragment_id": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers_0005",
+      "speaker": "Dr Meena D. Lysko",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "start": 278.4,
+      "end": 337.98,
+      "duration": 59.58,
+      "stream_url": "/api/archive/videos/0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers/stream",
+      "similarity": 0.6841,
+      "text": "Indeed, Mina, and I'd also like to add that without decolonial approaches, AI risks repeating extractive patterns just under a new shiny label of a green digital transition. Mina, in your participation at the Internet Governance Forum in 2024, as a panelist, you also stressed the need for decolonial AI governance. Yes, Shamirah. I also highlighted the need for stricter regulations and sustainability metrics to mitigate environmental harm. Warning that otherwise the so-called green digital transition could reproduce the same inequities under a new label. Essentially, the three examples you've shown highlight that sustainability is an standalone feature. It's woven into the other themes. This reminds me of what I've seen in our other global governance challenges or efforts for plastics."
+    }
+  ],
+  "models": {
+    "llm": "llama3.1:70b",
+    "embedding": "nomic-embed-text:v1.5"
+  },
+  "created_at": "2026-06-22T10:07:13.928329"
+}

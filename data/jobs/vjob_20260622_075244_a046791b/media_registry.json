@@ -1,0 +1,240 @@
+{
+  "job_id": "vjob_20260622_075244_a046791b",
+  "storage_backend": "local",
+  "objects": {
+    "video": {
+      "object_id": "video",
+      "kind": "video",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_075244_a046791b_the_synthetic_media_threat.mp4",
+      "filename": "vjob_20260622_075244_a046791b_the_synthetic_media_threat.mp4",
+      "content_type": "video/mp4",
+      "size_bytes": 4116571,
+      "created_at": "2026-06-22T07:58:25.847865"
+    },
+    "srt": {
+      "object_id": "srt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_075244_a046791b_the_synthetic_media_threat.srt",
+      "filename": "vjob_20260622_075244_a046791b_the_synthetic_media_threat.srt",
+      "content_type": "application/x-subrip",
+      "size_bytes": 703,
+      "created_at": "2026-06-22T07:58:34.331754",
+      "subtitle_format": "srt"
+    },
+    "vtt": {
+      "object_id": "vtt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_075244_a046791b_the_synthetic_media_threat.vtt",
+      "filename": "vjob_20260622_075244_a046791b_the_synthetic_media_threat.vtt",
+      "content_type": "text/vtt",
+      "size_bytes": 699,
+      "created_at": "2026-06-22T07:58:34.332754",
+      "subtitle_format": "vtt"
+    },
+    "manifest": {
+      "object_id": "manifest",
+      "kind": "manifest",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_075244_a046791b_the_synthetic_media_threat_export_manifest.json",
+      "filename": "export_manifest.json",
+      "content_type": "application/json",
+      "size_bytes": 49288,
+      "created_at": "2026-06-22T07:58:34.783749"
+    },
+    "visual_S1_HOOK": {
+      "object_id": "visual_S1_HOOK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/visuals/S1_HOOK_visual.png",
+      "filename": "S1_HOOK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 222840,
+      "created_at": "2026-06-22T07:57:57.397238",
+      "section_id": "S1_HOOK",
+      "visual_title": "The Central Question",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": [
+        "AI",
+        "question",
+        "evidence",
+        "impact"
+      ]
+    },
+    "voiceover_S1_HOOK": {
+      "object_id": "voiceover_S1_HOOK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/audio/sections/S1_HOOK_narration_broll_voiceover.mp3",
+      "filename": "S1_HOOK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 35280,
+      "created_at": "2026-06-22T07:57:50.737325",
+      "section_id": "S1_HOOK",
+      "voiceover_text": "Deepfakes pose a significant threat to our society, with alarming consequences."
+    },
+    "visual_S2_CONTEXT": {
+      "object_id": "visual_S2_CONTEXT",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/visuals/S2_CONTEXT_visual.png",
+      "filename": "S2_CONTEXT_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 227732,
+      "created_at": "2026-06-22T07:57:59.655208",
+      "section_id": "S2_CONTEXT",
+      "visual_title": "Understanding the Issue",
+      "visual_asset_type": "diagram",
+      "visual_keywords": [
+        "context",
+        "definition",
+        "scope",
+        "concepts"
+      ]
+    },
+    "voiceover_S2_CONTEXT": {
+      "object_id": "voiceover_S2_CONTEXT",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/audio/sections/S2_CONTEXT_narration_broll_voiceover.mp3",
+      "filename": "S2_CONTEXT_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 42624,
+      "created_at": "2026-06-22T07:57:51.667313",
+      "section_id": "S2_CONTEXT",
+      "voiceover_text": "Deepfakes are AI-generated synthetic media that can imitate real people, often without their consent."
+    },
+    "visual_S4_PUBLIC_RISK": {
+      "object_id": "visual_S4_PUBLIC_RISK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/visuals/S4_PUBLIC_RISK_visual.png",
+      "filename": "S4_PUBLIC_RISK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 214573,
+      "created_at": "2026-06-22T07:58:04.176149",
+      "section_id": "S4_PUBLIC_RISK",
+      "visual_title": "S4 Public Risk",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": []
+    },
+    "voiceover_S4_PUBLIC_RISK": {
+      "object_id": "voiceover_S4_PUBLIC_RISK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/audio/sections/S4_PUBLIC_RISK_narration_broll_voiceover.mp3",
+      "filename": "S4_PUBLIC_RISK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 26208,
+      "created_at": "2026-06-22T07:57:54.164280",
+      "section_id": "S4_PUBLIC_RISK",
+      "voiceover_text": "This can lead to widespread misinformation and manipulation."
+    },
+    "visual_S6_SYNTHESIS": {
+      "object_id": "visual_S6_SYNTHESIS",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/visuals/S6_SYNTHESIS_visual.png",
+      "filename": "S6_SYNTHESIS_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 218355,
+      "created_at": "2026-06-22T07:58:06.415119",
+      "section_id": "S6_SYNTHESIS",
+      "visual_title": "Looking Forward",
+      "visual_asset_type": "closing_synthesis",
+      "visual_keywords": [
+        "synthesis",
+        "future",
+        "collective",
+        "change"
+      ]
+    },
+    "voiceover_S6_SYNTHESIS": {
+      "object_id": "voiceover_S6_SYNTHESIS",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/audio/sections/S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "filename": "S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 38448,
+      "created_at": "2026-06-22T07:57:55.030269",
+      "section_id": "S6_SYNTHESIS",
+      "voiceover_text": "Deepfakes are a trust, safety, and governance problem that requires collective response."
+    },
+    "title_card": {
+      "object_id": "title_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 265189,
+      "created_at": "2026-06-22T07:57:33.517552",
+      "card_type": "title_card"
+    },
+    "closing_card": {
+      "object_id": "closing_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/cards/closing_card.png",
+      "filename": "closing_card.png",
+      "content_type": "image/png",
+      "size_bytes": 256019,
+      "created_at": "2026-06-22T07:57:35.729523",
+      "card_type": "closing_card"
+    },
+    "section_card_S1": {
+      "object_id": "section_card_S1",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/cards/S1_opening_hook.png",
+      "filename": "S1_opening_hook.png",
+      "content_type": "image/png",
+      "size_bytes": 226164,
+      "created_at": "2026-06-22T07:57:37.954494",
+      "card_type": "section_card",
+      "section_id": "S1"
+    },
+    "section_card_S2": {
+      "object_id": "section_card_S2",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/cards/S2_context.png",
+      "filename": "S2_context.png",
+      "content_type": "image/png",
+      "size_bytes": 223442,
+      "created_at": "2026-06-22T07:57:40.350462",
+      "card_type": "section_card",
+      "section_id": "S2"
+    },
+    "section_card_S3": {
+      "object_id": "section_card_S3",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/cards/S3_problem_or_tension.png",
+      "filename": "S3_problem_or_tension.png",
+      "content_type": "image/png",
+      "size_bytes": 227134,
+      "created_at": "2026-06-22T07:57:42.576433",
+      "card_type": "section_card",
+      "section_id": "S3"
+    },
+    "section_card_S4": {
+      "object_id": "section_card_S4",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/cards/S4_human_perspective.png",
+      "filename": "S4_human_perspective.png",
+      "content_type": "image/png",
+      "size_bytes": 236087,
+      "created_at": "2026-06-22T07:57:44.802403",
+      "card_type": "section_card",
+      "section_id": "S4"
+    },
+    "section_card_S5": {
+      "object_id": "section_card_S5",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/cards/S5_expert_evidence.png",
+      "filename": "S5_expert_evidence.png",
+      "content_type": "image/png",
+      "size_bytes": 234674,
+      "created_at": "2026-06-22T07:57:47.104373",
+      "card_type": "section_card",
+      "section_id": "S5"
+    },
+    "thumbnail": {
+      "object_id": "thumbnail",
+      "kind": "thumbnail",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_132437_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 265189,
+      "created_at": "2026-06-22T07:57:33.517552",
+      "card_type": "title_card"
+    }
+  }
+}

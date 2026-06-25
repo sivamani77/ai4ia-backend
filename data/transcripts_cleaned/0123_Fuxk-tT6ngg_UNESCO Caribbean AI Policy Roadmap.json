@@ -1,0 +1,5368 @@
+{
+  "audio_file": "0123_Fuxk-tT6ngg_UNESCO Caribbean AI Policy Roadmap.clean.wav",
+  "source_audio_path": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0123_Fuxk-tT6ngg_UNESCO Caribbean AI Policy Roadmap.clean.wav",
+  "source_transcript_version": "cleaned_v2",
+  "model": "small",
+  "device": "cuda",
+  "compute_type": "float16",
+  "language": "en",
+  "language_probability": 1,
+  "duration_seconds": 439.875438,
+  "transcribed_at": "2026-06-19T13:57:14.964295",
+  "transcription_mode": "normal",
+  "chunk_seconds": null,
+  "quality": {
+    "segment_count": 76,
+    "avg_confidence": 0.7851,
+    "avg_words_per_segment": 10.0,
+    "empty_segment_ratio": 0.0,
+    "repeated_phrase_ratio": 0.0,
+    "low_confidence_ratio": 0.0,
+    "recommended_action": "ok"
+  },
+  "segments": [
+    {
+      "id": 1,
+      "start": 1.85,
+      "end": 21.2,
+      "text": "Back in 2020, around the time when UNESCO's recommendation on the ethics of artificial",
+      "avg_logprob": -0.1447916603088379,
+      "no_speech_prob": 0.0282440185546875,
+      "compression_ratio": 1.6954545454545455,
+      "words": [
+        {
+          "word": " Back",
+          "start": 1.85,
+          "end": 2.31,
+          "probability": 0.69189453125
+        },
+        {
+          "word": " in",
+          "start": 15.5,
+          "end": 15.7,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " 2020,",
+          "start": 15.7,
+          "end": 16.46,
+          "probability": 0.98046875
+        },
+        {
+          "word": " around",
+          "start": 16.76,
+          "end": 16.96,
+          "probability": 0.99609375
+        },
+        {
+          "word": " the",
+          "start": 16.96,
+          "end": 17.16,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " time",
+          "start": 17.16,
+          "end": 17.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " when",
+          "start": 17.56,
+          "end": 17.9,
+          "probability": 0.93603515625
+        },
+        {
+          "word": " UNESCO's",
+          "start": 17.9,
+          "end": 18.7,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " recommendation",
+          "start": 18.7,
+          "end": 19.26,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " on",
+          "start": 19.26,
+          "end": 20.16,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " the",
+          "start": 20.16,
+          "end": 20.32,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " ethics",
+          "start": 20.32,
+          "end": 20.6,
+          "probability": 0.90869140625
+        },
+        {
+          "word": " of",
+          "start": 20.6,
+          "end": 20.84,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " artificial",
+          "start": 20.84,
+          "end": 21.2,
+          "probability": 0.95458984375
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 21.2,
+      "end": 29.08,
+      "text": "intelligence was being drafted, we started to come together in the Caribbean really to understand",
+      "avg_logprob": -0.1447916603088379,
+      "no_speech_prob": 0.0282440185546875,
+      "compression_ratio": 1.6954545454545455,
+      "words": [
+        {
+          "word": " intelligence",
+          "start": 21.2,
+          "end": 21.96,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " was",
+          "start": 21.96,
+          "end": 22.36,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " being",
+          "start": 22.36,
+          "end": 22.82,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " drafted,",
+          "start": 22.82,
+          "end": 23.4,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " we",
+          "start": 24.02,
+          "end": 24.18,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " started",
+          "start": 24.18,
+          "end": 24.56,
+          "probability": 0.998046875
+        },
+        {
+          "word": " to",
+          "start": 24.56,
+          "end": 25.0,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " come",
+          "start": 25.0,
+          "end": 25.32,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " together",
+          "start": 25.32,
+          "end": 25.78,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " in",
+          "start": 25.78,
+          "end": 26.1,
+          "probability": 0.990234375
+        },
+        {
+          "word": " the",
+          "start": 26.1,
+          "end": 26.28,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " Caribbean",
+          "start": 26.28,
+          "end": 26.7,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " really",
+          "start": 26.7,
+          "end": 27.74,
+          "probability": 0.57177734375
+        },
+        {
+          "word": " to",
+          "start": 27.74,
+          "end": 28.28,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " understand",
+          "start": 28.28,
+          "end": 29.08,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 29.46,
+      "end": 37.18,
+      "text": "where we were with artificial intelligence. And so the Caribbean AI initiative was started.",
+      "avg_logprob": -0.1447916603088379,
+      "no_speech_prob": 0.0282440185546875,
+      "compression_ratio": 1.6954545454545455,
+      "words": [
+        {
+          "word": " where",
+          "start": 29.46,
+          "end": 29.92,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " we",
+          "start": 29.92,
+          "end": 30.16,
+          "probability": 0.998046875
+        },
+        {
+          "word": " were",
+          "start": 30.16,
+          "end": 30.5,
+          "probability": 0.998046875
+        },
+        {
+          "word": " with",
+          "start": 30.5,
+          "end": 31.04,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " artificial",
+          "start": 31.04,
+          "end": 31.56,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " intelligence.",
+          "start": 31.56,
+          "end": 32.38,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " And",
+          "start": 32.64,
+          "end": 32.64,
+          "probability": 0.88818359375
+        },
+        {
+          "word": " so",
+          "start": 32.64,
+          "end": 32.86,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " the",
+          "start": 32.86,
+          "end": 33.12,
+          "probability": 0.900390625
+        },
+        {
+          "word": " Caribbean",
+          "start": 33.12,
+          "end": 33.94,
+          "probability": 0.986328125
+        },
+        {
+          "word": " AI",
+          "start": 33.94,
+          "end": 34.58,
+          "probability": 0.94580078125
+        },
+        {
+          "word": " initiative",
+          "start": 34.58,
+          "end": 35.84,
+          "probability": 0.54833984375
+        },
+        {
+          "word": " was",
+          "start": 35.84,
+          "end": 36.54,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " started.",
+          "start": 36.54,
+          "end": 37.18,
+          "probability": 0.99267578125
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 37.46,
+      "end": 43.56,
+      "text": "The UNESCO Caribbean Artificial Intelligence AI Policy Roadmap was developed under the Caribbean",
+      "avg_logprob": -0.1447916603088379,
+      "no_speech_prob": 0.0282440185546875,
+      "compression_ratio": 1.6954545454545455,
+      "words": [
+        {
+          "word": " The",
+          "start": 37.46,
+          "end": 37.68,
+          "probability": 0.9052734375
+        },
+        {
+          "word": " UNESCO",
+          "start": 37.68,
+          "end": 38.16,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " Caribbean",
+          "start": 38.16,
+          "end": 38.64,
+          "probability": 0.9140625
+        },
+        {
+          "word": " Artificial",
+          "start": 38.64,
+          "end": 39.3,
+          "probability": 0.84521484375
+        },
+        {
+          "word": " Intelligence",
+          "start": 39.3,
+          "end": 39.86,
+          "probability": 0.9921875
+        },
+        {
+          "word": " AI",
+          "start": 39.86,
+          "end": 40.32,
+          "probability": 0.264892578125
+        },
+        {
+          "word": " Policy",
+          "start": 40.32,
+          "end": 40.84,
+          "probability": 0.57080078125
+        },
+        {
+          "word": " Roadmap",
+          "start": 40.84,
+          "end": 41.4,
+          "probability": 0.95068359375
+        },
+        {
+          "word": " was",
+          "start": 41.4,
+          "end": 42.08,
+          "probability": 0.96484375
+        },
+        {
+          "word": " developed",
+          "start": 42.08,
+          "end": 42.48,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " under",
+          "start": 42.48,
+          "end": 42.96,
+          "probability": 0.9765625
+        },
+        {
+          "word": " the",
+          "start": 42.96,
+          "end": 43.16,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " Caribbean",
+          "start": 43.16,
+          "end": 43.56,
+          "probability": 0.9912109375
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 43.56,
+      "end": 48.98,
+      "text": "The Caribbean AI Initiative, two extensive consultation with experts, policy makers and",
+      "avg_logprob": -0.20514705671983607,
+      "no_speech_prob": 0.2191162109375,
+      "compression_ratio": 1.717741935483871,
+      "words": [
+        {
+          "word": " The",
+          "start": 43.56,
+          "end": 43.78,
+          "probability": 0.5693359375
+        },
+        {
+          "word": " Caribbean",
+          "start": 43.78,
+          "end": 43.78,
+          "probability": 0.66845703125
+        },
+        {
+          "word": " AI",
+          "start": 43.78,
+          "end": 43.96,
+          "probability": 0.81884765625
+        },
+        {
+          "word": " Initiative,",
+          "start": 43.96,
+          "end": 44.48,
+          "probability": 0.66455078125
+        },
+        {
+          "word": " two",
+          "start": 44.78,
+          "end": 45.18,
+          "probability": 0.81982421875
+        },
+        {
+          "word": " extensive",
+          "start": 45.18,
+          "end": 45.76,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " consultation",
+          "start": 45.76,
+          "end": 46.42,
+          "probability": 0.375244140625
+        },
+        {
+          "word": " with",
+          "start": 46.42,
+          "end": 46.98,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " experts,",
+          "start": 46.98,
+          "end": 47.58,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " policy",
+          "start": 48.02,
+          "end": 48.16,
+          "probability": 0.267578125
+        },
+        {
+          "word": " makers",
+          "start": 48.16,
+          "end": 48.54,
+          "probability": 0.884765625
+        },
+        {
+          "word": " and",
+          "start": 48.54,
+          "end": 48.98,
+          "probability": 0.5693359375
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 48.98,
+      "end": 49.94,
+      "text": "community leaders.",
+      "avg_logprob": -0.20514705671983607,
+      "no_speech_prob": 0.2191162109375,
+      "compression_ratio": 1.717741935483871,
+      "words": [
+        {
+          "word": " community",
+          "start": 48.98,
+          "end": 49.48,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " leaders.",
+          "start": 49.48,
+          "end": 49.94,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 50.46,
+      "end": 56.92,
+      "text": "The desire to have broader consultation with Caribbean stakeholders resulted in consultations",
+      "avg_logprob": -0.20514705671983607,
+      "no_speech_prob": 0.2191162109375,
+      "compression_ratio": 1.717741935483871,
+      "words": [
+        {
+          "word": " The",
+          "start": 50.46,
+          "end": 50.78,
+          "probability": 0.87109375
+        },
+        {
+          "word": " desire",
+          "start": 50.78,
+          "end": 51.14,
+          "probability": 0.98828125
+        },
+        {
+          "word": " to",
+          "start": 51.14,
+          "end": 51.36,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " have",
+          "start": 51.36,
+          "end": 51.6,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " broader",
+          "start": 51.6,
+          "end": 52.3,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " consultation",
+          "start": 52.3,
+          "end": 53.0,
+          "probability": 0.984375
+        },
+        {
+          "word": " with",
+          "start": 53.0,
+          "end": 53.48,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " Caribbean",
+          "start": 53.48,
+          "end": 54.14,
+          "probability": 0.986328125
+        },
+        {
+          "word": " stakeholders",
+          "start": 54.14,
+          "end": 54.82,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " resulted",
+          "start": 54.82,
+          "end": 55.3,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " in",
+          "start": 55.3,
+          "end": 55.86,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " consultations",
+          "start": 55.86,
+          "end": 56.92,
+          "probability": 0.99267578125
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 56.92,
+      "end": 62.84,
+      "text": "with over a thousand institutions and individuals, including women and youth, in over 20 countries",
+      "avg_logprob": -0.20514705671983607,
+      "no_speech_prob": 0.2191162109375,
+      "compression_ratio": 1.717741935483871,
+      "words": [
+        {
+          "word": " with",
+          "start": 56.92,
+          "end": 57.12,
+          "probability": 0.98828125
+        },
+        {
+          "word": " over",
+          "start": 57.12,
+          "end": 57.32,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " a",
+          "start": 57.32,
+          "end": 57.54,
+          "probability": 0.576171875
+        },
+        {
+          "word": " thousand",
+          "start": 57.54,
+          "end": 57.82,
+          "probability": 0.9521484375
+        },
+        {
+          "word": " institutions",
+          "start": 57.82,
+          "end": 58.6,
+          "probability": 0.98828125
+        },
+        {
+          "word": " and",
+          "start": 58.6,
+          "end": 59.04,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " individuals,",
+          "start": 59.04,
+          "end": 59.54,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " including",
+          "start": 59.66,
+          "end": 59.96,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " women",
+          "start": 59.96,
+          "end": 60.4,
+          "probability": 0.9033203125
+        },
+        {
+          "word": " and",
+          "start": 60.4,
+          "end": 60.62,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " youth,",
+          "start": 60.62,
+          "end": 60.88,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " in",
+          "start": 61.4,
+          "end": 61.6,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " over",
+          "start": 61.6,
+          "end": 61.8,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " 20",
+          "start": 61.8,
+          "end": 62.2,
+          "probability": 0.89453125
+        },
+        {
+          "word": " countries",
+          "start": 62.2,
+          "end": 62.84,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 62.84,
+      "end": 63.46,
+      "text": "in the region.",
+      "avg_logprob": -0.20514705671983607,
+      "no_speech_prob": 0.2191162109375,
+      "compression_ratio": 1.717741935483871,
+      "words": [
+        {
+          "word": " in",
+          "start": 62.84,
+          "end": 63.1,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " the",
+          "start": 63.1,
+          "end": 63.2,
+          "probability": 0.998046875
+        },
+        {
+          "word": " region.",
+          "start": 63.2,
+          "end": 63.46,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 63.96,
+      "end": 69.76,
+      "text": "In addition, there were eight different regional consultations as well regarding the actual",
+      "avg_logprob": -0.20514705671983607,
+      "no_speech_prob": 0.2191162109375,
+      "compression_ratio": 1.717741935483871,
+      "words": [
+        {
+          "word": " In",
+          "start": 63.96,
+          "end": 64.08,
+          "probability": 0.99609375
+        },
+        {
+          "word": " addition,",
+          "start": 64.08,
+          "end": 64.38,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " there",
+          "start": 64.62,
+          "end": 64.72,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " were",
+          "start": 64.72,
+          "end": 64.9,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " eight",
+          "start": 64.9,
+          "end": 65.24,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " different",
+          "start": 65.24,
+          "end": 66.06,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " regional",
+          "start": 66.06,
+          "end": 66.62,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " consultations",
+          "start": 66.62,
+          "end": 68.2,
+          "probability": 0.997802734375
+        },
+        {
+          "word": " as",
+          "start": 68.2,
+          "end": 68.42,
+          "probability": 0.86376953125
+        },
+        {
+          "word": " well",
+          "start": 68.42,
+          "end": 68.7,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " regarding",
+          "start": 68.7,
+          "end": 69.18,
+          "probability": 0.86328125
+        },
+        {
+          "word": " the",
+          "start": 69.18,
+          "end": 69.46,
+          "probability": 0.998046875
+        },
+        {
+          "word": " actual",
+          "start": 69.46,
+          "end": 69.76,
+          "probability": 0.99609375
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 69.76,
+      "end": 70.56,
+      "text": "pillars themselves.",
+      "avg_logprob": -0.20514705671983607,
+      "no_speech_prob": 0.2191162109375,
+      "compression_ratio": 1.717741935483871,
+      "words": [
+        {
+          "word": " pillars",
+          "start": 69.76,
+          "end": 70.04,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " themselves.",
+          "start": 70.04,
+          "end": 70.56,
+          "probability": 0.98779296875
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 70.56,
+      "end": 76.62,
+      "text": "The Caribbean AI Initiative was started to better understand the region's readiness in",
+      "avg_logprob": -0.21208639442920685,
+      "no_speech_prob": 0.0396728515625,
+      "compression_ratio": 1.6093023255813954,
+      "words": [
+        {
+          "word": " The",
+          "start": 70.56,
+          "end": 71.44,
+          "probability": 0.71484375
+        },
+        {
+          "word": " Caribbean",
+          "start": 71.44,
+          "end": 71.8,
+          "probability": 0.95751953125
+        },
+        {
+          "word": " AI",
+          "start": 71.8,
+          "end": 72.1,
+          "probability": 0.875
+        },
+        {
+          "word": " Initiative",
+          "start": 72.1,
+          "end": 72.54,
+          "probability": 0.73974609375
+        },
+        {
+          "word": " was",
+          "start": 72.54,
+          "end": 72.92,
+          "probability": 0.96435546875
+        },
+        {
+          "word": " started",
+          "start": 72.92,
+          "end": 73.48,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " to",
+          "start": 73.48,
+          "end": 73.82,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " better",
+          "start": 73.82,
+          "end": 74.04,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " understand",
+          "start": 74.04,
+          "end": 74.64,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " the",
+          "start": 74.64,
+          "end": 75.06,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " region's",
+          "start": 75.06,
+          "end": 75.6,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " readiness",
+          "start": 75.6,
+          "end": 75.94,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " in",
+          "start": 75.94,
+          "end": 76.62,
+          "probability": 0.8583984375
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 76.62,
+      "end": 81.18,
+      "text": "regards to the global standard UNESCO recommendation on the ethics of AI.",
+      "avg_logprob": -0.21208639442920685,
+      "no_speech_prob": 0.0396728515625,
+      "compression_ratio": 1.6093023255813954,
+      "words": [
+        {
+          "word": " regards",
+          "start": 76.62,
+          "end": 76.9,
+          "probability": 0.87646484375
+        },
+        {
+          "word": " to",
+          "start": 76.9,
+          "end": 77.34,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " the",
+          "start": 77.34,
+          "end": 77.42,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " global",
+          "start": 77.42,
+          "end": 77.7,
+          "probability": 0.84619140625
+        },
+        {
+          "word": " standard",
+          "start": 77.7,
+          "end": 78.32,
+          "probability": 0.94580078125
+        },
+        {
+          "word": " UNESCO",
+          "start": 78.32,
+          "end": 78.88,
+          "probability": 0.98828125
+        },
+        {
+          "word": " recommendation",
+          "start": 78.88,
+          "end": 79.44,
+          "probability": 0.92431640625
+        },
+        {
+          "word": " on",
+          "start": 79.44,
+          "end": 80.16,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " the",
+          "start": 80.16,
+          "end": 80.28,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " ethics",
+          "start": 80.28,
+          "end": 80.66,
+          "probability": 0.91357421875
+        },
+        {
+          "word": " of",
+          "start": 80.66,
+          "end": 80.86,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " AI.",
+          "start": 80.86,
+          "end": 81.18,
+          "probability": 0.97998046875
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 81.78,
+      "end": 90.58,
+      "text": "Well the Caribbean AI Initiative began, the kernel really was the thinking of the Broadcasting",
+      "avg_logprob": -0.21208639442920685,
+      "no_speech_prob": 0.0396728515625,
+      "compression_ratio": 1.6093023255813954,
+      "words": [
+        {
+          "word": " Well",
+          "start": 81.78,
+          "end": 82.26,
+          "probability": 0.82373046875
+        },
+        {
+          "word": " the",
+          "start": 82.26,
+          "end": 82.48,
+          "probability": 0.345947265625
+        },
+        {
+          "word": " Caribbean",
+          "start": 82.48,
+          "end": 82.96,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " AI",
+          "start": 82.96,
+          "end": 83.58,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " Initiative",
+          "start": 83.58,
+          "end": 84.48,
+          "probability": 0.72998046875
+        },
+        {
+          "word": " began,",
+          "start": 84.48,
+          "end": 85.18,
+          "probability": 0.744140625
+        },
+        {
+          "word": " the",
+          "start": 85.96,
+          "end": 86.34,
+          "probability": 0.921875
+        },
+        {
+          "word": " kernel",
+          "start": 86.34,
+          "end": 86.82,
+          "probability": 0.400146484375
+        },
+        {
+          "word": " really",
+          "start": 86.82,
+          "end": 87.36,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " was",
+          "start": 87.36,
+          "end": 87.76,
+          "probability": 0.84326171875
+        },
+        {
+          "word": " the",
+          "start": 87.76,
+          "end": 88.14,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " thinking",
+          "start": 88.14,
+          "end": 88.7,
+          "probability": 0.99609375
+        },
+        {
+          "word": " of",
+          "start": 88.7,
+          "end": 89.1,
+          "probability": 0.994140625
+        },
+        {
+          "word": " the",
+          "start": 89.1,
+          "end": 89.38,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " Broadcasting",
+          "start": 89.38,
+          "end": 90.58,
+          "probability": 0.7457275390625
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 90.58,
+      "end": 97.66,
+      "text": "Commission that we couldn't have exponential technologies, frontier technologies, changing",
+      "avg_logprob": -0.21208639442920685,
+      "no_speech_prob": 0.0396728515625,
+      "compression_ratio": 1.6093023255813954,
+      "words": [
+        {
+          "word": " Commission",
+          "start": 90.58,
+          "end": 91.2,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " that",
+          "start": 91.2,
+          "end": 91.62,
+          "probability": 0.68408203125
+        },
+        {
+          "word": " we",
+          "start": 91.62,
+          "end": 91.84,
+          "probability": 0.9921875
+        },
+        {
+          "word": " couldn't",
+          "start": 91.84,
+          "end": 92.28,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " have",
+          "start": 92.28,
+          "end": 92.68,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " exponential",
+          "start": 92.68,
+          "end": 93.9,
+          "probability": 0.955078125
+        },
+        {
+          "word": " technologies,",
+          "start": 93.9,
+          "end": 95.0,
+          "probability": 0.91357421875
+        },
+        {
+          "word": " frontier",
+          "start": 95.46,
+          "end": 95.82,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " technologies,",
+          "start": 95.82,
+          "end": 96.76,
+          "probability": 0.978515625
+        },
+        {
+          "word": " changing",
+          "start": 97.04,
+          "end": 97.66,
+          "probability": 0.994140625
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 97.66,
+      "end": 103.48,
+      "text": "all the operating systems of the society, and we sit by and observe.",
+      "avg_logprob": -0.25872564780247675,
+      "no_speech_prob": 0.0172119140625,
+      "compression_ratio": 1.5528846153846154,
+      "words": [
+        {
+          "word": " all",
+          "start": 97.66,
+          "end": 98.04,
+          "probability": 0.6455078125
+        },
+        {
+          "word": " the",
+          "start": 98.04,
+          "end": 98.22,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " operating",
+          "start": 98.22,
+          "end": 98.74,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " systems",
+          "start": 98.74,
+          "end": 99.7,
+          "probability": 0.986328125
+        },
+        {
+          "word": " of",
+          "start": 99.7,
+          "end": 100.04,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " the",
+          "start": 100.04,
+          "end": 100.22,
+          "probability": 0.93115234375
+        },
+        {
+          "word": " society,",
+          "start": 100.22,
+          "end": 100.8,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " and",
+          "start": 101.18,
+          "end": 101.24,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " we",
+          "start": 101.24,
+          "end": 101.46,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " sit",
+          "start": 101.46,
+          "end": 101.78,
+          "probability": 0.99609375
+        },
+        {
+          "word": " by",
+          "start": 101.78,
+          "end": 102.14,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " and",
+          "start": 102.14,
+          "end": 102.6,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " observe.",
+          "start": 102.6,
+          "end": 103.48,
+          "probability": 0.99609375
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 103.8,
+      "end": 112.24,
+      "text": "The commission took the initiative to engage with the UNESCO information for all program",
+      "avg_logprob": -0.25872564780247675,
+      "no_speech_prob": 0.0172119140625,
+      "compression_ratio": 1.5528846153846154,
+      "words": [
+        {
+          "word": " The",
+          "start": 103.8,
+          "end": 103.9,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " commission",
+          "start": 103.9,
+          "end": 104.48,
+          "probability": 0.50537109375
+        },
+        {
+          "word": " took",
+          "start": 104.48,
+          "end": 105.16,
+          "probability": 0.78125
+        },
+        {
+          "word": " the",
+          "start": 105.16,
+          "end": 105.42,
+          "probability": 0.974609375
+        },
+        {
+          "word": " initiative",
+          "start": 105.42,
+          "end": 106.1,
+          "probability": 0.91552734375
+        },
+        {
+          "word": " to",
+          "start": 106.1,
+          "end": 106.74,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " engage",
+          "start": 106.74,
+          "end": 107.9,
+          "probability": 0.998046875
+        },
+        {
+          "word": " with",
+          "start": 107.9,
+          "end": 108.4,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " the",
+          "start": 108.4,
+          "end": 109.36,
+          "probability": 0.845703125
+        },
+        {
+          "word": " UNESCO",
+          "start": 109.36,
+          "end": 110.14,
+          "probability": 0.994140625
+        },
+        {
+          "word": " information",
+          "start": 110.14,
+          "end": 110.94,
+          "probability": 0.494873046875
+        },
+        {
+          "word": " for",
+          "start": 110.94,
+          "end": 111.56,
+          "probability": 0.51025390625
+        },
+        {
+          "word": " all",
+          "start": 111.56,
+          "end": 111.72,
+          "probability": 0.9609375
+        },
+        {
+          "word": " program",
+          "start": 111.72,
+          "end": 112.24,
+          "probability": 0.69384765625
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 112.24,
+      "end": 117.12,
+      "text": "and the Caribbean cluster office for UNESCO and the subject.",
+      "avg_logprob": -0.25872564780247675,
+      "no_speech_prob": 0.0172119140625,
+      "compression_ratio": 1.5528846153846154,
+      "words": [
+        {
+          "word": " and",
+          "start": 112.24,
+          "end": 112.58,
+          "probability": 0.75146484375
+        },
+        {
+          "word": " the",
+          "start": 112.58,
+          "end": 112.84,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " Caribbean",
+          "start": 112.84,
+          "end": 113.88,
+          "probability": 0.96142578125
+        },
+        {
+          "word": " cluster",
+          "start": 113.88,
+          "end": 114.44,
+          "probability": 0.6201171875
+        },
+        {
+          "word": " office",
+          "start": 114.44,
+          "end": 115.04,
+          "probability": 0.970703125
+        },
+        {
+          "word": " for",
+          "start": 115.04,
+          "end": 115.36,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " UNESCO",
+          "start": 115.36,
+          "end": 116.12,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " and",
+          "start": 116.12,
+          "end": 116.42,
+          "probability": 0.51123046875
+        },
+        {
+          "word": " the",
+          "start": 116.42,
+          "end": 116.64,
+          "probability": 0.6064453125
+        },
+        {
+          "word": " subject.",
+          "start": 116.64,
+          "end": 117.12,
+          "probability": 0.95263671875
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 117.82,
+      "end": 125.62,
+      "text": "And that gave birth to the Caribbean AI initiative, which really is more of a grass-loach type",
+      "avg_logprob": -0.25872564780247675,
+      "no_speech_prob": 0.0172119140625,
+      "compression_ratio": 1.5528846153846154,
+      "words": [
+        {
+          "word": " And",
+          "start": 117.82,
+          "end": 117.94,
+          "probability": 0.85693359375
+        },
+        {
+          "word": " that",
+          "start": 117.94,
+          "end": 118.44,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " gave",
+          "start": 118.44,
+          "end": 118.76,
+          "probability": 0.92333984375
+        },
+        {
+          "word": " birth",
+          "start": 118.76,
+          "end": 119.26,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " to",
+          "start": 119.26,
+          "end": 119.58,
+          "probability": 0.998046875
+        },
+        {
+          "word": " the",
+          "start": 119.58,
+          "end": 119.8,
+          "probability": 0.998046875
+        },
+        {
+          "word": " Caribbean",
+          "start": 119.8,
+          "end": 120.36,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " AI",
+          "start": 120.36,
+          "end": 121.2,
+          "probability": 0.8740234375
+        },
+        {
+          "word": " initiative,",
+          "start": 121.2,
+          "end": 122.06,
+          "probability": 0.677734375
+        },
+        {
+          "word": " which",
+          "start": 122.2,
+          "end": 122.44,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " really",
+          "start": 122.44,
+          "end": 122.92,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " is",
+          "start": 122.92,
+          "end": 123.44,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " more",
+          "start": 123.44,
+          "end": 123.76,
+          "probability": 0.990234375
+        },
+        {
+          "word": " of",
+          "start": 123.76,
+          "end": 124.18,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " a",
+          "start": 124.18,
+          "end": 124.28,
+          "probability": 0.994140625
+        },
+        {
+          "word": " grass",
+          "start": 124.28,
+          "end": 124.7,
+          "probability": 0.81689453125
+        },
+        {
+          "word": "-loach",
+          "start": 124.7,
+          "end": 125.26,
+          "probability": 0.5546875
+        },
+        {
+          "word": " type",
+          "start": 125.26,
+          "end": 125.62,
+          "probability": 0.74658203125
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 125.62,
+      "end": 126.56,
+      "text": "movement.",
+      "avg_logprob": -0.25872564780247675,
+      "no_speech_prob": 0.0172119140625,
+      "compression_ratio": 1.5528846153846154,
+      "words": [
+        {
+          "word": " movement.",
+          "start": 125.62,
+          "end": 126.56,
+          "probability": 0.9912109375
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 126.56,
+      "end": 133.46,
+      "text": "I'm thinking about artificial intelligence and engaging around artificial intelligence",
+      "avg_logprob": -0.1889304627834911,
+      "no_speech_prob": 0.250732421875,
+      "compression_ratio": 1.7064220183486238,
+      "words": [
+        {
+          "word": " I'm",
+          "start": 126.56,
+          "end": 127.32,
+          "probability": 0.54962158203125
+        },
+        {
+          "word": " thinking",
+          "start": 127.32,
+          "end": 127.86,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " about",
+          "start": 127.86,
+          "end": 128.3,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " artificial",
+          "start": 128.3,
+          "end": 129.08,
+          "probability": 0.90771484375
+        },
+        {
+          "word": " intelligence",
+          "start": 129.08,
+          "end": 130.06,
+          "probability": 0.9921875
+        },
+        {
+          "word": " and",
+          "start": 130.06,
+          "end": 130.48,
+          "probability": 0.892578125
+        },
+        {
+          "word": " engaging",
+          "start": 130.48,
+          "end": 131.48,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " around",
+          "start": 131.48,
+          "end": 132.0,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " artificial",
+          "start": 132.0,
+          "end": 132.62,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " intelligence",
+          "start": 132.62,
+          "end": 133.46,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 133.46,
+      "end": 136.94,
+      "text": "from the ground up, not the other way around.",
+      "avg_logprob": -0.1889304627834911,
+      "no_speech_prob": 0.250732421875,
+      "compression_ratio": 1.7064220183486238,
+      "words": [
+        {
+          "word": " from",
+          "start": 133.46,
+          "end": 134.1,
+          "probability": 0.89697265625
+        },
+        {
+          "word": " the",
+          "start": 134.1,
+          "end": 134.38,
+          "probability": 0.9921875
+        },
+        {
+          "word": " ground",
+          "start": 134.38,
+          "end": 134.9,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " up,",
+          "start": 134.9,
+          "end": 135.6,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " not",
+          "start": 135.74,
+          "end": 136.02,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " the",
+          "start": 136.02,
+          "end": 136.18,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " other",
+          "start": 136.18,
+          "end": 136.32,
+          "probability": 0.998046875
+        },
+        {
+          "word": " way",
+          "start": 136.32,
+          "end": 136.56,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " around.",
+          "start": 136.56,
+          "end": 136.94,
+          "probability": 0.984375
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 137.5,
+      "end": 145.14,
+      "text": "So this new Caribbean AI policy roadmap is really necessary and I would say essential",
+      "avg_logprob": -0.1889304627834911,
+      "no_speech_prob": 0.250732421875,
+      "compression_ratio": 1.7064220183486238,
+      "words": [
+        {
+          "word": " So",
+          "start": 137.5,
+          "end": 137.74,
+          "probability": 0.7744140625
+        },
+        {
+          "word": " this",
+          "start": 137.74,
+          "end": 138.18,
+          "probability": 0.74658203125
+        },
+        {
+          "word": " new",
+          "start": 138.18,
+          "end": 138.8,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " Caribbean",
+          "start": 138.8,
+          "end": 139.94,
+          "probability": 0.990234375
+        },
+        {
+          "word": " AI",
+          "start": 139.94,
+          "end": 140.54,
+          "probability": 0.94287109375
+        },
+        {
+          "word": " policy",
+          "start": 140.54,
+          "end": 141.06,
+          "probability": 0.75732421875
+        },
+        {
+          "word": " roadmap",
+          "start": 141.06,
+          "end": 141.62,
+          "probability": 0.9599609375
+        },
+        {
+          "word": " is",
+          "start": 141.62,
+          "end": 142.52,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " really",
+          "start": 142.52,
+          "end": 143.0,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " necessary",
+          "start": 143.0,
+          "end": 143.76,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " and",
+          "start": 143.76,
+          "end": 144.12,
+          "probability": 0.65234375
+        },
+        {
+          "word": " I",
+          "start": 144.12,
+          "end": 144.26,
+          "probability": 0.89208984375
+        },
+        {
+          "word": " would",
+          "start": 144.26,
+          "end": 144.36,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " say",
+          "start": 144.36,
+          "end": 144.58,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " essential",
+          "start": 144.58,
+          "end": 145.14,
+          "probability": 0.99072265625
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 145.14,
+      "end": 150.4,
+      "text": "for addressing the unique challenges but also the great opportunities",
+      "avg_logprob": -0.1889304627834911,
+      "no_speech_prob": 0.250732421875,
+      "compression_ratio": 1.7064220183486238,
+      "words": [
+        {
+          "word": " for",
+          "start": 145.14,
+          "end": 145.84,
+          "probability": 0.9306640625
+        },
+        {
+          "word": " addressing",
+          "start": 145.84,
+          "end": 146.28,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " the",
+          "start": 146.28,
+          "end": 146.52,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " unique",
+          "start": 146.52,
+          "end": 146.8,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " challenges",
+          "start": 146.8,
+          "end": 147.4,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " but",
+          "start": 147.4,
+          "end": 147.96,
+          "probability": 0.568359375
+        },
+        {
+          "word": " also",
+          "start": 147.96,
+          "end": 148.32,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " the",
+          "start": 148.32,
+          "end": 148.58,
+          "probability": 0.60791015625
+        },
+        {
+          "word": " great",
+          "start": 148.58,
+          "end": 149.62,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " opportunities",
+          "start": 149.62,
+          "end": 150.4,
+          "probability": 0.9931640625
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 150.4,
+      "end": 155.68,
+      "text": "that artificial intelligence presents to seeds, to small island development states.",
+      "avg_logprob": -0.1889304627834911,
+      "no_speech_prob": 0.250732421875,
+      "compression_ratio": 1.7064220183486238,
+      "words": [
+        {
+          "word": " that",
+          "start": 150.4,
+          "end": 150.82,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " artificial",
+          "start": 150.82,
+          "end": 151.34,
+          "probability": 0.8515625
+        },
+        {
+          "word": " intelligence",
+          "start": 151.34,
+          "end": 151.76,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " presents",
+          "start": 151.76,
+          "end": 152.5,
+          "probability": 0.308349609375
+        },
+        {
+          "word": " to",
+          "start": 152.5,
+          "end": 153.38,
+          "probability": 0.95703125
+        },
+        {
+          "word": " seeds,",
+          "start": 153.38,
+          "end": 153.94,
+          "probability": 0.432373046875
+        },
+        {
+          "word": " to",
+          "start": 154.2,
+          "end": 154.24,
+          "probability": 0.982421875
+        },
+        {
+          "word": " small",
+          "start": 154.24,
+          "end": 154.54,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " island",
+          "start": 154.54,
+          "end": 154.86,
+          "probability": 0.890625
+        },
+        {
+          "word": " development",
+          "start": 154.86,
+          "end": 155.18,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " states.",
+          "start": 155.18,
+          "end": 155.68,
+          "probability": 0.943359375
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 156.56,
+      "end": 162.3,
+      "text": "Artificial intelligence development is a global endeavor and I'm happy that the development",
+      "avg_logprob": -0.20636161118745805,
+      "no_speech_prob": 0.007785797119140625,
+      "compression_ratio": 1.6318181818181818,
+      "words": [
+        {
+          "word": " Artificial",
+          "start": 156.56,
+          "end": 156.98,
+          "probability": 0.779541015625
+        },
+        {
+          "word": " intelligence",
+          "start": 156.98,
+          "end": 157.68,
+          "probability": 0.477294921875
+        },
+        {
+          "word": " development",
+          "start": 157.68,
+          "end": 158.5,
+          "probability": 0.8837890625
+        },
+        {
+          "word": " is",
+          "start": 158.5,
+          "end": 158.94,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " a",
+          "start": 158.94,
+          "end": 159.06,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " global",
+          "start": 159.06,
+          "end": 159.38,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " endeavor",
+          "start": 159.38,
+          "end": 159.88,
+          "probability": 0.92431640625
+        },
+        {
+          "word": " and",
+          "start": 159.88,
+          "end": 160.48,
+          "probability": 0.50732421875
+        },
+        {
+          "word": " I'm",
+          "start": 160.48,
+          "end": 160.72,
+          "probability": 0.857177734375
+        },
+        {
+          "word": " happy",
+          "start": 160.72,
+          "end": 161.06,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " that",
+          "start": 161.06,
+          "end": 161.82,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " the",
+          "start": 161.82,
+          "end": 161.94,
+          "probability": 0.986328125
+        },
+        {
+          "word": " development",
+          "start": 161.94,
+          "end": 162.3,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 162.3,
+      "end": 168.68,
+      "text": "of this roadmap was undertaken with extensive regional and international collaboration and",
+      "avg_logprob": -0.20636161118745805,
+      "no_speech_prob": 0.007785797119140625,
+      "compression_ratio": 1.6318181818181818,
+      "words": [
+        {
+          "word": " of",
+          "start": 162.3,
+          "end": 162.56,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " this",
+          "start": 162.56,
+          "end": 162.78,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " roadmap",
+          "start": 162.78,
+          "end": 163.12,
+          "probability": 0.9287109375
+        },
+        {
+          "word": " was",
+          "start": 163.12,
+          "end": 163.8,
+          "probability": 0.888671875
+        },
+        {
+          "word": " undertaken",
+          "start": 163.8,
+          "end": 164.32,
+          "probability": 0.8984375
+        },
+        {
+          "word": " with",
+          "start": 164.32,
+          "end": 164.62,
+          "probability": 0.994140625
+        },
+        {
+          "word": " extensive",
+          "start": 164.62,
+          "end": 165.1,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " regional",
+          "start": 165.1,
+          "end": 165.86,
+          "probability": 0.994140625
+        },
+        {
+          "word": " and",
+          "start": 165.86,
+          "end": 166.5,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " international",
+          "start": 166.5,
+          "end": 167.14,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " collaboration",
+          "start": 167.14,
+          "end": 167.78,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " and",
+          "start": 167.78,
+          "end": 168.68,
+          "probability": 0.83056640625
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 168.68,
+      "end": 171.62,
+      "text": "is a timely input to help carry come since.",
+      "avg_logprob": -0.20636161118745805,
+      "no_speech_prob": 0.007785797119140625,
+      "compression_ratio": 1.6318181818181818,
+      "words": [
+        {
+          "word": " is",
+          "start": 168.68,
+          "end": 168.88,
+          "probability": 0.89697265625
+        },
+        {
+          "word": " a",
+          "start": 168.88,
+          "end": 169.04,
+          "probability": 0.9921875
+        },
+        {
+          "word": " timely",
+          "start": 169.04,
+          "end": 169.4,
+          "probability": 0.75146484375
+        },
+        {
+          "word": " input",
+          "start": 169.4,
+          "end": 169.94,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " to",
+          "start": 169.94,
+          "end": 170.46,
+          "probability": 0.99609375
+        },
+        {
+          "word": " help",
+          "start": 170.46,
+          "end": 170.72,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " carry",
+          "start": 170.72,
+          "end": 171.04,
+          "probability": 0.427490234375
+        },
+        {
+          "word": " come",
+          "start": 171.04,
+          "end": 171.3,
+          "probability": 0.51708984375
+        },
+        {
+          "word": " since.",
+          "start": 171.3,
+          "end": 171.62,
+          "probability": 0.55029296875
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 172.36,
+      "end": 177.8,
+      "text": "The roadmap can guide the development of AI technologies that boost productivity, innovation",
+      "avg_logprob": -0.20636161118745805,
+      "no_speech_prob": 0.007785797119140625,
+      "compression_ratio": 1.6318181818181818,
+      "words": [
+        {
+          "word": " The",
+          "start": 172.36,
+          "end": 172.46,
+          "probability": 0.990234375
+        },
+        {
+          "word": " roadmap",
+          "start": 172.46,
+          "end": 172.8,
+          "probability": 0.9130859375
+        },
+        {
+          "word": " can",
+          "start": 172.8,
+          "end": 173.22,
+          "probability": 0.92041015625
+        },
+        {
+          "word": " guide",
+          "start": 173.22,
+          "end": 173.5,
+          "probability": 0.67724609375
+        },
+        {
+          "word": " the",
+          "start": 173.5,
+          "end": 173.66,
+          "probability": 0.96875
+        },
+        {
+          "word": " development",
+          "start": 173.66,
+          "end": 174.12,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " of",
+          "start": 174.12,
+          "end": 174.32,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " AI",
+          "start": 174.32,
+          "end": 174.54,
+          "probability": 0.8818359375
+        },
+        {
+          "word": " technologies",
+          "start": 174.54,
+          "end": 175.22,
+          "probability": 0.958984375
+        },
+        {
+          "word": " that",
+          "start": 175.22,
+          "end": 175.58,
+          "probability": 0.95458984375
+        },
+        {
+          "word": " boost",
+          "start": 175.58,
+          "end": 175.96,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " productivity,",
+          "start": 175.96,
+          "end": 176.88,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " innovation",
+          "start": 177.32,
+          "end": 177.8,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 177.8,
+      "end": 180.46,
+      "text": "and competitiveness in various sectors.",
+      "avg_logprob": -0.20636161118745805,
+      "no_speech_prob": 0.007785797119140625,
+      "compression_ratio": 1.6318181818181818,
+      "words": [
+        {
+          "word": " and",
+          "start": 177.8,
+          "end": 178.12,
+          "probability": 0.74169921875
+        },
+        {
+          "word": " competitiveness",
+          "start": 178.12,
+          "end": 179.24,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " in",
+          "start": 179.24,
+          "end": 179.52,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " various",
+          "start": 179.52,
+          "end": 179.88,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " sectors.",
+          "start": 179.88,
+          "end": 180.46,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "start": 180.46,
+      "end": 187.94,
+      "text": "The roadmap advocates for comprehensive national and regional AI strategies, ethical guidelines",
+      "avg_logprob": -0.19773327548738936,
+      "no_speech_prob": 0.0125732421875,
+      "compression_ratio": 1.5532786885245902,
+      "words": [
+        {
+          "word": " The",
+          "start": 180.46,
+          "end": 181.56,
+          "probability": 0.70361328125
+        },
+        {
+          "word": " roadmap",
+          "start": 181.68,
+          "end": 182.0,
+          "probability": 0.94287109375
+        },
+        {
+          "word": " advocates",
+          "start": 182.0,
+          "end": 182.8,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " for",
+          "start": 182.8,
+          "end": 183.06,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " comprehensive",
+          "start": 183.06,
+          "end": 183.6,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " national",
+          "start": 183.6,
+          "end": 184.32,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " and",
+          "start": 184.32,
+          "end": 184.92,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " regional",
+          "start": 184.92,
+          "end": 185.42,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " AI",
+          "start": 185.42,
+          "end": 185.82,
+          "probability": 0.94873046875
+        },
+        {
+          "word": " strategies,",
+          "start": 185.82,
+          "end": 186.4,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " ethical",
+          "start": 187.08,
+          "end": 187.48,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " guidelines",
+          "start": 187.48,
+          "end": 187.94,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "start": 187.94,
+      "end": 193.84,
+      "text": "and collaboration with international partners to ensure that AI development is inclusive,",
+      "avg_logprob": -0.19773327548738936,
+      "no_speech_prob": 0.0125732421875,
+      "compression_ratio": 1.5532786885245902,
+      "words": [
+        {
+          "word": " and",
+          "start": 187.94,
+          "end": 188.54,
+          "probability": 0.5302734375
+        },
+        {
+          "word": " collaboration",
+          "start": 188.54,
+          "end": 188.98,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " with",
+          "start": 188.98,
+          "end": 189.52,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " international",
+          "start": 189.52,
+          "end": 189.96,
+          "probability": 0.994140625
+        },
+        {
+          "word": " partners",
+          "start": 189.96,
+          "end": 190.74,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " to",
+          "start": 190.74,
+          "end": 191.38,
+          "probability": 0.8583984375
+        },
+        {
+          "word": " ensure",
+          "start": 191.38,
+          "end": 191.74,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " that",
+          "start": 191.74,
+          "end": 192.02,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " AI",
+          "start": 192.02,
+          "end": 192.38,
+          "probability": 0.99609375
+        },
+        {
+          "word": " development",
+          "start": 192.38,
+          "end": 192.9,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " is",
+          "start": 192.9,
+          "end": 193.28,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " inclusive,",
+          "start": 193.28,
+          "end": 193.84,
+          "probability": 0.994140625
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "start": 194.18,
+      "end": 195.88,
+      "text": "sustainable and human-centered.",
+      "avg_logprob": -0.19773327548738936,
+      "no_speech_prob": 0.0125732421875,
+      "compression_ratio": 1.5532786885245902,
+      "words": [
+        {
+          "word": " sustainable",
+          "start": 194.18,
+          "end": 194.54,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " and",
+          "start": 194.54,
+          "end": 195.12,
+          "probability": 0.6142578125
+        },
+        {
+          "word": " human",
+          "start": 195.12,
+          "end": 195.44,
+          "probability": 0.99755859375
+        },
+        {
+          "word": "-centered.",
+          "start": 195.44,
+          "end": 195.88,
+          "probability": 0.837158203125
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "start": 196.52,
+      "end": 203.52,
+      "text": "So we're acknowledging that the rapid evolution of artificial intelligence places a tremendous",
+      "avg_logprob": -0.19773327548738936,
+      "no_speech_prob": 0.0125732421875,
+      "compression_ratio": 1.5532786885245902,
+      "words": [
+        {
+          "word": " So",
+          "start": 196.52,
+          "end": 196.92,
+          "probability": 0.66455078125
+        },
+        {
+          "word": " we're",
+          "start": 196.92,
+          "end": 197.22,
+          "probability": 0.869384765625
+        },
+        {
+          "word": " acknowledging",
+          "start": 197.22,
+          "end": 197.76,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " that",
+          "start": 197.76,
+          "end": 198.16,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " the",
+          "start": 198.16,
+          "end": 198.36,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " rapid",
+          "start": 198.36,
+          "end": 198.82,
+          "probability": 0.99609375
+        },
+        {
+          "word": " evolution",
+          "start": 198.82,
+          "end": 199.62,
+          "probability": 0.99609375
+        },
+        {
+          "word": " of",
+          "start": 199.62,
+          "end": 199.96,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " artificial",
+          "start": 199.96,
+          "end": 200.36,
+          "probability": 0.986328125
+        },
+        {
+          "word": " intelligence",
+          "start": 200.36,
+          "end": 201.22,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " places",
+          "start": 201.22,
+          "end": 202.14,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " a",
+          "start": 202.14,
+          "end": 202.98,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " tremendous",
+          "start": 202.98,
+          "end": 203.52,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 203.52,
+      "end": 209.34,
+      "text": "opportunity ahead of us here in the Caribbean but also many risks.",
+      "avg_logprob": -0.19773327548738936,
+      "no_speech_prob": 0.0125732421875,
+      "compression_ratio": 1.5532786885245902,
+      "words": [
+        {
+          "word": " opportunity",
+          "start": 203.52,
+          "end": 204.48,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " ahead",
+          "start": 204.48,
+          "end": 205.06,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " of",
+          "start": 205.06,
+          "end": 205.32,
+          "probability": 0.998046875
+        },
+        {
+          "word": " us",
+          "start": 205.32,
+          "end": 205.6,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " here",
+          "start": 205.6,
+          "end": 205.8,
+          "probability": 0.984375
+        },
+        {
+          "word": " in",
+          "start": 205.8,
+          "end": 206.0,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " the",
+          "start": 206.0,
+          "end": 206.14,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " Caribbean",
+          "start": 206.14,
+          "end": 206.6,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " but",
+          "start": 206.6,
+          "end": 207.38,
+          "probability": 0.36181640625
+        },
+        {
+          "word": " also",
+          "start": 207.38,
+          "end": 207.88,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " many",
+          "start": 207.88,
+          "end": 208.84,
+          "probability": 0.921875
+        },
+        {
+          "word": " risks.",
+          "start": 208.84,
+          "end": 209.34,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "start": 209.34,
+      "end": 218.7,
+      "text": "And so, to address this, the UNESCO AI Policy Roadmap offers a policy framework for development",
+      "avg_logprob": -0.2354343215287742,
+      "no_speech_prob": 0.0258636474609375,
+      "compression_ratio": 1.4352331606217616,
+      "words": [
+        {
+          "word": " And",
+          "start": 209.34,
+          "end": 210.0,
+          "probability": 0.459716796875
+        },
+        {
+          "word": " so,",
+          "start": 210.0,
+          "end": 210.5,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " to",
+          "start": 210.56,
+          "end": 210.78,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " address",
+          "start": 210.78,
+          "end": 211.32,
+          "probability": 0.998046875
+        },
+        {
+          "word": " this,",
+          "start": 211.32,
+          "end": 211.74,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " the",
+          "start": 211.88,
+          "end": 211.98,
+          "probability": 0.9052734375
+        },
+        {
+          "word": " UNESCO",
+          "start": 211.98,
+          "end": 212.52,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " AI",
+          "start": 212.52,
+          "end": 212.96,
+          "probability": 0.880859375
+        },
+        {
+          "word": " Policy",
+          "start": 212.96,
+          "end": 213.86,
+          "probability": 0.861328125
+        },
+        {
+          "word": " Roadmap",
+          "start": 213.86,
+          "end": 214.88,
+          "probability": 0.965576171875
+        },
+        {
+          "word": " offers",
+          "start": 214.88,
+          "end": 215.44,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " a",
+          "start": 215.44,
+          "end": 215.76,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " policy",
+          "start": 215.76,
+          "end": 216.16,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " framework",
+          "start": 216.16,
+          "end": 216.8,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " for",
+          "start": 216.8,
+          "end": 217.9,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " development",
+          "start": 217.9,
+          "end": 218.7,
+          "probability": 0.9853515625
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "start": 218.7,
+      "end": 225.0,
+      "text": "and regional collaboration, and it's really built on four pillars, culture and creativity,",
+      "avg_logprob": -0.2354343215287742,
+      "no_speech_prob": 0.0258636474609375,
+      "compression_ratio": 1.4352331606217616,
+      "words": [
+        {
+          "word": " and",
+          "start": 218.7,
+          "end": 219.28,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " regional",
+          "start": 219.28,
+          "end": 219.68,
+          "probability": 0.99609375
+        },
+        {
+          "word": " collaboration,",
+          "start": 219.68,
+          "end": 220.56,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " and",
+          "start": 220.84,
+          "end": 221.18,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " it's",
+          "start": 221.18,
+          "end": 221.36,
+          "probability": 0.98046875
+        },
+        {
+          "word": " really",
+          "start": 221.36,
+          "end": 221.58,
+          "probability": 0.9921875
+        },
+        {
+          "word": " built",
+          "start": 221.58,
+          "end": 221.9,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " on",
+          "start": 221.9,
+          "end": 222.18,
+          "probability": 0.998046875
+        },
+        {
+          "word": " four",
+          "start": 222.18,
+          "end": 222.5,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " pillars,",
+          "start": 222.5,
+          "end": 223.04,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " culture",
+          "start": 223.42,
+          "end": 223.9,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " and",
+          "start": 223.9,
+          "end": 224.34,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " creativity,",
+          "start": 224.34,
+          "end": 225.0,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "start": 225.8,
+      "end": 232.58,
+      "text": "governance and transformation, education and upskilling and resiliency and sustainability.",
+      "avg_logprob": -0.2354343215287742,
+      "no_speech_prob": 0.0258636474609375,
+      "compression_ratio": 1.4352331606217616,
+      "words": [
+        {
+          "word": " governance",
+          "start": 225.8,
+          "end": 226.22,
+          "probability": 0.990234375
+        },
+        {
+          "word": " and",
+          "start": 226.22,
+          "end": 226.76,
+          "probability": 0.94873046875
+        },
+        {
+          "word": " transformation,",
+          "start": 226.76,
+          "end": 227.58,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " education",
+          "start": 228.42,
+          "end": 229.0,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " and",
+          "start": 229.0,
+          "end": 229.62,
+          "probability": 0.962890625
+        },
+        {
+          "word": " upskilling",
+          "start": 229.62,
+          "end": 230.36,
+          "probability": 0.93896484375
+        },
+        {
+          "word": " and",
+          "start": 230.36,
+          "end": 230.72,
+          "probability": 0.677734375
+        },
+        {
+          "word": " resiliency",
+          "start": 230.72,
+          "end": 231.32,
+          "probability": 0.99609375
+        },
+        {
+          "word": " and",
+          "start": 231.32,
+          "end": 231.98,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " sustainability.",
+          "start": 231.98,
+          "end": 232.58,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "start": 232.58,
+      "end": 240.58,
+      "text": "So this roadmap really serves as a blueprint for member states to navigate these challenges",
+      "avg_logprob": -0.20648733498174934,
+      "no_speech_prob": 0.0960693359375,
+      "compression_ratio": 1.672340425531915,
+      "words": [
+        {
+          "word": " So",
+          "start": 232.58,
+          "end": 233.98,
+          "probability": 0.5224609375
+        },
+        {
+          "word": " this",
+          "start": 234.18,
+          "end": 234.44,
+          "probability": 0.83544921875
+        },
+        {
+          "word": " roadmap",
+          "start": 234.44,
+          "end": 234.96,
+          "probability": 0.89892578125
+        },
+        {
+          "word": " really",
+          "start": 234.96,
+          "end": 235.7,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " serves",
+          "start": 235.7,
+          "end": 236.16,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " as",
+          "start": 236.16,
+          "end": 236.38,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " a",
+          "start": 236.38,
+          "end": 236.56,
+          "probability": 0.814453125
+        },
+        {
+          "word": " blueprint",
+          "start": 236.56,
+          "end": 236.92,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " for",
+          "start": 236.92,
+          "end": 237.94,
+          "probability": 0.98828125
+        },
+        {
+          "word": " member",
+          "start": 237.94,
+          "end": 238.28,
+          "probability": 0.56689453125
+        },
+        {
+          "word": " states",
+          "start": 238.28,
+          "end": 238.74,
+          "probability": 0.943359375
+        },
+        {
+          "word": " to",
+          "start": 238.74,
+          "end": 239.32,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " navigate",
+          "start": 239.32,
+          "end": 239.72,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " these",
+          "start": 239.72,
+          "end": 240.08,
+          "probability": 0.951171875
+        },
+        {
+          "word": " challenges",
+          "start": 240.08,
+          "end": 240.58,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "start": 240.58,
+      "end": 246.84,
+      "text": "by setting ethical guidelines, by setting the needs of capacity building, first of all,",
+      "avg_logprob": -0.20648733498174934,
+      "no_speech_prob": 0.0960693359375,
+      "compression_ratio": 1.672340425531915,
+      "words": [
+        {
+          "word": " by",
+          "start": 240.58,
+          "end": 240.88,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " setting",
+          "start": 240.88,
+          "end": 241.32,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " ethical",
+          "start": 241.32,
+          "end": 242.14,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " guidelines,",
+          "start": 242.14,
+          "end": 242.66,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " by",
+          "start": 243.4,
+          "end": 243.7,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " setting",
+          "start": 243.7,
+          "end": 244.12,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " the",
+          "start": 244.12,
+          "end": 244.44,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " needs",
+          "start": 244.44,
+          "end": 244.84,
+          "probability": 0.978515625
+        },
+        {
+          "word": " of",
+          "start": 244.84,
+          "end": 245.12,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " capacity",
+          "start": 245.12,
+          "end": 245.6,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " building,",
+          "start": 245.6,
+          "end": 246.02,
+          "probability": 0.81298828125
+        },
+        {
+          "word": " first",
+          "start": 246.42,
+          "end": 246.5,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " of",
+          "start": 246.5,
+          "end": 246.7,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " all,",
+          "start": 246.7,
+          "end": 246.84,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "start": 247.18,
+      "end": 252.96,
+      "text": "identify the needs and build up on it to foster collaboration between international, national",
+      "avg_logprob": -0.20648733498174934,
+      "no_speech_prob": 0.0960693359375,
+      "compression_ratio": 1.672340425531915,
+      "words": [
+        {
+          "word": " identify",
+          "start": 247.18,
+          "end": 247.3,
+          "probability": 0.96728515625
+        },
+        {
+          "word": " the",
+          "start": 247.3,
+          "end": 247.72,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " needs",
+          "start": 247.72,
+          "end": 247.98,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " and",
+          "start": 247.98,
+          "end": 248.24,
+          "probability": 0.95947265625
+        },
+        {
+          "word": " build",
+          "start": 248.24,
+          "end": 248.5,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " up",
+          "start": 248.5,
+          "end": 248.72,
+          "probability": 0.75341796875
+        },
+        {
+          "word": " on",
+          "start": 248.72,
+          "end": 248.88,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " it",
+          "start": 248.88,
+          "end": 249.1,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " to",
+          "start": 249.1,
+          "end": 249.62,
+          "probability": 0.54931640625
+        },
+        {
+          "word": " foster",
+          "start": 249.62,
+          "end": 249.98,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " collaboration",
+          "start": 249.98,
+          "end": 250.86,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " between",
+          "start": 250.86,
+          "end": 251.64,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " international,",
+          "start": 251.64,
+          "end": 252.48,
+          "probability": 0.8154296875
+        },
+        {
+          "word": " national",
+          "start": 252.66,
+          "end": 252.96,
+          "probability": 0.99267578125
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "start": 252.96,
+      "end": 254.16,
+      "text": "and local stakeholders.",
+      "avg_logprob": -0.20648733498174934,
+      "no_speech_prob": 0.0960693359375,
+      "compression_ratio": 1.672340425531915,
+      "words": [
+        {
+          "word": " and",
+          "start": 252.96,
+          "end": 253.36,
+          "probability": 0.78662109375
+        },
+        {
+          "word": " local",
+          "start": 253.36,
+          "end": 253.6,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " stakeholders.",
+          "start": 253.6,
+          "end": 254.16,
+          "probability": 0.7490234375
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "start": 256.31,
+      "end": 262.49,
+      "text": "With this roadmap, we can guide governments, industries, academia, institutions in implementing",
+      "avg_logprob": -0.20648733498174934,
+      "no_speech_prob": 0.0960693359375,
+      "compression_ratio": 1.672340425531915,
+      "words": [
+        {
+          "word": " With",
+          "start": 256.31,
+          "end": 256.89,
+          "probability": 0.9228515625
+        },
+        {
+          "word": " this",
+          "start": 256.89,
+          "end": 257.17,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " roadmap,",
+          "start": 257.17,
+          "end": 257.53,
+          "probability": 0.9765625
+        },
+        {
+          "word": " we",
+          "start": 257.79,
+          "end": 257.87,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " can",
+          "start": 257.87,
+          "end": 258.03,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " guide",
+          "start": 258.03,
+          "end": 258.35,
+          "probability": 0.998046875
+        },
+        {
+          "word": " governments,",
+          "start": 258.35,
+          "end": 258.75,
+          "probability": 0.98046875
+        },
+        {
+          "word": " industries,",
+          "start": 259.13,
+          "end": 259.53,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " academia,",
+          "start": 260.03,
+          "end": 260.35,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " institutions",
+          "start": 260.73,
+          "end": 261.25,
+          "probability": 0.978515625
+        },
+        {
+          "word": " in",
+          "start": 261.25,
+          "end": 262.11,
+          "probability": 0.497802734375
+        },
+        {
+          "word": " implementing",
+          "start": 262.11,
+          "end": 262.49,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "start": 262.49,
+      "end": 268.11,
+      "text": "AI solutions that is tailored for our own regional problems that these would",
+      "avg_logprob": -0.2323588651995505,
+      "no_speech_prob": 0.04095458984375,
+      "compression_ratio": 1.6702702702702703,
+      "words": [
+        {
+          "word": " AI",
+          "start": 262.49,
+          "end": 262.93,
+          "probability": 0.0340576171875
+        },
+        {
+          "word": " solutions",
+          "start": 262.93,
+          "end": 263.39,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " that",
+          "start": 263.39,
+          "end": 264.49,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " is",
+          "start": 264.49,
+          "end": 264.89,
+          "probability": 0.90087890625
+        },
+        {
+          "word": " tailored",
+          "start": 264.89,
+          "end": 265.29,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " for",
+          "start": 265.29,
+          "end": 265.61,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " our",
+          "start": 265.61,
+          "end": 265.85,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " own",
+          "start": 265.85,
+          "end": 266.13,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " regional",
+          "start": 266.13,
+          "end": 266.51,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " problems",
+          "start": 266.51,
+          "end": 267.21,
+          "probability": 0.994140625
+        },
+        {
+          "word": " that",
+          "start": 267.21,
+          "end": 267.87,
+          "probability": 0.11151123046875
+        },
+        {
+          "word": " these",
+          "start": 267.87,
+          "end": 268.01,
+          "probability": 0.8994140625
+        },
+        {
+          "word": " would",
+          "start": 268.01,
+          "end": 268.11,
+          "probability": 0.47998046875
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "start": 268.11,
+      "end": 275.95,
+      "text": "include healthcare, culture and arts and data protection and privacy. And so I",
+      "avg_logprob": -0.2323588651995505,
+      "no_speech_prob": 0.04095458984375,
+      "compression_ratio": 1.6702702702702703,
+      "words": [
+        {
+          "word": " include",
+          "start": 268.11,
+          "end": 268.37,
+          "probability": 0.998046875
+        },
+        {
+          "word": " healthcare,",
+          "start": 268.37,
+          "end": 268.99,
+          "probability": 0.68017578125
+        },
+        {
+          "word": " culture",
+          "start": 269.75,
+          "end": 270.61,
+          "probability": 0.978515625
+        },
+        {
+          "word": " and",
+          "start": 270.61,
+          "end": 270.85,
+          "probability": 0.7802734375
+        },
+        {
+          "word": " arts",
+          "start": 270.85,
+          "end": 271.31,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " and",
+          "start": 271.31,
+          "end": 272.47,
+          "probability": 0.62939453125
+        },
+        {
+          "word": " data",
+          "start": 272.47,
+          "end": 273.61,
+          "probability": 0.974609375
+        },
+        {
+          "word": " protection",
+          "start": 273.61,
+          "end": 274.03,
+          "probability": 0.998046875
+        },
+        {
+          "word": " and",
+          "start": 274.03,
+          "end": 274.33,
+          "probability": 0.990234375
+        },
+        {
+          "word": " privacy.",
+          "start": 274.33,
+          "end": 274.79,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " And",
+          "start": 275.59,
+          "end": 275.73,
+          "probability": 0.84423828125
+        },
+        {
+          "word": " so",
+          "start": 275.73,
+          "end": 275.87,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " I",
+          "start": 275.87,
+          "end": 275.95,
+          "probability": 0.8837890625
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "start": 275.95,
+      "end": 282.21,
+      "text": "think that the roadmap emphasizes the need for regulatory frameworks, regional",
+      "avg_logprob": -0.2323588651995505,
+      "no_speech_prob": 0.04095458984375,
+      "compression_ratio": 1.6702702702702703,
+      "words": [
+        {
+          "word": " think",
+          "start": 275.95,
+          "end": 276.09,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that",
+          "start": 276.09,
+          "end": 276.27,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " the",
+          "start": 276.27,
+          "end": 276.55,
+          "probability": 0.990234375
+        },
+        {
+          "word": " roadmap",
+          "start": 276.55,
+          "end": 277.13,
+          "probability": 0.6904296875
+        },
+        {
+          "word": " emphasizes",
+          "start": 277.13,
+          "end": 277.99,
+          "probability": 0.869140625
+        },
+        {
+          "word": " the",
+          "start": 277.99,
+          "end": 278.31,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " need",
+          "start": 278.31,
+          "end": 278.61,
+          "probability": 0.998046875
+        },
+        {
+          "word": " for",
+          "start": 278.61,
+          "end": 279.13,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " regulatory",
+          "start": 279.13,
+          "end": 280.75,
+          "probability": 0.7724609375
+        },
+        {
+          "word": " frameworks,",
+          "start": 280.75,
+          "end": 281.57,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " regional",
+          "start": 281.83,
+          "end": 282.21,
+          "probability": 0.99169921875
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "start": 282.21,
+      "end": 287.53,
+      "text": "regulatory frameworks, that manage the ethical concerns and ensure that AI",
+      "avg_logprob": -0.2323588651995505,
+      "no_speech_prob": 0.04095458984375,
+      "compression_ratio": 1.6702702702702703,
+      "words": [
+        {
+          "word": " regulatory",
+          "start": 282.21,
+          "end": 282.59,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " frameworks,",
+          "start": 282.59,
+          "end": 283.13,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " that",
+          "start": 283.41,
+          "end": 284.25,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " manage",
+          "start": 284.25,
+          "end": 284.79,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " the",
+          "start": 284.79,
+          "end": 284.95,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " ethical",
+          "start": 284.95,
+          "end": 285.31,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " concerns",
+          "start": 285.31,
+          "end": 285.81,
+          "probability": 0.95068359375
+        },
+        {
+          "word": " and",
+          "start": 285.81,
+          "end": 286.73,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " ensure",
+          "start": 286.73,
+          "end": 287.07,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " that",
+          "start": 287.07,
+          "end": 287.29,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " AI",
+          "start": 287.29,
+          "end": 287.53,
+          "probability": 0.9951171875
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "start": 287.53,
+      "end": 291.83,
+      "text": "I developed in a way that is aligned with the region needs.",
+      "avg_logprob": -0.15263672564178704,
+      "no_speech_prob": 0.007221221923828125,
+      "compression_ratio": 1.5086206896551724,
+      "words": [
+        {
+          "word": " I",
+          "start": 287.53,
+          "end": 287.63,
+          "probability": 0.345458984375
+        },
+        {
+          "word": " developed",
+          "start": 287.63,
+          "end": 287.97,
+          "probability": 0.8955078125
+        },
+        {
+          "word": " in",
+          "start": 287.97,
+          "end": 288.91,
+          "probability": 0.95361328125
+        },
+        {
+          "word": " a",
+          "start": 288.91,
+          "end": 289.03,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " way",
+          "start": 289.03,
+          "end": 289.27,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " that",
+          "start": 289.27,
+          "end": 289.49,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " is",
+          "start": 289.49,
+          "end": 289.65,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " aligned",
+          "start": 289.65,
+          "end": 289.99,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " with",
+          "start": 289.99,
+          "end": 290.27,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " the",
+          "start": 290.27,
+          "end": 290.65,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " region",
+          "start": 290.65,
+          "end": 291.25,
+          "probability": 0.93603515625
+        },
+        {
+          "word": " needs.",
+          "start": 291.25,
+          "end": 291.83,
+          "probability": 0.98681640625
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "start": 293.16,
+      "end": 296.65,
+      "text": "And the roadmap recommends tools like the ethical impact",
+      "avg_logprob": -0.15263672564178704,
+      "no_speech_prob": 0.007221221923828125,
+      "compression_ratio": 1.5086206896551724,
+      "words": [
+        {
+          "word": " And",
+          "start": 293.16,
+          "end": 293.57,
+          "probability": 0.66064453125
+        },
+        {
+          "word": " the",
+          "start": 293.57,
+          "end": 293.71,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " roadmap",
+          "start": 293.71,
+          "end": 294.01,
+          "probability": 0.6357421875
+        },
+        {
+          "word": " recommends",
+          "start": 294.01,
+          "end": 294.79,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " tools",
+          "start": 294.79,
+          "end": 295.29,
+          "probability": 0.998046875
+        },
+        {
+          "word": " like",
+          "start": 295.29,
+          "end": 295.73,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " the",
+          "start": 295.73,
+          "end": 295.89,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " ethical",
+          "start": 295.89,
+          "end": 296.27,
+          "probability": 0.82763671875
+        },
+        {
+          "word": " impact",
+          "start": 296.27,
+          "end": 296.65,
+          "probability": 0.98681640625
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "start": 296.65,
+      "end": 300.25,
+      "text": "assessment from UNESCO to ensure transparency",
+      "avg_logprob": -0.15263672564178704,
+      "no_speech_prob": 0.007221221923828125,
+      "compression_ratio": 1.5086206896551724,
+      "words": [
+        {
+          "word": " assessment",
+          "start": 296.65,
+          "end": 297.35,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " from",
+          "start": 297.35,
+          "end": 297.75,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " UNESCO",
+          "start": 297.75,
+          "end": 298.41,
+          "probability": 0.987548828125
+        },
+        {
+          "word": " to",
+          "start": 298.41,
+          "end": 299.11,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " ensure",
+          "start": 299.11,
+          "end": 299.45,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " transparency",
+          "start": 299.45,
+          "end": 300.25,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "start": 300.25,
+      "end": 302.59,
+      "text": "and accountability in AI systems.",
+      "avg_logprob": -0.15263672564178704,
+      "no_speech_prob": 0.007221221923828125,
+      "compression_ratio": 1.5086206896551724,
+      "words": [
+        {
+          "word": " and",
+          "start": 300.25,
+          "end": 300.73,
+          "probability": 0.9482421875
+        },
+        {
+          "word": " accountability",
+          "start": 300.73,
+          "end": 301.29,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " in",
+          "start": 301.29,
+          "end": 301.75,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " AI",
+          "start": 301.75,
+          "end": 301.99,
+          "probability": 0.93115234375
+        },
+        {
+          "word": " systems.",
+          "start": 301.99,
+          "end": 302.59,
+          "probability": 0.99365234375
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "start": 303.25,
+      "end": 306.47,
+      "text": "For privacy and security, we know",
+      "avg_logprob": -0.15263672564178704,
+      "no_speech_prob": 0.007221221923828125,
+      "compression_ratio": 1.5086206896551724,
+      "words": [
+        {
+          "word": " For",
+          "start": 303.25,
+          "end": 303.71,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " privacy",
+          "start": 303.71,
+          "end": 304.31,
+          "probability": 0.9921875
+        },
+        {
+          "word": " and",
+          "start": 304.31,
+          "end": 304.73,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " security,",
+          "start": 304.73,
+          "end": 305.35,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " we",
+          "start": 305.91,
+          "end": 306.17,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " know",
+          "start": 306.17,
+          "end": 306.47,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "start": 306.47,
+      "end": 310.55,
+      "text": "that there is a rapid increase in the use of biometric systems,",
+      "avg_logprob": -0.15263672564178704,
+      "no_speech_prob": 0.007221221923828125,
+      "compression_ratio": 1.5086206896551724,
+      "words": [
+        {
+          "word": " that",
+          "start": 306.47,
+          "end": 306.69,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " there",
+          "start": 306.69,
+          "end": 306.89,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " is",
+          "start": 306.89,
+          "end": 307.11,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " a",
+          "start": 307.11,
+          "end": 307.25,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " rapid",
+          "start": 307.25,
+          "end": 307.73,
+          "probability": 0.998046875
+        },
+        {
+          "word": " increase",
+          "start": 307.73,
+          "end": 308.31,
+          "probability": 0.998046875
+        },
+        {
+          "word": " in",
+          "start": 308.31,
+          "end": 308.67,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " the",
+          "start": 308.67,
+          "end": 308.79,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " use",
+          "start": 308.79,
+          "end": 309.09,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " of",
+          "start": 309.09,
+          "end": 309.27,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " biometric",
+          "start": 309.27,
+          "end": 309.85,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " systems,",
+          "start": 309.85,
+          "end": 310.55,
+          "probability": 0.986328125
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "start": 310.71,
+      "end": 314.47,
+      "text": "such as facial recognition and fingerprint recognition.",
+      "avg_logprob": -0.15263672564178704,
+      "no_speech_prob": 0.007221221923828125,
+      "compression_ratio": 1.5086206896551724,
+      "words": [
+        {
+          "word": " such",
+          "start": 310.71,
+          "end": 310.95,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " as",
+          "start": 310.95,
+          "end": 311.11,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " facial",
+          "start": 311.11,
+          "end": 311.71,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " recognition",
+          "start": 311.71,
+          "end": 312.41,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " and",
+          "start": 312.41,
+          "end": 312.93,
+          "probability": 0.97021484375
+        },
+        {
+          "word": " fingerprint",
+          "start": 312.93,
+          "end": 313.39,
+          "probability": 0.6025390625
+        },
+        {
+          "word": " recognition.",
+          "start": 313.39,
+          "end": 314.47,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "start": 314.47,
+      "end": 318.15,
+      "text": "and we've really lacked strong governance in the region.",
+      "avg_logprob": -0.21933593843132257,
+      "no_speech_prob": 0.032928466796875,
+      "compression_ratio": 1.5570776255707763,
+      "words": [
+        {
+          "word": " and",
+          "start": 314.47,
+          "end": 315.19,
+          "probability": 0.38916015625
+        },
+        {
+          "word": " we've",
+          "start": 315.19,
+          "end": 315.55,
+          "probability": 0.725341796875
+        },
+        {
+          "word": " really",
+          "start": 315.55,
+          "end": 315.87,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " lacked",
+          "start": 315.87,
+          "end": 316.25,
+          "probability": 0.9130859375
+        },
+        {
+          "word": " strong",
+          "start": 316.25,
+          "end": 316.69,
+          "probability": 0.99609375
+        },
+        {
+          "word": " governance",
+          "start": 316.69,
+          "end": 317.19,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " in",
+          "start": 317.19,
+          "end": 317.61,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " the",
+          "start": 317.61,
+          "end": 317.77,
+          "probability": 0.998046875
+        },
+        {
+          "word": " region.",
+          "start": 317.77,
+          "end": 318.15,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "start": 318.61,
+      "end": 321.39,
+      "text": "So the roadmap stresses the need for laws",
+      "avg_logprob": -0.21933593843132257,
+      "no_speech_prob": 0.032928466796875,
+      "compression_ratio": 1.5570776255707763,
+      "words": [
+        {
+          "word": " So",
+          "start": 318.61,
+          "end": 318.69,
+          "probability": 0.962890625
+        },
+        {
+          "word": " the",
+          "start": 318.69,
+          "end": 318.83,
+          "probability": 0.8564453125
+        },
+        {
+          "word": " roadmap",
+          "start": 318.83,
+          "end": 319.23,
+          "probability": 0.69482421875
+        },
+        {
+          "word": " stresses",
+          "start": 319.23,
+          "end": 320.15,
+          "probability": 0.9921875
+        },
+        {
+          "word": " the",
+          "start": 320.15,
+          "end": 320.53,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " need",
+          "start": 320.53,
+          "end": 320.77,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " for",
+          "start": 320.77,
+          "end": 320.91,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " laws",
+          "start": 320.91,
+          "end": 321.39,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "start": 321.39,
+      "end": 323.65,
+      "text": "that protect personal data,",
+      "avg_logprob": -0.21933593843132257,
+      "no_speech_prob": 0.032928466796875,
+      "compression_ratio": 1.5570776255707763,
+      "words": [
+        {
+          "word": " that",
+          "start": 321.39,
+          "end": 321.99,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " protect",
+          "start": 321.99,
+          "end": 322.49,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " personal",
+          "start": 322.49,
+          "end": 323.19,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " data,",
+          "start": 323.19,
+          "end": 323.65,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "start": 324.05,
+      "end": 328.49,
+      "text": "prioritizing policies for high risk use cases",
+      "avg_logprob": -0.21933593843132257,
+      "no_speech_prob": 0.032928466796875,
+      "compression_ratio": 1.5570776255707763,
+      "words": [
+        {
+          "word": " prioritizing",
+          "start": 324.05,
+          "end": 325.03,
+          "probability": 0.95263671875
+        },
+        {
+          "word": " policies",
+          "start": 325.03,
+          "end": 326.11,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " for",
+          "start": 326.11,
+          "end": 326.79,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " high",
+          "start": 326.79,
+          "end": 327.17,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " risk",
+          "start": 327.17,
+          "end": 327.61,
+          "probability": 0.521484375
+        },
+        {
+          "word": " use",
+          "start": 327.61,
+          "end": 328.01,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " cases",
+          "start": 328.01,
+          "end": 328.49,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "start": 328.49,
+      "end": 332.33,
+      "text": "in industries such as healthcare, justice, and education.",
+      "avg_logprob": -0.21933593843132257,
+      "no_speech_prob": 0.032928466796875,
+      "compression_ratio": 1.5570776255707763,
+      "words": [
+        {
+          "word": " in",
+          "start": 328.49,
+          "end": 329.07,
+          "probability": 0.966796875
+        },
+        {
+          "word": " industries",
+          "start": 329.07,
+          "end": 329.61,
+          "probability": 0.92431640625
+        },
+        {
+          "word": " such",
+          "start": 329.61,
+          "end": 329.95,
+          "probability": 0.95166015625
+        },
+        {
+          "word": " as",
+          "start": 329.95,
+          "end": 330.09,
+          "probability": 0.998046875
+        },
+        {
+          "word": " healthcare,",
+          "start": 330.09,
+          "end": 330.47,
+          "probability": 0.5830078125
+        },
+        {
+          "word": " justice,",
+          "start": 330.83,
+          "end": 331.19,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " and",
+          "start": 331.55,
+          "end": 331.69,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " education.",
+          "start": 331.69,
+          "end": 332.33,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "start": 336.7,
+      "end": 338.92,
+      "text": "Caribbean countries must act now",
+      "avg_logprob": -0.21933593843132257,
+      "no_speech_prob": 0.032928466796875,
+      "compression_ratio": 1.5570776255707763,
+      "words": [
+        {
+          "word": " Caribbean",
+          "start": 336.7,
+          "end": 337.1,
+          "probability": 0.71923828125
+        },
+        {
+          "word": " countries",
+          "start": 337.1,
+          "end": 337.6,
+          "probability": 0.99609375
+        },
+        {
+          "word": " must",
+          "start": 337.6,
+          "end": 337.96,
+          "probability": 0.998046875
+        },
+        {
+          "word": " act",
+          "start": 337.96,
+          "end": 338.34,
+          "probability": 0.998046875
+        },
+        {
+          "word": " now",
+          "start": 338.34,
+          "end": 338.92,
+          "probability": 0.99462890625
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "start": 338.92,
+      "end": 341.12,
+      "text": "to develop a multi-dimensional strategy",
+      "avg_logprob": -0.21933593843132257,
+      "no_speech_prob": 0.032928466796875,
+      "compression_ratio": 1.5570776255707763,
+      "words": [
+        {
+          "word": " to",
+          "start": 338.92,
+          "end": 339.14,
+          "probability": 0.986328125
+        },
+        {
+          "word": " develop",
+          "start": 339.14,
+          "end": 339.42,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " a",
+          "start": 339.42,
+          "end": 339.66,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " multi",
+          "start": 339.66,
+          "end": 339.92,
+          "probability": 0.7060546875
+        },
+        {
+          "word": "-dimensional",
+          "start": 339.92,
+          "end": 340.38,
+          "probability": 0.973388671875
+        },
+        {
+          "word": " strategy",
+          "start": 340.38,
+          "end": 341.12,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "start": 341.38,
+      "end": 344.1,
+      "text": "that pushes AI governance, education,",
+      "avg_logprob": -0.21933593843132257,
+      "no_speech_prob": 0.032928466796875,
+      "compression_ratio": 1.5570776255707763,
+      "words": [
+        {
+          "word": " that",
+          "start": 341.38,
+          "end": 341.78,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " pushes",
+          "start": 341.78,
+          "end": 342.1,
+          "probability": 0.99609375
+        },
+        {
+          "word": " AI",
+          "start": 342.1,
+          "end": 342.52,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " governance,",
+          "start": 342.52,
+          "end": 343.04,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " education,",
+          "start": 343.7,
+          "end": 344.1,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "start": 344.1,
+      "end": 349.3,
+      "text": "and the digital infrastructure across the region while preserving human creativity,",
+      "avg_logprob": -0.19595286885245902,
+      "no_speech_prob": 0.091796875,
+      "compression_ratio": 1.597883597883598,
+      "words": [
+        {
+          "word": " and",
+          "start": 344.1,
+          "end": 344.64,
+          "probability": 0.233642578125
+        },
+        {
+          "word": " the",
+          "start": 344.64,
+          "end": 344.82,
+          "probability": 0.6953125
+        },
+        {
+          "word": " digital",
+          "start": 344.82,
+          "end": 345.1,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " infrastructure",
+          "start": 345.1,
+          "end": 345.9,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " across",
+          "start": 345.9,
+          "end": 346.24,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " the",
+          "start": 346.24,
+          "end": 346.56,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " region",
+          "start": 346.56,
+          "end": 346.88,
+          "probability": 0.98828125
+        },
+        {
+          "word": " while",
+          "start": 346.88,
+          "end": 347.64,
+          "probability": 0.61572265625
+        },
+        {
+          "word": " preserving",
+          "start": 347.64,
+          "end": 348.18,
+          "probability": 0.9921875
+        },
+        {
+          "word": " human",
+          "start": 348.18,
+          "end": 348.62,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " creativity,",
+          "start": 348.62,
+          "end": 349.3,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "start": 349.84,
+      "end": 354.44,
+      "text": "increasing trust and protecting the environment to enable the region's transformation",
+      "avg_logprob": -0.19595286885245902,
+      "no_speech_prob": 0.091796875,
+      "compression_ratio": 1.597883597883598,
+      "words": [
+        {
+          "word": " increasing",
+          "start": 349.84,
+          "end": 350.22,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " trust",
+          "start": 350.22,
+          "end": 350.66,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " and",
+          "start": 350.66,
+          "end": 351.04,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " protecting",
+          "start": 351.04,
+          "end": 351.48,
+          "probability": 0.99609375
+        },
+        {
+          "word": " the",
+          "start": 351.48,
+          "end": 351.74,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " environment",
+          "start": 351.74,
+          "end": 352.3,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " to",
+          "start": 352.3,
+          "end": 352.98,
+          "probability": 0.85498046875
+        },
+        {
+          "word": " enable",
+          "start": 352.98,
+          "end": 353.26,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " the",
+          "start": 353.26,
+          "end": 353.48,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " region's",
+          "start": 353.48,
+          "end": 354.02,
+          "probability": 0.951904296875
+        },
+        {
+          "word": " transformation",
+          "start": 354.02,
+          "end": 354.44,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "start": 354.44,
+      "end": 357.04,
+      "text": "and the survival in the digital age.",
+      "avg_logprob": -0.19595286885245902,
+      "no_speech_prob": 0.091796875,
+      "compression_ratio": 1.597883597883598,
+      "words": [
+        {
+          "word": " and",
+          "start": 354.44,
+          "end": 355.02,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " the",
+          "start": 355.02,
+          "end": 355.14,
+          "probability": 0.681640625
+        },
+        {
+          "word": " survival",
+          "start": 355.14,
+          "end": 355.58,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " in",
+          "start": 355.58,
+          "end": 356.06,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " the",
+          "start": 356.06,
+          "end": 356.18,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " digital",
+          "start": 356.18,
+          "end": 356.5,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " age.",
+          "start": 356.5,
+          "end": 357.04,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "start": 357.44,
+      "end": 366.36,
+      "text": "Our call of action is really the governments, you know, academia, private sector, civil society",
+      "avg_logprob": -0.19595286885245902,
+      "no_speech_prob": 0.091796875,
+      "compression_ratio": 1.597883597883598,
+      "words": [
+        {
+          "word": " Our",
+          "start": 357.44,
+          "end": 357.9,
+          "probability": 0.74365234375
+        },
+        {
+          "word": " call",
+          "start": 357.9,
+          "end": 358.42,
+          "probability": 0.93896484375
+        },
+        {
+          "word": " of",
+          "start": 358.42,
+          "end": 358.56,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " action",
+          "start": 358.56,
+          "end": 358.92,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " is",
+          "start": 358.92,
+          "end": 359.54,
+          "probability": 0.935546875
+        },
+        {
+          "word": " really",
+          "start": 359.54,
+          "end": 360.2,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " the",
+          "start": 360.2,
+          "end": 360.56,
+          "probability": 0.54248046875
+        },
+        {
+          "word": " governments,",
+          "start": 360.56,
+          "end": 361.96,
+          "probability": 0.6328125
+        },
+        {
+          "word": " you",
+          "start": 362.56,
+          "end": 362.66,
+          "probability": 0.51611328125
+        },
+        {
+          "word": " know,",
+          "start": 362.66,
+          "end": 362.84,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " academia,",
+          "start": 362.94,
+          "end": 363.44,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " private",
+          "start": 363.88,
+          "end": 364.14,
+          "probability": 0.9609375
+        },
+        {
+          "word": " sector,",
+          "start": 364.14,
+          "end": 364.8,
+          "probability": 0.9921875
+        },
+        {
+          "word": " civil",
+          "start": 365.48,
+          "end": 365.66,
+          "probability": 0.9208984375
+        },
+        {
+          "word": " society",
+          "start": 365.66,
+          "end": 366.36,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "start": 366.36,
+      "end": 372.0,
+      "text": "at all levels, including indigenous people and community,",
+      "avg_logprob": -0.3105769230769231,
+      "no_speech_prob": 0.042144775390625,
+      "compression_ratio": 1.507462686567164,
+      "words": [
+        {
+          "word": " at",
+          "start": 366.36,
+          "end": 366.84,
+          "probability": 0.7646484375
+        },
+        {
+          "word": " all",
+          "start": 366.84,
+          "end": 367.14,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " levels,",
+          "start": 367.14,
+          "end": 367.52,
+          "probability": 0.6640625
+        },
+        {
+          "word": " including",
+          "start": 368.0,
+          "end": 368.32,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " indigenous",
+          "start": 368.32,
+          "end": 369.98,
+          "probability": 0.4853515625
+        },
+        {
+          "word": " people",
+          "start": 369.98,
+          "end": 371.04,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " and",
+          "start": 371.04,
+          "end": 371.38,
+          "probability": 0.97021484375
+        },
+        {
+          "word": " community,",
+          "start": 371.38,
+          "end": 372.0,
+          "probability": 0.67724609375
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "start": 372.32,
+      "end": 375.0,
+      "text": "must unite to develop a comprehensive",
+      "avg_logprob": -0.3105769230769231,
+      "no_speech_prob": 0.042144775390625,
+      "compression_ratio": 1.507462686567164,
+      "words": [
+        {
+          "word": " must",
+          "start": 372.32,
+          "end": 372.7,
+          "probability": 0.9765625
+        },
+        {
+          "word": " unite",
+          "start": 372.7,
+          "end": 373.3,
+          "probability": 0.91845703125
+        },
+        {
+          "word": " to",
+          "start": 373.3,
+          "end": 373.6,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " develop",
+          "start": 373.6,
+          "end": 373.94,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " a",
+          "start": 373.94,
+          "end": 374.26,
+          "probability": 0.72021484375
+        },
+        {
+          "word": " comprehensive",
+          "start": 374.26,
+          "end": 375.0,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "start": 375.44,
+      "end": 377.3,
+      "text": "artificial intelligence strategies",
+      "avg_logprob": -0.3105769230769231,
+      "no_speech_prob": 0.042144775390625,
+      "compression_ratio": 1.507462686567164,
+      "words": [
+        {
+          "word": " artificial",
+          "start": 375.44,
+          "end": 376.0,
+          "probability": 0.7333984375
+        },
+        {
+          "word": " intelligence",
+          "start": 376.0,
+          "end": 376.6,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " strategies",
+          "start": 376.6,
+          "end": 377.3,
+          "probability": 0.87939453125
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "start": 377.54,
+      "end": 383.43,
+      "text": "that focus on culture, governance, education,",
+      "avg_logprob": -0.3105769230769231,
+      "no_speech_prob": 0.042144775390625,
+      "compression_ratio": 1.507462686567164,
+      "words": [
+        {
+          "word": " that",
+          "start": 377.54,
+          "end": 378.1,
+          "probability": 0.9287109375
+        },
+        {
+          "word": " focus",
+          "start": 378.1,
+          "end": 378.68,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " on",
+          "start": 378.68,
+          "end": 379.4,
+          "probability": 0.994140625
+        },
+        {
+          "word": " culture,",
+          "start": 379.4,
+          "end": 380.32,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " governance,",
+          "start": 381.41,
+          "end": 382.13,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " education,",
+          "start": 382.69,
+          "end": 383.43,
+          "probability": 0.99462890625
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "start": 383.99,
+      "end": 385.79,
+      "text": "but in particular, the resilience",
+      "avg_logprob": -0.3105769230769231,
+      "no_speech_prob": 0.042144775390625,
+      "compression_ratio": 1.507462686567164,
+      "words": [
+        {
+          "word": " but",
+          "start": 383.99,
+          "end": 384.21,
+          "probability": 0.93505859375
+        },
+        {
+          "word": " in",
+          "start": 384.21,
+          "end": 384.31,
+          "probability": 0.94873046875
+        },
+        {
+          "word": " particular,",
+          "start": 384.31,
+          "end": 384.79,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " the",
+          "start": 385.11,
+          "end": 385.21,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " resilience",
+          "start": 385.21,
+          "end": 385.79,
+          "probability": 0.99267578125
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "start": 385.89,
+      "end": 388.55,
+      "text": "and the digital infrastructure.",
+      "avg_logprob": -0.3105769230769231,
+      "no_speech_prob": 0.042144775390625,
+      "compression_ratio": 1.507462686567164,
+      "words": [
+        {
+          "word": " and",
+          "start": 385.89,
+          "end": 386.45,
+          "probability": 0.87646484375
+        },
+        {
+          "word": " the",
+          "start": 386.45,
+          "end": 386.59,
+          "probability": 0.94921875
+        },
+        {
+          "word": " digital",
+          "start": 386.59,
+          "end": 387.63,
+          "probability": 0.94580078125
+        },
+        {
+          "word": " infrastructure.",
+          "start": 387.63,
+          "end": 388.55,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "start": 388.93,
+      "end": 393.75,
+      "text": "The magnitude of AI impact demands really strong leadership.",
+      "avg_logprob": -0.3105769230769231,
+      "no_speech_prob": 0.042144775390625,
+      "compression_ratio": 1.507462686567164,
+      "words": [
+        {
+          "word": " The",
+          "start": 388.93,
+          "end": 389.27,
+          "probability": 0.87548828125
+        },
+        {
+          "word": " magnitude",
+          "start": 389.27,
+          "end": 389.71,
+          "probability": 0.93408203125
+        },
+        {
+          "word": " of",
+          "start": 389.71,
+          "end": 390.13,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " AI",
+          "start": 390.13,
+          "end": 390.41,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " impact",
+          "start": 390.41,
+          "end": 391.07,
+          "probability": 0.80126953125
+        },
+        {
+          "word": " demands",
+          "start": 391.07,
+          "end": 392.01,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " really",
+          "start": 392.01,
+          "end": 392.59,
+          "probability": 0.92041015625
+        },
+        {
+          "word": " strong",
+          "start": 392.59,
+          "end": 393.07,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " leadership.",
+          "start": 393.07,
+          "end": 393.75,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "start": 393.81,
+      "end": 404.56,
+      "text": "It demands long-term investments and also coordinated efforts across all sectors.",
+      "avg_logprob": -0.25353423896290006,
+      "no_speech_prob": 0.027130126953125,
+      "compression_ratio": 1.3986928104575163,
+      "words": [
+        {
+          "word": " It",
+          "start": 393.81,
+          "end": 394.95,
+          "probability": 0.587890625
+        },
+        {
+          "word": " demands",
+          "start": 394.95,
+          "end": 396.41,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " long",
+          "start": 396.41,
+          "end": 397.59,
+          "probability": 0.9677734375
+        },
+        {
+          "word": "-term",
+          "start": 397.59,
+          "end": 397.85,
+          "probability": 0.884521484375
+        },
+        {
+          "word": " investments",
+          "start": 397.85,
+          "end": 398.33,
+          "probability": 0.853515625
+        },
+        {
+          "word": " and",
+          "start": 398.33,
+          "end": 399.75,
+          "probability": 0.89013671875
+        },
+        {
+          "word": " also",
+          "start": 399.98,
+          "end": 400.5,
+          "probability": 0.94189453125
+        },
+        {
+          "word": " coordinated",
+          "start": 400.5,
+          "end": 401.28,
+          "probability": 0.84130859375
+        },
+        {
+          "word": " efforts",
+          "start": 401.28,
+          "end": 402.5,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " across",
+          "start": 402.5,
+          "end": 403.32,
+          "probability": 0.9921875
+        },
+        {
+          "word": " all",
+          "start": 403.32,
+          "end": 404.14,
+          "probability": 0.9541015625
+        },
+        {
+          "word": " sectors.",
+          "start": 404.14,
+          "end": 404.56,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "start": 405.56,
+      "end": 411.38,
+      "text": "So together we must ensure that artificial intelligence benefits everyone in the Caribbean",
+      "avg_logprob": -0.25353423896290006,
+      "no_speech_prob": 0.027130126953125,
+      "compression_ratio": 1.3986928104575163,
+      "words": [
+        {
+          "word": " So",
+          "start": 405.56,
+          "end": 405.56,
+          "probability": 0.81787109375
+        },
+        {
+          "word": " together",
+          "start": 405.56,
+          "end": 406.04,
+          "probability": 0.81298828125
+        },
+        {
+          "word": " we",
+          "start": 406.04,
+          "end": 406.52,
+          "probability": 0.7109375
+        },
+        {
+          "word": " must",
+          "start": 406.52,
+          "end": 406.78,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " ensure",
+          "start": 406.78,
+          "end": 407.3,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " that",
+          "start": 407.3,
+          "end": 407.74,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " artificial",
+          "start": 407.74,
+          "end": 408.32,
+          "probability": 0.89013671875
+        },
+        {
+          "word": " intelligence",
+          "start": 408.32,
+          "end": 409.02,
+          "probability": 0.994140625
+        },
+        {
+          "word": " benefits",
+          "start": 409.02,
+          "end": 409.72,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " everyone",
+          "start": 409.72,
+          "end": 410.54,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " in",
+          "start": 410.54,
+          "end": 410.94,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " the",
+          "start": 410.94,
+          "end": 411.02,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " Caribbean",
+          "start": 411.02,
+          "end": 411.38,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "start": 411.48,
+      "end": 416.54,
+      "text": "that is inclusive while mitigating risks.",
+      "avg_logprob": -0.25353423896290006,
+      "no_speech_prob": 0.027130126953125,
+      "compression_ratio": 1.3986928104575163,
+      "words": [
+        {
+          "word": " that",
+          "start": 411.48,
+          "end": 412.1,
+          "probability": 0.90087890625
+        },
+        {
+          "word": " is",
+          "start": 412.1,
+          "end": 412.42,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " inclusive",
+          "start": 412.42,
+          "end": 413.62,
+          "probability": 0.849609375
+        },
+        {
+          "word": " while",
+          "start": 413.62,
+          "end": 415.44,
+          "probability": 0.783203125
+        },
+        {
+          "word": " mitigating",
+          "start": 415.44,
+          "end": 416.1,
+          "probability": 0.998291015625
+        },
+        {
+          "word": " risks.",
+          "start": 416.1,
+          "end": 416.54,
+          "probability": 0.939453125
+        }
+      ]
+    }
+  ],
+  "text": "Back in 2020, around the time when UNESCO's recommendation on the ethics of artificial\nintelligence was being drafted, we started to come together in the Caribbean really to understand\nwhere we were with artificial intelligence. And so the Caribbean AI initiative was started.\nThe UNESCO Caribbean Artificial Intelligence AI Policy Roadmap was developed under the Caribbean\nThe Caribbean AI Initiative, two extensive consultation with experts, policy makers and\ncommunity leaders.\nThe desire to have broader consultation with Caribbean stakeholders resulted in consultations\nwith over a thousand institutions and individuals, including women and youth, in over 20 countries\nin the region.\nIn addition, there were eight different regional consultations as well regarding the actual\npillars themselves.\nThe Caribbean AI Initiative was started to better understand the region's readiness in\nregards to the global standard UNESCO recommendation on the ethics of AI.\nWell the Caribbean AI Initiative began, the kernel really was the thinking of the Broadcasting\nCommission that we couldn't have exponential technologies, frontier technologies, changing\nall the operating systems of the society, and we sit by and observe.\nThe commission took the initiative to engage with the UNESCO information for all program\nand the Caribbean cluster office for UNESCO and the subject.\nAnd that gave birth to the Caribbean AI initiative, which really is more of a grass-loach type\nmovement.\nI'm thinking about artificial intelligence and engaging around artificial intelligence\nfrom the ground up, not the other way around.\nSo this new Caribbean AI policy roadmap is really necessary and I would say essential\nfor addressing the unique challenges but also the great opportunities\nthat artificial intelligence presents to seeds, to small island development states.\nArtificial intelligence development is a global endeavor and I'm happy that the development\nof this roadmap was undertaken with extensive regional and international collaboration and\nis a timely input to help carry come since.\nThe roadmap can guide the development of AI technologies that boost productivity, innovation\nand competitiveness in various sectors.\nThe roadmap advocates for comprehensive national and regional AI strategies, ethical guidelines\nand collaboration with international partners to ensure that AI development is inclusive,\nsustainable and human-centered.\nSo we're acknowledging that the rapid evolution of artificial intelligence places a tremendous\nopportunity ahead of us here in the Caribbean but also many risks.\nAnd so, to address this, the UNESCO AI Policy Roadmap offers a policy framework for development\nand regional collaboration, and it's really built on four pillars, culture and creativity,\ngovernance and transformation, education and upskilling and resiliency and sustainability.\nSo this roadmap really serves as a blueprint for member states to navigate these challenges\nby setting ethical guidelines, by setting the needs of capacity building, first of all,\nidentify the needs and build up on it to foster collaboration between international, national\nand local stakeholders.\nWith this roadmap, we can guide governments, industries, academia, institutions in implementing\nAI solutions that is tailored for our own regional problems that these would\ninclude healthcare, culture and arts and data protection and privacy. And so I\nthink that the roadmap emphasizes the need for regulatory frameworks, regional\nregulatory frameworks, that manage the ethical concerns and ensure that AI\nI developed in a way that is aligned with the region needs.\nAnd the roadmap recommends tools like the ethical impact\nassessment from UNESCO to ensure transparency\nand accountability in AI systems.\nFor privacy and security, we know\nthat there is a rapid increase in the use of biometric systems,\nsuch as facial recognition and fingerprint recognition.\nand we've really lacked strong governance in the region.\nSo the roadmap stresses the need for laws\nthat protect personal data,\nprioritizing policies for high risk use cases\nin industries such as healthcare, justice, and education.\nCaribbean countries must act now\nto develop a multi-dimensional strategy\nthat pushes AI governance, education,\nand the digital infrastructure across the region while preserving human creativity,\nincreasing trust and protecting the environment to enable the region's transformation\nand the survival in the digital age.\nOur call of action is really the governments, you know, academia, private sector, civil society\nat all levels, including indigenous people and community,\nmust unite to develop a comprehensive\nartificial intelligence strategies\nthat focus on culture, governance, education,\nbut in particular, the resilience\nand the digital infrastructure.\nThe magnitude of AI impact demands really strong leadership.\nIt demands long-term investments and also coordinated efforts across all sectors.\nSo together we must ensure that artificial intelligence benefits everyone in the Caribbean\nthat is inclusive while mitigating risks."
+}

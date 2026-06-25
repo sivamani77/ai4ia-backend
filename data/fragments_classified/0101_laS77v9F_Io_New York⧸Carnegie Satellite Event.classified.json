@@ -65,12 +65,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.55,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.385575"
+      "classified_at": "2026-06-16T12:54:26.385575",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0002",
@@ -175,14 +177,17 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.390887"
+      "classified_at": "2026-06-16T12:54:26.390887",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0003",
@@ -250,12 +255,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.396769"
+      "classified_at": "2026-06-16T12:54:26.396769",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0004",
@@ -387,12 +394,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.403516"
+      "classified_at": "2026-06-16T12:54:26.403516",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0005",
@@ -517,12 +526,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.409061"
+      "classified_at": "2026-06-16T12:54:26.409061",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0006",
@@ -648,12 +659,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.414840"
+      "classified_at": "2026-06-16T12:54:26.414840",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0007",
@@ -762,12 +775,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.420356"
+      "classified_at": "2026-06-16T12:54:26.420356",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0008",
@@ -831,15 +846,16 @@
       "primary_theme": "AI in Health, Science & Environment",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.36,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.427544"
+      "classified_at": "2026-06-16T12:54:26.427544",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0009",
@@ -898,15 +914,16 @@
       "primary_theme": "AI in Health, Science & Environment",
       "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.432390"
+      "classified_at": "2026-06-16T12:54:26.432390",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0010",
@@ -972,12 +989,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.439311"
+      "classified_at": "2026-06-16T12:54:26.439311",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0011",
@@ -1079,14 +1098,16 @@
       "primary_theme": "AI in Health, Science & Environment",
       "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.446458"
+      "classified_at": "2026-06-16T12:54:26.446458",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0012",
@@ -1150,12 +1171,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.452873"
+      "classified_at": "2026-06-16T12:54:26.452873",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0013",
@@ -1218,12 +1241,14 @@
       "clip_usage_candidates": [
         "speaker_soundbite"
       ],
-      "quote_strength": 0.77,
+      "quote_strength": 0.5,
       "clarity_score": 0.8,
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.458896"
+      "classified_at": "2026-06-16T12:54:26.458896",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0014",
@@ -1308,14 +1333,17 @@
       "primary_theme": "AI in Health, Science & Environment",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.465077"
+      "classified_at": "2026-06-16T12:54:26.465077",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0015",
@@ -1418,12 +1446,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.471821"
+      "classified_at": "2026-06-16T12:54:26.471821",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0016",
@@ -1545,12 +1575,14 @@
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.477966"
+      "classified_at": "2026-06-16T12:54:26.477966",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0017",
@@ -1630,15 +1662,16 @@
       "primary_theme": "AI, Law & Human Rights",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.483511"
+      "classified_at": "2026-06-16T12:54:26.483511",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0018",
@@ -1736,12 +1769,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.489473"
+      "classified_at": "2026-06-16T12:54:26.489473",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0019",
@@ -1816,12 +1851,14 @@
       "clip_usage_candidates": [
         "speaker_soundbite"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.495132"
+      "classified_at": "2026-06-16T12:54:26.495132",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0020",
@@ -1886,14 +1923,17 @@
       "primary_theme": "AI in Education & Creative Industries",
       "primary_chapter": "Ch 20: AI in Creative Arts, Music & Culture",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "evidence_clip"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.502697"
+      "classified_at": "2026-06-16T12:54:26.502697",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0021",
@@ -1974,16 +2014,17 @@
       "primary_theme": "AI in Health, Science & Environment",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.77,
+      "quote_strength": 0.41,
       "clarity_score": 0.85,
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.508058"
+      "classified_at": "2026-06-16T12:54:26.508058",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0022",
@@ -2071,12 +2112,14 @@
         "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.84,
+      "quote_strength": 0.6,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.513970"
+      "classified_at": "2026-06-16T12:54:26.513970",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0023",
@@ -2170,12 +2213,14 @@
         "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.77,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.519660"
+      "classified_at": "2026-06-16T12:54:26.519660",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0024",
@@ -2274,14 +2319,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.9,
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.525928"
+      "classified_at": "2026-06-16T12:54:26.525928",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0025",
@@ -2350,14 +2398,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.531735"
+      "classified_at": "2026-06-16T12:54:26.531735",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0026",
@@ -2451,14 +2502,16 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.9,
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.537607"
+      "classified_at": "2026-06-16T12:54:26.537607",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0027",
@@ -2590,17 +2643,18 @@
       "primary_theme": "AI, Law & Human Rights",
       "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.84,
+      "quote_strength": 0.45,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.543095"
+      "classified_at": "2026-06-16T12:54:26.543095",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0028",
@@ -2732,17 +2786,18 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.549084"
+      "classified_at": "2026-06-16T12:54:26.549084",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0029",
@@ -2838,12 +2893,14 @@
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.554724"
+      "classified_at": "2026-06-16T12:54:26.554724",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0030",
@@ -2963,12 +3020,14 @@
         "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.77,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.559531"
+      "classified_at": "2026-06-16T12:54:26.559531",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0031",
@@ -3058,14 +3117,17 @@
       "primary_theme": "AI Equity, Inclusion & Social Justice",
       "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.56,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.565502"
+      "classified_at": "2026-06-16T12:54:26.565502",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0032",
@@ -3160,12 +3222,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.571521"
+      "classified_at": "2026-06-16T12:54:26.571521",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0033",
@@ -3254,12 +3318,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.576379"
+      "classified_at": "2026-06-16T12:54:26.576379",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0034",
@@ -3350,15 +3416,18 @@
       "primary_theme": "AI Equity, Inclusion & Social Justice",
       "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.8,
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.581240"
+      "classified_at": "2026-06-16T12:54:26.581240",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0035",
@@ -3468,12 +3537,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.586019"
+      "classified_at": "2026-06-16T12:54:26.586019",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0036",
@@ -3532,16 +3603,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.27,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.590893"
+      "classified_at": "2026-06-16T12:54:26.590893",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0037",
@@ -3620,12 +3692,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.595766"
+      "classified_at": "2026-06-16T12:54:26.595766",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0038",
@@ -3729,12 +3803,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.7,
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.601363"
+      "classified_at": "2026-06-16T12:54:26.601363",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0039",
@@ -3821,17 +3897,18 @@
       "primary_theme": "AI, Law & Human Rights",
       "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.27,
       "clarity_score": 0.7,
       "narration_support_score": 0.6,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.607500"
+      "classified_at": "2026-06-16T12:54:26.607500",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0040",
@@ -3927,12 +4004,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.613086"
+      "classified_at": "2026-06-16T12:54:26.613086",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0041",
@@ -3988,12 +4067,14 @@
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.7,
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.617580"
+      "classified_at": "2026-06-16T12:54:26.617580",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0042",
@@ -4101,12 +4182,14 @@
       "clip_usage_candidates": [
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.622353"
+      "classified_at": "2026-06-16T12:54:26.622353",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0043",
@@ -4176,12 +4259,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.27,
       "clarity_score": 0.75,
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.627439"
+      "classified_at": "2026-06-16T12:54:26.627439",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0044",
@@ -4270,16 +4355,17 @@
       "primary_theme": "AI in Health, Science & Environment",
       "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.42,
       "clarity_score": 0.85,
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.632788"
+      "classified_at": "2026-06-16T12:54:26.632788",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0045",
@@ -4357,12 +4443,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.639418"
+      "classified_at": "2026-06-16T12:54:26.639418",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0046",
@@ -4441,12 +4529,14 @@
       "clip_usage_candidates": [
         "speaker_soundbite"
       ],
-      "quote_strength": 0.7,
+      "quote_strength": 0.56,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.644490"
+      "classified_at": "2026-06-16T12:54:26.644490",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0047",
@@ -4526,14 +4616,16 @@
       "primary_theme": "Disinformation, Deepfakes & AI Safety",
       "primary_chapter": "Ch 2: AI Governance Models & Oversight",
       "clip_usage_candidates": [
-        "speaker_soundbite"
+        "archive_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.649841"
+      "classified_at": "2026-06-16T12:54:26.649841",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0048",
@@ -4653,12 +4745,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.85,
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.655806"
+      "classified_at": "2026-06-16T12:54:26.655806",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0049",
@@ -4751,12 +4845,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.27,
       "clarity_score": 0.8,
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.660584"
+      "classified_at": "2026-06-16T12:54:26.660584",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0050",
@@ -4827,15 +4923,16 @@
       "primary_theme": "AI in Education & Creative Industries",
       "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "evidence_clip"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.665366"
+      "classified_at": "2026-06-16T12:54:26.665366",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0051",
@@ -4906,12 +5003,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.670222"
+      "classified_at": "2026-06-16T12:54:26.670222",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0052",
@@ -5009,12 +5108,14 @@
         "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.77,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.675103"
+      "classified_at": "2026-06-16T12:54:26.675103",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0053",
@@ -5129,15 +5230,18 @@
       "primary_theme": "AI Equity, Inclusion & Social Justice",
       "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.680419"
+      "classified_at": "2026-06-16T12:54:26.680419",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0054",
@@ -5214,12 +5318,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.685225"
+      "classified_at": "2026-06-16T12:54:26.685225",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0055",
@@ -5281,14 +5387,16 @@
       "primary_theme": "AI Equity, Inclusion & Social Justice",
       "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.691130"
+      "classified_at": "2026-06-16T12:54:26.691130",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0056",
@@ -5395,12 +5503,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.697133"
+      "classified_at": "2026-06-16T12:54:26.697133",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0057",
@@ -5469,17 +5579,18 @@
       "primary_theme": "AI Equity, Inclusion & Social Justice",
       "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.84,
+      "quote_strength": 0.41,
       "clarity_score": 0.85,
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.702138"
+      "classified_at": "2026-06-16T12:54:26.702138",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0058",
@@ -5532,12 +5643,14 @@
         "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.706932"
+      "classified_at": "2026-06-16T12:54:26.706932",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0059",
@@ -5597,12 +5710,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.712218"
+      "classified_at": "2026-06-16T12:54:26.712218",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0060",
@@ -5722,12 +5837,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.717131"
+      "classified_at": "2026-06-16T12:54:26.717131",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0061",
@@ -5824,15 +5941,16 @@
       "primary_theme": "AI in Education & Creative Industries",
       "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.722089"
+      "classified_at": "2026-06-16T12:54:26.722089",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0062",
@@ -5932,14 +6050,16 @@
       "primary_theme": "AI in Education & Creative Industries",
       "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.727517"
+      "classified_at": "2026-06-16T12:54:26.727517",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0063",
@@ -6022,12 +6142,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.733956"
+      "classified_at": "2026-06-16T12:54:26.733956",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0064",
@@ -6148,16 +6270,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.740315"
+      "classified_at": "2026-06-16T12:54:26.740315",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0065",
@@ -6232,12 +6355,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.77,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.745505"
+      "classified_at": "2026-06-16T12:54:26.745505",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0066",
@@ -6363,12 +6488,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.85,
       "narration_support_score": 0.8,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.751335"
+      "classified_at": "2026-06-16T12:54:26.751335",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

@@ -1,10 +1,17 @@
 import json
 import re
+import time
 from pathlib import Path
 from typing import Any
 
 from app.core.paths import RAW_VIDEO_DIR, CLASSIFIED_FRAGMENTS_DIR
 from app.core.taxonomy import THEMES, CHAPTERS, chapter_id_from_name
+from app.db.repositories.fragment_repository import FragmentRepository
+
+_CACHE_TTL = 60.0  # seconds
+
+_themes_cache: tuple[dict, float] = ({}, 0.0)
+_videos_cache: tuple[list, float] = ([], 0.0)
 
 
 def safe_read_json(path: Path):
@@ -40,55 +47,15 @@ def infer_speaker_from_filename(name: str) -> str:
 
 
 def load_all_classified_fragments() -> list[dict[str, Any]]:
-    records = []
-
-    if not CLASSIFIED_FRAGMENTS_DIR.exists():
-        return records
-
-    for file_path in sorted(CLASSIFIED_FRAGMENTS_DIR.glob("*.classified.json")):
-        payload = safe_read_json(file_path)
-
-        if not isinstance(payload, dict):
-            continue
-
-        source_video = payload.get("source_video") or file_path.stem.replace(".classified", "")
-        video_title = payload.get("video_title") or infer_speaker_from_filename(file_path.name)
-        speaker = payload.get("speaker") or infer_speaker_from_filename(file_path.name)
-
-        fragments = payload.get("fragments", [])
-
-        for fragment in fragments:
-            item = dict(fragment)
-
-            item.setdefault("source_video", source_video)
-            item.setdefault("video_title", video_title)
-            item.setdefault("speaker", speaker)
-
-            item["classified_file"] = str(file_path)
-            item["source_video_file"] = f"{source_video}.mp4"
-            item["preview_url"] = f"/api/archive/videos/{source_video}/stream"
-
-            item["fragment_id"] = item.get("fragment_id") or item.get("id")
-            item["start"] = item.get("start") or item.get("start_time") or 0
-            item["end"] = item.get("end") or item.get("end_time") or 0
-
-            try:
-                item["duration"] = item.get("duration") or max(float(item["end"]) - float(item["start"]), 0)
-            except Exception:
-                item["duration"] = item.get("duration") or 0
-
-            item["primary_theme"] = item.get("primary_theme") or item.get("theme")
-            item["primary_chapter"] = item.get("primary_chapter") or item.get("chapter")
-            item["theme_tags"] = item.get("theme_tags", [])
-            item["chapter_tags"] = item.get("chapter_tags", [])
-            item["clip_usage_candidates"] = item.get("clip_usage_candidates", [])
-
-            records.append(item)
-
-    return records
+    return [dict(r) for r in FragmentRepository().list_all()]
 
 
 def list_videos() -> list[dict[str, Any]]:
+    global _videos_cache
+    data, ts = _videos_cache
+    if data and time.monotonic() - ts < _CACHE_TTL:
+        return data
+
     videos = []
 
     if not RAW_VIDEO_DIR.exists():
@@ -108,9 +75,14 @@ def list_videos() -> list[dict[str, Any]]:
             duration = info.get("duration")
             webpage_url = info.get("webpage_url")
 
+        # Extract the YouTube ID (second _-delimited part: 0139_<youtube_id>_title)
+        stem_parts = stem.split("_")
+        youtube_id = stem_parts[1] if len(stem_parts) >= 2 else stem
+
         videos.append(
             {
-                "video_id": stem,
+                "video_id": youtube_id,
+                "source_video": stem,
                 "filename": path.name,
                 "title": title,
                 "speaker_or_topic": infer_speaker_from_filename(path.name),
@@ -118,25 +90,24 @@ def list_videos() -> list[dict[str, Any]]:
                 "thumbnail": str(RAW_VIDEO_DIR / f"{stem}.jpg") if (RAW_VIDEO_DIR / f"{stem}.jpg").exists() else None,
                 "duration": duration,
                 "webpage_url": webpage_url,
-                "stream_url": f"/api/archive/videos/{stem}/stream",
+                "stream_url": f"/api/archive/videos/{youtube_id}/stream",
             }
         )
 
+    _videos_cache = (videos, time.monotonic())
     return videos
 
 
 def get_video(video_id: str):
     for video in list_videos():
-        if video["video_id"] == video_id:
+        if video["video_id"] == video_id or video.get("source_video") == video_id:
             return video
     return None
 
 
 def get_fragment(fragment_id: str):
-    for fragment in load_all_classified_fragments():
-        if fragment.get("fragment_id") == fragment_id:
-            return fragment
-    return None
+    row = FragmentRepository().get(fragment_id)
+    return dict(row) if row else None
 
 
 def extract_tag_name(tag, key_name: str) -> str | None:
@@ -168,16 +139,20 @@ def extract_tag_name(tag, key_name: str) -> str | None:
 def get_themes_and_chapters() -> dict[str, Any]:
     """Nested theme -> chapters hierarchy with per-node fragment counts.
 
-    Each theme carries its theme_id (T1-T7) and the list of chapters that belong
-    to it (each with chapter_id Ch 1-Ch 25 and its own count). The frontend uses
-    this to render the tree and know exactly which chapter sits under which theme.
-    Counts come from each fragment's primary_chapter, rolled up to its theme.
+    Counts fetched via DB aggregate (not a full table scan). Cached 60s.
     """
+    global _themes_cache
+    cached, ts = _themes_cache
+    if cached and time.monotonic() - ts < _CACHE_TTL:
+        return cached
+
+    # DB aggregate — only chapter name + count, no full rows loaded
+    raw_counts = FragmentRepository().chapter_counts()
     chapter_counts: dict[str, int] = {}
-    for item in load_all_classified_fragments():
-        cid = chapter_id_from_name(extract_tag_name(item.get("primary_chapter"), "chapter") or "")
+    for chapter_name, count in raw_counts.items():
+        cid = chapter_id_from_name(chapter_name or "")
         if cid:
-            chapter_counts[cid] = chapter_counts.get(cid, 0) + 1
+            chapter_counts[cid] = chapter_counts.get(cid, 0) + count
 
     themes_out = []
     for tid, theme in THEMES.items():
@@ -198,11 +173,13 @@ def get_themes_and_chapters() -> dict[str, Any]:
             "chapters": chapters_out,
         })
 
-    return {
+    result = {
         "themes": themes_out,
         "total_themes": len(themes_out),
         "total_chapters": len(CHAPTERS),
     }
+    _themes_cache = (result, time.monotonic())
+    return result
 
 
 def search_fragments(
@@ -218,69 +195,43 @@ def search_fragments(
     end_before: float | None = None,
     limit: int = 50,
 ) -> list[dict[str, Any]]:
+    repo = FragmentRepository()
+    rows = repo.search(
+        query=query or None,
+        theme=theme or None,
+        chapter=chapter or None,
+        speaker=speaker or None,
+        source_video=source_video or None,
+        min_duration=min_duration,
+        max_duration=max_duration,
+        start_after=start_after,
+        end_before=end_before,
+        limit=max(1, min(limit, 200)),
+    )
+
+    # clip_usage filter (stored as jsonb array — done in Python)
+    clip_usage_l = (clip_usage or "").lower().strip()
+    if clip_usage_l:
+        rows = [
+            r for r in rows
+            if clip_usage_l in normalize_text(r.get("clip_usage_candidates")).lower()
+        ]
+
+    # Scoring (mirrors old logic so ranking is preserved)
     query_l = (query or "").lower().strip()
     theme_l = (theme or "").lower().strip()
     chapter_l = (chapter or "").lower().strip()
     speaker_l = (speaker or "").lower().strip()
-    source_video_l = (source_video or "").lower().strip()
-    clip_usage_l = (clip_usage or "").lower().strip()
 
     results = []
-
-    for item in load_all_classified_fragments():
-        haystack = " ".join(
-            [
-                normalize_text(item.get("fragment_id")),
-                normalize_text(item.get("text")),
-                normalize_text(item.get("summary")),
-                normalize_text(item.get("keywords")),
-                normalize_text(item.get("primary_theme")),
-                normalize_text(item.get("primary_chapter")),
-                normalize_text(item.get("theme_tags")),
-                normalize_text(item.get("chapter_tags")),
-                normalize_text(item.get("speaker")),
-                normalize_text(item.get("video_title")),
-                normalize_text(item.get("source_video")),
-                normalize_text(item.get("clip_usage_candidates")),
-            ]
-        ).lower()
-
-        if query_l and query_l not in haystack:
-            continue
-
-        if theme_l and theme_l not in haystack:
-            continue
-
-        if chapter_l and chapter_l not in haystack:
-            continue
-
-        if speaker_l and speaker_l not in haystack:
-            continue
-
-        if source_video_l and source_video_l not in normalize_text(item.get("source_video")).lower():
-            continue
-
-        if clip_usage_l:
-            usage_text = normalize_text(item.get("clip_usage_candidates")).lower()
-            if clip_usage_l not in usage_text:
-                continue
-
-        duration = float(item.get("duration") or 0)
-        start = float(item.get("start") or 0)
-        end = float(item.get("end") or 0)
-
-        if min_duration is not None and duration < min_duration:
-            continue
-
-        if max_duration is not None and duration > max_duration:
-            continue
-
-        if start_after is not None and start < start_after:
-            continue
-
-        if end_before is not None and end > end_before:
-            continue
-
+    for item in rows:
+        item = dict(item)
+        haystack = " ".join(filter(None, [
+            item.get("text", ""), item.get("summary", ""),
+            item.get("primary_theme", ""), item.get("primary_chapter", ""),
+            item.get("speaker", ""),
+            " ".join(str(k) for k in (item.get("keywords") or [])),
+        ])).lower()
         score = 0
         if query_l and query_l in haystack:
             score += 5
@@ -292,7 +243,6 @@ def search_fragments(
             score += 2
         if clip_usage_l and clip_usage_l in haystack:
             score += 2
-
         item["_search_score"] = score
         results.append(item)
 

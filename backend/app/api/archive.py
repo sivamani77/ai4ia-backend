@@ -17,7 +17,7 @@ router = APIRouter(prefix="/archive", tags=["Archive"])
 
 
 class SemanticSearchRequest(BaseModel):
-    query: str
+    query: str = Field(..., min_length=2, max_length=500)
     top_k: int = Field(SEMANTIC_TOP_K_DEFAULT, ge=1, le=100)
     filters: dict | None = None
 
@@ -77,7 +77,7 @@ def api_stream_video(video_id: str):
     path = RAW_VIDEO_DIR / f"{video_id}.mp4"
 
     if not path.exists():
-        matches = sorted(RAW_VIDEO_DIR.glob(f"{video_id}*.mp4"))
+        matches = sorted(RAW_VIDEO_DIR.glob(f"*{video_id}*.mp4"))
         if not matches:
             raise HTTPException(status_code=404, detail="Video file not found")
         path = matches[0]

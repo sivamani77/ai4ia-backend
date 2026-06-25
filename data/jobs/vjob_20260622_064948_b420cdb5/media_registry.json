@@ -1,0 +1,211 @@
+{
+  "job_id": "vjob_20260622_064948_b420cdb5",
+  "storage_backend": "local",
+  "objects": {
+    "video": {
+      "object_id": "video",
+      "kind": "video",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_064948_b420cdb5_empowering_women_in_a_digital_age.mp4",
+      "filename": "vjob_20260622_064948_b420cdb5_empowering_women_in_a_digital_age.mp4",
+      "content_type": "video/mp4",
+      "size_bytes": 6501477,
+      "created_at": "2026-06-22T06:54:33.993375"
+    },
+    "srt": {
+      "object_id": "srt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_064948_b420cdb5_empowering_women_in_a_digital_age.srt",
+      "filename": "vjob_20260622_064948_b420cdb5_empowering_women_in_a_digital_age.srt",
+      "content_type": "application/x-subrip",
+      "size_bytes": 2135,
+      "created_at": "2026-06-22T06:54:55.244130",
+      "subtitle_format": "srt"
+    },
+    "vtt": {
+      "object_id": "vtt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_064948_b420cdb5_empowering_women_in_a_digital_age.vtt",
+      "filename": "vjob_20260622_064948_b420cdb5_empowering_women_in_a_digital_age.vtt",
+      "content_type": "text/vtt",
+      "size_bytes": 2095,
+      "created_at": "2026-06-22T06:54:55.244130",
+      "subtitle_format": "vtt"
+    },
+    "manifest": {
+      "object_id": "manifest",
+      "kind": "manifest",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_064948_b420cdb5_empowering_women_in_a_digital_age_export_manifest.json",
+      "filename": "export_manifest.json",
+      "content_type": "application/json",
+      "size_bytes": 90190,
+      "created_at": "2026-06-22T06:54:55.813123"
+    },
+    "visual_S2_CONTEXT": {
+      "object_id": "visual_S2_CONTEXT",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/visuals/S2_CONTEXT_visual.png",
+      "filename": "S2_CONTEXT_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 227732,
+      "created_at": "2026-06-22T06:53:46.423960",
+      "section_id": "S2_CONTEXT",
+      "visual_title": "Understanding the Issue",
+      "visual_asset_type": "diagram",
+      "visual_keywords": [
+        "context",
+        "definition",
+        "scope",
+        "concepts"
+      ]
+    },
+    "voiceover_S2_CONTEXT": {
+      "object_id": "voiceover_S2_CONTEXT",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/audio/sections/S2_CONTEXT_narration_broll_voiceover.mp3",
+      "filename": "S2_CONTEXT_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 69120,
+      "created_at": "2026-06-22T06:53:41.407025",
+      "section_id": "S2_CONTEXT",
+      "voiceover_text": "Deepfakes are AI-generated synthetic media that can imitate real people, often without consent. This technology has the potential to be used for both good and bad."
+    },
+    "visual_S4_PUBLIC_RISK": {
+      "object_id": "visual_S4_PUBLIC_RISK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/visuals/S4_PUBLIC_RISK_visual.png",
+      "filename": "S4_PUBLIC_RISK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 214573,
+      "created_at": "2026-06-22T06:53:48.936928",
+      "section_id": "S4_PUBLIC_RISK",
+      "visual_title": "S4 Public Risk",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": []
+    },
+    "voiceover_S4_PUBLIC_RISK": {
+      "object_id": "voiceover_S4_PUBLIC_RISK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/audio/sections/S4_PUBLIC_RISK_narration_broll_voiceover.mp3",
+      "filename": "S4_PUBLIC_RISK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 53136,
+      "created_at": "2026-06-22T06:53:42.901005",
+      "section_id": "S4_PUBLIC_RISK",
+      "voiceover_text": "Fake audio and video can have serious consequences for democratic processes, including undermining public trust in institutions."
+    },
+    "visual_S6_SYNTHESIS": {
+      "object_id": "visual_S6_SYNTHESIS",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/visuals/S6_SYNTHESIS_visual.png",
+      "filename": "S6_SYNTHESIS_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 218355,
+      "created_at": "2026-06-22T06:53:51.320897",
+      "section_id": "S6_SYNTHESIS",
+      "visual_title": "Looking Forward",
+      "visual_asset_type": "closing_synthesis",
+      "visual_keywords": [
+        "synthesis",
+        "future",
+        "collective",
+        "change"
+      ]
+    },
+    "voiceover_S6_SYNTHESIS": {
+      "object_id": "voiceover_S6_SYNTHESIS",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/audio/sections/S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "filename": "S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 48240,
+      "created_at": "2026-06-22T06:53:44.010991",
+      "section_id": "S6_SYNTHESIS",
+      "voiceover_text": "Deepfakes are not just fake media, they are a trust, safety, and governance problem that requires collective response."
+    },
+    "title_card": {
+      "object_id": "title_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 277736,
+      "created_at": "2026-06-22T06:53:20.937296",
+      "card_type": "title_card"
+    },
+    "closing_card": {
+      "object_id": "closing_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/cards/closing_card.png",
+      "filename": "closing_card.png",
+      "content_type": "image/png",
+      "size_bytes": 267765,
+      "created_at": "2026-06-22T06:53:23.288264",
+      "card_type": "closing_card"
+    },
+    "section_card_S1": {
+      "object_id": "section_card_S1",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/cards/S1_opening_hook.png",
+      "filename": "S1_opening_hook.png",
+      "content_type": "image/png",
+      "size_bytes": 236165,
+      "created_at": "2026-06-22T06:53:25.582233",
+      "card_type": "section_card",
+      "section_id": "S1"
+    },
+    "section_card_S2": {
+      "object_id": "section_card_S2",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/cards/S2_context.png",
+      "filename": "S2_context.png",
+      "content_type": "image/png",
+      "size_bytes": 229621,
+      "created_at": "2026-06-22T06:53:28.160199",
+      "card_type": "section_card",
+      "section_id": "S2"
+    },
+    "section_card_S3": {
+      "object_id": "section_card_S3",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/cards/S3_problem_or_tension.png",
+      "filename": "S3_problem_or_tension.png",
+      "content_type": "image/png",
+      "size_bytes": 229358,
+      "created_at": "2026-06-22T06:53:30.452168",
+      "card_type": "section_card",
+      "section_id": "S3"
+    },
+    "section_card_S4": {
+      "object_id": "section_card_S4",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/cards/S4_human_perspective.png",
+      "filename": "S4_human_perspective.png",
+      "content_type": "image/png",
+      "size_bytes": 241545,
+      "created_at": "2026-06-22T06:53:32.810137",
+      "card_type": "section_card",
+      "section_id": "S4"
+    },
+    "section_card_S5": {
+      "object_id": "section_card_S5",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/cards/S5_expert_evidence.png",
+      "filename": "S5_expert_evidence.png",
+      "content_type": "image/png",
+      "size_bytes": 232640,
+      "created_at": "2026-06-22T06:53:35.305104",
+      "card_type": "section_card",
+      "section_id": "S5"
+    },
+    "thumbnail": {
+      "object_id": "thumbnail",
+      "kind": "thumbnail",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_122045_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 277736,
+      "created_at": "2026-06-22T06:53:20.937296",
+      "card_type": "title_card"
+    }
+  }
+}

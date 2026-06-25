@@ -1,0 +1,6574 @@
+{
+  "audio_file": "0172_UahcRmHV49o_Sri Kumar - AI in war.clean.wav",
+  "source_audio_path": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0172_UahcRmHV49o_Sri Kumar - AI in war.clean.wav",
+  "source_transcript_version": "cleaned_v2",
+  "model": "small",
+  "device": "cuda",
+  "compute_type": "float16",
+  "language": "en",
+  "language_probability": 1,
+  "duration_seconds": 380.29,
+  "transcribed_at": "2026-06-19T14:12:58.120483",
+  "transcription_mode": "normal",
+  "chunk_seconds": null,
+  "quality": {
+    "segment_count": 58,
+    "avg_confidence": 0.8711,
+    "avg_words_per_segment": 17.0,
+    "empty_segment_ratio": 0.0,
+    "repeated_phrase_ratio": 0.0,
+    "low_confidence_ratio": 0.0,
+    "recommended_action": "ok"
+  },
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 2.76,
+      "text": "I am Colonel Shrikmar, a veteran from the Indian Army.",
+      "avg_logprob": -0.1647727209058675,
+      "no_speech_prob": 0.061492919921875,
+      "compression_ratio": 1.5450980392156863,
+      "words": [
+        {
+          "word": " I",
+          "start": 0.0,
+          "end": 0.4,
+          "probability": 0.60107421875
+        },
+        {
+          "word": " am",
+          "start": 0.4,
+          "end": 0.5,
+          "probability": 0.8212890625
+        },
+        {
+          "word": " Colonel",
+          "start": 0.5,
+          "end": 0.78,
+          "probability": 0.78076171875
+        },
+        {
+          "word": " Shrikmar,",
+          "start": 0.78,
+          "end": 1.28,
+          "probability": 0.62744140625
+        },
+        {
+          "word": " a",
+          "start": 1.64,
+          "end": 1.66,
+          "probability": 0.837890625
+        },
+        {
+          "word": " veteran",
+          "start": 1.66,
+          "end": 1.9,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " from",
+          "start": 1.9,
+          "end": 2.16,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " the",
+          "start": 2.16,
+          "end": 2.28,
+          "probability": 0.74169921875
+        },
+        {
+          "word": " Indian",
+          "start": 2.28,
+          "end": 2.4,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " Army.",
+          "start": 2.4,
+          "end": 2.76,
+          "probability": 0.7431640625
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 3.44,
+      "end": 7.28,
+      "text": "Presently, I am the founder and MD of the Black Parrot Consulting, that is BPC.",
+      "avg_logprob": -0.1647727209058675,
+      "no_speech_prob": 0.061492919921875,
+      "compression_ratio": 1.5450980392156863,
+      "words": [
+        {
+          "word": " Presently,",
+          "start": 3.44,
+          "end": 3.78,
+          "probability": 0.6671142578125
+        },
+        {
+          "word": " I",
+          "start": 4.0,
+          "end": 4.0,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " am",
+          "start": 4.0,
+          "end": 4.06,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " the",
+          "start": 4.06,
+          "end": 4.18,
+          "probability": 0.955078125
+        },
+        {
+          "word": " founder",
+          "start": 4.18,
+          "end": 4.42,
+          "probability": 0.89697265625
+        },
+        {
+          "word": " and",
+          "start": 4.42,
+          "end": 4.66,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " MD",
+          "start": 4.66,
+          "end": 4.9,
+          "probability": 0.9609375
+        },
+        {
+          "word": " of",
+          "start": 4.9,
+          "end": 5.14,
+          "probability": 0.974609375
+        },
+        {
+          "word": " the",
+          "start": 5.14,
+          "end": 5.26,
+          "probability": 0.56982421875
+        },
+        {
+          "word": " Black",
+          "start": 5.26,
+          "end": 5.46,
+          "probability": 0.92578125
+        },
+        {
+          "word": " Parrot",
+          "start": 5.46,
+          "end": 5.74,
+          "probability": 0.60150146484375
+        },
+        {
+          "word": " Consulting,",
+          "start": 5.74,
+          "end": 6.42,
+          "probability": 0.96875
+        },
+        {
+          "word": " that",
+          "start": 6.8,
+          "end": 6.82,
+          "probability": 0.724609375
+        },
+        {
+          "word": " is",
+          "start": 6.82,
+          "end": 6.94,
+          "probability": 0.98828125
+        },
+        {
+          "word": " BPC.",
+          "start": 6.94,
+          "end": 7.28,
+          "probability": 0.931640625
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 7.96,
+      "end": 9.54,
+      "text": "We are an artificial intelligence startup.",
+      "avg_logprob": -0.1647727209058675,
+      "no_speech_prob": 0.061492919921875,
+      "compression_ratio": 1.5450980392156863,
+      "words": [
+        {
+          "word": " We",
+          "start": 7.96,
+          "end": 8.1,
+          "probability": 0.982421875
+        },
+        {
+          "word": " are",
+          "start": 8.1,
+          "end": 8.22,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " an",
+          "start": 8.22,
+          "end": 8.34,
+          "probability": 0.9765625
+        },
+        {
+          "word": " artificial",
+          "start": 8.34,
+          "end": 8.58,
+          "probability": 0.69775390625
+        },
+        {
+          "word": " intelligence",
+          "start": 8.58,
+          "end": 9.16,
+          "probability": 0.89111328125
+        },
+        {
+          "word": " startup.",
+          "start": 9.16,
+          "end": 9.54,
+          "probability": 0.8466796875
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 9.78,
+      "end": 14.44,
+      "text": "We are closely working with the technology leaders in AI and XR, that is AR and VR,",
+      "avg_logprob": -0.1647727209058675,
+      "no_speech_prob": 0.061492919921875,
+      "compression_ratio": 1.5450980392156863,
+      "words": [
+        {
+          "word": " We",
+          "start": 9.78,
+          "end": 9.78,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " are",
+          "start": 9.78,
+          "end": 9.86,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " closely",
+          "start": 9.86,
+          "end": 10.2,
+          "probability": 0.99609375
+        },
+        {
+          "word": " working",
+          "start": 10.2,
+          "end": 10.54,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " with",
+          "start": 10.54,
+          "end": 10.84,
+          "probability": 0.99609375
+        },
+        {
+          "word": " the",
+          "start": 10.84,
+          "end": 10.94,
+          "probability": 0.91650390625
+        },
+        {
+          "word": " technology",
+          "start": 10.94,
+          "end": 11.32,
+          "probability": 0.94384765625
+        },
+        {
+          "word": " leaders",
+          "start": 11.32,
+          "end": 11.74,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " in",
+          "start": 11.74,
+          "end": 11.98,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " AI",
+          "start": 11.98,
+          "end": 12.2,
+          "probability": 0.88720703125
+        },
+        {
+          "word": " and",
+          "start": 12.2,
+          "end": 13.08,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " XR,",
+          "start": 13.08,
+          "end": 13.46,
+          "probability": 0.9580078125
+        },
+        {
+          "word": " that",
+          "start": 13.6,
+          "end": 13.62,
+          "probability": 0.8388671875
+        },
+        {
+          "word": " is",
+          "start": 13.62,
+          "end": 13.76,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " AR",
+          "start": 13.76,
+          "end": 14.02,
+          "probability": 0.607421875
+        },
+        {
+          "word": " and",
+          "start": 14.02,
+          "end": 14.2,
+          "probability": 0.94140625
+        },
+        {
+          "word": " VR,",
+          "start": 14.2,
+          "end": 14.44,
+          "probability": 0.98876953125
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 14.9,
+      "end": 16.94,
+      "text": "in the fields of health and defense.",
+      "avg_logprob": -0.1647727209058675,
+      "no_speech_prob": 0.061492919921875,
+      "compression_ratio": 1.5450980392156863,
+      "words": [
+        {
+          "word": " in",
+          "start": 14.9,
+          "end": 15.08,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " the",
+          "start": 15.08,
+          "end": 15.18,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " fields",
+          "start": 15.18,
+          "end": 15.54,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " of",
+          "start": 15.54,
+          "end": 15.86,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " health",
+          "start": 15.86,
+          "end": 16.22,
+          "probability": 0.87841796875
+        },
+        {
+          "word": " and",
+          "start": 16.22,
+          "end": 16.58,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " defense.",
+          "start": 16.58,
+          "end": 16.94,
+          "probability": 0.78955078125
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 17.44,
+      "end": 19.38,
+      "text": "I am here to talk on AI in war.",
+      "avg_logprob": -0.1647727209058675,
+      "no_speech_prob": 0.061492919921875,
+      "compression_ratio": 1.5450980392156863,
+      "words": [
+        {
+          "word": " I",
+          "start": 17.44,
+          "end": 17.7,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " am",
+          "start": 17.7,
+          "end": 17.8,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " here",
+          "start": 17.8,
+          "end": 18.02,
+          "probability": 0.998046875
+        },
+        {
+          "word": " to",
+          "start": 18.02,
+          "end": 18.18,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " talk",
+          "start": 18.18,
+          "end": 18.44,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " on",
+          "start": 18.44,
+          "end": 18.7,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " AI",
+          "start": 18.7,
+          "end": 18.92,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " in",
+          "start": 18.92,
+          "end": 19.12,
+          "probability": 0.8671875
+        },
+        {
+          "word": " war.",
+          "start": 19.12,
+          "end": 19.38,
+          "probability": 0.68115234375
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 19.7,
+      "end": 24.32,
+      "text": "The future wars looks like a science fiction movie of the past.",
+      "avg_logprob": -0.1647727209058675,
+      "no_speech_prob": 0.061492919921875,
+      "compression_ratio": 1.5450980392156863,
+      "words": [
+        {
+          "word": " The",
+          "start": 19.7,
+          "end": 19.78,
+          "probability": 0.9482421875
+        },
+        {
+          "word": " future",
+          "start": 19.78,
+          "end": 20.08,
+          "probability": 0.8359375
+        },
+        {
+          "word": " wars",
+          "start": 20.08,
+          "end": 20.58,
+          "probability": 0.64013671875
+        },
+        {
+          "word": " looks",
+          "start": 20.58,
+          "end": 21.3,
+          "probability": 0.82666015625
+        },
+        {
+          "word": " like",
+          "start": 21.3,
+          "end": 21.72,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " a",
+          "start": 21.72,
+          "end": 22.2,
+          "probability": 0.96142578125
+        },
+        {
+          "word": " science",
+          "start": 22.2,
+          "end": 22.44,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " fiction",
+          "start": 22.44,
+          "end": 22.74,
+          "probability": 0.9384765625
+        },
+        {
+          "word": " movie",
+          "start": 22.74,
+          "end": 23.16,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " of",
+          "start": 23.16,
+          "end": 23.82,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " the",
+          "start": 23.82,
+          "end": 23.96,
+          "probability": 0.99609375
+        },
+        {
+          "word": " past.",
+          "start": 23.96,
+          "end": 24.32,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 24.32,
+      "end": 33.88,
+      "text": "The introduction of AI, nanotechnology, robotics, spacecraft and battleships looks like a scientific fiction Hollywood movie from the past.",
+      "avg_logprob": -0.11824845531840383,
+      "no_speech_prob": 0.1834716796875,
+      "compression_ratio": 1.536480686695279,
+      "words": [
+        {
+          "word": " The",
+          "start": 24.32,
+          "end": 25.12,
+          "probability": 0.32568359375
+        },
+        {
+          "word": " introduction",
+          "start": 25.12,
+          "end": 25.48,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " of",
+          "start": 25.48,
+          "end": 25.92,
+          "probability": 0.994140625
+        },
+        {
+          "word": " AI,",
+          "start": 25.92,
+          "end": 26.22,
+          "probability": 0.9296875
+        },
+        {
+          "word": " nanotechnology,",
+          "start": 26.82,
+          "end": 27.5,
+          "probability": 0.91748046875
+        },
+        {
+          "word": " robotics,",
+          "start": 27.76,
+          "end": 28.08,
+          "probability": 0.94921875
+        },
+        {
+          "word": " spacecraft",
+          "start": 28.42,
+          "end": 28.92,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " and",
+          "start": 28.92,
+          "end": 29.62,
+          "probability": 0.701171875
+        },
+        {
+          "word": " battleships",
+          "start": 29.62,
+          "end": 30.22,
+          "probability": 0.95703125
+        },
+        {
+          "word": " looks",
+          "start": 30.22,
+          "end": 30.52,
+          "probability": 0.9169921875
+        },
+        {
+          "word": " like",
+          "start": 30.52,
+          "end": 30.94,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " a",
+          "start": 30.94,
+          "end": 31.12,
+          "probability": 0.9541015625
+        },
+        {
+          "word": " scientific",
+          "start": 31.12,
+          "end": 31.8,
+          "probability": 0.8642578125
+        },
+        {
+          "word": " fiction",
+          "start": 31.8,
+          "end": 32.36,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " Hollywood",
+          "start": 32.36,
+          "end": 32.8,
+          "probability": 0.93212890625
+        },
+        {
+          "word": " movie",
+          "start": 32.8,
+          "end": 33.24,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " from",
+          "start": 33.24,
+          "end": 33.42,
+          "probability": 0.9580078125
+        },
+        {
+          "word": " the",
+          "start": 33.42,
+          "end": 33.56,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " past.",
+          "start": 33.56,
+          "end": 33.88,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 34.3,
+      "end": 41.4,
+      "text": "The American movie Terminator was a sky-fi movie which shows the dangers of the AI war robot going rogue,",
+      "avg_logprob": -0.11824845531840383,
+      "no_speech_prob": 0.1834716796875,
+      "compression_ratio": 1.536480686695279,
+      "words": [
+        {
+          "word": " The",
+          "start": 34.3,
+          "end": 34.46,
+          "probability": 0.9453125
+        },
+        {
+          "word": " American",
+          "start": 34.46,
+          "end": 34.76,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " movie",
+          "start": 34.76,
+          "end": 35.16,
+          "probability": 0.96484375
+        },
+        {
+          "word": " Terminator",
+          "start": 35.16,
+          "end": 35.7,
+          "probability": 0.935791015625
+        },
+        {
+          "word": " was",
+          "start": 35.7,
+          "end": 36.5,
+          "probability": 0.92822265625
+        },
+        {
+          "word": " a",
+          "start": 36.5,
+          "end": 36.76,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " sky",
+          "start": 36.76,
+          "end": 36.96,
+          "probability": 0.69482421875
+        },
+        {
+          "word": "-fi",
+          "start": 36.96,
+          "end": 37.16,
+          "probability": 0.726318359375
+        },
+        {
+          "word": " movie",
+          "start": 37.16,
+          "end": 37.56,
+          "probability": 0.994140625
+        },
+        {
+          "word": " which",
+          "start": 37.56,
+          "end": 38.3,
+          "probability": 0.79931640625
+        },
+        {
+          "word": " shows",
+          "start": 38.3,
+          "end": 38.76,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " the",
+          "start": 38.76,
+          "end": 38.96,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " dangers",
+          "start": 38.96,
+          "end": 39.28,
+          "probability": 0.99609375
+        },
+        {
+          "word": " of",
+          "start": 39.28,
+          "end": 39.6,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " the",
+          "start": 39.6,
+          "end": 39.7,
+          "probability": 0.93505859375
+        },
+        {
+          "word": " AI",
+          "start": 39.7,
+          "end": 39.98,
+          "probability": 0.9521484375
+        },
+        {
+          "word": " war",
+          "start": 39.98,
+          "end": 40.24,
+          "probability": 0.72314453125
+        },
+        {
+          "word": " robot",
+          "start": 40.24,
+          "end": 40.6,
+          "probability": 0.740234375
+        },
+        {
+          "word": " going",
+          "start": 40.6,
+          "end": 40.98,
+          "probability": 0.951171875
+        },
+        {
+          "word": " rogue,",
+          "start": 40.98,
+          "end": 41.4,
+          "probability": 0.8759765625
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 41.76,
+      "end": 49.92,
+      "text": "but I guess AI will be as autonomous in its decision making on the grounds as much as the humans allow it to be.",
+      "avg_logprob": -0.11824845531840383,
+      "no_speech_prob": 0.1834716796875,
+      "compression_ratio": 1.536480686695279,
+      "words": [
+        {
+          "word": " but",
+          "start": 41.76,
+          "end": 41.98,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " I",
+          "start": 41.98,
+          "end": 42.48,
+          "probability": 0.86181640625
+        },
+        {
+          "word": " guess",
+          "start": 42.48,
+          "end": 42.68,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " AI",
+          "start": 42.68,
+          "end": 43.1,
+          "probability": 0.947265625
+        },
+        {
+          "word": " will",
+          "start": 43.1,
+          "end": 43.84,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " be",
+          "start": 43.84,
+          "end": 44.06,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " as",
+          "start": 44.06,
+          "end": 44.38,
+          "probability": 0.984375
+        },
+        {
+          "word": " autonomous",
+          "start": 44.38,
+          "end": 44.84,
+          "probability": 0.958984375
+        },
+        {
+          "word": " in",
+          "start": 44.84,
+          "end": 45.38,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " its",
+          "start": 45.38,
+          "end": 45.6,
+          "probability": 0.953125
+        },
+        {
+          "word": " decision",
+          "start": 45.6,
+          "end": 45.96,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " making",
+          "start": 45.96,
+          "end": 46.32,
+          "probability": 0.63916015625
+        },
+        {
+          "word": " on",
+          "start": 46.32,
+          "end": 47.04,
+          "probability": 0.91259765625
+        },
+        {
+          "word": " the",
+          "start": 47.04,
+          "end": 47.18,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " grounds",
+          "start": 47.18,
+          "end": 47.52,
+          "probability": 0.89599609375
+        },
+        {
+          "word": " as",
+          "start": 47.52,
+          "end": 47.96,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " much",
+          "start": 47.96,
+          "end": 48.2,
+          "probability": 0.994140625
+        },
+        {
+          "word": " as",
+          "start": 48.2,
+          "end": 48.56,
+          "probability": 0.9921875
+        },
+        {
+          "word": " the",
+          "start": 48.56,
+          "end": 48.82,
+          "probability": 0.72412109375
+        },
+        {
+          "word": " humans",
+          "start": 48.82,
+          "end": 49.14,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " allow",
+          "start": 49.14,
+          "end": 49.42,
+          "probability": 0.966796875
+        },
+        {
+          "word": " it",
+          "start": 49.42,
+          "end": 49.64,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " to",
+          "start": 49.64,
+          "end": 49.74,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " be.",
+          "start": 49.74,
+          "end": 49.92,
+          "probability": 0.99462890625
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 49.92,
+      "end": 58.62,
+      "text": "As far as the psychological operations are concerned, it will be at the next level with the AI component platform will have no emotional questions.",
+      "avg_logprob": -0.08894230883855087,
+      "no_speech_prob": 0.324462890625,
+      "compression_ratio": 1.6666666666666667,
+      "words": [
+        {
+          "word": " As",
+          "start": 49.92,
+          "end": 50.58,
+          "probability": 0.382568359375
+        },
+        {
+          "word": " far",
+          "start": 50.58,
+          "end": 50.78,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " as",
+          "start": 50.78,
+          "end": 50.88,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " the",
+          "start": 50.88,
+          "end": 51.0,
+          "probability": 0.74951171875
+        },
+        {
+          "word": " psychological",
+          "start": 51.0,
+          "end": 51.36,
+          "probability": 0.9658203125
+        },
+        {
+          "word": " operations",
+          "start": 51.36,
+          "end": 51.96,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " are",
+          "start": 51.96,
+          "end": 52.22,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " concerned,",
+          "start": 52.22,
+          "end": 52.68,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " it",
+          "start": 52.86,
+          "end": 52.96,
+          "probability": 0.921875
+        },
+        {
+          "word": " will",
+          "start": 52.96,
+          "end": 53.18,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " be",
+          "start": 53.18,
+          "end": 53.48,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " at",
+          "start": 53.48,
+          "end": 53.94,
+          "probability": 0.90185546875
+        },
+        {
+          "word": " the",
+          "start": 53.94,
+          "end": 54.06,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " next",
+          "start": 54.06,
+          "end": 54.34,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " level",
+          "start": 54.34,
+          "end": 54.66,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " with",
+          "start": 54.66,
+          "end": 54.9,
+          "probability": 0.6494140625
+        },
+        {
+          "word": " the",
+          "start": 54.9,
+          "end": 55.06,
+          "probability": 0.8720703125
+        },
+        {
+          "word": " AI",
+          "start": 55.06,
+          "end": 55.38,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " component",
+          "start": 55.38,
+          "end": 56.2,
+          "probability": 0.85107421875
+        },
+        {
+          "word": " platform",
+          "start": 56.2,
+          "end": 56.88,
+          "probability": 0.51171875
+        },
+        {
+          "word": " will",
+          "start": 56.88,
+          "end": 57.18,
+          "probability": 0.6015625
+        },
+        {
+          "word": " have",
+          "start": 57.18,
+          "end": 57.52,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " no",
+          "start": 57.52,
+          "end": 57.78,
+          "probability": 0.990234375
+        },
+        {
+          "word": " emotional",
+          "start": 57.78,
+          "end": 58.14,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " questions.",
+          "start": 58.14,
+          "end": 58.62,
+          "probability": 0.85107421875
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 59.26,
+      "end": 67.3,
+      "text": "It will be very precise and continuous. For example, if this technology existed during the war in Iraq after the death of Saddam Hussein,",
+      "avg_logprob": -0.08894230883855087,
+      "no_speech_prob": 0.324462890625,
+      "compression_ratio": 1.6666666666666667,
+      "words": [
+        {
+          "word": " It",
+          "start": 59.26,
+          "end": 59.26,
+          "probability": 0.96044921875
+        },
+        {
+          "word": " will",
+          "start": 59.26,
+          "end": 59.38,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " be",
+          "start": 59.38,
+          "end": 59.52,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " very",
+          "start": 59.52,
+          "end": 59.92,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " precise",
+          "start": 59.92,
+          "end": 60.7,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " and",
+          "start": 60.7,
+          "end": 61.1,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " continuous.",
+          "start": 61.1,
+          "end": 61.62,
+          "probability": 0.986328125
+        },
+        {
+          "word": " For",
+          "start": 62.02,
+          "end": 62.02,
+          "probability": 0.95703125
+        },
+        {
+          "word": " example,",
+          "start": 62.02,
+          "end": 62.46,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " if",
+          "start": 62.68,
+          "end": 62.8,
+          "probability": 0.97021484375
+        },
+        {
+          "word": " this",
+          "start": 62.8,
+          "end": 63.04,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " technology",
+          "start": 63.04,
+          "end": 63.5,
+          "probability": 0.99609375
+        },
+        {
+          "word": " existed",
+          "start": 63.5,
+          "end": 63.8,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " during",
+          "start": 63.8,
+          "end": 64.24,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " the",
+          "start": 64.24,
+          "end": 64.4,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " war",
+          "start": 64.4,
+          "end": 64.72,
+          "probability": 0.9765625
+        },
+        {
+          "word": " in",
+          "start": 64.72,
+          "end": 64.9,
+          "probability": 0.9765625
+        },
+        {
+          "word": " Iraq",
+          "start": 64.9,
+          "end": 65.16,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " after",
+          "start": 65.16,
+          "end": 65.94,
+          "probability": 0.45654296875
+        },
+        {
+          "word": " the",
+          "start": 65.94,
+          "end": 66.08,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " death",
+          "start": 66.08,
+          "end": 66.32,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " of",
+          "start": 66.32,
+          "end": 66.5,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " Saddam",
+          "start": 66.5,
+          "end": 66.86,
+          "probability": 0.980712890625
+        },
+        {
+          "word": " Hussein,",
+          "start": 66.86,
+          "end": 67.3,
+          "probability": 0.9736328125
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 67.72,
+      "end": 74.74,
+      "text": "they could have still continued to give press conferences and press releases all across the war zone and which would have kept the war going on.",
+      "avg_logprob": -0.08894230883855087,
+      "no_speech_prob": 0.324462890625,
+      "compression_ratio": 1.6666666666666667,
+      "words": [
+        {
+          "word": " they",
+          "start": 67.72,
+          "end": 67.88,
+          "probability": 0.96875
+        },
+        {
+          "word": " could",
+          "start": 67.88,
+          "end": 68.04,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " have",
+          "start": 68.04,
+          "end": 68.2,
+          "probability": 0.916015625
+        },
+        {
+          "word": " still",
+          "start": 68.2,
+          "end": 68.46,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " continued",
+          "start": 68.46,
+          "end": 69.2,
+          "probability": 0.79296875
+        },
+        {
+          "word": " to",
+          "start": 69.2,
+          "end": 69.46,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " give",
+          "start": 69.46,
+          "end": 69.62,
+          "probability": 0.98046875
+        },
+        {
+          "word": " press",
+          "start": 69.62,
+          "end": 69.92,
+          "probability": 0.99609375
+        },
+        {
+          "word": " conferences",
+          "start": 69.92,
+          "end": 70.38,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " and",
+          "start": 70.38,
+          "end": 70.84,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " press",
+          "start": 70.84,
+          "end": 71.08,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " releases",
+          "start": 71.08,
+          "end": 71.44,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " all",
+          "start": 71.44,
+          "end": 71.76,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " across",
+          "start": 71.76,
+          "end": 72.02,
+          "probability": 0.99609375
+        },
+        {
+          "word": " the",
+          "start": 72.02,
+          "end": 72.24,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " war",
+          "start": 72.24,
+          "end": 72.48,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " zone",
+          "start": 72.48,
+          "end": 72.78,
+          "probability": 0.96728515625
+        },
+        {
+          "word": " and",
+          "start": 72.78,
+          "end": 73.24,
+          "probability": 0.701171875
+        },
+        {
+          "word": " which",
+          "start": 73.24,
+          "end": 73.44,
+          "probability": 0.9521484375
+        },
+        {
+          "word": " would",
+          "start": 73.44,
+          "end": 73.56,
+          "probability": 0.93505859375
+        },
+        {
+          "word": " have",
+          "start": 73.56,
+          "end": 73.66,
+          "probability": 0.955078125
+        },
+        {
+          "word": " kept",
+          "start": 73.66,
+          "end": 73.84,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " the",
+          "start": 73.84,
+          "end": 74.0,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " war",
+          "start": 74.0,
+          "end": 74.22,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " going",
+          "start": 74.22,
+          "end": 74.5,
+          "probability": 0.99609375
+        },
+        {
+          "word": " on.",
+          "start": 74.5,
+          "end": 74.74,
+          "probability": 0.9921875
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 74.74,
+      "end": 78.84,
+      "text": "It would be very difficult to identify such kinds of deception.",
+      "avg_logprob": -0.1117187475785613,
+      "no_speech_prob": 0.08544921875,
+      "compression_ratio": 1.5963302752293578,
+      "words": [
+        {
+          "word": " It",
+          "start": 74.74,
+          "end": 75.3,
+          "probability": 0.487548828125
+        },
+        {
+          "word": " would",
+          "start": 75.3,
+          "end": 75.48,
+          "probability": 0.91943359375
+        },
+        {
+          "word": " be",
+          "start": 75.48,
+          "end": 75.66,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " very",
+          "start": 75.66,
+          "end": 75.88,
+          "probability": 0.8955078125
+        },
+        {
+          "word": " difficult",
+          "start": 75.88,
+          "end": 76.26,
+          "probability": 0.99609375
+        },
+        {
+          "word": " to",
+          "start": 76.26,
+          "end": 76.52,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " identify",
+          "start": 76.52,
+          "end": 77.24,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " such",
+          "start": 77.24,
+          "end": 77.96,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " kinds",
+          "start": 77.96,
+          "end": 78.34,
+          "probability": 0.75
+        },
+        {
+          "word": " of",
+          "start": 78.34,
+          "end": 78.46,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " deception.",
+          "start": 78.46,
+          "end": 78.84,
+          "probability": 0.970703125
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 79.42,
+      "end": 85.88,
+      "text": "In the present day war situation, the whole concept of war has changed from classic military doctrines.",
+      "avg_logprob": -0.1117187475785613,
+      "no_speech_prob": 0.08544921875,
+      "compression_ratio": 1.5963302752293578,
+      "words": [
+        {
+          "word": " In",
+          "start": 79.42,
+          "end": 79.52,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " the",
+          "start": 79.52,
+          "end": 79.66,
+          "probability": 0.90185546875
+        },
+        {
+          "word": " present",
+          "start": 79.66,
+          "end": 79.86,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " day",
+          "start": 79.86,
+          "end": 80.08,
+          "probability": 0.74853515625
+        },
+        {
+          "word": " war",
+          "start": 80.08,
+          "end": 80.28,
+          "probability": 0.990234375
+        },
+        {
+          "word": " situation,",
+          "start": 80.28,
+          "end": 80.7,
+          "probability": 0.978515625
+        },
+        {
+          "word": " the",
+          "start": 81.34,
+          "end": 81.38,
+          "probability": 0.974609375
+        },
+        {
+          "word": " whole",
+          "start": 81.38,
+          "end": 81.72,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " concept",
+          "start": 81.72,
+          "end": 82.26,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " of",
+          "start": 82.26,
+          "end": 82.48,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " war",
+          "start": 82.48,
+          "end": 82.76,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " has",
+          "start": 82.76,
+          "end": 83.0,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " changed",
+          "start": 83.0,
+          "end": 83.42,
+          "probability": 0.98828125
+        },
+        {
+          "word": " from",
+          "start": 83.42,
+          "end": 83.72,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " classic",
+          "start": 83.72,
+          "end": 84.64,
+          "probability": 0.81103515625
+        },
+        {
+          "word": " military",
+          "start": 84.64,
+          "end": 85.04,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " doctrines.",
+          "start": 85.04,
+          "end": 85.88,
+          "probability": 0.97119140625
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 86.28,
+      "end": 93.52,
+      "text": "The major lessons to be taken home from the present day conflict is the first time use of unmanned combat vehicle,",
+      "avg_logprob": -0.1117187475785613,
+      "no_speech_prob": 0.08544921875,
+      "compression_ratio": 1.5963302752293578,
+      "words": [
+        {
+          "word": " The",
+          "start": 86.28,
+          "end": 86.34,
+          "probability": 0.978515625
+        },
+        {
+          "word": " major",
+          "start": 86.34,
+          "end": 86.8,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " lessons",
+          "start": 86.8,
+          "end": 87.64,
+          "probability": 0.95068359375
+        },
+        {
+          "word": " to",
+          "start": 87.64,
+          "end": 88.2,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " be",
+          "start": 88.2,
+          "end": 88.34,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " taken",
+          "start": 88.34,
+          "end": 88.62,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " home",
+          "start": 88.62,
+          "end": 88.98,
+          "probability": 0.92724609375
+        },
+        {
+          "word": " from",
+          "start": 88.98,
+          "end": 89.54,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " the",
+          "start": 89.54,
+          "end": 89.68,
+          "probability": 0.9609375
+        },
+        {
+          "word": " present",
+          "start": 89.68,
+          "end": 89.92,
+          "probability": 0.96728515625
+        },
+        {
+          "word": " day",
+          "start": 89.92,
+          "end": 90.14,
+          "probability": 0.9072265625
+        },
+        {
+          "word": " conflict",
+          "start": 90.14,
+          "end": 90.58,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " is",
+          "start": 90.58,
+          "end": 90.92,
+          "probability": 0.9384765625
+        },
+        {
+          "word": " the",
+          "start": 90.92,
+          "end": 91.04,
+          "probability": 0.95703125
+        },
+        {
+          "word": " first",
+          "start": 91.04,
+          "end": 91.28,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " time",
+          "start": 91.28,
+          "end": 91.6,
+          "probability": 0.82177734375
+        },
+        {
+          "word": " use",
+          "start": 91.6,
+          "end": 91.9,
+          "probability": 0.873046875
+        },
+        {
+          "word": " of",
+          "start": 91.9,
+          "end": 92.12,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " unmanned",
+          "start": 92.12,
+          "end": 92.64,
+          "probability": 0.968994140625
+        },
+        {
+          "word": " combat",
+          "start": 92.64,
+          "end": 93.02,
+          "probability": 0.990234375
+        },
+        {
+          "word": " vehicle,",
+          "start": 93.02,
+          "end": 93.52,
+          "probability": 0.65576171875
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 93.74,
+      "end": 98.94,
+      "text": "also known as the combat drones, is being used in full scale war.",
+      "avg_logprob": -0.1117187475785613,
+      "no_speech_prob": 0.08544921875,
+      "compression_ratio": 1.5963302752293578,
+      "words": [
+        {
+          "word": " also",
+          "start": 93.74,
+          "end": 94.0,
+          "probability": 0.962890625
+        },
+        {
+          "word": " known",
+          "start": 94.0,
+          "end": 94.26,
+          "probability": 0.98828125
+        },
+        {
+          "word": " as",
+          "start": 94.26,
+          "end": 94.58,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " the",
+          "start": 94.58,
+          "end": 95.26,
+          "probability": 0.8388671875
+        },
+        {
+          "word": " combat",
+          "start": 95.26,
+          "end": 96.06,
+          "probability": 0.67431640625
+        },
+        {
+          "word": " drones,",
+          "start": 96.06,
+          "end": 96.5,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " is",
+          "start": 96.9,
+          "end": 97.04,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " being",
+          "start": 97.04,
+          "end": 97.28,
+          "probability": 0.990234375
+        },
+        {
+          "word": " used",
+          "start": 97.28,
+          "end": 97.6,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " in",
+          "start": 97.6,
+          "end": 97.9,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " full",
+          "start": 97.9,
+          "end": 98.2,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " scale",
+          "start": 98.2,
+          "end": 98.5,
+          "probability": 0.6669921875
+        },
+        {
+          "word": " war.",
+          "start": 98.5,
+          "end": 98.94,
+          "probability": 0.9814453125
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 98.94,
+      "end": 110.4,
+      "text": "These drones are of the future and will be smaller, quicker and more lethal. They shall dominate the land, air and sea including the space as the race to the moon and the Mars is on.",
+      "avg_logprob": -0.11827761567262716,
+      "no_speech_prob": 0.0960693359375,
+      "compression_ratio": 1.685483870967742,
+      "words": [
+        {
+          "word": " These",
+          "start": 98.94,
+          "end": 99.76,
+          "probability": 0.50244140625
+        },
+        {
+          "word": " drones",
+          "start": 99.76,
+          "end": 100.16,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " are",
+          "start": 100.16,
+          "end": 100.92,
+          "probability": 0.89453125
+        },
+        {
+          "word": " of",
+          "start": 100.92,
+          "end": 101.06,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " the",
+          "start": 101.06,
+          "end": 101.18,
+          "probability": 0.951171875
+        },
+        {
+          "word": " future",
+          "start": 101.18,
+          "end": 101.52,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " and",
+          "start": 101.52,
+          "end": 101.74,
+          "probability": 0.9501953125
+        },
+        {
+          "word": " will",
+          "start": 101.74,
+          "end": 101.9,
+          "probability": 0.986328125
+        },
+        {
+          "word": " be",
+          "start": 101.9,
+          "end": 102.16,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " smaller,",
+          "start": 102.16,
+          "end": 102.84,
+          "probability": 0.91357421875
+        },
+        {
+          "word": " quicker",
+          "start": 103.08,
+          "end": 103.28,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " and",
+          "start": 103.28,
+          "end": 103.64,
+          "probability": 0.72998046875
+        },
+        {
+          "word": " more",
+          "start": 103.64,
+          "end": 103.84,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " lethal.",
+          "start": 103.84,
+          "end": 104.2,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " They",
+          "start": 104.48,
+          "end": 104.6,
+          "probability": 0.9609375
+        },
+        {
+          "word": " shall",
+          "start": 104.6,
+          "end": 104.84,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " dominate",
+          "start": 104.84,
+          "end": 105.34,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " the",
+          "start": 105.34,
+          "end": 105.58,
+          "probability": 0.970703125
+        },
+        {
+          "word": " land,",
+          "start": 105.58,
+          "end": 105.94,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " air",
+          "start": 106.22,
+          "end": 106.32,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " and",
+          "start": 106.32,
+          "end": 106.5,
+          "probability": 0.837890625
+        },
+        {
+          "word": " sea",
+          "start": 106.5,
+          "end": 106.8,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " including",
+          "start": 106.8,
+          "end": 107.48,
+          "probability": 0.391357421875
+        },
+        {
+          "word": " the",
+          "start": 107.48,
+          "end": 107.96,
+          "probability": 0.83935546875
+        },
+        {
+          "word": " space",
+          "start": 107.96,
+          "end": 108.26,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " as",
+          "start": 108.26,
+          "end": 108.64,
+          "probability": 0.93408203125
+        },
+        {
+          "word": " the",
+          "start": 108.64,
+          "end": 108.78,
+          "probability": 0.6953125
+        },
+        {
+          "word": " race",
+          "start": 108.78,
+          "end": 108.96,
+          "probability": 0.66015625
+        },
+        {
+          "word": " to",
+          "start": 108.96,
+          "end": 109.16,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " the",
+          "start": 109.16,
+          "end": 109.28,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " moon",
+          "start": 109.28,
+          "end": 109.48,
+          "probability": 0.9052734375
+        },
+        {
+          "word": " and",
+          "start": 109.48,
+          "end": 109.66,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " the",
+          "start": 109.66,
+          "end": 109.76,
+          "probability": 0.64599609375
+        },
+        {
+          "word": " Mars",
+          "start": 109.76,
+          "end": 110.0,
+          "probability": 0.7666015625
+        },
+        {
+          "word": " is",
+          "start": 110.0,
+          "end": 110.2,
+          "probability": 0.9658203125
+        },
+        {
+          "word": " on.",
+          "start": 110.2,
+          "end": 110.4,
+          "probability": 0.984375
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 110.82,
+      "end": 125.06,
+      "text": "There is a revolution in combat as the combat effectiveness will depend on how fast the unmanned drones equipped with AI platform does quick decision making with minimal error in coordination with the other entities in the battlefield.",
+      "avg_logprob": -0.11827761567262716,
+      "no_speech_prob": 0.0960693359375,
+      "compression_ratio": 1.685483870967742,
+      "words": [
+        {
+          "word": " There",
+          "start": 110.82,
+          "end": 111.12,
+          "probability": 0.96337890625
+        },
+        {
+          "word": " is",
+          "start": 111.12,
+          "end": 111.28,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " a",
+          "start": 111.28,
+          "end": 111.42,
+          "probability": 0.9384765625
+        },
+        {
+          "word": " revolution",
+          "start": 111.42,
+          "end": 111.76,
+          "probability": 0.9599609375
+        },
+        {
+          "word": " in",
+          "start": 111.76,
+          "end": 112.08,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " combat",
+          "start": 112.08,
+          "end": 112.46,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " as",
+          "start": 112.46,
+          "end": 113.18,
+          "probability": 0.85498046875
+        },
+        {
+          "word": " the",
+          "start": 113.18,
+          "end": 113.38,
+          "probability": 0.87109375
+        },
+        {
+          "word": " combat",
+          "start": 113.38,
+          "end": 113.72,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " effectiveness",
+          "start": 113.72,
+          "end": 114.28,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " will",
+          "start": 114.28,
+          "end": 114.64,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " depend",
+          "start": 114.64,
+          "end": 114.92,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " on",
+          "start": 114.92,
+          "end": 115.22,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " how",
+          "start": 115.22,
+          "end": 115.5,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " fast",
+          "start": 115.5,
+          "end": 115.94,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " the",
+          "start": 115.94,
+          "end": 116.18,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " unmanned",
+          "start": 116.18,
+          "end": 116.64,
+          "probability": 0.970458984375
+        },
+        {
+          "word": " drones",
+          "start": 116.64,
+          "end": 117.08,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " equipped",
+          "start": 117.08,
+          "end": 117.5,
+          "probability": 0.748046875
+        },
+        {
+          "word": " with",
+          "start": 117.5,
+          "end": 117.82,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " AI",
+          "start": 117.82,
+          "end": 118.08,
+          "probability": 0.91015625
+        },
+        {
+          "word": " platform",
+          "start": 118.08,
+          "end": 118.7,
+          "probability": 0.6669921875
+        },
+        {
+          "word": " does",
+          "start": 118.7,
+          "end": 119.4,
+          "probability": 0.9013671875
+        },
+        {
+          "word": " quick",
+          "start": 119.4,
+          "end": 120.02,
+          "probability": 0.810546875
+        },
+        {
+          "word": " decision",
+          "start": 120.02,
+          "end": 120.44,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " making",
+          "start": 120.44,
+          "end": 120.78,
+          "probability": 0.7763671875
+        },
+        {
+          "word": " with",
+          "start": 120.78,
+          "end": 121.2,
+          "probability": 0.970703125
+        },
+        {
+          "word": " minimal",
+          "start": 121.2,
+          "end": 121.82,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " error",
+          "start": 121.82,
+          "end": 122.34,
+          "probability": 0.974609375
+        },
+        {
+          "word": " in",
+          "start": 122.34,
+          "end": 122.62,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " coordination",
+          "start": 122.62,
+          "end": 123.02,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " with",
+          "start": 123.02,
+          "end": 123.56,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " the",
+          "start": 123.56,
+          "end": 123.68,
+          "probability": 0.68310546875
+        },
+        {
+          "word": " other",
+          "start": 123.68,
+          "end": 123.9,
+          "probability": 0.994140625
+        },
+        {
+          "word": " entities",
+          "start": 123.9,
+          "end": 124.34,
+          "probability": 0.974609375
+        },
+        {
+          "word": " in",
+          "start": 124.34,
+          "end": 124.62,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " the",
+          "start": 124.62,
+          "end": 124.72,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " battlefield.",
+          "start": 124.72,
+          "end": 125.06,
+          "probability": 0.9326171875
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 125.06,
+      "end": 129.12,
+      "text": "These robotic armies are to stay for a long time to come.",
+      "avg_logprob": -0.13036520797086049,
+      "no_speech_prob": 0.134521484375,
+      "compression_ratio": 1.5345622119815667,
+      "words": [
+        {
+          "word": " These",
+          "start": 125.06,
+          "end": 125.92,
+          "probability": 0.6298828125
+        },
+        {
+          "word": " robotic",
+          "start": 125.92,
+          "end": 126.32,
+          "probability": 0.9052734375
+        },
+        {
+          "word": " armies",
+          "start": 126.32,
+          "end": 126.8,
+          "probability": 0.955078125
+        },
+        {
+          "word": " are",
+          "start": 126.8,
+          "end": 127.16,
+          "probability": 0.90185546875
+        },
+        {
+          "word": " to",
+          "start": 127.16,
+          "end": 127.3,
+          "probability": 0.95703125
+        },
+        {
+          "word": " stay",
+          "start": 127.3,
+          "end": 127.58,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " for",
+          "start": 127.58,
+          "end": 127.82,
+          "probability": 0.96875
+        },
+        {
+          "word": " a",
+          "start": 127.82,
+          "end": 127.94,
+          "probability": 0.9326171875
+        },
+        {
+          "word": " long",
+          "start": 127.94,
+          "end": 128.3,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " time",
+          "start": 128.3,
+          "end": 128.66,
+          "probability": 0.98828125
+        },
+        {
+          "word": " to",
+          "start": 128.66,
+          "end": 128.84,
+          "probability": 0.939453125
+        },
+        {
+          "word": " come.",
+          "start": 128.84,
+          "end": 129.12,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 129.66,
+      "end": 136.14,
+      "text": "They are much above the sky-five movies of the yester-years as they will have no obstacles to cross.",
+      "avg_logprob": -0.13036520797086049,
+      "no_speech_prob": 0.134521484375,
+      "compression_ratio": 1.5345622119815667,
+      "words": [
+        {
+          "word": " They",
+          "start": 129.66,
+          "end": 129.86,
+          "probability": 0.95166015625
+        },
+        {
+          "word": " are",
+          "start": 129.86,
+          "end": 130.02,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " much",
+          "start": 130.02,
+          "end": 130.3,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " above",
+          "start": 130.3,
+          "end": 130.64,
+          "probability": 0.90380859375
+        },
+        {
+          "word": " the",
+          "start": 130.64,
+          "end": 130.92,
+          "probability": 0.92138671875
+        },
+        {
+          "word": " sky",
+          "start": 130.92,
+          "end": 131.12,
+          "probability": 0.833984375
+        },
+        {
+          "word": "-five",
+          "start": 131.12,
+          "end": 131.36,
+          "probability": 0.424072265625
+        },
+        {
+          "word": " movies",
+          "start": 131.36,
+          "end": 131.72,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " of",
+          "start": 131.72,
+          "end": 131.9,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " the",
+          "start": 131.9,
+          "end": 132.02,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " yester",
+          "start": 132.02,
+          "end": 132.26,
+          "probability": 0.936767578125
+        },
+        {
+          "word": "-years",
+          "start": 132.26,
+          "end": 132.68,
+          "probability": 0.6531982421875
+        },
+        {
+          "word": " as",
+          "start": 132.68,
+          "end": 133.2,
+          "probability": 0.490234375
+        },
+        {
+          "word": " they",
+          "start": 133.2,
+          "end": 133.38,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " will",
+          "start": 133.38,
+          "end": 133.58,
+          "probability": 0.89990234375
+        },
+        {
+          "word": " have",
+          "start": 133.58,
+          "end": 134.02,
+          "probability": 0.96875
+        },
+        {
+          "word": " no",
+          "start": 134.02,
+          "end": 134.76,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " obstacles",
+          "start": 134.76,
+          "end": 135.6,
+          "probability": 0.974609375
+        },
+        {
+          "word": " to",
+          "start": 135.6,
+          "end": 135.84,
+          "probability": 0.982421875
+        },
+        {
+          "word": " cross.",
+          "start": 135.84,
+          "end": 136.14,
+          "probability": 0.99267578125
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 136.4,
+      "end": 139.82,
+      "text": "The future wars will reach the orbit of the Earth.",
+      "avg_logprob": -0.13036520797086049,
+      "no_speech_prob": 0.134521484375,
+      "compression_ratio": 1.5345622119815667,
+      "words": [
+        {
+          "word": " The",
+          "start": 136.4,
+          "end": 136.46,
+          "probability": 0.748046875
+        },
+        {
+          "word": " future",
+          "start": 136.46,
+          "end": 136.86,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " wars",
+          "start": 136.86,
+          "end": 137.58,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " will",
+          "start": 137.58,
+          "end": 137.86,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " reach",
+          "start": 137.86,
+          "end": 138.3,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " the",
+          "start": 138.3,
+          "end": 138.8,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " orbit",
+          "start": 138.8,
+          "end": 139.18,
+          "probability": 0.990234375
+        },
+        {
+          "word": " of",
+          "start": 139.18,
+          "end": 139.42,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " the",
+          "start": 139.42,
+          "end": 139.54,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " Earth.",
+          "start": 139.54,
+          "end": 139.82,
+          "probability": 0.390869140625
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 140.14,
+      "end": 147.82,
+      "text": "These AI-based unmanned drones can move in hypersonic speeds and create more destruction than a human flying a fighter jet.",
+      "avg_logprob": -0.13036520797086049,
+      "no_speech_prob": 0.134521484375,
+      "compression_ratio": 1.5345622119815667,
+      "words": [
+        {
+          "word": " These",
+          "start": 140.14,
+          "end": 140.36,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " AI",
+          "start": 140.36,
+          "end": 140.7,
+          "probability": 0.896484375
+        },
+        {
+          "word": "-based",
+          "start": 140.7,
+          "end": 141.08,
+          "probability": 0.6998291015625
+        },
+        {
+          "word": " unmanned",
+          "start": 141.08,
+          "end": 141.86,
+          "probability": 0.969970703125
+        },
+        {
+          "word": " drones",
+          "start": 141.86,
+          "end": 142.2,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " can",
+          "start": 142.2,
+          "end": 142.56,
+          "probability": 0.990234375
+        },
+        {
+          "word": " move",
+          "start": 142.56,
+          "end": 142.9,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " in",
+          "start": 142.9,
+          "end": 143.06,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " hypersonic",
+          "start": 143.06,
+          "end": 143.58,
+          "probability": 0.978515625
+        },
+        {
+          "word": " speeds",
+          "start": 143.58,
+          "end": 144.08,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " and",
+          "start": 144.08,
+          "end": 144.5,
+          "probability": 0.966796875
+        },
+        {
+          "word": " create",
+          "start": 144.5,
+          "end": 144.9,
+          "probability": 0.9921875
+        },
+        {
+          "word": " more",
+          "start": 144.9,
+          "end": 145.22,
+          "probability": 0.984375
+        },
+        {
+          "word": " destruction",
+          "start": 145.22,
+          "end": 145.76,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " than",
+          "start": 145.76,
+          "end": 146.38,
+          "probability": 0.96337890625
+        },
+        {
+          "word": " a",
+          "start": 146.38,
+          "end": 146.5,
+          "probability": 0.947265625
+        },
+        {
+          "word": " human",
+          "start": 146.5,
+          "end": 146.72,
+          "probability": 0.990234375
+        },
+        {
+          "word": " flying",
+          "start": 146.72,
+          "end": 147.16,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " a",
+          "start": 147.16,
+          "end": 147.36,
+          "probability": 0.9013671875
+        },
+        {
+          "word": " fighter",
+          "start": 147.36,
+          "end": 147.58,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " jet.",
+          "start": 147.58,
+          "end": 147.82,
+          "probability": 0.98779296875
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 147.82,
+      "end": 151.62,
+      "text": "I want to say that the future military technologies will transform",
+      "avg_logprob": -0.09858631298300766,
+      "no_speech_prob": 0.0426025390625,
+      "compression_ratio": 1.6264591439688716,
+      "words": [
+        {
+          "word": " I",
+          "start": 147.82,
+          "end": 148.4,
+          "probability": 0.56396484375
+        },
+        {
+          "word": " want",
+          "start": 148.4,
+          "end": 148.68,
+          "probability": 0.9013671875
+        },
+        {
+          "word": " to",
+          "start": 148.68,
+          "end": 148.84,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " say",
+          "start": 148.84,
+          "end": 149.04,
+          "probability": 0.990234375
+        },
+        {
+          "word": " that",
+          "start": 149.04,
+          "end": 149.22,
+          "probability": 0.9384765625
+        },
+        {
+          "word": " the",
+          "start": 149.22,
+          "end": 149.38,
+          "probability": 0.80419921875
+        },
+        {
+          "word": " future",
+          "start": 149.38,
+          "end": 149.64,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " military",
+          "start": 149.64,
+          "end": 149.96,
+          "probability": 0.966796875
+        },
+        {
+          "word": " technologies",
+          "start": 149.96,
+          "end": 150.68,
+          "probability": 0.93359375
+        },
+        {
+          "word": " will",
+          "start": 150.68,
+          "end": 151.0,
+          "probability": 0.990234375
+        },
+        {
+          "word": " transform",
+          "start": 151.0,
+          "end": 151.62,
+          "probability": 0.98681640625
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 151.62,
+      "end": 156.86,
+      "text": "from the heavy equipment to the lighter, faster, cheaper substitute of machine",
+      "avg_logprob": -0.09858631298300766,
+      "no_speech_prob": 0.0426025390625,
+      "compression_ratio": 1.6264591439688716,
+      "words": [
+        {
+          "word": " from",
+          "start": 151.62,
+          "end": 152.3,
+          "probability": 0.9345703125
+        },
+        {
+          "word": " the",
+          "start": 152.3,
+          "end": 152.44,
+          "probability": 0.79443359375
+        },
+        {
+          "word": " heavy",
+          "start": 152.44,
+          "end": 152.66,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " equipment",
+          "start": 152.66,
+          "end": 153.16,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " to",
+          "start": 153.16,
+          "end": 153.48,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " the",
+          "start": 153.48,
+          "end": 153.58,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " lighter,",
+          "start": 153.58,
+          "end": 153.98,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " faster,",
+          "start": 154.4,
+          "end": 154.72,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " cheaper",
+          "start": 154.88,
+          "end": 155.34,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " substitute",
+          "start": 155.34,
+          "end": 156.14,
+          "probability": 0.5791015625
+        },
+        {
+          "word": " of",
+          "start": 156.14,
+          "end": 156.48,
+          "probability": 0.97265625
+        },
+        {
+          "word": " machine",
+          "start": 156.48,
+          "end": 156.86,
+          "probability": 0.75244140625
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 156.86,
+      "end": 161.88,
+      "text": "which thinks and takes decisions to execute the target with more precision",
+      "avg_logprob": -0.09858631298300766,
+      "no_speech_prob": 0.0426025390625,
+      "compression_ratio": 1.6264591439688716,
+      "words": [
+        {
+          "word": " which",
+          "start": 156.86,
+          "end": 157.68,
+          "probability": 0.55517578125
+        },
+        {
+          "word": " thinks",
+          "start": 157.68,
+          "end": 158.42,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " and",
+          "start": 158.42,
+          "end": 158.64,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " takes",
+          "start": 158.64,
+          "end": 158.9,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " decisions",
+          "start": 158.9,
+          "end": 159.34,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " to",
+          "start": 159.34,
+          "end": 159.66,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " execute",
+          "start": 159.66,
+          "end": 160.14,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " the",
+          "start": 160.14,
+          "end": 160.4,
+          "probability": 0.97265625
+        },
+        {
+          "word": " target",
+          "start": 160.4,
+          "end": 160.8,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " with",
+          "start": 160.8,
+          "end": 161.12,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " more",
+          "start": 161.12,
+          "end": 161.38,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " precision",
+          "start": 161.38,
+          "end": 161.88,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 161.88,
+      "end": 165.16,
+      "text": "without any element of human emotional involvement.",
+      "avg_logprob": -0.09858631298300766,
+      "no_speech_prob": 0.0426025390625,
+      "compression_ratio": 1.6264591439688716,
+      "words": [
+        {
+          "word": " without",
+          "start": 161.88,
+          "end": 162.64,
+          "probability": 0.89453125
+        },
+        {
+          "word": " any",
+          "start": 162.64,
+          "end": 163.08,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " element",
+          "start": 163.08,
+          "end": 163.46,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " of",
+          "start": 163.46,
+          "end": 163.68,
+          "probability": 0.998046875
+        },
+        {
+          "word": " human",
+          "start": 163.68,
+          "end": 163.96,
+          "probability": 0.923828125
+        },
+        {
+          "word": " emotional",
+          "start": 163.96,
+          "end": 164.52,
+          "probability": 0.70849609375
+        },
+        {
+          "word": " involvement.",
+          "start": 164.52,
+          "end": 165.16,
+          "probability": 0.98974609375
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 165.62,
+      "end": 169.08,
+      "text": "The new breed of generals would be the programmers and the AI engineers",
+      "avg_logprob": -0.09858631298300766,
+      "no_speech_prob": 0.0426025390625,
+      "compression_ratio": 1.6264591439688716,
+      "words": [
+        {
+          "word": " The",
+          "start": 165.62,
+          "end": 165.84,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " new",
+          "start": 165.84,
+          "end": 166.1,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " breed",
+          "start": 166.1,
+          "end": 166.4,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " of",
+          "start": 166.4,
+          "end": 166.56,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " generals",
+          "start": 166.56,
+          "end": 166.9,
+          "probability": 0.88330078125
+        },
+        {
+          "word": " would",
+          "start": 166.9,
+          "end": 167.22,
+          "probability": 0.97265625
+        },
+        {
+          "word": " be",
+          "start": 167.22,
+          "end": 167.4,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " the",
+          "start": 167.4,
+          "end": 167.5,
+          "probability": 0.9658203125
+        },
+        {
+          "word": " programmers",
+          "start": 167.5,
+          "end": 167.92,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " and",
+          "start": 167.92,
+          "end": 168.28,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " the",
+          "start": 168.28,
+          "end": 168.38,
+          "probability": 0.77294921875
+        },
+        {
+          "word": " AI",
+          "start": 168.38,
+          "end": 168.6,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " engineers",
+          "start": 168.6,
+          "end": 169.08,
+          "probability": 0.9794921875
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 169.08,
+      "end": 174.64,
+      "text": "who will develop these AI based platforms with real time battlefield data",
+      "avg_logprob": -0.09858631298300766,
+      "no_speech_prob": 0.0426025390625,
+      "compression_ratio": 1.6264591439688716,
+      "words": [
+        {
+          "word": " who",
+          "start": 169.08,
+          "end": 169.7,
+          "probability": 0.82275390625
+        },
+        {
+          "word": " will",
+          "start": 169.7,
+          "end": 169.94,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " develop",
+          "start": 169.94,
+          "end": 170.88,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " these",
+          "start": 170.88,
+          "end": 171.14,
+          "probability": 0.982421875
+        },
+        {
+          "word": " AI",
+          "start": 171.14,
+          "end": 171.54,
+          "probability": 0.95068359375
+        },
+        {
+          "word": " based",
+          "start": 171.54,
+          "end": 171.88,
+          "probability": 0.62451171875
+        },
+        {
+          "word": " platforms",
+          "start": 171.88,
+          "end": 172.44,
+          "probability": 0.98046875
+        },
+        {
+          "word": " with",
+          "start": 172.44,
+          "end": 172.78,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " real",
+          "start": 172.78,
+          "end": 173.06,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " time",
+          "start": 173.06,
+          "end": 173.36,
+          "probability": 0.498046875
+        },
+        {
+          "word": " battlefield",
+          "start": 173.36,
+          "end": 173.88,
+          "probability": 0.890625
+        },
+        {
+          "word": " data",
+          "start": 173.88,
+          "end": 174.64,
+          "probability": 0.99462890625
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 174.64,
+      "end": 180.38,
+      "text": "to make decisions in the strategic and tactical levels assisting the robotic armies.",
+      "avg_logprob": -0.101831897236835,
+      "no_speech_prob": 0.219970703125,
+      "compression_ratio": 1.7063829787234042,
+      "words": [
+        {
+          "word": " to",
+          "start": 174.64,
+          "end": 175.2,
+          "probability": 0.280029296875
+        },
+        {
+          "word": " make",
+          "start": 175.2,
+          "end": 175.46,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " decisions",
+          "start": 175.46,
+          "end": 175.98,
+          "probability": 0.55029296875
+        },
+        {
+          "word": " in",
+          "start": 175.98,
+          "end": 176.76,
+          "probability": 0.91552734375
+        },
+        {
+          "word": " the",
+          "start": 176.76,
+          "end": 176.88,
+          "probability": 0.82080078125
+        },
+        {
+          "word": " strategic",
+          "start": 176.88,
+          "end": 177.34,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " and",
+          "start": 177.34,
+          "end": 177.56,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " tactical",
+          "start": 177.56,
+          "end": 177.88,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " levels",
+          "start": 177.88,
+          "end": 178.66,
+          "probability": 0.8720703125
+        },
+        {
+          "word": " assisting",
+          "start": 178.66,
+          "end": 179.2,
+          "probability": 0.6416015625
+        },
+        {
+          "word": " the",
+          "start": 179.2,
+          "end": 179.52,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " robotic",
+          "start": 179.52,
+          "end": 179.96,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " armies.",
+          "start": 179.96,
+          "end": 180.38,
+          "probability": 0.96240234375
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "start": 181.08,
+      "end": 185.9,
+      "text": "These AI based combat drones will be used on land, air and sea being unmanned,",
+      "avg_logprob": -0.101831897236835,
+      "no_speech_prob": 0.219970703125,
+      "compression_ratio": 1.7063829787234042,
+      "words": [
+        {
+          "word": " These",
+          "start": 181.08,
+          "end": 181.28,
+          "probability": 0.82666015625
+        },
+        {
+          "word": " AI",
+          "start": 181.28,
+          "end": 181.64,
+          "probability": 0.86962890625
+        },
+        {
+          "word": " based",
+          "start": 181.64,
+          "end": 181.96,
+          "probability": 0.53271484375
+        },
+        {
+          "word": " combat",
+          "start": 181.96,
+          "end": 182.26,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " drones",
+          "start": 182.26,
+          "end": 182.66,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " will",
+          "start": 182.66,
+          "end": 182.94,
+          "probability": 0.9482421875
+        },
+        {
+          "word": " be",
+          "start": 182.94,
+          "end": 183.24,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " used",
+          "start": 183.24,
+          "end": 183.6,
+          "probability": 0.994140625
+        },
+        {
+          "word": " on",
+          "start": 183.6,
+          "end": 183.92,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " land,",
+          "start": 183.92,
+          "end": 184.24,
+          "probability": 0.990234375
+        },
+        {
+          "word": " air",
+          "start": 184.54,
+          "end": 184.66,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " and",
+          "start": 184.66,
+          "end": 184.84,
+          "probability": 0.86962890625
+        },
+        {
+          "word": " sea",
+          "start": 184.84,
+          "end": 185.08,
+          "probability": 0.990234375
+        },
+        {
+          "word": " being",
+          "start": 185.08,
+          "end": 185.4,
+          "probability": 0.751953125
+        },
+        {
+          "word": " unmanned,",
+          "start": 185.4,
+          "end": 185.9,
+          "probability": 0.99169921875
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "start": 186.32,
+      "end": 190.56,
+      "text": "will have more capabilities than man behind the machine.",
+      "avg_logprob": -0.101831897236835,
+      "no_speech_prob": 0.219970703125,
+      "compression_ratio": 1.7063829787234042,
+      "words": [
+        {
+          "word": " will",
+          "start": 186.32,
+          "end": 186.48,
+          "probability": 0.8798828125
+        },
+        {
+          "word": " have",
+          "start": 186.48,
+          "end": 186.72,
+          "probability": 0.99609375
+        },
+        {
+          "word": " more",
+          "start": 186.72,
+          "end": 187.1,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " capabilities",
+          "start": 187.1,
+          "end": 188.42,
+          "probability": 0.95166015625
+        },
+        {
+          "word": " than",
+          "start": 188.42,
+          "end": 188.86,
+          "probability": 0.87646484375
+        },
+        {
+          "word": " man",
+          "start": 188.86,
+          "end": 189.72,
+          "probability": 0.87158203125
+        },
+        {
+          "word": " behind",
+          "start": 189.72,
+          "end": 190.06,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " the",
+          "start": 190.06,
+          "end": 190.24,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " machine.",
+          "start": 190.24,
+          "end": 190.56,
+          "probability": 0.9853515625
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "start": 190.8,
+      "end": 195.36,
+      "text": "They will cover more distance with more speed and stealth and create more destruction.",
+      "avg_logprob": -0.101831897236835,
+      "no_speech_prob": 0.219970703125,
+      "compression_ratio": 1.7063829787234042,
+      "words": [
+        {
+          "word": " They",
+          "start": 190.8,
+          "end": 190.9,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " will",
+          "start": 190.9,
+          "end": 191.12,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " cover",
+          "start": 191.12,
+          "end": 191.58,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " more",
+          "start": 191.58,
+          "end": 191.86,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " distance",
+          "start": 191.86,
+          "end": 192.28,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " with",
+          "start": 192.28,
+          "end": 192.8,
+          "probability": 0.77978515625
+        },
+        {
+          "word": " more",
+          "start": 192.8,
+          "end": 192.98,
+          "probability": 0.982421875
+        },
+        {
+          "word": " speed",
+          "start": 192.98,
+          "end": 193.32,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " and",
+          "start": 193.32,
+          "end": 193.74,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " stealth",
+          "start": 193.74,
+          "end": 194.06,
+          "probability": 0.89599609375
+        },
+        {
+          "word": " and",
+          "start": 194.06,
+          "end": 194.38,
+          "probability": 0.9072265625
+        },
+        {
+          "word": " create",
+          "start": 194.38,
+          "end": 194.66,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " more",
+          "start": 194.66,
+          "end": 194.9,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " destruction.",
+          "start": 194.9,
+          "end": 195.36,
+          "probability": 0.984375
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "start": 195.98,
+      "end": 201.83,
+      "text": "They could dive deeper than the submarines in the deep sea without any crew and create havoc.",
+      "avg_logprob": -0.101831897236835,
+      "no_speech_prob": 0.219970703125,
+      "compression_ratio": 1.7063829787234042,
+      "words": [
+        {
+          "word": " They",
+          "start": 195.98,
+          "end": 196.1,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " could",
+          "start": 196.1,
+          "end": 196.38,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " dive",
+          "start": 196.41,
+          "end": 197.63,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " deeper",
+          "start": 197.63,
+          "end": 198.07,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " than",
+          "start": 198.07,
+          "end": 198.31,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " the",
+          "start": 198.31,
+          "end": 198.49,
+          "probability": 0.9365234375
+        },
+        {
+          "word": " submarines",
+          "start": 198.49,
+          "end": 198.87,
+          "probability": 0.9658203125
+        },
+        {
+          "word": " in",
+          "start": 198.87,
+          "end": 199.43,
+          "probability": 0.97119140625
+        },
+        {
+          "word": " the",
+          "start": 199.43,
+          "end": 199.53,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " deep",
+          "start": 199.53,
+          "end": 199.71,
+          "probability": 0.85400390625
+        },
+        {
+          "word": " sea",
+          "start": 199.71,
+          "end": 199.97,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " without",
+          "start": 199.97,
+          "end": 200.37,
+          "probability": 0.93408203125
+        },
+        {
+          "word": " any",
+          "start": 200.37,
+          "end": 200.63,
+          "probability": 0.984375
+        },
+        {
+          "word": " crew",
+          "start": 200.63,
+          "end": 200.89,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " and",
+          "start": 200.89,
+          "end": 201.17,
+          "probability": 0.958984375
+        },
+        {
+          "word": " create",
+          "start": 201.17,
+          "end": 201.45,
+          "probability": 0.9921875
+        },
+        {
+          "word": " havoc.",
+          "start": 201.45,
+          "end": 201.83,
+          "probability": 0.95166015625
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 201.83,
+      "end": 207.83,
+      "text": "I want to say that the future military technologies will transform from heavy equipment to cheaper",
+      "avg_logprob": -0.14438657113063483,
+      "no_speech_prob": 0.1705322265625,
+      "compression_ratio": 1.6470588235294117,
+      "words": [
+        {
+          "word": " I",
+          "start": 201.83,
+          "end": 202.89,
+          "probability": 0.60205078125
+        },
+        {
+          "word": " want",
+          "start": 202.89,
+          "end": 203.11,
+          "probability": 0.8994140625
+        },
+        {
+          "word": " to",
+          "start": 203.11,
+          "end": 203.23,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " say",
+          "start": 203.23,
+          "end": 203.47,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " that",
+          "start": 203.47,
+          "end": 203.73,
+          "probability": 0.92138671875
+        },
+        {
+          "word": " the",
+          "start": 203.73,
+          "end": 203.91,
+          "probability": 0.619140625
+        },
+        {
+          "word": " future",
+          "start": 203.91,
+          "end": 204.17,
+          "probability": 0.96435546875
+        },
+        {
+          "word": " military",
+          "start": 204.17,
+          "end": 204.49,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " technologies",
+          "start": 204.49,
+          "end": 205.09,
+          "probability": 0.9130859375
+        },
+        {
+          "word": " will",
+          "start": 205.09,
+          "end": 205.29,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " transform",
+          "start": 205.29,
+          "end": 205.79,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " from",
+          "start": 205.79,
+          "end": 206.01,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " heavy",
+          "start": 206.01,
+          "end": 206.41,
+          "probability": 0.986328125
+        },
+        {
+          "word": " equipment",
+          "start": 206.41,
+          "end": 207.19,
+          "probability": 0.859375
+        },
+        {
+          "word": " to",
+          "start": 207.19,
+          "end": 207.45,
+          "probability": 0.9326171875
+        },
+        {
+          "word": " cheaper",
+          "start": 207.45,
+          "end": 207.83,
+          "probability": 0.9755859375
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "start": 207.83,
+      "end": 215.73,
+      "text": "to lighter to fast substitutes like the combat drones which thinks and takes decisions with precision",
+      "avg_logprob": -0.14438657113063483,
+      "no_speech_prob": 0.1705322265625,
+      "compression_ratio": 1.6470588235294117,
+      "words": [
+        {
+          "word": " to",
+          "start": 207.83,
+          "end": 208.17,
+          "probability": 0.5751953125
+        },
+        {
+          "word": " lighter",
+          "start": 208.17,
+          "end": 209.17,
+          "probability": 0.9765625
+        },
+        {
+          "word": " to",
+          "start": 209.17,
+          "end": 209.47,
+          "probability": 0.85595703125
+        },
+        {
+          "word": " fast",
+          "start": 209.47,
+          "end": 209.91,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " substitutes",
+          "start": 209.91,
+          "end": 211.09,
+          "probability": 0.941162109375
+        },
+        {
+          "word": " like",
+          "start": 211.09,
+          "end": 211.69,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " the",
+          "start": 211.69,
+          "end": 211.85,
+          "probability": 0.9384765625
+        },
+        {
+          "word": " combat",
+          "start": 211.85,
+          "end": 212.13,
+          "probability": 0.84423828125
+        },
+        {
+          "word": " drones",
+          "start": 212.13,
+          "end": 212.53,
+          "probability": 0.9609375
+        },
+        {
+          "word": " which",
+          "start": 212.53,
+          "end": 213.15,
+          "probability": 0.5791015625
+        },
+        {
+          "word": " thinks",
+          "start": 213.15,
+          "end": 213.51,
+          "probability": 0.8662109375
+        },
+        {
+          "word": " and",
+          "start": 213.51,
+          "end": 213.73,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " takes",
+          "start": 213.73,
+          "end": 213.95,
+          "probability": 0.93505859375
+        },
+        {
+          "word": " decisions",
+          "start": 213.95,
+          "end": 214.39,
+          "probability": 0.904296875
+        },
+        {
+          "word": " with",
+          "start": 214.39,
+          "end": 215.29,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " precision",
+          "start": 215.29,
+          "end": 215.73,
+          "probability": 0.99169921875
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "start": 215.73,
+      "end": 220.97,
+      "text": "to engage the target. Most of the defence establishment today are meant to be the fighting force",
+      "avg_logprob": -0.14438657113063483,
+      "no_speech_prob": 0.1705322265625,
+      "compression_ratio": 1.6470588235294117,
+      "words": [
+        {
+          "word": " to",
+          "start": 215.73,
+          "end": 215.97,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " engage",
+          "start": 215.97,
+          "end": 216.25,
+          "probability": 0.994140625
+        },
+        {
+          "word": " the",
+          "start": 216.25,
+          "end": 216.41,
+          "probability": 0.95263671875
+        },
+        {
+          "word": " target.",
+          "start": 216.41,
+          "end": 216.69,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " Most",
+          "start": 216.89,
+          "end": 217.07,
+          "probability": 0.97265625
+        },
+        {
+          "word": " of",
+          "start": 217.07,
+          "end": 217.27,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " the",
+          "start": 217.27,
+          "end": 217.37,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " defence",
+          "start": 217.37,
+          "end": 217.67,
+          "probability": 0.58203125
+        },
+        {
+          "word": " establishment",
+          "start": 217.67,
+          "end": 218.43,
+          "probability": 0.55712890625
+        },
+        {
+          "word": " today",
+          "start": 218.43,
+          "end": 218.87,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " are",
+          "start": 218.87,
+          "end": 219.57,
+          "probability": 0.93701171875
+        },
+        {
+          "word": " meant",
+          "start": 219.57,
+          "end": 219.81,
+          "probability": 0.9921875
+        },
+        {
+          "word": " to",
+          "start": 219.81,
+          "end": 220.05,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " be",
+          "start": 220.05,
+          "end": 220.17,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " the",
+          "start": 220.17,
+          "end": 220.29,
+          "probability": 0.95458984375
+        },
+        {
+          "word": " fighting",
+          "start": 220.29,
+          "end": 220.59,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " force",
+          "start": 220.59,
+          "end": 220.97,
+          "probability": 0.9921875
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "start": 220.97,
+      "end": 227.09,
+      "text": "but as the end of the day the soldier is another human being. He has similar body composition,",
+      "avg_logprob": -0.14438657113063483,
+      "no_speech_prob": 0.1705322265625,
+      "compression_ratio": 1.6470588235294117,
+      "words": [
+        {
+          "word": " but",
+          "start": 220.97,
+          "end": 221.27,
+          "probability": 0.63427734375
+        },
+        {
+          "word": " as",
+          "start": 221.27,
+          "end": 221.55,
+          "probability": 0.7802734375
+        },
+        {
+          "word": " the",
+          "start": 221.55,
+          "end": 221.73,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " end",
+          "start": 221.73,
+          "end": 222.03,
+          "probability": 0.98828125
+        },
+        {
+          "word": " of",
+          "start": 222.03,
+          "end": 222.21,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " the",
+          "start": 222.21,
+          "end": 222.27,
+          "probability": 0.978515625
+        },
+        {
+          "word": " day",
+          "start": 222.27,
+          "end": 222.53,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " the",
+          "start": 222.53,
+          "end": 223.15,
+          "probability": 0.5947265625
+        },
+        {
+          "word": " soldier",
+          "start": 223.15,
+          "end": 223.45,
+          "probability": 0.93408203125
+        },
+        {
+          "word": " is",
+          "start": 223.45,
+          "end": 223.93,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " another",
+          "start": 223.93,
+          "end": 224.65,
+          "probability": 0.966796875
+        },
+        {
+          "word": " human",
+          "start": 224.65,
+          "end": 225.05,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " being.",
+          "start": 225.05,
+          "end": 225.37,
+          "probability": 0.984375
+        },
+        {
+          "word": " He",
+          "start": 225.59,
+          "end": 225.67,
+          "probability": 0.96875
+        },
+        {
+          "word": " has",
+          "start": 225.67,
+          "end": 225.85,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " similar",
+          "start": 225.85,
+          "end": 226.19,
+          "probability": 0.708984375
+        },
+        {
+          "word": " body",
+          "start": 226.19,
+          "end": 226.49,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " composition,",
+          "start": 226.49,
+          "end": 227.09,
+          "probability": 0.94482421875
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "start": 227.09,
+      "end": 234.99,
+      "text": "mental health, family and emotions. At the Black Parade Consulting, we are looking into the human aspect of defence forces.",
+      "avg_logprob": -0.1667564658597968,
+      "no_speech_prob": 0.415283203125,
+      "compression_ratio": 1.6550387596899225,
+      "words": [
+        {
+          "word": " mental",
+          "start": 227.09,
+          "end": 228.03,
+          "probability": 0.04931640625
+        },
+        {
+          "word": " health,",
+          "start": 228.03,
+          "end": 228.49,
+          "probability": 0.95263671875
+        },
+        {
+          "word": " family",
+          "start": 229.21,
+          "end": 229.33,
+          "probability": 0.9482421875
+        },
+        {
+          "word": " and",
+          "start": 229.33,
+          "end": 229.93,
+          "probability": 0.7724609375
+        },
+        {
+          "word": " emotions.",
+          "start": 229.93,
+          "end": 230.31,
+          "probability": 0.95947265625
+        },
+        {
+          "word": " At",
+          "start": 230.95,
+          "end": 231.07,
+          "probability": 0.79931640625
+        },
+        {
+          "word": " the",
+          "start": 231.07,
+          "end": 231.19,
+          "probability": 0.9052734375
+        },
+        {
+          "word": " Black",
+          "start": 231.19,
+          "end": 231.43,
+          "probability": 0.8369140625
+        },
+        {
+          "word": " Parade",
+          "start": 231.43,
+          "end": 231.71,
+          "probability": 0.55010986328125
+        },
+        {
+          "word": " Consulting,",
+          "start": 231.71,
+          "end": 232.33,
+          "probability": 0.9140625
+        },
+        {
+          "word": " we",
+          "start": 232.45,
+          "end": 232.55,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " are",
+          "start": 232.55,
+          "end": 232.65,
+          "probability": 0.92919921875
+        },
+        {
+          "word": " looking",
+          "start": 232.65,
+          "end": 232.87,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " into",
+          "start": 232.87,
+          "end": 233.29,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " the",
+          "start": 233.29,
+          "end": 233.45,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " human",
+          "start": 233.45,
+          "end": 233.75,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " aspect",
+          "start": 233.75,
+          "end": 234.07,
+          "probability": 0.9130859375
+        },
+        {
+          "word": " of",
+          "start": 234.07,
+          "end": 234.31,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " defence",
+          "start": 234.31,
+          "end": 234.51,
+          "probability": 0.376220703125
+        },
+        {
+          "word": " forces.",
+          "start": 234.51,
+          "end": 234.99,
+          "probability": 0.9931640625
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "start": 235.69,
+      "end": 242.07,
+      "text": "We are using cutting edge technology to develop products which will enhance the capability and make the lives of the soldier easy.",
+      "avg_logprob": -0.1667564658597968,
+      "no_speech_prob": 0.415283203125,
+      "compression_ratio": 1.6550387596899225,
+      "words": [
+        {
+          "word": " We",
+          "start": 235.69,
+          "end": 235.69,
+          "probability": 0.978515625
+        },
+        {
+          "word": " are",
+          "start": 235.69,
+          "end": 235.83,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " using",
+          "start": 235.83,
+          "end": 236.11,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " cutting",
+          "start": 236.11,
+          "end": 236.41,
+          "probability": 0.96435546875
+        },
+        {
+          "word": " edge",
+          "start": 236.41,
+          "end": 236.65,
+          "probability": 0.5322265625
+        },
+        {
+          "word": " technology",
+          "start": 236.65,
+          "end": 237.15,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " to",
+          "start": 237.15,
+          "end": 237.37,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " develop",
+          "start": 237.37,
+          "end": 237.65,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " products",
+          "start": 237.65,
+          "end": 238.13,
+          "probability": 0.96484375
+        },
+        {
+          "word": " which",
+          "start": 238.13,
+          "end": 238.71,
+          "probability": 0.74462890625
+        },
+        {
+          "word": " will",
+          "start": 238.71,
+          "end": 238.91,
+          "probability": 0.6728515625
+        },
+        {
+          "word": " enhance",
+          "start": 238.91,
+          "end": 239.43,
+          "probability": 0.9921875
+        },
+        {
+          "word": " the",
+          "start": 239.43,
+          "end": 239.69,
+          "probability": 0.9765625
+        },
+        {
+          "word": " capability",
+          "start": 239.69,
+          "end": 240.05,
+          "probability": 0.96875
+        },
+        {
+          "word": " and",
+          "start": 240.05,
+          "end": 240.55,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " make",
+          "start": 240.55,
+          "end": 240.75,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " the",
+          "start": 240.75,
+          "end": 240.91,
+          "probability": 0.98046875
+        },
+        {
+          "word": " lives",
+          "start": 240.91,
+          "end": 241.19,
+          "probability": 0.86669921875
+        },
+        {
+          "word": " of",
+          "start": 241.19,
+          "end": 241.39,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " the",
+          "start": 241.39,
+          "end": 241.55,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " soldier",
+          "start": 241.55,
+          "end": 241.75,
+          "probability": 0.86181640625
+        },
+        {
+          "word": " easy.",
+          "start": 241.75,
+          "end": 242.07,
+          "probability": 0.927734375
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "start": 242.65,
+      "end": 252.29,
+      "text": "We are collaborating to make a product which is at the pilot stage helping the soldier determine early warning signs that can improve the physical and the mental wellbeing.",
+      "avg_logprob": -0.1667564658597968,
+      "no_speech_prob": 0.415283203125,
+      "compression_ratio": 1.6550387596899225,
+      "words": [
+        {
+          "word": " We",
+          "start": 242.65,
+          "end": 242.81,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " are",
+          "start": 242.81,
+          "end": 242.91,
+          "probability": 0.978515625
+        },
+        {
+          "word": " collaborating",
+          "start": 242.91,
+          "end": 243.31,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " to",
+          "start": 243.31,
+          "end": 243.69,
+          "probability": 0.9921875
+        },
+        {
+          "word": " make",
+          "start": 243.69,
+          "end": 243.87,
+          "probability": 0.994140625
+        },
+        {
+          "word": " a",
+          "start": 243.87,
+          "end": 244.09,
+          "probability": 0.95458984375
+        },
+        {
+          "word": " product",
+          "start": 244.09,
+          "end": 244.39,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " which",
+          "start": 244.39,
+          "end": 244.69,
+          "probability": 0.8310546875
+        },
+        {
+          "word": " is",
+          "start": 244.69,
+          "end": 244.93,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " at",
+          "start": 244.93,
+          "end": 245.43,
+          "probability": 0.7578125
+        },
+        {
+          "word": " the",
+          "start": 245.43,
+          "end": 245.57,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " pilot",
+          "start": 245.57,
+          "end": 245.83,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " stage",
+          "start": 245.83,
+          "end": 246.21,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " helping",
+          "start": 246.21,
+          "end": 246.69,
+          "probability": 0.58984375
+        },
+        {
+          "word": " the",
+          "start": 246.69,
+          "end": 246.99,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " soldier",
+          "start": 246.99,
+          "end": 247.39,
+          "probability": 0.986328125
+        },
+        {
+          "word": " determine",
+          "start": 247.39,
+          "end": 247.89,
+          "probability": 0.95947265625
+        },
+        {
+          "word": " early",
+          "start": 247.89,
+          "end": 248.37,
+          "probability": 0.98828125
+        },
+        {
+          "word": " warning",
+          "start": 248.37,
+          "end": 248.73,
+          "probability": 0.978515625
+        },
+        {
+          "word": " signs",
+          "start": 248.73,
+          "end": 249.43,
+          "probability": 0.96142578125
+        },
+        {
+          "word": " that",
+          "start": 249.43,
+          "end": 249.87,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " can",
+          "start": 249.87,
+          "end": 250.17,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " improve",
+          "start": 250.17,
+          "end": 250.63,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " the",
+          "start": 250.63,
+          "end": 250.85,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " physical",
+          "start": 250.85,
+          "end": 251.21,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " and",
+          "start": 251.21,
+          "end": 251.43,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " the",
+          "start": 251.43,
+          "end": 251.55,
+          "probability": 0.70751953125
+        },
+        {
+          "word": " mental",
+          "start": 251.55,
+          "end": 251.85,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " wellbeing.",
+          "start": 251.85,
+          "end": 252.29,
+          "probability": 0.397705078125
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "start": 252.29,
+      "end": 258.01,
+      "text": "This shall check the fatigue, stress, hypertension, alcohol impairment, these are the symptoms",
+      "avg_logprob": -0.16702927667883377,
+      "no_speech_prob": 0.145751953125,
+      "compression_ratio": 1.5407725321888412,
+      "words": [
+        {
+          "word": " This",
+          "start": 252.29,
+          "end": 253.23,
+          "probability": 0.1544189453125
+        },
+        {
+          "word": " shall",
+          "start": 253.23,
+          "end": 253.45,
+          "probability": 0.4658203125
+        },
+        {
+          "word": " check",
+          "start": 253.45,
+          "end": 253.69,
+          "probability": 0.9443359375
+        },
+        {
+          "word": " the",
+          "start": 253.69,
+          "end": 253.83,
+          "probability": 0.833984375
+        },
+        {
+          "word": " fatigue,",
+          "start": 253.83,
+          "end": 254.17,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " stress,",
+          "start": 254.49,
+          "end": 254.69,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " hypertension,",
+          "start": 255.45,
+          "end": 255.85,
+          "probability": 0.892578125
+        },
+        {
+          "word": " alcohol",
+          "start": 256.27,
+          "end": 256.49,
+          "probability": 0.86328125
+        },
+        {
+          "word": " impairment,",
+          "start": 256.49,
+          "end": 257.03,
+          "probability": 0.8759765625
+        },
+        {
+          "word": " these",
+          "start": 257.39,
+          "end": 257.41,
+          "probability": 0.59619140625
+        },
+        {
+          "word": " are",
+          "start": 257.41,
+          "end": 257.57,
+          "probability": 0.9609375
+        },
+        {
+          "word": " the",
+          "start": 257.57,
+          "end": 257.67,
+          "probability": 0.82470703125
+        },
+        {
+          "word": " symptoms",
+          "start": 257.67,
+          "end": 258.01,
+          "probability": 0.99462890625
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "start": 258.01,
+      "end": 266.57,
+      "text": "of lasting disorder across the globe and a major reason for today's concern like PTSD.",
+      "avg_logprob": -0.16702927667883377,
+      "no_speech_prob": 0.145751953125,
+      "compression_ratio": 1.5407725321888412,
+      "words": [
+        {
+          "word": " of",
+          "start": 258.01,
+          "end": 258.45,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " lasting",
+          "start": 258.45,
+          "end": 260.11,
+          "probability": 0.55712890625
+        },
+        {
+          "word": " disorder",
+          "start": 260.11,
+          "end": 260.73,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " across",
+          "start": 260.73,
+          "end": 261.55,
+          "probability": 0.82177734375
+        },
+        {
+          "word": " the",
+          "start": 261.55,
+          "end": 261.85,
+          "probability": 0.994140625
+        },
+        {
+          "word": " globe",
+          "start": 261.85,
+          "end": 262.15,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " and",
+          "start": 262.15,
+          "end": 262.89,
+          "probability": 0.68408203125
+        },
+        {
+          "word": " a",
+          "start": 262.89,
+          "end": 263.05,
+          "probability": 0.8017578125
+        },
+        {
+          "word": " major",
+          "start": 263.05,
+          "end": 263.33,
+          "probability": 0.998046875
+        },
+        {
+          "word": " reason",
+          "start": 263.33,
+          "end": 263.83,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " for",
+          "start": 263.83,
+          "end": 264.25,
+          "probability": 0.58837890625
+        },
+        {
+          "word": " today's",
+          "start": 264.25,
+          "end": 265.21,
+          "probability": 0.87890625
+        },
+        {
+          "word": " concern",
+          "start": 265.21,
+          "end": 265.73,
+          "probability": 0.93896484375
+        },
+        {
+          "word": " like",
+          "start": 265.73,
+          "end": 266.13,
+          "probability": 0.76318359375
+        },
+        {
+          "word": " PTSD.",
+          "start": 266.13,
+          "end": 266.57,
+          "probability": 0.98193359375
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "start": 267.65,
+      "end": 274.17,
+      "text": "The above medical checkup will just take a few seconds as you walk through a door frame",
+      "avg_logprob": -0.16702927667883377,
+      "no_speech_prob": 0.145751953125,
+      "compression_ratio": 1.5407725321888412,
+      "words": [
+        {
+          "word": " The",
+          "start": 267.65,
+          "end": 267.75,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " above",
+          "start": 267.75,
+          "end": 268.13,
+          "probability": 0.8681640625
+        },
+        {
+          "word": " medical",
+          "start": 268.13,
+          "end": 268.87,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " checkup",
+          "start": 268.87,
+          "end": 269.67,
+          "probability": 0.74072265625
+        },
+        {
+          "word": " will",
+          "start": 269.67,
+          "end": 269.93,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " just",
+          "start": 269.93,
+          "end": 270.19,
+          "probability": 0.9306640625
+        },
+        {
+          "word": " take",
+          "start": 270.19,
+          "end": 270.43,
+          "probability": 0.990234375
+        },
+        {
+          "word": " a",
+          "start": 270.43,
+          "end": 270.57,
+          "probability": 0.921875
+        },
+        {
+          "word": " few",
+          "start": 270.57,
+          "end": 270.69,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " seconds",
+          "start": 270.69,
+          "end": 271.07,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " as",
+          "start": 271.07,
+          "end": 272.05,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " you",
+          "start": 272.05,
+          "end": 272.27,
+          "probability": 0.986328125
+        },
+        {
+          "word": " walk",
+          "start": 272.27,
+          "end": 272.49,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " through",
+          "start": 272.49,
+          "end": 272.79,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " a",
+          "start": 272.79,
+          "end": 273.29,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " door",
+          "start": 273.29,
+          "end": 273.85,
+          "probability": 0.9501953125
+        },
+        {
+          "word": " frame",
+          "start": 273.85,
+          "end": 274.17,
+          "probability": 0.7333984375
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "start": 274.17,
+      "end": 278.43,
+      "text": "and it shall give you all the medical parameters of the soldier without a physical touch.",
+      "avg_logprob": -0.16702927667883377,
+      "no_speech_prob": 0.145751953125,
+      "compression_ratio": 1.5407725321888412,
+      "words": [
+        {
+          "word": " and",
+          "start": 274.17,
+          "end": 274.59,
+          "probability": 0.8701171875
+        },
+        {
+          "word": " it",
+          "start": 274.59,
+          "end": 274.75,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " shall",
+          "start": 274.75,
+          "end": 274.89,
+          "probability": 0.94140625
+        },
+        {
+          "word": " give",
+          "start": 274.89,
+          "end": 275.11,
+          "probability": 0.99609375
+        },
+        {
+          "word": " you",
+          "start": 275.11,
+          "end": 275.33,
+          "probability": 0.984375
+        },
+        {
+          "word": " all",
+          "start": 275.33,
+          "end": 275.85,
+          "probability": 0.98828125
+        },
+        {
+          "word": " the",
+          "start": 275.85,
+          "end": 275.99,
+          "probability": 0.970703125
+        },
+        {
+          "word": " medical",
+          "start": 275.99,
+          "end": 276.29,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " parameters",
+          "start": 276.29,
+          "end": 276.65,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " of",
+          "start": 276.65,
+          "end": 276.97,
+          "probability": 0.95751953125
+        },
+        {
+          "word": " the",
+          "start": 276.97,
+          "end": 277.05,
+          "probability": 0.970703125
+        },
+        {
+          "word": " soldier",
+          "start": 277.05,
+          "end": 277.29,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " without",
+          "start": 277.29,
+          "end": 277.63,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " a",
+          "start": 277.63,
+          "end": 277.81,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " physical",
+          "start": 277.81,
+          "end": 278.05,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " touch.",
+          "start": 278.05,
+          "end": 278.43,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "start": 278.43,
+      "end": 283.37,
+      "text": "We are also working on an air-based supply chain and logistic chain management system.",
+      "avg_logprob": -0.0868326813603441,
+      "no_speech_prob": 0.11737060546875,
+      "compression_ratio": 1.7710843373493976,
+      "words": [
+        {
+          "word": " We",
+          "start": 278.43,
+          "end": 279.03,
+          "probability": 0.41796875
+        },
+        {
+          "word": " are",
+          "start": 279.03,
+          "end": 279.15,
+          "probability": 0.91357421875
+        },
+        {
+          "word": " also",
+          "start": 279.15,
+          "end": 279.51,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " working",
+          "start": 279.51,
+          "end": 279.83,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " on",
+          "start": 279.83,
+          "end": 280.17,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " an",
+          "start": 280.17,
+          "end": 280.31,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " air",
+          "start": 280.31,
+          "end": 280.57,
+          "probability": 0.583984375
+        },
+        {
+          "word": "-based",
+          "start": 280.57,
+          "end": 280.85,
+          "probability": 0.7587890625
+        },
+        {
+          "word": " supply",
+          "start": 280.85,
+          "end": 281.39,
+          "probability": 0.994140625
+        },
+        {
+          "word": " chain",
+          "start": 281.39,
+          "end": 281.73,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " and",
+          "start": 281.73,
+          "end": 281.87,
+          "probability": 0.966796875
+        },
+        {
+          "word": " logistic",
+          "start": 281.87,
+          "end": 282.27,
+          "probability": 0.86572265625
+        },
+        {
+          "word": " chain",
+          "start": 282.27,
+          "end": 282.51,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " management",
+          "start": 282.51,
+          "end": 282.89,
+          "probability": 0.9921875
+        },
+        {
+          "word": " system.",
+          "start": 282.89,
+          "end": 283.37,
+          "probability": 0.97802734375
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "start": 283.87,
+      "end": 288.21,
+      "text": "This shall assist the soldier in creating an accurate logistic chain management",
+      "avg_logprob": -0.0868326813603441,
+      "no_speech_prob": 0.11737060546875,
+      "compression_ratio": 1.7710843373493976,
+      "words": [
+        {
+          "word": " This",
+          "start": 283.87,
+          "end": 284.11,
+          "probability": 0.92822265625
+        },
+        {
+          "word": " shall",
+          "start": 284.11,
+          "end": 284.31,
+          "probability": 0.79345703125
+        },
+        {
+          "word": " assist",
+          "start": 284.31,
+          "end": 284.81,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " the",
+          "start": 284.81,
+          "end": 285.07,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " soldier",
+          "start": 285.07,
+          "end": 285.41,
+          "probability": 0.833984375
+        },
+        {
+          "word": " in",
+          "start": 285.41,
+          "end": 285.69,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " creating",
+          "start": 285.69,
+          "end": 286.11,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " an",
+          "start": 286.11,
+          "end": 286.33,
+          "probability": 0.87451171875
+        },
+        {
+          "word": " accurate",
+          "start": 286.33,
+          "end": 286.67,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " logistic",
+          "start": 286.67,
+          "end": 287.35,
+          "probability": 0.964599609375
+        },
+        {
+          "word": " chain",
+          "start": 287.35,
+          "end": 287.65,
+          "probability": 0.994140625
+        },
+        {
+          "word": " management",
+          "start": 287.65,
+          "end": 288.21,
+          "probability": 0.99267578125
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "start": 288.21,
+      "end": 293.55,
+      "text": "keeping in view all the matters of concern like terrain, harsh weather, road conditions",
+      "avg_logprob": -0.0868326813603441,
+      "no_speech_prob": 0.11737060546875,
+      "compression_ratio": 1.7710843373493976,
+      "words": [
+        {
+          "word": " keeping",
+          "start": 288.21,
+          "end": 289.23,
+          "probability": 0.287841796875
+        },
+        {
+          "word": " in",
+          "start": 289.23,
+          "end": 289.61,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " view",
+          "start": 289.61,
+          "end": 289.85,
+          "probability": 0.9921875
+        },
+        {
+          "word": " all",
+          "start": 289.85,
+          "end": 290.15,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " the",
+          "start": 290.15,
+          "end": 290.33,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " matters",
+          "start": 290.33,
+          "end": 290.63,
+          "probability": 0.9921875
+        },
+        {
+          "word": " of",
+          "start": 290.63,
+          "end": 290.83,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " concern",
+          "start": 290.83,
+          "end": 291.27,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " like",
+          "start": 291.27,
+          "end": 291.51,
+          "probability": 0.90234375
+        },
+        {
+          "word": " terrain,",
+          "start": 291.51,
+          "end": 291.83,
+          "probability": 0.97021484375
+        },
+        {
+          "word": " harsh",
+          "start": 292.23,
+          "end": 292.49,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " weather,",
+          "start": 292.49,
+          "end": 292.81,
+          "probability": 0.998046875
+        },
+        {
+          "word": " road",
+          "start": 292.97,
+          "end": 293.11,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " conditions",
+          "start": 293.11,
+          "end": 293.55,
+          "probability": 0.99609375
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "start": 293.55,
+      "end": 298.71,
+      "text": "and stacking and stocking of food and ammunition as per the requirement of the hour.",
+      "avg_logprob": -0.0868326813603441,
+      "no_speech_prob": 0.11737060546875,
+      "compression_ratio": 1.7710843373493976,
+      "words": [
+        {
+          "word": " and",
+          "start": 293.55,
+          "end": 294.03,
+          "probability": 0.68701171875
+        },
+        {
+          "word": " stacking",
+          "start": 294.03,
+          "end": 294.89,
+          "probability": 0.78125
+        },
+        {
+          "word": " and",
+          "start": 294.89,
+          "end": 295.13,
+          "probability": 0.9658203125
+        },
+        {
+          "word": " stocking",
+          "start": 295.13,
+          "end": 295.59,
+          "probability": 0.89501953125
+        },
+        {
+          "word": " of",
+          "start": 295.59,
+          "end": 295.67,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " food",
+          "start": 295.67,
+          "end": 295.91,
+          "probability": 0.982421875
+        },
+        {
+          "word": " and",
+          "start": 295.91,
+          "end": 296.07,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " ammunition",
+          "start": 296.07,
+          "end": 296.45,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " as",
+          "start": 296.45,
+          "end": 297.23,
+          "probability": 0.826171875
+        },
+        {
+          "word": " per",
+          "start": 297.23,
+          "end": 297.41,
+          "probability": 0.9921875
+        },
+        {
+          "word": " the",
+          "start": 297.41,
+          "end": 297.51,
+          "probability": 0.986328125
+        },
+        {
+          "word": " requirement",
+          "start": 297.51,
+          "end": 297.83,
+          "probability": 0.95703125
+        },
+        {
+          "word": " of",
+          "start": 297.83,
+          "end": 298.09,
+          "probability": 0.9921875
+        },
+        {
+          "word": " the",
+          "start": 298.09,
+          "end": 298.21,
+          "probability": 0.94921875
+        },
+        {
+          "word": " hour.",
+          "start": 298.21,
+          "end": 298.71,
+          "probability": 0.86962890625
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "start": 299.15,
+      "end": 305.59,
+      "text": "This would enhance the logistical capability of the defence forces at the most inhospitable terrains.",
+      "avg_logprob": -0.0868326813603441,
+      "no_speech_prob": 0.11737060546875,
+      "compression_ratio": 1.7710843373493976,
+      "words": [
+        {
+          "word": " This",
+          "start": 299.15,
+          "end": 299.47,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " would",
+          "start": 299.47,
+          "end": 299.75,
+          "probability": 0.990234375
+        },
+        {
+          "word": " enhance",
+          "start": 299.75,
+          "end": 300.33,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " the",
+          "start": 300.33,
+          "end": 300.79,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " logistical",
+          "start": 300.79,
+          "end": 301.43,
+          "probability": 0.772216796875
+        },
+        {
+          "word": " capability",
+          "start": 301.43,
+          "end": 301.91,
+          "probability": 0.970703125
+        },
+        {
+          "word": " of",
+          "start": 301.91,
+          "end": 302.27,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " the",
+          "start": 302.27,
+          "end": 302.35,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " defence",
+          "start": 302.35,
+          "end": 302.55,
+          "probability": 0.4853515625
+        },
+        {
+          "word": " forces",
+          "start": 302.55,
+          "end": 302.99,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " at",
+          "start": 302.99,
+          "end": 303.85,
+          "probability": 0.88232421875
+        },
+        {
+          "word": " the",
+          "start": 303.85,
+          "end": 303.99,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " most",
+          "start": 303.99,
+          "end": 304.19,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " inhospitable",
+          "start": 304.19,
+          "end": 304.95,
+          "probability": 0.99609375
+        },
+        {
+          "word": " terrains.",
+          "start": 304.95,
+          "end": 305.59,
+          "probability": 0.915283203125
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "start": 305.59,
+      "end": 316.11,
+      "text": "We are creating an XR environment that is AR-VR, a base ground proving that help the soldier for the real-time feel of the ground and terrain.",
+      "avg_logprob": -0.19076236001737826,
+      "no_speech_prob": 0.08868408203125,
+      "compression_ratio": 1.7203389830508475,
+      "words": [
+        {
+          "word": " We",
+          "start": 305.59,
+          "end": 306.23,
+          "probability": 0.5263671875
+        },
+        {
+          "word": " are",
+          "start": 306.23,
+          "end": 306.59,
+          "probability": 0.89208984375
+        },
+        {
+          "word": " creating",
+          "start": 306.59,
+          "end": 307.01,
+          "probability": 0.9541015625
+        },
+        {
+          "word": " an",
+          "start": 307.01,
+          "end": 307.23,
+          "probability": 0.93212890625
+        },
+        {
+          "word": " XR",
+          "start": 307.23,
+          "end": 307.73,
+          "probability": 0.9208984375
+        },
+        {
+          "word": " environment",
+          "start": 307.73,
+          "end": 308.21,
+          "probability": 0.86083984375
+        },
+        {
+          "word": " that",
+          "start": 308.21,
+          "end": 308.55,
+          "probability": 0.61767578125
+        },
+        {
+          "word": " is",
+          "start": 308.55,
+          "end": 308.65,
+          "probability": 0.8662109375
+        },
+        {
+          "word": " AR",
+          "start": 308.65,
+          "end": 309.09,
+          "probability": 0.921875
+        },
+        {
+          "word": "-VR,",
+          "start": 309.09,
+          "end": 309.77,
+          "probability": 0.455352783203125
+        },
+        {
+          "word": " a",
+          "start": 310.17,
+          "end": 310.65,
+          "probability": 0.63232421875
+        },
+        {
+          "word": " base",
+          "start": 310.65,
+          "end": 310.83,
+          "probability": 0.82568359375
+        },
+        {
+          "word": " ground",
+          "start": 310.83,
+          "end": 311.17,
+          "probability": 0.95947265625
+        },
+        {
+          "word": " proving",
+          "start": 311.17,
+          "end": 311.47,
+          "probability": 0.201904296875
+        },
+        {
+          "word": " that",
+          "start": 311.47,
+          "end": 311.87,
+          "probability": 0.8974609375
+        },
+        {
+          "word": " help",
+          "start": 311.87,
+          "end": 312.33,
+          "probability": 0.3193359375
+        },
+        {
+          "word": " the",
+          "start": 312.33,
+          "end": 312.55,
+          "probability": 0.9677734375
+        },
+        {
+          "word": " soldier",
+          "start": 312.55,
+          "end": 312.89,
+          "probability": 0.83935546875
+        },
+        {
+          "word": " for",
+          "start": 312.89,
+          "end": 313.19,
+          "probability": 0.94287109375
+        },
+        {
+          "word": " the",
+          "start": 313.19,
+          "end": 313.35,
+          "probability": 0.9501953125
+        },
+        {
+          "word": " real",
+          "start": 313.35,
+          "end": 313.65,
+          "probability": 0.98291015625
+        },
+        {
+          "word": "-time",
+          "start": 313.65,
+          "end": 313.97,
+          "probability": 0.749267578125
+        },
+        {
+          "word": " feel",
+          "start": 313.97,
+          "end": 314.47,
+          "probability": 0.337646484375
+        },
+        {
+          "word": " of",
+          "start": 314.47,
+          "end": 314.75,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " the",
+          "start": 314.75,
+          "end": 314.91,
+          "probability": 0.95947265625
+        },
+        {
+          "word": " ground",
+          "start": 314.91,
+          "end": 315.21,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " and",
+          "start": 315.21,
+          "end": 315.81,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " terrain.",
+          "start": 315.81,
+          "end": 316.11,
+          "probability": 0.97802734375
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "start": 316.53,
+      "end": 327.77,
+      "text": "We are closely working on simulation of battlefields in real-time to practice the soldier of various skills and also in decision making by testing the military prowess.",
+      "avg_logprob": -0.19076236001737826,
+      "no_speech_prob": 0.08868408203125,
+      "compression_ratio": 1.7203389830508475,
+      "words": [
+        {
+          "word": " We",
+          "start": 316.53,
+          "end": 316.63,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " are",
+          "start": 316.63,
+          "end": 316.91,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " closely",
+          "start": 316.91,
+          "end": 317.27,
+          "probability": 0.97119140625
+        },
+        {
+          "word": " working",
+          "start": 317.27,
+          "end": 317.63,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " on",
+          "start": 317.63,
+          "end": 317.99,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " simulation",
+          "start": 317.99,
+          "end": 318.45,
+          "probability": 0.75341796875
+        },
+        {
+          "word": " of",
+          "start": 318.45,
+          "end": 318.93,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " battlefields",
+          "start": 318.93,
+          "end": 319.67,
+          "probability": 0.8271484375
+        },
+        {
+          "word": " in",
+          "start": 319.67,
+          "end": 319.75,
+          "probability": 0.7509765625
+        },
+        {
+          "word": " real",
+          "start": 319.75,
+          "end": 320.03,
+          "probability": 0.97802734375
+        },
+        {
+          "word": "-time",
+          "start": 320.03,
+          "end": 320.39,
+          "probability": 0.7098388671875
+        },
+        {
+          "word": " to",
+          "start": 320.39,
+          "end": 320.61,
+          "probability": 0.92919921875
+        },
+        {
+          "word": " practice",
+          "start": 320.61,
+          "end": 320.95,
+          "probability": 0.88671875
+        },
+        {
+          "word": " the",
+          "start": 320.95,
+          "end": 321.17,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " soldier",
+          "start": 321.17,
+          "end": 321.53,
+          "probability": 0.87353515625
+        },
+        {
+          "word": " of",
+          "start": 321.53,
+          "end": 321.93,
+          "probability": 0.9375
+        },
+        {
+          "word": " various",
+          "start": 321.93,
+          "end": 323.11,
+          "probability": 0.970703125
+        },
+        {
+          "word": " skills",
+          "start": 323.11,
+          "end": 323.51,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " and",
+          "start": 323.51,
+          "end": 323.87,
+          "probability": 0.869140625
+        },
+        {
+          "word": " also",
+          "start": 323.87,
+          "end": 324.21,
+          "probability": 0.98046875
+        },
+        {
+          "word": " in",
+          "start": 324.21,
+          "end": 324.45,
+          "probability": 0.94384765625
+        },
+        {
+          "word": " decision",
+          "start": 324.45,
+          "end": 324.73,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " making",
+          "start": 324.73,
+          "end": 325.11,
+          "probability": 0.5048828125
+        },
+        {
+          "word": " by",
+          "start": 325.11,
+          "end": 325.73,
+          "probability": 0.861328125
+        },
+        {
+          "word": " testing",
+          "start": 325.73,
+          "end": 326.17,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " the",
+          "start": 326.17,
+          "end": 326.57,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " military",
+          "start": 326.57,
+          "end": 327.25,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " prowess.",
+          "start": 327.25,
+          "end": 327.77,
+          "probability": 0.988525390625
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "start": 328.03,
+      "end": 332.87,
+      "text": "We intend to periodically validate the soldier in more cost-effective in real-time situations.",
+      "avg_logprob": -0.19076236001737826,
+      "no_speech_prob": 0.08868408203125,
+      "compression_ratio": 1.7203389830508475,
+      "words": [
+        {
+          "word": " We",
+          "start": 328.03,
+          "end": 328.11,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " intend",
+          "start": 328.11,
+          "end": 328.51,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " to",
+          "start": 328.51,
+          "end": 328.75,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " periodically",
+          "start": 328.75,
+          "end": 329.27,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " validate",
+          "start": 329.27,
+          "end": 329.69,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " the",
+          "start": 329.69,
+          "end": 329.97,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " soldier",
+          "start": 329.97,
+          "end": 330.33,
+          "probability": 0.978515625
+        },
+        {
+          "word": " in",
+          "start": 330.33,
+          "end": 330.65,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " more",
+          "start": 330.65,
+          "end": 330.87,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " cost",
+          "start": 330.87,
+          "end": 331.21,
+          "probability": 0.99560546875
+        },
+        {
+          "word": "-effective",
+          "start": 331.21,
+          "end": 331.59,
+          "probability": 0.815673828125
+        },
+        {
+          "word": " in",
+          "start": 331.59,
+          "end": 332.01,
+          "probability": 0.301513671875
+        },
+        {
+          "word": " real",
+          "start": 332.01,
+          "end": 332.25,
+          "probability": 0.990234375
+        },
+        {
+          "word": "-time",
+          "start": 332.25,
+          "end": 332.43,
+          "probability": 0.964599609375
+        },
+        {
+          "word": " situations.",
+          "start": 332.43,
+          "end": 332.87,
+          "probability": 0.978515625
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "start": 332.87,
+      "end": 341.69,
+      "text": "Our mission is to help the soldiers to discover, develop and demonstrate their skills using robotics, AI, AR, VR and Metaverse technologies.",
+      "avg_logprob": -0.09859375119209289,
+      "no_speech_prob": 0.10345458984375,
+      "compression_ratio": 1.591549295774648,
+      "words": [
+        {
+          "word": " Our",
+          "start": 332.87,
+          "end": 333.67,
+          "probability": 0.46435546875
+        },
+        {
+          "word": " mission",
+          "start": 333.67,
+          "end": 333.99,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " is",
+          "start": 333.99,
+          "end": 334.23,
+          "probability": 0.98828125
+        },
+        {
+          "word": " to",
+          "start": 334.23,
+          "end": 334.37,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " help",
+          "start": 334.37,
+          "end": 334.61,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " the",
+          "start": 334.61,
+          "end": 334.83,
+          "probability": 0.88623046875
+        },
+        {
+          "word": " soldiers",
+          "start": 334.83,
+          "end": 335.17,
+          "probability": 0.9267578125
+        },
+        {
+          "word": " to",
+          "start": 335.17,
+          "end": 335.59,
+          "probability": 0.8876953125
+        },
+        {
+          "word": " discover,",
+          "start": 335.59,
+          "end": 335.99,
+          "probability": 0.97119140625
+        },
+        {
+          "word": " develop",
+          "start": 336.29,
+          "end": 336.43,
+          "probability": 0.986328125
+        },
+        {
+          "word": " and",
+          "start": 336.43,
+          "end": 336.71,
+          "probability": 0.87548828125
+        },
+        {
+          "word": " demonstrate",
+          "start": 336.71,
+          "end": 337.15,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " their",
+          "start": 337.15,
+          "end": 337.43,
+          "probability": 0.9033203125
+        },
+        {
+          "word": " skills",
+          "start": 337.43,
+          "end": 337.71,
+          "probability": 0.970703125
+        },
+        {
+          "word": " using",
+          "start": 337.71,
+          "end": 338.35,
+          "probability": 0.9140625
+        },
+        {
+          "word": " robotics,",
+          "start": 338.35,
+          "end": 338.75,
+          "probability": 0.7841796875
+        },
+        {
+          "word": " AI,",
+          "start": 339.13,
+          "end": 339.21,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " AR,",
+          "start": 339.77,
+          "end": 339.77,
+          "probability": 0.7763671875
+        },
+        {
+          "word": " VR",
+          "start": 339.89,
+          "end": 340.01,
+          "probability": 0.986328125
+        },
+        {
+          "word": " and",
+          "start": 340.01,
+          "end": 340.33,
+          "probability": 0.8291015625
+        },
+        {
+          "word": " Metaverse",
+          "start": 340.33,
+          "end": 340.81,
+          "probability": 0.7766927083333334
+        },
+        {
+          "word": " technologies.",
+          "start": 340.81,
+          "end": 341.69,
+          "probability": 0.8251953125
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "start": 342.47,
+      "end": 347.17,
+      "text": "We have VR simulation in which the enemy is created using AI.",
+      "avg_logprob": -0.09859375119209289,
+      "no_speech_prob": 0.10345458984375,
+      "compression_ratio": 1.591549295774648,
+      "words": [
+        {
+          "word": " We",
+          "start": 342.47,
+          "end": 342.69,
+          "probability": 0.94287109375
+        },
+        {
+          "word": " have",
+          "start": 342.69,
+          "end": 343.33,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " VR",
+          "start": 343.33,
+          "end": 343.91,
+          "probability": 0.88671875
+        },
+        {
+          "word": " simulation",
+          "start": 343.91,
+          "end": 344.33,
+          "probability": 0.91796875
+        },
+        {
+          "word": " in",
+          "start": 344.33,
+          "end": 344.77,
+          "probability": 0.9501953125
+        },
+        {
+          "word": " which",
+          "start": 344.77,
+          "end": 344.91,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " the",
+          "start": 344.91,
+          "end": 345.07,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " enemy",
+          "start": 345.07,
+          "end": 345.37,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " is",
+          "start": 345.37,
+          "end": 345.75,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " created",
+          "start": 345.75,
+          "end": 346.29,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " using",
+          "start": 346.29,
+          "end": 346.75,
+          "probability": 0.98046875
+        },
+        {
+          "word": " AI.",
+          "start": 346.75,
+          "end": 347.17,
+          "probability": 0.9853515625
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "start": 347.67,
+      "end": 356.25,
+      "text": "The enemy will behave based on the situation painted to help the soldier practice various tactical maneuvers in the real-time situation.",
+      "avg_logprob": -0.09859375119209289,
+      "no_speech_prob": 0.10345458984375,
+      "compression_ratio": 1.591549295774648,
+      "words": [
+        {
+          "word": " The",
+          "start": 347.67,
+          "end": 347.77,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " enemy",
+          "start": 347.77,
+          "end": 348.13,
+          "probability": 0.99609375
+        },
+        {
+          "word": " will",
+          "start": 348.13,
+          "end": 348.49,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " behave",
+          "start": 348.49,
+          "end": 348.93,
+          "probability": 0.974609375
+        },
+        {
+          "word": " based",
+          "start": 348.93,
+          "end": 349.31,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " on",
+          "start": 349.31,
+          "end": 349.65,
+          "probability": 0.99609375
+        },
+        {
+          "word": " the",
+          "start": 349.65,
+          "end": 349.83,
+          "probability": 0.982421875
+        },
+        {
+          "word": " situation",
+          "start": 349.83,
+          "end": 350.59,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " painted",
+          "start": 350.59,
+          "end": 351.65,
+          "probability": 0.67529296875
+        },
+        {
+          "word": " to",
+          "start": 351.65,
+          "end": 351.97,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " help",
+          "start": 351.97,
+          "end": 352.21,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " the",
+          "start": 352.21,
+          "end": 352.37,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " soldier",
+          "start": 352.37,
+          "end": 352.69,
+          "probability": 0.8623046875
+        },
+        {
+          "word": " practice",
+          "start": 352.69,
+          "end": 353.11,
+          "probability": 0.91748046875
+        },
+        {
+          "word": " various",
+          "start": 353.11,
+          "end": 353.45,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " tactical",
+          "start": 353.45,
+          "end": 353.87,
+          "probability": 0.94140625
+        },
+        {
+          "word": " maneuvers",
+          "start": 353.87,
+          "end": 355.07,
+          "probability": 0.910400390625
+        },
+        {
+          "word": " in",
+          "start": 355.07,
+          "end": 355.33,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " the",
+          "start": 355.33,
+          "end": 355.43,
+          "probability": 0.92822265625
+        },
+        {
+          "word": " real",
+          "start": 355.43,
+          "end": 355.63,
+          "probability": 0.99072265625
+        },
+        {
+          "word": "-time",
+          "start": 355.63,
+          "end": 355.81,
+          "probability": 0.74560546875
+        },
+        {
+          "word": " situation.",
+          "start": 355.81,
+          "end": 356.25,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "start": 356.25,
+      "end": 364.45,
+      "text": "These AI based instructional concepts can be used by various verticals from safety, training, wargaming etc.",
+      "avg_logprob": -0.17462383845338114,
+      "no_speech_prob": 0.049835205078125,
+      "compression_ratio": 1.3604651162790697,
+      "words": [
+        {
+          "word": " These",
+          "start": 356.25,
+          "end": 356.71,
+          "probability": 0.6796875
+        },
+        {
+          "word": " AI",
+          "start": 356.71,
+          "end": 357.01,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " based",
+          "start": 357.01,
+          "end": 357.37,
+          "probability": 0.6806640625
+        },
+        {
+          "word": " instructional",
+          "start": 357.37,
+          "end": 358.01,
+          "probability": 0.974609375
+        },
+        {
+          "word": " concepts",
+          "start": 358.01,
+          "end": 358.73,
+          "probability": 0.7353515625
+        },
+        {
+          "word": " can",
+          "start": 358.73,
+          "end": 359.11,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " be",
+          "start": 359.11,
+          "end": 359.29,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " used",
+          "start": 359.29,
+          "end": 359.61,
+          "probability": 0.98828125
+        },
+        {
+          "word": " by",
+          "start": 359.61,
+          "end": 359.87,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " various",
+          "start": 359.87,
+          "end": 360.23,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " verticals",
+          "start": 360.23,
+          "end": 361.57,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " from",
+          "start": 361.57,
+          "end": 361.71,
+          "probability": 0.93359375
+        },
+        {
+          "word": " safety,",
+          "start": 361.71,
+          "end": 362.51,
+          "probability": 0.83203125
+        },
+        {
+          "word": " training,",
+          "start": 362.97,
+          "end": 363.21,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " wargaming",
+          "start": 363.67,
+          "end": 364.13,
+          "probability": 0.8819986979166666
+        },
+        {
+          "word": " etc.",
+          "start": 364.13,
+          "end": 364.45,
+          "probability": 0.61865234375
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "start": 365.07,
+      "end": 373.49,
+      "text": "We at the VPC intend to use the latest AI based technology to develop products which are unique and a class apart. Thank you.",
+      "avg_logprob": -0.17462383845338114,
+      "no_speech_prob": 0.049835205078125,
+      "compression_ratio": 1.3604651162790697,
+      "words": [
+        {
+          "word": " We",
+          "start": 365.07,
+          "end": 365.21,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " at",
+          "start": 365.21,
+          "end": 365.37,
+          "probability": 0.919921875
+        },
+        {
+          "word": " the",
+          "start": 365.37,
+          "end": 365.47,
+          "probability": 0.67578125
+        },
+        {
+          "word": " VPC",
+          "start": 365.47,
+          "end": 366.23,
+          "probability": 0.849853515625
+        },
+        {
+          "word": " intend",
+          "start": 366.23,
+          "end": 366.67,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " to",
+          "start": 366.67,
+          "end": 367.05,
+          "probability": 0.9921875
+        },
+        {
+          "word": " use",
+          "start": 367.05,
+          "end": 367.73,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " the",
+          "start": 367.73,
+          "end": 367.95,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " latest",
+          "start": 367.95,
+          "end": 368.21,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " AI",
+          "start": 368.21,
+          "end": 368.51,
+          "probability": 0.99609375
+        },
+        {
+          "word": " based",
+          "start": 368.51,
+          "end": 368.85,
+          "probability": 0.95166015625
+        },
+        {
+          "word": " technology",
+          "start": 368.85,
+          "end": 369.41,
+          "probability": 0.91064453125
+        },
+        {
+          "word": " to",
+          "start": 369.41,
+          "end": 369.85,
+          "probability": 0.97265625
+        },
+        {
+          "word": " develop",
+          "start": 369.85,
+          "end": 370.19,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " products",
+          "start": 370.19,
+          "end": 370.65,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " which",
+          "start": 370.65,
+          "end": 370.95,
+          "probability": 0.95068359375
+        },
+        {
+          "word": " are",
+          "start": 370.95,
+          "end": 371.23,
+          "probability": 0.99609375
+        },
+        {
+          "word": " unique",
+          "start": 371.23,
+          "end": 371.55,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " and",
+          "start": 371.55,
+          "end": 371.93,
+          "probability": 0.96435546875
+        },
+        {
+          "word": " a",
+          "start": 371.93,
+          "end": 372.15,
+          "probability": 0.853515625
+        },
+        {
+          "word": " class",
+          "start": 372.15,
+          "end": 372.39,
+          "probability": 0.943359375
+        },
+        {
+          "word": " apart.",
+          "start": 372.39,
+          "end": 372.77,
+          "probability": 0.91845703125
+        },
+        {
+          "word": " Thank",
+          "start": 373.21,
+          "end": 373.31,
+          "probability": 0.970703125
+        },
+        {
+          "word": " you.",
+          "start": 373.31,
+          "end": 373.49,
+          "probability": 0.85302734375
+        }
+      ]
+    }
+  ],
+  "text": "I am Colonel Shrikmar, a veteran from the Indian Army.\nPresently, I am the founder and MD of the Black Parrot Consulting, that is BPC.\nWe are an artificial intelligence startup.\nWe are closely working with the technology leaders in AI and XR, that is AR and VR,\nin the fields of health and defense.\nI am here to talk on AI in war.\nThe future wars looks like a science fiction movie of the past.\nThe introduction of AI, nanotechnology, robotics, spacecraft and battleships looks like a scientific fiction Hollywood movie from the past.\nThe American movie Terminator was a sky-fi movie which shows the dangers of the AI war robot going rogue,\nbut I guess AI will be as autonomous in its decision making on the grounds as much as the humans allow it to be.\nAs far as the psychological operations are concerned, it will be at the next level with the AI component platform will have no emotional questions.\nIt will be very precise and continuous. For example, if this technology existed during the war in Iraq after the death of Saddam Hussein,\nthey could have still continued to give press conferences and press releases all across the war zone and which would have kept the war going on.\nIt would be very difficult to identify such kinds of deception.\nIn the present day war situation, the whole concept of war has changed from classic military doctrines.\nThe major lessons to be taken home from the present day conflict is the first time use of unmanned combat vehicle,\nalso known as the combat drones, is being used in full scale war.\nThese drones are of the future and will be smaller, quicker and more lethal. They shall dominate the land, air and sea including the space as the race to the moon and the Mars is on.\nThere is a revolution in combat as the combat effectiveness will depend on how fast the unmanned drones equipped with AI platform does quick decision making with minimal error in coordination with the other entities in the battlefield.\nThese robotic armies are to stay for a long time to come.\nThey are much above the sky-five movies of the yester-years as they will have no obstacles to cross.\nThe future wars will reach the orbit of the Earth.\nThese AI-based unmanned drones can move in hypersonic speeds and create more destruction than a human flying a fighter jet.\nI want to say that the future military technologies will transform\nfrom the heavy equipment to the lighter, faster, cheaper substitute of machine\nwhich thinks and takes decisions to execute the target with more precision\nwithout any element of human emotional involvement.\nThe new breed of generals would be the programmers and the AI engineers\nwho will develop these AI based platforms with real time battlefield data\nto make decisions in the strategic and tactical levels assisting the robotic armies.\nThese AI based combat drones will be used on land, air and sea being unmanned,\nwill have more capabilities than man behind the machine.\nThey will cover more distance with more speed and stealth and create more destruction.\nThey could dive deeper than the submarines in the deep sea without any crew and create havoc.\nI want to say that the future military technologies will transform from heavy equipment to cheaper\nto lighter to fast substitutes like the combat drones which thinks and takes decisions with precision\nto engage the target. Most of the defence establishment today are meant to be the fighting force\nbut as the end of the day the soldier is another human being. He has similar body composition,\nmental health, family and emotions. At the Black Parade Consulting, we are looking into the human aspect of defence forces.\nWe are using cutting edge technology to develop products which will enhance the capability and make the lives of the soldier easy.\nWe are collaborating to make a product which is at the pilot stage helping the soldier determine early warning signs that can improve the physical and the mental wellbeing.\nThis shall check the fatigue, stress, hypertension, alcohol impairment, these are the symptoms\nof lasting disorder across the globe and a major reason for today's concern like PTSD.\nThe above medical checkup will just take a few seconds as you walk through a door frame\nand it shall give you all the medical parameters of the soldier without a physical touch.\nWe are also working on an air-based supply chain and logistic chain management system.\nThis shall assist the soldier in creating an accurate logistic chain management\nkeeping in view all the matters of concern like terrain, harsh weather, road conditions\nand stacking and stocking of food and ammunition as per the requirement of the hour.\nThis would enhance the logistical capability of the defence forces at the most inhospitable terrains.\nWe are creating an XR environment that is AR-VR, a base ground proving that help the soldier for the real-time feel of the ground and terrain.\nWe are closely working on simulation of battlefields in real-time to practice the soldier of various skills and also in decision making by testing the military prowess.\nWe intend to periodically validate the soldier in more cost-effective in real-time situations.\nOur mission is to help the soldiers to discover, develop and demonstrate their skills using robotics, AI, AR, VR and Metaverse technologies.\nWe have VR simulation in which the enemy is created using AI.\nThe enemy will behave based on the situation painted to help the soldier practice various tactical maneuvers in the real-time situation.\nThese AI based instructional concepts can be used by various verticals from safety, training, wargaming etc.\nWe at the VPC intend to use the latest AI based technology to develop products which are unique and a class apart. Thank you."
+}

@@ -1,0 +1,229 @@
+{
+  "job_id": "vjob_20260622_070559_cb465647",
+  "storage_backend": "local",
+  "objects": {
+    "video": {
+      "object_id": "video",
+      "kind": "video",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_070559_cb465647_ai_inclusion_governance.mp4",
+      "filename": "vjob_20260622_070559_cb465647_ai_inclusion_governance.mp4",
+      "content_type": "video/mp4",
+      "size_bytes": 12832615,
+      "created_at": "2026-06-22T07:10:04.186120"
+    },
+    "srt": {
+      "object_id": "srt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_070559_cb465647_ai_inclusion_governance.srt",
+      "filename": "vjob_20260622_070559_cb465647_ai_inclusion_governance.srt",
+      "content_type": "application/x-subrip",
+      "size_bytes": 1617,
+      "created_at": "2026-06-22T07:10:19.894085",
+      "subtitle_format": "srt"
+    },
+    "vtt": {
+      "object_id": "vtt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_070559_cb465647_ai_inclusion_governance.vtt",
+      "filename": "vjob_20260622_070559_cb465647_ai_inclusion_governance.vtt",
+      "content_type": "text/vtt",
+      "size_bytes": 1580,
+      "created_at": "2026-06-22T07:10:19.894085",
+      "subtitle_format": "vtt"
+    },
+    "manifest": {
+      "object_id": "manifest",
+      "kind": "manifest",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_070559_cb465647_ai_inclusion_governance_export_manifest.json",
+      "filename": "export_manifest.json",
+      "content_type": "application/json",
+      "size_bytes": 62829,
+      "created_at": "2026-06-22T07:10:20.394084"
+    },
+    "visual_S1_HOOK": {
+      "object_id": "visual_S1_HOOK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/visuals/S1_HOOK_visual.png",
+      "filename": "S1_HOOK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 222840,
+      "created_at": "2026-06-22T07:09:10.449247",
+      "section_id": "S1_HOOK",
+      "visual_title": "The Central Question",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": [
+        "AI",
+        "question",
+        "evidence",
+        "impact"
+      ]
+    },
+    "voiceover_S1_HOOK": {
+      "object_id": "voiceover_S1_HOOK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/audio/sections/S1_HOOK_narration_broll_voiceover.mp3",
+      "filename": "S1_HOOK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 53712,
+      "created_at": "2026-06-22T07:09:03.612264",
+      "section_id": "S1_HOOK",
+      "voiceover_text": "A direct, alarming real speaker quote about deepfake harm. The viewer must immediately understand this is a serious issue."
+    },
+    "visual_S2_CONTEXT": {
+      "object_id": "visual_S2_CONTEXT",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/visuals/S2_CONTEXT_visual.png",
+      "filename": "S2_CONTEXT_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 227732,
+      "created_at": "2026-06-22T07:09:12.859241",
+      "section_id": "S2_CONTEXT",
+      "visual_title": "Understanding the Issue",
+      "visual_asset_type": "diagram",
+      "visual_keywords": [
+        "context",
+        "definition",
+        "scope",
+        "concepts"
+      ]
+    },
+    "voiceover_S2_CONTEXT": {
+      "object_id": "voiceover_S2_CONTEXT",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/audio/sections/S2_CONTEXT_narration_broll_voiceover.mp3",
+      "filename": "S2_CONTEXT_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 57456,
+      "created_at": "2026-06-22T07:09:05.688259",
+      "section_id": "S2_CONTEXT",
+      "voiceover_text": "Deepfakes are AI-generated synthetic media that can imitate real people, often without consent, posing a threat to trust and safety online."
+    },
+    "visual_S4_PUBLIC_RISK": {
+      "object_id": "visual_S4_PUBLIC_RISK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/visuals/S4_PUBLIC_RISK_visual.png",
+      "filename": "S4_PUBLIC_RISK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 214573,
+      "created_at": "2026-06-22T07:09:15.346236",
+      "section_id": "S4_PUBLIC_RISK",
+      "visual_title": "S4 Public Risk",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": []
+    },
+    "voiceover_S4_PUBLIC_RISK": {
+      "object_id": "voiceover_S4_PUBLIC_RISK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/audio/sections/S4_PUBLIC_RISK_narration_broll_voiceover.mp3",
+      "filename": "S4_PUBLIC_RISK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 48816,
+      "created_at": "2026-06-22T07:09:06.700257",
+      "section_id": "S4_PUBLIC_RISK",
+      "voiceover_text": "Fake audio/video can undermine elections, public trust, institutions, and democratic processes."
+    },
+    "visual_S6_SYNTHESIS": {
+      "object_id": "visual_S6_SYNTHESIS",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/visuals/S6_SYNTHESIS_visual.png",
+      "filename": "S6_SYNTHESIS_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 218355,
+      "created_at": "2026-06-22T07:09:17.690230",
+      "section_id": "S6_SYNTHESIS",
+      "visual_title": "Looking Forward",
+      "visual_asset_type": "closing_synthesis",
+      "visual_keywords": [
+        "synthesis",
+        "future",
+        "collective",
+        "change"
+      ]
+    },
+    "voiceover_S6_SYNTHESIS": {
+      "object_id": "voiceover_S6_SYNTHESIS",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/audio/sections/S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "filename": "S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 48096,
+      "created_at": "2026-06-22T07:09:07.994254",
+      "section_id": "S6_SYNTHESIS",
+      "voiceover_text": "Deepfakes are not just fake media — they are a trust, safety, and governance problem requiring collective response."
+    },
+    "title_card": {
+      "object_id": "title_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 260549,
+      "created_at": "2026-06-22T07:08:44.329314",
+      "card_type": "title_card"
+    },
+    "closing_card": {
+      "object_id": "closing_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/cards/closing_card.png",
+      "filename": "closing_card.png",
+      "content_type": "image/png",
+      "size_bytes": 256477,
+      "created_at": "2026-06-22T07:08:46.806307",
+      "card_type": "closing_card"
+    },
+    "section_card_S1": {
+      "object_id": "section_card_S1",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/cards/S1_opening_hook.png",
+      "filename": "S1_opening_hook.png",
+      "content_type": "image/png",
+      "size_bytes": 226164,
+      "created_at": "2026-06-22T07:08:49.168301",
+      "card_type": "section_card",
+      "section_id": "S1"
+    },
+    "section_card_S2": {
+      "object_id": "section_card_S2",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/cards/S2_context.png",
+      "filename": "S2_context.png",
+      "content_type": "image/png",
+      "size_bytes": 223442,
+      "created_at": "2026-06-22T07:08:51.636295",
+      "card_type": "section_card",
+      "section_id": "S2"
+    },
+    "section_card_S3": {
+      "object_id": "section_card_S3",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/cards/S3_problem_or_tension.png",
+      "filename": "S3_problem_or_tension.png",
+      "content_type": "image/png",
+      "size_bytes": 227134,
+      "created_at": "2026-06-22T07:08:54.184288",
+      "card_type": "section_card",
+      "section_id": "S3"
+    },
+    "section_card_S4": {
+      "object_id": "section_card_S4",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/cards/S4_human_perspective.png",
+      "filename": "S4_human_perspective.png",
+      "content_type": "image/png",
+      "size_bytes": 236087,
+      "created_at": "2026-06-22T07:08:56.527282",
+      "card_type": "section_card",
+      "section_id": "S4"
+    },
+    "thumbnail": {
+      "object_id": "thumbnail",
+      "kind": "thumbnail",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_123717_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 260549,
+      "created_at": "2026-06-22T07:08:44.329314",
+      "card_type": "title_card"
+    }
+  }
+}

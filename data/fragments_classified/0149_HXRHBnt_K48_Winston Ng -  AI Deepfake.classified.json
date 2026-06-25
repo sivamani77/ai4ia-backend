@@ -131,12 +131,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.715038"
+      "classified_at": "2026-06-16T12:54:30.715038",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0002",
@@ -264,12 +266,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.35,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.721220"
+      "classified_at": "2026-06-16T12:54:30.721220",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0003",
@@ -388,15 +392,18 @@
       "primary_theme": "Disinformation, Deepfakes & AI Safety",
       "primary_chapter": "Ch 16: Deepfakes, Synthetic Media & Copyright",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.726694"
+      "classified_at": "2026-06-16T12:54:30.726694",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0004",
@@ -537,12 +544,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.33,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.732918"
+      "classified_at": "2026-06-16T12:54:30.732918",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0005",
@@ -622,14 +631,16 @@
       "primary_theme": "Disinformation, Deepfakes & AI Safety",
       "primary_chapter": "Ch 16: Deepfakes, Synthetic Media & Copyright",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.85,
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.738238"
+      "classified_at": "2026-06-16T12:54:30.738238",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0006",
@@ -716,12 +727,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.743215"
+      "classified_at": "2026-06-16T12:54:30.743215",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0007",
@@ -776,12 +789,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.746718"
+      "classified_at": "2026-06-16T12:54:30.746718",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

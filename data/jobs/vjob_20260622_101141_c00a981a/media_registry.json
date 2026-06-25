@@ -1,0 +1,224 @@
+{
+  "job_id": "vjob_20260622_101141_c00a981a",
+  "storage_backend": "local",
+  "objects": {
+    "video": {
+      "object_id": "video",
+      "kind": "video",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_101141_c00a981a_ai_in_healthcare_promise_and_risk.mp4",
+      "filename": "vjob_20260622_101141_c00a981a_ai_in_healthcare_promise_and_risk.mp4",
+      "content_type": "video/mp4",
+      "size_bytes": 5825584,
+      "created_at": "2026-06-22T10:20:26.671470"
+    },
+    "srt": {
+      "object_id": "srt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_101141_c00a981a_ai_in_healthcare_promise_and_risk.srt",
+      "filename": "vjob_20260622_101141_c00a981a_ai_in_healthcare_promise_and_risk.srt",
+      "content_type": "application/x-subrip",
+      "size_bytes": 1822,
+      "created_at": "2026-06-22T10:20:51.859537",
+      "subtitle_format": "srt"
+    },
+    "vtt": {
+      "object_id": "vtt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_101141_c00a981a_ai_in_healthcare_promise_and_risk.vtt",
+      "filename": "vjob_20260622_101141_c00a981a_ai_in_healthcare_promise_and_risk.vtt",
+      "content_type": "text/vtt",
+      "size_bytes": 1785,
+      "created_at": "2026-06-22T10:20:51.859537",
+      "subtitle_format": "vtt"
+    },
+    "manifest": {
+      "object_id": "manifest",
+      "kind": "manifest",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_101141_c00a981a_ai_in_healthcare_promise_and_risk_export_manifest.json",
+      "filename": "export_manifest.json",
+      "content_type": "application/json",
+      "size_bytes": 55919,
+      "created_at": "2026-06-22T10:20:52.518616"
+    },
+    "visual_S1_HOOK": {
+      "object_id": "visual_S1_HOOK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/visuals/S1_HOOK_visual.png",
+      "filename": "S1_HOOK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 222840,
+      "created_at": "2026-06-22T10:19:25.301560",
+      "section_id": "S1_HOOK",
+      "visual_title": "The Central Question",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": [
+        "AI",
+        "question",
+        "evidence",
+        "impact"
+      ]
+    },
+    "voiceover_S1_HOOK": {
+      "object_id": "voiceover_S1_HOOK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/audio/sections/S1_HOOK_narration_broll_voiceover.mp3",
+      "filename": "S1_HOOK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 53712,
+      "created_at": "2026-06-22T10:19:18.691669",
+      "section_id": "S1_HOOK",
+      "voiceover_text": "A direct, alarming real speaker quote about deepfake harm. The viewer must immediately understand this is a serious issue."
+    },
+    "visual_S3_HUMAN_RISK": {
+      "object_id": "visual_S3_HUMAN_RISK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/visuals/S3_HUMAN_RISK_visual.png",
+      "filename": "S3_HUMAN_RISK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 215330,
+      "created_at": "2026-06-22T10:19:28.275958",
+      "section_id": "S3_HUMAN_RISK",
+      "visual_title": "S3 Human Risk",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": []
+    },
+    "voiceover_S3_HUMAN_RISK": {
+      "object_id": "voiceover_S3_HUMAN_RISK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/audio/sections/S3_HUMAN_RISK_narration_broll_voiceover.mp3",
+      "filename": "S3_HUMAN_RISK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 44784,
+      "created_at": "2026-06-22T10:19:20.272882",
+      "section_id": "S3_HUMAN_RISK",
+      "voiceover_text": "AI in healthcare can lead to medical errors and reputational harm, affecting patients' trust in the medical system."
+    },
+    "visual_S4_PUBLIC_RISK": {
+      "object_id": "visual_S4_PUBLIC_RISK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/visuals/S4_PUBLIC_RISK_visual.png",
+      "filename": "S4_PUBLIC_RISK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 214573,
+      "created_at": "2026-06-22T10:19:31.433380",
+      "section_id": "S4_PUBLIC_RISK",
+      "visual_title": "S4 Public Risk",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": []
+    },
+    "voiceover_S4_PUBLIC_RISK": {
+      "object_id": "voiceover_S4_PUBLIC_RISK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/audio/sections/S4_PUBLIC_RISK_narration_broll_voiceover.mp3",
+      "filename": "S4_PUBLIC_RISK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 48816,
+      "created_at": "2026-06-22T10:19:21.384032",
+      "section_id": "S4_PUBLIC_RISK",
+      "voiceover_text": "Fake audio/video can undermine elections, public trust, institutions, and democratic processes."
+    },
+    "visual_S5_RESPONSE": {
+      "object_id": "visual_S5_RESPONSE",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/visuals/S5_RESPONSE_visual.png",
+      "filename": "S5_RESPONSE_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 210534,
+      "created_at": "2026-06-22T10:19:34.311762",
+      "section_id": "S5_RESPONSE",
+      "visual_title": "Toward Solutions",
+      "visual_asset_type": "policy_card",
+      "visual_keywords": [
+        "response",
+        "solution",
+        "policy",
+        "action"
+      ]
+    },
+    "voiceover_S5_RESPONSE": {
+      "object_id": "voiceover_S5_RESPONSE",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/audio/sections/S5_RESPONSE_narration_broll_voiceover.mp3",
+      "filename": "S5_RESPONSE_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 30528,
+      "created_at": "2026-06-22T10:19:22.388168",
+      "section_id": "S5_RESPONSE",
+      "voiceover_text": "Responses are emerging, but the pace and scale remain contested."
+    },
+    "title_card": {
+      "object_id": "title_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 255196,
+      "created_at": "2026-06-22T10:18:58.563905",
+      "card_type": "title_card"
+    },
+    "closing_card": {
+      "object_id": "closing_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/cards/closing_card.png",
+      "filename": "closing_card.png",
+      "content_type": "image/png",
+      "size_bytes": 256162,
+      "created_at": "2026-06-22T10:19:01.533317",
+      "card_type": "closing_card"
+    },
+    "section_card_S1": {
+      "object_id": "section_card_S1",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/cards/S1_opening_hook.png",
+      "filename": "S1_opening_hook.png",
+      "content_type": "image/png",
+      "size_bytes": 223615,
+      "created_at": "2026-06-22T10:19:04.354708",
+      "card_type": "section_card",
+      "section_id": "S1"
+    },
+    "section_card_S2": {
+      "object_id": "section_card_S2",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/cards/S2_context.png",
+      "filename": "S2_context.png",
+      "content_type": "image/png",
+      "size_bytes": 222705,
+      "created_at": "2026-06-22T10:19:07.936201",
+      "card_type": "section_card",
+      "section_id": "S2"
+    },
+    "section_card_S3": {
+      "object_id": "section_card_S3",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/cards/S3_problem_or_tension.png",
+      "filename": "S3_problem_or_tension.png",
+      "content_type": "image/png",
+      "size_bytes": 226099,
+      "created_at": "2026-06-22T10:19:10.680578",
+      "card_type": "section_card",
+      "section_id": "S3"
+    },
+    "section_card_S4": {
+      "object_id": "section_card_S4",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/cards/S4_human_perspective.png",
+      "filename": "S4_human_perspective.png",
+      "content_type": "image/png",
+      "size_bytes": 233920,
+      "created_at": "2026-06-22T10:19:13.924021",
+      "card_type": "section_card",
+      "section_id": "S4"
+    },
+    "thumbnail": {
+      "object_id": "thumbnail",
+      "kind": "thumbnail",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_154425_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 255196,
+      "created_at": "2026-06-22T10:18:58.563905",
+      "card_type": "title_card"
+    }
+  }
+}

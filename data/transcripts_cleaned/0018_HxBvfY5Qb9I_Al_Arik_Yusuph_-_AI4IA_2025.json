@@ -1,0 +1,3748 @@
+{
+  "audio_file": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025.clean.wav",
+  "source_audio_path": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025.clean.wav",
+  "source_transcript_version": "cleaned_v2",
+  "model": "small",
+  "device": "cpu",
+  "compute_type": "int8",
+  "language": "en",
+  "language_probability": 1,
+  "duration_seconds": 223.386188,
+  "transcribed_at": "2026-06-19T13:13:30.998476",
+  "transcription_mode": "normal",
+  "chunk_seconds": null,
+  "quality": {
+    "segment_count": 40,
+    "avg_confidence": 0.7957,
+    "avg_words_per_segment": 14.2,
+    "empty_segment_ratio": 0.0,
+    "repeated_phrase_ratio": 0.0,
+    "low_confidence_ratio": 0.0,
+    "recommended_action": "ok"
+  },
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.5,
+      "end": 7.48,
+      "text": "Hello everyone, my name is Alaric Yusuf and today I'll be sharing my journey with artificial intelligence.",
+      "avg_logprob": -0.22038110867142677,
+      "no_speech_prob": 0.1367654800415039,
+      "compression_ratio": 1.592,
+      "words": [
+        {
+          "word": " Hello",
+          "start": 0.5,
+          "end": 1.06,
+          "probability": 0.6163201332092285
+        },
+        {
+          "word": " everyone,",
+          "start": 1.06,
+          "end": 1.36,
+          "probability": 0.5263763666152954
+        },
+        {
+          "word": " my",
+          "start": 2.12,
+          "end": 2.36,
+          "probability": 0.9408039450645447
+        },
+        {
+          "word": " name",
+          "start": 2.36,
+          "end": 2.52,
+          "probability": 0.9968020915985107
+        },
+        {
+          "word": " is",
+          "start": 2.52,
+          "end": 2.72,
+          "probability": 0.9518527388572693
+        },
+        {
+          "word": " Alaric",
+          "start": 2.72,
+          "end": 3.16,
+          "probability": 0.4074060022830963
+        },
+        {
+          "word": " Yusuf",
+          "start": 3.16,
+          "end": 3.5,
+          "probability": 0.5091955860455831
+        },
+        {
+          "word": " and",
+          "start": 3.5,
+          "end": 3.78,
+          "probability": 0.7584213018417358
+        },
+        {
+          "word": " today",
+          "start": 3.78,
+          "end": 4.16,
+          "probability": 0.9821316003799438
+        },
+        {
+          "word": " I'll",
+          "start": 4.16,
+          "end": 4.44,
+          "probability": 0.6624543964862823
+        },
+        {
+          "word": " be",
+          "start": 4.44,
+          "end": 4.58,
+          "probability": 0.9949916005134583
+        },
+        {
+          "word": " sharing",
+          "start": 4.58,
+          "end": 4.82,
+          "probability": 0.9326107501983643
+        },
+        {
+          "word": " my",
+          "start": 4.82,
+          "end": 5.06,
+          "probability": 0.9942039847373962
+        },
+        {
+          "word": " journey",
+          "start": 5.06,
+          "end": 5.28,
+          "probability": 0.9976230263710022
+        },
+        {
+          "word": " with",
+          "start": 5.28,
+          "end": 6.08,
+          "probability": 0.9419174790382385
+        },
+        {
+          "word": " artificial",
+          "start": 6.08,
+          "end": 6.6,
+          "probability": 0.6435189247131348
+        },
+        {
+          "word": " intelligence.",
+          "start": 6.6,
+          "end": 7.48,
+          "probability": 0.9983859062194824
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 8.51,
+      "end": 14.07,
+      "text": "How it's impacted my life, the way I see the world and the projects and achievements that came out of it.",
+      "avg_logprob": -0.22038110867142677,
+      "no_speech_prob": 0.1367654800415039,
+      "compression_ratio": 1.592,
+      "words": [
+        {
+          "word": " How",
+          "start": 8.51,
+          "end": 8.67,
+          "probability": 0.9400281310081482
+        },
+        {
+          "word": " it's",
+          "start": 8.67,
+          "end": 8.85,
+          "probability": 0.7924670875072479
+        },
+        {
+          "word": " impacted",
+          "start": 8.85,
+          "end": 9.19,
+          "probability": 0.99080491065979
+        },
+        {
+          "word": " my",
+          "start": 9.19,
+          "end": 9.45,
+          "probability": 0.997337281703949
+        },
+        {
+          "word": " life,",
+          "start": 9.45,
+          "end": 9.89,
+          "probability": 0.998449444770813
+        },
+        {
+          "word": " the",
+          "start": 10.49,
+          "end": 10.63,
+          "probability": 0.8654646873474121
+        },
+        {
+          "word": " way",
+          "start": 10.63,
+          "end": 10.75,
+          "probability": 0.9964893460273743
+        },
+        {
+          "word": " I",
+          "start": 10.75,
+          "end": 10.91,
+          "probability": 0.9910610318183899
+        },
+        {
+          "word": " see",
+          "start": 10.91,
+          "end": 11.07,
+          "probability": 0.9840400815010071
+        },
+        {
+          "word": " the",
+          "start": 11.07,
+          "end": 11.25,
+          "probability": 0.9912063479423523
+        },
+        {
+          "word": " world",
+          "start": 11.25,
+          "end": 11.43,
+          "probability": 0.9037913680076599
+        },
+        {
+          "word": " and",
+          "start": 11.43,
+          "end": 11.75,
+          "probability": 0.8726025223731995
+        },
+        {
+          "word": " the",
+          "start": 11.75,
+          "end": 12.01,
+          "probability": 0.9718603491783142
+        },
+        {
+          "word": " projects",
+          "start": 12.01,
+          "end": 12.37,
+          "probability": 0.9809261560440063
+        },
+        {
+          "word": " and",
+          "start": 12.37,
+          "end": 12.59,
+          "probability": 0.9879554510116577
+        },
+        {
+          "word": " achievements",
+          "start": 12.59,
+          "end": 12.99,
+          "probability": 0.9843323230743408
+        },
+        {
+          "word": " that",
+          "start": 12.99,
+          "end": 13.29,
+          "probability": 0.9888423681259155
+        },
+        {
+          "word": " came",
+          "start": 13.29,
+          "end": 13.49,
+          "probability": 0.9895485639572144
+        },
+        {
+          "word": " out",
+          "start": 13.49,
+          "end": 13.73,
+          "probability": 0.9935091137886047
+        },
+        {
+          "word": " of",
+          "start": 13.73,
+          "end": 13.89,
+          "probability": 0.9925242066383362
+        },
+        {
+          "word": " it.",
+          "start": 13.89,
+          "end": 14.07,
+          "probability": 0.9940268993377686
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 16.0,
+      "end": 19.16,
+      "text": "AI has been more than just coding and robotics for me.",
+      "avg_logprob": -0.22038110867142677,
+      "no_speech_prob": 0.1367654800415039,
+      "compression_ratio": 1.592,
+      "words": [
+        {
+          "word": " AI",
+          "start": 16.0,
+          "end": 16.4,
+          "probability": 0.9528851509094238
+        },
+        {
+          "word": " has",
+          "start": 16.4,
+          "end": 16.76,
+          "probability": 0.9897491335868835
+        },
+        {
+          "word": " been",
+          "start": 16.76,
+          "end": 16.94,
+          "probability": 0.9937305450439453
+        },
+        {
+          "word": " more",
+          "start": 16.94,
+          "end": 17.3,
+          "probability": 0.994844913482666
+        },
+        {
+          "word": " than",
+          "start": 17.3,
+          "end": 17.5,
+          "probability": 0.9944232106208801
+        },
+        {
+          "word": " just",
+          "start": 17.5,
+          "end": 17.74,
+          "probability": 0.9960801005363464
+        },
+        {
+          "word": " coding",
+          "start": 17.74,
+          "end": 18.06,
+          "probability": 0.9820650219917297
+        },
+        {
+          "word": " and",
+          "start": 18.06,
+          "end": 18.3,
+          "probability": 0.8528836369514465
+        },
+        {
+          "word": " robotics",
+          "start": 18.3,
+          "end": 18.58,
+          "probability": 0.8422650694847107
+        },
+        {
+          "word": " for",
+          "start": 18.58,
+          "end": 18.9,
+          "probability": 0.9795533418655396
+        },
+        {
+          "word": " me.",
+          "start": 18.9,
+          "end": 19.16,
+          "probability": 0.9969151020050049
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 19.64,
+      "end": 23.46,
+      "text": "It's been a way to take ideas in my head and turn them into something new.",
+      "avg_logprob": -0.22038110867142677,
+      "no_speech_prob": 0.1367654800415039,
+      "compression_ratio": 1.592,
+      "words": [
+        {
+          "word": " It's",
+          "start": 19.64,
+          "end": 19.86,
+          "probability": 0.9667244255542755
+        },
+        {
+          "word": " been",
+          "start": 19.86,
+          "end": 20.04,
+          "probability": 0.9959142804145813
+        },
+        {
+          "word": " a",
+          "start": 20.04,
+          "end": 20.18,
+          "probability": 0.9491941928863525
+        },
+        {
+          "word": " way",
+          "start": 20.18,
+          "end": 20.34,
+          "probability": 0.9959990978240967
+        },
+        {
+          "word": " to",
+          "start": 20.34,
+          "end": 20.54,
+          "probability": 0.9952831864356995
+        },
+        {
+          "word": " take",
+          "start": 20.54,
+          "end": 20.76,
+          "probability": 0.9972453117370605
+        },
+        {
+          "word": " ideas",
+          "start": 20.76,
+          "end": 21.18,
+          "probability": 0.9232239127159119
+        },
+        {
+          "word": " in",
+          "start": 21.18,
+          "end": 21.42,
+          "probability": 0.9696537256240845
+        },
+        {
+          "word": " my",
+          "start": 21.42,
+          "end": 21.58,
+          "probability": 0.9539863467216492
+        },
+        {
+          "word": " head",
+          "start": 21.58,
+          "end": 21.76,
+          "probability": 0.9966042041778564
+        },
+        {
+          "word": " and",
+          "start": 21.76,
+          "end": 22.08,
+          "probability": 0.9754393696784973
+        },
+        {
+          "word": " turn",
+          "start": 22.08,
+          "end": 22.38,
+          "probability": 0.9660391807556152
+        },
+        {
+          "word": " them",
+          "start": 22.38,
+          "end": 22.52,
+          "probability": 0.9885285496711731
+        },
+        {
+          "word": " into",
+          "start": 22.52,
+          "end": 22.76,
+          "probability": 0.9912043213844299
+        },
+        {
+          "word": " something",
+          "start": 22.76,
+          "end": 23.1,
+          "probability": 0.9979960918426514
+        },
+        {
+          "word": " new.",
+          "start": 23.1,
+          "end": 23.46,
+          "probability": 0.6590878367424011
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 24.71,
+      "end": 28.89,
+      "text": "It stopped me problem solving, creativity and teamwork.",
+      "avg_logprob": -0.22038110867142677,
+      "no_speech_prob": 0.1367654800415039,
+      "compression_ratio": 1.592,
+      "words": [
+        {
+          "word": " It",
+          "start": 24.71,
+          "end": 25.21,
+          "probability": 0.7439073324203491
+        },
+        {
+          "word": " stopped",
+          "start": 25.21,
+          "end": 25.41,
+          "probability": 0.5749903321266174
+        },
+        {
+          "word": " me",
+          "start": 25.41,
+          "end": 25.65,
+          "probability": 0.9891200065612793
+        },
+        {
+          "word": " problem",
+          "start": 25.65,
+          "end": 26.05,
+          "probability": 0.8797284364700317
+        },
+        {
+          "word": " solving,",
+          "start": 26.05,
+          "end": 26.53,
+          "probability": 0.5489456653594971
+        },
+        {
+          "word": " creativity",
+          "start": 26.89,
+          "end": 27.47,
+          "probability": 0.9946252703666687
+        },
+        {
+          "word": " and",
+          "start": 27.47,
+          "end": 28.43,
+          "probability": 0.7151333093643188
+        },
+        {
+          "word": " teamwork.",
+          "start": 28.43,
+          "end": 28.89,
+          "probability": 0.9959878325462341
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 28.89,
+      "end": 33.66,
+      "text": "I've also learned that AI isn't just about the future.",
+      "avg_logprob": -0.13823586199657026,
+      "no_speech_prob": 0.36451730132102966,
+      "compression_ratio": 1.5442477876106195,
+      "words": [
+        {
+          "word": " I've",
+          "start": 28.89,
+          "end": 29.79,
+          "probability": 0.4931911677122116
+        },
+        {
+          "word": " also",
+          "start": 30.88,
+          "end": 31.22,
+          "probability": 0.9854760766029358
+        },
+        {
+          "word": " learned",
+          "start": 31.22,
+          "end": 31.62,
+          "probability": 0.9561165571212769
+        },
+        {
+          "word": " that",
+          "start": 31.62,
+          "end": 31.82,
+          "probability": 0.9626511931419373
+        },
+        {
+          "word": " AI",
+          "start": 31.82,
+          "end": 32.04,
+          "probability": 0.971407949924469
+        },
+        {
+          "word": " isn't",
+          "start": 32.04,
+          "end": 32.48,
+          "probability": 0.8837937116622925
+        },
+        {
+          "word": " just",
+          "start": 32.48,
+          "end": 32.74,
+          "probability": 0.9907196760177612
+        },
+        {
+          "word": " about",
+          "start": 32.74,
+          "end": 33.12,
+          "probability": 0.9890355467796326
+        },
+        {
+          "word": " the",
+          "start": 33.12,
+          "end": 33.32,
+          "probability": 0.9963829517364502
+        },
+        {
+          "word": " future.",
+          "start": 33.32,
+          "end": 33.66,
+          "probability": 0.9953339695930481
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 34.46,
+      "end": 39.76,
+      "text": "It's something young people like me can use right now to create real solutions for real problems.",
+      "avg_logprob": -0.13823586199657026,
+      "no_speech_prob": 0.36451730132102966,
+      "compression_ratio": 1.5442477876106195,
+      "words": [
+        {
+          "word": " It's",
+          "start": 34.46,
+          "end": 34.76,
+          "probability": 0.9409722685813904
+        },
+        {
+          "word": " something",
+          "start": 34.76,
+          "end": 34.98,
+          "probability": 0.9984488487243652
+        },
+        {
+          "word": " young",
+          "start": 34.98,
+          "end": 35.32,
+          "probability": 0.9493412375450134
+        },
+        {
+          "word": " people",
+          "start": 35.32,
+          "end": 35.7,
+          "probability": 0.9991402626037598
+        },
+        {
+          "word": " like",
+          "start": 35.7,
+          "end": 35.96,
+          "probability": 0.9716163277626038
+        },
+        {
+          "word": " me",
+          "start": 35.96,
+          "end": 36.16,
+          "probability": 0.9926726222038269
+        },
+        {
+          "word": " can",
+          "start": 36.16,
+          "end": 36.42,
+          "probability": 0.9797431826591492
+        },
+        {
+          "word": " use",
+          "start": 36.42,
+          "end": 36.62,
+          "probability": 0.9871876239776611
+        },
+        {
+          "word": " right",
+          "start": 36.62,
+          "end": 36.82,
+          "probability": 0.942798376083374
+        },
+        {
+          "word": " now",
+          "start": 36.82,
+          "end": 37.0,
+          "probability": 0.9959934949874878
+        },
+        {
+          "word": " to",
+          "start": 37.0,
+          "end": 37.22,
+          "probability": 0.9775206446647644
+        },
+        {
+          "word": " create",
+          "start": 37.22,
+          "end": 37.44,
+          "probability": 0.9714806079864502
+        },
+        {
+          "word": " real",
+          "start": 37.44,
+          "end": 37.74,
+          "probability": 0.8951490521430969
+        },
+        {
+          "word": " solutions",
+          "start": 37.74,
+          "end": 38.36,
+          "probability": 0.9953559637069702
+        },
+        {
+          "word": " for",
+          "start": 38.36,
+          "end": 39.04,
+          "probability": 0.9763028621673584
+        },
+        {
+          "word": " real",
+          "start": 39.04,
+          "end": 39.24,
+          "probability": 0.9622904062271118
+        },
+        {
+          "word": " problems.",
+          "start": 39.24,
+          "end": 39.76,
+          "probability": 0.9966292977333069
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 41.67,
+      "end": 46.55,
+      "text": "For us, the youth, AI is opening doors that didn't exist before.",
+      "avg_logprob": -0.13823586199657026,
+      "no_speech_prob": 0.36451730132102966,
+      "compression_ratio": 1.5442477876106195,
+      "words": [
+        {
+          "word": " For",
+          "start": 41.67,
+          "end": 42.27,
+          "probability": 0.976418673992157
+        },
+        {
+          "word": " us,",
+          "start": 42.27,
+          "end": 42.57,
+          "probability": 0.9972879886627197
+        },
+        {
+          "word": " the",
+          "start": 42.95,
+          "end": 43.19,
+          "probability": 0.985215425491333
+        },
+        {
+          "word": " youth,",
+          "start": 43.19,
+          "end": 43.47,
+          "probability": 0.9948920011520386
+        },
+        {
+          "word": " AI",
+          "start": 43.87,
+          "end": 44.39,
+          "probability": 0.9927733540534973
+        },
+        {
+          "word": " is",
+          "start": 44.39,
+          "end": 44.61,
+          "probability": 0.9408033490180969
+        },
+        {
+          "word": " opening",
+          "start": 44.61,
+          "end": 44.85,
+          "probability": 0.9432781934738159
+        },
+        {
+          "word": " doors",
+          "start": 44.85,
+          "end": 45.19,
+          "probability": 0.9904658794403076
+        },
+        {
+          "word": " that",
+          "start": 45.19,
+          "end": 45.45,
+          "probability": 0.9971539974212646
+        },
+        {
+          "word": " didn't",
+          "start": 45.45,
+          "end": 45.67,
+          "probability": 0.9851671457290649
+        },
+        {
+          "word": " exist",
+          "start": 45.67,
+          "end": 46.05,
+          "probability": 0.994691789150238
+        },
+        {
+          "word": " before.",
+          "start": 46.05,
+          "end": 46.55,
+          "probability": 0.9969301819801331
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 47.03,
+      "end": 55.11,
+      "text": "It's giving us opportunities to innovate, to complete globally, and to see ourselves as creators, not just consumers of technology.",
+      "avg_logprob": -0.13823586199657026,
+      "no_speech_prob": 0.36451730132102966,
+      "compression_ratio": 1.5442477876106195,
+      "words": [
+        {
+          "word": " It's",
+          "start": 47.03,
+          "end": 47.33,
+          "probability": 0.9500503838062286
+        },
+        {
+          "word": " giving",
+          "start": 47.33,
+          "end": 47.49,
+          "probability": 0.8409460186958313
+        },
+        {
+          "word": " us",
+          "start": 47.49,
+          "end": 47.71,
+          "probability": 0.9982325434684753
+        },
+        {
+          "word": " opportunities",
+          "start": 47.71,
+          "end": 48.21,
+          "probability": 0.9770082831382751
+        },
+        {
+          "word": " to",
+          "start": 48.21,
+          "end": 48.51,
+          "probability": 0.9924231767654419
+        },
+        {
+          "word": " innovate,",
+          "start": 48.51,
+          "end": 48.77,
+          "probability": 0.5855840444564819
+        },
+        {
+          "word": " to",
+          "start": 49.69,
+          "end": 49.81,
+          "probability": 0.9747228622436523
+        },
+        {
+          "word": " complete",
+          "start": 49.81,
+          "end": 50.23,
+          "probability": 0.9452990293502808
+        },
+        {
+          "word": " globally,",
+          "start": 50.23,
+          "end": 50.85,
+          "probability": 0.9959977865219116
+        },
+        {
+          "word": " and",
+          "start": 51.39,
+          "end": 51.65,
+          "probability": 0.9894205331802368
+        },
+        {
+          "word": " to",
+          "start": 51.65,
+          "end": 51.83,
+          "probability": 0.9888820052146912
+        },
+        {
+          "word": " see",
+          "start": 51.83,
+          "end": 51.97,
+          "probability": 0.9983770847320557
+        },
+        {
+          "word": " ourselves",
+          "start": 51.97,
+          "end": 52.27,
+          "probability": 0.9954498410224915
+        },
+        {
+          "word": " as",
+          "start": 52.27,
+          "end": 52.69,
+          "probability": 0.9977042078971863
+        },
+        {
+          "word": " creators,",
+          "start": 52.69,
+          "end": 53.19,
+          "probability": 0.9483510851860046
+        },
+        {
+          "word": " not",
+          "start": 53.63,
+          "end": 53.85,
+          "probability": 0.9675074815750122
+        },
+        {
+          "word": " just",
+          "start": 53.85,
+          "end": 54.03,
+          "probability": 0.9979945421218872
+        },
+        {
+          "word": " consumers",
+          "start": 54.03,
+          "end": 54.47,
+          "probability": 0.998153030872345
+        },
+        {
+          "word": " of",
+          "start": 54.47,
+          "end": 54.67,
+          "probability": 0.9915533661842346
+        },
+        {
+          "word": " technology.",
+          "start": 54.67,
+          "end": 55.11,
+          "probability": 0.9971274733543396
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 55.11,
+      "end": 64.1,
+      "text": "AI is helping young people dream bigger, whether it's in healthcare, education or in my case protecting the environment.",
+      "avg_logprob": -0.21181357534308182,
+      "no_speech_prob": 0.38136541843414307,
+      "compression_ratio": 1.4956521739130435,
+      "words": [
+        {
+          "word": " AI",
+          "start": 55.11,
+          "end": 56.23,
+          "probability": 0.2725491523742676
+        },
+        {
+          "word": " is",
+          "start": 56.58,
+          "end": 56.88,
+          "probability": 0.8817492723464966
+        },
+        {
+          "word": " helping",
+          "start": 56.88,
+          "end": 57.08,
+          "probability": 0.9726191759109497
+        },
+        {
+          "word": " young",
+          "start": 57.08,
+          "end": 57.36,
+          "probability": 0.986291229724884
+        },
+        {
+          "word": " people",
+          "start": 57.36,
+          "end": 57.68,
+          "probability": 0.9960492253303528
+        },
+        {
+          "word": " dream",
+          "start": 57.68,
+          "end": 58.0,
+          "probability": 0.9853848814964294
+        },
+        {
+          "word": " bigger,",
+          "start": 58.0,
+          "end": 58.4,
+          "probability": 0.9607705473899841
+        },
+        {
+          "word": " whether",
+          "start": 58.88,
+          "end": 59.08,
+          "probability": 0.9799100160598755
+        },
+        {
+          "word": " it's",
+          "start": 59.08,
+          "end": 59.4,
+          "probability": 0.8760824799537659
+        },
+        {
+          "word": " in",
+          "start": 59.4,
+          "end": 59.6,
+          "probability": 0.9823426604270935
+        },
+        {
+          "word": " healthcare,",
+          "start": 59.6,
+          "end": 60.06,
+          "probability": 0.6927101612091064
+        },
+        {
+          "word": " education",
+          "start": 60.72,
+          "end": 61.32,
+          "probability": 0.9917199611663818
+        },
+        {
+          "word": " or",
+          "start": 61.32,
+          "end": 61.92,
+          "probability": 0.4276266098022461
+        },
+        {
+          "word": " in",
+          "start": 61.92,
+          "end": 62.12,
+          "probability": 0.7858161926269531
+        },
+        {
+          "word": " my",
+          "start": 62.12,
+          "end": 62.32,
+          "probability": 0.9951100945472717
+        },
+        {
+          "word": " case",
+          "start": 62.32,
+          "end": 62.66,
+          "probability": 0.9965628981590271
+        },
+        {
+          "word": " protecting",
+          "start": 62.66,
+          "end": 63.42,
+          "probability": 0.3697108328342438
+        },
+        {
+          "word": " the",
+          "start": 63.42,
+          "end": 63.72,
+          "probability": 0.9930425882339478
+        },
+        {
+          "word": " environment.",
+          "start": 63.72,
+          "end": 64.1,
+          "probability": 0.9985894560813904
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 65.34,
+      "end": 71.58,
+      "text": "Through my work with AI and robotics, I've been fortunate to achieve some milestones that I'm really proud of.",
+      "avg_logprob": -0.21181357534308182,
+      "no_speech_prob": 0.38136541843414307,
+      "compression_ratio": 1.4956521739130435,
+      "words": [
+        {
+          "word": " Through",
+          "start": 65.34,
+          "end": 65.98,
+          "probability": 0.9427362680435181
+        },
+        {
+          "word": " my",
+          "start": 65.98,
+          "end": 66.24,
+          "probability": 0.9978717565536499
+        },
+        {
+          "word": " work",
+          "start": 66.24,
+          "end": 66.52,
+          "probability": 0.9974478483200073
+        },
+        {
+          "word": " with",
+          "start": 66.52,
+          "end": 66.68,
+          "probability": 0.7329106330871582
+        },
+        {
+          "word": " AI",
+          "start": 66.68,
+          "end": 66.94,
+          "probability": 0.9874812960624695
+        },
+        {
+          "word": " and",
+          "start": 66.94,
+          "end": 67.22,
+          "probability": 0.8922708034515381
+        },
+        {
+          "word": " robotics,",
+          "start": 67.22,
+          "end": 67.54,
+          "probability": 0.836122989654541
+        },
+        {
+          "word": " I've",
+          "start": 68.22,
+          "end": 68.42,
+          "probability": 0.9567205309867859
+        },
+        {
+          "word": " been",
+          "start": 68.42,
+          "end": 68.54,
+          "probability": 0.9975718855857849
+        },
+        {
+          "word": " fortunate",
+          "start": 68.54,
+          "end": 69.02,
+          "probability": 0.999758780002594
+        },
+        {
+          "word": " to",
+          "start": 69.02,
+          "end": 69.32,
+          "probability": 0.9971402883529663
+        },
+        {
+          "word": " achieve",
+          "start": 69.32,
+          "end": 69.68,
+          "probability": 0.9865190386772156
+        },
+        {
+          "word": " some",
+          "start": 69.68,
+          "end": 69.94,
+          "probability": 0.9949501752853394
+        },
+        {
+          "word": " milestones",
+          "start": 69.94,
+          "end": 70.34,
+          "probability": 0.9923690557479858
+        },
+        {
+          "word": " that",
+          "start": 70.34,
+          "end": 70.7,
+          "probability": 0.9768800735473633
+        },
+        {
+          "word": " I'm",
+          "start": 70.7,
+          "end": 70.84,
+          "probability": 0.9391810894012451
+        },
+        {
+          "word": " really",
+          "start": 70.84,
+          "end": 71.0,
+          "probability": 0.7598214149475098
+        },
+        {
+          "word": " proud",
+          "start": 71.0,
+          "end": 71.28,
+          "probability": 0.9478819370269775
+        },
+        {
+          "word": " of.",
+          "start": 71.28,
+          "end": 71.58,
+          "probability": 0.9940067529678345
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 72.29,
+      "end": 80.01,
+      "text": "I came second place in programming engineering and robotics at the Irene Science Expo, which was held last year.",
+      "avg_logprob": -0.21181357534308182,
+      "no_speech_prob": 0.38136541843414307,
+      "compression_ratio": 1.4956521739130435,
+      "words": [
+        {
+          "word": " I",
+          "start": 72.29,
+          "end": 72.57,
+          "probability": 0.9944965243339539
+        },
+        {
+          "word": " came",
+          "start": 72.57,
+          "end": 72.85,
+          "probability": 0.9925627112388611
+        },
+        {
+          "word": " second",
+          "start": 72.85,
+          "end": 73.59,
+          "probability": 0.9613102078437805
+        },
+        {
+          "word": " place",
+          "start": 73.59,
+          "end": 73.95,
+          "probability": 0.8309544324874878
+        },
+        {
+          "word": " in",
+          "start": 73.95,
+          "end": 74.27,
+          "probability": 0.9958522319793701
+        },
+        {
+          "word": " programming",
+          "start": 74.27,
+          "end": 74.71,
+          "probability": 0.775112509727478
+        },
+        {
+          "word": " engineering",
+          "start": 74.71,
+          "end": 75.43,
+          "probability": 0.6900636553764343
+        },
+        {
+          "word": " and",
+          "start": 75.43,
+          "end": 75.67,
+          "probability": 0.9103964567184448
+        },
+        {
+          "word": " robotics",
+          "start": 75.67,
+          "end": 76.03,
+          "probability": 0.9990781545639038
+        },
+        {
+          "word": " at",
+          "start": 76.03,
+          "end": 76.61,
+          "probability": 0.9924600720405579
+        },
+        {
+          "word": " the",
+          "start": 76.61,
+          "end": 77.21,
+          "probability": 0.9874247908592224
+        },
+        {
+          "word": " Irene",
+          "start": 77.21,
+          "end": 77.51,
+          "probability": 0.5671452879905701
+        },
+        {
+          "word": " Science",
+          "start": 77.51,
+          "end": 77.87,
+          "probability": 0.35169070959091187
+        },
+        {
+          "word": " Expo,",
+          "start": 77.87,
+          "end": 78.41,
+          "probability": 0.9731839895248413
+        },
+        {
+          "word": " which",
+          "start": 78.93,
+          "end": 79.13,
+          "probability": 0.9927576780319214
+        },
+        {
+          "word": " was",
+          "start": 79.13,
+          "end": 79.27,
+          "probability": 0.6179301738739014
+        },
+        {
+          "word": " held",
+          "start": 79.27,
+          "end": 79.45,
+          "probability": 0.7179442644119263
+        },
+        {
+          "word": " last",
+          "start": 79.45,
+          "end": 79.75,
+          "probability": 0.9986496567726135
+        },
+        {
+          "word": " year.",
+          "start": 79.75,
+          "end": 80.01,
+          "probability": 0.9994032382965088
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 80.01,
+      "end": 85.53,
+      "text": "and I also placed third in AI programming and engineering at the African",
+      "avg_logprob": -0.2871755262215932,
+      "no_speech_prob": 0.5362279415130615,
+      "compression_ratio": 1.4851485148514851,
+      "words": [
+        {
+          "word": " and",
+          "start": 80.01,
+          "end": 80.69,
+          "probability": 0.4813012480735779
+        },
+        {
+          "word": " I",
+          "start": 80.69,
+          "end": 80.89,
+          "probability": 0.9327088594436646
+        },
+        {
+          "word": " also",
+          "start": 80.89,
+          "end": 81.15,
+          "probability": 0.9891842603683472
+        },
+        {
+          "word": " placed",
+          "start": 81.15,
+          "end": 81.41,
+          "probability": 0.4882013201713562
+        },
+        {
+          "word": " third",
+          "start": 81.41,
+          "end": 81.83,
+          "probability": 0.8764954209327698
+        },
+        {
+          "word": " in",
+          "start": 81.83,
+          "end": 82.25,
+          "probability": 0.9946085214614868
+        },
+        {
+          "word": " AI",
+          "start": 82.25,
+          "end": 82.97,
+          "probability": 0.9529685974121094
+        },
+        {
+          "word": " programming",
+          "start": 82.97,
+          "end": 83.57,
+          "probability": 0.6131106615066528
+        },
+        {
+          "word": " and",
+          "start": 83.57,
+          "end": 83.85,
+          "probability": 0.9617272019386292
+        },
+        {
+          "word": " engineering",
+          "start": 83.85,
+          "end": 84.49,
+          "probability": 0.9731536507606506
+        },
+        {
+          "word": " at",
+          "start": 84.49,
+          "end": 84.99,
+          "probability": 0.9878454804420471
+        },
+        {
+          "word": " the",
+          "start": 84.99,
+          "end": 85.13,
+          "probability": 0.9853357076644897
+        },
+        {
+          "word": " African",
+          "start": 85.13,
+          "end": 85.53,
+          "probability": 0.8847609758377075
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 85.53,
+      "end": 91.43,
+      "text": "science basket competition and most importantly I became the national",
+      "avg_logprob": -0.2871755262215932,
+      "no_speech_prob": 0.5362279415130615,
+      "compression_ratio": 1.4851485148514851,
+      "words": [
+        {
+          "word": " science",
+          "start": 85.53,
+          "end": 85.91,
+          "probability": 0.12886476516723633
+        },
+        {
+          "word": " basket",
+          "start": 85.91,
+          "end": 86.31,
+          "probability": 0.2353612631559372
+        },
+        {
+          "word": " competition",
+          "start": 86.31,
+          "end": 87.35,
+          "probability": 0.8637056350708008
+        },
+        {
+          "word": " and",
+          "start": 87.35,
+          "end": 88.79,
+          "probability": 0.3238263428211212
+        },
+        {
+          "word": " most",
+          "start": 88.79,
+          "end": 89.41,
+          "probability": 0.6405924558639526
+        },
+        {
+          "word": " importantly",
+          "start": 89.41,
+          "end": 89.99,
+          "probability": 0.994936466217041
+        },
+        {
+          "word": " I",
+          "start": 89.99,
+          "end": 90.69,
+          "probability": 0.6823433637619019
+        },
+        {
+          "word": " became",
+          "start": 90.69,
+          "end": 90.93,
+          "probability": 0.9972015619277954
+        },
+        {
+          "word": " the",
+          "start": 90.93,
+          "end": 91.15,
+          "probability": 0.9955392479896545
+        },
+        {
+          "word": " national",
+          "start": 91.15,
+          "end": 91.43,
+          "probability": 0.9390966892242432
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 91.43,
+      "end": 97.57,
+      "text": "champion of the first Lego League Zimbabwe with my team's project an AI part C",
+      "avg_logprob": -0.2871755262215932,
+      "no_speech_prob": 0.5362279415130615,
+      "compression_ratio": 1.4851485148514851,
+      "words": [
+        {
+          "word": " champion",
+          "start": 91.43,
+          "end": 91.89,
+          "probability": 0.9917144179344177
+        },
+        {
+          "word": " of",
+          "start": 91.89,
+          "end": 92.35,
+          "probability": 0.9945871829986572
+        },
+        {
+          "word": " the",
+          "start": 92.35,
+          "end": 92.77,
+          "probability": 0.9827637672424316
+        },
+        {
+          "word": " first",
+          "start": 92.77,
+          "end": 93.05,
+          "probability": 0.8808826804161072
+        },
+        {
+          "word": " Lego",
+          "start": 93.05,
+          "end": 93.37,
+          "probability": 0.4049903154373169
+        },
+        {
+          "word": " League",
+          "start": 93.37,
+          "end": 93.77,
+          "probability": 0.5752593874931335
+        },
+        {
+          "word": " Zimbabwe",
+          "start": 93.77,
+          "end": 94.85,
+          "probability": 0.9243718981742859
+        },
+        {
+          "word": " with",
+          "start": 94.85,
+          "end": 95.03,
+          "probability": 0.8632578253746033
+        },
+        {
+          "word": " my",
+          "start": 95.03,
+          "end": 95.19,
+          "probability": 0.9898772835731506
+        },
+        {
+          "word": " team's",
+          "start": 95.19,
+          "end": 95.55,
+          "probability": 0.7024011462926865
+        },
+        {
+          "word": " project",
+          "start": 95.55,
+          "end": 95.87,
+          "probability": 0.9839634299278259
+        },
+        {
+          "word": " an",
+          "start": 95.87,
+          "end": 96.51,
+          "probability": 0.2873346507549286
+        },
+        {
+          "word": " AI",
+          "start": 96.51,
+          "end": 96.87,
+          "probability": 0.9833449721336365
+        },
+        {
+          "word": " part",
+          "start": 96.87,
+          "end": 97.19,
+          "probability": 0.34068548679351807
+        },
+        {
+          "word": " C",
+          "start": 97.19,
+          "end": 97.57,
+          "probability": 0.7420741319656372
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 97.57,
+      "end": 104.01,
+      "text": "surveillance system that detects and removes litter from the ocean. Along with",
+      "avg_logprob": -0.2871755262215932,
+      "no_speech_prob": 0.5362279415130615,
+      "compression_ratio": 1.4851485148514851,
+      "words": [
+        {
+          "word": " surveillance",
+          "start": 97.57,
+          "end": 97.99,
+          "probability": 0.9778973460197449
+        },
+        {
+          "word": " system",
+          "start": 97.99,
+          "end": 98.57,
+          "probability": 0.9920835494995117
+        },
+        {
+          "word": " that",
+          "start": 98.57,
+          "end": 98.77,
+          "probability": 0.9854216575622559
+        },
+        {
+          "word": " detects",
+          "start": 98.77,
+          "end": 99.33,
+          "probability": 0.9950528740882874
+        },
+        {
+          "word": " and",
+          "start": 99.33,
+          "end": 99.41,
+          "probability": 0.5404828786849976
+        },
+        {
+          "word": " removes",
+          "start": 99.41,
+          "end": 99.65,
+          "probability": 0.9142022132873535
+        },
+        {
+          "word": " litter",
+          "start": 99.65,
+          "end": 100.11,
+          "probability": 0.9357093572616577
+        },
+        {
+          "word": " from",
+          "start": 100.11,
+          "end": 100.49,
+          "probability": 0.9931448698043823
+        },
+        {
+          "word": " the",
+          "start": 100.49,
+          "end": 100.65,
+          "probability": 0.9984374642372131
+        },
+        {
+          "word": " ocean.",
+          "start": 100.65,
+          "end": 100.97,
+          "probability": 0.9944224953651428
+        },
+        {
+          "word": " Along",
+          "start": 102.97,
+          "end": 103.77,
+          "probability": 0.9630420804023743
+        },
+        {
+          "word": " with",
+          "start": 103.77,
+          "end": 104.01,
+          "probability": 0.989537239074707
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 104.01,
+      "end": 111.54,
+      "text": "competitions. I'm also the captain of my school's coding and robotics club. Leading the club has",
+      "avg_logprob": -0.11398141597246014,
+      "no_speech_prob": 0.3385815918445587,
+      "compression_ratio": 1.6074380165289257,
+      "words": [
+        {
+          "word": " competitions.",
+          "start": 104.01,
+          "end": 104.55,
+          "probability": 0.03345372527837753
+        },
+        {
+          "word": " I'm",
+          "start": 105.43,
+          "end": 105.97,
+          "probability": 0.8912669718265533
+        },
+        {
+          "word": " also",
+          "start": 105.97,
+          "end": 106.27,
+          "probability": 0.9786806106567383
+        },
+        {
+          "word": " the",
+          "start": 106.27,
+          "end": 106.63,
+          "probability": 0.89005047082901
+        },
+        {
+          "word": " captain",
+          "start": 106.63,
+          "end": 107.65,
+          "probability": 0.9695809483528137
+        },
+        {
+          "word": " of",
+          "start": 107.65,
+          "end": 108.07,
+          "probability": 0.9859537482261658
+        },
+        {
+          "word": " my",
+          "start": 108.07,
+          "end": 108.25,
+          "probability": 0.9674397110939026
+        },
+        {
+          "word": " school's",
+          "start": 108.25,
+          "end": 108.63,
+          "probability": 0.8518412113189697
+        },
+        {
+          "word": " coding",
+          "start": 108.63,
+          "end": 108.83,
+          "probability": 0.6071682572364807
+        },
+        {
+          "word": " and",
+          "start": 108.83,
+          "end": 109.05,
+          "probability": 0.9294289350509644
+        },
+        {
+          "word": " robotics",
+          "start": 109.05,
+          "end": 109.35,
+          "probability": 0.9897662997245789
+        },
+        {
+          "word": " club.",
+          "start": 109.35,
+          "end": 109.75,
+          "probability": 0.9706896543502808
+        },
+        {
+          "word": " Leading",
+          "start": 110.58,
+          "end": 110.86,
+          "probability": 0.9043916463851929
+        },
+        {
+          "word": " the",
+          "start": 110.86,
+          "end": 111.06,
+          "probability": 0.9896770119667053
+        },
+        {
+          "word": " club",
+          "start": 111.06,
+          "end": 111.3,
+          "probability": 0.9893773198127747
+        },
+        {
+          "word": " has",
+          "start": 111.3,
+          "end": 111.54,
+          "probability": 0.9960320591926575
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 111.54,
+      "end": 117.48,
+      "text": "been just as important to me as competing because it's about sharing knowledge, inspiring my teammates",
+      "avg_logprob": -0.11398141597246014,
+      "no_speech_prob": 0.3385815918445587,
+      "compression_ratio": 1.6074380165289257,
+      "words": [
+        {
+          "word": " been",
+          "start": 111.54,
+          "end": 111.76,
+          "probability": 0.990038275718689
+        },
+        {
+          "word": " just",
+          "start": 111.76,
+          "end": 112.02,
+          "probability": 0.9975762963294983
+        },
+        {
+          "word": " as",
+          "start": 112.02,
+          "end": 112.24,
+          "probability": 0.9974638223648071
+        },
+        {
+          "word": " important",
+          "start": 112.24,
+          "end": 112.56,
+          "probability": 0.9988864064216614
+        },
+        {
+          "word": " to",
+          "start": 112.56,
+          "end": 112.86,
+          "probability": 0.9915754199028015
+        },
+        {
+          "word": " me",
+          "start": 112.86,
+          "end": 113.04,
+          "probability": 0.9961256384849548
+        },
+        {
+          "word": " as",
+          "start": 113.04,
+          "end": 113.44,
+          "probability": 0.9882200956344604
+        },
+        {
+          "word": " competing",
+          "start": 113.44,
+          "end": 114.0,
+          "probability": 0.9875149726867676
+        },
+        {
+          "word": " because",
+          "start": 114.0,
+          "end": 114.92,
+          "probability": 0.6204500794410706
+        },
+        {
+          "word": " it's",
+          "start": 114.92,
+          "end": 115.22,
+          "probability": 0.9894500076770782
+        },
+        {
+          "word": " about",
+          "start": 115.22,
+          "end": 115.42,
+          "probability": 0.9955768585205078
+        },
+        {
+          "word": " sharing",
+          "start": 115.42,
+          "end": 115.74,
+          "probability": 0.9919975399971008
+        },
+        {
+          "word": " knowledge,",
+          "start": 115.74,
+          "end": 116.28,
+          "probability": 0.997678816318512
+        },
+        {
+          "word": " inspiring",
+          "start": 116.62,
+          "end": 116.98,
+          "probability": 0.9963678121566772
+        },
+        {
+          "word": " my",
+          "start": 116.98,
+          "end": 117.26,
+          "probability": 0.9681413769721985
+        },
+        {
+          "word": " teammates",
+          "start": 117.26,
+          "end": 117.48,
+          "probability": 0.9814417362213135
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 117.48,
+      "end": 124.21,
+      "text": "and showing others that AI is something we can all explore. My team and I are also an example",
+      "avg_logprob": -0.11398141597246014,
+      "no_speech_prob": 0.3385815918445587,
+      "compression_ratio": 1.6074380165289257,
+      "words": [
+        {
+          "word": " and",
+          "start": 117.48,
+          "end": 118.0,
+          "probability": 0.5888142585754395
+        },
+        {
+          "word": " showing",
+          "start": 118.0,
+          "end": 118.62,
+          "probability": 0.9717010855674744
+        },
+        {
+          "word": " others",
+          "start": 118.62,
+          "end": 118.96,
+          "probability": 0.9951146841049194
+        },
+        {
+          "word": " that",
+          "start": 118.96,
+          "end": 119.18,
+          "probability": 0.9875926375389099
+        },
+        {
+          "word": " AI",
+          "start": 119.18,
+          "end": 119.42,
+          "probability": 0.9714651107788086
+        },
+        {
+          "word": " is",
+          "start": 119.42,
+          "end": 119.74,
+          "probability": 0.9815829396247864
+        },
+        {
+          "word": " something",
+          "start": 119.74,
+          "end": 119.96,
+          "probability": 0.9988831877708435
+        },
+        {
+          "word": " we",
+          "start": 119.96,
+          "end": 120.22,
+          "probability": 0.9630195498466492
+        },
+        {
+          "word": " can",
+          "start": 120.22,
+          "end": 120.34,
+          "probability": 0.9947836995124817
+        },
+        {
+          "word": " all",
+          "start": 120.34,
+          "end": 120.54,
+          "probability": 0.9977599382400513
+        },
+        {
+          "word": " explore.",
+          "start": 120.54,
+          "end": 120.88,
+          "probability": 0.9989936947822571
+        },
+        {
+          "word": " My",
+          "start": 122.29,
+          "end": 122.61,
+          "probability": 0.9902653098106384
+        },
+        {
+          "word": " team",
+          "start": 122.61,
+          "end": 122.89,
+          "probability": 0.9711350202560425
+        },
+        {
+          "word": " and",
+          "start": 122.89,
+          "end": 123.05,
+          "probability": 0.9433663487434387
+        },
+        {
+          "word": " I",
+          "start": 123.05,
+          "end": 123.21,
+          "probability": 0.9890135526657104
+        },
+        {
+          "word": " are",
+          "start": 123.21,
+          "end": 123.33,
+          "probability": 0.9856663346290588
+        },
+        {
+          "word": " also",
+          "start": 123.33,
+          "end": 123.57,
+          "probability": 0.9985128045082092
+        },
+        {
+          "word": " an",
+          "start": 123.57,
+          "end": 123.73,
+          "probability": 0.9031444787979126
+        },
+        {
+          "word": " example",
+          "start": 123.73,
+          "end": 124.21,
+          "probability": 0.9993045330047607
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 124.21,
+      "end": 132.53,
+      "text": "of the positive impacts that AI can make on young people. Together we became national champions",
+      "avg_logprob": -0.11398141597246014,
+      "no_speech_prob": 0.3385815918445587,
+      "compression_ratio": 1.6074380165289257,
+      "words": [
+        {
+          "word": " of",
+          "start": 124.21,
+          "end": 124.63,
+          "probability": 0.9843474626541138
+        },
+        {
+          "word": " the",
+          "start": 124.63,
+          "end": 124.99,
+          "probability": 0.9930177927017212
+        },
+        {
+          "word": " positive",
+          "start": 124.99,
+          "end": 125.33,
+          "probability": 0.998599112033844
+        },
+        {
+          "word": " impacts",
+          "start": 125.33,
+          "end": 125.97,
+          "probability": 0.893258810043335
+        },
+        {
+          "word": " that",
+          "start": 125.97,
+          "end": 126.55,
+          "probability": 0.8837687969207764
+        },
+        {
+          "word": " AI",
+          "start": 126.55,
+          "end": 126.81,
+          "probability": 0.9889066219329834
+        },
+        {
+          "word": " can",
+          "start": 126.81,
+          "end": 127.17,
+          "probability": 0.9977745413780212
+        },
+        {
+          "word": " make",
+          "start": 127.17,
+          "end": 127.43,
+          "probability": 0.9966652989387512
+        },
+        {
+          "word": " on",
+          "start": 127.43,
+          "end": 127.71,
+          "probability": 0.9923456311225891
+        },
+        {
+          "word": " young",
+          "start": 127.71,
+          "end": 127.85,
+          "probability": 0.9961078763008118
+        },
+        {
+          "word": " people.",
+          "start": 127.85,
+          "end": 128.25,
+          "probability": 0.9993636012077332
+        },
+        {
+          "word": " Together",
+          "start": 129.41,
+          "end": 129.81,
+          "probability": 0.9951848387718201
+        },
+        {
+          "word": " we",
+          "start": 129.81,
+          "end": 130.11,
+          "probability": 0.8555530905723572
+        },
+        {
+          "word": " became",
+          "start": 130.11,
+          "end": 130.55,
+          "probability": 0.9975079298019409
+        },
+        {
+          "word": " national",
+          "start": 130.55,
+          "end": 131.87,
+          "probability": 0.9400813579559326
+        },
+        {
+          "word": " champions",
+          "start": 131.87,
+          "end": 132.53,
+          "probability": 0.9949118494987488
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 132.53,
+      "end": 138.11,
+      "text": "are the first leg reliefs in my way, with a project we designed ourselves, an AI-powered",
+      "avg_logprob": -0.33837475355933694,
+      "no_speech_prob": 0.4184991717338562,
+      "compression_ratio": 1.5333333333333334,
+      "words": [
+        {
+          "word": " are",
+          "start": 132.53,
+          "end": 132.83,
+          "probability": 0.0151725048199296
+        },
+        {
+          "word": " the",
+          "start": 132.83,
+          "end": 133.01,
+          "probability": 0.8481698632240295
+        },
+        {
+          "word": " first",
+          "start": 133.01,
+          "end": 133.23,
+          "probability": 0.9084857702255249
+        },
+        {
+          "word": " leg",
+          "start": 133.23,
+          "end": 133.41,
+          "probability": 0.5899072885513306
+        },
+        {
+          "word": " reliefs",
+          "start": 133.41,
+          "end": 133.79,
+          "probability": 0.7836204469203949
+        },
+        {
+          "word": " in",
+          "start": 133.79,
+          "end": 133.89,
+          "probability": 0.9625551104545593
+        },
+        {
+          "word": " my",
+          "start": 133.89,
+          "end": 134.01,
+          "probability": 0.1774541437625885
+        },
+        {
+          "word": " way,",
+          "start": 134.01,
+          "end": 134.23,
+          "probability": 0.6946508288383484
+        },
+        {
+          "word": " with",
+          "start": 134.69,
+          "end": 134.89,
+          "probability": 0.9313627481460571
+        },
+        {
+          "word": " a",
+          "start": 134.89,
+          "end": 135.01,
+          "probability": 0.747501790523529
+        },
+        {
+          "word": " project",
+          "start": 135.01,
+          "end": 135.35,
+          "probability": 0.9936895370483398
+        },
+        {
+          "word": " we",
+          "start": 135.35,
+          "end": 135.59,
+          "probability": 0.9541885256767273
+        },
+        {
+          "word": " designed",
+          "start": 135.59,
+          "end": 135.87,
+          "probability": 0.9719478487968445
+        },
+        {
+          "word": " ourselves,",
+          "start": 135.87,
+          "end": 136.31,
+          "probability": 0.3665795922279358
+        },
+        {
+          "word": " an",
+          "start": 137.23,
+          "end": 137.43,
+          "probability": 0.7431643009185791
+        },
+        {
+          "word": " AI",
+          "start": 137.43,
+          "end": 137.77,
+          "probability": 0.9776179194450378
+        },
+        {
+          "word": "-powered",
+          "start": 137.77,
+          "end": 138.11,
+          "probability": 0.5892865508794785
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 138.11,
+      "end": 143.97,
+      "text": "sea surveillance and a military detection system. The idea came from realizing how serious the",
+      "avg_logprob": -0.33837475355933694,
+      "no_speech_prob": 0.4184991717338562,
+      "compression_ratio": 1.5333333333333334,
+      "words": [
+        {
+          "word": " sea",
+          "start": 138.11,
+          "end": 138.39,
+          "probability": 0.9042006134986877
+        },
+        {
+          "word": " surveillance",
+          "start": 138.39,
+          "end": 138.87,
+          "probability": 0.9913203120231628
+        },
+        {
+          "word": " and",
+          "start": 138.87,
+          "end": 139.45,
+          "probability": 0.8443976044654846
+        },
+        {
+          "word": " a",
+          "start": 139.45,
+          "end": 139.63,
+          "probability": 0.265309602022171
+        },
+        {
+          "word": " military",
+          "start": 139.63,
+          "end": 139.77,
+          "probability": 0.06477208435535431
+        },
+        {
+          "word": " detection",
+          "start": 139.77,
+          "end": 140.13,
+          "probability": 0.927238404750824
+        },
+        {
+          "word": " system.",
+          "start": 140.13,
+          "end": 140.65,
+          "probability": 0.9946513772010803
+        },
+        {
+          "word": " The",
+          "start": 141.59,
+          "end": 141.75,
+          "probability": 0.9811469316482544
+        },
+        {
+          "word": " idea",
+          "start": 141.75,
+          "end": 142.11,
+          "probability": 0.997032642364502
+        },
+        {
+          "word": " came",
+          "start": 142.11,
+          "end": 142.43,
+          "probability": 0.9944179058074951
+        },
+        {
+          "word": " from",
+          "start": 142.43,
+          "end": 142.69,
+          "probability": 0.9943763017654419
+        },
+        {
+          "word": " realizing",
+          "start": 142.69,
+          "end": 143.05,
+          "probability": 0.3584231436252594
+        },
+        {
+          "word": " how",
+          "start": 143.05,
+          "end": 143.47,
+          "probability": 0.9951011538505554
+        },
+        {
+          "word": " serious",
+          "start": 143.47,
+          "end": 143.75,
+          "probability": 0.992629885673523
+        },
+        {
+          "word": " the",
+          "start": 143.75,
+          "end": 143.97,
+          "probability": 0.9789753556251526
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 143.97,
+      "end": 149.95,
+      "text": "problem of ocean pollution is, because every year millions of tons of plastic end up in",
+      "avg_logprob": -0.33837475355933694,
+      "no_speech_prob": 0.4184991717338562,
+      "compression_ratio": 1.5333333333333334,
+      "words": [
+        {
+          "word": " problem",
+          "start": 143.97,
+          "end": 144.27,
+          "probability": 0.9896796941757202
+        },
+        {
+          "word": " of",
+          "start": 144.27,
+          "end": 144.51,
+          "probability": 0.9832445383071899
+        },
+        {
+          "word": " ocean",
+          "start": 144.51,
+          "end": 144.81,
+          "probability": 0.9728792905807495
+        },
+        {
+          "word": " pollution",
+          "start": 144.81,
+          "end": 145.15,
+          "probability": 0.9994884729385376
+        },
+        {
+          "word": " is,",
+          "start": 145.15,
+          "end": 145.61,
+          "probability": 0.9853847622871399
+        },
+        {
+          "word": " because",
+          "start": 146.41,
+          "end": 146.91,
+          "probability": 0.431233286857605
+        },
+        {
+          "word": " every",
+          "start": 146.91,
+          "end": 147.25,
+          "probability": 0.9808552861213684
+        },
+        {
+          "word": " year",
+          "start": 147.25,
+          "end": 147.57,
+          "probability": 0.986977756023407
+        },
+        {
+          "word": " millions",
+          "start": 147.57,
+          "end": 147.97,
+          "probability": 0.8508999347686768
+        },
+        {
+          "word": " of",
+          "start": 147.97,
+          "end": 148.49,
+          "probability": 0.9909047484397888
+        },
+        {
+          "word": " tons",
+          "start": 148.49,
+          "end": 148.75,
+          "probability": 0.8552482724189758
+        },
+        {
+          "word": " of",
+          "start": 148.75,
+          "end": 148.95,
+          "probability": 0.9985572695732117
+        },
+        {
+          "word": " plastic",
+          "start": 148.95,
+          "end": 149.35,
+          "probability": 0.9923345446586609
+        },
+        {
+          "word": " end",
+          "start": 149.35,
+          "end": 149.71,
+          "probability": 0.936258852481842
+        },
+        {
+          "word": " up",
+          "start": 149.71,
+          "end": 149.85,
+          "probability": 0.9974902868270874
+        },
+        {
+          "word": " in",
+          "start": 149.85,
+          "end": 149.95,
+          "probability": 0.9962220191955566
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 149.95,
+      "end": 156.82,
+      "text": "the water, harming marine life and even affecting human health. So we wanted to see how AI could",
+      "avg_logprob": -0.33837475355933694,
+      "no_speech_prob": 0.4184991717338562,
+      "compression_ratio": 1.5333333333333334,
+      "words": [
+        {
+          "word": " the",
+          "start": 149.95,
+          "end": 150.07,
+          "probability": 0.9709891080856323
+        },
+        {
+          "word": " water,",
+          "start": 150.07,
+          "end": 150.33,
+          "probability": 0.9987566471099854
+        },
+        {
+          "word": " harming",
+          "start": 150.95,
+          "end": 151.31,
+          "probability": 0.8888691067695618
+        },
+        {
+          "word": " marine",
+          "start": 151.31,
+          "end": 151.79,
+          "probability": 0.9957504272460938
+        },
+        {
+          "word": " life",
+          "start": 151.79,
+          "end": 152.13,
+          "probability": 0.996772825717926
+        },
+        {
+          "word": " and",
+          "start": 152.13,
+          "end": 152.75,
+          "probability": 0.8095032572746277
+        },
+        {
+          "word": " even",
+          "start": 152.75,
+          "end": 153.27,
+          "probability": 0.9471650719642639
+        },
+        {
+          "word": " affecting",
+          "start": 153.27,
+          "end": 153.71,
+          "probability": 0.9822580814361572
+        },
+        {
+          "word": " human",
+          "start": 153.71,
+          "end": 154.03,
+          "probability": 0.8255406022071838
+        },
+        {
+          "word": " health.",
+          "start": 154.03,
+          "end": 154.37,
+          "probability": 0.8791558742523193
+        },
+        {
+          "word": " So",
+          "start": 155.06,
+          "end": 155.32,
+          "probability": 0.9711394309997559
+        },
+        {
+          "word": " we",
+          "start": 155.32,
+          "end": 155.48,
+          "probability": 0.8576622009277344
+        },
+        {
+          "word": " wanted",
+          "start": 155.48,
+          "end": 155.7,
+          "probability": 0.9942996501922607
+        },
+        {
+          "word": " to",
+          "start": 155.7,
+          "end": 155.88,
+          "probability": 0.9974929094314575
+        },
+        {
+          "word": " see",
+          "start": 155.88,
+          "end": 156.1,
+          "probability": 0.9977703094482422
+        },
+        {
+          "word": " how",
+          "start": 156.1,
+          "end": 156.24,
+          "probability": 0.99720299243927
+        },
+        {
+          "word": " AI",
+          "start": 156.24,
+          "end": 156.52,
+          "probability": 0.9785822033882141
+        },
+        {
+          "word": " could",
+          "start": 156.52,
+          "end": 156.82,
+          "probability": 0.9855905771255493
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 156.82,
+      "end": 163.92,
+      "text": "hope fight this problem. And our system uses cameras and AI models such as YOLO V5 to scan",
+      "avg_logprob": -0.1763541789281936,
+      "no_speech_prob": 0.11821870505809784,
+      "compression_ratio": 1.5703125,
+      "words": [
+        {
+          "word": " hope",
+          "start": 156.82,
+          "end": 157.08,
+          "probability": 0.2981618642807007
+        },
+        {
+          "word": " fight",
+          "start": 157.08,
+          "end": 157.4,
+          "probability": 0.377828985452652
+        },
+        {
+          "word": " this",
+          "start": 157.4,
+          "end": 157.62,
+          "probability": 0.9672616720199585
+        },
+        {
+          "word": " problem.",
+          "start": 157.62,
+          "end": 158.0,
+          "probability": 0.986621618270874
+        },
+        {
+          "word": " And",
+          "start": 158.76,
+          "end": 158.86,
+          "probability": 0.6942951679229736
+        },
+        {
+          "word": " our",
+          "start": 158.86,
+          "end": 159.06,
+          "probability": 0.9671159386634827
+        },
+        {
+          "word": " system",
+          "start": 159.06,
+          "end": 159.36,
+          "probability": 0.9683571457862854
+        },
+        {
+          "word": " uses",
+          "start": 159.36,
+          "end": 159.64,
+          "probability": 0.9870872497558594
+        },
+        {
+          "word": " cameras",
+          "start": 159.64,
+          "end": 160.02,
+          "probability": 0.10992474853992462
+        },
+        {
+          "word": " and",
+          "start": 160.02,
+          "end": 160.66,
+          "probability": 0.9576239585876465
+        },
+        {
+          "word": " AI",
+          "start": 160.66,
+          "end": 161.32,
+          "probability": 0.827340841293335
+        },
+        {
+          "word": " models",
+          "start": 161.32,
+          "end": 161.7,
+          "probability": 0.5295177698135376
+        },
+        {
+          "word": " such",
+          "start": 161.7,
+          "end": 162.1,
+          "probability": 0.8031444549560547
+        },
+        {
+          "word": " as",
+          "start": 162.1,
+          "end": 162.26,
+          "probability": 0.9932506680488586
+        },
+        {
+          "word": " YOLO",
+          "start": 162.26,
+          "end": 162.58,
+          "probability": 0.8120734095573425
+        },
+        {
+          "word": " V5",
+          "start": 162.58,
+          "end": 163.02,
+          "probability": 0.6844742745161057
+        },
+        {
+          "word": " to",
+          "start": 163.02,
+          "end": 163.62,
+          "probability": 0.8971052765846252
+        },
+        {
+          "word": " scan",
+          "start": 163.62,
+          "end": 163.92,
+          "probability": 0.9963363409042358
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 163.92,
+      "end": 169.7,
+      "text": "the surface of the sea, detect pieces of litter, and even guide a robot mechanism to remove it.",
+      "avg_logprob": -0.1763541789281936,
+      "no_speech_prob": 0.11821870505809784,
+      "compression_ratio": 1.5703125,
+      "words": [
+        {
+          "word": " the",
+          "start": 163.92,
+          "end": 164.14,
+          "probability": 0.9929150342941284
+        },
+        {
+          "word": " surface",
+          "start": 164.14,
+          "end": 164.48,
+          "probability": 0.9819667339324951
+        },
+        {
+          "word": " of",
+          "start": 164.48,
+          "end": 164.72,
+          "probability": 0.9937227368354797
+        },
+        {
+          "word": " the",
+          "start": 164.72,
+          "end": 164.86,
+          "probability": 0.990003228187561
+        },
+        {
+          "word": " sea,",
+          "start": 164.86,
+          "end": 165.12,
+          "probability": 0.9835594296455383
+        },
+        {
+          "word": " detect",
+          "start": 165.58,
+          "end": 165.74,
+          "probability": 0.9678350687026978
+        },
+        {
+          "word": " pieces",
+          "start": 165.74,
+          "end": 166.18,
+          "probability": 0.9784454107284546
+        },
+        {
+          "word": " of",
+          "start": 166.18,
+          "end": 166.4,
+          "probability": 0.9846409559249878
+        },
+        {
+          "word": " litter,",
+          "start": 166.4,
+          "end": 166.62,
+          "probability": 0.5168433785438538
+        },
+        {
+          "word": " and",
+          "start": 166.92,
+          "end": 166.96,
+          "probability": 0.9832332730293274
+        },
+        {
+          "word": " even",
+          "start": 166.96,
+          "end": 167.2,
+          "probability": 0.9938708543777466
+        },
+        {
+          "word": " guide",
+          "start": 167.2,
+          "end": 167.5,
+          "probability": 0.9821252822875977
+        },
+        {
+          "word": " a",
+          "start": 167.5,
+          "end": 167.7,
+          "probability": 0.9451256394386292
+        },
+        {
+          "word": " robot",
+          "start": 167.7,
+          "end": 167.98,
+          "probability": 0.9973406195640564
+        },
+        {
+          "word": " mechanism",
+          "start": 167.98,
+          "end": 168.86,
+          "probability": 0.8935033679008484
+        },
+        {
+          "word": " to",
+          "start": 168.86,
+          "end": 169.24,
+          "probability": 0.9906303286552429
+        },
+        {
+          "word": " remove",
+          "start": 169.24,
+          "end": 169.52,
+          "probability": 0.9561437964439392
+        },
+        {
+          "word": " it.",
+          "start": 169.52,
+          "end": 169.7,
+          "probability": 0.9819825887680054
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 170.99,
+      "end": 176.31,
+      "text": "In a way, it's like giving the ocean a pair of smart eyes and hands to protect itself.",
+      "avg_logprob": -0.1763541789281936,
+      "no_speech_prob": 0.11821870505809784,
+      "compression_ratio": 1.5703125,
+      "words": [
+        {
+          "word": " In",
+          "start": 170.99,
+          "end": 171.23,
+          "probability": 0.9561891555786133
+        },
+        {
+          "word": " a",
+          "start": 171.23,
+          "end": 171.37,
+          "probability": 0.8927551507949829
+        },
+        {
+          "word": " way,",
+          "start": 171.37,
+          "end": 171.65,
+          "probability": 0.9977331161499023
+        },
+        {
+          "word": " it's",
+          "start": 171.85,
+          "end": 172.05,
+          "probability": 0.9367527365684509
+        },
+        {
+          "word": " like",
+          "start": 172.05,
+          "end": 172.19,
+          "probability": 0.9956739544868469
+        },
+        {
+          "word": " giving",
+          "start": 172.19,
+          "end": 172.47,
+          "probability": 0.97866290807724
+        },
+        {
+          "word": " the",
+          "start": 172.47,
+          "end": 172.67,
+          "probability": 0.9930933713912964
+        },
+        {
+          "word": " ocean",
+          "start": 172.67,
+          "end": 172.95,
+          "probability": 0.979416012763977
+        },
+        {
+          "word": " a",
+          "start": 172.95,
+          "end": 173.17,
+          "probability": 0.9904875159263611
+        },
+        {
+          "word": " pair",
+          "start": 173.17,
+          "end": 173.43,
+          "probability": 0.9906620383262634
+        },
+        {
+          "word": " of",
+          "start": 173.43,
+          "end": 173.63,
+          "probability": 0.9974299073219299
+        },
+        {
+          "word": " smart",
+          "start": 173.63,
+          "end": 173.91,
+          "probability": 0.9469980597496033
+        },
+        {
+          "word": " eyes",
+          "start": 173.91,
+          "end": 174.27,
+          "probability": 0.9728681445121765
+        },
+        {
+          "word": " and",
+          "start": 174.27,
+          "end": 174.69,
+          "probability": 0.9298052191734314
+        },
+        {
+          "word": " hands",
+          "start": 174.69,
+          "end": 175.17,
+          "probability": 0.9869647026062012
+        },
+        {
+          "word": " to",
+          "start": 175.17,
+          "end": 175.55,
+          "probability": 0.9906408190727234
+        },
+        {
+          "word": " protect",
+          "start": 175.55,
+          "end": 175.91,
+          "probability": 0.9989733695983887
+        },
+        {
+          "word": " itself.",
+          "start": 175.91,
+          "end": 176.31,
+          "probability": 0.9691129922866821
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 177.49,
+      "end": 181.37,
+      "text": "And what makes it fascinating is that it's not just about cleaning the ocean.",
+      "avg_logprob": -0.1763541789281936,
+      "no_speech_prob": 0.11821870505809784,
+      "compression_ratio": 1.5703125,
+      "words": [
+        {
+          "word": " And",
+          "start": 177.49,
+          "end": 177.83,
+          "probability": 0.9113321900367737
+        },
+        {
+          "word": " what",
+          "start": 177.83,
+          "end": 178.03,
+          "probability": 0.9867334961891174
+        },
+        {
+          "word": " makes",
+          "start": 178.03,
+          "end": 178.29,
+          "probability": 0.9930775165557861
+        },
+        {
+          "word": " it",
+          "start": 178.29,
+          "end": 178.43,
+          "probability": 0.9912665486335754
+        },
+        {
+          "word": " fascinating",
+          "start": 178.43,
+          "end": 178.83,
+          "probability": 0.9932079911231995
+        },
+        {
+          "word": " is",
+          "start": 178.83,
+          "end": 179.35,
+          "probability": 0.9616705775260925
+        },
+        {
+          "word": " that",
+          "start": 179.35,
+          "end": 179.57,
+          "probability": 0.9872265458106995
+        },
+        {
+          "word": " it's",
+          "start": 179.57,
+          "end": 179.85,
+          "probability": 0.9802535474300385
+        },
+        {
+          "word": " not",
+          "start": 179.85,
+          "end": 179.99,
+          "probability": 0.9987227320671082
+        },
+        {
+          "word": " just",
+          "start": 179.99,
+          "end": 180.19,
+          "probability": 0.9952706694602966
+        },
+        {
+          "word": " about",
+          "start": 180.19,
+          "end": 180.45,
+          "probability": 0.9900972843170166
+        },
+        {
+          "word": " cleaning",
+          "start": 180.45,
+          "end": 180.77,
+          "probability": 0.9956243634223938
+        },
+        {
+          "word": " the",
+          "start": 180.77,
+          "end": 181.01,
+          "probability": 0.9979937076568604
+        },
+        {
+          "word": " ocean.",
+          "start": 181.01,
+          "end": 181.37,
+          "probability": 0.9881495237350464
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 182.07,
+      "end": 185.03,
+      "text": "It's about creating a solution that can work 24-7.",
+      "avg_logprob": -0.1763541789281936,
+      "no_speech_prob": 0.11821870505809784,
+      "compression_ratio": 1.5703125,
+      "words": [
+        {
+          "word": " It's",
+          "start": 182.07,
+          "end": 182.31,
+          "probability": 0.9896263480186462
+        },
+        {
+          "word": " about",
+          "start": 182.31,
+          "end": 182.53,
+          "probability": 0.9977120161056519
+        },
+        {
+          "word": " creating",
+          "start": 182.53,
+          "end": 182.81,
+          "probability": 0.9962762594223022
+        },
+        {
+          "word": " a",
+          "start": 182.81,
+          "end": 183.05,
+          "probability": 0.989090621471405
+        },
+        {
+          "word": " solution",
+          "start": 183.05,
+          "end": 183.37,
+          "probability": 0.9989223480224609
+        },
+        {
+          "word": " that",
+          "start": 183.37,
+          "end": 183.61,
+          "probability": 0.9978811144828796
+        },
+        {
+          "word": " can",
+          "start": 183.61,
+          "end": 183.83,
+          "probability": 0.9957863688468933
+        },
+        {
+          "word": " work",
+          "start": 183.83,
+          "end": 184.07,
+          "probability": 0.9964176416397095
+        },
+        {
+          "word": " 24",
+          "start": 184.07,
+          "end": 184.45,
+          "probability": 0.9742187261581421
+        },
+        {
+          "word": "-7.",
+          "start": 184.45,
+          "end": 185.03,
+          "probability": 0.49693014845252037
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 185.03,
+      "end": 188.29,
+      "text": "learn from the environment and scale up in the future.",
+      "avg_logprob": -0.12616966620530232,
+      "no_speech_prob": 0.21691283583641052,
+      "compression_ratio": 1.5277777777777777,
+      "words": [
+        {
+          "word": " learn",
+          "start": 185.03,
+          "end": 185.91,
+          "probability": 0.10304640233516693
+        },
+        {
+          "word": " from",
+          "start": 185.91,
+          "end": 186.15,
+          "probability": 0.9640445113182068
+        },
+        {
+          "word": " the",
+          "start": 186.15,
+          "end": 186.31,
+          "probability": 0.9818397164344788
+        },
+        {
+          "word": " environment",
+          "start": 186.31,
+          "end": 186.69,
+          "probability": 0.986906111240387
+        },
+        {
+          "word": " and",
+          "start": 186.69,
+          "end": 187.01,
+          "probability": 0.9603747129440308
+        },
+        {
+          "word": " scale",
+          "start": 187.01,
+          "end": 187.31,
+          "probability": 0.9908231496810913
+        },
+        {
+          "word": " up",
+          "start": 187.31,
+          "end": 187.65,
+          "probability": 0.6106424331665039
+        },
+        {
+          "word": " in",
+          "start": 187.65,
+          "end": 187.89,
+          "probability": 0.967345118522644
+        },
+        {
+          "word": " the",
+          "start": 187.89,
+          "end": 188.01,
+          "probability": 0.9971908926963806
+        },
+        {
+          "word": " future.",
+          "start": 188.01,
+          "end": 188.29,
+          "probability": 0.9977163076400757
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "start": 189.53,
+      "end": 193.57,
+      "text": "For us, it was proof that young people, even at 16,",
+      "avg_logprob": -0.12616966620530232,
+      "no_speech_prob": 0.21691283583641052,
+      "compression_ratio": 1.5277777777777777,
+      "words": [
+        {
+          "word": " For",
+          "start": 189.53,
+          "end": 189.91,
+          "probability": 0.9460220336914062
+        },
+        {
+          "word": " us,",
+          "start": 189.91,
+          "end": 190.27,
+          "probability": 0.9973894953727722
+        },
+        {
+          "word": " it",
+          "start": 190.57,
+          "end": 190.71,
+          "probability": 0.9896678924560547
+        },
+        {
+          "word": " was",
+          "start": 190.71,
+          "end": 190.81,
+          "probability": 0.9532491564750671
+        },
+        {
+          "word": " proof",
+          "start": 190.81,
+          "end": 191.09,
+          "probability": 0.7789593935012817
+        },
+        {
+          "word": " that",
+          "start": 191.09,
+          "end": 191.31,
+          "probability": 0.9898216724395752
+        },
+        {
+          "word": " young",
+          "start": 191.31,
+          "end": 191.53,
+          "probability": 0.9853079915046692
+        },
+        {
+          "word": " people,",
+          "start": 191.53,
+          "end": 191.93,
+          "probability": 0.9983333945274353
+        },
+        {
+          "word": " even",
+          "start": 192.65,
+          "end": 192.87,
+          "probability": 0.9957713484764099
+        },
+        {
+          "word": " at",
+          "start": 192.87,
+          "end": 193.11,
+          "probability": 0.9914365410804749
+        },
+        {
+          "word": " 16,",
+          "start": 193.11,
+          "end": 193.57,
+          "probability": 0.8436743021011353
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "start": 194.27,
+      "end": 196.67,
+      "text": "can design technology that tackles global issues.",
+      "avg_logprob": -0.12616966620530232,
+      "no_speech_prob": 0.21691283583641052,
+      "compression_ratio": 1.5277777777777777,
+      "words": [
+        {
+          "word": " can",
+          "start": 194.27,
+          "end": 194.41,
+          "probability": 0.9924293160438538
+        },
+        {
+          "word": " design",
+          "start": 194.41,
+          "end": 194.69,
+          "probability": 0.9882588386535645
+        },
+        {
+          "word": " technology",
+          "start": 194.69,
+          "end": 195.27,
+          "probability": 0.9621302485466003
+        },
+        {
+          "word": " that",
+          "start": 195.27,
+          "end": 195.49,
+          "probability": 0.9944638609886169
+        },
+        {
+          "word": " tackles",
+          "start": 195.49,
+          "end": 195.95,
+          "probability": 0.9752326011657715
+        },
+        {
+          "word": " global",
+          "start": 195.95,
+          "end": 196.25,
+          "probability": 0.9985234141349792
+        },
+        {
+          "word": " issues.",
+          "start": 196.25,
+          "end": 196.67,
+          "probability": 0.9961949586868286
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "start": 197.49,
+      "end": 199.81,
+      "text": "And that's what excites me the most about AI.",
+      "avg_logprob": -0.12616966620530232,
+      "no_speech_prob": 0.21691283583641052,
+      "compression_ratio": 1.5277777777777777,
+      "words": [
+        {
+          "word": " And",
+          "start": 197.49,
+          "end": 197.67,
+          "probability": 0.7851130366325378
+        },
+        {
+          "word": " that's",
+          "start": 197.67,
+          "end": 198.13,
+          "probability": 0.9133968651294708
+        },
+        {
+          "word": " what",
+          "start": 198.13,
+          "end": 198.21,
+          "probability": 0.9880459308624268
+        },
+        {
+          "word": " excites",
+          "start": 198.21,
+          "end": 198.67,
+          "probability": 0.96588534116745
+        },
+        {
+          "word": " me",
+          "start": 198.67,
+          "end": 198.95,
+          "probability": 0.9886821508407593
+        },
+        {
+          "word": " the",
+          "start": 198.95,
+          "end": 199.07,
+          "probability": 0.9376626014709473
+        },
+        {
+          "word": " most",
+          "start": 199.07,
+          "end": 199.31,
+          "probability": 0.9992799162864685
+        },
+        {
+          "word": " about",
+          "start": 199.31,
+          "end": 199.55,
+          "probability": 0.9850246906280518
+        },
+        {
+          "word": " AI.",
+          "start": 199.55,
+          "end": 199.81,
+          "probability": 0.9940846562385559
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "start": 200.61,
+      "end": 202.65,
+      "text": "It gives us the power to create real change",
+      "avg_logprob": -0.12616966620530232,
+      "no_speech_prob": 0.21691283583641052,
+      "compression_ratio": 1.5277777777777777,
+      "words": [
+        {
+          "word": " It",
+          "start": 200.61,
+          "end": 200.75,
+          "probability": 0.9919614195823669
+        },
+        {
+          "word": " gives",
+          "start": 200.75,
+          "end": 200.97,
+          "probability": 0.9901233315467834
+        },
+        {
+          "word": " us",
+          "start": 200.97,
+          "end": 201.11,
+          "probability": 0.9978844523429871
+        },
+        {
+          "word": " the",
+          "start": 201.11,
+          "end": 201.27,
+          "probability": 0.9936501383781433
+        },
+        {
+          "word": " power",
+          "start": 201.27,
+          "end": 201.51,
+          "probability": 0.9882839918136597
+        },
+        {
+          "word": " to",
+          "start": 201.51,
+          "end": 201.71,
+          "probability": 0.9977619647979736
+        },
+        {
+          "word": " create",
+          "start": 201.71,
+          "end": 201.93,
+          "probability": 0.981560230255127
+        },
+        {
+          "word": " real",
+          "start": 201.93,
+          "end": 202.19,
+          "probability": 0.5599074959754944
+        },
+        {
+          "word": " change",
+          "start": 202.19,
+          "end": 202.65,
+          "probability": 0.9808744788169861
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 203.64,
+      "end": 206.16,
+      "text": "and just make the world a whole better place.",
+      "avg_logprob": -0.12616966620530232,
+      "no_speech_prob": 0.21691283583641052,
+      "compression_ratio": 1.5277777777777777,
+      "words": [
+        {
+          "word": " and",
+          "start": 203.64,
+          "end": 204.2,
+          "probability": 0.6345980763435364
+        },
+        {
+          "word": " just",
+          "start": 204.2,
+          "end": 204.76,
+          "probability": 0.9390296339988708
+        },
+        {
+          "word": " make",
+          "start": 204.76,
+          "end": 204.98,
+          "probability": 0.9845569133758545
+        },
+        {
+          "word": " the",
+          "start": 204.98,
+          "end": 205.12,
+          "probability": 0.986503005027771
+        },
+        {
+          "word": " world",
+          "start": 205.12,
+          "end": 205.26,
+          "probability": 0.992679238319397
+        },
+        {
+          "word": " a",
+          "start": 205.26,
+          "end": 205.44,
+          "probability": 0.7297385334968567
+        },
+        {
+          "word": " whole",
+          "start": 205.44,
+          "end": 205.64,
+          "probability": 0.9855074882507324
+        },
+        {
+          "word": " better",
+          "start": 205.64,
+          "end": 205.8,
+          "probability": 0.9880509376525879
+        },
+        {
+          "word": " place.",
+          "start": 205.8,
+          "end": 206.16,
+          "probability": 0.9993359446525574
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "start": 207.54,
+      "end": 210.18,
+      "text": "My journey with AI has taught me that technology",
+      "avg_logprob": -0.12616966620530232,
+      "no_speech_prob": 0.21691283583641052,
+      "compression_ratio": 1.5277777777777777,
+      "words": [
+        {
+          "word": " My",
+          "start": 207.54,
+          "end": 207.92,
+          "probability": 0.9912990927696228
+        },
+        {
+          "word": " journey",
+          "start": 207.92,
+          "end": 208.22,
+          "probability": 0.9796448945999146
+        },
+        {
+          "word": " with",
+          "start": 208.22,
+          "end": 208.52,
+          "probability": 0.9654778242111206
+        },
+        {
+          "word": " AI",
+          "start": 208.52,
+          "end": 208.72,
+          "probability": 0.9946092367172241
+        },
+        {
+          "word": " has",
+          "start": 208.72,
+          "end": 209.1,
+          "probability": 0.9905403852462769
+        },
+        {
+          "word": " taught",
+          "start": 209.1,
+          "end": 209.32,
+          "probability": 0.9977059364318848
+        },
+        {
+          "word": " me",
+          "start": 209.32,
+          "end": 209.46,
+          "probability": 0.9968776702880859
+        },
+        {
+          "word": " that",
+          "start": 209.46,
+          "end": 209.64,
+          "probability": 0.9861209988594055
+        },
+        {
+          "word": " technology",
+          "start": 209.64,
+          "end": 210.18,
+          "probability": 0.9937235713005066
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "start": 210.18,
+      "end": 212.58,
+      "text": "isn't just for big companies or scientists.",
+      "avg_logprob": -0.12616966620530232,
+      "no_speech_prob": 0.21691283583641052,
+      "compression_ratio": 1.5277777777777777,
+      "words": [
+        {
+          "word": " isn't",
+          "start": 210.18,
+          "end": 210.66,
+          "probability": 0.9951768517494202
+        },
+        {
+          "word": " just",
+          "start": 210.66,
+          "end": 210.86,
+          "probability": 0.9956231713294983
+        },
+        {
+          "word": " for",
+          "start": 210.86,
+          "end": 211.06,
+          "probability": 0.9932971596717834
+        },
+        {
+          "word": " big",
+          "start": 211.06,
+          "end": 211.26,
+          "probability": 0.9835973381996155
+        },
+        {
+          "word": " companies",
+          "start": 211.26,
+          "end": 211.74,
+          "probability": 0.9987881779670715
+        },
+        {
+          "word": " or",
+          "start": 211.74,
+          "end": 212.04,
+          "probability": 0.8899262547492981
+        },
+        {
+          "word": " scientists.",
+          "start": 212.04,
+          "end": 212.58,
+          "probability": 0.9974579215049744
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "start": 212.58,
+      "end": 219.56,
+      "text": "It's for young people too and if we use it wisely we can tackle global problems, protect",
+      "avg_logprob": -0.34476714520841034,
+      "no_speech_prob": 0.06578702479600906,
+      "compression_ratio": 1.2327586206896552,
+      "words": [
+        {
+          "word": " It's",
+          "start": 212.58,
+          "end": 213.6,
+          "probability": 0.6334640383720398
+        },
+        {
+          "word": " for",
+          "start": 213.6,
+          "end": 213.76,
+          "probability": 0.9810646772384644
+        },
+        {
+          "word": " young",
+          "start": 213.76,
+          "end": 213.98,
+          "probability": 0.9869281649589539
+        },
+        {
+          "word": " people",
+          "start": 213.98,
+          "end": 214.32,
+          "probability": 0.9984570741653442
+        },
+        {
+          "word": " too",
+          "start": 214.32,
+          "end": 214.6,
+          "probability": 0.8209485411643982
+        },
+        {
+          "word": " and",
+          "start": 214.6,
+          "end": 215.66,
+          "probability": 0.2598440647125244
+        },
+        {
+          "word": " if",
+          "start": 215.66,
+          "end": 215.92,
+          "probability": 0.974334180355072
+        },
+        {
+          "word": " we",
+          "start": 215.92,
+          "end": 216.02,
+          "probability": 0.9374920725822449
+        },
+        {
+          "word": " use",
+          "start": 216.02,
+          "end": 216.22,
+          "probability": 0.9657546877861023
+        },
+        {
+          "word": " it",
+          "start": 216.22,
+          "end": 216.32,
+          "probability": 0.9649634957313538
+        },
+        {
+          "word": " wisely",
+          "start": 216.32,
+          "end": 216.72,
+          "probability": 0.9994451403617859
+        },
+        {
+          "word": " we",
+          "start": 216.72,
+          "end": 217.3,
+          "probability": 0.7178962230682373
+        },
+        {
+          "word": " can",
+          "start": 217.3,
+          "end": 217.44,
+          "probability": 0.9942705631256104
+        },
+        {
+          "word": " tackle",
+          "start": 217.44,
+          "end": 217.78,
+          "probability": 0.9989252686500549
+        },
+        {
+          "word": " global",
+          "start": 217.78,
+          "end": 218.18,
+          "probability": 0.9921178221702576
+        },
+        {
+          "word": " problems,",
+          "start": 218.18,
+          "end": 218.76,
+          "probability": 0.9897485375404358
+        },
+        {
+          "word": " protect",
+          "start": 219.0,
+          "end": 219.56,
+          "probability": 0.9949765205383301
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "start": 219.56,
+      "end": 221.82,
+      "text": "our environment and create a better future.",
+      "avg_logprob": -0.34476714520841034,
+      "no_speech_prob": 0.06578702479600906,
+      "compression_ratio": 1.2327586206896552,
+      "words": [
+        {
+          "word": " our",
+          "start": 219.56,
+          "end": 219.8,
+          "probability": 0.9809946417808533
+        },
+        {
+          "word": " environment",
+          "start": 219.8,
+          "end": 220.22,
+          "probability": 0.9948157668113708
+        },
+        {
+          "word": " and",
+          "start": 220.22,
+          "end": 220.68,
+          "probability": 0.8615304231643677
+        },
+        {
+          "word": " create",
+          "start": 220.68,
+          "end": 221.06,
+          "probability": 0.9828740358352661
+        },
+        {
+          "word": " a",
+          "start": 221.06,
+          "end": 221.22,
+          "probability": 0.9945350885391235
+        },
+        {
+          "word": " better",
+          "start": 221.22,
+          "end": 221.4,
+          "probability": 0.9983112812042236
+        },
+        {
+          "word": " future.",
+          "start": 221.4,
+          "end": 221.82,
+          "probability": 0.9979130625724792
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "start": 222.69,
+      "end": 223.19,
+      "text": "Thank you.",
+      "avg_logprob": -0.34476714520841034,
+      "no_speech_prob": 0.06578702479600906,
+      "compression_ratio": 1.2327586206896552,
+      "words": [
+        {
+          "word": " Thank",
+          "start": 222.69,
+          "end": 222.95,
+          "probability": 0.9882612824440002
+        },
+        {
+          "word": " you.",
+          "start": 222.95,
+          "end": 223.19,
+          "probability": 0.9497706294059753
+        }
+      ]
+    }
+  ],
+  "text": "Hello everyone, my name is Alaric Yusuf and today I'll be sharing my journey with artificial intelligence.\nHow it's impacted my life, the way I see the world and the projects and achievements that came out of it.\nAI has been more than just coding and robotics for me.\nIt's been a way to take ideas in my head and turn them into something new.\nIt stopped me problem solving, creativity and teamwork.\nI've also learned that AI isn't just about the future.\nIt's something young people like me can use right now to create real solutions for real problems.\nFor us, the youth, AI is opening doors that didn't exist before.\nIt's giving us opportunities to innovate, to complete globally, and to see ourselves as creators, not just consumers of technology.\nAI is helping young people dream bigger, whether it's in healthcare, education or in my case protecting the environment.\nThrough my work with AI and robotics, I've been fortunate to achieve some milestones that I'm really proud of.\nI came second place in programming engineering and robotics at the Irene Science Expo, which was held last year.\nand I also placed third in AI programming and engineering at the African\nscience basket competition and most importantly I became the national\nchampion of the first Lego League Zimbabwe with my team's project an AI part C\nsurveillance system that detects and removes litter from the ocean. Along with\ncompetitions. I'm also the captain of my school's coding and robotics club. Leading the club has\nbeen just as important to me as competing because it's about sharing knowledge, inspiring my teammates\nand showing others that AI is something we can all explore. My team and I are also an example\nof the positive impacts that AI can make on young people. Together we became national champions\nare the first leg reliefs in my way, with a project we designed ourselves, an AI-powered\nsea surveillance and a military detection system. The idea came from realizing how serious the\nproblem of ocean pollution is, because every year millions of tons of plastic end up in\nthe water, harming marine life and even affecting human health. So we wanted to see how AI could\nhope fight this problem. And our system uses cameras and AI models such as YOLO V5 to scan\nthe surface of the sea, detect pieces of litter, and even guide a robot mechanism to remove it.\nIn a way, it's like giving the ocean a pair of smart eyes and hands to protect itself.\nAnd what makes it fascinating is that it's not just about cleaning the ocean.\nIt's about creating a solution that can work 24-7.\nlearn from the environment and scale up in the future.\nFor us, it was proof that young people, even at 16,\ncan design technology that tackles global issues.\nAnd that's what excites me the most about AI.\nIt gives us the power to create real change\nand just make the world a whole better place.\nMy journey with AI has taught me that technology\nisn't just for big companies or scientists.\nIt's for young people too and if we use it wisely we can tackle global problems, protect\nour environment and create a better future.\nThank you."
+}

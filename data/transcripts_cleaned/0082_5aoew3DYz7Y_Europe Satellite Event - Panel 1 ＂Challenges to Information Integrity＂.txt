@@ -1,0 +1,1017 @@
+Good morning dear colleagues, I'm very happy to welcome you all today at our second European
+Regional Artificial Intelligence for Information Access conference.
+This event is a part of the Global AI for Information Accessibility conference that
+is organized annually by the Working Group on Information Accessibility of the UNESCO
+Information for All program.
+The 6th Global Conference will take place on the 28th of September on Get The Town platform,
+and we kindly invite you to register for the event, to get acquainted with presentations
+of over 70 speakers, participate in live interactive sessions, and in the informal network.
+I would like to thank the UNESCO Information Forum Programme, the University of Osnabrück
+and Mojila's call of journalism for their support over the second European Regional AI
+for Information Accessibility Conference.
+The topic of today's event is the future of European AI.
+And during the first panel, we will discuss the challenges to information integrity
+in the age of artificial intelligence, as well as the possible ways to address them.
+My name is Dario Pryshko, I'm a Media Law Consultant and a member of the Working Group on Information Accessibility of the UNESCO Information for All Program.
+And today, together with my colleague, Andrea Milbut Hardgrave, we will moderate our event.
+Before we start, I would like to say a couple of words about organizational moments.
+We designed our event as a virtual round table with a possibility for the audience to ask questions.
+We will have a Q&A session just after the main part, that is the round table itself.
+And I would like to encourage participants to write down their questions for the speakers in the chat,
+so we will be able to pass them on to our panelists.
+I would like to open our first panel, Channel Challenges to Information Integrity, with
+video remarks by Mr. Cordell Green, an Executive Director of the Broadcasting Commission of
+Jamaica, a Vice-Chairman of UNESCO Information Follower Programme, and a Chairman of UNESCO
+IFAP Working Group on Information Accessibility.
+Please welcome Mr. Cordell Green.
+And welcome. I'm pleased to join you for this satellite event, one of nine being convened
+in the lead up to the sixth AI for AI conference on September 28. Gatherings like this help
+bring into focus a wide spectrum of perspectives, technical, ethical, cultural, legal and social.
+They offer space for thoughtful exchange and creative expression for surfacing local insights
+and deepening our shared understanding of artificial intelligence and its impact on our lives.
+I thank all participants, the local organizers and partners for bringing this event to life.
+I also thank the AI4IA planning committee for their continued work.
+Your contributions are helping to build a richer, more connected conversation, one that
+will carry forward into the main conference.
+see you on the Gather Town platform on September 28th for the 6th AI4IA virtual conference.
+So, thank you Mr. Green for the warm greetings.
+And now, let me start our discussion by focusing on today's key theme.
+So basically, what is information integrity?
+In simple words, it means ensuring that people have access to accurate, reliable, fact-based
+information from plural sources.
+Yet, in the context of a fast-changing digital environment and the rapid development of AI,
+this information ecosystem is constantly facing new challenges.
+The latter include willful malicious use of LLMs by various actors to fuel their so-called
+truth decay and polarization of a society, creation and mass dissemination of AI-generated
+images and deepfakes just to name a few.
+To understand more about modern challenges to information integrity and how it is possible
+to address them, we will discuss technical aspects of the development and functioning of AI systems,
+impact of AI on society and media, as well as illegal and policy measures aimed at tackling
+these challenges and their effectiveness with our distinguished speakers. Professor Dr. Emanuele
+Frantoni, who is professor in computer science with the University of Matirata and a co-director
+of the VRAI Laboratory.
+Professor Dr. Victoria Rumanyuk,
+a Director of the Mozilla School of Journalism,
+Deputy Chief Editor of Stockfake Org,
+Chair of the UNESCO IFR Working Group on Information Ethics.
+Mr. Alia Bas Ali, Director of Broadcasting Competition of COM,
+Dr. Olga Batura, a Senior Scientist
+at the Dutch Organization for Applying Scientific Research to N.O. Bechtel, and Professor Dr.
+Markle Cole, a professor for media and telecommunications law at the University of Luxembourg, and director
+for academic affairs at the Institute of European Media Law in Saarbruggen. And I will start directly
+with the questions for you, Professor Frintoni. Could you please explain us the main technical
+aspects of how general AI functions are there any new recently developed
+techniques that are used to develop or fine-tune AI systems or models and could
+these techniques any influence the accuracy and reliability of content
+produced by unimodal AI text generators thank you very much Daria and
+And welcome everybody, happy to be here with you.
+So I just start from here, this is my team and I'm an art guy coming from computer science
+and working on AI from 20 years.
+But now together with us we have a lot of people coming from different disciplines that
+are inspiring new methods, new visions and a different way of working with AI.
+And this is one of my first messages.
+So today AI and the people working on that
+are no more coming from computer science
+that you see also from this panel this morning.
+And we need a lot of interdisciplinarity approach
+on AI, also for our technical meetings.
+And also we need a lot of awareness.
+And that's why I think today we start
+from the technical aspects.
+Because this is a picture, one of the picture
+that we generated the last year
+during the pharma strike in Europe. So, Daria, what do you think? This is a good strike in Paris.
+Yeah. This is a fake image. This is a generated image that is designed by one of my guys,
+using one of the models that we developed in the last years. And the funny thing is that
+when I get a conference in front of several farmers, one of these arise at these ends and say,
+Professor, you are not able to design A-Bales with this AI, so we had to destroy the humanities to
+take the work from everyone, but we are not able to design nothing, because these kind of
+bales here are bigger than the tractor. And that's one of the main points. We need a lot of
+awareness about this, and we need to ask a lot of questions about that also on the working aspects.
+And this is me, and this is me with the famous design that we used in the last few months,
+inside the GPT for who, and this is a generated image with a huge problem of copyrights,
+and you will tell us a lot on that. But going back to your question is, how now is working
+all our stories. So we started from here, from training, single networks, from millions of images.
+And this is one of the main messages for me today. So we still rely on a huge amount of data, 40
+million of images to recognize horses, cats, and dogs. And this is not how humans behave.
+My kids, the smallest one is six, and he was not looking
+to one million cats and dogs and horses before understanding.
+So AI is totally different also in terms of methodology
+of technical methodology from our human brains.
+We are totally in an opposite way that we are not doing
+something like humans.
+And you also know that when we are going on the generative
+AI aspects, we usually have two different networks.
+One is trying to generate the one content
+and the other one, the discriminator, is very expert
+because it was trained in a huge amount of images
+to recognize something that is coming from humans
+or something that is generated by the generator.
+And this is the trick.
+All the modern methodology is based on these couple
+of networks, then we can call them
+transformers, generative adversarial models,
+but you see the generator trying to generate something.
+And when I say trying, I say I'm really trying
+because there is a random aspect,
+a probabilistic aspects inside every technique
+so that we use that is trying to generate
+and to make a variation of the generation.
+Then there is the discriminator, the guard,
+that is there saying, no, guys,
+this is not a human content
+and is then deleting this output.
+After tens, thousands of trials,
+we get the one nice picture like this one
+and then the guard, the discriminator,
+or leave this content pass as a human mess.
+Then this is totally true for everything
+that now is going on the gen AI aspects.
+Given that we are still very specific,
+so we are not in inside the general AI.
+We are still inside the capability
+of doing very, very specific aspects based on data.
+And given that we started a huge amount of time ago,
+And that's why please remember that nothing is surprising now.
+So we know very well where we are going,
+we know very well what is the content of our algorithm.
+It's not really true that something is totally outside of the control
+of the people that are generating this kind of tools.
+And just to give you an example, this is PowerPoint
+and I'm only switching on subtitles.
+titles.
+Now I will speak in Italian and if the system works, you will see subtitles written in
+English in real time, thanks to a great evolution of everything that is natural language processing
+that we have today in front of us and all this is done thanks to a lot of intelligence,
+artificial generative.
+It's nice, it's inside of our point, I only have to switch on subtitles, nothing special
+And everything we use here is based on a huge amount of new data,
+a huge amount of computational power, and very nice new algorithms.
+So these three things are those that change totally the way of playing the game of AI in the last three years.
+And we really have a huge amount of computational power also in Europe.
+We are not far away from other countries.
+we have AI factories now going on in the European Union with a huge amount of
+computational power. But together with this we also need a huge amount of data.
+How many of them are you filling in? Clicking on traffic signs, cars, bikes and so on.
+And why we are doing this? You can say okay for understanding if I am a
+human or if I am a robot.
+So it's an anti-spam system.
+But in reality, this is collecting data
+for autonomous driving.
+This is a way of collecting worldwide data
+for autonomous driving.
+So we can think about that really, really,
+in a very proper way.
+Not always we are doing a charge EPT or LLM
+or generating images,
+but we are doing a huge amount of nice things.
+and we can work on preterm infants, for example,
+using generative AI.
+We need to enlarge a little bit our vision
+because now we can do a really a huge amount of things.
+Fashion is there with a huge amount of things
+going on in Europe.
+There is a lot of made in Europe AI for fashion brands
+and we can design and support the human creativity
+designing new collection and we can do a lot on that.
+My last question is,
+point. Now we are working a lot on this new methodology for privacy-preserving data,
+copyright-preserving data, and I studied machine learning for 20 years, and I never think about
+studying machine learning. And this methodology of learning is something that is now
+everywhere in our conferences. In our top conferences, we have 100 papers every conference
+talking about machine learning because it's too much costly to start from scratch and train again
+even the system. So that's why now we are in front of a new set of methodologies that are also
+preserving privacy and copyrights. Forget my image before because this is a totally legal image in
+Europe and try to study a little bit more about these methodologies. It's a nice made methodology
+because you are adding some kind of noise to the network
+to try to make this network for giving something,
+for getting something.
+And this is one of the key tool today.
+I stop my answer here.
+I hope that I covered the topic and my main message is
+we need a lot of awareness on the literacy of the GenAI.
+Also to better understand where the world is going
+and not to trust on social media posts. Thank you. Thank you very much, Professor Frantoni
+for such a comprehensive answer. May I pass a word to Andrea? Thank you very much indeed.
+I'm delighted to be speaking to Dr Victoria Romaniuk. Dr Romaniuk, recent research on
+tool news consumption published in 2025 by the Reuters Institute showed that the percentage
+of people consuming news from AI chatbots and via social media and video platforms is increasing,
+particularly among young people. As an expert in countering disinformation and manipulation,
+machine unlearning is quite an interesting one. Could you please define the main challenges to
+information integrity posed by the use of AI technologies to begin with.
+Thank you very much. Thank you very much for the questions. Hello and welcome. I'm truly
+honored to join this conference and discuss some of the pressing challenges of the age of the era.
+I represent the FAKE FACCHEKIN project. It is a Ukrainian FACCHEKIN project dedicated to
+analyzing the media landscape for false information and misleading information.
+My organization was founded in 2014, many, many years before the full-scale inversion started.
+And for us, it was very important to analyze information and media landscape and analyze
+these different examples of misleading and false information and our team was first in Ukraine
+that started to prepare some special instruments and tools to verify information professionally.
+In response to the panel's questions and while analyzing the key challenges to information
+integrity post by AI technology, I would like to focus on a few, the main, but very, very important aspect.
+First of all is hallucination and misinformation, erode trust in fact, living citizen,
+than uncertain about what to believe.
+The next fake social media content
+overwhelm authentic voices
+and download reliable information
+and AR Powered Disinformation Campaign
+can target at people more precisely
+and manipulate with a lot of languages.
+And of course, malicious actors could simulate
+a gross-root participation and a fake in-citizen
+a feedback to influence government decisions.
+And it creates some special information,
+communication, false information,
+communication in social media.
+In natural, I will start with errors
+or what we call hallucination produced by large language models.
+This is one of the main but most widespread problems.
+The well-known concept today, hallucination,
+is commonly used to describe situations
+where LLMs produce false and inaccurate answers.
+And here I would like to give you a well-known example in November 2022.
+Meta introduced a large language model called Galactica, designed to help scientific,
+summarize research papers and solve mathematical problems and write wiki-style articles.
+But after only three days met, I had to remove the model for public use because it generated
+bias and incorrect result and incorrect information.
+And additional technical error, hallucination can post serious reputational risk when a
+model generated false information about real individuals.
+It can spread harmful allies as a damage reputation and erode public trust in information.
+And of course, talking about the risk and talking about some threats, I would like to talk about the deepfake.
+This is another major risk that comes from a generated imagery.
+deepfake, synthetic media that can deceptively alter a person's face, voice, and even behavior,
+and tools like made journey allow anyone to create realistic images and voices and so on and so on.
+And during the war in Ukraine, we identified a huge amount of similar cases.
+For example, after the Trump-Zelensky Oval Office meeting,
+fake videos circulated on social media and it was great cases
+that help us to analyze how quickly some misinformation can circulate in social media.
+One video allegedly shows US President Donald Trump saying that Volodymyr Zelensky should
+not be taken seriously because he shopped on the Chinese marketplace.
+It was a joke, but in reality this video is a high quality deep fake created using AR.
+Also, we have seen a generated video and audio where Ukrainian politicians and military
+officials appear to give false orders.
+This is not a joke.
+It's absolutely serious information, but this information was prepared by AR.
+And study shows that 85% to attempt to generate misinformation through images generated success.
+And video generation is advancing rapidly and companies like Sensation provide synthetic
+avatars that can seek in over 120 languages and also open SORA models, enable text to
+video generation during photo-realistic deepfakes closer to mass production.
+And of course, in the context of FIMI, the principles and the technology hallucination
+can be intentionally exploited.
+This is absolutely new type of threats and problem.
+And here I would like to present
+and give two very, very important examples.
+And this is one case investigated by EU Design for Lab
+and Virginoum, the French government agency,
+formerly known as a service for vigilance and protection against foreign digital interfere.
+Analysis uncovered a Russia disinformation operation called Doppengager. The strategy
+involved creating fake or cloned version of legitimate media outlet and at least
+17 platforms were copied, including BUILD, the Guardians, and also Ukrainian news agencies.
+And the goal was to trick users into visiting those fake websites where they would read
+false articles, watch video, and answer misleading calls, and over 50 fake websites were created
+using a copied design and domain named
+resymboling real ones.
+And some of these were deployed immediately.
+Other were saved for future use.
+And OpenAR is in its report,
+AAR and Cover Influence Operation Later Strengths
+describe blocking for special clusters of account link to actors supporting the Doppelgäger
+campaign and Doppelgäger operation, and each cluster employed a different tactic, which
+is typical of coordinated disinformation campaign, and in 2024 approximately 3.6 million propaganda
+under article infiltrate Western AR system,
+filling them with disinformation and manipulative content.
+And in UGAR tested 10 majors AR chatbot,
+including chat GPT, meta AR, and Google Jiminy,
+and so on and so on, and found of this.
+And finally, we see how this information spread
+within this platform.
+And yes, of course, all of this thread illustrated
+in the reality we face amplifies the scale of complexity
+of this information, making it harder for both professionally
+and ordinary users to detect and to document
+And this is the main focuses of information threats.
+Thank you so much.
+You've actually allowed us to move very nicely
+into our conversation with Mr. Ali Abbas.
+Ali, I think I almost don't need to ask you any questions
+as a result of Dr. Romaniuk's intervention.
+And would you like to talk a little bit
+about what Ofcom can do and its role within this area?
+Certainly thank you Andrea and thank you for the invitation. I think what I would do is split
+if I may my comments into where we are today and how we might look to the future because I think
+where we are today doesn't give us a great deal of traction on these problems. At Ofcom
+I should preface what I'm saying, that freedom of expression guides everything that we do
+in our work in the information space.
+But within that, we have essentially three layers of controls that we can apply today.
+Very briefly, many of you will be familiar with the new online safety act in the UK.
+way, that's primarily targeted at illegal content and protecting children.
+There is a limited set of tools around spreading false information around foreign interference
+that we can deploy for actors trying to disrupt the information space, but we anticipate that
+the legal threshold for applying those controls is going to be very high and the burden of
+proof could be very challenging. And there's also controls around journalistic content
+that it shouldn't be taken down and that there are controls around that. But in essence the
+online safety act has a very limited scope around information integrity. For a long time
+now we have been the regulator of broadcast standards and that is that the information
+that you receive on TV should be duly impartial, should be duly accurate. And under the recent
+Media Act in the UK, that will translate to TV-like services online under the video on
+the mom code. But as you rightly pointed out, Andrea, in your opening before Professor Romanio,
+Thank you.
+Information consumption is moving away from those TV light spaces into online spaces.
+So we're regulating where a large portion of the audience is today, but increasingly
+the space that it is vacating, and it's going into places where we don't have regulation.
+And then finally, we have media ownership rules, which determine who can hold a license
+and give us certain controls over mergers, and that includes for newspapers safeguarding
+a free expression of opinion in a newspaper. But again, it's regulation that's targeted
+at an old way of transmitting information. So everything that we have is either limited
+or essentially technologically backward looking. I think in terms of what you can do, I would
+just very crudely set out a value chain of production, distribution and intermediation
+how people consume information and recognizing that's very crude if anyone wants to get in touch
+separately but a much more sophisticated version of this. But in that crude model historically
+what we were doing is saying that at that point of distribution we can apply controls because you
+either need a broadcast license or you need a printing press and that shaped the way that we
+thought about controlling and keeping a high quality of an information space.
+What technology has done has made the means of production very cheap.
+Anyone can produce content now. And it's also made distribution very cheap.
+And for almost no cost, you can achieve worldwide reach with your content.
+And that is in part what is underpinning the work of Professor Romano, exacerbated by
+the potential for bots to massively increase the volume here.
+And the point of control has moved to intermediation.
+It's those people who manage this massive volume of information and prioritise it for
+you and through the use of algorithms, try to make sense of this massive volume of information
+to give you the things which they think you want most likely in service of their commercial
+incentives rather than information integrity or your mental health. So just bear that in mind.
+And in terms of that, what do we do about it? I think first of all, you interfere with production
+distribution at your peril with regards to freedom of expression. It's permissible in
+most legal frameworks to tell lies as long as it's not done maliciously or with intent
+to cause harm. So, trying to address that, I think, for individuals is a very dangerous
+road to go down. However, I think, yeah, the question of bots and massive automation here
+something which you can look at. But at that human scale, I would argue that production
+and distribution of content should remain largely unaffected. What you must do in that
+space, I think, is work on the sustainability and, if you like, ongoing presence of high-quality
+How do you make sure that those sources continue to exist, they continue to thrive?
+How do we need to rethink historic competition constraints, for example, that we had on parties
+in that space, which have now been rendered obsolete by the way technology has moved?
+But once you've got that sustainability of high quality information, I think what becomes
+really important is that intermediation. So how do you get in that world of limited attention
+and someone filtering that information for millions? A degree of influence and a degree
+of cooperation that says what the audiences need in order for well-functioning democracies is high
+quality information to penetrate. They need to be able to access those high quality sources.
+as those sources need to be prominent in their news feeds and their search results.
+And so even in a world where you have a lot of poor quality information out there, the
+high quality stuff cuts through.
+Very prudely the way we talk about this is you should do what you can to deprecate bad
+information, but what you must do is promote good information because the deprecation can
+lead you down a dark path that restricts your expression. Whereas promoting the good is a
+positive step to say that the good stuff is out there if you want to get hold of it.
+Excellent, thank you very much indeed. So lots of questions and lots of questions and you can
+already see us all coming together. There'll be much to happen. So I'll hand back over to Daria.
+Thank you very much indeed, Ali.
+Yeah, thanks a lot from me as well,
+because your answer really very good
+bridges us and our conversation with the next point.
+In June 2024, so almost a year ago,
+the United Nations released global principles
+for information integrity.
+That include five main principles,
+such as social trust and resilience, healthy incentives, public empowerment, independent and free and pluralistic media, transparency and research.
+These principles are intended to serve as, let's say, a global benchmark for strengthening information ecosystems.
+Dr. Batura, with this framework in mind, may I ask you, are the United Nations principles
+of public empowerment and media pluralism reflected in European Union's legislation
+such as AI Act, DSA, DMA, MFA, and do these acts truly ensure that people consistently
+access diverse and reliable sources of information, especially as the AI plays
+really a larger, a greater role in how the content is delivered.
+Yes, thanks Daria, indeed it's a very important question. So I think that indeed the legislative
+the documents that you mentioned, so the, say, the AI at the EMFA, E-M-F-A approaches
+the European Indian Freedom Act, indeed, provides such tools that are conducive to the
+realization of the UN principles of public media interpreting.
+Just to give a few examples, because, obviously, we don't have enough time, but
+Just a few examples from each of the documents you mentioned.
+The AI, for example, provides for a greater transparency of specifically data used to
+train generative AI with systemic risk.
+This is important considering that certain types of generative AI, LLMs, nowadays use
+the search engines as information sources for almost anything.
+We just ask them and they provide an answer, and many people do not even care whether this
+answer is correct or not.
+We just heard about hallucinations from Victoria.
+Next one is DSA, which I think is one of the most important documents for registered
+instruments to enhance transparency of working of platforms,
+in particular, of course, of the very large online platforms
+and online search engines, but also other types of platforms,
+including when these platforms use AI
+and even broader algorithms in general.
+So, under the DSA, specifically Article 15,
+many providers, many employers of AI face scrutiny
+because they have to report on content moderation
+and on the usage of automated means in content moderation.
+So, as I said, this is not just for very large platforms
+and search engines, it's for everyone, right? And then very much online platforms and search
+engines in addition also need to conduct risk assessment on this AI and algorithms that they
+boost in their work. Last example from the MFAR. So MFAR is very
+conducive of media tourism, I think, in that it provides for greater transparency regarding
+media ownership. So this introduced this instrument. However, just to follow on what Ali said about
+how the positive kind of promotion of good content,
+it also contains this so-called media privilege,
+public media privilege.
+So there is an obligation to kind of push or highlight
+the information coming from our public service broadcasters.
+Very important.
+However, one more thing that I wanted to mention
+because it's also posed under the principles
+of media integrity is protection of journalists
+or kind of support of journalistic work.
+And ELFAN also aims to consolidate
+the media freedom response mechanism
+to provide practical assistance to journalists on the threat
+and to make available an emergency support fund
+for investigative journalists and media organizations.
+Very important.
+I also wanted to add that besides this very kind of important
+that everybody heard of, there are also some other instruments in the EU, for example, there is a so-called anti-slip directive,
+directive on the strategic lawsuits against public participation that should protect journalists against unjust persecution.
+Still needs to be transposed, obviously very important to be transposed fast and consistently, but nonetheless the instrument is there.
+There are also many software instruments such as the media purulism monitor in which I know
+our Stintorganizer Daria Priska participates.
+There are annual rule of war reports, so there are many, many other kind of instruments
+that create this base of foundation, right, for better action at the European level, but
+also better action at the member state level.
+However, not to leave you with the impression that you figured it all out and, you know,
+we can now relax and kind of enjoy the bettering world.
+I also want to maybe end with a bit of criticism or a bit of kind of pointing out some gaps
+that are left.
+So what we need to remember is that even if we have good legislation, and I don't say
+that we do, but even if we have good legislation, it needs to be implemented and applied also
+in a good consistent manner.
+And we need to remember that in the EU, the task of implementation and application falls
+mainly on the shoulders of the member states.
+And this is often a problematic issue because of the lack of consistency, the emergent interpretation
+and many practical things such as lack of resources, lack of knowledge, lack of expertise at the national level.
+So these are all important bottlenecks.
+And I don't even want to mention the differences in the political world,
+differences in political instruments, which by the way also applies to the EU level
+and some of the difficulties in applying even the EU law
+by also enforcing the EU law by the Commission.
+Another issue is the lack of competencies of the EU in the field of media, at least lawyers
+among you know, media very often falls under culture and this is one of the weakest competencies
+that the EU has, so culture is mainly in the hands of the member states.
+These forces the EU often to take the economic perspective on the program.
+And while this is of course one of the strongest hammers that the EU has,
+this does not provide this holistic, comprehensive approach to the problem.
+Yet, even when the EU does do something, or does do a lot of things,
+It is very often does not address kind of the root of the program.
+Just as an example, one of the root causes of the spread of this undesirable, harmful
+content online is the business model of most platforms, which is based on attracting the
+most eyeballs and sending them to advertisers also mentioned by Ali.
+So, because of that certain type of content is pushed, certain algorithms are created
+to push this content, certain distribution mechanisms are created.
+By the way, this is not only in media context, but also in e-commerce context, yeah, there
+are instruments.
+that simply make us addicted to buying more things.
+However, this program is not addressed
+by the legislation at all, right?
+And instead, the practice continues
+and practice creates past dependencies and habits
+and habits are difficult to break
+and past dependencies as well.
+Lastly, another big issue that I want to mention
+that, you know, in theory, with all this new legislation, we have access to a lot of data,
+a lot of information about how platforms work, how AI functions, and whatnot.
+However, what to do with all this wealth, right?
+How to draw conclusions, how to base good, sustainable decisions on this data and on this information.
+I'm, you know, not sure that us drowning, basically, now in this data, regulators drowning,
+the policymakers drowning in this data, is helpful in any way.
+So, kind of, you know, the ball is now, maybe it's slightly different way in the,
+or on the field of the regulators.
+and there is also maybe a blind spot that we want to mention that there is still diminished
+regulatory scrutiny of platforms that are SMEs. You know, all we're talking about are
+large platforms, SMEs are very often excluded from them. So I'll just stop here because I know
+Professor Kohl is speaking after me and he possibly has a long list of potential institutions
+and gaps to be addressed. So thank you very much for this discussion. Thank you. Thank you Olga
+for your valuable insights and your absolutely correct. My next question is to Professor Kohl.
+If we look further in the European Union's legislation, I'd like to invite you to reflect on
+through the prism of two other United Nations principles, that is healthy
+incentives and transparency and research. And here I have two questions. The first
+is the DSA that we've mentioned right now. It requires very large online
+platforms to conduct risk assessment and publish transparency reports. But do
+these reports go far enough to meet these UN transparency principles, particularly given
+that AI systems are really shaping information visibility. And I will ask the second question
+right now, just not to interrupt you in answering, is the second question is connected with AI Act.
+The AI Act introduces obligations for high-risk systems.
+Should AI systems that shape news distribution or content moderation be classified as the high risk,
+given their societal impact on information integrity?
+The floor is yours.
+Thank you very much, Daria, to you and also Andrea for putting together this panel,
+but also for putting this nice order together.
+So I will actually pick up the ball that Olga has played into my field and it's good maybe that
+for some issues you will hear something that you already heard because one of the problems I have
+in discussing at AI conferences, policy measures, legal elements is you cannot wake up a day with
+not having 15 new impressions and the speed at which this happens. So actually if we align and
+have certain similar observations that can already help because normally what happens
+is you go out of a conference with another 50 new ideas or problems or challenges and
+risks and it must be an unbelievable, really an unbelievable demand that legislators have
+today to react in the right balance to this.
+And also the two questions that you're posing, I will answer them separately, but it allows
+me to merge a little bit my viewpoints.
+So, one of the issues that with your first question you put forward quite bluntly is
+actually, is the DSA sufficient?
+Is the DSA doing enough?
+Are the intermediaries, which we categorize as very large online platforms?
+And we should say, I know that you know this and everyone has already talked about it,
+but I would like to underline it.
+It's not only VLOPS, it's also VLOSI, so the very large online search engines.
+and what we just heard about the change in search attitude since we have the AI
+summaries. We can be lucky that the DSA was designed that it was reformulated to
+explicitly say also search engines, okay? So already that was a very smart, sorry,
+smart step if you ask me, that the legislator considered attention. There is
+a difference between online platforms and search engines, but at the end of the
+day their impact will be similar. No one, when they wrote that a few years ago, had an idea
+how in half a year the click results for news sites would go down dramatically because of
+only these few lines of summary at the beginning. And that may be a completely new legal issue
+that we have to discuss with which goes well beyond transparency that you asked me about.
+So the essence of the question is, is DSA doing enough?
+And one of the problems to answer that question is,
+we can't really know yet, can we?
+So Ali very impressively has talked about
+the online safety act, but even there,
+we can't yet really know whether it is enough
+and how far it goes.
+This is the tragedy of today's times.
+And I mean this serious, because we've had that always
+that law has to follow up on technical developments
+and we have to apply it
+and then we have to see how it works out
+and we have to balance things.
+But just consider, if you look at DSA
+and also AI even more together,
+on how much I call it secondary legislation
+is following up the main text.
+And then we are still not talking about the application,
+the enforcement and all of this in a span of a few years,
+which is not very long considering,
+we've got a very complex multi-level system
+with the EU and 27 member states
+and different enforcement institutions
+that we just heard about, this is fast,
+but it's much too slow in a way.
+So can I answer the question,
+whether the DSA is going far enough
+by putting risk assessments in
+and obliging blobs and blozies
+to publish transparency reports?
+My answer to that would be hopefully
+we will at least keep that standard that we have now.
+And hopefully, and Olga went on about that very much,
+hopefully it will actually be applied in practice,
+Because now let's speak it out even more bluntly than Olga did.
+In these times, we have to fear that whether we think it is sufficient or not, the level
+we have reached with the DSA or also in the UK with the OSA, I mean, visiting royals
+in their chambers may help for a few days or weeks, but I'm not sure whether it will
+be a permanent safety guard rail against potential pressure in terms of tariffs and so on when
+it comes to tech regulation.
+Because if they would read the OSA, they would realize the OSA is more than the DSA,
+but just really truly the pressure from both Asia and the US in terms of the question of
+how to apply DSA rather puts the answer in saying we should make sure that the DSA's
+transparency principle that the DSA's risk assessment obligations are taken
+serious, are enforced to the extent that we can enforce them and then maybe in
+five years we can say is it really sufficient in view of how strong AI
+systems shape information visibility. I know this is not a very satisfactory
+answer but I really fear that if we would respond to the issue by saying we put
+another layer of regulation on top that would not be a guarantee that things go
+right, because we don't even know whether this risk assessment works. Another point is, the DSA is
+a lot more than only risk assessment and transparency reports when it comes to information integrity,
+if you ask me. We have in there also the risk mitigation, right? It's not only the risk assessment.
+If Vlopsis come to the conclusion that they are posing a risk, then they have to mitigate these
+risks. And that for me, one of the first areas to look at, for example, also for search engines
+when it comes to the AI summaries, is that maybe risking of blurring information integrity because
+people don't go anymore to the sources, they don't check, we don't check, it's just this
+automated generated summary. So don't forget that the assessment is the first step, the mitigation
+is the second. Now again, what happens if they don't mitigate? It's up to enforcement. What does
+Does that mean Olga mentioned the potential fragmentation of enforcement in Europe due
+to the fact that the member states are in charge well for this one area?
+And I'm not a friend of it, I want to say, but for this one area, the European Commission
+said we'll deal with it because we need a one-stop shop.
+Okay, let's see how good that can function.
+We have quite a brave attempt, if you ask me, both against Chinese-based blobs as well
+as US.
+Maybe it was pure coincidence of history, but they took as one of their first conflict zones a platform whose owner happens to have at least at the beginning of the new year's administration had a very close relationship to the administration.
+So I don't even want to know what would have happened if the commission would have concluded the ex-inquiry a year earlier and would have combined it with a huge fine.
+Really, I don't want to imagine if that would have happened in February, and Musk would
+have still been the head of Doge, whether he would have just went to the office next
+door and said, Donald, we need to do, I'm sorry, I'm being very, very un-precise, okay?
+You can forgive me as a lawyer, but I think this is also a policy circle that we can discuss.
+What would have happened if you would have said we have to do something against this
+DSA?
+Okay, so that just as a first point, there is enough in the DSA I would say to start
+But there is one last point that first question I would like to make, and that is it's interesting
+that the UN Global Principles for Information Integrity, which you mentioned in your question,
+and also which are the underlying issue why we're discussing this here today, put transparency
+together with research, right?
+That's interesting.
+And why is that interesting?
+Because we are all learning.
+Look at today.
+Look at what we learned from Emmanuel's input right through to all the other speakers.
+We are learning, we have to learn at a very high speed.
+We are trying to understand. We can't even understand a lot of things that are happening.
+The institutions which have been working very prudently and also traditionally over decades
+see offcom. Suddenly they have to completely change their role. They have to take on board
+competencies. They have to deal with actors which were not their usual clients. It was the BBC and
+it was ITV and now suddenly, who are you talking to when you look at the OSA?
+Again, very steep curve.
+So it is true that transparency will only help if both public authorities, forgive that
+I put off-com or all the media regulators public authority, we should maybe be a bit
+more precise and say, yeah, they're public authorities, but of their own kind because
+they're independent and so on.
+Dari and I, we could have a long conversation
+about independence of media regulators,
+but that I take it as a given, you know what I mean?
+So state authorities, as well as researchers,
+they will need the transparency.
+Why do I say that?
+Individuals, individuals are just completely overwhelmed.
+And is it really going to make a change
+that an individual can read in a transparency report
+of one of the VLOPCs, how they have introduced content moderation systems or how they change?
+No, it'll have to be research, it'll have to be NGOs, which I would include under research,
+they can make a difference together with public enforcement. So yes, transparency very important,
+but together with research, and that is an issue. I'm not an expert in that field,
+but from what I gather, and I don't know whether Emmanuele and the computer science people would
+share this. But from what I gather is it's becoming not easier to access data with the
+entry into force of the DSA. It's maybe due to the competitive development and the fact
+that the AI actors now on the scene and the old intermediaries suddenly have to push to
+keep their space in the market. It's becoming more difficult for researchers to access meaningful
+data. That is something where maybe, because it concerns the whole industrial sector,
+enforcement can go a first step and say, this is meant serious, vetted researchers,
+this needs to be done. And well, obviously also it needs to be financed, that research,
+so that is a completely different element. Finally, on that first element, the second one
+will be shorter. I can only subscribe to what Olga said and also the way you posed the question
+to her. This whole thing happens in an environment of legislation. The DSA doesn't stand singular.
+When we talk about the impact that AI systems have on shaping information visibility, we have to
+talk about the sustainability of what we would call reliable trustworthy media. And then we are
+in the middle of questions like finability, prominence of, for example, public service
+media content, we're talking about visibility of content on platforms.
+So then the question is, would the DSA be the right place for that?
+And my answer would be, no, I think, don't forget, we've got the Audiovisual Media Services
+directive of the EU, which might be reformed and there is a findability provision in there.
+We've got the European Media Feedback that deals with the relation between media and
+very large online platforms, maybe not to a very extensive amount, but it's there.
+And I wouldn't say that it is only negative that the member states have the cultural policy still in their hands,
+because we are living in a time where we will also have a competition of good solutions.
+And the more we centralize on the EDU, it's a win or fail.
+If we have different approaches,
+from different member states and I very very much regret for many reasons that the EU is not part of
+sorry that the UK is not part of this game at least not directly really I mean it's serious because
+the OFCOM in the decades when the UK was part of the EU was a very very good driver of innovation
+and we're missing if I may say so the OFCOM at the table of the EU regulators but certainly we
+need that competition of good solutions up to a certain extent although I understand that it's
+It's easier to talk to meta as one and not as 27.
+Okay, short on the second question.
+Should the AI act in high-risk systems be, you know,
+extended to whenever it's used in the content
+of news distribution or content moderation?
+One issue of the AI act, and again,
+I don't wanna say negative, at least we have the AI act.
+I don't even know whether if we would start today
+trying to legislate whether we would get an AI act
+within the next one or two years, it's there now,
+but it is a product safety-oriented risk regulation, so to speak, and it's not
+specific for news. And if we would be too harsh in a way, the news providers
+themselves are trying to use AI in order to make their voice better heard, so
+maybe we would implement new obligations on them as well, which would make it
+again more difficult for them to survive in this really difficult
+environment. So would they be the right addressee of a high-risk obligation,
+which is quite extensive in the AI Act.
+Could we separate the AI system from the news providers?
+I am not so sure.
+On the other hand, Daria, you're rightly asking that question
+because we're not allowed to forget plurality
+of the media landscape.
+Access to reliable information,
+at least in the understanding of the Court of Human Rights
+or under the European Convention on Human Rights
+is an obligation of steps.
+They are the ultimate guarantors of media pluralism.
+So, if they realize that the use of AI systems completely distorts the news media landscape,
+I think they have to act.
+There is a duty to act.
+And maybe then it goes in the direction that you are saying.
+So, states cannot stand by and just watch this.
+There is a fundamental rights component to this, which is very important.
+One of the issues about the framework convention of the Council of Europe once it is applicable
+enter into force is that it only applies to public directly, but all the ratifying states
+are invited to extend it to private, so hopefully many will do that, because then that is also
+a good sign to say this has a fundamental right spaces, and for us, Article 10, freedom
+of speech, freedom of the media, obviously, is the anchor to do that.
+But again, I don't think just categorizing as high risk would be enough.
+It is important that users understand what is happening with AI in the news dissemination system.
+So media literacy in a very broadly understood sense is probably more key than whether or not we can upgrade the use of AI systems to make them high-risk.
+On the other hand, even if they're not high-risk, we have Article 50 which applies to all AI systems.
+the transparency obligation, which says if AI systems are intended to interact directly with
+natural persons, then they have to be informed about it. That information is not yet, I think,
+very visible and very clear. Even again, the summary at the beginning, yes, it does say somewhere
+there is a symbol of AI generated summary, but I'm not sure whether that is already clear enough.
+We do have a provision on deepfake in article 50. We have it. It says that when you use deepfakes,
+you are supposed to make that visible. Now obviously the rogue actors or the bad actors will not do
+that, but let's start about what we have. An article 50 which applies to everyone and not
+only high-risk systems is there. Let's try and see whether that cannot help, but to look forward
+a little bit and to pick up your idea. If we read not the category of high-risk systems,
+but the category of prohibited practices, I will just briefly quote article five says,
+as the following AI practices shall be prohibited.
+Placing on the market and so on, we know,
+of AI systems that deploys subliminal techniques
+beyond the person's consciousness
+or purposefully manipulative or deceptive techniques.
+Just read that slowly, listen slowly to it,
+and maybe we are getting much closer to that category
+when we talk about a combination of deep fake,
+disinformation campaign,
+trying to undermine democratically functioning systems.
+So, yes, it is attractive to think about where do we have to place AI systems that have an
+impact on news dissemination.
+So I will not say the direct answer is yes, they should be categorized as high-risk systems,
+but maybe we have to talk about looking at all of it.
+Minimum they are AI systems transparency, maybe high-risk, but maybe even prohibited
+practices.
+When I say this, we are at a time where we're not discussing the upscaling or adding or
+the EU legislation, we are actually discussing the dismantling, right? We are discussing the
+question of whether the AI Act went too far, whether the AI Act is stifling innovation and
+killing EU versus the rest of the world. So let's not push too much in the direction of changing
+things now, because what we will get if we open the AI Act is rather it will be a minimization,
+it will be a reduction of the rules that are already in place, if you ask me. The only area
+where I see an easy solution, it's not an easy solution, but that may be happening is,
+why do we not consider media? And then the big question, and that's why it's not easy, is
+what media as critical infrastructure? I think that is one thing we have to acknowledge and
+has been mentioned in some of, not explicitly, but in some of the contributions now. I think we
+have to understand or decide whether media and the traditional sense are a critical infrastructure
+for democracy, as much as is energy and so on.
+And if that's the case, then that is maybe the place where we come in with funding, with
+supportive measures, with protection, think of cybersecurity, but also via the AI Act,
+Annex 3, then we might get there because we have a provision about critical infrastructures
+there which then could be categorized as high risk systems. I hope I didn't go into too much
+detail but you realize I do not have the perfect answer yet but I'm thinking in all different
+directions and your questions have been giving a good food for thought. Thank you very much.
+Thank you a lot. A really fascinating answer and really comprehensive and yes actually
+that's a good point. The last one we should consider media as a critical infrastructure
+And here, it will be the question, how to distinguish a real media that goes, that acts according to the standards and so on and so forth, with the, let's say, medium that propagand, that like disseminates propaganda and so on.
+we really have a difficult question in this sense,
+but I think it would be the topic for another panel
+or for another conference.
+Listening to your answer,
+I actually had a question to Emanuele
+because probably you are like listening to us
+speaking about these legal norms,
+about the DSA, DMA, AI Act, the UK legislation and so on. But actually, for me, let's say,
+and I think for many of us, there is a question of what is technically possible, right? What is
+really, because we can think about a lot of provisions, we can think about a lot of legal
+remedy is trying to address. But what can we do in practice? How can we really tackle this problem?
+For instance, the problem of such information operations like doppelganger, or another type
+of operation that prepped the network, when around 200 minimum, especially created in
+internet domains were created to pollute the LLM and the results that were given by LLMs.
+So what can we basically technically really do to tackle this problem?
+So first of all, thank you very much for this interdisciplinarity here.
+I really like the idea of Mark on working on media as critical infrastructure because we really need
+something different on what we are doing up today. On the research and on the technical side I'm
+quite optimistic. So research is going very fast on having small models, on having a learning
+approach, on having explainability. You saw very, very, very quickly before my picture on the
+preterm infants where you have a lot of
+explainability by example for the clinicians
+because it's not only something about
+AIR actor high risk application
+but it's also something about the trust.
+So no one will trust us if we are not
+trust six cents on that of the system.
+And also we have now a very big
+great experience on access to data on synthetic data and we are designing one of the biggest
+experience in Europe for diabetic curves and for risk prediction in diabetic curves that is totally
+based on synthetic data and is showing a great performance on real data. It's one of the best
+paper that we released in the last three months and again this is not a new area of research
+but it's an area that is moving very, very fast.
+So on the technical side of the moon,
+let's say that your inputs are very useful.
+No one on the computer science aspect
+will never have worked on synthetic data or unlearning
+or explainability, by example, without your inputs.
+So what I bring back to my lab today is a lot of ideas,
+mainly for medias.
+We are now in the middle of elections here in Europe.
+And the other point for me is something like the content credentials.
+Probably we need to work a lot on that because we can up to now Adobe is putting content
+credentials everywhere in every software solution.
+And if we have some methodology to mark artificially designed images with content credential based on blockchain, so not easy to remove or to falsify or to...
+I think that this can be another European approach that can differentiate our country, our Europe from other way of thinking about AI.
+And the content credential are there.
+If you put, if you create an image with Firefly
+and then you put your image on PowerPoint,
+you will see appearing in the content credential logo
+with all the information about the images.
+But we need to force also media,
+not only as critical infrastructure,
+but also as a de facto standard
+for media producers to have a text
+based on content credential,
+images based on content credential,
+and videos based on content credential.
+If we will be able to design a solution
+that is doing that,
+that is also part of the transparency of the algorithm
+that is generating this kind of contents,
+I think that we will reach a very nice solution.
+So that's my idea.
+Let's say I'm quite optimistic
+that we will be there in 12 months from the research side.
+Then, the big, big point is the adoption.
+Because we can have a very nice paper published on a nice journal, but then one is reading
+our technical journal, and so we need a lot of work for making this adoption in the media
+companies and around also the smallest companies, the small and medium enterprise that are working
+on social media content creation, that are producing manual, technical manual and so
+on.
+So, apart from research adoption, it's still a big point.
+I hope I give you an answer, Naria.
+Yeah, thank you.
+Thank you very much.
+And we have a question from our audience.
+The question to Mark Cole, would you
+be able to elaborate on what tools the European Union already
+has available in terms of existing legislation
+to protect, for instance, financial and editorial, promote quality media if we were to start the
+public media, for instance, or what could be, let's say, easy legislative tools to adopt.
+Well, thank you very much. Actually, it's a question also Olga could answer very well as well.
+Maybe Olga, if it's okay, I'll start with a few comments and then you can follow up if I'm not
+to comprehend it. So as Olga indicated, or Daria asked the question to Olga, the European
+media freedom act is again another one piece of legislation, which it may sound as if I'm
+being repetitive, but it just shows the unbelievable speed in which the previous commission laid
+legislative proposals on the desk and also parliament and council followed suit and actually
+passed them. But also the European media freedom act entered into force last year, but only
+became applicable, at least for the majority elements on the 8th of August.
+So indeed a few weeks ago, and there still some bits will only start in 2027, the European
+Media Freedom Act is the first step in that direction.
+And it's exactly the dilemma that it's trying to resolve, the dilemma that Olga explained
+to us.
+And that is normally the European media freedom act should not exist as an EU piece of legislation.
+I'm being a bit too critical, but what I mean is it actually falls very much into the cultural
+competence of the member states.
+and that's the reason why it didn't exist previous. The Audiovisual Media Services Directive which
+if you want is a pre-decessor but only very specific for the market of Audiovisual Media Services
+could be created because of the link to
+the satellite technology that came up in the 1980s basically and made it possible to disseminate
+your content easily across borders and different than with a cable, you couldn't actually switch
+it off.
+A cable you can stop at the border, a satellite dissemination you would have to distort if
+you don't want the signal to be received in your member state.
+And that was the entering point for the idea of a European market for television services
+originally so that was easy to argue and rightly so that the EU regulated. It was very hesitant to
+extend that to press, radio or any other services because they by definition were either not so
+heavily regulated nationally, press or radio. There was a lack of this cross-border dimension
+mainly because of the size of markets and so on. Now the European media freedom act after a lot of
+resistance tries to address that says okay there we use the market harmonization competence
+which is maybe a little bit far-fetched if you consider that what it is actually about
+is cultural policy and promoting news media but what it does and that is good is opens
+up the acknowledgement that certain basic rules should apply to all types of media
+irrespective what they are it doesn't even categorize anymore in terms of press and
+television and so on it's just media although there are some definitions which are not yet
+really ripe but okay and it differentiates between media and news media and I think that is the main step forward
+There is a specific category which has higher obligations
+but also should have a higher level of protection and I am against
+Against saying well certain types of media and yellow press are not useful
+No, but we have to acknowledge and that answers also a little bit your question Daria
+We're not there yet
+But we have to acknowledge there are different types of media.
+And one type of media is contributing to the democratic opinion making.
+And there should be a special ball or a field in which they play,
+both with obligations and with rights.
+And what is in there?
+There is obligations on editorial independence.
+There are rules on protecting journalists against, for example, encroachment,
+both by states, you know, intrusive software and so on,
+but also by decision-making by editors.
+So that could be very interesting in the times
+where we see a higher media concentration
+happening cross-border,
+also in the television market, by the way.
+They have accompanying legislation
+or at least recommendations on the safety of journalists
+and there is, but to a very limited extent,
+funding available for cross-border European media projects.
+Why very limited?
+Because that is the last area
+where you can clearly say that it definitely doesn't have the competence to lay out, for example,
+a public service media funding pot. That would be very difficult. But the European
+Media Freedom Act does, for the first time, address specifically certain guarantees for
+public service media, which are addressed to the member states, meaning the member states have to
+make sure that their national legislation, for example, includes provisions on how to safeguard
+the independence of the leading management
+of public service media.
+It's there.
+Why is it not yet ripe to say it's enough
+because it only just became applicable
+on the 8th of August this year
+and we will have to wait and see what the commission does.
+So yes, it is possible for the moment.
+I don't think we need to add anything more
+but we should see how the EMFAR plays a role
+in the next two to five years.
+Olga, is that sufficient?
+Thank you so much. I just wanted to add maybe that there are other things that can be done
+if we have enough political will, let me put it this way. So, for instance, it has been
+discussed, at least in the academic circles, that to guarantee independence and including
+using the funding of media, certain instruments of the European
+Compensation Law could be used, specifically on state aid,
+and so many things.
+This was discussed by some academics in the context of
+the situation in Hungary.
+And the lack of independence of Hungarian public service
+broadcasters.
+Some people think, I believe them, that these instruments
+could be and should have been used. However, the commission did not do it. So we just stated
+as a fact and to leave it aside because obviously the legal assessments differ and we don't know
+all the information that was available to the commission probably at that time.
+However, in this other instruments kind of beyond this especially created media regulation,
+emerging media regulation, we should say, could be used.
+And also, I also mentioned that with the N5, just to conclude what Mark said,
+there is this certain media privilege in article 18, if I'm not mistaken,
+they changed the numbering, right? So that kind of large platforms should
+highlight, should promote the information, the content coming from a public service
+So this is one of the positive measures that Ali mentioned earlier in the context of the UK.
+So these are just as examples.
+If we think a little bit longer, we can also find other legislative instruments.
+There are also tons of software instruments, tons of different recommendations,
+European Parliament's resolutions, council recommendations.
+And beyond the EU, there is obviously the council of viewer that also constantly work on these issues.
+We will need probably another two hours to discuss all that is done there.
+Sorry, I just stopped here because probably we have other questions.
+No, no, it's fine. Thank you very much.
+I think that it's time to wrap up our panel and I would like to pass the floor to Andrea.
+Thank you very much. There are many questions. I'm sure the panel would have liked to have asked
+of each other. So thank you very much for addressing each other as well. I've been asked to sum up.
+I'll start by saying there will be a report prepared.
+So please forgive us and me particularly
+if we've left anything out in this very short summary.
+I think the first and most important thing
+I've taken away from it, which we all know
+but everybody had mentioned,
+is that there are many changes
+in both the way news is consumed,
+both in terms of its environment and speed,
+and also where the points of distribution are and towards the end we
+started Marko I think first mentioned it talked about the word democracy and I
+think that's why we think this is a very important area in Europe and as Daria
+knows I say also in the UK because I too wish we had never left but anyway not to
+it. I think one of the the most interesting things to me was the very start because I'm not a scientist
+Immanuel was where you started off by talking about the different computational skills
+of humans and AI and I think that's something that's very easy for us to forget
+and aligned with that is the issue of literacy because our computational skills may be different
+and we may be more advanced, but we also need to understand better what has been done to data
+and information that we're given. So I think interdisciplinary work that was talked about
+and has been covered within this panel very well is very important and it's not just in terms of
+development but also in terms of regulation and policy. There were many many examples given
+and transparency was talked about a lot, public authorities, researchers all need information,
+but then you also have business and economic practices and we haven't talked possibly enough
+about that, I know SMEs were mentioned but they were mentioned in passing. The examples of the
+negatives that Victoria gave and the dangers to democracy I think are so important and again
+we're talking about news, we're talking about journalism, we're talking about fundamental
+structures for our democracy. So I think that's that's another very important
+takeaway which we all know but it's always worth emphasising. There was talk
+about a desire for high quality journalism and indeed the research the
+Royce's research talks about that. Also the research that was published yesterday
+by the Tony Blair Institute in the UK talked about a desire for high quality
+journalism. I think it was Olga who talked about the MFA fund for journalists. Within all that,
+there is an understanding in the Tony Blair work, certainly they talked about ethical standards
+and certainly even young people, dare she say that, wanted good data and they wanted to be able
+to know how to verify and we didn't get to talk about how we, about content moderation,
+which I know Dariah and I had hoped we might get to,
+but verification methods I think are very important
+and people are using social media and therefore echo chambers
+to verify the information that they're getting.
+I will close, I promise Dariah in a moment,
+but I think machine unlearning as a positive
+rather than just negatives.
+It was quite an interesting area
+and privacy and copyright.
+are the particular areas you talked about.
+And I'd love to learn more about that.
+And maybe, Emmanuel, if you have more data,
+you can pass it to us so that we can share it
+amongst ourselves.
+I think that is a very important area.
+It goes along with verification,
+it goes along with content moderation.
+And then, somebody talked about,
+I think it's Mark,
+Cole talked about the competition for good solutions.
+Well, what a good idea that would be.
+I put down again machine unlearning, content credentials were talked about, trust, transparency,
+media literacy.
+These are all very important areas that should be talked about.
+And going back to trust and freedom of expression, those were two areas that came up again and
+again.
+Freedom of expression shouldn't be forgotten.
+And if we are thinking about media as a critical infrastructure to our democracies, of course, that's crucially important.
+I need to thank everybody on behalf of Daria and myself. I need to thank Daria, who has done an exceptional job.
+We do, of course, have to thank our colleagues in the IFAP programme.
+and there will be a report. Please join us on Sunday the 28th of September on
+Gavartown where we will be launching, I know it's a Sunday, we all know it's a
+Sunday, we'll be launching the full conference, but importantly the data will
+be there, the various videos that we have will be there for you to view after
+that time, so please do try and find out a little bit about it or ask Daria or
+myself and thank you all very much indeed it's been really really fascinating thank you thank you
+a lot for myself and with these we are closing our first panel and looking forward to see you
+Next time. Thank you. Have a good day and goodbye. Thank you. Thank you

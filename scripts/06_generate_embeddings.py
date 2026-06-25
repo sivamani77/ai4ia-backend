@@ -1,7 +1,9 @@
+import argparse
 import csv
 import json
 import time
 import hashlib
+import sys
 from pathlib import Path
 from datetime import datetime
 from typing import Any
@@ -79,8 +81,9 @@ Transcript fragment: {text}
     return clean_text(embedding_text)
 
 
-def load_classified_fragments() -> list[dict[str, Any]]:
-    fragment_files = sorted(CLASSIFIED_DIR.glob("*.classified.json"))
+def load_classified_fragments(source_dir: Path | None = None) -> list[dict[str, Any]]:
+    search_dir = source_dir or CLASSIFIED_DIR
+    fragment_files = sorted(search_dir.glob("*.classified.json"))
 
     all_fragments = []
 
@@ -93,6 +96,8 @@ def load_classified_fragments() -> list[dict[str, Any]]:
                 "fragment_id": fragment.get("fragment_id"),
                 "source_video": fragment.get("source_video"),
                 "video_id": fragment.get("video_id"),
+                "video_year": fragment.get("video_year"),
+                "video_upload_date": fragment.get("video_upload_date"),
                 "start": fragment.get("start"),
                 "end": fragment.get("end"),
                 "duration": fragment.get("duration"),
@@ -109,6 +114,9 @@ def load_classified_fragments() -> list[dict[str, Any]]:
                 "clarity_score": fragment.get("clarity_score"),
                 "narration_support_score": fragment.get("narration_support_score"),
                 "classification_confidence": fragment.get("classification_confidence"),
+                "source_transcript_version": fragment.get("source_transcript_version", ""),
+                "audio_quality_status": fragment.get("audio_quality_status", ""),
+                "transcript_quality_score": fragment.get("transcript_quality_score"),
                 "source_file": path.name,
             }
 
@@ -117,6 +125,88 @@ def load_classified_fragments() -> list[dict[str, Any]]:
 
             all_fragments.append(record)
 
+    return all_fragments
+
+
+def load_fragments_jsonl(jsonl_path: Path) -> list[dict[str, Any]]:
+    """Load fragments from a JSONL file (e.g. data/fragments_cleaned/*.fragments.json lines)."""
+    fragments = []
+
+    if not jsonl_path.exists():
+        return fragments
+
+    # Support both JSONL and standard JSON fragment files
+    text = jsonl_path.read_text(encoding="utf-8").strip()
+    if not text:
+        return fragments
+
+    # Check if it's a standard JSON fragment file (not JSONL)
+    if text.startswith("{"):
+        try:
+            payload = json.loads(text)
+            raw_fragments = payload.get("fragments", [])
+            for fragment in raw_fragments:
+                record = {
+                    "fragment_id": fragment.get("fragment_id"),
+                    "source_video": fragment.get("source_video"),
+                    "video_id": fragment.get("video_id"),
+                    "start": fragment.get("start"),
+                    "end": fragment.get("end"),
+                    "duration": fragment.get("duration"),
+                    "word_count": fragment.get("word_count"),
+                    "text": fragment.get("text"),
+                    "summary": fragment.get("summary"),
+                    "keywords": fragment.get("keywords", []),
+                    "primary_theme": fragment.get("primary_theme"),
+                    "primary_chapter": fragment.get("primary_chapter"),
+                    "theme_tags": fragment.get("theme_tags", []),
+                    "chapter_tags": fragment.get("chapter_tags", []),
+                    "clip_usage_candidates": fragment.get("clip_usage_candidates", []),
+                    "quote_strength": fragment.get("quote_strength"),
+                    "clarity_score": fragment.get("clarity_score"),
+                    "narration_support_score": fragment.get("narration_support_score"),
+                    "classification_confidence": fragment.get("classification_confidence"),
+                    "source_transcript_version": fragment.get("source_transcript_version", ""),
+                    "audio_quality_status": fragment.get("audio_quality_status", ""),
+                    "transcript_quality_score": fragment.get("transcript_quality_score"),
+                    "source_file": jsonl_path.name,
+                    "embedding_model": "",
+                    "text_hash": stable_hash(fragment.get("text", "")),
+                    "created_at": fragment.get("created_at", ""),
+                }
+                record["embedding_text"] = build_embedding_text(fragment)
+                record["embedding_text_hash"] = stable_hash(record["embedding_text"])
+                fragments.append(record)
+            return fragments
+        except json.JSONDecodeError:
+            pass
+
+    # True JSONL
+    for line in text.splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            fragment = json.loads(line)
+            record = dict(fragment)
+            record.setdefault("source_transcript_version", "")
+            record.setdefault("audio_quality_status", "")
+            record["embedding_text"] = build_embedding_text(fragment)
+            record["embedding_text_hash"] = stable_hash(record["embedding_text"])
+            record["text_hash"] = stable_hash(fragment.get("text", ""))
+            fragments.append(record)
+        except json.JSONDecodeError:
+            continue
+
+    return fragments
+
+
+def load_fragments_from_dir(fragment_dir: Path) -> list[dict[str, Any]]:
+    """Load all fragment JSON files from a directory (fragments_cleaned layout)."""
+    all_fragments = []
+    for path in sorted(fragment_dir.glob("*.fragments.json")):
+        frags = load_fragments_jsonl(path)
+        all_fragments.extend(frags)
     return all_fragments
 
 
@@ -264,20 +354,57 @@ def write_report(rows: list[dict[str, Any]]) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Generate fragment embeddings via Ollama")
+    parser.add_argument(
+        "--fragments",
+        type=Path,
+        default=None,
+        help=(
+            "Path to a JSONL file, a .fragments.json file, or a directory of "
+            "*.fragments.json files (e.g. data/fragments_cleaned/). "
+            "When omitted, loads from the default fragments_classified directory."
+        ),
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=None,
+        help="Output directory for embeddings (default: data/embeddings/)",
+    )
+    args = parser.parse_args()
+
+    # Resolve output directory
+    out_dir = args.output or EMBEDDINGS_DIR
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    jsonl_path = out_dir / "classified_fragments_embeddings.jsonl"
+    matrix_path = out_dir / "fragment_embedding_matrix.npy"
+    metadata_path = out_dir / "fragment_embedding_metadata.json"
+
     log("Starting Step 06: Generate Fragment Embeddings")
     log(f"Project root: {PROJECT_ROOT}")
-    log(f"Input classified directory: {CLASSIFIED_DIR}")
-    log(f"Embeddings directory: {EMBEDDINGS_DIR}")
     log(f"Ollama base URL: {OLLAMA_BASE_URL}")
     log(f"Embedding model: {EMBED_MODEL}")
     log(f"Batch size: {BATCH_SIZE}")
+    log(f"Output dir: {out_dir}")
 
-    fragments = load_classified_fragments()
-
-    log(f"Loaded classified fragments: {len(fragments)}")
+    # Load fragments from the specified source
+    if args.fragments is not None:
+        frag_path = args.fragments
+        if frag_path.is_dir():
+            log(f"Loading from directory: {frag_path}")
+            fragments = load_fragments_from_dir(frag_path)
+        else:
+            log(f"Loading from file: {frag_path}")
+            fragments = load_fragments_jsonl(frag_path)
+        log(f"Loaded fragments from --fragments: {len(fragments)}")
+    else:
+        log(f"Input classified directory: {CLASSIFIED_DIR}")
+        fragments = load_classified_fragments()
+        log(f"Loaded classified fragments: {len(fragments)}")
 
     if not fragments:
-        log("No classified fragments found. Run scripts/05_classify_fragments.py first.")
+        log("No fragments found. Check --fragments path or run scripts/05_classify_fragments.py first.")
         return
 
     embedded_records = []
@@ -286,8 +413,8 @@ def main() -> None:
     failed = []
 
     # Clear previous JSONL before writing.
-    if JSONL_PATH.exists():
-        JSONL_PATH.unlink()
+    if jsonl_path.exists():
+        jsonl_path.unlink()
 
     for batch_start in tqdm(range(0, len(fragments), BATCH_SIZE), desc="Embedding batches"):
         batch = fragments[batch_start: batch_start + BATCH_SIZE]
@@ -296,7 +423,7 @@ def main() -> None:
         try:
             embeddings = embed_texts(texts)
 
-            with JSONL_PATH.open("a", encoding="utf-8") as f:
+            with jsonl_path.open("a", encoding="utf-8") as f:
                 for fragment, embedding in zip(batch, embeddings):
                     normalized_embedding = normalize_vector(embedding)
 
@@ -304,6 +431,7 @@ def main() -> None:
                     record["embedding_model"] = EMBED_MODEL
                     record["embedding_dimension"] = len(normalized_embedding)
                     record["embedding_created_at"] = datetime.utcnow().isoformat()
+                    record["text_hash"] = stable_hash(fragment.get("text", ""))
                     record["embedding"] = normalized_embedding
 
                     f.write(json.dumps(record, ensure_ascii=False) + "\n")
@@ -325,19 +453,21 @@ def main() -> None:
 
     if embedding_matrix:
         matrix = np.array(embedding_matrix, dtype=np.float32)
-        np.save(MATRIX_PATH, matrix)
+        np.save(matrix_path, matrix)
 
         embedding_dimension = int(matrix.shape[1])
     else:
         embedding_dimension = 0
 
+    source_desc = str(args.fragments) if args.fragments else str(CLASSIFIED_DIR)
+
     metadata_payload = {
         "created_at": datetime.utcnow().isoformat(),
         "embedding_model": EMBED_MODEL,
         "ollama_base_url": OLLAMA_BASE_URL,
-        "source_directory": str(CLASSIFIED_DIR),
-        "jsonl_path": str(JSONL_PATH),
-        "matrix_path": str(MATRIX_PATH),
+        "source": source_desc,
+        "jsonl_path": str(jsonl_path),
+        "matrix_path": str(matrix_path),
         "total_fragments": len(fragments),
         "embedded_fragments": len(embedded_records),
         "failed_fragments": len(failed),
@@ -347,7 +477,7 @@ def main() -> None:
         "failed": failed,
     }
 
-    METADATA_PATH.write_text(
+    metadata_path.write_text(
         json.dumps(metadata_payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
@@ -364,9 +494,9 @@ def main() -> None:
                 "embedding_dimension": embedding_dimension,
                 "model": EMBED_MODEL,
                 "endpoint": OLLAMA_BASE_URL,
-                "jsonl_path": str(JSONL_PATH),
-                "matrix_path": str(MATRIX_PATH),
-                "metadata_path": str(METADATA_PATH),
+                "jsonl_path": str(jsonl_path),
+                "matrix_path": str(matrix_path),
+                "metadata_path": str(metadata_path),
                 "error": "" if not failed else f"{len(failed)} fragments failed",
             }
         ]
@@ -378,9 +508,9 @@ def main() -> None:
     log(f"Embedded fragments: {len(embedded_records)}")
     log(f"Failed fragments: {len(failed)}")
     log(f"Embedding dimension: {embedding_dimension}")
-    log(f"JSONL: {JSONL_PATH}")
-    log(f"Matrix: {MATRIX_PATH}")
-    log(f"Metadata: {METADATA_PATH}")
+    log(f"JSONL: {jsonl_path}")
+    log(f"Matrix: {matrix_path}")
+    log(f"Metadata: {metadata_path}")
 
     if failed:
         log("Some fragments failed. Check metadata failed list.")

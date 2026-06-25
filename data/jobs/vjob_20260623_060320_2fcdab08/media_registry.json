@@ -1,0 +1,303 @@
+{
+  "job_id": "vjob_20260623_060320_2fcdab08",
+  "storage_backend": "local",
+  "objects": {
+    "video": {
+      "object_id": "video",
+      "kind": "video",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260623_060320_2fcdab08_empowering_women_in_a_changing_world.mp4",
+      "filename": "vjob_20260623_060320_2fcdab08_empowering_women_in_a_changing_world.mp4",
+      "content_type": "video/mp4",
+      "size_bytes": 13510595,
+      "created_at": "2026-06-23T06:11:29.718359"
+    },
+    "srt": {
+      "object_id": "srt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260623_060320_2fcdab08_empowering_women_in_a_changing_world.srt",
+      "filename": "vjob_20260623_060320_2fcdab08_empowering_women_in_a_changing_world.srt",
+      "content_type": "application/x-subrip",
+      "size_bytes": 9502,
+      "created_at": "2026-06-23T06:12:53.525370",
+      "subtitle_format": "srt"
+    },
+    "vtt": {
+      "object_id": "vtt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260623_060320_2fcdab08_empowering_women_in_a_changing_world.vtt",
+      "filename": "vjob_20260623_060320_2fcdab08_empowering_women_in_a_changing_world.vtt",
+      "content_type": "text/vtt",
+      "size_bytes": 9309,
+      "created_at": "2026-06-23T06:12:53.525370",
+      "subtitle_format": "vtt"
+    },
+    "manifest": {
+      "object_id": "manifest",
+      "kind": "manifest",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260623_060320_2fcdab08_empowering_women_in_a_changing_world_export_manifest.json",
+      "filename": "export_manifest.json",
+      "content_type": "application/json",
+      "size_bytes": 79114,
+      "created_at": "2026-06-23T06:12:54.393370"
+    },
+    "visual_S1_HOOK": {
+      "object_id": "visual_S1_HOOK",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/visuals/S1_HOOK_visual.png",
+      "filename": "S1_HOOK_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 222840,
+      "created_at": "2026-06-23T06:08:47.257541",
+      "section_id": "S1_HOOK",
+      "visual_title": "The Central Question",
+      "visual_asset_type": "concept_card",
+      "visual_keywords": [
+        "AI",
+        "question",
+        "evidence",
+        "impact"
+      ]
+    },
+    "voiceover_S1_HOOK": {
+      "object_id": "voiceover_S1_HOOK",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/audio/sections/S1_HOOK_narration_broll_voiceover.mp3",
+      "filename": "S1_HOOK_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 419040,
+      "created_at": "2026-06-23T06:08:17.602609",
+      "section_id": "S1_HOOK",
+      "voiceover_text": "Across the world, millions of women are navigating systems that were not designed with them in mind. One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to understand the intersection of impacts of existing and AI use cases in the ecosystem. We know that robust gender integration and personality, women's empowerment and can mitigate the risk associated with AI, women are not a monolith. The second is that exclusion could mean a loss of opportunity to harness AI tools for gender equality for example in health safety, e-commerce and education and the third cost would be that exclusion could also mean loss of socioeconomic opportunity for women wishing to participate in the new AI economic sector so it's very lucrative and dynamic sector and it's really important for the socioeconomic empowerment of women that they have access to this economic sector through a broad range of AI skills and one organization that we've partnered with in the past is called Connecting Women in the Philippines and what they do is that they train thousands of women around the world in AI skills which they can then perform their duties in their."
+    },
+    "visual_S2_CONTEXT": {
+      "object_id": "visual_S2_CONTEXT",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/visuals/S2_CONTEXT_visual.png",
+      "filename": "S2_CONTEXT_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 227732,
+      "created_at": "2026-06-23T06:08:49.497537",
+      "section_id": "S2_CONTEXT",
+      "visual_title": "Understanding the Issue",
+      "visual_asset_type": "diagram",
+      "visual_keywords": [
+        "context",
+        "definition",
+        "scope",
+        "concepts"
+      ]
+    },
+    "voiceover_S2_CONTEXT": {
+      "object_id": "voiceover_S2_CONTEXT",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/audio/sections/S2_CONTEXT_narration_broll_voiceover.mp3",
+      "filename": "S2_CONTEXT_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 715536,
+      "created_at": "2026-06-23T06:08:25.895589",
+      "section_id": "S2_CONTEXT",
+      "voiceover_text": "Across regions and sectors, women are engaging with AI on terms that are often not their own. The systems, the data, and the decisions often reflect the world as it has been — not as it should be. One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to understand the intersection of impacts of existing and AI use cases in the ecosystem. We know that robust gender integration and personality, women's empowerment and can mitigate the risk associated with AI, women are not a monolith. The second is that exclusion could mean a loss of opportunity to harness AI tools for gender equality for example in health safety, e-commerce and education and the third cost would be that exclusion could also mean loss of socioeconomic opportunity for women wishing to participate in the new AI economic sector so it's very lucrative and dynamic sector and it's really important for the socioeconomic empowerment of women that they have access to this economic sector through a broad range of AI skills and one organization that we've partnered with in the past is called Connecting Women in the Philippines and what they do is that they train thousands of women around the world in AI skills which they can then perform their duties in their. of conflict and violence that women and girls experience. Women's even countries have national action plans for the Women Peace and Security Agenda as of 2023, but notably none of those, with majority of those, cyber security is absent in terms of its discussion, even though we've come a long way from the year 2000 in terms of our thinking about what security means. it can accelerate development, but it can also be used to a press and to harm, particularly important to note here that it can recreate and reinforce existing power structures and within the space of artificial intelligence and deepfake the idea of virtual domination and what that looks like for women and girls is particularly important for us to consider."
+    },
+    "visual_S3_EVIDENCE": {
+      "object_id": "visual_S3_EVIDENCE",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/visuals/S3_EVIDENCE_visual.png",
+      "filename": "S3_EVIDENCE_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 229487,
+      "created_at": "2026-06-23T06:08:51.863532",
+      "section_id": "S3_EVIDENCE",
+      "visual_title": "Real-World Impact",
+      "visual_asset_type": "risk_map",
+      "visual_keywords": [
+        "evidence",
+        "impact",
+        "communities",
+        "data"
+      ]
+    },
+    "voiceover_S3_EVIDENCE": {
+      "object_id": "voiceover_S3_EVIDENCE",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/audio/sections/S3_EVIDENCE_narration_broll_voiceover.mp3",
+      "filename": "S3_EVIDENCE_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 663552,
+      "created_at": "2026-06-23T06:08:32.853572",
+      "section_id": "S3_EVIDENCE",
+      "voiceover_text": "But participation is not the same as power. Women can use digital tools and still find that the systems behind them — the data, the design, the decisions — were never made for them. disaggregated data sets testing and monitoring of AI systems and finally we can invest in women AI in AI networks and women in other STEM fields develop pipelines through training and upskilling supporting women AI companies and supporting women's participation they have policy making which is also critical because this is a decision making around AI trends opportunities and risks. So I will end here thank you very much for having me and I'm very happy to discuss anytime. An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how AI can make hiring practices fairer and digital skills more accessible. Another example is the inaugural AI and data science boot camp, where we built AI literacy amongst underrepresented groups to help redress intersectional gender imbalances and broaden participation in digital economies. African countries to identify their needs and priorities. As you can see, the number one need is to protect personal data and enhance the data governance. and that data governance framework exists, because access to data is one of the major hurdles for enjoying the benefits of AI systems. Last example of policy area that I want to talk about is in terms of gender inclusivity and gender equality, which is a priority area for UNESCO here we call on member states to dedicate funding from their public funds to ensure that their recommendations are being followed and to ensure the inclusivity of women and girls throughout the AI life cycle, ensuring girls entrepreneurship and inclusivity in STEM related disciplines."
+    },
+    "visual_S4_CHALLENGE": {
+      "object_id": "visual_S4_CHALLENGE",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/visuals/S4_CHALLENGE_visual.png",
+      "filename": "S4_CHALLENGE_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 221493,
+      "created_at": "2026-06-23T06:08:54.165527",
+      "section_id": "S4_CHALLENGE",
+      "visual_title": "The Core Challenge",
+      "visual_asset_type": "mindmap",
+      "visual_keywords": [
+        "challenge",
+        "tension",
+        "conflict",
+        "complexity"
+      ]
+    },
+    "voiceover_S4_CHALLENGE": {
+      "object_id": "voiceover_S4_CHALLENGE",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/audio/sections/S4_CHALLENGE_narration_broll_voiceover.mp3",
+      "filename": "S4_CHALLENGE_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 544032,
+      "created_at": "2026-06-23T06:08:38.868559",
+      "section_id": "S4_CHALLENGE",
+      "voiceover_text": "The speakers who discuss women and AI do not speak in abstractions. They describe specific moments where systems fail women — in hiring, in healthcare, in justice, in access to credit. The teachers, the schools, the students simply did not have access to the internet. And that means that businesses in those areas also don't have access to the internet. to the SDGs, and based on technology, including AI, from Southeast Asia, from Asia to large, are really increasingly connected to this initiative. And this is why we organized with ANGTA, a series of master classes, one in Jakarta, one in Delhi, and soon one in Manila, precisely to increase participation from Southeast Asia. to the internet, leading to further divide exclusion in AI usage. Those already connected are faced with the challenge of meaningful connectivity, which means to allow users to have a safe sex-fying and productive online experience, which to be enabled by digital literacy skills and competences. This makes many of the program and artificial intelligence developed at gender, blades it and execs and succeeds. Phenomenon, that we see a lot that has been criticized by UN and UNESCO is that many artificial intelligence of telephone companies nowadays continue to use female boys thus placing women in subordinate position, which also indicate a lack of ethics and once again gender-cultural barriers."
+    },
+    "visual_S5_RESPONSE": {
+      "object_id": "visual_S5_RESPONSE",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/visuals/S5_RESPONSE_visual.png",
+      "filename": "S5_RESPONSE_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 210534,
+      "created_at": "2026-06-23T06:08:56.418523",
+      "section_id": "S5_RESPONSE",
+      "visual_title": "Toward Solutions",
+      "visual_asset_type": "policy_card",
+      "visual_keywords": [
+        "response",
+        "solution",
+        "policy",
+        "action"
+      ]
+    },
+    "voiceover_S5_RESPONSE": {
+      "object_id": "voiceover_S5_RESPONSE",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/audio/sections/S5_RESPONSE_narration_broll_voiceover.mp3",
+      "filename": "S5_RESPONSE_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 177120,
+      "created_at": "2026-06-23T06:08:42.728551",
+      "section_id": "S5_RESPONSE",
+      "voiceover_text": "The measure of progress will not be the number of tools deployed, but whether women gain real agency, real voice, and real power in the systems that shape their lives. Equally important is the inclusion of women, rural communities and persons with disabilities. These groups must not remain on the margins of digital development. equitable access to information. She currently serves as the deputy librarian at the Women University in Africa."
+    },
+    "visual_S6_SYNTHESIS": {
+      "object_id": "visual_S6_SYNTHESIS",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/visuals/S6_SYNTHESIS_visual.png",
+      "filename": "S6_SYNTHESIS_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 218355,
+      "created_at": "2026-06-23T06:08:58.798518",
+      "section_id": "S6_SYNTHESIS",
+      "visual_title": "Looking Forward",
+      "visual_asset_type": "closing_synthesis",
+      "visual_keywords": [
+        "synthesis",
+        "future",
+        "collective",
+        "change"
+      ]
+    },
+    "voiceover_S6_SYNTHESIS": {
+      "object_id": "voiceover_S6_SYNTHESIS",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/audio/sections/S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "filename": "S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 95472,
+      "created_at": "2026-06-23T06:08:44.846546",
+      "section_id": "S6_SYNTHESIS",
+      "voiceover_text": "In conclusion, the issue of women's empowerment in the context of AI requires a multifaceted approach. By understanding the complexities and challenges, we can work towards creating more inclusive systems that prioritize women's agency and power."
+    },
+    "title_card": {
+      "object_id": "title_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 284388,
+      "created_at": "2026-06-23T06:07:29.025746",
+      "card_type": "title_card"
+    },
+    "closing_card": {
+      "object_id": "closing_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/cards/closing_card.png",
+      "filename": "closing_card.png",
+      "content_type": "image/png",
+      "size_bytes": 268668,
+      "created_at": "2026-06-23T06:07:31.394738",
+      "card_type": "closing_card"
+    },
+    "section_card_S1": {
+      "object_id": "section_card_S1",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/cards/S1_opening_hook.png",
+      "filename": "S1_opening_hook.png",
+      "content_type": "image/png",
+      "size_bytes": 236165,
+      "created_at": "2026-06-23T06:07:33.734731",
+      "card_type": "section_card",
+      "section_id": "S1"
+    },
+    "section_card_S2": {
+      "object_id": "section_card_S2",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/cards/S2_context.png",
+      "filename": "S2_context.png",
+      "content_type": "image/png",
+      "size_bytes": 229621,
+      "created_at": "2026-06-23T06:07:36.055724",
+      "card_type": "section_card",
+      "section_id": "S2"
+    },
+    "section_card_S3": {
+      "object_id": "section_card_S3",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/cards/S3_problem_or_tension.png",
+      "filename": "S3_problem_or_tension.png",
+      "content_type": "image/png",
+      "size_bytes": 229358,
+      "created_at": "2026-06-23T06:07:38.281717",
+      "card_type": "section_card",
+      "section_id": "S3"
+    },
+    "section_card_S4": {
+      "object_id": "section_card_S4",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/cards/S4_human_perspective.png",
+      "filename": "S4_human_perspective.png",
+      "content_type": "image/png",
+      "size_bytes": 241545,
+      "created_at": "2026-06-23T06:07:40.662710",
+      "card_type": "section_card",
+      "section_id": "S4"
+    },
+    "section_card_S5": {
+      "object_id": "section_card_S5",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/cards/S5_expert_evidence.png",
+      "filename": "S5_expert_evidence.png",
+      "content_type": "image/png",
+      "size_bytes": 232640,
+      "created_at": "2026-06-23T06:07:43.054703",
+      "card_type": "section_card",
+      "section_id": "S5"
+    },
+    "thumbnail": {
+      "object_id": "thumbnail",
+      "kind": "thumbnail",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260623_113411_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 284388,
+      "created_at": "2026-06-23T06:07:29.025746",
+      "card_type": "title_card"
+    }
+  }
+}

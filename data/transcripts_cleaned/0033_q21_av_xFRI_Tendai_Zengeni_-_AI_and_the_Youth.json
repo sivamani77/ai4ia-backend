@@ -1,0 +1,6670 @@
+{
+  "audio_file": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth.clean.wav",
+  "source_audio_path": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth.clean.wav",
+  "source_transcript_version": "cleaned_v2",
+  "model": "small",
+  "device": "cpu",
+  "compute_type": "int8",
+  "language": "en",
+  "language_probability": 1,
+  "duration_seconds": 469.8625,
+  "transcribed_at": "2026-06-19T13:17:55.492646",
+  "transcription_mode": "normal",
+  "chunk_seconds": null,
+  "quality": {
+    "segment_count": 76,
+    "avg_confidence": 0.8403,
+    "avg_words_per_segment": 12.97,
+    "empty_segment_ratio": 0.0,
+    "repeated_phrase_ratio": 0.0,
+    "low_confidence_ratio": 0.0132,
+    "recommended_action": "ok"
+  },
+  "segments": [
+    {
+      "id": 1,
+      "start": 1.87,
+      "end": 10.14,
+      "text": "Greetings, colleagues. My topic is AI and the youth, shaping the next generation.",
+      "avg_logprob": -0.20256597625798192,
+      "no_speech_prob": 0.10557720810174942,
+      "compression_ratio": 1.4477611940298507,
+      "words": [
+        {
+          "word": " Greetings,",
+          "start": 1.87,
+          "end": 2.51,
+          "probability": 0.335074245929718
+        },
+        {
+          "word": " colleagues.",
+          "start": 2.93,
+          "end": 3.19,
+          "probability": 0.9576355814933777
+        },
+        {
+          "word": " My",
+          "start": 5.2,
+          "end": 5.44,
+          "probability": 0.9896224737167358
+        },
+        {
+          "word": " topic",
+          "start": 5.44,
+          "end": 5.78,
+          "probability": 0.9955785870552063
+        },
+        {
+          "word": " is",
+          "start": 5.78,
+          "end": 6.22,
+          "probability": 0.9958401918411255
+        },
+        {
+          "word": " AI",
+          "start": 6.22,
+          "end": 6.64,
+          "probability": 0.8684000372886658
+        },
+        {
+          "word": " and",
+          "start": 6.64,
+          "end": 7.66,
+          "probability": 0.9777529239654541
+        },
+        {
+          "word": " the",
+          "start": 7.66,
+          "end": 7.86,
+          "probability": 0.9744515419006348
+        },
+        {
+          "word": " youth,",
+          "start": 7.86,
+          "end": 8.12,
+          "probability": 0.6920098066329956
+        },
+        {
+          "word": " shaping",
+          "start": 8.42,
+          "end": 8.88,
+          "probability": 0.9833214282989502
+        },
+        {
+          "word": " the",
+          "start": 8.88,
+          "end": 9.22,
+          "probability": 0.995923638343811
+        },
+        {
+          "word": " next",
+          "start": 9.22,
+          "end": 9.46,
+          "probability": 0.9929378628730774
+        },
+        {
+          "word": " generation.",
+          "start": 9.46,
+          "end": 10.14,
+          "probability": 0.9969207048416138
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 10.97,
+      "end": 16.31,
+      "text": "My name is Dr. Tendai Zengeni, and I'm a lecturer at Africa University in Zimbabwe,",
+      "avg_logprob": -0.20256597625798192,
+      "no_speech_prob": 0.10557720810174942,
+      "compression_ratio": 1.4477611940298507,
+      "words": [
+        {
+          "word": " My",
+          "start": 10.97,
+          "end": 11.33,
+          "probability": 0.9823219180107117
+        },
+        {
+          "word": " name",
+          "start": 11.33,
+          "end": 11.53,
+          "probability": 0.9982408285140991
+        },
+        {
+          "word": " is",
+          "start": 11.53,
+          "end": 11.69,
+          "probability": 0.9954125285148621
+        },
+        {
+          "word": " Dr.",
+          "start": 11.69,
+          "end": 11.99,
+          "probability": 0.9186996817588806
+        },
+        {
+          "word": " Tendai",
+          "start": 12.07,
+          "end": 12.47,
+          "probability": 0.6052380700906118
+        },
+        {
+          "word": " Zengeni,",
+          "start": 12.47,
+          "end": 12.95,
+          "probability": 0.6635011434555054
+        },
+        {
+          "word": " and",
+          "start": 13.19,
+          "end": 13.25,
+          "probability": 0.9842019081115723
+        },
+        {
+          "word": " I'm",
+          "start": 13.25,
+          "end": 13.41,
+          "probability": 0.9653911292552948
+        },
+        {
+          "word": " a",
+          "start": 13.41,
+          "end": 13.57,
+          "probability": 0.9963994026184082
+        },
+        {
+          "word": " lecturer",
+          "start": 13.57,
+          "end": 13.93,
+          "probability": 0.9946334362030029
+        },
+        {
+          "word": " at",
+          "start": 13.93,
+          "end": 14.29,
+          "probability": 0.9960293769836426
+        },
+        {
+          "word": " Africa",
+          "start": 14.29,
+          "end": 14.63,
+          "probability": 0.9018322229385376
+        },
+        {
+          "word": " University",
+          "start": 14.63,
+          "end": 15.39,
+          "probability": 0.9421060085296631
+        },
+        {
+          "word": " in",
+          "start": 15.39,
+          "end": 15.73,
+          "probability": 0.3946574032306671
+        },
+        {
+          "word": " Zimbabwe,",
+          "start": 15.73,
+          "end": 16.31,
+          "probability": 0.9926967471837997
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 16.75,
+      "end": 20.73,
+      "text": "as well as a member of the UNESCO Women for Ethical AI,",
+      "avg_logprob": -0.20256597625798192,
+      "no_speech_prob": 0.10557720810174942,
+      "compression_ratio": 1.4477611940298507,
+      "words": [
+        {
+          "word": " as",
+          "start": 16.75,
+          "end": 17.43,
+          "probability": 0.9938901662826538
+        },
+        {
+          "word": " well",
+          "start": 17.43,
+          "end": 17.65,
+          "probability": 0.9961965084075928
+        },
+        {
+          "word": " as",
+          "start": 17.65,
+          "end": 17.93,
+          "probability": 0.9962714910507202
+        },
+        {
+          "word": " a",
+          "start": 17.93,
+          "end": 18.05,
+          "probability": 0.9948822259902954
+        },
+        {
+          "word": " member",
+          "start": 18.05,
+          "end": 18.29,
+          "probability": 0.9971904158592224
+        },
+        {
+          "word": " of",
+          "start": 18.29,
+          "end": 18.61,
+          "probability": 0.9989221096038818
+        },
+        {
+          "word": " the",
+          "start": 18.61,
+          "end": 18.77,
+          "probability": 0.9499920010566711
+        },
+        {
+          "word": " UNESCO",
+          "start": 18.77,
+          "end": 19.25,
+          "probability": 0.9823469817638397
+        },
+        {
+          "word": " Women",
+          "start": 19.25,
+          "end": 19.73,
+          "probability": 0.552972137928009
+        },
+        {
+          "word": " for",
+          "start": 19.73,
+          "end": 19.99,
+          "probability": 0.9139655828475952
+        },
+        {
+          "word": " Ethical",
+          "start": 19.99,
+          "end": 20.37,
+          "probability": 0.981360137462616
+        },
+        {
+          "word": " AI,",
+          "start": 20.37,
+          "end": 20.73,
+          "probability": 0.9800659418106079
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 21.55,
+      "end": 25.95,
+      "text": "and I'm also a member of UNESCO's Ethical AI Experts Without Borders,",
+      "avg_logprob": -0.20256597625798192,
+      "no_speech_prob": 0.10557720810174942,
+      "compression_ratio": 1.4477611940298507,
+      "words": [
+        {
+          "word": " and",
+          "start": 21.55,
+          "end": 21.95,
+          "probability": 0.9952974915504456
+        },
+        {
+          "word": " I'm",
+          "start": 21.95,
+          "end": 22.13,
+          "probability": 0.9838040173053741
+        },
+        {
+          "word": " also",
+          "start": 22.13,
+          "end": 22.41,
+          "probability": 0.9983921647071838
+        },
+        {
+          "word": " a",
+          "start": 22.41,
+          "end": 22.61,
+          "probability": 0.9989120960235596
+        },
+        {
+          "word": " member",
+          "start": 22.61,
+          "end": 22.79,
+          "probability": 0.9987071752548218
+        },
+        {
+          "word": " of",
+          "start": 22.79,
+          "end": 23.05,
+          "probability": 0.9982752799987793
+        },
+        {
+          "word": " UNESCO's",
+          "start": 23.05,
+          "end": 23.71,
+          "probability": 0.9204816818237305
+        },
+        {
+          "word": " Ethical",
+          "start": 23.71,
+          "end": 24.11,
+          "probability": 0.868667483329773
+        },
+        {
+          "word": " AI",
+          "start": 24.11,
+          "end": 24.51,
+          "probability": 0.9966819882392883
+        },
+        {
+          "word": " Experts",
+          "start": 24.51,
+          "end": 25.19,
+          "probability": 0.7079203426837921
+        },
+        {
+          "word": " Without",
+          "start": 25.19,
+          "end": 25.45,
+          "probability": 0.875659704208374
+        },
+        {
+          "word": " Borders,",
+          "start": 25.45,
+          "end": 25.95,
+          "probability": 0.996802568435669
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 25.95,
+      "end": 30.55,
+      "text": "as well as an alumni of African Women in Tech and AI,",
+      "avg_logprob": -0.12062537147009626,
+      "no_speech_prob": 0.1365984082221985,
+      "compression_ratio": 1.5192307692307692,
+      "words": [
+        {
+          "word": " as",
+          "start": 25.95,
+          "end": 26.83,
+          "probability": 0.6074555516242981
+        },
+        {
+          "word": " well",
+          "start": 26.83,
+          "end": 27.13,
+          "probability": 0.9865413904190063
+        },
+        {
+          "word": " as",
+          "start": 27.13,
+          "end": 27.35,
+          "probability": 0.9953092932701111
+        },
+        {
+          "word": " an",
+          "start": 27.35,
+          "end": 27.49,
+          "probability": 0.9786838889122009
+        },
+        {
+          "word": " alumni",
+          "start": 27.49,
+          "end": 28.01,
+          "probability": 0.9890576004981995
+        },
+        {
+          "word": " of",
+          "start": 28.01,
+          "end": 28.63,
+          "probability": 0.9974138736724854
+        },
+        {
+          "word": " African",
+          "start": 28.63,
+          "end": 28.99,
+          "probability": 0.996277391910553
+        },
+        {
+          "word": " Women",
+          "start": 28.99,
+          "end": 29.39,
+          "probability": 0.5453153848648071
+        },
+        {
+          "word": " in",
+          "start": 29.39,
+          "end": 29.69,
+          "probability": 0.9651266932487488
+        },
+        {
+          "word": " Tech",
+          "start": 29.69,
+          "end": 29.89,
+          "probability": 0.9557276368141174
+        },
+        {
+          "word": " and",
+          "start": 29.89,
+          "end": 30.19,
+          "probability": 0.971241295337677
+        },
+        {
+          "word": " AI,",
+          "start": 30.19,
+          "end": 30.55,
+          "probability": 0.9835900664329529
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 31.27,
+      "end": 35.95,
+      "text": "where I was trained at the International Center for Artificial Intelligence in Morocco.",
+      "avg_logprob": -0.12062537147009626,
+      "no_speech_prob": 0.1365984082221985,
+      "compression_ratio": 1.5192307692307692,
+      "words": [
+        {
+          "word": " where",
+          "start": 31.27,
+          "end": 31.57,
+          "probability": 0.993938684463501
+        },
+        {
+          "word": " I",
+          "start": 31.57,
+          "end": 31.79,
+          "probability": 0.9983431100845337
+        },
+        {
+          "word": " was",
+          "start": 31.79,
+          "end": 31.95,
+          "probability": 0.9945175051689148
+        },
+        {
+          "word": " trained",
+          "start": 31.95,
+          "end": 32.33,
+          "probability": 0.9988284707069397
+        },
+        {
+          "word": " at",
+          "start": 32.33,
+          "end": 32.61,
+          "probability": 0.9947872161865234
+        },
+        {
+          "word": " the",
+          "start": 32.61,
+          "end": 32.73,
+          "probability": 0.9917892217636108
+        },
+        {
+          "word": " International",
+          "start": 32.73,
+          "end": 33.21,
+          "probability": 0.9664201140403748
+        },
+        {
+          "word": " Center",
+          "start": 33.21,
+          "end": 33.75,
+          "probability": 0.885356605052948
+        },
+        {
+          "word": " for",
+          "start": 33.75,
+          "end": 34.01,
+          "probability": 0.994209885597229
+        },
+        {
+          "word": " Artificial",
+          "start": 34.01,
+          "end": 34.51,
+          "probability": 0.9766977727413177
+        },
+        {
+          "word": " Intelligence",
+          "start": 34.51,
+          "end": 35.29,
+          "probability": 0.995303750038147
+        },
+        {
+          "word": " in",
+          "start": 35.29,
+          "end": 35.65,
+          "probability": 0.9950587749481201
+        },
+        {
+          "word": " Morocco.",
+          "start": 35.65,
+          "end": 35.95,
+          "probability": 0.9936004877090454
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 37.28,
+      "end": 44.08,
+      "text": "My work focuses on AI ethics research among other disciplines like high-speed optical communications,",
+      "avg_logprob": -0.12062537147009626,
+      "no_speech_prob": 0.1365984082221985,
+      "compression_ratio": 1.5192307692307692,
+      "words": [
+        {
+          "word": " My",
+          "start": 37.28,
+          "end": 37.52,
+          "probability": 0.9973499774932861
+        },
+        {
+          "word": " work",
+          "start": 37.52,
+          "end": 37.76,
+          "probability": 0.9987084865570068
+        },
+        {
+          "word": " focuses",
+          "start": 37.76,
+          "end": 38.3,
+          "probability": 0.9690799713134766
+        },
+        {
+          "word": " on",
+          "start": 38.3,
+          "end": 38.6,
+          "probability": 0.998889148235321
+        },
+        {
+          "word": " AI",
+          "start": 38.6,
+          "end": 38.9,
+          "probability": 0.9907994866371155
+        },
+        {
+          "word": " ethics",
+          "start": 38.9,
+          "end": 39.28,
+          "probability": 0.9570112824440002
+        },
+        {
+          "word": " research",
+          "start": 39.28,
+          "end": 39.96,
+          "probability": 0.9866675734519958
+        },
+        {
+          "word": " among",
+          "start": 39.96,
+          "end": 40.46,
+          "probability": 0.42819491028785706
+        },
+        {
+          "word": " other",
+          "start": 40.46,
+          "end": 40.8,
+          "probability": 0.9961578249931335
+        },
+        {
+          "word": " disciplines",
+          "start": 40.8,
+          "end": 41.38,
+          "probability": 0.998420000076294
+        },
+        {
+          "word": " like",
+          "start": 41.38,
+          "end": 41.82,
+          "probability": 0.8076653480529785
+        },
+        {
+          "word": " high",
+          "start": 41.82,
+          "end": 42.4,
+          "probability": 0.9688575267791748
+        },
+        {
+          "word": "-speed",
+          "start": 42.4,
+          "end": 42.66,
+          "probability": 0.816005676984787
+        },
+        {
+          "word": " optical",
+          "start": 42.66,
+          "end": 43.14,
+          "probability": 0.9914824962615967
+        },
+        {
+          "word": " communications,",
+          "start": 43.14,
+          "end": 44.08,
+          "probability": 0.9829230308532715
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 44.52,
+      "end": 47.26,
+      "text": "where I did my studies in Malaysia and Greece.",
+      "avg_logprob": -0.12062537147009626,
+      "no_speech_prob": 0.1365984082221985,
+      "compression_ratio": 1.5192307692307692,
+      "words": [
+        {
+          "word": " where",
+          "start": 44.52,
+          "end": 44.84,
+          "probability": 0.9971676468849182
+        },
+        {
+          "word": " I",
+          "start": 44.84,
+          "end": 45.06,
+          "probability": 0.9986547231674194
+        },
+        {
+          "word": " did",
+          "start": 45.06,
+          "end": 45.24,
+          "probability": 0.9962809681892395
+        },
+        {
+          "word": " my",
+          "start": 45.24,
+          "end": 45.44,
+          "probability": 0.9996747970581055
+        },
+        {
+          "word": " studies",
+          "start": 45.44,
+          "end": 45.8,
+          "probability": 0.9971482157707214
+        },
+        {
+          "word": " in",
+          "start": 45.8,
+          "end": 46.1,
+          "probability": 0.9987636804580688
+        },
+        {
+          "word": " Malaysia",
+          "start": 46.1,
+          "end": 46.42,
+          "probability": 0.9970471262931824
+        },
+        {
+          "word": " and",
+          "start": 46.42,
+          "end": 46.96,
+          "probability": 0.9941977262496948
+        },
+        {
+          "word": " Greece.",
+          "start": 46.96,
+          "end": 47.26,
+          "probability": 0.9978471994400024
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 48.25,
+      "end": 55.51,
+      "text": "I'm here today, not just as an expert, but as an advocate for the immense potential of Zimbabwean youth.",
+      "avg_logprob": -0.12062537147009626,
+      "no_speech_prob": 0.1365984082221985,
+      "compression_ratio": 1.5192307692307692,
+      "words": [
+        {
+          "word": " I'm",
+          "start": 48.25,
+          "end": 48.59,
+          "probability": 0.9788029193878174
+        },
+        {
+          "word": " here",
+          "start": 48.59,
+          "end": 48.77,
+          "probability": 0.9994223117828369
+        },
+        {
+          "word": " today,",
+          "start": 48.77,
+          "end": 49.21,
+          "probability": 0.9910667538642883
+        },
+        {
+          "word": " not",
+          "start": 49.61,
+          "end": 49.91,
+          "probability": 0.9989787340164185
+        },
+        {
+          "word": " just",
+          "start": 49.91,
+          "end": 50.21,
+          "probability": 0.9977366924285889
+        },
+        {
+          "word": " as",
+          "start": 50.21,
+          "end": 50.57,
+          "probability": 0.9974538683891296
+        },
+        {
+          "word": " an",
+          "start": 50.57,
+          "end": 50.73,
+          "probability": 0.998637855052948
+        },
+        {
+          "word": " expert,",
+          "start": 50.73,
+          "end": 51.17,
+          "probability": 0.9987174272537231
+        },
+        {
+          "word": " but",
+          "start": 51.57,
+          "end": 51.99,
+          "probability": 0.9990357160568237
+        },
+        {
+          "word": " as",
+          "start": 51.99,
+          "end": 52.23,
+          "probability": 0.996454119682312
+        },
+        {
+          "word": " an",
+          "start": 52.23,
+          "end": 52.39,
+          "probability": 0.9977449178695679
+        },
+        {
+          "word": " advocate",
+          "start": 52.39,
+          "end": 52.85,
+          "probability": 0.9985044002532959
+        },
+        {
+          "word": " for",
+          "start": 52.85,
+          "end": 53.19,
+          "probability": 0.9972295165061951
+        },
+        {
+          "word": " the",
+          "start": 53.19,
+          "end": 53.33,
+          "probability": 0.9994410872459412
+        },
+        {
+          "word": " immense",
+          "start": 53.33,
+          "end": 53.67,
+          "probability": 0.9994124174118042
+        },
+        {
+          "word": " potential",
+          "start": 53.67,
+          "end": 54.27,
+          "probability": 0.9996166229248047
+        },
+        {
+          "word": " of",
+          "start": 54.27,
+          "end": 54.61,
+          "probability": 0.9983134269714355
+        },
+        {
+          "word": " Zimbabwean",
+          "start": 54.61,
+          "end": 55.27,
+          "probability": 0.9864643216133118
+        },
+        {
+          "word": " youth.",
+          "start": 55.27,
+          "end": 55.51,
+          "probability": 0.9912071824073792
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 55.51,
+      "end": 62.17,
+      "text": "We are standing at a pivotal moment and our discussion today is about ensuring our young",
+      "avg_logprob": -0.14263709012199852,
+      "no_speech_prob": 0.12118165194988251,
+      "compression_ratio": 1.5434782608695652,
+      "words": [
+        {
+          "word": " We",
+          "start": 55.51,
+          "end": 56.55,
+          "probability": 0.3801765739917755
+        },
+        {
+          "word": " are",
+          "start": 56.55,
+          "end": 56.67,
+          "probability": 0.945578932762146
+        },
+        {
+          "word": " standing",
+          "start": 56.67,
+          "end": 57.01,
+          "probability": 0.9809170961380005
+        },
+        {
+          "word": " at",
+          "start": 57.01,
+          "end": 57.27,
+          "probability": 0.9890192151069641
+        },
+        {
+          "word": " a",
+          "start": 57.27,
+          "end": 57.41,
+          "probability": 0.9704219698905945
+        },
+        {
+          "word": " pivotal",
+          "start": 57.41,
+          "end": 57.71,
+          "probability": 0.9828649759292603
+        },
+        {
+          "word": " moment",
+          "start": 57.71,
+          "end": 58.33,
+          "probability": 0.9946306943893433
+        },
+        {
+          "word": " and",
+          "start": 58.33,
+          "end": 59.15,
+          "probability": 0.5655450820922852
+        },
+        {
+          "word": " our",
+          "start": 59.15,
+          "end": 59.37,
+          "probability": 0.9937991499900818
+        },
+        {
+          "word": " discussion",
+          "start": 59.37,
+          "end": 59.77,
+          "probability": 0.9933198690414429
+        },
+        {
+          "word": " today",
+          "start": 59.77,
+          "end": 60.31,
+          "probability": 0.9867760539054871
+        },
+        {
+          "word": " is",
+          "start": 60.31,
+          "end": 60.53,
+          "probability": 0.993669331073761
+        },
+        {
+          "word": " about",
+          "start": 60.53,
+          "end": 60.79,
+          "probability": 0.9968420267105103
+        },
+        {
+          "word": " ensuring",
+          "start": 60.79,
+          "end": 61.57,
+          "probability": 0.9834102988243103
+        },
+        {
+          "word": " our",
+          "start": 61.57,
+          "end": 61.95,
+          "probability": 0.9600280523300171
+        },
+        {
+          "word": " young",
+          "start": 61.95,
+          "end": 62.17,
+          "probability": 0.9944115281105042
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 62.17,
+      "end": 70.22,
+      "text": "people are equipped not just to survive this AI driven future but to shape it. Many thanks",
+      "avg_logprob": -0.14263709012199852,
+      "no_speech_prob": 0.12118165194988251,
+      "compression_ratio": 1.5434782608695652,
+      "words": [
+        {
+          "word": " people",
+          "start": 62.17,
+          "end": 62.55,
+          "probability": 0.9983198046684265
+        },
+        {
+          "word": " are",
+          "start": 62.55,
+          "end": 62.91,
+          "probability": 0.9952417612075806
+        },
+        {
+          "word": " equipped",
+          "start": 62.91,
+          "end": 63.37,
+          "probability": 0.9954728484153748
+        },
+        {
+          "word": " not",
+          "start": 63.37,
+          "end": 64.23,
+          "probability": 0.7635833621025085
+        },
+        {
+          "word": " just",
+          "start": 64.23,
+          "end": 64.51,
+          "probability": 0.9943301677703857
+        },
+        {
+          "word": " to",
+          "start": 64.51,
+          "end": 64.71,
+          "probability": 0.9970490336418152
+        },
+        {
+          "word": " survive",
+          "start": 64.71,
+          "end": 65.13,
+          "probability": 0.9925268888473511
+        },
+        {
+          "word": " this",
+          "start": 65.13,
+          "end": 65.45,
+          "probability": 0.9845222234725952
+        },
+        {
+          "word": " AI",
+          "start": 65.45,
+          "end": 65.85,
+          "probability": 0.9792971014976501
+        },
+        {
+          "word": " driven",
+          "start": 65.85,
+          "end": 66.19,
+          "probability": 0.6668661236763
+        },
+        {
+          "word": " future",
+          "start": 66.19,
+          "end": 66.71,
+          "probability": 0.956953227519989
+        },
+        {
+          "word": " but",
+          "start": 66.71,
+          "end": 67.23,
+          "probability": 0.6387025117874146
+        },
+        {
+          "word": " to",
+          "start": 67.23,
+          "end": 67.43,
+          "probability": 0.9813324213027954
+        },
+        {
+          "word": " shape",
+          "start": 67.43,
+          "end": 67.65,
+          "probability": 0.9938376545906067
+        },
+        {
+          "word": " it.",
+          "start": 67.65,
+          "end": 67.87,
+          "probability": 0.9971058964729309
+        },
+        {
+          "word": " Many",
+          "start": 69.42,
+          "end": 69.86,
+          "probability": 0.9839620590209961
+        },
+        {
+          "word": " thanks",
+          "start": 69.86,
+          "end": 70.22,
+          "probability": 0.9960190653800964
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 70.22,
+      "end": 76.0,
+      "text": "to the conveners of the conference who are UNESCO and thank you for giving us this incredible",
+      "avg_logprob": -0.14263709012199852,
+      "no_speech_prob": 0.12118165194988251,
+      "compression_ratio": 1.5434782608695652,
+      "words": [
+        {
+          "word": " to",
+          "start": 70.22,
+          "end": 70.44,
+          "probability": 0.9978772401809692
+        },
+        {
+          "word": " the",
+          "start": 70.44,
+          "end": 70.62,
+          "probability": 0.9935526847839355
+        },
+        {
+          "word": " conveners",
+          "start": 70.62,
+          "end": 71.16,
+          "probability": 0.9371949434280396
+        },
+        {
+          "word": " of",
+          "start": 71.16,
+          "end": 71.34,
+          "probability": 0.994717538356781
+        },
+        {
+          "word": " the",
+          "start": 71.34,
+          "end": 71.46,
+          "probability": 0.9806971549987793
+        },
+        {
+          "word": " conference",
+          "start": 71.46,
+          "end": 72.02,
+          "probability": 0.9557539224624634
+        },
+        {
+          "word": " who",
+          "start": 72.02,
+          "end": 72.8,
+          "probability": 0.765686571598053
+        },
+        {
+          "word": " are",
+          "start": 72.8,
+          "end": 72.96,
+          "probability": 0.9930089712142944
+        },
+        {
+          "word": " UNESCO",
+          "start": 72.96,
+          "end": 73.52,
+          "probability": 0.9766168892383575
+        },
+        {
+          "word": " and",
+          "start": 73.52,
+          "end": 74.24,
+          "probability": 0.8389612436294556
+        },
+        {
+          "word": " thank",
+          "start": 74.24,
+          "end": 74.5,
+          "probability": 0.9909959435462952
+        },
+        {
+          "word": " you",
+          "start": 74.5,
+          "end": 74.64,
+          "probability": 0.998360812664032
+        },
+        {
+          "word": " for",
+          "start": 74.64,
+          "end": 74.84,
+          "probability": 0.998735249042511
+        },
+        {
+          "word": " giving",
+          "start": 74.84,
+          "end": 75.02,
+          "probability": 0.9975541234016418
+        },
+        {
+          "word": " us",
+          "start": 75.02,
+          "end": 75.24,
+          "probability": 0.9975537657737732
+        },
+        {
+          "word": " this",
+          "start": 75.24,
+          "end": 75.44,
+          "probability": 0.996791422367096
+        },
+        {
+          "word": " incredible",
+          "start": 75.44,
+          "end": 76.0,
+          "probability": 0.9986377358436584
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 76.0,
+      "end": 83.74,
+      "text": "platform that is AI for IA. Also I want to thank UNESCO ROSA for inviting me as a",
+      "avg_logprob": -0.14263709012199852,
+      "no_speech_prob": 0.12118165194988251,
+      "compression_ratio": 1.5434782608695652,
+      "words": [
+        {
+          "word": " platform",
+          "start": 76.0,
+          "end": 76.7,
+          "probability": 0.9962665438652039
+        },
+        {
+          "word": " that",
+          "start": 76.7,
+          "end": 77.38,
+          "probability": 0.9159080982208252
+        },
+        {
+          "word": " is",
+          "start": 77.38,
+          "end": 77.54,
+          "probability": 0.9970856308937073
+        },
+        {
+          "word": " AI",
+          "start": 77.54,
+          "end": 77.98,
+          "probability": 0.9854044318199158
+        },
+        {
+          "word": " for",
+          "start": 77.98,
+          "end": 78.24,
+          "probability": 0.9183958172798157
+        },
+        {
+          "word": " IA.",
+          "start": 78.24,
+          "end": 78.74,
+          "probability": 0.8454329967498779
+        },
+        {
+          "word": " Also",
+          "start": 79.36,
+          "end": 79.86,
+          "probability": 0.979201078414917
+        },
+        {
+          "word": " I",
+          "start": 79.86,
+          "end": 80.08,
+          "probability": 0.5447759032249451
+        },
+        {
+          "word": " want",
+          "start": 80.08,
+          "end": 80.24,
+          "probability": 0.995521068572998
+        },
+        {
+          "word": " to",
+          "start": 80.24,
+          "end": 80.38,
+          "probability": 0.9981689453125
+        },
+        {
+          "word": " thank",
+          "start": 80.38,
+          "end": 80.62,
+          "probability": 0.9943901896476746
+        },
+        {
+          "word": " UNESCO",
+          "start": 80.62,
+          "end": 81.14,
+          "probability": 0.9946509301662445
+        },
+        {
+          "word": " ROSA",
+          "start": 81.14,
+          "end": 81.72,
+          "probability": 0.6037284880876541
+        },
+        {
+          "word": " for",
+          "start": 81.72,
+          "end": 82.48,
+          "probability": 0.9782337546348572
+        },
+        {
+          "word": " inviting",
+          "start": 82.48,
+          "end": 82.96,
+          "probability": 0.9985950589179993
+        },
+        {
+          "word": " me",
+          "start": 82.96,
+          "end": 83.36,
+          "probability": 0.9978450536727905
+        },
+        {
+          "word": " as",
+          "start": 83.36,
+          "end": 83.58,
+          "probability": 0.9977787137031555
+        },
+        {
+          "word": " a",
+          "start": 83.58,
+          "end": 83.74,
+          "probability": 0.9753976464271545
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 83.74,
+      "end": 90.14,
+      "text": "panelist on the conference. It's a privilege to be here among many distinguished scholars",
+      "avg_logprob": -0.1395775554701686,
+      "no_speech_prob": 0.09302238374948502,
+      "compression_ratio": 1.4635416666666667,
+      "words": [
+        {
+          "word": " panelist",
+          "start": 83.74,
+          "end": 84.36,
+          "probability": 0.6204530149698257
+        },
+        {
+          "word": " on",
+          "start": 84.36,
+          "end": 84.64,
+          "probability": 0.9382286071777344
+        },
+        {
+          "word": " the",
+          "start": 84.64,
+          "end": 84.74,
+          "probability": 0.9846994280815125
+        },
+        {
+          "word": " conference.",
+          "start": 84.74,
+          "end": 85.32,
+          "probability": 0.9801144003868103
+        },
+        {
+          "word": " It's",
+          "start": 85.96,
+          "end": 86.28,
+          "probability": 0.950586199760437
+        },
+        {
+          "word": " a",
+          "start": 86.28,
+          "end": 86.44,
+          "probability": 0.9950227737426758
+        },
+        {
+          "word": " privilege",
+          "start": 86.44,
+          "end": 86.8,
+          "probability": 0.9983914494514465
+        },
+        {
+          "word": " to",
+          "start": 86.8,
+          "end": 87.7,
+          "probability": 0.9951993823051453
+        },
+        {
+          "word": " be",
+          "start": 87.7,
+          "end": 87.88,
+          "probability": 0.998298704624176
+        },
+        {
+          "word": " here",
+          "start": 87.88,
+          "end": 88.16,
+          "probability": 0.9954748749732971
+        },
+        {
+          "word": " among",
+          "start": 88.16,
+          "end": 88.48,
+          "probability": 0.9694920182228088
+        },
+        {
+          "word": " many",
+          "start": 88.48,
+          "end": 88.92,
+          "probability": 0.992743730545044
+        },
+        {
+          "word": " distinguished",
+          "start": 88.92,
+          "end": 89.52,
+          "probability": 0.994481086730957
+        },
+        {
+          "word": " scholars",
+          "start": 89.52,
+          "end": 90.14,
+          "probability": 0.9959250688552856
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 90.62,
+      "end": 98.88,
+      "text": "to discuss a topic so close to my heart. Firstly, I'd like to talk about the risks and opportunities",
+      "avg_logprob": -0.1395775554701686,
+      "no_speech_prob": 0.09302238374948502,
+      "compression_ratio": 1.4635416666666667,
+      "words": [
+        {
+          "word": " to",
+          "start": 90.62,
+          "end": 90.98,
+          "probability": 0.9032496809959412
+        },
+        {
+          "word": " discuss",
+          "start": 90.98,
+          "end": 91.36,
+          "probability": 0.9970101118087769
+        },
+        {
+          "word": " a",
+          "start": 91.36,
+          "end": 91.68,
+          "probability": 0.985283374786377
+        },
+        {
+          "word": " topic",
+          "start": 91.68,
+          "end": 91.96,
+          "probability": 0.9979409575462341
+        },
+        {
+          "word": " so",
+          "start": 91.96,
+          "end": 92.28,
+          "probability": 0.9924346208572388
+        },
+        {
+          "word": " close",
+          "start": 92.28,
+          "end": 92.64,
+          "probability": 0.9993335604667664
+        },
+        {
+          "word": " to",
+          "start": 92.64,
+          "end": 92.8,
+          "probability": 0.9986931681632996
+        },
+        {
+          "word": " my",
+          "start": 92.8,
+          "end": 92.98,
+          "probability": 0.9972671270370483
+        },
+        {
+          "word": " heart.",
+          "start": 92.98,
+          "end": 93.26,
+          "probability": 0.997134804725647
+        },
+        {
+          "word": " Firstly,",
+          "start": 94.3,
+          "end": 94.74,
+          "probability": 0.9631435871124268
+        },
+        {
+          "word": " I'd",
+          "start": 96.06,
+          "end": 96.3,
+          "probability": 0.9363992512226105
+        },
+        {
+          "word": " like",
+          "start": 96.3,
+          "end": 96.4,
+          "probability": 0.9991942048072815
+        },
+        {
+          "word": " to",
+          "start": 96.4,
+          "end": 96.58,
+          "probability": 0.999211311340332
+        },
+        {
+          "word": " talk",
+          "start": 96.58,
+          "end": 96.78,
+          "probability": 0.9989230036735535
+        },
+        {
+          "word": " about",
+          "start": 96.78,
+          "end": 97.06,
+          "probability": 0.9988640546798706
+        },
+        {
+          "word": " the",
+          "start": 97.06,
+          "end": 97.26,
+          "probability": 0.9964914917945862
+        },
+        {
+          "word": " risks",
+          "start": 97.26,
+          "end": 97.66,
+          "probability": 0.9969678521156311
+        },
+        {
+          "word": " and",
+          "start": 97.66,
+          "end": 98.1,
+          "probability": 0.9980030655860901
+        },
+        {
+          "word": " opportunities",
+          "start": 98.1,
+          "end": 98.88,
+          "probability": 0.9959298968315125
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 98.88,
+      "end": 107.22,
+      "text": "in terms of how AI affects the youth employment and creativity. Let's address the elephant",
+      "avg_logprob": -0.1395775554701686,
+      "no_speech_prob": 0.09302238374948502,
+      "compression_ratio": 1.4635416666666667,
+      "words": [
+        {
+          "word": " in",
+          "start": 98.88,
+          "end": 99.46,
+          "probability": 0.989459753036499
+        },
+        {
+          "word": " terms",
+          "start": 99.46,
+          "end": 99.72,
+          "probability": 0.999160647392273
+        },
+        {
+          "word": " of",
+          "start": 99.72,
+          "end": 100.0,
+          "probability": 0.9994049072265625
+        },
+        {
+          "word": " how",
+          "start": 100.0,
+          "end": 100.2,
+          "probability": 0.998199462890625
+        },
+        {
+          "word": " AI",
+          "start": 100.2,
+          "end": 100.56,
+          "probability": 0.978412926197052
+        },
+        {
+          "word": " affects",
+          "start": 100.56,
+          "end": 101.1,
+          "probability": 0.9838895797729492
+        },
+        {
+          "word": " the",
+          "start": 101.1,
+          "end": 101.68,
+          "probability": 0.9939794540405273
+        },
+        {
+          "word": " youth",
+          "start": 101.68,
+          "end": 102.0,
+          "probability": 0.9962335228919983
+        },
+        {
+          "word": " employment",
+          "start": 102.0,
+          "end": 103.34,
+          "probability": 0.7256984710693359
+        },
+        {
+          "word": " and",
+          "start": 103.34,
+          "end": 104.02,
+          "probability": 0.9851441383361816
+        },
+        {
+          "word": " creativity.",
+          "start": 104.02,
+          "end": 104.62,
+          "probability": 0.9985314607620239
+        },
+        {
+          "word": " Let's",
+          "start": 105.86,
+          "end": 106.32,
+          "probability": 0.9940178692340851
+        },
+        {
+          "word": " address",
+          "start": 106.32,
+          "end": 106.64,
+          "probability": 0.9958797693252563
+        },
+        {
+          "word": " the",
+          "start": 106.64,
+          "end": 106.86,
+          "probability": 0.9981324076652527
+        },
+        {
+          "word": " elephant",
+          "start": 106.86,
+          "end": 107.22,
+          "probability": 0.9818156361579895
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 107.22,
+      "end": 115.62,
+      "text": "in the room first. The risk of displacement. For a young graduate entering the job market, AI's",
+      "avg_logprob": -0.08280881245930989,
+      "no_speech_prob": 0.03600899130105972,
+      "compression_ratio": 1.5814977973568283,
+      "words": [
+        {
+          "word": " in",
+          "start": 107.22,
+          "end": 107.44,
+          "probability": 0.47675541043281555
+        },
+        {
+          "word": " the",
+          "start": 107.44,
+          "end": 107.58,
+          "probability": 0.9793989658355713
+        },
+        {
+          "word": " room",
+          "start": 107.58,
+          "end": 107.8,
+          "probability": 0.99174964427948
+        },
+        {
+          "word": " first.",
+          "start": 107.8,
+          "end": 108.22,
+          "probability": 0.956626832485199
+        },
+        {
+          "word": " The",
+          "start": 109.16,
+          "end": 109.38,
+          "probability": 0.8990655541419983
+        },
+        {
+          "word": " risk",
+          "start": 109.38,
+          "end": 109.62,
+          "probability": 0.965261697769165
+        },
+        {
+          "word": " of",
+          "start": 109.62,
+          "end": 109.86,
+          "probability": 0.9979992508888245
+        },
+        {
+          "word": " displacement.",
+          "start": 109.86,
+          "end": 110.48,
+          "probability": 0.9902482628822327
+        },
+        {
+          "word": " For",
+          "start": 111.92,
+          "end": 112.16,
+          "probability": 0.9806398749351501
+        },
+        {
+          "word": " a",
+          "start": 112.16,
+          "end": 112.32,
+          "probability": 0.8754885196685791
+        },
+        {
+          "word": " young",
+          "start": 112.32,
+          "end": 112.5,
+          "probability": 0.9878324270248413
+        },
+        {
+          "word": " graduate",
+          "start": 112.5,
+          "end": 112.94,
+          "probability": 0.9900587201118469
+        },
+        {
+          "word": " entering",
+          "start": 112.94,
+          "end": 113.44,
+          "probability": 0.989243745803833
+        },
+        {
+          "word": " the",
+          "start": 113.44,
+          "end": 113.7,
+          "probability": 0.9974370002746582
+        },
+        {
+          "word": " job",
+          "start": 113.7,
+          "end": 113.96,
+          "probability": 0.9921597838401794
+        },
+        {
+          "word": " market,",
+          "start": 113.96,
+          "end": 114.44,
+          "probability": 0.9945759773254395
+        },
+        {
+          "word": " AI's",
+          "start": 115.1,
+          "end": 115.62,
+          "probability": 0.9219685196876526
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 115.62,
+      "end": 122.54,
+      "text": "automation of tasks in sectors like data entry, customer service, and even basic coding is a",
+      "avg_logprob": -0.08280881245930989,
+      "no_speech_prob": 0.03600899130105972,
+      "compression_ratio": 1.5814977973568283,
+      "words": [
+        {
+          "word": " automation",
+          "start": 115.62,
+          "end": 116.02,
+          "probability": 0.9970422387123108
+        },
+        {
+          "word": " of",
+          "start": 116.02,
+          "end": 116.5,
+          "probability": 0.9988573789596558
+        },
+        {
+          "word": " tasks",
+          "start": 116.5,
+          "end": 116.88,
+          "probability": 0.9892087578773499
+        },
+        {
+          "word": " in",
+          "start": 116.88,
+          "end": 117.26,
+          "probability": 0.9837992191314697
+        },
+        {
+          "word": " sectors",
+          "start": 117.26,
+          "end": 117.66,
+          "probability": 0.9961661100387573
+        },
+        {
+          "word": " like",
+          "start": 117.66,
+          "end": 117.96,
+          "probability": 0.990805447101593
+        },
+        {
+          "word": " data",
+          "start": 117.96,
+          "end": 118.26,
+          "probability": 0.9510734677314758
+        },
+        {
+          "word": " entry,",
+          "start": 118.26,
+          "end": 118.76,
+          "probability": 0.9971707463264465
+        },
+        {
+          "word": " customer",
+          "start": 119.24,
+          "end": 119.52,
+          "probability": 0.995062530040741
+        },
+        {
+          "word": " service,",
+          "start": 119.52,
+          "end": 120.16,
+          "probability": 0.9980995059013367
+        },
+        {
+          "word": " and",
+          "start": 120.42,
+          "end": 120.5,
+          "probability": 0.9940541386604309
+        },
+        {
+          "word": " even",
+          "start": 120.5,
+          "end": 120.72,
+          "probability": 0.9935678839683533
+        },
+        {
+          "word": " basic",
+          "start": 120.72,
+          "end": 121.16,
+          "probability": 0.9970927238464355
+        },
+        {
+          "word": " coding",
+          "start": 121.16,
+          "end": 121.66,
+          "probability": 0.9988664388656616
+        },
+        {
+          "word": " is",
+          "start": 121.66,
+          "end": 122.42,
+          "probability": 0.9056671857833862
+        },
+        {
+          "word": " a",
+          "start": 122.42,
+          "end": 122.54,
+          "probability": 0.9956883788108826
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 122.54,
+      "end": 128.0,
+      "text": "genuine concern. It can feel like the goalposts are moving just as they are about to score.",
+      "avg_logprob": -0.08280881245930989,
+      "no_speech_prob": 0.03600899130105972,
+      "compression_ratio": 1.5814977973568283,
+      "words": [
+        {
+          "word": " genuine",
+          "start": 122.54,
+          "end": 122.88,
+          "probability": 0.9989950060844421
+        },
+        {
+          "word": " concern.",
+          "start": 122.88,
+          "end": 123.46,
+          "probability": 0.9993877410888672
+        },
+        {
+          "word": " It",
+          "start": 124.5,
+          "end": 124.66,
+          "probability": 0.9938241243362427
+        },
+        {
+          "word": " can",
+          "start": 124.66,
+          "end": 124.86,
+          "probability": 0.9983955025672913
+        },
+        {
+          "word": " feel",
+          "start": 124.86,
+          "end": 125.12,
+          "probability": 0.9945249557495117
+        },
+        {
+          "word": " like",
+          "start": 125.12,
+          "end": 125.32,
+          "probability": 0.9965597987174988
+        },
+        {
+          "word": " the",
+          "start": 125.32,
+          "end": 125.5,
+          "probability": 0.987784743309021
+        },
+        {
+          "word": " goalposts",
+          "start": 125.5,
+          "end": 126.1,
+          "probability": 0.8775267601013184
+        },
+        {
+          "word": " are",
+          "start": 126.1,
+          "end": 126.22,
+          "probability": 0.9957748055458069
+        },
+        {
+          "word": " moving",
+          "start": 126.22,
+          "end": 126.5,
+          "probability": 0.9962974190711975
+        },
+        {
+          "word": " just",
+          "start": 126.5,
+          "end": 126.8,
+          "probability": 0.9913033246994019
+        },
+        {
+          "word": " as",
+          "start": 126.8,
+          "end": 127.04,
+          "probability": 0.9989116191864014
+        },
+        {
+          "word": " they",
+          "start": 127.04,
+          "end": 127.22,
+          "probability": 0.9963537454605103
+        },
+        {
+          "word": " are",
+          "start": 127.22,
+          "end": 127.36,
+          "probability": 0.7930018305778503
+        },
+        {
+          "word": " about",
+          "start": 127.36,
+          "end": 127.5,
+          "probability": 0.9949119687080383
+        },
+        {
+          "word": " to",
+          "start": 127.5,
+          "end": 127.68,
+          "probability": 0.9987710118293762
+        },
+        {
+          "word": " score.",
+          "start": 127.68,
+          "end": 128.0,
+          "probability": 0.9968994855880737
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 129.02,
+      "end": 134.4,
+      "text": "The risk isn't just job loss. It's a potential erosion of creative confidence.",
+      "avg_logprob": -0.08280881245930989,
+      "no_speech_prob": 0.03600899130105972,
+      "compression_ratio": 1.5814977973568283,
+      "words": [
+        {
+          "word": " The",
+          "start": 129.02,
+          "end": 129.26,
+          "probability": 0.9961802959442139
+        },
+        {
+          "word": " risk",
+          "start": 129.26,
+          "end": 129.56,
+          "probability": 0.9970242381095886
+        },
+        {
+          "word": " isn't",
+          "start": 129.56,
+          "end": 130.0,
+          "probability": 0.9951477944850922
+        },
+        {
+          "word": " just",
+          "start": 130.0,
+          "end": 130.18,
+          "probability": 0.9977304339408875
+        },
+        {
+          "word": " job",
+          "start": 130.18,
+          "end": 130.5,
+          "probability": 0.9965780377388
+        },
+        {
+          "word": " loss.",
+          "start": 130.5,
+          "end": 130.74,
+          "probability": 0.9916130304336548
+        },
+        {
+          "word": " It's",
+          "start": 131.46,
+          "end": 131.8,
+          "probability": 0.9911445677280426
+        },
+        {
+          "word": " a",
+          "start": 131.8,
+          "end": 131.86,
+          "probability": 0.9965509176254272
+        },
+        {
+          "word": " potential",
+          "start": 131.86,
+          "end": 132.26,
+          "probability": 0.9996100068092346
+        },
+        {
+          "word": " erosion",
+          "start": 132.26,
+          "end": 132.88,
+          "probability": 0.9944703578948975
+        },
+        {
+          "word": " of",
+          "start": 132.88,
+          "end": 133.14,
+          "probability": 0.9994599223136902
+        },
+        {
+          "word": " creative",
+          "start": 133.14,
+          "end": 133.72,
+          "probability": 0.9969985485076904
+        },
+        {
+          "word": " confidence.",
+          "start": 133.72,
+          "end": 134.4,
+          "probability": 0.9989509582519531
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 134.4,
+      "end": 144.43,
+      "text": "If AI can generate art, if it can generate music and essays in seconds, what is the value of human creativity?",
+      "avg_logprob": -0.11285052333079593,
+      "no_speech_prob": 0.24596191942691803,
+      "compression_ratio": 1.5634517766497462,
+      "words": [
+        {
+          "word": " If",
+          "start": 134.4,
+          "end": 135.62,
+          "probability": 0.27330154180526733
+        },
+        {
+          "word": " AI",
+          "start": 135.72,
+          "end": 135.98,
+          "probability": 0.8934965133666992
+        },
+        {
+          "word": " can",
+          "start": 135.98,
+          "end": 136.38,
+          "probability": 0.9751870632171631
+        },
+        {
+          "word": " generate",
+          "start": 136.38,
+          "end": 136.8,
+          "probability": 0.9966610670089722
+        },
+        {
+          "word": " art,",
+          "start": 136.8,
+          "end": 137.36,
+          "probability": 0.9344860911369324
+        },
+        {
+          "word": " if",
+          "start": 138.43,
+          "end": 138.59,
+          "probability": 0.88628089427948
+        },
+        {
+          "word": " it",
+          "start": 138.59,
+          "end": 138.71,
+          "probability": 0.9914498925209045
+        },
+        {
+          "word": " can",
+          "start": 138.71,
+          "end": 138.87,
+          "probability": 0.9903601408004761
+        },
+        {
+          "word": " generate",
+          "start": 138.87,
+          "end": 139.29,
+          "probability": 0.9957602620124817
+        },
+        {
+          "word": " music",
+          "start": 139.29,
+          "end": 139.85,
+          "probability": 0.9869232773780823
+        },
+        {
+          "word": " and",
+          "start": 139.85,
+          "end": 140.39,
+          "probability": 0.6374861001968384
+        },
+        {
+          "word": " essays",
+          "start": 140.39,
+          "end": 140.81,
+          "probability": 0.9682977199554443
+        },
+        {
+          "word": " in",
+          "start": 140.81,
+          "end": 141.15,
+          "probability": 0.9721116423606873
+        },
+        {
+          "word": " seconds,",
+          "start": 141.15,
+          "end": 141.59,
+          "probability": 0.9951883554458618
+        },
+        {
+          "word": " what",
+          "start": 142.55,
+          "end": 142.73,
+          "probability": 0.9848942160606384
+        },
+        {
+          "word": " is",
+          "start": 142.73,
+          "end": 142.89,
+          "probability": 0.9965164661407471
+        },
+        {
+          "word": " the",
+          "start": 142.89,
+          "end": 143.03,
+          "probability": 0.9983951449394226
+        },
+        {
+          "word": " value",
+          "start": 143.03,
+          "end": 143.37,
+          "probability": 0.9939117431640625
+        },
+        {
+          "word": " of",
+          "start": 143.37,
+          "end": 143.61,
+          "probability": 0.9982638955116272
+        },
+        {
+          "word": " human",
+          "start": 143.61,
+          "end": 143.93,
+          "probability": 0.990497350692749
+        },
+        {
+          "word": " creativity?",
+          "start": 143.93,
+          "end": 144.43,
+          "probability": 0.998531699180603
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 145.43,
+      "end": 155.03,
+      "text": "This can lead to a dependency where we stop exercising our own creative muscles, the very muscles that make us innovative and resilient.",
+      "avg_logprob": -0.11285052333079593,
+      "no_speech_prob": 0.24596191942691803,
+      "compression_ratio": 1.5634517766497462,
+      "words": [
+        {
+          "word": " This",
+          "start": 145.43,
+          "end": 145.73,
+          "probability": 0.9911239147186279
+        },
+        {
+          "word": " can",
+          "start": 145.73,
+          "end": 145.95,
+          "probability": 0.9979265928268433
+        },
+        {
+          "word": " lead",
+          "start": 145.95,
+          "end": 146.15,
+          "probability": 0.996959924697876
+        },
+        {
+          "word": " to",
+          "start": 146.15,
+          "end": 146.37,
+          "probability": 0.9989811778068542
+        },
+        {
+          "word": " a",
+          "start": 146.37,
+          "end": 146.57,
+          "probability": 0.9466919302940369
+        },
+        {
+          "word": " dependency",
+          "start": 146.57,
+          "end": 147.27,
+          "probability": 0.9936038851737976
+        },
+        {
+          "word": " where",
+          "start": 147.27,
+          "end": 148.25,
+          "probability": 0.7721799612045288
+        },
+        {
+          "word": " we",
+          "start": 148.25,
+          "end": 148.43,
+          "probability": 0.998364269733429
+        },
+        {
+          "word": " stop",
+          "start": 148.43,
+          "end": 148.67,
+          "probability": 0.9872123599052429
+        },
+        {
+          "word": " exercising",
+          "start": 148.67,
+          "end": 149.43,
+          "probability": 0.9966573715209961
+        },
+        {
+          "word": " our",
+          "start": 149.43,
+          "end": 149.81,
+          "probability": 0.9899787902832031
+        },
+        {
+          "word": " own",
+          "start": 149.81,
+          "end": 150.01,
+          "probability": 0.9867686629295349
+        },
+        {
+          "word": " creative",
+          "start": 150.01,
+          "end": 150.37,
+          "probability": 0.9963082075119019
+        },
+        {
+          "word": " muscles,",
+          "start": 150.37,
+          "end": 151.33,
+          "probability": 0.994321346282959
+        },
+        {
+          "word": " the",
+          "start": 152.09,
+          "end": 152.15,
+          "probability": 0.9908878803253174
+        },
+        {
+          "word": " very",
+          "start": 152.15,
+          "end": 152.47,
+          "probability": 0.9596371650695801
+        },
+        {
+          "word": " muscles",
+          "start": 152.47,
+          "end": 152.87,
+          "probability": 0.9990240335464478
+        },
+        {
+          "word": " that",
+          "start": 152.87,
+          "end": 153.15,
+          "probability": 0.9980078339576721
+        },
+        {
+          "word": " make",
+          "start": 153.15,
+          "end": 153.33,
+          "probability": 0.9939284324645996
+        },
+        {
+          "word": " us",
+          "start": 153.33,
+          "end": 153.57,
+          "probability": 0.9976420998573303
+        },
+        {
+          "word": " innovative",
+          "start": 153.57,
+          "end": 154.21,
+          "probability": 0.9954257607460022
+        },
+        {
+          "word": " and",
+          "start": 154.21,
+          "end": 154.53,
+          "probability": 0.9975025057792664
+        },
+        {
+          "word": " resilient.",
+          "start": 154.53,
+          "end": 155.03,
+          "probability": 0.9990836381912231
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 156.39,
+      "end": 161.65,
+      "text": "However, focusing on the risks is a disservice to our youth.",
+      "avg_logprob": -0.11285052333079593,
+      "no_speech_prob": 0.24596191942691803,
+      "compression_ratio": 1.5634517766497462,
+      "words": [
+        {
+          "word": " However,",
+          "start": 156.39,
+          "end": 157.13,
+          "probability": 0.9950609803199768
+        },
+        {
+          "word": " focusing",
+          "start": 157.65,
+          "end": 158.33,
+          "probability": 0.9925869107246399
+        },
+        {
+          "word": " on",
+          "start": 158.33,
+          "end": 158.77,
+          "probability": 0.9991347193717957
+        },
+        {
+          "word": " the",
+          "start": 158.77,
+          "end": 158.89,
+          "probability": 0.9719485640525818
+        },
+        {
+          "word": " risks",
+          "start": 158.89,
+          "end": 159.33,
+          "probability": 0.9918199777603149
+        },
+        {
+          "word": " is",
+          "start": 159.33,
+          "end": 159.73,
+          "probability": 0.9752741456031799
+        },
+        {
+          "word": " a",
+          "start": 159.73,
+          "end": 159.95,
+          "probability": 0.9889109134674072
+        },
+        {
+          "word": " disservice",
+          "start": 159.95,
+          "end": 160.83,
+          "probability": 0.9933979511260986
+        },
+        {
+          "word": " to",
+          "start": 160.83,
+          "end": 161.15,
+          "probability": 0.998946487903595
+        },
+        {
+          "word": " our",
+          "start": 161.15,
+          "end": 161.39,
+          "probability": 0.9868566393852234
+        },
+        {
+          "word": " youth.",
+          "start": 161.39,
+          "end": 161.65,
+          "probability": 0.9988341927528381
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 161.65,
+      "end": 165.87,
+      "text": "The real conversation is about transition and not replacement.",
+      "avg_logprob": -0.1089137774634074,
+      "no_speech_prob": 0.012708790600299835,
+      "compression_ratio": 1.6604651162790698,
+      "words": [
+        {
+          "word": " The",
+          "start": 161.65,
+          "end": 162.31,
+          "probability": 0.42579033970832825
+        },
+        {
+          "word": " real",
+          "start": 162.31,
+          "end": 162.53,
+          "probability": 0.95990389585495
+        },
+        {
+          "word": " conversation",
+          "start": 162.53,
+          "end": 163.11,
+          "probability": 0.9939982891082764
+        },
+        {
+          "word": " is",
+          "start": 163.11,
+          "end": 163.51,
+          "probability": 0.9939536452293396
+        },
+        {
+          "word": " about",
+          "start": 163.51,
+          "end": 163.73,
+          "probability": 0.9957903027534485
+        },
+        {
+          "word": " transition",
+          "start": 163.73,
+          "end": 164.31,
+          "probability": 0.9805213212966919
+        },
+        {
+          "word": " and",
+          "start": 164.31,
+          "end": 165.05,
+          "probability": 0.925645649433136
+        },
+        {
+          "word": " not",
+          "start": 165.05,
+          "end": 165.25,
+          "probability": 0.9900950193405151
+        },
+        {
+          "word": " replacement.",
+          "start": 165.25,
+          "end": 165.87,
+          "probability": 0.9893075823783875
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 167.35,
+      "end": 173.33,
+      "text": "So when we talk of employment, AI is a powerful tool for job creation and augmentation.",
+      "avg_logprob": -0.1089137774634074,
+      "no_speech_prob": 0.012708790600299835,
+      "compression_ratio": 1.6604651162790698,
+      "words": [
+        {
+          "word": " So",
+          "start": 167.35,
+          "end": 167.81,
+          "probability": 0.9160200953483582
+        },
+        {
+          "word": " when",
+          "start": 167.81,
+          "end": 168.03,
+          "probability": 0.753960132598877
+        },
+        {
+          "word": " we",
+          "start": 168.03,
+          "end": 168.15,
+          "probability": 0.9968691468238831
+        },
+        {
+          "word": " talk",
+          "start": 168.15,
+          "end": 168.31,
+          "probability": 0.9931069016456604
+        },
+        {
+          "word": " of",
+          "start": 168.31,
+          "end": 168.53,
+          "probability": 0.972568690776825
+        },
+        {
+          "word": " employment,",
+          "start": 168.53,
+          "end": 169.11,
+          "probability": 0.978808581829071
+        },
+        {
+          "word": " AI",
+          "start": 169.99,
+          "end": 170.25,
+          "probability": 0.9761137962341309
+        },
+        {
+          "word": " is",
+          "start": 170.25,
+          "end": 170.65,
+          "probability": 0.9938551783561707
+        },
+        {
+          "word": " a",
+          "start": 170.65,
+          "end": 170.77,
+          "probability": 0.9954971075057983
+        },
+        {
+          "word": " powerful",
+          "start": 170.77,
+          "end": 171.09,
+          "probability": 0.9940746426582336
+        },
+        {
+          "word": " tool",
+          "start": 171.09,
+          "end": 171.53,
+          "probability": 0.9990381002426147
+        },
+        {
+          "word": " for",
+          "start": 171.53,
+          "end": 171.77,
+          "probability": 0.9979550838470459
+        },
+        {
+          "word": " job",
+          "start": 171.77,
+          "end": 172.01,
+          "probability": 0.9956108927726746
+        },
+        {
+          "word": " creation",
+          "start": 172.01,
+          "end": 172.49,
+          "probability": 0.9958701729774475
+        },
+        {
+          "word": " and",
+          "start": 172.49,
+          "end": 172.71,
+          "probability": 0.9948994517326355
+        },
+        {
+          "word": " augmentation.",
+          "start": 172.71,
+          "end": 173.33,
+          "probability": 0.989484578371048
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 174.21,
+      "end": 180.91,
+      "text": "It is not going to replace the marketer, but a marketer who uses AI for data analysis",
+      "avg_logprob": -0.1089137774634074,
+      "no_speech_prob": 0.012708790600299835,
+      "compression_ratio": 1.6604651162790698,
+      "words": [
+        {
+          "word": " It",
+          "start": 174.21,
+          "end": 174.41,
+          "probability": 0.9863101243972778
+        },
+        {
+          "word": " is",
+          "start": 174.41,
+          "end": 174.77,
+          "probability": 0.9669610857963562
+        },
+        {
+          "word": " not",
+          "start": 174.77,
+          "end": 174.95,
+          "probability": 0.9988588094711304
+        },
+        {
+          "word": " going",
+          "start": 174.95,
+          "end": 175.15,
+          "probability": 0.8957515954971313
+        },
+        {
+          "word": " to",
+          "start": 175.15,
+          "end": 175.29,
+          "probability": 0.9920634627342224
+        },
+        {
+          "word": " replace",
+          "start": 175.29,
+          "end": 175.83,
+          "probability": 0.9992941617965698
+        },
+        {
+          "word": " the",
+          "start": 175.83,
+          "end": 176.31,
+          "probability": 0.9872102737426758
+        },
+        {
+          "word": " marketer,",
+          "start": 176.31,
+          "end": 177.01,
+          "probability": 0.9443529546260834
+        },
+        {
+          "word": " but",
+          "start": 177.31,
+          "end": 177.79,
+          "probability": 0.9943915009498596
+        },
+        {
+          "word": " a",
+          "start": 177.79,
+          "end": 178.03,
+          "probability": 0.9594370126724243
+        },
+        {
+          "word": " marketer",
+          "start": 178.03,
+          "end": 178.53,
+          "probability": 0.9960718154907227
+        },
+        {
+          "word": " who",
+          "start": 178.53,
+          "end": 178.65,
+          "probability": 0.8796287775039673
+        },
+        {
+          "word": " uses",
+          "start": 178.65,
+          "end": 179.03,
+          "probability": 0.9929599165916443
+        },
+        {
+          "word": " AI",
+          "start": 179.03,
+          "end": 179.47,
+          "probability": 0.9946520328521729
+        },
+        {
+          "word": " for",
+          "start": 179.47,
+          "end": 179.85,
+          "probability": 0.9922749400138855
+        },
+        {
+          "word": " data",
+          "start": 179.85,
+          "end": 180.13,
+          "probability": 0.970734715461731
+        },
+        {
+          "word": " analysis",
+          "start": 180.13,
+          "end": 180.91,
+          "probability": 0.9254235029220581
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 180.91,
+      "end": 185.55,
+      "text": "and customer insight generation will replace the one who doesn't.",
+      "avg_logprob": -0.1089137774634074,
+      "no_speech_prob": 0.012708790600299835,
+      "compression_ratio": 1.6604651162790698,
+      "words": [
+        {
+          "word": " and",
+          "start": 180.91,
+          "end": 181.59,
+          "probability": 0.9641152620315552
+        },
+        {
+          "word": " customer",
+          "start": 181.59,
+          "end": 182.05,
+          "probability": 0.9763542413711548
+        },
+        {
+          "word": " insight",
+          "start": 182.05,
+          "end": 182.49,
+          "probability": 0.9650579690933228
+        },
+        {
+          "word": " generation",
+          "start": 182.49,
+          "end": 183.27,
+          "probability": 0.9963923096656799
+        },
+        {
+          "word": " will",
+          "start": 183.27,
+          "end": 183.99,
+          "probability": 0.8870916366577148
+        },
+        {
+          "word": " replace",
+          "start": 183.99,
+          "end": 184.51,
+          "probability": 0.9990839958190918
+        },
+        {
+          "word": " the",
+          "start": 184.51,
+          "end": 184.73,
+          "probability": 0.9973783493041992
+        },
+        {
+          "word": " one",
+          "start": 184.73,
+          "end": 184.95,
+          "probability": 0.9953989386558533
+        },
+        {
+          "word": " who",
+          "start": 184.95,
+          "end": 185.15,
+          "probability": 0.9949938654899597
+        },
+        {
+          "word": " doesn't.",
+          "start": 185.15,
+          "end": 185.55,
+          "probability": 0.9956553280353546
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 186.38,
+      "end": 190.42,
+      "text": "The future of employment is human to AI collaboration.",
+      "avg_logprob": -0.1089137774634074,
+      "no_speech_prob": 0.012708790600299835,
+      "compression_ratio": 1.6604651162790698,
+      "words": [
+        {
+          "word": " The",
+          "start": 186.38,
+          "end": 186.66,
+          "probability": 0.9952269792556763
+        },
+        {
+          "word": " future",
+          "start": 186.66,
+          "end": 186.98,
+          "probability": 0.9930880665779114
+        },
+        {
+          "word": " of",
+          "start": 186.98,
+          "end": 187.2,
+          "probability": 0.9979982972145081
+        },
+        {
+          "word": " employment",
+          "start": 187.2,
+          "end": 187.8,
+          "probability": 0.9979290962219238
+        },
+        {
+          "word": " is",
+          "start": 187.8,
+          "end": 188.58,
+          "probability": 0.9933826923370361
+        },
+        {
+          "word": " human",
+          "start": 188.58,
+          "end": 188.96,
+          "probability": 0.9611456394195557
+        },
+        {
+          "word": " to",
+          "start": 188.96,
+          "end": 189.18,
+          "probability": 0.8533980846405029
+        },
+        {
+          "word": " AI",
+          "start": 189.18,
+          "end": 189.62,
+          "probability": 0.9881631731987
+        },
+        {
+          "word": " collaboration.",
+          "start": 189.62,
+          "end": 190.42,
+          "probability": 0.9942382574081421
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 190.42,
+      "end": 197.22,
+      "text": "For our youth, this means the most valuable skills will be critical thinking, prompt",
+      "avg_logprob": -0.2583372105617781,
+      "no_speech_prob": 0.18279266357421875,
+      "compression_ratio": 1.5645933014354068,
+      "words": [
+        {
+          "word": " For",
+          "start": 190.42,
+          "end": 191.54,
+          "probability": 0.2057437300682068
+        },
+        {
+          "word": " our",
+          "start": 191.74,
+          "end": 192.0,
+          "probability": 0.9529287815093994
+        },
+        {
+          "word": " youth,",
+          "start": 192.0,
+          "end": 192.3,
+          "probability": 0.9962701797485352
+        },
+        {
+          "word": " this",
+          "start": 192.96,
+          "end": 193.14,
+          "probability": 0.9456990957260132
+        },
+        {
+          "word": " means",
+          "start": 193.14,
+          "end": 193.44,
+          "probability": 0.9941607117652893
+        },
+        {
+          "word": " the",
+          "start": 193.44,
+          "end": 193.7,
+          "probability": 0.5509504675865173
+        },
+        {
+          "word": " most",
+          "start": 193.7,
+          "end": 193.96,
+          "probability": 0.9978073239326477
+        },
+        {
+          "word": " valuable",
+          "start": 193.96,
+          "end": 194.4,
+          "probability": 0.9966593980789185
+        },
+        {
+          "word": " skills",
+          "start": 194.4,
+          "end": 194.9,
+          "probability": 0.9930860996246338
+        },
+        {
+          "word": " will",
+          "start": 194.9,
+          "end": 195.16,
+          "probability": 0.9223677515983582
+        },
+        {
+          "word": " be",
+          "start": 195.16,
+          "end": 195.28,
+          "probability": 0.9971497654914856
+        },
+        {
+          "word": " critical",
+          "start": 195.28,
+          "end": 195.68,
+          "probability": 0.980138897895813
+        },
+        {
+          "word": " thinking,",
+          "start": 195.68,
+          "end": 196.2,
+          "probability": 0.9845840930938721
+        },
+        {
+          "word": " prompt",
+          "start": 196.74,
+          "end": 197.22,
+          "probability": 0.9870762228965759
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 197.22,
+      "end": 205.23,
+      "text": "engineering, emotional intelligence, and complex problem-solving skills that skills that AI",
+      "avg_logprob": -0.2583372105617781,
+      "no_speech_prob": 0.18279266357421875,
+      "compression_ratio": 1.5645933014354068,
+      "words": [
+        {
+          "word": " engineering,",
+          "start": 197.22,
+          "end": 197.98,
+          "probability": 0.9942042231559753
+        },
+        {
+          "word": " emotional",
+          "start": 198.82,
+          "end": 199.38,
+          "probability": 0.9867632985115051
+        },
+        {
+          "word": " intelligence,",
+          "start": 199.38,
+          "end": 200.14,
+          "probability": 0.9922482967376709
+        },
+        {
+          "word": " and",
+          "start": 200.78,
+          "end": 200.9,
+          "probability": 0.9882416129112244
+        },
+        {
+          "word": " complex",
+          "start": 200.9,
+          "end": 201.34,
+          "probability": 0.9982019662857056
+        },
+        {
+          "word": " problem",
+          "start": 201.34,
+          "end": 201.92,
+          "probability": 0.9875680208206177
+        },
+        {
+          "word": "-solving",
+          "start": 201.92,
+          "end": 202.42,
+          "probability": 0.9005131522814432
+        },
+        {
+          "word": " skills",
+          "start": 202.42,
+          "end": 202.92,
+          "probability": 0.9969915151596069
+        },
+        {
+          "word": " that",
+          "start": 202.92,
+          "end": 204.18,
+          "probability": 0.21483547985553741
+        },
+        {
+          "word": " skills",
+          "start": 204.21,
+          "end": 204.71,
+          "probability": 0.884811282157898
+        },
+        {
+          "word": " that",
+          "start": 204.71,
+          "end": 204.97,
+          "probability": 0.9910853505134583
+        },
+        {
+          "word": " AI",
+          "start": 204.97,
+          "end": 205.23,
+          "probability": 0.9608924984931946
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "start": 205.23,
+      "end": 207.09,
+      "text": "cannot replicate.",
+      "avg_logprob": -0.2583372105617781,
+      "no_speech_prob": 0.18279266357421875,
+      "compression_ratio": 1.5645933014354068,
+      "words": [
+        {
+          "word": " cannot",
+          "start": 205.23,
+          "end": 205.87,
+          "probability": 0.9544820785522461
+        },
+        {
+          "word": " replicate.",
+          "start": 205.87,
+          "end": 207.09,
+          "probability": 0.987851619720459
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "start": 209.23,
+      "end": 213.41,
+      "text": "And then when we talk of creativity, this is the most exciting part.",
+      "avg_logprob": -0.2583372105617781,
+      "no_speech_prob": 0.18279266357421875,
+      "compression_ratio": 1.5645933014354068,
+      "words": [
+        {
+          "word": " And",
+          "start": 209.23,
+          "end": 209.49,
+          "probability": 0.9590291976928711
+        },
+        {
+          "word": " then",
+          "start": 209.49,
+          "end": 209.61,
+          "probability": 0.9934893846511841
+        },
+        {
+          "word": " when",
+          "start": 209.61,
+          "end": 209.73,
+          "probability": 0.8766883015632629
+        },
+        {
+          "word": " we",
+          "start": 209.73,
+          "end": 209.85,
+          "probability": 0.9955337047576904
+        },
+        {
+          "word": " talk",
+          "start": 209.85,
+          "end": 210.05,
+          "probability": 0.9933115243911743
+        },
+        {
+          "word": " of",
+          "start": 210.05,
+          "end": 210.27,
+          "probability": 0.9676835536956787
+        },
+        {
+          "word": " creativity,",
+          "start": 210.27,
+          "end": 210.97,
+          "probability": 0.981391966342926
+        },
+        {
+          "word": " this",
+          "start": 211.85,
+          "end": 212.13,
+          "probability": 0.9938387274742126
+        },
+        {
+          "word": " is",
+          "start": 212.13,
+          "end": 212.27,
+          "probability": 0.9992903470993042
+        },
+        {
+          "word": " the",
+          "start": 212.27,
+          "end": 212.39,
+          "probability": 0.9995905756950378
+        },
+        {
+          "word": " most",
+          "start": 212.39,
+          "end": 212.59,
+          "probability": 0.9995518326759338
+        },
+        {
+          "word": " exciting",
+          "start": 212.59,
+          "end": 213.03,
+          "probability": 0.9978456497192383
+        },
+        {
+          "word": " part.",
+          "start": 213.03,
+          "end": 213.41,
+          "probability": 0.9990994930267334
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "start": 214.41,
+      "end": 218.31,
+      "text": "AI should be viewed as the ultimate collaborator and amplifier.",
+      "avg_logprob": -0.2583372105617781,
+      "no_speech_prob": 0.18279266357421875,
+      "compression_ratio": 1.5645933014354068,
+      "words": [
+        {
+          "word": " AI",
+          "start": 214.41,
+          "end": 214.77,
+          "probability": 0.9840769171714783
+        },
+        {
+          "word": " should",
+          "start": 214.77,
+          "end": 215.09,
+          "probability": 0.9982738494873047
+        },
+        {
+          "word": " be",
+          "start": 215.09,
+          "end": 215.25,
+          "probability": 0.9987553358078003
+        },
+        {
+          "word": " viewed",
+          "start": 215.25,
+          "end": 215.49,
+          "probability": 0.9986767172813416
+        },
+        {
+          "word": " as",
+          "start": 215.49,
+          "end": 215.71,
+          "probability": 0.9992559552192688
+        },
+        {
+          "word": " the",
+          "start": 215.71,
+          "end": 215.83,
+          "probability": 0.9933158755302429
+        },
+        {
+          "word": " ultimate",
+          "start": 215.83,
+          "end": 216.23,
+          "probability": 0.9961053729057312
+        },
+        {
+          "word": " collaborator",
+          "start": 216.23,
+          "end": 217.25,
+          "probability": 0.9811167418956757
+        },
+        {
+          "word": " and",
+          "start": 217.25,
+          "end": 217.71,
+          "probability": 0.9619396328926086
+        },
+        {
+          "word": " amplifier.",
+          "start": 217.71,
+          "end": 218.31,
+          "probability": 0.9944341778755188
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "start": 218.54,
+      "end": 225.86,
+      "text": "Imagine a young filmmaker in Bluay using AI to storyboard scenes and generate",
+      "avg_logprob": -0.25135006660070175,
+      "no_speech_prob": 0.2391132265329361,
+      "compression_ratio": 1.5213270142180095,
+      "words": [
+        {
+          "word": " Imagine",
+          "start": 218.54,
+          "end": 219.92,
+          "probability": 0.1629284918308258
+        },
+        {
+          "word": " a",
+          "start": 219.92,
+          "end": 220.28,
+          "probability": 0.9546284079551697
+        },
+        {
+          "word": " young",
+          "start": 220.28,
+          "end": 220.52,
+          "probability": 0.955374538898468
+        },
+        {
+          "word": " filmmaker",
+          "start": 220.52,
+          "end": 221.2,
+          "probability": 0.9289178252220154
+        },
+        {
+          "word": " in",
+          "start": 221.2,
+          "end": 221.66,
+          "probability": 0.758510947227478
+        },
+        {
+          "word": " Bluay",
+          "start": 221.66,
+          "end": 222.12,
+          "probability": 0.5338213245073954
+        },
+        {
+          "word": " using",
+          "start": 222.12,
+          "end": 222.6,
+          "probability": 0.8846133351325989
+        },
+        {
+          "word": " AI",
+          "start": 222.6,
+          "end": 223.28,
+          "probability": 0.90989089012146
+        },
+        {
+          "word": " to",
+          "start": 223.28,
+          "end": 223.64,
+          "probability": 0.9746655225753784
+        },
+        {
+          "word": " storyboard",
+          "start": 223.64,
+          "end": 224.3,
+          "probability": 0.9516185224056244
+        },
+        {
+          "word": " scenes",
+          "start": 224.3,
+          "end": 225.1,
+          "probability": 0.7141441106796265
+        },
+        {
+          "word": " and",
+          "start": 225.1,
+          "end": 225.44,
+          "probability": 0.976305365562439
+        },
+        {
+          "word": " generate",
+          "start": 225.44,
+          "end": 225.86,
+          "probability": 0.9746474027633667
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 225.86,
+      "end": 232.51,
+      "text": "concept art, freeing up the budget for local actors and the crew, or a musician",
+      "avg_logprob": -0.25135006660070175,
+      "no_speech_prob": 0.2391132265329361,
+      "compression_ratio": 1.5213270142180095,
+      "words": [
+        {
+          "word": " concept",
+          "start": 225.86,
+          "end": 226.3,
+          "probability": 0.9491995573043823
+        },
+        {
+          "word": " art,",
+          "start": 226.3,
+          "end": 226.86,
+          "probability": 0.9872543215751648
+        },
+        {
+          "word": " freeing",
+          "start": 227.5,
+          "end": 227.94,
+          "probability": 0.9946482181549072
+        },
+        {
+          "word": " up",
+          "start": 227.94,
+          "end": 228.06,
+          "probability": 0.9913990497589111
+        },
+        {
+          "word": " the",
+          "start": 228.06,
+          "end": 228.2,
+          "probability": 0.996013879776001
+        },
+        {
+          "word": " budget",
+          "start": 228.2,
+          "end": 228.48,
+          "probability": 0.9979821443557739
+        },
+        {
+          "word": " for",
+          "start": 228.48,
+          "end": 228.7,
+          "probability": 0.9935961961746216
+        },
+        {
+          "word": " local",
+          "start": 228.7,
+          "end": 229.02,
+          "probability": 0.9443702101707458
+        },
+        {
+          "word": " actors",
+          "start": 229.02,
+          "end": 229.96,
+          "probability": 0.9858411550521851
+        },
+        {
+          "word": " and",
+          "start": 229.96,
+          "end": 230.28,
+          "probability": 0.9682767987251282
+        },
+        {
+          "word": " the",
+          "start": 230.28,
+          "end": 230.44,
+          "probability": 0.946404218673706
+        },
+        {
+          "word": " crew,",
+          "start": 230.44,
+          "end": 230.7,
+          "probability": 0.9974435567855835
+        },
+        {
+          "word": " or",
+          "start": 231.67,
+          "end": 231.95,
+          "probability": 0.9888113737106323
+        },
+        {
+          "word": " a",
+          "start": 231.95,
+          "end": 232.11,
+          "probability": 0.9915717840194702
+        },
+        {
+          "word": " musician",
+          "start": 232.11,
+          "end": 232.51,
+          "probability": 0.9987127780914307
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "start": 232.51,
+      "end": 239.23,
+      "text": "in Harare using AI to experiment with new sounds rooted in Vera rhythms. AI does",
+      "avg_logprob": -0.25135006660070175,
+      "no_speech_prob": 0.2391132265329361,
+      "compression_ratio": 1.5213270142180095,
+      "words": [
+        {
+          "word": " in",
+          "start": 232.51,
+          "end": 232.77,
+          "probability": 0.9864245653152466
+        },
+        {
+          "word": " Harare",
+          "start": 232.77,
+          "end": 233.23,
+          "probability": 0.701896995306015
+        },
+        {
+          "word": " using",
+          "start": 233.23,
+          "end": 233.97,
+          "probability": 0.8744770884513855
+        },
+        {
+          "word": " AI",
+          "start": 233.97,
+          "end": 234.39,
+          "probability": 0.9943477511405945
+        },
+        {
+          "word": " to",
+          "start": 234.39,
+          "end": 234.67,
+          "probability": 0.9935924410820007
+        },
+        {
+          "word": " experiment",
+          "start": 234.67,
+          "end": 235.29,
+          "probability": 0.9942564368247986
+        },
+        {
+          "word": " with",
+          "start": 235.29,
+          "end": 235.61,
+          "probability": 0.9960948824882507
+        },
+        {
+          "word": " new",
+          "start": 235.61,
+          "end": 235.83,
+          "probability": 0.9782925248146057
+        },
+        {
+          "word": " sounds",
+          "start": 235.83,
+          "end": 236.19,
+          "probability": 0.9906377792358398
+        },
+        {
+          "word": " rooted",
+          "start": 236.19,
+          "end": 236.61,
+          "probability": 0.9192582964897156
+        },
+        {
+          "word": " in",
+          "start": 236.61,
+          "end": 236.85,
+          "probability": 0.9973806738853455
+        },
+        {
+          "word": " Vera",
+          "start": 236.85,
+          "end": 237.11,
+          "probability": 0.06125067174434662
+        },
+        {
+          "word": " rhythms.",
+          "start": 237.11,
+          "end": 237.89,
+          "probability": 0.9040809273719788
+        },
+        {
+          "word": " AI",
+          "start": 238.61,
+          "end": 238.93,
+          "probability": 0.978603184223175
+        },
+        {
+          "word": " does",
+          "start": 238.93,
+          "end": 239.23,
+          "probability": 0.9810888767242432
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "start": 239.23,
+      "end": 246.17,
+      "text": "not kill creativity. It democratizes it. It lowers the barriers to entry, allowing",
+      "avg_logprob": -0.25135006660070175,
+      "no_speech_prob": 0.2391132265329361,
+      "compression_ratio": 1.5213270142180095,
+      "words": [
+        {
+          "word": " not",
+          "start": 239.23,
+          "end": 239.39,
+          "probability": 0.9989653825759888
+        },
+        {
+          "word": " kill",
+          "start": 239.39,
+          "end": 239.75,
+          "probability": 0.997759222984314
+        },
+        {
+          "word": " creativity.",
+          "start": 239.75,
+          "end": 240.41,
+          "probability": 0.998490571975708
+        },
+        {
+          "word": " It",
+          "start": 241.07,
+          "end": 241.27,
+          "probability": 0.9959580302238464
+        },
+        {
+          "word": " democratizes",
+          "start": 241.27,
+          "end": 242.25,
+          "probability": 0.9833291471004486
+        },
+        {
+          "word": " it.",
+          "start": 242.25,
+          "end": 242.55,
+          "probability": 0.9948537945747375
+        },
+        {
+          "word": " It",
+          "start": 243.35,
+          "end": 243.73,
+          "probability": 0.9954727292060852
+        },
+        {
+          "word": " lowers",
+          "start": 243.73,
+          "end": 244.03,
+          "probability": 0.9986090064048767
+        },
+        {
+          "word": " the",
+          "start": 244.03,
+          "end": 244.27,
+          "probability": 0.9970917701721191
+        },
+        {
+          "word": " barriers",
+          "start": 244.27,
+          "end": 244.63,
+          "probability": 0.9954293966293335
+        },
+        {
+          "word": " to",
+          "start": 244.63,
+          "end": 244.85,
+          "probability": 0.9967865943908691
+        },
+        {
+          "word": " entry,",
+          "start": 244.85,
+          "end": 245.29,
+          "probability": 0.9942904710769653
+        },
+        {
+          "word": " allowing",
+          "start": 245.71,
+          "end": 246.17,
+          "probability": 0.9984246492385864
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "start": 246.17,
+      "end": 253.15,
+      "text": "more young people to become creators, builders and entrepreneurs. The opportunity is to move from",
+      "avg_logprob": -0.0995699072877566,
+      "no_speech_prob": 0.06007484346628189,
+      "compression_ratio": 1.513089005235602,
+      "words": [
+        {
+          "word": " more",
+          "start": 246.17,
+          "end": 246.55,
+          "probability": 0.23669686913490295
+        },
+        {
+          "word": " young",
+          "start": 246.55,
+          "end": 246.77,
+          "probability": 0.9947572946548462
+        },
+        {
+          "word": " people",
+          "start": 246.77,
+          "end": 247.07,
+          "probability": 0.9963937401771545
+        },
+        {
+          "word": " to",
+          "start": 247.07,
+          "end": 247.31,
+          "probability": 0.9753172397613525
+        },
+        {
+          "word": " become",
+          "start": 247.31,
+          "end": 247.65,
+          "probability": 0.9962548017501831
+        },
+        {
+          "word": " creators,",
+          "start": 247.65,
+          "end": 248.27,
+          "probability": 0.9788656830787659
+        },
+        {
+          "word": " builders",
+          "start": 248.79,
+          "end": 249.35,
+          "probability": 0.9977715611457825
+        },
+        {
+          "word": " and",
+          "start": 249.35,
+          "end": 250.05,
+          "probability": 0.4729354977607727
+        },
+        {
+          "word": " entrepreneurs.",
+          "start": 250.05,
+          "end": 250.69,
+          "probability": 0.9963072538375854
+        },
+        {
+          "word": " The",
+          "start": 251.57,
+          "end": 251.69,
+          "probability": 0.9861050248146057
+        },
+        {
+          "word": " opportunity",
+          "start": 251.69,
+          "end": 252.21,
+          "probability": 0.9939700365066528
+        },
+        {
+          "word": " is",
+          "start": 252.21,
+          "end": 252.59,
+          "probability": 0.981601893901825
+        },
+        {
+          "word": " to",
+          "start": 252.59,
+          "end": 252.75,
+          "probability": 0.9988579750061035
+        },
+        {
+          "word": " move",
+          "start": 252.75,
+          "end": 252.93,
+          "probability": 0.9958620071411133
+        },
+        {
+          "word": " from",
+          "start": 252.93,
+          "end": 253.15,
+          "probability": 0.9980935454368591
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "start": 253.15,
+      "end": 263.44,
+      "text": "being passive consumers of global tech to active creators of local solutions. Secondly, I will",
+      "avg_logprob": -0.0995699072877566,
+      "no_speech_prob": 0.06007484346628189,
+      "compression_ratio": 1.513089005235602,
+      "words": [
+        {
+          "word": " being",
+          "start": 253.15,
+          "end": 253.37,
+          "probability": 0.9804731607437134
+        },
+        {
+          "word": " passive",
+          "start": 253.37,
+          "end": 253.83,
+          "probability": 0.9926249384880066
+        },
+        {
+          "word": " consumers",
+          "start": 253.83,
+          "end": 254.93,
+          "probability": 0.9942617416381836
+        },
+        {
+          "word": " of",
+          "start": 254.93,
+          "end": 255.63,
+          "probability": 0.9936513304710388
+        },
+        {
+          "word": " global",
+          "start": 255.63,
+          "end": 256.03,
+          "probability": 0.9798609018325806
+        },
+        {
+          "word": " tech",
+          "start": 256.03,
+          "end": 256.41,
+          "probability": 0.9971194267272949
+        },
+        {
+          "word": " to",
+          "start": 256.41,
+          "end": 256.91,
+          "probability": 0.8688198924064636
+        },
+        {
+          "word": " active",
+          "start": 256.91,
+          "end": 257.39,
+          "probability": 0.9919579029083252
+        },
+        {
+          "word": " creators",
+          "start": 257.39,
+          "end": 257.95,
+          "probability": 0.9945420622825623
+        },
+        {
+          "word": " of",
+          "start": 257.95,
+          "end": 258.37,
+          "probability": 0.9976515173912048
+        },
+        {
+          "word": " local",
+          "start": 258.37,
+          "end": 258.65,
+          "probability": 0.9943946599960327
+        },
+        {
+          "word": " solutions.",
+          "start": 258.65,
+          "end": 259.33,
+          "probability": 0.9965327978134155
+        },
+        {
+          "word": " Secondly,",
+          "start": 260.91,
+          "end": 261.55,
+          "probability": 0.9826933145523071
+        },
+        {
+          "word": " I",
+          "start": 263.2,
+          "end": 263.3,
+          "probability": 0.9928129315376282
+        },
+        {
+          "word": " will",
+          "start": 263.3,
+          "end": 263.44,
+          "probability": 0.9956498742103577
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "start": 263.44,
+      "end": 271.42,
+      "text": "discuss the role of young innovators in developing ethical AI solutions. Why must the youth lead",
+      "avg_logprob": -0.0995699072877566,
+      "no_speech_prob": 0.06007484346628189,
+      "compression_ratio": 1.513089005235602,
+      "words": [
+        {
+          "word": " discuss",
+          "start": 263.44,
+          "end": 263.76,
+          "probability": 0.9980792999267578
+        },
+        {
+          "word": " the",
+          "start": 263.76,
+          "end": 264.02,
+          "probability": 0.9990442395210266
+        },
+        {
+          "word": " role",
+          "start": 264.02,
+          "end": 264.22,
+          "probability": 0.997623860836029
+        },
+        {
+          "word": " of",
+          "start": 264.22,
+          "end": 264.42,
+          "probability": 0.9993840456008911
+        },
+        {
+          "word": " young",
+          "start": 264.42,
+          "end": 264.68,
+          "probability": 0.9848832488059998
+        },
+        {
+          "word": " innovators",
+          "start": 264.68,
+          "end": 265.4,
+          "probability": 0.9983075261116028
+        },
+        {
+          "word": " in",
+          "start": 265.4,
+          "end": 265.78,
+          "probability": 0.9967480897903442
+        },
+        {
+          "word": " developing",
+          "start": 265.78,
+          "end": 266.24,
+          "probability": 0.9977633953094482
+        },
+        {
+          "word": " ethical",
+          "start": 266.24,
+          "end": 267.5,
+          "probability": 0.9609780311584473
+        },
+        {
+          "word": " AI",
+          "start": 267.5,
+          "end": 267.86,
+          "probability": 0.9512854218482971
+        },
+        {
+          "word": " solutions.",
+          "start": 267.86,
+          "end": 268.5,
+          "probability": 0.9970836043357849
+        },
+        {
+          "word": " Why",
+          "start": 269.68,
+          "end": 270.2,
+          "probability": 0.9938642978668213
+        },
+        {
+          "word": " must",
+          "start": 270.2,
+          "end": 270.46,
+          "probability": 0.9932093024253845
+        },
+        {
+          "word": " the",
+          "start": 270.46,
+          "end": 270.72,
+          "probability": 0.9865923523902893
+        },
+        {
+          "word": " youth",
+          "start": 270.72,
+          "end": 271.0,
+          "probability": 0.9963396787643433
+        },
+        {
+          "word": " lead",
+          "start": 271.0,
+          "end": 271.42,
+          "probability": 0.9897403717041016
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "start": 271.42,
+      "end": 278.75,
+      "text": "this charge. It's because the ethical challenges of AI which are bias, privacy,",
+      "avg_logprob": -0.20859329423434297,
+      "no_speech_prob": 0.15881791710853577,
+      "compression_ratio": 1.4444444444444444,
+      "words": [
+        {
+          "word": " this",
+          "start": 271.42,
+          "end": 272.14,
+          "probability": 0.16722910106182098
+        },
+        {
+          "word": " charge.",
+          "start": 272.14,
+          "end": 272.62,
+          "probability": 0.9823127388954163
+        },
+        {
+          "word": " It's",
+          "start": 273.65,
+          "end": 274.01,
+          "probability": 0.8967832624912262
+        },
+        {
+          "word": " because",
+          "start": 274.01,
+          "end": 274.31,
+          "probability": 0.9986342787742615
+        },
+        {
+          "word": " the",
+          "start": 274.31,
+          "end": 274.55,
+          "probability": 0.9854971766471863
+        },
+        {
+          "word": " ethical",
+          "start": 274.55,
+          "end": 274.87,
+          "probability": 0.9987612962722778
+        },
+        {
+          "word": " challenges",
+          "start": 274.87,
+          "end": 275.41,
+          "probability": 0.9974529147148132
+        },
+        {
+          "word": " of",
+          "start": 275.41,
+          "end": 275.73,
+          "probability": 0.9971264004707336
+        },
+        {
+          "word": " AI",
+          "start": 275.73,
+          "end": 276.01,
+          "probability": 0.9777038097381592
+        },
+        {
+          "word": " which",
+          "start": 276.01,
+          "end": 276.63,
+          "probability": 0.35289230942726135
+        },
+        {
+          "word": " are",
+          "start": 276.63,
+          "end": 276.93,
+          "probability": 0.9427539706230164
+        },
+        {
+          "word": " bias,",
+          "start": 276.93,
+          "end": 277.41,
+          "probability": 0.9658037424087524
+        },
+        {
+          "word": " privacy,",
+          "start": 278.13,
+          "end": 278.75,
+          "probability": 0.9982123374938965
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "start": 279.53,
+      "end": 285.22,
+      "text": "misinformation, they are not abstract. They have real-world consequences and if",
+      "avg_logprob": -0.20859329423434297,
+      "no_speech_prob": 0.15881791710853577,
+      "compression_ratio": 1.4444444444444444,
+      "words": [
+        {
+          "word": " misinformation,",
+          "start": 279.53,
+          "end": 279.99,
+          "probability": 0.9925028085708618
+        },
+        {
+          "word": " they",
+          "start": 280.73,
+          "end": 281.09,
+          "probability": 0.9914108514785767
+        },
+        {
+          "word": " are",
+          "start": 281.09,
+          "end": 281.17,
+          "probability": 0.8216707706451416
+        },
+        {
+          "word": " not",
+          "start": 281.17,
+          "end": 281.29,
+          "probability": 0.9994387030601501
+        },
+        {
+          "word": " abstract.",
+          "start": 281.29,
+          "end": 281.77,
+          "probability": 0.9981168508529663
+        },
+        {
+          "word": " They",
+          "start": 282.86,
+          "end": 283.1,
+          "probability": 0.9876182079315186
+        },
+        {
+          "word": " have",
+          "start": 283.1,
+          "end": 283.22,
+          "probability": 0.9745358824729919
+        },
+        {
+          "word": " real",
+          "start": 283.22,
+          "end": 283.46,
+          "probability": 0.9981235861778259
+        },
+        {
+          "word": "-world",
+          "start": 283.46,
+          "end": 283.7,
+          "probability": 0.7891509830951691
+        },
+        {
+          "word": " consequences",
+          "start": 283.7,
+          "end": 284.26,
+          "probability": 0.9973050355911255
+        },
+        {
+          "word": " and",
+          "start": 284.26,
+          "end": 284.92,
+          "probability": 0.6113805174827576
+        },
+        {
+          "word": " if",
+          "start": 284.92,
+          "end": 285.22,
+          "probability": 0.9543996453285217
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "start": 285.22,
+      "end": 291.04,
+      "text": "AI is built by a homogenous group without diverse perspectives it will bake",
+      "avg_logprob": -0.20859329423434297,
+      "no_speech_prob": 0.15881791710853577,
+      "compression_ratio": 1.4444444444444444,
+      "words": [
+        {
+          "word": " AI",
+          "start": 285.22,
+          "end": 285.46,
+          "probability": 0.9898298382759094
+        },
+        {
+          "word": " is",
+          "start": 285.46,
+          "end": 285.78,
+          "probability": 0.997037410736084
+        },
+        {
+          "word": " built",
+          "start": 285.78,
+          "end": 286.1,
+          "probability": 0.9792479276657104
+        },
+        {
+          "word": " by",
+          "start": 286.1,
+          "end": 286.38,
+          "probability": 0.998961329460144
+        },
+        {
+          "word": " a",
+          "start": 286.38,
+          "end": 286.54,
+          "probability": 0.9956777691841125
+        },
+        {
+          "word": " homogenous",
+          "start": 286.54,
+          "end": 287.1,
+          "probability": 0.7904952168464661
+        },
+        {
+          "word": " group",
+          "start": 287.1,
+          "end": 287.64,
+          "probability": 0.9990561604499817
+        },
+        {
+          "word": " without",
+          "start": 287.64,
+          "end": 288.4,
+          "probability": 0.8511686325073242
+        },
+        {
+          "word": " diverse",
+          "start": 288.4,
+          "end": 288.94,
+          "probability": 0.9909374713897705
+        },
+        {
+          "word": " perspectives",
+          "start": 288.94,
+          "end": 289.68,
+          "probability": 0.997584342956543
+        },
+        {
+          "word": " it",
+          "start": 289.68,
+          "end": 290.5,
+          "probability": 0.39123067259788513
+        },
+        {
+          "word": " will",
+          "start": 290.5,
+          "end": 290.68,
+          "probability": 0.9973757266998291
+        },
+        {
+          "word": " bake",
+          "start": 290.68,
+          "end": 291.04,
+          "probability": 0.9279516935348511
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "start": 291.04,
+      "end": 297.6,
+      "text": "in their biases. We've seen algorithms that don't recognize African faces or",
+      "avg_logprob": -0.20859329423434297,
+      "no_speech_prob": 0.15881791710853577,
+      "compression_ratio": 1.4444444444444444,
+      "words": [
+        {
+          "word": " in",
+          "start": 291.04,
+          "end": 291.28,
+          "probability": 0.9959773421287537
+        },
+        {
+          "word": " their",
+          "start": 291.28,
+          "end": 291.46,
+          "probability": 0.9955528378486633
+        },
+        {
+          "word": " biases.",
+          "start": 291.46,
+          "end": 291.96,
+          "probability": 0.9979603290557861
+        },
+        {
+          "word": " We've",
+          "start": 293.24,
+          "end": 293.58,
+          "probability": 0.9843142330646515
+        },
+        {
+          "word": " seen",
+          "start": 293.58,
+          "end": 293.86,
+          "probability": 0.9990253448486328
+        },
+        {
+          "word": " algorithms",
+          "start": 293.86,
+          "end": 294.32,
+          "probability": 0.9928169250488281
+        },
+        {
+          "word": " that",
+          "start": 294.32,
+          "end": 294.82,
+          "probability": 0.9995043277740479
+        },
+        {
+          "word": " don't",
+          "start": 294.82,
+          "end": 295.12,
+          "probability": 0.9961602687835693
+        },
+        {
+          "word": " recognize",
+          "start": 295.12,
+          "end": 295.64,
+          "probability": 0.9561616778373718
+        },
+        {
+          "word": " African",
+          "start": 295.64,
+          "end": 296.18,
+          "probability": 0.9885590076446533
+        },
+        {
+          "word": " faces",
+          "start": 296.18,
+          "end": 296.78,
+          "probability": 0.9700760841369629
+        },
+        {
+          "word": " or",
+          "start": 296.78,
+          "end": 297.6,
+          "probability": 0.9641198515892029
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "start": 297.6,
+      "end": 301.16,
+      "text": "credit scoring models that disadvantage low-income communities.",
+      "avg_logprob": -0.18021740136521586,
+      "no_speech_prob": 0.012143288739025593,
+      "compression_ratio": 1.6008230452674896,
+      "words": [
+        {
+          "word": " credit",
+          "start": 297.6,
+          "end": 297.96,
+          "probability": 0.2630248963832855
+        },
+        {
+          "word": " scoring",
+          "start": 297.96,
+          "end": 298.32,
+          "probability": 0.7747025489807129
+        },
+        {
+          "word": " models",
+          "start": 298.32,
+          "end": 298.82,
+          "probability": 0.9605562686920166
+        },
+        {
+          "word": " that",
+          "start": 298.82,
+          "end": 299.08,
+          "probability": 0.9851755499839783
+        },
+        {
+          "word": " disadvantage",
+          "start": 299.08,
+          "end": 299.6,
+          "probability": 0.4739363491535187
+        },
+        {
+          "word": " low",
+          "start": 299.6,
+          "end": 300.12,
+          "probability": 0.9785308241844177
+        },
+        {
+          "word": "-income",
+          "start": 300.12,
+          "end": 300.4,
+          "probability": 0.7725268304347992
+        },
+        {
+          "word": " communities.",
+          "start": 300.4,
+          "end": 301.16,
+          "probability": 0.9959381818771362
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "start": 302.42,
+      "end": 307.78,
+      "text": "So the youth are the primary users and the ones who will live the longest with the consequences",
+      "avg_logprob": -0.18021740136521586,
+      "no_speech_prob": 0.012143288739025593,
+      "compression_ratio": 1.6008230452674896,
+      "words": [
+        {
+          "word": " So",
+          "start": 302.42,
+          "end": 302.68,
+          "probability": 0.9151644706726074
+        },
+        {
+          "word": " the",
+          "start": 302.68,
+          "end": 302.86,
+          "probability": 0.7762060761451721
+        },
+        {
+          "word": " youth",
+          "start": 302.86,
+          "end": 303.1,
+          "probability": 0.990536630153656
+        },
+        {
+          "word": " are",
+          "start": 303.1,
+          "end": 303.36,
+          "probability": 0.9929947257041931
+        },
+        {
+          "word": " the",
+          "start": 303.36,
+          "end": 303.44,
+          "probability": 0.9859817028045654
+        },
+        {
+          "word": " primary",
+          "start": 303.44,
+          "end": 303.78,
+          "probability": 0.998698353767395
+        },
+        {
+          "word": " users",
+          "start": 303.78,
+          "end": 304.32,
+          "probability": 0.9527943134307861
+        },
+        {
+          "word": " and",
+          "start": 304.32,
+          "end": 304.7,
+          "probability": 0.8981879949569702
+        },
+        {
+          "word": " the",
+          "start": 304.7,
+          "end": 304.86,
+          "probability": 0.9777917265892029
+        },
+        {
+          "word": " ones",
+          "start": 304.86,
+          "end": 305.1,
+          "probability": 0.9972086548805237
+        },
+        {
+          "word": " who",
+          "start": 305.1,
+          "end": 305.3,
+          "probability": 0.97596275806427
+        },
+        {
+          "word": " will",
+          "start": 305.3,
+          "end": 305.42,
+          "probability": 0.9613629579544067
+        },
+        {
+          "word": " live",
+          "start": 305.42,
+          "end": 305.72,
+          "probability": 0.34991228580474854
+        },
+        {
+          "word": " the",
+          "start": 305.72,
+          "end": 305.94,
+          "probability": 0.990616500377655
+        },
+        {
+          "word": " longest",
+          "start": 305.94,
+          "end": 306.32,
+          "probability": 0.999085545539856
+        },
+        {
+          "word": " with",
+          "start": 306.32,
+          "end": 306.98,
+          "probability": 0.9424060583114624
+        },
+        {
+          "word": " the",
+          "start": 306.98,
+          "end": 307.14,
+          "probability": 0.9979752898216248
+        },
+        {
+          "word": " consequences",
+          "start": 307.14,
+          "end": 307.78,
+          "probability": 0.9908697009086609
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "start": 308.26,
+      "end": 310.78,
+      "text": "of the AI systems that are built today.",
+      "avg_logprob": -0.18021740136521586,
+      "no_speech_prob": 0.012143288739025593,
+      "compression_ratio": 1.6008230452674896,
+      "words": [
+        {
+          "word": " of",
+          "start": 308.26,
+          "end": 308.62,
+          "probability": 0.9980255365371704
+        },
+        {
+          "word": " the",
+          "start": 308.62,
+          "end": 308.84,
+          "probability": 0.9686880707740784
+        },
+        {
+          "word": " AI",
+          "start": 308.84,
+          "end": 309.08,
+          "probability": 0.9712178707122803
+        },
+        {
+          "word": " systems",
+          "start": 309.08,
+          "end": 309.6,
+          "probability": 0.995368242263794
+        },
+        {
+          "word": " that",
+          "start": 309.6,
+          "end": 309.92,
+          "probability": 0.988710343837738
+        },
+        {
+          "word": " are",
+          "start": 309.92,
+          "end": 310.06,
+          "probability": 0.9905335903167725
+        },
+        {
+          "word": " built",
+          "start": 310.06,
+          "end": 310.28,
+          "probability": 0.9866559505462646
+        },
+        {
+          "word": " today.",
+          "start": 310.28,
+          "end": 310.78,
+          "probability": 0.9860501885414124
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "start": 312.26,
+      "end": 317.98,
+      "text": "Therefore, they have the greatest stake in ensuring these systems are fair, transparent",
+      "avg_logprob": -0.18021740136521586,
+      "no_speech_prob": 0.012143288739025593,
+      "compression_ratio": 1.6008230452674896,
+      "words": [
+        {
+          "word": " Therefore,",
+          "start": 312.26,
+          "end": 312.88,
+          "probability": 0.9841424822807312
+        },
+        {
+          "word": " they",
+          "start": 313.34,
+          "end": 313.6,
+          "probability": 0.9943119287490845
+        },
+        {
+          "word": " have",
+          "start": 313.6,
+          "end": 313.74,
+          "probability": 0.9983527660369873
+        },
+        {
+          "word": " the",
+          "start": 313.74,
+          "end": 313.86,
+          "probability": 0.9977450966835022
+        },
+        {
+          "word": " greatest",
+          "start": 313.86,
+          "end": 314.22,
+          "probability": 0.9979735016822815
+        },
+        {
+          "word": " stake",
+          "start": 314.22,
+          "end": 314.78,
+          "probability": 0.9786434769630432
+        },
+        {
+          "word": " in",
+          "start": 314.78,
+          "end": 315.08,
+          "probability": 0.9986948370933533
+        },
+        {
+          "word": " ensuring",
+          "start": 315.08,
+          "end": 315.58,
+          "probability": 0.9891728162765503
+        },
+        {
+          "word": " these",
+          "start": 315.58,
+          "end": 315.9,
+          "probability": 0.8751214742660522
+        },
+        {
+          "word": " systems",
+          "start": 315.9,
+          "end": 316.34,
+          "probability": 0.9966486096382141
+        },
+        {
+          "word": " are",
+          "start": 316.34,
+          "end": 316.54,
+          "probability": 0.9976649284362793
+        },
+        {
+          "word": " fair,",
+          "start": 316.54,
+          "end": 316.88,
+          "probability": 0.9884745478630066
+        },
+        {
+          "word": " transparent",
+          "start": 317.42,
+          "end": 317.98,
+          "probability": 0.9982219338417053
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "start": 317.98,
+      "end": 319.04,
+      "text": "and accountable.",
+      "avg_logprob": -0.18021740136521586,
+      "no_speech_prob": 0.012143288739025593,
+      "compression_ratio": 1.6008230452674896,
+      "words": [
+        {
+          "word": " and",
+          "start": 317.98,
+          "end": 318.44,
+          "probability": 0.45679622888565063
+        },
+        {
+          "word": " accountable.",
+          "start": 318.44,
+          "end": 319.04,
+          "probability": 0.9968525767326355
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "start": 319.9,
+      "end": 325.94,
+      "text": "Their lived experience is not a bonus, but a non-negotiable component of ethical AI.",
+      "avg_logprob": -0.18021740136521586,
+      "no_speech_prob": 0.012143288739025593,
+      "compression_ratio": 1.6008230452674896,
+      "words": [
+        {
+          "word": " Their",
+          "start": 319.9,
+          "end": 320.24,
+          "probability": 0.989173412322998
+        },
+        {
+          "word": " lived",
+          "start": 320.24,
+          "end": 320.54,
+          "probability": 0.992359459400177
+        },
+        {
+          "word": " experience",
+          "start": 320.54,
+          "end": 321.24,
+          "probability": 0.9964901804924011
+        },
+        {
+          "word": " is",
+          "start": 321.24,
+          "end": 321.84,
+          "probability": 0.9964898228645325
+        },
+        {
+          "word": " not",
+          "start": 321.84,
+          "end": 322.0,
+          "probability": 0.9980581402778625
+        },
+        {
+          "word": " a",
+          "start": 322.0,
+          "end": 322.12,
+          "probability": 0.9981516003608704
+        },
+        {
+          "word": " bonus,",
+          "start": 322.12,
+          "end": 322.54,
+          "probability": 0.9940105080604553
+        },
+        {
+          "word": " but",
+          "start": 322.54,
+          "end": 323.1,
+          "probability": 0.998985230922699
+        },
+        {
+          "word": " a",
+          "start": 323.1,
+          "end": 323.3,
+          "probability": 0.9606249928474426
+        },
+        {
+          "word": " non",
+          "start": 323.3,
+          "end": 323.46,
+          "probability": 0.9831207990646362
+        },
+        {
+          "word": "-negotiable",
+          "start": 323.46,
+          "end": 324.2,
+          "probability": 0.9782095551490784
+        },
+        {
+          "word": " component",
+          "start": 324.2,
+          "end": 324.78,
+          "probability": 0.9951863884925842
+        },
+        {
+          "word": " of",
+          "start": 324.78,
+          "end": 325.1,
+          "probability": 0.9990587830543518
+        },
+        {
+          "word": " ethical",
+          "start": 325.1,
+          "end": 325.5,
+          "probability": 0.9656696319580078
+        },
+        {
+          "word": " AI.",
+          "start": 325.5,
+          "end": 325.94,
+          "probability": 0.996950089931488
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "start": 325.94,
+      "end": 331.66,
+      "text": "So how do we empower them to build this ethical future?",
+      "avg_logprob": -0.09928942195485148,
+      "no_speech_prob": 0.27874064445495605,
+      "compression_ratio": 1.4721030042918455,
+      "words": [
+        {
+          "word": " So",
+          "start": 325.94,
+          "end": 327.1,
+          "probability": 0.1597573608160019
+        },
+        {
+          "word": " how",
+          "start": 327.68,
+          "end": 327.94,
+          "probability": 0.6962701678276062
+        },
+        {
+          "word": " do",
+          "start": 327.94,
+          "end": 328.16,
+          "probability": 0.9858529567718506
+        },
+        {
+          "word": " we",
+          "start": 328.16,
+          "end": 328.32,
+          "probability": 0.9975256323814392
+        },
+        {
+          "word": " empower",
+          "start": 328.32,
+          "end": 328.9,
+          "probability": 0.9919266700744629
+        },
+        {
+          "word": " them",
+          "start": 328.9,
+          "end": 329.2,
+          "probability": 0.9906957149505615
+        },
+        {
+          "word": " to",
+          "start": 329.2,
+          "end": 329.78,
+          "probability": 0.974891722202301
+        },
+        {
+          "word": " build",
+          "start": 329.78,
+          "end": 330.2,
+          "probability": 0.9926633834838867
+        },
+        {
+          "word": " this",
+          "start": 330.2,
+          "end": 330.7,
+          "probability": 0.9578580856323242
+        },
+        {
+          "word": " ethical",
+          "start": 330.7,
+          "end": 331.2,
+          "probability": 0.992456316947937
+        },
+        {
+          "word": " future?",
+          "start": 331.2,
+          "end": 331.66,
+          "probability": 0.9788509607315063
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "start": 333.53,
+      "end": 335.91,
+      "text": "We need to embed ethics in education.",
+      "avg_logprob": -0.09928942195485148,
+      "no_speech_prob": 0.27874064445495605,
+      "compression_ratio": 1.4721030042918455,
+      "words": [
+        {
+          "word": " We",
+          "start": 333.53,
+          "end": 333.85,
+          "probability": 0.9811621904373169
+        },
+        {
+          "word": " need",
+          "start": 333.85,
+          "end": 334.03,
+          "probability": 0.995032787322998
+        },
+        {
+          "word": " to",
+          "start": 334.03,
+          "end": 334.21,
+          "probability": 0.9982486963272095
+        },
+        {
+          "word": " embed",
+          "start": 334.21,
+          "end": 334.67,
+          "probability": 0.9834232330322266
+        },
+        {
+          "word": " ethics",
+          "start": 334.67,
+          "end": 335.19,
+          "probability": 0.9870432019233704
+        },
+        {
+          "word": " in",
+          "start": 335.19,
+          "end": 335.55,
+          "probability": 0.9926906228065491
+        },
+        {
+          "word": " education.",
+          "start": 335.55,
+          "end": 335.91,
+          "probability": 0.9928953051567078
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "start": 336.89,
+      "end": 339.93,
+      "text": "We need to move beyond just teaching how to code AI.",
+      "avg_logprob": -0.09928942195485148,
+      "no_speech_prob": 0.27874064445495605,
+      "compression_ratio": 1.4721030042918455,
+      "words": [
+        {
+          "word": " We",
+          "start": 336.89,
+          "end": 337.07,
+          "probability": 0.9933700561523438
+        },
+        {
+          "word": " need",
+          "start": 337.07,
+          "end": 337.25,
+          "probability": 0.9985182881355286
+        },
+        {
+          "word": " to",
+          "start": 337.25,
+          "end": 337.41,
+          "probability": 0.9987781643867493
+        },
+        {
+          "word": " move",
+          "start": 337.41,
+          "end": 337.79,
+          "probability": 0.9929741621017456
+        },
+        {
+          "word": " beyond",
+          "start": 337.79,
+          "end": 338.19,
+          "probability": 0.9951205849647522
+        },
+        {
+          "word": " just",
+          "start": 338.19,
+          "end": 338.43,
+          "probability": 0.9930058717727661
+        },
+        {
+          "word": " teaching",
+          "start": 338.43,
+          "end": 338.79,
+          "probability": 0.9964732527732849
+        },
+        {
+          "word": " how",
+          "start": 338.79,
+          "end": 339.11,
+          "probability": 0.9870092272758484
+        },
+        {
+          "word": " to",
+          "start": 339.11,
+          "end": 339.29,
+          "probability": 0.9986433386802673
+        },
+        {
+          "word": " code",
+          "start": 339.29,
+          "end": 339.65,
+          "probability": 0.9811152219772339
+        },
+        {
+          "word": " AI.",
+          "start": 339.65,
+          "end": 339.93,
+          "probability": 0.9686230421066284
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "start": 340.55,
+      "end": 346.41,
+      "text": "We must integrate ethics, sociology, and African philosophy into STEM curricula.",
+      "avg_logprob": -0.09928942195485148,
+      "no_speech_prob": 0.27874064445495605,
+      "compression_ratio": 1.4721030042918455,
+      "words": [
+        {
+          "word": " We",
+          "start": 340.55,
+          "end": 340.69,
+          "probability": 0.9930712580680847
+        },
+        {
+          "word": " must",
+          "start": 340.69,
+          "end": 340.85,
+          "probability": 0.9969794750213623
+        },
+        {
+          "word": " integrate",
+          "start": 340.85,
+          "end": 341.43,
+          "probability": 0.9932296276092529
+        },
+        {
+          "word": " ethics,",
+          "start": 341.43,
+          "end": 342.01,
+          "probability": 0.9892691969871521
+        },
+        {
+          "word": " sociology,",
+          "start": 342.49,
+          "end": 342.91,
+          "probability": 0.9924125075340271
+        },
+        {
+          "word": " and",
+          "start": 343.69,
+          "end": 343.91,
+          "probability": 0.986655592918396
+        },
+        {
+          "word": " African",
+          "start": 343.91,
+          "end": 344.31,
+          "probability": 0.9944120049476624
+        },
+        {
+          "word": " philosophy",
+          "start": 344.31,
+          "end": 345.11,
+          "probability": 0.9934958219528198
+        },
+        {
+          "word": " into",
+          "start": 345.11,
+          "end": 345.45,
+          "probability": 0.9742538332939148
+        },
+        {
+          "word": " STEM",
+          "start": 345.45,
+          "end": 345.77,
+          "probability": 0.960098922252655
+        },
+        {
+          "word": " curricula.",
+          "start": 345.77,
+          "end": 346.41,
+          "probability": 0.9601225852966309
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "start": 347.01,
+      "end": 350.39,
+      "text": "Young innovators should be asking, who is this for?",
+      "avg_logprob": -0.09928942195485148,
+      "no_speech_prob": 0.27874064445495605,
+      "compression_ratio": 1.4721030042918455,
+      "words": [
+        {
+          "word": " Young",
+          "start": 347.01,
+          "end": 347.41,
+          "probability": 0.9815199971199036
+        },
+        {
+          "word": " innovators",
+          "start": 347.41,
+          "end": 348.13,
+          "probability": 0.9927325248718262
+        },
+        {
+          "word": " should",
+          "start": 348.13,
+          "end": 348.31,
+          "probability": 0.9978308081626892
+        },
+        {
+          "word": " be",
+          "start": 348.31,
+          "end": 348.47,
+          "probability": 0.9987320303916931
+        },
+        {
+          "word": " asking,",
+          "start": 348.47,
+          "end": 348.75,
+          "probability": 0.9984845519065857
+        },
+        {
+          "word": " who",
+          "start": 349.23,
+          "end": 349.51,
+          "probability": 0.4829799234867096
+        },
+        {
+          "word": " is",
+          "start": 349.51,
+          "end": 349.75,
+          "probability": 0.986887514591217
+        },
+        {
+          "word": " this",
+          "start": 349.75,
+          "end": 350.01,
+          "probability": 0.9970496892929077
+        },
+        {
+          "word": " for?",
+          "start": 350.01,
+          "end": 350.39,
+          "probability": 0.9919636249542236
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "start": 351.08,
+      "end": 352.28,
+      "text": "Who might it harm?",
+      "avg_logprob": -0.09928942195485148,
+      "no_speech_prob": 0.27874064445495605,
+      "compression_ratio": 1.4721030042918455,
+      "words": [
+        {
+          "word": " Who",
+          "start": 351.08,
+          "end": 351.52,
+          "probability": 0.9911082983016968
+        },
+        {
+          "word": " might",
+          "start": 351.52,
+          "end": 351.78,
+          "probability": 0.9946570992469788
+        },
+        {
+          "word": " it",
+          "start": 351.78,
+          "end": 351.96,
+          "probability": 0.9484427571296692
+        },
+        {
+          "word": " harm?",
+          "start": 351.96,
+          "end": 352.28,
+          "probability": 0.6346941590309143
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "start": 353.18,
+      "end": 355.68,
+      "text": "How does this reflect our Ubuntu principles?",
+      "avg_logprob": -0.09928942195485148,
+      "no_speech_prob": 0.27874064445495605,
+      "compression_ratio": 1.4721030042918455,
+      "words": [
+        {
+          "word": " How",
+          "start": 353.18,
+          "end": 353.54,
+          "probability": 0.9970299005508423
+        },
+        {
+          "word": " does",
+          "start": 353.54,
+          "end": 353.76,
+          "probability": 0.9981064796447754
+        },
+        {
+          "word": " this",
+          "start": 353.76,
+          "end": 353.98,
+          "probability": 0.9976958632469177
+        },
+        {
+          "word": " reflect",
+          "start": 353.98,
+          "end": 354.34,
+          "probability": 0.99832683801651
+        },
+        {
+          "word": " our",
+          "start": 354.34,
+          "end": 354.68,
+          "probability": 0.9863130450248718
+        },
+        {
+          "word": " Ubuntu",
+          "start": 354.68,
+          "end": 355.08,
+          "probability": 0.9526727199554443
+        },
+        {
+          "word": " principles?",
+          "start": 355.08,
+          "end": 355.68,
+          "probability": 0.9641587138175964
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "start": 355.68,
+      "end": 359.98,
+      "text": "And then next we need to create sandboxes for innovation.",
+      "avg_logprob": -0.149266974566734,
+      "no_speech_prob": 0.07409822940826416,
+      "compression_ratio": 1.545045045045045,
+      "words": [
+        {
+          "word": " And",
+          "start": 355.68,
+          "end": 356.84,
+          "probability": 0.11701755970716476
+        },
+        {
+          "word": " then",
+          "start": 357.32,
+          "end": 357.48,
+          "probability": 0.912006676197052
+        },
+        {
+          "word": " next",
+          "start": 357.48,
+          "end": 357.8,
+          "probability": 0.8779869079589844
+        },
+        {
+          "word": " we",
+          "start": 357.8,
+          "end": 358.0,
+          "probability": 0.4840298295021057
+        },
+        {
+          "word": " need",
+          "start": 358.0,
+          "end": 358.14,
+          "probability": 0.9814329743385315
+        },
+        {
+          "word": " to",
+          "start": 358.14,
+          "end": 358.28,
+          "probability": 0.9908788800239563
+        },
+        {
+          "word": " create",
+          "start": 358.28,
+          "end": 358.54,
+          "probability": 0.9956167936325073
+        },
+        {
+          "word": " sandboxes",
+          "start": 358.54,
+          "end": 359.34,
+          "probability": 0.8986614644527435
+        },
+        {
+          "word": " for",
+          "start": 359.34,
+          "end": 359.48,
+          "probability": 0.9907222986221313
+        },
+        {
+          "word": " innovation.",
+          "start": 359.48,
+          "end": 359.98,
+          "probability": 0.9871865510940552
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "start": 360.72,
+      "end": 366.4,
+      "text": "Young people need safe spaces to experiment, to fail, to unlearn.",
+      "avg_logprob": -0.149266974566734,
+      "no_speech_prob": 0.07409822940826416,
+      "compression_ratio": 1.545045045045045,
+      "words": [
+        {
+          "word": " Young",
+          "start": 360.72,
+          "end": 361.06,
+          "probability": 0.9739094376564026
+        },
+        {
+          "word": " people",
+          "start": 361.06,
+          "end": 361.3,
+          "probability": 0.9985674619674683
+        },
+        {
+          "word": " need",
+          "start": 361.3,
+          "end": 361.56,
+          "probability": 0.9871655702590942
+        },
+        {
+          "word": " safe",
+          "start": 361.56,
+          "end": 362.22,
+          "probability": 0.8553864359855652
+        },
+        {
+          "word": " spaces",
+          "start": 362.22,
+          "end": 362.74,
+          "probability": 0.9906160235404968
+        },
+        {
+          "word": " to",
+          "start": 362.74,
+          "end": 363.46,
+          "probability": 0.9826779961585999
+        },
+        {
+          "word": " experiment,",
+          "start": 363.46,
+          "end": 364.28,
+          "probability": 0.9646711945533752
+        },
+        {
+          "word": " to",
+          "start": 364.68,
+          "end": 364.74,
+          "probability": 0.9964228272438049
+        },
+        {
+          "word": " fail,",
+          "start": 364.74,
+          "end": 365.18,
+          "probability": 0.9966081380844116
+        },
+        {
+          "word": " to",
+          "start": 365.8,
+          "end": 365.84,
+          "probability": 0.9944603443145752
+        },
+        {
+          "word": " unlearn.",
+          "start": 365.84,
+          "end": 366.4,
+          "probability": 0.9927183389663696
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "start": 366.94,
+      "end": 374.38,
+      "text": "This means supporting local hackathons, incubators and innovation hubs focused on solving African problems",
+      "avg_logprob": -0.149266974566734,
+      "no_speech_prob": 0.07409822940826416,
+      "compression_ratio": 1.545045045045045,
+      "words": [
+        {
+          "word": " This",
+          "start": 366.94,
+          "end": 367.16,
+          "probability": 0.9946256279945374
+        },
+        {
+          "word": " means",
+          "start": 367.16,
+          "end": 367.4,
+          "probability": 0.991224467754364
+        },
+        {
+          "word": " supporting",
+          "start": 367.4,
+          "end": 367.94,
+          "probability": 0.9960964322090149
+        },
+        {
+          "word": " local",
+          "start": 367.94,
+          "end": 368.34,
+          "probability": 0.9891529083251953
+        },
+        {
+          "word": " hackathons,",
+          "start": 368.34,
+          "end": 369.14,
+          "probability": 0.9619213938713074
+        },
+        {
+          "word": " incubators",
+          "start": 369.4,
+          "end": 369.98,
+          "probability": 0.9933145940303802
+        },
+        {
+          "word": " and",
+          "start": 369.98,
+          "end": 370.6,
+          "probability": 0.6637232899665833
+        },
+        {
+          "word": " innovation",
+          "start": 370.6,
+          "end": 371.08,
+          "probability": 0.9896486401557922
+        },
+        {
+          "word": " hubs",
+          "start": 371.08,
+          "end": 371.48,
+          "probability": 0.9786131381988525
+        },
+        {
+          "word": " focused",
+          "start": 371.48,
+          "end": 372.22,
+          "probability": 0.8764514327049255
+        },
+        {
+          "word": " on",
+          "start": 372.22,
+          "end": 373.0,
+          "probability": 0.9969876408576965
+        },
+        {
+          "word": " solving",
+          "start": 373.0,
+          "end": 373.38,
+          "probability": 0.997400164604187
+        },
+        {
+          "word": " African",
+          "start": 373.38,
+          "end": 373.72,
+          "probability": 0.9757787585258484
+        },
+        {
+          "word": " problems",
+          "start": 373.72,
+          "end": 374.38,
+          "probability": 0.9953208565711975
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "start": 374.38,
+      "end": 382.7,
+      "text": "like using AI for drought resistant crop analysis, diagnosing local diseases or preserving indigenous languages.",
+      "avg_logprob": -0.149266974566734,
+      "no_speech_prob": 0.07409822940826416,
+      "compression_ratio": 1.545045045045045,
+      "words": [
+        {
+          "word": " like",
+          "start": 374.38,
+          "end": 375.02,
+          "probability": 0.4146728515625
+        },
+        {
+          "word": " using",
+          "start": 375.02,
+          "end": 375.34,
+          "probability": 0.9962940812110901
+        },
+        {
+          "word": " AI",
+          "start": 375.34,
+          "end": 375.74,
+          "probability": 0.9826329946517944
+        },
+        {
+          "word": " for",
+          "start": 375.74,
+          "end": 376.08,
+          "probability": 0.9903953671455383
+        },
+        {
+          "word": " drought",
+          "start": 376.08,
+          "end": 376.34,
+          "probability": 0.6906540393829346
+        },
+        {
+          "word": " resistant",
+          "start": 376.34,
+          "end": 376.76,
+          "probability": 0.8522388935089111
+        },
+        {
+          "word": " crop",
+          "start": 376.76,
+          "end": 377.18,
+          "probability": 0.9825299382209778
+        },
+        {
+          "word": " analysis,",
+          "start": 377.18,
+          "end": 377.82,
+          "probability": 0.9855711460113525
+        },
+        {
+          "word": " diagnosing",
+          "start": 378.42,
+          "end": 379.02,
+          "probability": 0.9855084121227264
+        },
+        {
+          "word": " local",
+          "start": 379.02,
+          "end": 379.36,
+          "probability": 0.9923099279403687
+        },
+        {
+          "word": " diseases",
+          "start": 379.36,
+          "end": 379.98,
+          "probability": 0.9952636957168579
+        },
+        {
+          "word": " or",
+          "start": 379.98,
+          "end": 380.68,
+          "probability": 0.7782410979270935
+        },
+        {
+          "word": " preserving",
+          "start": 380.68,
+          "end": 381.2,
+          "probability": 0.9934208989143372
+        },
+        {
+          "word": " indigenous",
+          "start": 381.2,
+          "end": 382.0,
+          "probability": 0.771884024143219
+        },
+        {
+          "word": " languages.",
+          "start": 382.0,
+          "end": 382.7,
+          "probability": 0.9952928423881531
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "start": 382.7,
+      "end": 387.89,
+      "text": "Then we need to demand a seat at the table.",
+      "avg_logprob": -0.12506658945119742,
+      "no_speech_prob": 0.20652973651885986,
+      "compression_ratio": 1.5101010101010102,
+      "words": [
+        {
+          "word": " Then",
+          "start": 382.7,
+          "end": 384.06,
+          "probability": 0.3679174780845642
+        },
+        {
+          "word": " we",
+          "start": 384.45,
+          "end": 385.53,
+          "probability": 0.7116100788116455
+        },
+        {
+          "word": " need",
+          "start": 385.53,
+          "end": 385.73,
+          "probability": 0.9887871146202087
+        },
+        {
+          "word": " to",
+          "start": 385.73,
+          "end": 385.93,
+          "probability": 0.9974179267883301
+        },
+        {
+          "word": " demand",
+          "start": 385.93,
+          "end": 386.47,
+          "probability": 0.9927768707275391
+        },
+        {
+          "word": " a",
+          "start": 386.47,
+          "end": 386.87,
+          "probability": 0.9828207492828369
+        },
+        {
+          "word": " seat",
+          "start": 386.87,
+          "end": 387.05,
+          "probability": 0.9899152517318726
+        },
+        {
+          "word": " at",
+          "start": 387.05,
+          "end": 387.35,
+          "probability": 0.9967693090438843
+        },
+        {
+          "word": " the",
+          "start": 387.35,
+          "end": 387.47,
+          "probability": 0.994327962398529
+        },
+        {
+          "word": " table.",
+          "start": 387.47,
+          "end": 387.89,
+          "probability": 0.9967547059059143
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "start": 388.85,
+      "end": 397.63,
+      "text": "Finally, we must encourage young innovators to not just build apps, but to actively engage in policy discussions.",
+      "avg_logprob": -0.12506658945119742,
+      "no_speech_prob": 0.20652973651885986,
+      "compression_ratio": 1.5101010101010102,
+      "words": [
+        {
+          "word": " Finally,",
+          "start": 388.85,
+          "end": 389.53,
+          "probability": 0.9895574450492859
+        },
+        {
+          "word": " we",
+          "start": 390.05,
+          "end": 390.13,
+          "probability": 0.9968738555908203
+        },
+        {
+          "word": " must",
+          "start": 390.13,
+          "end": 390.35,
+          "probability": 0.9974017143249512
+        },
+        {
+          "word": " encourage",
+          "start": 390.35,
+          "end": 390.95,
+          "probability": 0.9980037808418274
+        },
+        {
+          "word": " young",
+          "start": 390.95,
+          "end": 391.31,
+          "probability": 0.9963292479515076
+        },
+        {
+          "word": " innovators",
+          "start": 391.31,
+          "end": 392.05,
+          "probability": 0.9956863522529602
+        },
+        {
+          "word": " to",
+          "start": 392.05,
+          "end": 392.47,
+          "probability": 0.9907256960868835
+        },
+        {
+          "word": " not",
+          "start": 392.47,
+          "end": 392.65,
+          "probability": 0.9905304312705994
+        },
+        {
+          "word": " just",
+          "start": 392.65,
+          "end": 392.85,
+          "probability": 0.9981535077095032
+        },
+        {
+          "word": " build",
+          "start": 392.85,
+          "end": 393.23,
+          "probability": 0.9950785636901855
+        },
+        {
+          "word": " apps,",
+          "start": 393.23,
+          "end": 393.71,
+          "probability": 0.9747915863990784
+        },
+        {
+          "word": " but",
+          "start": 394.01,
+          "end": 394.27,
+          "probability": 0.9966213703155518
+        },
+        {
+          "word": " to",
+          "start": 394.27,
+          "end": 394.47,
+          "probability": 0.9952710270881653
+        },
+        {
+          "word": " actively",
+          "start": 394.47,
+          "end": 394.91,
+          "probability": 0.9988316893577576
+        },
+        {
+          "word": " engage",
+          "start": 394.91,
+          "end": 395.43,
+          "probability": 0.9965953230857849
+        },
+        {
+          "word": " in",
+          "start": 395.43,
+          "end": 395.69,
+          "probability": 0.9776315689086914
+        },
+        {
+          "word": " policy",
+          "start": 395.69,
+          "end": 396.91,
+          "probability": 0.8698678612709045
+        },
+        {
+          "word": " discussions.",
+          "start": 396.91,
+          "end": 397.63,
+          "probability": 0.9822551012039185
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "start": 398.33,
+      "end": 406.93,
+      "text": "They must be in the room when regulations are drafted to ensure their voices shape the governance of technology that will define their lives.",
+      "avg_logprob": -0.12506658945119742,
+      "no_speech_prob": 0.20652973651885986,
+      "compression_ratio": 1.5101010101010102,
+      "words": [
+        {
+          "word": " They",
+          "start": 398.33,
+          "end": 398.53,
+          "probability": 0.9928065538406372
+        },
+        {
+          "word": " must",
+          "start": 398.53,
+          "end": 398.77,
+          "probability": 0.9984563589096069
+        },
+        {
+          "word": " be",
+          "start": 398.77,
+          "end": 398.99,
+          "probability": 0.9929292798042297
+        },
+        {
+          "word": " in",
+          "start": 398.99,
+          "end": 399.07,
+          "probability": 0.9987381100654602
+        },
+        {
+          "word": " the",
+          "start": 399.07,
+          "end": 399.21,
+          "probability": 0.9849218726158142
+        },
+        {
+          "word": " room",
+          "start": 399.21,
+          "end": 399.49,
+          "probability": 0.9978082776069641
+        },
+        {
+          "word": " when",
+          "start": 399.49,
+          "end": 399.99,
+          "probability": 0.958497166633606
+        },
+        {
+          "word": " regulations",
+          "start": 399.99,
+          "end": 400.59,
+          "probability": 0.9979534149169922
+        },
+        {
+          "word": " are",
+          "start": 400.59,
+          "end": 400.85,
+          "probability": 0.9972938895225525
+        },
+        {
+          "word": " drafted",
+          "start": 400.85,
+          "end": 401.25,
+          "probability": 0.9933428168296814
+        },
+        {
+          "word": " to",
+          "start": 401.25,
+          "end": 401.79,
+          "probability": 0.9100825190544128
+        },
+        {
+          "word": " ensure",
+          "start": 401.79,
+          "end": 402.19,
+          "probability": 0.9944692850112915
+        },
+        {
+          "word": " their",
+          "start": 402.19,
+          "end": 402.39,
+          "probability": 0.9793217778205872
+        },
+        {
+          "word": " voices",
+          "start": 402.39,
+          "end": 402.79,
+          "probability": 0.9976276755332947
+        },
+        {
+          "word": " shape",
+          "start": 402.79,
+          "end": 403.27,
+          "probability": 0.9858570098876953
+        },
+        {
+          "word": " the",
+          "start": 403.27,
+          "end": 403.47,
+          "probability": 0.9982028007507324
+        },
+        {
+          "word": " governance",
+          "start": 403.47,
+          "end": 403.85,
+          "probability": 0.9961109757423401
+        },
+        {
+          "word": " of",
+          "start": 403.85,
+          "end": 404.19,
+          "probability": 0.998992383480072
+        },
+        {
+          "word": " technology",
+          "start": 404.19,
+          "end": 404.89,
+          "probability": 0.9960749745368958
+        },
+        {
+          "word": " that",
+          "start": 404.89,
+          "end": 405.59,
+          "probability": 0.9769836068153381
+        },
+        {
+          "word": " will",
+          "start": 405.59,
+          "end": 405.83,
+          "probability": 0.9949032068252563
+        },
+        {
+          "word": " define",
+          "start": 405.83,
+          "end": 406.25,
+          "probability": 0.9959390163421631
+        },
+        {
+          "word": " their",
+          "start": 406.25,
+          "end": 406.51,
+          "probability": 0.9969742298126221
+        },
+        {
+          "word": " lives.",
+          "start": 406.51,
+          "end": 406.93,
+          "probability": 0.9967818260192871
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "start": 406.93,
+      "end": 413.13,
+      "text": "So, the goal is to foster a generation of techno-optimists with a critical lens.",
+      "avg_logprob": -0.15866389733621444,
+      "no_speech_prob": 0.02337142825126648,
+      "compression_ratio": 1.5108225108225108,
+      "words": [
+        {
+          "word": " So,",
+          "start": 406.93,
+          "end": 407.97,
+          "probability": 0.3477911651134491
+        },
+        {
+          "word": " the",
+          "start": 408.05,
+          "end": 408.13,
+          "probability": 0.961968183517456
+        },
+        {
+          "word": " goal",
+          "start": 408.13,
+          "end": 408.37,
+          "probability": 0.9941480159759521
+        },
+        {
+          "word": " is",
+          "start": 408.37,
+          "end": 408.61,
+          "probability": 0.9970995187759399
+        },
+        {
+          "word": " to",
+          "start": 408.61,
+          "end": 408.71,
+          "probability": 0.9962067604064941
+        },
+        {
+          "word": " foster",
+          "start": 408.71,
+          "end": 409.13,
+          "probability": 0.9824755191802979
+        },
+        {
+          "word": " a",
+          "start": 409.13,
+          "end": 409.43,
+          "probability": 0.9845322966575623
+        },
+        {
+          "word": " generation",
+          "start": 409.43,
+          "end": 410.03,
+          "probability": 0.9969520568847656
+        },
+        {
+          "word": " of",
+          "start": 410.03,
+          "end": 410.27,
+          "probability": 0.9964358806610107
+        },
+        {
+          "word": " techno",
+          "start": 410.27,
+          "end": 410.65,
+          "probability": 0.8676828742027283
+        },
+        {
+          "word": "-optimists",
+          "start": 410.65,
+          "end": 411.37,
+          "probability": 0.9180161505937576
+        },
+        {
+          "word": " with",
+          "start": 411.37,
+          "end": 411.99,
+          "probability": 0.9535354375839233
+        },
+        {
+          "word": " a",
+          "start": 411.99,
+          "end": 412.25,
+          "probability": 0.9732945561408997
+        },
+        {
+          "word": " critical",
+          "start": 412.25,
+          "end": 412.63,
+          "probability": 0.9980948567390442
+        },
+        {
+          "word": " lens.",
+          "start": 412.63,
+          "end": 413.13,
+          "probability": 0.9921413660049438
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "start": 413.81,
+      "end": 420.19,
+      "text": "Young people who are excited by AI's potential, but are also equipped and empowered to guard",
+      "avg_logprob": -0.15866389733621444,
+      "no_speech_prob": 0.02337142825126648,
+      "compression_ratio": 1.5108225108225108,
+      "words": [
+        {
+          "word": " Young",
+          "start": 413.81,
+          "end": 414.17,
+          "probability": 0.9846457839012146
+        },
+        {
+          "word": " people",
+          "start": 414.17,
+          "end": 414.65,
+          "probability": 0.9983994364738464
+        },
+        {
+          "word": " who",
+          "start": 414.65,
+          "end": 414.91,
+          "probability": 0.9647630453109741
+        },
+        {
+          "word": " are",
+          "start": 414.91,
+          "end": 415.03,
+          "probability": 0.9968559741973877
+        },
+        {
+          "word": " excited",
+          "start": 415.03,
+          "end": 415.63,
+          "probability": 0.9787538051605225
+        },
+        {
+          "word": " by",
+          "start": 415.63,
+          "end": 416.01,
+          "probability": 0.9843080639839172
+        },
+        {
+          "word": " AI's",
+          "start": 416.01,
+          "end": 416.61,
+          "probability": 0.8987784385681152
+        },
+        {
+          "word": " potential,",
+          "start": 416.61,
+          "end": 417.15,
+          "probability": 0.9984381794929504
+        },
+        {
+          "word": " but",
+          "start": 417.67,
+          "end": 417.89,
+          "probability": 0.9896425604820251
+        },
+        {
+          "word": " are",
+          "start": 417.89,
+          "end": 418.01,
+          "probability": 0.882790744304657
+        },
+        {
+          "word": " also",
+          "start": 418.01,
+          "end": 418.31,
+          "probability": 0.9990012049674988
+        },
+        {
+          "word": " equipped",
+          "start": 418.31,
+          "end": 418.79,
+          "probability": 0.9970203042030334
+        },
+        {
+          "word": " and",
+          "start": 418.79,
+          "end": 419.11,
+          "probability": 0.9911263585090637
+        },
+        {
+          "word": " empowered",
+          "start": 419.11,
+          "end": 419.63,
+          "probability": 0.9947799444198608
+        },
+        {
+          "word": " to",
+          "start": 419.63,
+          "end": 419.95,
+          "probability": 0.998752236366272
+        },
+        {
+          "word": " guard",
+          "start": 419.95,
+          "end": 420.19,
+          "probability": 0.9923323392868042
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "start": 420.19,
+      "end": 427.67,
+      "text": "against its perils, building a future that is not only smart, but also just and uniquely",
+      "avg_logprob": -0.15866389733621444,
+      "no_speech_prob": 0.02337142825126648,
+      "compression_ratio": 1.5108225108225108,
+      "words": [
+        {
+          "word": " against",
+          "start": 420.19,
+          "end": 420.71,
+          "probability": 0.9986191987991333
+        },
+        {
+          "word": " its",
+          "start": 420.71,
+          "end": 420.97,
+          "probability": 0.9861913919448853
+        },
+        {
+          "word": " perils,",
+          "start": 420.97,
+          "end": 421.53,
+          "probability": 0.9655293822288513
+        },
+        {
+          "word": " building",
+          "start": 422.15,
+          "end": 422.57,
+          "probability": 0.9889822602272034
+        },
+        {
+          "word": " a",
+          "start": 422.57,
+          "end": 422.81,
+          "probability": 0.9985285997390747
+        },
+        {
+          "word": " future",
+          "start": 422.81,
+          "end": 423.15,
+          "probability": 0.9978552460670471
+        },
+        {
+          "word": " that",
+          "start": 423.15,
+          "end": 423.39,
+          "probability": 0.9956032037734985
+        },
+        {
+          "word": " is",
+          "start": 423.39,
+          "end": 423.59,
+          "probability": 0.9902480244636536
+        },
+        {
+          "word": " not",
+          "start": 423.59,
+          "end": 423.77,
+          "probability": 0.9972718358039856
+        },
+        {
+          "word": " only",
+          "start": 423.77,
+          "end": 424.07,
+          "probability": 0.9982370138168335
+        },
+        {
+          "word": " smart,",
+          "start": 424.07,
+          "end": 424.59,
+          "probability": 0.9928739070892334
+        },
+        {
+          "word": " but",
+          "start": 425.21,
+          "end": 425.57,
+          "probability": 0.9974095225334167
+        },
+        {
+          "word": " also",
+          "start": 425.57,
+          "end": 425.91,
+          "probability": 0.9973049163818359
+        },
+        {
+          "word": " just",
+          "start": 425.91,
+          "end": 426.43,
+          "probability": 0.9935210347175598
+        },
+        {
+          "word": " and",
+          "start": 426.43,
+          "end": 427.23,
+          "probability": 0.8179344534873962
+        },
+        {
+          "word": " uniquely",
+          "start": 427.23,
+          "end": 427.67,
+          "probability": 0.9794092774391174
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "start": 427.67,
+      "end": 428.17,
+      "text": "African.",
+      "avg_logprob": -0.15866389733621444,
+      "no_speech_prob": 0.02337142825126648,
+      "compression_ratio": 1.5108225108225108,
+      "words": [
+        {
+          "word": " African.",
+          "start": 427.67,
+          "end": 428.17,
+          "probability": 0.9811421036720276
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "start": 429.58,
+      "end": 435.9,
+      "text": "In conclusion, the relationship between AI and the youth isn't a passive one.",
+      "avg_logprob": -0.15866389733621444,
+      "no_speech_prob": 0.02337142825126648,
+      "compression_ratio": 1.5108225108225108,
+      "words": [
+        {
+          "word": " In",
+          "start": 429.58,
+          "end": 429.94,
+          "probability": 0.9901186227798462
+        },
+        {
+          "word": " conclusion,",
+          "start": 429.94,
+          "end": 430.48,
+          "probability": 0.9914759397506714
+        },
+        {
+          "word": " the",
+          "start": 431.4,
+          "end": 431.62,
+          "probability": 0.9916872382164001
+        },
+        {
+          "word": " relationship",
+          "start": 431.62,
+          "end": 432.28,
+          "probability": 0.9943751096725464
+        },
+        {
+          "word": " between",
+          "start": 432.28,
+          "end": 432.7,
+          "probability": 0.9991113543510437
+        },
+        {
+          "word": " AI",
+          "start": 432.7,
+          "end": 433.16,
+          "probability": 0.9883217215538025
+        },
+        {
+          "word": " and",
+          "start": 433.16,
+          "end": 433.8,
+          "probability": 0.9983012080192566
+        },
+        {
+          "word": " the",
+          "start": 433.8,
+          "end": 433.96,
+          "probability": 0.9836283922195435
+        },
+        {
+          "word": " youth",
+          "start": 433.96,
+          "end": 434.26,
+          "probability": 0.9874762892723083
+        },
+        {
+          "word": " isn't",
+          "start": 434.26,
+          "end": 434.96,
+          "probability": 0.9889493584632874
+        },
+        {
+          "word": " a",
+          "start": 434.96,
+          "end": 435.18,
+          "probability": 0.9907755255699158
+        },
+        {
+          "word": " passive",
+          "start": 435.18,
+          "end": 435.54,
+          "probability": 0.9883224368095398
+        },
+        {
+          "word": " one.",
+          "start": 435.54,
+          "end": 435.9,
+          "probability": 0.995092511177063
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "start": 435.9,
+      "end": 438.02,
+      "text": "It's a dynamic dance.",
+      "avg_logprob": -0.1684501650077956,
+      "no_speech_prob": 0.1871080845594406,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " It's",
+          "start": 435.9,
+          "end": 436.82,
+          "probability": 0.5345562696456909
+        },
+        {
+          "word": " a",
+          "start": 436.82,
+          "end": 436.9,
+          "probability": 0.9631540775299072
+        },
+        {
+          "word": " dynamic",
+          "start": 436.9,
+          "end": 437.42,
+          "probability": 0.9973543882369995
+        },
+        {
+          "word": " dance.",
+          "start": 437.42,
+          "end": 438.02,
+          "probability": 0.8074747323989868
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "start": 438.9,
+      "end": 445.32,
+      "text": "Yes, there are risks to employment and creativity that we must mitigate through education and",
+      "avg_logprob": -0.1684501650077956,
+      "no_speech_prob": 0.1871080845594406,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " Yes,",
+          "start": 438.9,
+          "end": 439.42,
+          "probability": 0.9808666706085205
+        },
+        {
+          "word": " there",
+          "start": 439.84,
+          "end": 440.04,
+          "probability": 0.9716073274612427
+        },
+        {
+          "word": " are",
+          "start": 440.04,
+          "end": 440.2,
+          "probability": 0.9977520108222961
+        },
+        {
+          "word": " risks",
+          "start": 440.2,
+          "end": 440.52,
+          "probability": 0.9899124503135681
+        },
+        {
+          "word": " to",
+          "start": 440.52,
+          "end": 440.74,
+          "probability": 0.9977795481681824
+        },
+        {
+          "word": " employment",
+          "start": 440.74,
+          "end": 441.34,
+          "probability": 0.9897794127464294
+        },
+        {
+          "word": " and",
+          "start": 441.34,
+          "end": 441.68,
+          "probability": 0.9931243062019348
+        },
+        {
+          "word": " creativity",
+          "start": 441.68,
+          "end": 442.16,
+          "probability": 0.9936716556549072
+        },
+        {
+          "word": " that",
+          "start": 442.16,
+          "end": 442.7,
+          "probability": 0.9844071865081787
+        },
+        {
+          "word": " we",
+          "start": 442.7,
+          "end": 442.88,
+          "probability": 0.9977243542671204
+        },
+        {
+          "word": " must",
+          "start": 442.88,
+          "end": 443.12,
+          "probability": 0.9944127202033997
+        },
+        {
+          "word": " mitigate",
+          "start": 443.12,
+          "end": 443.68,
+          "probability": 0.9974115490913391
+        },
+        {
+          "word": " through",
+          "start": 443.68,
+          "end": 444.38,
+          "probability": 0.9862716197967529
+        },
+        {
+          "word": " education",
+          "start": 444.38,
+          "end": 445.02,
+          "probability": 0.998144268989563
+        },
+        {
+          "word": " and",
+          "start": 445.02,
+          "end": 445.32,
+          "probability": 0.9953086972236633
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "start": 445.32,
+      "end": 445.86,
+      "text": "policy.",
+      "avg_logprob": -0.1684501650077956,
+      "no_speech_prob": 0.1871080845594406,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " policy.",
+          "start": 445.32,
+          "end": 445.86,
+          "probability": 0.9978184700012207
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "start": 446.54,
+      "end": 451.5,
+      "text": "But the overwhelming narrative must be one of opportunity and agency.",
+      "avg_logprob": -0.1684501650077956,
+      "no_speech_prob": 0.1871080845594406,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " But",
+          "start": 446.54,
+          "end": 446.82,
+          "probability": 0.9902833700180054
+        },
+        {
+          "word": " the",
+          "start": 446.82,
+          "end": 447.02,
+          "probability": 0.9863606691360474
+        },
+        {
+          "word": " overwhelming",
+          "start": 447.02,
+          "end": 447.58,
+          "probability": 0.9982977509498596
+        },
+        {
+          "word": " narrative",
+          "start": 447.58,
+          "end": 448.28,
+          "probability": 0.9977518916130066
+        },
+        {
+          "word": " must",
+          "start": 448.28,
+          "end": 449.02,
+          "probability": 0.991259753704071
+        },
+        {
+          "word": " be",
+          "start": 449.02,
+          "end": 449.3,
+          "probability": 0.9990442395210266
+        },
+        {
+          "word": " one",
+          "start": 449.3,
+          "end": 449.56,
+          "probability": 0.996843695640564
+        },
+        {
+          "word": " of",
+          "start": 449.56,
+          "end": 449.7,
+          "probability": 0.9977205395698547
+        },
+        {
+          "word": " opportunity",
+          "start": 449.7,
+          "end": 450.34,
+          "probability": 0.9941765069961548
+        },
+        {
+          "word": " and",
+          "start": 450.34,
+          "end": 450.94,
+          "probability": 0.9938576817512512
+        },
+        {
+          "word": " agency.",
+          "start": 450.94,
+          "end": 451.5,
+          "probability": 0.9980908036231995
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "start": 452.35,
+      "end": 458.49,
+      "text": "By empowering our youth with the right skills, ethical frameworks and platforms for innovation,",
+      "avg_logprob": -0.1684501650077956,
+      "no_speech_prob": 0.1871080845594406,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " By",
+          "start": 452.35,
+          "end": 452.69,
+          "probability": 0.9964885711669922
+        },
+        {
+          "word": " empowering",
+          "start": 452.69,
+          "end": 453.29,
+          "probability": 0.9945154786109924
+        },
+        {
+          "word": " our",
+          "start": 453.29,
+          "end": 453.59,
+          "probability": 0.9950392842292786
+        },
+        {
+          "word": " youth",
+          "start": 453.59,
+          "end": 453.93,
+          "probability": 0.9988133907318115
+        },
+        {
+          "word": " with",
+          "start": 453.93,
+          "end": 454.25,
+          "probability": 0.9889963865280151
+        },
+        {
+          "word": " the",
+          "start": 454.25,
+          "end": 454.39,
+          "probability": 0.9968453049659729
+        },
+        {
+          "word": " right",
+          "start": 454.39,
+          "end": 454.61,
+          "probability": 0.9931241869926453
+        },
+        {
+          "word": " skills,",
+          "start": 454.61,
+          "end": 455.07,
+          "probability": 0.9977770447731018
+        },
+        {
+          "word": " ethical",
+          "start": 455.69,
+          "end": 455.99,
+          "probability": 0.9993818998336792
+        },
+        {
+          "word": " frameworks",
+          "start": 455.99,
+          "end": 456.59,
+          "probability": 0.9964818954467773
+        },
+        {
+          "word": " and",
+          "start": 456.59,
+          "end": 456.93,
+          "probability": 0.5869467258453369
+        },
+        {
+          "word": " platforms",
+          "start": 456.93,
+          "end": 457.39,
+          "probability": 0.9963441491127014
+        },
+        {
+          "word": " for",
+          "start": 457.39,
+          "end": 457.79,
+          "probability": 0.9967575669288635
+        },
+        {
+          "word": " innovation,",
+          "start": 457.79,
+          "end": 458.49,
+          "probability": 0.9984514713287354
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "start": 459.05,
+      "end": 464.03,
+      "text": "we can ensure they are the architects of Zimbabwe's AI-powered future.",
+      "avg_logprob": -0.1684501650077956,
+      "no_speech_prob": 0.1871080845594406,
+      "compression_ratio": 1.5254237288135593,
+      "words": [
+        {
+          "word": " we",
+          "start": 459.05,
+          "end": 459.31,
+          "probability": 0.9975022673606873
+        },
+        {
+          "word": " can",
+          "start": 459.31,
+          "end": 459.51,
+          "probability": 0.9994945526123047
+        },
+        {
+          "word": " ensure",
+          "start": 459.51,
+          "end": 460.17,
+          "probability": 0.9879742860794067
+        },
+        {
+          "word": " they",
+          "start": 460.17,
+          "end": 460.85,
+          "probability": 0.9706997871398926
+        },
+        {
+          "word": " are",
+          "start": 460.85,
+          "end": 461.09,
+          "probability": 0.9965147972106934
+        },
+        {
+          "word": " the",
+          "start": 461.09,
+          "end": 461.23,
+          "probability": 0.982393741607666
+        },
+        {
+          "word": " architects",
+          "start": 461.23,
+          "end": 461.77,
+          "probability": 0.9007468819618225
+        },
+        {
+          "word": " of",
+          "start": 461.77,
+          "end": 462.09,
+          "probability": 0.997883141040802
+        },
+        {
+          "word": " Zimbabwe's",
+          "start": 462.09,
+          "end": 462.81,
+          "probability": 0.9298055648803711
+        },
+        {
+          "word": " AI",
+          "start": 462.81,
+          "end": 463.05,
+          "probability": 0.9895200729370117
+        },
+        {
+          "word": "-powered",
+          "start": 463.05,
+          "end": 463.57,
+          "probability": 0.8435861468315125
+        },
+        {
+          "word": " future.",
+          "start": 463.57,
+          "end": 464.03,
+          "probability": 0.9742956757545471
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "start": 464.03,
+      "end": 467.37,
+      "text": "not just its subjects. Thank you.",
+      "avg_logprob": -0.538144436749545,
+      "no_speech_prob": 0.016598070040345192,
+      "compression_ratio": 0.8048780487804879,
+      "words": [
+        {
+          "word": " not",
+          "start": 464.03,
+          "end": 465.05,
+          "probability": 0.2958090603351593
+        },
+        {
+          "word": " just",
+          "start": 465.05,
+          "end": 465.35,
+          "probability": 0.9952255487442017
+        },
+        {
+          "word": " its",
+          "start": 465.35,
+          "end": 465.61,
+          "probability": 0.8842549920082092
+        },
+        {
+          "word": " subjects.",
+          "start": 465.61,
+          "end": 466.15,
+          "probability": 0.8816956281661987
+        },
+        {
+          "word": " Thank",
+          "start": 466.57,
+          "end": 467.05,
+          "probability": 0.9555297493934631
+        },
+        {
+          "word": " you.",
+          "start": 467.05,
+          "end": 467.37,
+          "probability": 0.9619410634040833
+        }
+      ]
+    }
+  ],
+  "text": "Greetings, colleagues. My topic is AI and the youth, shaping the next generation.\nMy name is Dr. Tendai Zengeni, and I'm a lecturer at Africa University in Zimbabwe,\nas well as a member of the UNESCO Women for Ethical AI,\nand I'm also a member of UNESCO's Ethical AI Experts Without Borders,\nas well as an alumni of African Women in Tech and AI,\nwhere I was trained at the International Center for Artificial Intelligence in Morocco.\nMy work focuses on AI ethics research among other disciplines like high-speed optical communications,\nwhere I did my studies in Malaysia and Greece.\nI'm here today, not just as an expert, but as an advocate for the immense potential of Zimbabwean youth.\nWe are standing at a pivotal moment and our discussion today is about ensuring our young\npeople are equipped not just to survive this AI driven future but to shape it. Many thanks\nto the conveners of the conference who are UNESCO and thank you for giving us this incredible\nplatform that is AI for IA. Also I want to thank UNESCO ROSA for inviting me as a\npanelist on the conference. It's a privilege to be here among many distinguished scholars\nto discuss a topic so close to my heart. Firstly, I'd like to talk about the risks and opportunities\nin terms of how AI affects the youth employment and creativity. Let's address the elephant\nin the room first. The risk of displacement. For a young graduate entering the job market, AI's\nautomation of tasks in sectors like data entry, customer service, and even basic coding is a\ngenuine concern. It can feel like the goalposts are moving just as they are about to score.\nThe risk isn't just job loss. It's a potential erosion of creative confidence.\nIf AI can generate art, if it can generate music and essays in seconds, what is the value of human creativity?\nThis can lead to a dependency where we stop exercising our own creative muscles, the very muscles that make us innovative and resilient.\nHowever, focusing on the risks is a disservice to our youth.\nThe real conversation is about transition and not replacement.\nSo when we talk of employment, AI is a powerful tool for job creation and augmentation.\nIt is not going to replace the marketer, but a marketer who uses AI for data analysis\nand customer insight generation will replace the one who doesn't.\nThe future of employment is human to AI collaboration.\nFor our youth, this means the most valuable skills will be critical thinking, prompt\nengineering, emotional intelligence, and complex problem-solving skills that skills that AI\ncannot replicate.\nAnd then when we talk of creativity, this is the most exciting part.\nAI should be viewed as the ultimate collaborator and amplifier.\nImagine a young filmmaker in Bluay using AI to storyboard scenes and generate\nconcept art, freeing up the budget for local actors and the crew, or a musician\nin Harare using AI to experiment with new sounds rooted in Vera rhythms. AI does\nnot kill creativity. It democratizes it. It lowers the barriers to entry, allowing\nmore young people to become creators, builders and entrepreneurs. The opportunity is to move from\nbeing passive consumers of global tech to active creators of local solutions. Secondly, I will\ndiscuss the role of young innovators in developing ethical AI solutions. Why must the youth lead\nthis charge. It's because the ethical challenges of AI which are bias, privacy,\nmisinformation, they are not abstract. They have real-world consequences and if\nAI is built by a homogenous group without diverse perspectives it will bake\nin their biases. We've seen algorithms that don't recognize African faces or\ncredit scoring models that disadvantage low-income communities.\nSo the youth are the primary users and the ones who will live the longest with the consequences\nof the AI systems that are built today.\nTherefore, they have the greatest stake in ensuring these systems are fair, transparent\nand accountable.\nTheir lived experience is not a bonus, but a non-negotiable component of ethical AI.\nSo how do we empower them to build this ethical future?\nWe need to embed ethics in education.\nWe need to move beyond just teaching how to code AI.\nWe must integrate ethics, sociology, and African philosophy into STEM curricula.\nYoung innovators should be asking, who is this for?\nWho might it harm?\nHow does this reflect our Ubuntu principles?\nAnd then next we need to create sandboxes for innovation.\nYoung people need safe spaces to experiment, to fail, to unlearn.\nThis means supporting local hackathons, incubators and innovation hubs focused on solving African problems\nlike using AI for drought resistant crop analysis, diagnosing local diseases or preserving indigenous languages.\nThen we need to demand a seat at the table.\nFinally, we must encourage young innovators to not just build apps, but to actively engage in policy discussions.\nThey must be in the room when regulations are drafted to ensure their voices shape the governance of technology that will define their lives.\nSo, the goal is to foster a generation of techno-optimists with a critical lens.\nYoung people who are excited by AI's potential, but are also equipped and empowered to guard\nagainst its perils, building a future that is not only smart, but also just and uniquely\nAfrican.\nIn conclusion, the relationship between AI and the youth isn't a passive one.\nIt's a dynamic dance.\nYes, there are risks to employment and creativity that we must mitigate through education and\npolicy.\nBut the overwhelming narrative must be one of opportunity and agency.\nBy empowering our youth with the right skills, ethical frameworks and platforms for innovation,\nwe can ensure they are the architects of Zimbabwe's AI-powered future.\nnot just its subjects. Thank you."
+}

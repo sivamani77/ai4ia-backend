@@ -6,13 +6,11 @@ build via semantic retrieval, and every generated claim must carry
 the real fragments, drop dangling ones, and report an `evidence_coverage`
 score. This is what separates a grounded synthesis from a plausible paragraph.
 """
-import json
-from datetime import datetime
-from pathlib import Path
+from datetime import datetime, timezone
 from typing import Any
 
 from app.core.config import INSIGHT_MODEL, INSIGHT_DEFAULT_LIMIT
-from app.core.paths import INSIGHTS_DIR
+from app.db.repositories.insight_repository import InsightRepository
 from app.services import embedding_index, fragment_store
 from app.services.llm_service import generate_json
 
@@ -119,8 +117,9 @@ def generate_insight(query: str, filters: dict | None = None, limit: int | None 
     total_claims = len(patterns) + len(contrasts) + len(unsupported)
     coverage = round((len(patterns) + len(contrasts)) / total_claims, 3) if total_claims else 0.0
 
-    insight_id = f"insight_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}"
+    insight_id = f"insight_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}"
     insight = {
+        "id": insight_id,
         "insight_id": insight_id,
         "title": raw.get("title") or query[:80],
         "query": query,
@@ -133,38 +132,34 @@ def generate_insight(query: str, filters: dict | None = None, limit: int | None 
         "evidence_coverage": coverage,
         "evidence_pool": pool,
         "models": {"llm": INSIGHT_MODEL, "embedding": "nomic-embed-text:v1.5"},
-        "created_at": datetime.utcnow().isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }
-    _save(insight)
+    InsightRepository().create(insight)
     return insight
 
 
-def _save(insight: dict) -> None:
-    INSIGHTS_DIR.mkdir(parents=True, exist_ok=True)
-    (INSIGHTS_DIR / f"{insight['insight_id']}.json").write_text(
-        json.dumps(insight, ensure_ascii=False, indent=2), encoding="utf-8")
-
-
 def list_insights() -> list[dict]:
-    if not INSIGHTS_DIR.exists():
-        return []
-    out = []
-    for p in sorted(INSIGHTS_DIR.glob("insight_*.json"), reverse=True):
-        try:
-            d = json.loads(p.read_text(encoding="utf-8"))
-            out.append({"insight_id": d["insight_id"], "title": d.get("title"),
-                        "query": d.get("query"), "created_at": d.get("created_at"),
-                        "evidence_coverage": d.get("evidence_coverage")})
-        except Exception:  # noqa: BLE001
-            continue
-    return out
+    rows = InsightRepository().list()
+    return [
+        {
+            "insight_id": r.get("id"),
+            "title": r.get("title"),
+            "query": r.get("query"),
+            "created_at": r.get("created_at"),
+            "evidence_coverage": r.get("evidence_coverage"),
+        }
+        for r in rows
+    ]
 
 
 def get_insight(insight_id: str) -> dict | None:
-    path = INSIGHTS_DIR / f"{insight_id}.json"
-    if not path.exists():
+    row = InsightRepository().get(insight_id)
+    if row is None:
         return None
-    return json.loads(path.read_text(encoding="utf-8"))
+    # Expose insight_id key so callers that expect it still work
+    result = dict(row)
+    result.setdefault("insight_id", row.get("id"))
+    return result
 
 
 def build_sources_map(insight: dict) -> dict:

@@ -1,0 +1,73 @@
+{
+  "job_id": "vjob_20260622_062519_f95f26a4",
+  "status": "failed",
+  "prompt": "Create a video on ethics",
+  "target_duration": 30,
+  "current_stage": "09_export",
+  "progress_percent": 79,
+  "stage_progress_percent": 15,
+  "message": "Rendering video segments",
+  "created_at": "2026-06-22T06:25:19.618069",
+  "started_at": "2026-06-22T06:25:19.620318",
+  "updated_at": "2026-06-22T06:29:10.392823",
+  "completed_at": "2026-06-22T06:29:10.392836",
+  "request": {
+    "prompt": "Create a video on ethics",
+    "target_duration": 30,
+    "style": "documentary",
+    "validation_mode": "iterative_llm",
+    "visual_mode": "generated_assets",
+    "subtitle_mode": "external",
+    "max_validation_iterations": 3,
+    "burn_subtitles": false
+  },
+  "paths": {
+    "storyline_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260622_115717.json",
+    "validated_storyline_path": "/home/ash/ai4ia-demo-pipeline/data/storylines/storyline_20260622_115717_validated.json",
+    "asset_manifest_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/latest_asset_manifest.json",
+    "export_manifest_path": null,
+    "video_path": null,
+    "srt_path": null,
+    "vtt_path": null
+  },
+  "stage_status": {
+    "input_validation": {
+      "status": "completed",
+      "progress_percent": 100,
+      "summary": "Validation passed"
+    },
+    "07_storyline": {
+      "status": "completed",
+      "progress_percent": 100,
+      "summary": "Storyline created — 5 candidate fragments"
+    },
+    "07b_validate_storyline": {
+      "status": "completed",
+      "progress_percent": 100,
+      "summary": "0 speaker clips, 6 narration brolls, 6 sections covered"
+    },
+    "08_assets": {
+      "status": "completed",
+      "progress_percent": 100,
+      "summary": "6 visuals, 6 voiceovers generated",
+      "visual_quality_gates": {
+        "all_narration_broll_have_generated_visual": true,
+        "generated_visual_segments": 6,
+        "muted_archive_narration_segments": 0,
+        "total_narration_broll": 6
+      }
+    },
+    "09_export": {
+      "status": "running",
+      "progress_percent": 15,
+      "summary": "Rendering video segments"
+    }
+  },
+  "warnings": [],
+  "error": {
+    "type": "pipeline_error",
+    "stage": "09_export",
+    "message": "09_export_video.py exited 1: Traceback (most recent call last):\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/09_export_video.py\", line 2171, in <module>\n    main()\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/09_export_video.py\", line 2161, in main\n    output_path = export_video(\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/09_export_video.py\", line 1949, in export_video\n    raise RuntimeError(\"No video segments created.\")\nRuntimeError: No video segments created.\n",
+    "details": "Traceback (most recent call last):\n  File \"/home/ash/ai4ia-demo-pipeline/backend/app/services/video_job_runner.py\", line 681, in run_video_job\n    video_path, export_manifest_path = _stage_09_export(job_id, request, manifest_path)\n  File \"/home/ash/ai4ia-demo-pipeline/backend/app/services/video_job_runner.py\", line 498, in _stage_09_export\n    raise RuntimeError(f\"09_export_video.py exited {code}: {stderr[-1000:]}\")\nRuntimeError: 09_export_video.py exited 1: Traceback (most recent call last):\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/09_export_video.py\", line 2171, in <module>\n    main()\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/09_export_video.py\", line 2161, in main\n    output_path = export_video(\n  File \"/home/ash/ai4ia-demo-pipeline/scripts/09_export_video.py\", line 1949, in export_video\n    raise RuntimeError(\"No video segments created.\")\nRuntimeError: No video segments created.\n\n"
+  }
+}

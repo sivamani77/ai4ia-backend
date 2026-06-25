@@ -142,12 +142,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.010055"
+      "classified_at": "2026-06-16T12:54:14.010055",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0002",
@@ -247,12 +249,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.015087"
+      "classified_at": "2026-06-16T12:54:14.015087",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0003",
@@ -317,12 +321,14 @@
       "clip_usage_candidates": [
         "speaker_soundbite"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.020050"
+      "classified_at": "2026-06-16T12:54:14.020050",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0004",
@@ -446,12 +452,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.025406"
+      "classified_at": "2026-06-16T12:54:14.025406",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0005",
@@ -578,14 +586,17 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.030307"
+      "classified_at": "2026-06-16T12:54:14.030307",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0006",
@@ -678,12 +689,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.035204"
+      "classified_at": "2026-06-16T12:54:14.035204",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0007",
@@ -830,12 +843,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.040257"
+      "classified_at": "2026-06-16T12:54:14.040257",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0008",
@@ -923,12 +938,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.045251"
+      "classified_at": "2026-06-16T12:54:14.045251",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0009",
@@ -1023,16 +1040,17 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 5: Open Data & Information Accessibility",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.050002"
+      "classified_at": "2026-06-16T12:54:14.050002",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0010",
@@ -1155,12 +1173,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.055564"
+      "classified_at": "2026-06-16T12:54:14.055564",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0011",
@@ -1225,12 +1245,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.060886"
+      "classified_at": "2026-06-16T12:54:14.060886",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0012",
@@ -1296,12 +1318,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.066244"
+      "classified_at": "2026-06-16T12:54:14.066244",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0013",
@@ -1360,12 +1384,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.071403"
+      "classified_at": "2026-06-16T12:54:14.071403",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0014",
@@ -1429,12 +1455,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.076532"
+      "classified_at": "2026-06-16T12:54:14.076532",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0015",
@@ -1497,14 +1525,16 @@
       "primary_theme": "AI in Education & Creative Industries",
       "primary_chapter": "Ch 21: Indigenous Knowledge, Language & Localized AI",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.081910"
+      "classified_at": "2026-06-16T12:54:14.081910",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0016",
@@ -1562,12 +1592,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.087308"
+      "classified_at": "2026-06-16T12:54:14.087308",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0017",
@@ -1631,14 +1663,16 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 2: AI Governance Models & Oversight",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.092951"
+      "classified_at": "2026-06-16T12:54:14.092951",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0018",
@@ -1700,12 +1734,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.098064"
+      "classified_at": "2026-06-16T12:54:14.098064",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0019",
@@ -1761,12 +1797,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.104217"
+      "classified_at": "2026-06-16T12:54:14.104217",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0020",
@@ -1831,12 +1869,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.111816"
+      "classified_at": "2026-06-16T12:54:14.111816",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0021",
@@ -1898,14 +1938,16 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.117569"
+      "classified_at": "2026-06-16T12:54:14.117569",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0022",
@@ -1969,14 +2011,16 @@
       "primary_theme": "AI in Education & Creative Industries",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.85,
       "narration_support_score": 0.35,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.122964"
+      "classified_at": "2026-06-16T12:54:14.122964",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0023",
@@ -2041,12 +2085,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.129034"
+      "classified_at": "2026-06-16T12:54:14.129034",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0024",
@@ -2104,12 +2150,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.85,
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.134728"
+      "classified_at": "2026-06-16T12:54:14.134728",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0025",
@@ -2173,12 +2221,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.140128"
+      "classified_at": "2026-06-16T12:54:14.140128",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0026",
@@ -2239,12 +2289,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.145557"
+      "classified_at": "2026-06-16T12:54:14.145557",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0027",
@@ -2301,12 +2353,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.150930"
+      "classified_at": "2026-06-16T12:54:14.150930",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0028",
@@ -2365,12 +2419,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.157124"
+      "classified_at": "2026-06-16T12:54:14.157124",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0029",
@@ -2426,14 +2482,16 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.162430"
+      "classified_at": "2026-06-16T12:54:14.162430",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0030",
@@ -2495,12 +2553,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.85,
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.167162"
+      "classified_at": "2026-06-16T12:54:14.167162",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0031",
@@ -2574,15 +2634,18 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 7: Government Information & Public Services",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.171577"
+      "classified_at": "2026-06-16T12:54:14.171577",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0032",
@@ -2648,12 +2711,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.175843"
+      "classified_at": "2026-06-16T12:54:14.175843",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0033",
@@ -2744,12 +2809,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.85,
       "narration_support_score": 0.6,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.180586"
+      "classified_at": "2026-06-16T12:54:14.180586",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0034",
@@ -2809,12 +2876,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.27,
       "clarity_score": 0.85,
       "narration_support_score": 0.55,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.185040"
+      "classified_at": "2026-06-16T12:54:14.185040",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0035",
@@ -2944,17 +3013,18 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 5: Open Data & Information Accessibility",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.189566"
+      "classified_at": "2026-06-16T12:54:14.189566",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0036",
@@ -3021,15 +3091,16 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 5: Open Data & Information Accessibility",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.33,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.194688"
+      "classified_at": "2026-06-16T12:54:14.194688",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0037",
@@ -3144,14 +3215,16 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.199257"
+      "classified_at": "2026-06-16T12:54:14.199257",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0038",
@@ -3288,12 +3361,14 @@
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.203774"
+      "classified_at": "2026-06-16T12:54:14.203774",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0039",
@@ -3410,15 +3485,18 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 5: Open Data & Information Accessibility",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.208163"
+      "classified_at": "2026-06-16T12:54:14.208163",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0040",
@@ -3523,12 +3601,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.212610"
+      "classified_at": "2026-06-16T12:54:14.212610",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0041",
@@ -3613,12 +3693,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.217107"
+      "classified_at": "2026-06-16T12:54:14.217107",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0042",
@@ -3683,12 +3765,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.27,
       "clarity_score": 0.6,
       "narration_support_score": 0.35,
       "classification_confidence": 0.3,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.219838"
+      "classified_at": "2026-06-16T12:54:14.219838",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0043",
@@ -3777,15 +3861,16 @@
       "primary_theme": "AI in Education & Creative Industries",
       "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.27,
       "clarity_score": 0.75,
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.223946"
+      "classified_at": "2026-06-16T12:54:14.223946",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0044",
@@ -3901,12 +3986,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.6,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.227814"
+      "classified_at": "2026-06-16T12:54:14.227814",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0045",
@@ -3996,12 +4083,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.232236"
+      "classified_at": "2026-06-16T12:54:14.232236",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0046",
@@ -4133,12 +4222,14 @@
       "clip_usage_candidates": [
         "speaker_soundbite"
       ],
-      "quote_strength": 0.77,
+      "quote_strength": 0.5,
       "clarity_score": 0.75,
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.236913"
+      "classified_at": "2026-06-16T12:54:14.236913",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0047",
@@ -4220,12 +4311,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.241261"
+      "classified_at": "2026-06-16T12:54:14.241261",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0048",
@@ -4315,12 +4408,14 @@
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.58,
       "clarity_score": 0.75,
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.245580"
+      "classified_at": "2026-06-16T12:54:14.245580",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0049",
@@ -4422,12 +4517,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.42,
       "clarity_score": 0.75,
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.249774"
+      "classified_at": "2026-06-16T12:54:14.249774",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0050",
@@ -4567,12 +4664,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.85,
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.254289"
+      "classified_at": "2026-06-16T12:54:14.254289",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0051",
@@ -4708,12 +4807,14 @@
         "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.7,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.258885"
+      "classified_at": "2026-06-16T12:54:14.258885",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     },
     {
       "fragment_id": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0052",
@@ -4790,12 +4891,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.27,
       "clarity_score": 0.85,
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:14.262282"
+      "classified_at": "2026-06-16T12:54:14.262282",
+      "video_year": 2026,
+      "video_upload_date": "20260112"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

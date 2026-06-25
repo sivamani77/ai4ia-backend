@@ -107,12 +107,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.322674"
+      "classified_at": "2026-06-16T12:54:30.322674",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0143_akYE4Tu12Eg_Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems_0002",
@@ -254,12 +256,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.327981"
+      "classified_at": "2026-06-16T12:54:30.327981",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0143_akYE4Tu12Eg_Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems_0003",
@@ -397,12 +401,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.333281"
+      "classified_at": "2026-06-16T12:54:30.333281",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0143_akYE4Tu12Eg_Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems_0004",
@@ -512,12 +518,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.340015"
+      "classified_at": "2026-06-16T12:54:30.340015",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0143_akYE4Tu12Eg_Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems_0005",
@@ -645,12 +653,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.345588"
+      "classified_at": "2026-06-16T12:54:30.345588",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0143_akYE4Tu12Eg_Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems_0006",
@@ -766,12 +776,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.352104"
+      "classified_at": "2026-06-16T12:54:30.352104",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0143_akYE4Tu12Eg_Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems_0007",
@@ -911,15 +923,18 @@
       "primary_theme": "AI, Law & Human Rights",
       "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.58,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.358216"
+      "classified_at": "2026-06-16T12:54:30.358216",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0143_akYE4Tu12Eg_Matias Karlsson - Leveraging AI to Improve Justice and Monitor Judicial Systems_0008",
@@ -1047,12 +1062,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.33,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.362380"
+      "classified_at": "2026-06-16T12:54:30.362380",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

@@ -1,0 +1,312 @@
+{
+  "insight_id": "insight_20260622_104901",
+  "title": "Empowering Youth in the Digital Age",
+  "query": "AI inclusion, youth empowerment, and access to information in the digital age",
+  "filters": {},
+  "summary": "The AI4IA conference highlights the importance of inclusive access to information and education for youth empowerment. Experts emphasize the need for digital literacy skills, critical thinking, and media literacy to navigate the complexities of the digital age. However, challenges such as the digital divide, misinformation, and accessibility barriers persist.",
+  "patterns": [
+    {
+      "statement": "Inclusive access to information is crucial for empowering youth",
+      "fragment_refs": [
+        1,
+        3,
+        4
+      ],
+      "support_count": 3
+    },
+    {
+      "statement": "Digital literacy skills are essential for navigating the digital age",
+      "fragment_refs": [
+        2,
+        5,
+        11
+      ],
+      "support_count": 3
+    }
+  ],
+  "contrasts": [
+    {
+      "statement": "While AI can promote inclusiveness, it also risks exacerbating existing inequalities",
+      "fragment_refs": [
+        6,
+        7
+      ],
+      "support_count": 2
+    },
+    {
+      "statement": "The benefits of technology are not equally accessible to all, particularly marginalized groups",
+      "fragment_refs": [
+        8,
+        12
+      ],
+      "support_count": 2
+    }
+  ],
+  "recommended_clips": [
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+      "ref": 1,
+      "reason": "This clip sets the tone for the importance of inclusive access to information and education",
+      "stream_url": "/api/archive/videos/0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1/stream",
+      "start": 63.2,
+      "end": 131.37
+    },
+    {
+      "fragment_id": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility_0004",
+      "ref": 4,
+      "reason": "This clip highlights the need for digital literacy skills and critical thinking in the digital age",
+      "stream_url": "/api/archive/videos/0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility/stream",
+      "start": 168.52,
+      "end": 228.12
+    }
+  ],
+  "unsupported_claims": [],
+  "evidence_coverage": 1.0,
+  "evidence_pool": [
+    {
+      "ref": 1,
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "start": 63.2,
+      "end": 131.37,
+      "duration": 68.17,
+      "stream_url": "/api/archive/videos/0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1/stream",
+      "similarity": 0.8396,
+      "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only if it is inclusive, transparent and trusted. Even Zimbabwean, we face a dual imperative. The agent needs to address access to information for all and the necessity of empowering our youth with the skills and tools necessary to thrive in a digital era. AI can support more accurate modeling, improve early warning systems, Indian hands, communication, the same time, AI can also transform education, expand access to knowledge, and open new pathways for civic engagement. However, this requires policies and practices that are inclusive and that actively involve young voices, you."
+    },
+    {
+      "ref": 2,
+      "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0013",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "start": 663.5,
+      "end": 714.98,
+      "duration": 51.48,
+      "stream_url": "/api/archive/videos/0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth/stream",
+      "similarity": 0.773,
+      "text": "We want to understand that providing access to digital communication tools is important especially today in our info sphere. However, it is not enough without proper education increased access to information connectivity and technologies can both significant risks the research shows a paradox we have digitally savvy individuals who are more educated or more adept at identifying this information online. Yet people who spend an extensive amount of time online and interact regularly with these technologies are more susceptible to the fake news which you would believe that they aren't because of all the times that is spent on there. The solution therefore lies in coupling accessibility with comprehensive digital education and here we want to foster digital literacy by equipping not people with the tools and the knowledge we can empower them to navigate the digital landscape critically and safely."
+    },
+    {
+      "ref": 3,
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0011",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "start": 1098.8,
+      "end": 1173.72,
+      "duration": 74.92,
+      "stream_url": "/api/archive/videos/0103_iHUEZ0WiErM_China Satellite Event/stream",
+      "similarity": 0.7724,
+      "text": "Ladies and gentlemen, first and foremost, I would like to extend my warmest congratulations to CUC on the occasion of its 70th anniversary. Your unweaving commitment to fostering digital inclusion and accessibility is commendable and aligns perfectly with UNESCO's mission to promote equal access to information and knowledge for all. UNESCO's Information for All Program supports member states in creating equitable societies by promoting universal access to information and knowledge for sustainable development. At UNESCO, we focus on six key areas, information for development, information literacy, information preservation, information ethics, information accessibility, and multilingualism. In the age of artificial intelligence, UNESCO's at the forefront of ensuring that the technologies are developed ethically and used responsibly. We are committed to bridging the digital divides and ensuring that everyone has equal access"
+    },
+    {
+      "ref": 4,
+      "fragment_id": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility_0004",
+      "speaker": "Haizheng Fu",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "start": 168.52,
+      "end": 228.12,
+      "duration": 59.6,
+      "stream_url": "/api/archive/videos/0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility/stream",
+      "similarity": 0.7627,
+      "text": "Bright Cinema Initiative. I would like to offer three points on how AI can promote inclusiveness and support the development of accessibility. First, empower through education by strengthening the foundation of information literacy. We must incorporate data literacy and AI education into both formal curricula and lifelong learning systems while also cultivating students critical thinking and media literacy by encouraging students to apply their knowledge in real world SCENARIS through community service and voluntary projects. We can enable them to use AI and the service of accessibility and the needs of underserved groups. Second, optimize technologies to enhance the inclusive, nests of digital products, developers and content. Creators should embed accessibility. Considerations at the design stage, accessibility should be integrated into content production, interface design and system"
+    },
+    {
+      "ref": 5,
+      "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0005",
+      "speaker": "Guilherme Canela",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "start": 240.82,
+      "end": 300.96,
+      "duration": 60.14,
+      "stream_url": "/api/archive/videos/0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference/stream",
+      "similarity": 0.7619,
+      "text": "accessibility for the new edition of the IFAP issue brief published on global challenges for information accessibility. This issue brief contributes to the discussions as it emphasize key principles of universal design, meaningful connectivity, inclusivity, transparency, information integrity, legal conformity, efficiency, and flexibility, as illustrated by numbers of good practices across five continents, so congrats again. Through the dynamic coalition on digital inclusion co-founded by IFAP we are working with more than six global partners from public to private sectors and Jews and academia to build collaborative frameworks that strengthen and align digital inclusion in policymaking. Through IFAP webinars and global events the program has created inclusive spaces for capacity building and for co-shaping solutions to bridge the"
+    },
+    {
+      "ref": 6,
+      "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0006",
+      "speaker": "Guilherme Canela",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "start": 300.96,
+      "end": 376.4,
+      "duration": 75.44,
+      "stream_url": "/api/archive/videos/0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference/stream",
+      "similarity": 0.7619,
+      "text": "digital divide and address the ethical challenges of emerging technologies. By on IFAP UNESCO's broad efforts to promote the digital inclusion adopt comprehensive approach, for example the internet universality run-axe indicators, global trainings on AI for the public sector, and open educational resources to mention a few. So these continue to support members dating strengthening openness accessibility and most stakeholder governance across the digital ecosystem. Looking ahead, IFAP will celebrate its 25th anniversary in 2026. It's a good moment for us to reflect and reimagine our digital futures. As we convene for the 2025 conference, this conference, let us use this platform to advance our shared vision, a digital future where AI is harnessed, not only for efficiency and innovation, but also for inclusion, accessibility, diversity, and the full protection of all human rights. Thank you very much, a pleasure to be with you."
+    },
+    {
+      "ref": 7,
+      "fragment_id": "0139_64i4w2jgUWg_Xianhong Hu - Steering AI for Knowledge Societies_0007",
+      "speaker": "Xianhong Hu",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "start": 409.81,
+      "end": 473.58,
+      "duration": 63.77,
+      "stream_url": "/api/archive/videos/0139_64i4w2jgUWg_Xianhong Hu - Steering AI for Knowledge Societies/stream",
+      "similarity": 0.7603,
+      "text": "to the internet, leading to further divide exclusion in AI usage. Those already connected are faced with the challenge of meaningful connectivity, which means to allow users to have a safe sex-fying and productive online experience, which to be enabled by digital literacy skills and competences. Six, digital inclusion and access ability needs to be fostered for AI development to ensure those marginalized groups, such as women, girls, youths, children, persons with disabilities are equally benefiting from the AI technology. Seven, the issues of multilingualism, culture and linguistic bias persist in AI era and are often ignored. Most of languages are not represented in separate space, imagine there are a total of 7,000 languages in the world. The large language models,"
+    },
+    {
+      "ref": 8,
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0012",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "start": 1173.72,
+      "end": 1232.06,
+      "duration": 58.34,
+      "stream_url": "/api/archive/videos/0103_iHUEZ0WiErM_China Satellite Event/stream",
+      "similarity": 0.7594,
+      "text": "to the benefits of technologies. UNESCO's commitment to promoting accessibility and inclusion is exemplified by our work in China. Through initiatives like the UN Joint Program on Disability in China, we have been actively engaged in empowering persons with disabilities by ensuring their equal access to digital technologies, and ensuring their full participation in the digital economy and through improved access to quality education, through cultural life, and through employment opportunities. I must take a moment to command the one-wing Sinai and one-wing museum project, a shining example of CUC's innovation. By making films and museums more accessible to persons with disabilities, this initiative showcases how technology and innovation can be hardness to create inclusive, educational"
+    },
+    {
+      "ref": 9,
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0006",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "start": 325.24,
+      "end": 393.34,
+      "duration": 68.1,
+      "stream_url": "/api/archive/videos/0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1/stream",
+      "similarity": 0.7581,
+      "text": "of us with these new digital technologies, I now respect the youth. Let's today's discussion, self-execord to action, for policy makers to embrace inclusive governance of AI, for academia and innovators to prioritize ethical and climate conscious applications, for the civil society to keep raising awareness on how technology intersects with rights and access. And for citizens to be an incentive to broaden your knowledge about AI. Through a more distinct hold approach, we can shape an AI ecosystem in our country, that is both technically advanced and socially responsible and where romantically sustainable and expert driven. I think the UNESCO original office for Southern Africa for convening this important dialogue, the panelists for sharing their expertise and their youth for bringing their"
+    },
+    {
+      "ref": 10,
+      "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0066",
+      "speaker": "I",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "start": 3584.06,
+      "end": 3645.26,
+      "duration": 61.2,
+      "stream_url": "/api/archive/videos/0101_laS77v9F_Io_New York⧸Carnegie Satellite Event/stream",
+      "similarity": 0.7576,
+      "text": "is also about enlightened access. So let us all put our shoulders to the wheel and start to address critical needs such as digital media and information literacy. Thank you so much for are invaluable ill sites. And we look forward to the other conversations across the world in China, in India, in Canada, in Jamaica, in Colombia, which will all happen between now and September 27. And then we invite you to join us on September 28. Remember, it's a Saturday, but put aside some time to come on the other town for the flagship artificial intelligence for information accessibility conference. From Jamaica, big up in the self. Thank you. Have a good day. Take care. Bye."
+    },
+    {
+      "ref": 11,
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0038",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "start": 2120.62,
+      "end": 2196.5,
+      "duration": 75.88,
+      "stream_url": "/api/archive/videos/0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age/stream",
+      "similarity": 0.7557,
+      "text": "Virtual assistance can engage in conversation, play games, help maintain and build cognitive skills, and ease loneliness for older individuals. Next slide. So we've been talking a bit about the benefits of AI and Gen-AI. But there are key challenges, and there are also solutions that we need to look at to address these challenges. The professor talked about some of these already, so I don't want to repeat them, but ensuring accessibility is our first one to make sure these detect devices, and tools are easily accessible from adoption to use. They need to be intuitive and adaptable with built-in accessibility features that need the needs of the aging community. And then the barriers that we continue to confront vary from region to region, but they include cost, access, and the lack of digital literacy, which I know many of you are doing training and learning how to address that as well."
+    },
+    {
+      "ref": 12,
+      "fragment_id": "0038_m8n_eJwYJtw_Ana_Barbara_Gomes_Pereira_-_Brazil_and_governance_0003",
+      "speaker": "Ana Bárbara Gomes Pereira",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "start": 138.54,
+      "end": 226.71,
+      "duration": 88.17,
+      "stream_url": "/api/archive/videos/0038_m8n_eJwYJtw_Ana_Barbara_Gomes_Pereira_-_Brazil_and_governance/stream",
+      "similarity": 0.7541,
+      "text": "And the first is security and technology, where we cause the importance of digital tools for privacy, data protections, the right to encryption, and how to face gender violence online. Other things. The second is meaningful connectivity, which focuses not only on physical access to the Internet, but also on the conditions to enable full critical and transformative participation in the digital environment. And finally, we have social governance of technology, which address social innovation, governance, participation, and the creation of a sustainable and inclusive technological future. Brazil is historically an equal country, and it's our responsibility to understand how systems of discrimination and exclusion have evolved over time, so we can effectively address that. One basic challenge nowadays is the level of digital literacy of our population that still needs to improve significantly to ensure that everyone can benefit from new technologies."
+    },
+    {
+      "ref": 13,
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0002",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "start": 136.17,
+      "end": 193.42,
+      "duration": 57.25,
+      "stream_url": "/api/archive/videos/0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age/stream",
+      "similarity": 0.7534,
+      "text": "Under the theme from Airways to algorithms, bridging generational gaps involving senior citizens in the digital age. I am your moderator for today and the Broadcasting Commission's communications and public education officer. Thank you for coming. We're delighted to welcome our distinguished guest speakers, Professor Elda Mayer-Sharrow of the Mona, Asian and Wellness Center and Miss Deppard-Berlin, who joined us online of the project to get older adults online, that's project goal. We also acknowledge Josh Hanchard for interpreter and our partners, the Broadcasting Commission of Jamaica, UNESCO Information for All Program, working group on information accessibility, the Jamaica Library Service, the National Council for Senior Citizens, the Caribbean Community of Retired Persons, U.M. Mona, Asian and Wellness Center,"
+    },
+    {
+      "ref": 14,
+      "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+      "speaker": "Guilherme Canela",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "start": 56.16,
+      "end": 117.54,
+      "duration": 61.38,
+      "stream_url": "/api/archive/videos/0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference/stream",
+      "similarity": 0.7519,
+      "text": "continued contribution to the International Day for Universal Access to Information that we are celebrating in the 28th of September. This year, the main theme is ensuring access to environmental information in the digital age as you know, essential topic for the planet. Last year, the fifth edition of this conference attracted strong interest, bringing together 68 speakers and 1350 registered participants from one of over 100 countries. The outcomes and discussions were well recognized by UNESCO member states during the 13th FAAP council meeting just this last April. We faced a task of ensuring that the ethical use of technologies and inclusive digital policies so that the benefits of AI shared with all communities, especially with women and girls and other groups in situation of vulnerability. Without intentional design, AI risks"
+    },
+    {
+      "ref": 15,
+      "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0005",
+      "speaker": "Christina Williams",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "start": 183.86,
+      "end": 229.66,
+      "duration": 45.8,
+      "stream_url": "/api/archive/videos/0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI/stream",
+      "similarity": 0.7516,
+      "text": "empowering students and young people with the information to use platforms. That is a great place to start. But what about the individuals that young people and children take their guidance from the parents, the teachers, students cannot be guided or young people cannot be guided by individuals who themselves lack their insert information on the use of artificial intelligence. So our parents who tends to be the one who introduce or approve young people's use of certain platforms or are the ones who may take the box that the information of this young person can be used in a particular way. They also have to be armed with the information needed to make informed decisions about the use of AI and"
+    }
+  ],
+  "models": {
+    "llm": "llama3.1:70b",
+    "embedding": "nomic-embed-text:v1.5"
+  },
+  "created_at": "2026-06-22T10:49:01.318157"
+}

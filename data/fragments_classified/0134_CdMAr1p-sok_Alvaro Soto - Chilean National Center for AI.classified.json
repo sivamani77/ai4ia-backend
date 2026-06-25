@@ -135,12 +135,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.411363"
+      "classified_at": "2026-06-16T12:54:29.411363",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0002",
@@ -216,12 +218,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.415991"
+      "classified_at": "2026-06-16T12:54:29.415991",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0003",
@@ -321,14 +325,17 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.421387"
+      "classified_at": "2026-06-16T12:54:29.421387",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0004",
@@ -452,12 +459,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.426773"
+      "classified_at": "2026-06-16T12:54:29.426773",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0005",
@@ -512,12 +521,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.431559"
+      "classified_at": "2026-06-16T12:54:29.431559",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0006",
@@ -571,12 +582,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.36,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.437119"
+      "classified_at": "2026-06-16T12:54:29.437119",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0007",
@@ -630,12 +643,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.45,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.442775"
+      "classified_at": "2026-06-16T12:54:29.442775",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0008",
@@ -721,12 +736,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.449437"
+      "classified_at": "2026-06-16T12:54:29.449437",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0009",
@@ -831,15 +848,18 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.454094"
+      "classified_at": "2026-06-16T12:54:29.454094",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0010",
@@ -929,12 +949,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.458881"
+      "classified_at": "2026-06-16T12:54:29.458881",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0011",
@@ -1004,12 +1026,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.48,
       "clarity_score": 0.85,
       "narration_support_score": 0.7,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.463613"
+      "classified_at": "2026-06-16T12:54:29.463613",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0012",
@@ -1062,12 +1086,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.85,
       "narration_support_score": 0.45,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.468098"
+      "classified_at": "2026-06-16T12:54:29.468098",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0134_CdMAr1p-sok_Alvaro Soto - Chilean National Center for AI_0013",
@@ -1127,12 +1153,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.42,
+      "quote_strength": 0.31,
       "clarity_score": 0.85,
       "narration_support_score": 0.65,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.474321"
+      "classified_at": "2026-06-16T12:54:29.474321",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

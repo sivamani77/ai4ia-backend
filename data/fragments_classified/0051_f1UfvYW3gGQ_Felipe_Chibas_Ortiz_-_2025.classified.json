@@ -141,12 +141,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.475019"
+      "classified_at": "2026-06-16T12:54:18.475019",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025_0002",
@@ -277,12 +279,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.481385"
+      "classified_at": "2026-06-16T12:54:18.481385",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025_0003",
@@ -409,12 +413,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.489066"
+      "classified_at": "2026-06-16T12:54:18.489066",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025_0004",
@@ -544,15 +550,18 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.494480"
+      "classified_at": "2026-06-16T12:54:18.494480",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025_0005",
@@ -682,12 +691,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.500005"
+      "classified_at": "2026-06-16T12:54:18.500005",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025_0006",
@@ -817,15 +828,18 @@
       "primary_theme": "AI, Law & Human Rights",
       "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.58,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.506843"
+      "classified_at": "2026-06-16T12:54:18.506843",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0051_f1UfvYW3gGQ_Felipe_Chibas_Ortiz_-_2025_0007",
@@ -877,12 +891,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.21,
       "clarity_score": 0.85,
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.509426"
+      "classified_at": "2026-06-16T12:54:18.509426",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

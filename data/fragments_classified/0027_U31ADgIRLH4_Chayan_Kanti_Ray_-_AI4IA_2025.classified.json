@@ -91,12 +91,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.824995"
+      "classified_at": "2026-06-16T12:54:16.824995",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0002",
@@ -228,12 +230,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.830085"
+      "classified_at": "2026-06-16T12:54:16.830085",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0003",
@@ -346,12 +350,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.835894"
+      "classified_at": "2026-06-16T12:54:16.835894",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0004",
@@ -411,12 +417,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.55,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.840332"
+      "classified_at": "2026-06-16T12:54:16.840332",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0005",
@@ -477,12 +485,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.844938"
+      "classified_at": "2026-06-16T12:54:16.844938",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0006",
@@ -595,12 +605,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.849661"
+      "classified_at": "2026-06-16T12:54:16.849661",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0007",
@@ -733,12 +745,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.83,
+      "quote_strength": 0.66,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.854582"
+      "classified_at": "2026-06-16T12:54:16.854582",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0008",
@@ -860,12 +874,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.58,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.859604"
+      "classified_at": "2026-06-16T12:54:16.859604",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0009",
@@ -920,16 +936,17 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.83,
+      "quote_strength": 0.47,
       "clarity_score": 0.95,
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.867558"
+      "classified_at": "2026-06-16T12:54:16.867558",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

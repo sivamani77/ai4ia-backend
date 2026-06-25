@@ -129,12 +129,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.8,
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.881400"
+      "classified_at": "2026-06-16T12:54:15.881400",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0002",
@@ -208,12 +210,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.42,
       "clarity_score": 0.8,
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.888933"
+      "classified_at": "2026-06-16T12:54:15.888933",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0003",
@@ -312,14 +316,16 @@
       "primary_theme": "Disinformation, Deepfakes & AI Safety",
       "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.893926"
+      "classified_at": "2026-06-16T12:54:15.893926",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0004",
@@ -404,14 +410,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.54,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.903348"
+      "classified_at": "2026-06-16T12:54:15.903348",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0005",
@@ -534,14 +543,16 @@
       "primary_theme": "Disinformation, Deepfakes & AI Safety",
       "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
       "clip_usage_candidates": [
-        "speaker_soundbite"
+        "archive_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.36,
       "clarity_score": 0.85,
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.910230"
+      "classified_at": "2026-06-16T12:54:15.910230",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0006",
@@ -624,12 +635,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.915132"
+      "classified_at": "2026-06-16T12:54:15.915132",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0007",
@@ -752,12 +765,14 @@
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.920391"
+      "classified_at": "2026-06-16T12:54:15.920391",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0008",
@@ -853,14 +868,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.924736"
+      "classified_at": "2026-06-16T12:54:15.924736",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0009",
@@ -941,14 +959,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.9,
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.929200"
+      "classified_at": "2026-06-16T12:54:15.929200",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0010",
@@ -1014,12 +1035,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.933484"
+      "classified_at": "2026-06-16T12:54:15.933484",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0011",
@@ -1132,12 +1155,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.9,
       "narration_support_score": 0.8,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.938929"
+      "classified_at": "2026-06-16T12:54:15.938929",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0012",
@@ -1238,12 +1263,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.56,
       "clarity_score": 0.75,
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.943917"
+      "classified_at": "2026-06-16T12:54:15.943917",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0013",
@@ -1342,12 +1369,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.948677"
+      "classified_at": "2026-06-16T12:54:15.948677",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0014",
@@ -1445,14 +1474,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "evidence_clip"
       ],
-      "quote_strength": 0.63,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.953690"
+      "classified_at": "2026-06-16T12:54:15.953690",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0015",
@@ -1578,12 +1610,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.959585"
+      "classified_at": "2026-06-16T12:54:15.959585",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0016",
@@ -1710,12 +1744,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.35,
+      "quote_strength": 0.46,
       "clarity_score": 0.9,
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.966725"
+      "classified_at": "2026-06-16T12:54:15.966725",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0017",
@@ -1808,12 +1844,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.971991"
+      "classified_at": "2026-06-16T12:54:15.971991",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0018",
@@ -1897,12 +1935,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.976515"
+      "classified_at": "2026-06-16T12:54:15.976515",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0019",
@@ -2010,12 +2050,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.981105"
+      "classified_at": "2026-06-16T12:54:15.981105",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     },
     {
       "fragment_id": "0009_jgnObufjIRE_Alyssa_Lefaivre_kopac_-_AI4IA_2025_0020",
@@ -2093,12 +2135,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.27,
       "clarity_score": 0.8,
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.983467"
+      "classified_at": "2026-06-16T12:54:15.983467",
+      "video_year": 2025,
+      "video_upload_date": "20251002"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

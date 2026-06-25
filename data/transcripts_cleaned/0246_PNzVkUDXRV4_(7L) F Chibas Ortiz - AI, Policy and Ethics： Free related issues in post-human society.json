@@ -1,0 +1,5458 @@
+{
+  "audio_file": "0246_PNzVkUDXRV4_(7L) F Chibas Ortiz - AI, Policy and Ethics： Free related issues in post-human society.clean.wav",
+  "source_audio_path": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0246_PNzVkUDXRV4_(7L) F Chibas Ortiz - AI, Policy and Ethics： Free related issues in post-human society.clean.wav",
+  "source_transcript_version": "cleaned_v2",
+  "model": "small",
+  "device": "cuda",
+  "compute_type": "float16",
+  "language": "en",
+  "language_probability": 1,
+  "duration_seconds": 489.977688,
+  "transcribed_at": "2026-06-19T14:26:31.862539",
+  "transcription_mode": "normal",
+  "chunk_seconds": null,
+  "quality": {
+    "segment_count": 64,
+    "avg_confidence": 0.7476,
+    "avg_words_per_segment": 12.38,
+    "empty_segment_ratio": 0.0,
+    "repeated_phrase_ratio": 0.0,
+    "low_confidence_ratio": 0.0,
+    "recommended_action": "ok"
+  },
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.43,
+      "end": 4.11,
+      "text": "Hello everybody. I am really happy to be here.",
+      "avg_logprob": -0.2231249984105428,
+      "no_speech_prob": 0.153564453125,
+      "compression_ratio": 1.3857142857142857,
+      "words": [
+        {
+          "word": " Hello",
+          "start": 0.43,
+          "end": 0.99,
+          "probability": 0.60205078125
+        },
+        {
+          "word": " everybody.",
+          "start": 0.99,
+          "end": 1.43,
+          "probability": 0.68408203125
+        },
+        {
+          "word": " I",
+          "start": 2.15,
+          "end": 2.25,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " am",
+          "start": 2.25,
+          "end": 2.35,
+          "probability": 0.87158203125
+        },
+        {
+          "word": " really",
+          "start": 2.35,
+          "end": 2.53,
+          "probability": 0.96142578125
+        },
+        {
+          "word": " happy",
+          "start": 2.53,
+          "end": 2.97,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " to",
+          "start": 2.97,
+          "end": 3.63,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " be",
+          "start": 3.63,
+          "end": 3.77,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " here.",
+          "start": 3.77,
+          "end": 4.11,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.87,
+      "end": 8.13,
+      "text": "I am Felipe Chivas Ortiz, PID,",
+      "avg_logprob": -0.2231249984105428,
+      "no_speech_prob": 0.153564453125,
+      "compression_ratio": 1.3857142857142857,
+      "words": [
+        {
+          "word": " I",
+          "start": 4.87,
+          "end": 5.29,
+          "probability": 0.92626953125
+        },
+        {
+          "word": " am",
+          "start": 5.29,
+          "end": 5.67,
+          "probability": 0.974609375
+        },
+        {
+          "word": " Felipe",
+          "start": 5.67,
+          "end": 6.35,
+          "probability": 0.85400390625
+        },
+        {
+          "word": " Chivas",
+          "start": 6.35,
+          "end": 6.69,
+          "probability": 0.731689453125
+        },
+        {
+          "word": " Ortiz,",
+          "start": 6.69,
+          "end": 7.21,
+          "probability": 0.988525390625
+        },
+        {
+          "word": " PID,",
+          "start": 7.61,
+          "end": 8.13,
+          "probability": 0.9365234375
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 8.73,
+      "end": 11.63,
+      "text": "Associate Professor of the University of Sao Paulo,",
+      "avg_logprob": -0.2231249984105428,
+      "no_speech_prob": 0.153564453125,
+      "compression_ratio": 1.3857142857142857,
+      "words": [
+        {
+          "word": " Associate",
+          "start": 8.73,
+          "end": 9.11,
+          "probability": 0.59619140625
+        },
+        {
+          "word": " Professor",
+          "start": 9.11,
+          "end": 9.85,
+          "probability": 0.978515625
+        },
+        {
+          "word": " of",
+          "start": 9.85,
+          "end": 10.25,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " the",
+          "start": 10.25,
+          "end": 10.37,
+          "probability": 0.9677734375
+        },
+        {
+          "word": " University",
+          "start": 10.37,
+          "end": 10.71,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " of",
+          "start": 10.71,
+          "end": 11.03,
+          "probability": 0.998046875
+        },
+        {
+          "word": " Sao",
+          "start": 11.03,
+          "end": 11.29,
+          "probability": 0.775390625
+        },
+        {
+          "word": " Paulo,",
+          "start": 11.29,
+          "end": 11.63,
+          "probability": 0.78466796875
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 12.17,
+      "end": 14.33,
+      "text": "and Representative of the Regional Committee",
+      "avg_logprob": -0.2231249984105428,
+      "no_speech_prob": 0.153564453125,
+      "compression_ratio": 1.3857142857142857,
+      "words": [
+        {
+          "word": " and",
+          "start": 12.17,
+          "end": 12.23,
+          "probability": 0.57763671875
+        },
+        {
+          "word": " Representative",
+          "start": 12.23,
+          "end": 12.63,
+          "probability": 0.50048828125
+        },
+        {
+          "word": " of",
+          "start": 12.63,
+          "end": 13.35,
+          "probability": 0.986328125
+        },
+        {
+          "word": " the",
+          "start": 13.35,
+          "end": 13.51,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " Regional",
+          "start": 13.51,
+          "end": 13.87,
+          "probability": 0.8115234375
+        },
+        {
+          "word": " Committee",
+          "start": 13.87,
+          "end": 14.33,
+          "probability": 0.904296875
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 14.33,
+      "end": 18.75,
+      "text": "for Latin America and the Caribbean of UNESCO Mil Alliance.",
+      "avg_logprob": -0.2231249984105428,
+      "no_speech_prob": 0.153564453125,
+      "compression_ratio": 1.3857142857142857,
+      "words": [
+        {
+          "word": " for",
+          "start": 14.33,
+          "end": 15.01,
+          "probability": 0.966796875
+        },
+        {
+          "word": " Latin",
+          "start": 15.01,
+          "end": 15.25,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " America",
+          "start": 15.25,
+          "end": 15.79,
+          "probability": 0.978515625
+        },
+        {
+          "word": " and",
+          "start": 15.79,
+          "end": 16.13,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " the",
+          "start": 16.13,
+          "end": 16.29,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " Caribbean",
+          "start": 16.29,
+          "end": 16.63,
+          "probability": 0.990234375
+        },
+        {
+          "word": " of",
+          "start": 16.63,
+          "end": 17.09,
+          "probability": 0.9599609375
+        },
+        {
+          "word": " UNESCO",
+          "start": 17.09,
+          "end": 17.55,
+          "probability": 0.908935546875
+        },
+        {
+          "word": " Mil",
+          "start": 17.55,
+          "end": 17.97,
+          "probability": 0.1956787109375
+        },
+        {
+          "word": " Alliance.",
+          "start": 17.97,
+          "end": 18.75,
+          "probability": 0.71923828125
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 19.47,
+      "end": 24.85,
+      "text": "The title of my speech today is Artificial Intelligence,",
+      "avg_logprob": -0.2231249984105428,
+      "no_speech_prob": 0.153564453125,
+      "compression_ratio": 1.3857142857142857,
+      "words": [
+        {
+          "word": " The",
+          "start": 19.47,
+          "end": 19.77,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " title",
+          "start": 19.77,
+          "end": 20.21,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " of",
+          "start": 20.21,
+          "end": 20.65,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " my",
+          "start": 20.65,
+          "end": 21.05,
+          "probability": 0.990234375
+        },
+        {
+          "word": " speech",
+          "start": 21.05,
+          "end": 22.29,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " today",
+          "start": 22.29,
+          "end": 22.81,
+          "probability": 0.8876953125
+        },
+        {
+          "word": " is",
+          "start": 22.81,
+          "end": 23.63,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " Artificial",
+          "start": 23.63,
+          "end": 24.25,
+          "probability": 0.716064453125
+        },
+        {
+          "word": " Intelligence,",
+          "start": 24.25,
+          "end": 24.85,
+          "probability": 0.98779296875
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 24.85,
+      "end": 32.47,
+      "text": "policies and ethics, free related issues in the post-human society. In this presentation,",
+      "avg_logprob": -0.3477909395406986,
+      "no_speech_prob": 0.40185546875,
+      "compression_ratio": 1.5055555555555555,
+      "words": [
+        {
+          "word": " policies",
+          "start": 24.85,
+          "end": 25.83,
+          "probability": 0.00830078125
+        },
+        {
+          "word": " and",
+          "start": 25.83,
+          "end": 26.33,
+          "probability": 0.82763671875
+        },
+        {
+          "word": " ethics,",
+          "start": 26.33,
+          "end": 26.75,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " free",
+          "start": 27.35,
+          "end": 27.65,
+          "probability": 0.908203125
+        },
+        {
+          "word": " related",
+          "start": 27.65,
+          "end": 28.17,
+          "probability": 0.77880859375
+        },
+        {
+          "word": " issues",
+          "start": 28.17,
+          "end": 28.79,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " in",
+          "start": 28.79,
+          "end": 29.49,
+          "probability": 0.93017578125
+        },
+        {
+          "word": " the",
+          "start": 29.49,
+          "end": 29.71,
+          "probability": 0.89599609375
+        },
+        {
+          "word": " post",
+          "start": 29.71,
+          "end": 30.01,
+          "probability": 0.76806640625
+        },
+        {
+          "word": "-human",
+          "start": 30.01,
+          "end": 30.25,
+          "probability": 0.79443359375
+        },
+        {
+          "word": " society.",
+          "start": 30.25,
+          "end": 30.95,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " In",
+          "start": 31.67,
+          "end": 31.83,
+          "probability": 0.85986328125
+        },
+        {
+          "word": " this",
+          "start": 31.83,
+          "end": 31.97,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " presentation,",
+          "start": 31.97,
+          "end": 32.47,
+          "probability": 0.99462890625
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 33.03,
+      "end": 41.95,
+      "text": "we will first define, according to no authors, what they mean by artificial intelligence,",
+      "avg_logprob": -0.3477909395406986,
+      "no_speech_prob": 0.40185546875,
+      "compression_ratio": 1.5055555555555555,
+      "words": [
+        {
+          "word": " we",
+          "start": 33.03,
+          "end": 33.21,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " will",
+          "start": 33.21,
+          "end": 33.55,
+          "probability": 0.962890625
+        },
+        {
+          "word": " first",
+          "start": 33.55,
+          "end": 34.61,
+          "probability": 0.84033203125
+        },
+        {
+          "word": " define,",
+          "start": 34.61,
+          "end": 35.15,
+          "probability": 0.982421875
+        },
+        {
+          "word": " according",
+          "start": 35.41,
+          "end": 35.79,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " to",
+          "start": 35.79,
+          "end": 36.19,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " no",
+          "start": 36.19,
+          "end": 36.67,
+          "probability": 0.7607421875
+        },
+        {
+          "word": " authors,",
+          "start": 36.67,
+          "end": 37.83,
+          "probability": 0.63232421875
+        },
+        {
+          "word": " what",
+          "start": 38.53,
+          "end": 39.17,
+          "probability": 0.974609375
+        },
+        {
+          "word": " they",
+          "start": 39.17,
+          "end": 39.37,
+          "probability": 0.708984375
+        },
+        {
+          "word": " mean",
+          "start": 39.37,
+          "end": 39.79,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " by",
+          "start": 39.79,
+          "end": 40.31,
+          "probability": 0.990234375
+        },
+        {
+          "word": " artificial",
+          "start": 40.31,
+          "end": 41.15,
+          "probability": 0.87890625
+        },
+        {
+          "word": " intelligence,",
+          "start": 41.15,
+          "end": 41.95,
+          "probability": 0.99072265625
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 42.45,
+      "end": 51.01,
+      "text": "ethics and public policies. Then we will talk about the multiple relationship between these",
+      "avg_logprob": -0.3477909395406986,
+      "no_speech_prob": 0.40185546875,
+      "compression_ratio": 1.5055555555555555,
+      "words": [
+        {
+          "word": " ethics",
+          "start": 42.45,
+          "end": 42.85,
+          "probability": 0.99609375
+        },
+        {
+          "word": " and",
+          "start": 42.85,
+          "end": 43.57,
+          "probability": 0.61083984375
+        },
+        {
+          "word": " public",
+          "start": 43.57,
+          "end": 43.89,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " policies.",
+          "start": 43.89,
+          "end": 44.45,
+          "probability": 0.98828125
+        },
+        {
+          "word": " Then",
+          "start": 45.05,
+          "end": 45.35,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " we",
+          "start": 45.35,
+          "end": 46.19,
+          "probability": 0.488525390625
+        },
+        {
+          "word": " will",
+          "start": 46.19,
+          "end": 46.45,
+          "probability": 0.970703125
+        },
+        {
+          "word": " talk",
+          "start": 46.45,
+          "end": 46.77,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " about",
+          "start": 46.77,
+          "end": 47.29,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " the",
+          "start": 47.29,
+          "end": 47.65,
+          "probability": 0.982421875
+        },
+        {
+          "word": " multiple",
+          "start": 47.65,
+          "end": 48.27,
+          "probability": 0.9267578125
+        },
+        {
+          "word": " relationship",
+          "start": 48.27,
+          "end": 49.33,
+          "probability": 0.146728515625
+        },
+        {
+          "word": " between",
+          "start": 49.33,
+          "end": 50.29,
+          "probability": 0.8779296875
+        },
+        {
+          "word": " these",
+          "start": 50.29,
+          "end": 51.01,
+          "probability": 0.9599609375
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 51.01,
+      "end": 59.71,
+      "text": "free elements. My speech today will be a provocation where I will address some of the challenges",
+      "avg_logprob": -0.3144841203613887,
+      "no_speech_prob": 0.2139892578125,
+      "compression_ratio": 1.4416243654822336,
+      "words": [
+        {
+          "word": " free",
+          "start": 51.01,
+          "end": 51.53,
+          "probability": 0.2335205078125
+        },
+        {
+          "word": " elements.",
+          "start": 51.53,
+          "end": 52.05,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " My",
+          "start": 52.55,
+          "end": 52.81,
+          "probability": 0.85693359375
+        },
+        {
+          "word": " speech",
+          "start": 52.81,
+          "end": 53.15,
+          "probability": 0.62109375
+        },
+        {
+          "word": " today",
+          "start": 53.15,
+          "end": 53.73,
+          "probability": 0.9765625
+        },
+        {
+          "word": " will",
+          "start": 53.73,
+          "end": 54.35,
+          "probability": 0.9609375
+        },
+        {
+          "word": " be",
+          "start": 54.35,
+          "end": 54.63,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " a",
+          "start": 54.63,
+          "end": 54.77,
+          "probability": 0.990234375
+        },
+        {
+          "word": " provocation",
+          "start": 54.77,
+          "end": 55.45,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " where",
+          "start": 55.45,
+          "end": 56.31,
+          "probability": 0.6474609375
+        },
+        {
+          "word": " I",
+          "start": 56.31,
+          "end": 56.93,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " will",
+          "start": 56.93,
+          "end": 57.19,
+          "probability": 0.982421875
+        },
+        {
+          "word": " address",
+          "start": 57.19,
+          "end": 57.79,
+          "probability": 0.8232421875
+        },
+        {
+          "word": " some",
+          "start": 57.79,
+          "end": 58.67,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " of",
+          "start": 58.67,
+          "end": 58.95,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " the",
+          "start": 58.95,
+          "end": 59.17,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " challenges",
+          "start": 59.17,
+          "end": 59.71,
+          "probability": 0.8330078125
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 60.15,
+      "end": 70.6,
+      "text": "that involve these free factors closely related in today's war in my books from Smart Cities",
+      "avg_logprob": -0.3144841203613887,
+      "no_speech_prob": 0.2139892578125,
+      "compression_ratio": 1.4416243654822336,
+      "words": [
+        {
+          "word": " that",
+          "start": 60.15,
+          "end": 60.65,
+          "probability": 0.97119140625
+        },
+        {
+          "word": " involve",
+          "start": 60.65,
+          "end": 61.53,
+          "probability": 0.88525390625
+        },
+        {
+          "word": " these",
+          "start": 61.53,
+          "end": 62.09,
+          "probability": 0.95068359375
+        },
+        {
+          "word": " free",
+          "start": 62.09,
+          "end": 62.45,
+          "probability": 0.5869140625
+        },
+        {
+          "word": " factors",
+          "start": 62.45,
+          "end": 62.91,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " closely",
+          "start": 62.91,
+          "end": 63.71,
+          "probability": 0.85791015625
+        },
+        {
+          "word": " related",
+          "start": 63.71,
+          "end": 64.33,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " in",
+          "start": 64.33,
+          "end": 65.71,
+          "probability": 0.755859375
+        },
+        {
+          "word": " today's",
+          "start": 65.71,
+          "end": 66.73,
+          "probability": 0.974365234375
+        },
+        {
+          "word": " war",
+          "start": 66.73,
+          "end": 67.13,
+          "probability": 0.8408203125
+        },
+        {
+          "word": " in",
+          "start": 67.52,
+          "end": 68.6,
+          "probability": 0.411865234375
+        },
+        {
+          "word": " my",
+          "start": 68.6,
+          "end": 68.9,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " books",
+          "start": 68.9,
+          "end": 69.24,
+          "probability": 0.87158203125
+        },
+        {
+          "word": " from",
+          "start": 69.24,
+          "end": 69.84,
+          "probability": 0.8447265625
+        },
+        {
+          "word": " Smart",
+          "start": 69.84,
+          "end": 70.28,
+          "probability": 0.427978515625
+        },
+        {
+          "word": " Cities",
+          "start": 70.28,
+          "end": 70.6,
+          "probability": 0.92138671875
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 70.6,
+      "end": 78.12,
+      "text": "to Mile Cities, metric inspired by UNESCO's vision and my other book, Marketing, Communication",
+      "avg_logprob": -0.3144841203613887,
+      "no_speech_prob": 0.2139892578125,
+      "compression_ratio": 1.4416243654822336,
+      "words": [
+        {
+          "word": " to",
+          "start": 70.6,
+          "end": 70.94,
+          "probability": 0.97119140625
+        },
+        {
+          "word": " Mile",
+          "start": 70.94,
+          "end": 71.32,
+          "probability": 0.3603515625
+        },
+        {
+          "word": " Cities,",
+          "start": 71.32,
+          "end": 71.66,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " metric",
+          "start": 71.96,
+          "end": 72.54,
+          "probability": 0.441162109375
+        },
+        {
+          "word": " inspired",
+          "start": 72.54,
+          "end": 73.18,
+          "probability": 0.90087890625
+        },
+        {
+          "word": " by",
+          "start": 73.18,
+          "end": 73.52,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " UNESCO's",
+          "start": 73.52,
+          "end": 74.18,
+          "probability": 0.8642578125
+        },
+        {
+          "word": " vision",
+          "start": 74.18,
+          "end": 74.48,
+          "probability": 0.93505859375
+        },
+        {
+          "word": " and",
+          "start": 74.48,
+          "end": 75.22,
+          "probability": 0.728515625
+        },
+        {
+          "word": " my",
+          "start": 75.22,
+          "end": 75.7,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " other",
+          "start": 75.7,
+          "end": 76.06,
+          "probability": 0.80322265625
+        },
+        {
+          "word": " book,",
+          "start": 76.06,
+          "end": 76.38,
+          "probability": 0.982421875
+        },
+        {
+          "word": " Marketing,",
+          "start": 76.62,
+          "end": 77.14,
+          "probability": 0.82666015625
+        },
+        {
+          "word": " Communication",
+          "start": 77.64,
+          "end": 78.12,
+          "probability": 0.96875
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 78.12,
+      "end": 83.98,
+      "text": "technology and innovation in mild cities, organized together with Professor Mingsuro",
+      "avg_logprob": -0.383081899634723,
+      "no_speech_prob": 0.2286376953125,
+      "compression_ratio": 1.3756345177664975,
+      "words": [
+        {
+          "word": " technology",
+          "start": 78.12,
+          "end": 78.68,
+          "probability": 0.096923828125
+        },
+        {
+          "word": " and",
+          "start": 78.68,
+          "end": 79.42,
+          "probability": 0.91064453125
+        },
+        {
+          "word": " innovation",
+          "start": 79.42,
+          "end": 80.04,
+          "probability": 0.953125
+        },
+        {
+          "word": " in",
+          "start": 80.04,
+          "end": 80.56,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " mild",
+          "start": 80.56,
+          "end": 80.8,
+          "probability": 0.251708984375
+        },
+        {
+          "word": " cities,",
+          "start": 80.8,
+          "end": 81.18,
+          "probability": 0.94921875
+        },
+        {
+          "word": " organized",
+          "start": 81.6,
+          "end": 82.04,
+          "probability": 0.86669921875
+        },
+        {
+          "word": " together",
+          "start": 82.04,
+          "end": 82.7,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " with",
+          "start": 82.7,
+          "end": 83.02,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " Professor",
+          "start": 83.02,
+          "end": 83.42,
+          "probability": 0.66796875
+        },
+        {
+          "word": " Mingsuro",
+          "start": 83.42,
+          "end": 83.98,
+          "probability": 0.4951985677083333
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 83.98,
+      "end": 93.6,
+      "text": "Giannasset and chapters, authors from more than 20 countries are recommended by UNESCO.",
+      "avg_logprob": -0.383081899634723,
+      "no_speech_prob": 0.2286376953125,
+      "compression_ratio": 1.3756345177664975,
+      "words": [
+        {
+          "word": " Giannasset",
+          "start": 83.98,
+          "end": 84.7,
+          "probability": 0.489990234375
+        },
+        {
+          "word": " and",
+          "start": 84.7,
+          "end": 85.38,
+          "probability": 0.6591796875
+        },
+        {
+          "word": " chapters,",
+          "start": 85.38,
+          "end": 85.92,
+          "probability": 0.63037109375
+        },
+        {
+          "word": " authors",
+          "start": 86.56,
+          "end": 87.44,
+          "probability": 0.2939453125
+        },
+        {
+          "word": " from",
+          "start": 87.44,
+          "end": 87.96,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " more",
+          "start": 87.96,
+          "end": 88.64,
+          "probability": 0.986328125
+        },
+        {
+          "word": " than",
+          "start": 88.64,
+          "end": 89.02,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " 20",
+          "start": 89.02,
+          "end": 89.76,
+          "probability": 0.9169921875
+        },
+        {
+          "word": " countries",
+          "start": 89.76,
+          "end": 90.3,
+          "probability": 0.99609375
+        },
+        {
+          "word": " are",
+          "start": 90.3,
+          "end": 91.28,
+          "probability": 0.654296875
+        },
+        {
+          "word": " recommended",
+          "start": 91.28,
+          "end": 92.04,
+          "probability": 0.697265625
+        },
+        {
+          "word": " by",
+          "start": 92.04,
+          "end": 93.02,
+          "probability": 0.9658203125
+        },
+        {
+          "word": " UNESCO.",
+          "start": 93.02,
+          "end": 93.6,
+          "probability": 0.972900390625
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 94.06,
+      "end": 101.58,
+      "text": "We talk about the relationships of these three topics, artificial intelligence, policy and ethics.",
+      "avg_logprob": -0.383081899634723,
+      "no_speech_prob": 0.2286376953125,
+      "compression_ratio": 1.3756345177664975,
+      "words": [
+        {
+          "word": " We",
+          "start": 94.06,
+          "end": 94.18,
+          "probability": 0.978515625
+        },
+        {
+          "word": " talk",
+          "start": 94.18,
+          "end": 94.46,
+          "probability": 0.7177734375
+        },
+        {
+          "word": " about",
+          "start": 94.46,
+          "end": 94.9,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " the",
+          "start": 94.9,
+          "end": 95.22,
+          "probability": 0.8505859375
+        },
+        {
+          "word": " relationships",
+          "start": 95.22,
+          "end": 95.92,
+          "probability": 0.97265625
+        },
+        {
+          "word": " of",
+          "start": 95.92,
+          "end": 96.84,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " these",
+          "start": 96.84,
+          "end": 97.16,
+          "probability": 0.95458984375
+        },
+        {
+          "word": " three",
+          "start": 97.16,
+          "end": 97.54,
+          "probability": 0.53076171875
+        },
+        {
+          "word": " topics,",
+          "start": 97.54,
+          "end": 97.96,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " artificial",
+          "start": 98.32,
+          "end": 98.62,
+          "probability": 0.8310546875
+        },
+        {
+          "word": " intelligence,",
+          "start": 98.62,
+          "end": 99.34,
+          "probability": 0.9921875
+        },
+        {
+          "word": " policy",
+          "start": 99.88,
+          "end": 100.32,
+          "probability": 0.990234375
+        },
+        {
+          "word": " and",
+          "start": 100.32,
+          "end": 101.02,
+          "probability": 0.673828125
+        },
+        {
+          "word": " ethics.",
+          "start": 101.02,
+          "end": 101.58,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 101.58,
+      "end": 110.26,
+      "text": "Thus, with the advancement of increments of recent technologies in the field of artificial",
+      "avg_logprob": -0.2696049505809568,
+      "no_speech_prob": 0.0460205078125,
+      "compression_ratio": 1.6257309941520468,
+      "words": [
+        {
+          "word": " Thus,",
+          "start": 101.58,
+          "end": 102.9,
+          "probability": 0.47021484375
+        },
+        {
+          "word": " with",
+          "start": 103.88,
+          "end": 104.44,
+          "probability": 0.970703125
+        },
+        {
+          "word": " the",
+          "start": 104.44,
+          "end": 104.76,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " advancement",
+          "start": 104.76,
+          "end": 105.38,
+          "probability": 0.47021484375
+        },
+        {
+          "word": " of",
+          "start": 105.38,
+          "end": 106.24,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " increments",
+          "start": 106.24,
+          "end": 107.06,
+          "probability": 0.58843994140625
+        },
+        {
+          "word": " of",
+          "start": 107.06,
+          "end": 107.56,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " recent",
+          "start": 107.56,
+          "end": 108.1,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " technologies",
+          "start": 108.1,
+          "end": 108.8,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " in",
+          "start": 108.8,
+          "end": 109.16,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " the",
+          "start": 109.16,
+          "end": 109.26,
+          "probability": 0.99609375
+        },
+        {
+          "word": " field",
+          "start": 109.26,
+          "end": 109.56,
+          "probability": 0.990234375
+        },
+        {
+          "word": " of",
+          "start": 109.56,
+          "end": 109.82,
+          "probability": 0.99609375
+        },
+        {
+          "word": " artificial",
+          "start": 109.82,
+          "end": 110.26,
+          "probability": 0.8154296875
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 110.26,
+      "end": 117.58,
+      "text": "intelligence, accompanied by the fourth industrial revolution in the field of data governance",
+      "avg_logprob": -0.2696049505809568,
+      "no_speech_prob": 0.0460205078125,
+      "compression_ratio": 1.6257309941520468,
+      "words": [
+        {
+          "word": " intelligence,",
+          "start": 110.26,
+          "end": 111.18,
+          "probability": 0.990234375
+        },
+        {
+          "word": " accompanied",
+          "start": 111.62,
+          "end": 111.96,
+          "probability": 0.8916015625
+        },
+        {
+          "word": " by",
+          "start": 111.96,
+          "end": 112.54,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " the",
+          "start": 112.54,
+          "end": 112.8,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " fourth",
+          "start": 112.8,
+          "end": 113.46,
+          "probability": 0.74365234375
+        },
+        {
+          "word": " industrial",
+          "start": 113.46,
+          "end": 114.24,
+          "probability": 0.89404296875
+        },
+        {
+          "word": " revolution",
+          "start": 114.24,
+          "end": 114.86,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " in",
+          "start": 114.86,
+          "end": 115.66,
+          "probability": 0.86669921875
+        },
+        {
+          "word": " the",
+          "start": 115.66,
+          "end": 115.78,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " field",
+          "start": 115.78,
+          "end": 116.12,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " of",
+          "start": 116.12,
+          "end": 116.42,
+          "probability": 0.994140625
+        },
+        {
+          "word": " data",
+          "start": 116.42,
+          "end": 116.92,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " governance",
+          "start": 116.92,
+          "end": 117.58,
+          "probability": 0.98583984375
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 118.03,
+      "end": 125.54,
+      "text": "and by the automation of process and exponential development in several areas like education,",
+      "avg_logprob": -0.2696049505809568,
+      "no_speech_prob": 0.0460205078125,
+      "compression_ratio": 1.6257309941520468,
+      "words": [
+        {
+          "word": " and",
+          "start": 118.03,
+          "end": 118.58,
+          "probability": 0.59716796875
+        },
+        {
+          "word": " by",
+          "start": 118.58,
+          "end": 118.9,
+          "probability": 0.962890625
+        },
+        {
+          "word": " the",
+          "start": 118.9,
+          "end": 119.08,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " automation",
+          "start": 119.08,
+          "end": 119.7,
+          "probability": 0.73876953125
+        },
+        {
+          "word": " of",
+          "start": 119.7,
+          "end": 120.64,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " process",
+          "start": 120.64,
+          "end": 121.1,
+          "probability": 0.59130859375
+        },
+        {
+          "word": " and",
+          "start": 121.1,
+          "end": 121.78,
+          "probability": 0.86376953125
+        },
+        {
+          "word": " exponential",
+          "start": 121.78,
+          "end": 122.48,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " development",
+          "start": 122.48,
+          "end": 123.04,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " in",
+          "start": 123.04,
+          "end": 123.54,
+          "probability": 0.984375
+        },
+        {
+          "word": " several",
+          "start": 123.54,
+          "end": 123.82,
+          "probability": 0.994140625
+        },
+        {
+          "word": " areas",
+          "start": 123.82,
+          "end": 124.38,
+          "probability": 0.91455078125
+        },
+        {
+          "word": " like",
+          "start": 124.38,
+          "end": 125.06,
+          "probability": 0.67578125
+        },
+        {
+          "word": " education,",
+          "start": 125.06,
+          "end": 125.54,
+          "probability": 0.9853515625
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 125.54,
+      "end": 133.36,
+      "text": "health, art, entrepreneurship, which give rise to numerous potentially innovative and",
+      "avg_logprob": -0.2620872551540159,
+      "no_speech_prob": 0.2227783203125,
+      "compression_ratio": 1.5056179775280898,
+      "words": [
+        {
+          "word": " health,",
+          "start": 125.54,
+          "end": 126.26,
+          "probability": 0.01392364501953125
+        },
+        {
+          "word": " art,",
+          "start": 126.9,
+          "end": 127.28,
+          "probability": 0.8076171875
+        },
+        {
+          "word": " entrepreneurship,",
+          "start": 127.7,
+          "end": 128.18,
+          "probability": 0.9189453125
+        },
+        {
+          "word": " which",
+          "start": 128.84,
+          "end": 129.08,
+          "probability": 0.697265625
+        },
+        {
+          "word": " give",
+          "start": 129.08,
+          "end": 129.56,
+          "probability": 0.751953125
+        },
+        {
+          "word": " rise",
+          "start": 129.56,
+          "end": 130.12,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " to",
+          "start": 130.12,
+          "end": 130.62,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " numerous",
+          "start": 130.62,
+          "end": 130.98,
+          "probability": 0.94189453125
+        },
+        {
+          "word": " potentially",
+          "start": 130.98,
+          "end": 131.84,
+          "probability": 0.890625
+        },
+        {
+          "word": " innovative",
+          "start": 131.84,
+          "end": 132.52,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " and",
+          "start": 132.52,
+          "end": 133.36,
+          "probability": 0.93505859375
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 133.36,
+      "end": 142.76,
+      "text": "at the same time disruptive tools. This situation has two and new ethics challenges.",
+      "avg_logprob": -0.2620872551540159,
+      "no_speech_prob": 0.2227783203125,
+      "compression_ratio": 1.5056179775280898,
+      "words": [
+        {
+          "word": " at",
+          "start": 133.36,
+          "end": 134.12,
+          "probability": 0.8203125
+        },
+        {
+          "word": " the",
+          "start": 134.12,
+          "end": 134.36,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " same",
+          "start": 134.36,
+          "end": 135.2,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " time",
+          "start": 135.2,
+          "end": 135.62,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " disruptive",
+          "start": 135.62,
+          "end": 136.04,
+          "probability": 0.7958984375
+        },
+        {
+          "word": " tools.",
+          "start": 136.04,
+          "end": 137.88,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " This",
+          "start": 138.56,
+          "end": 138.74,
+          "probability": 0.76025390625
+        },
+        {
+          "word": " situation",
+          "start": 138.74,
+          "end": 139.36,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " has",
+          "start": 139.36,
+          "end": 139.9,
+          "probability": 0.6474609375
+        },
+        {
+          "word": " two",
+          "start": 139.9,
+          "end": 140.54,
+          "probability": 0.80126953125
+        },
+        {
+          "word": " and",
+          "start": 140.54,
+          "end": 141.28,
+          "probability": 0.312744140625
+        },
+        {
+          "word": " new",
+          "start": 141.28,
+          "end": 141.58,
+          "probability": 0.82763671875
+        },
+        {
+          "word": " ethics",
+          "start": 141.58,
+          "end": 142.02,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " challenges.",
+          "start": 142.02,
+          "end": 142.76,
+          "probability": 0.9794921875
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 143.99,
+      "end": 151.77,
+      "text": "The artificial intelligence is nowadays used in the process of planning, organizing, implementing",
+      "avg_logprob": -0.2620872551540159,
+      "no_speech_prob": 0.2227783203125,
+      "compression_ratio": 1.5056179775280898,
+      "words": [
+        {
+          "word": " The",
+          "start": 143.99,
+          "end": 144.17,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " artificial",
+          "start": 144.17,
+          "end": 144.63,
+          "probability": 0.9326171875
+        },
+        {
+          "word": " intelligence",
+          "start": 144.63,
+          "end": 145.41,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " is",
+          "start": 145.41,
+          "end": 146.21,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " nowadays",
+          "start": 146.21,
+          "end": 147.11,
+          "probability": 0.85888671875
+        },
+        {
+          "word": " used",
+          "start": 147.11,
+          "end": 147.69,
+          "probability": 0.9375
+        },
+        {
+          "word": " in",
+          "start": 147.69,
+          "end": 148.03,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " the",
+          "start": 148.03,
+          "end": 148.03,
+          "probability": 0.52392578125
+        },
+        {
+          "word": " process",
+          "start": 148.03,
+          "end": 148.39,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " of",
+          "start": 148.39,
+          "end": 148.83,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " planning,",
+          "start": 148.83,
+          "end": 149.61,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " organizing,",
+          "start": 150.01,
+          "end": 150.47,
+          "probability": 0.97119140625
+        },
+        {
+          "word": " implementing",
+          "start": 151.25,
+          "end": 151.77,
+          "probability": 0.994140625
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 151.77,
+      "end": 156.77,
+      "text": "and managing policies, strategies and tactics in many sectors.",
+      "avg_logprob": -0.24180328259702588,
+      "no_speech_prob": 0.1282958984375,
+      "compression_ratio": 1.4461538461538461,
+      "words": [
+        {
+          "word": " and",
+          "start": 151.77,
+          "end": 152.23,
+          "probability": 0.207763671875
+        },
+        {
+          "word": " managing",
+          "start": 152.23,
+          "end": 152.75,
+          "probability": 0.85302734375
+        },
+        {
+          "word": " policies,",
+          "start": 152.75,
+          "end": 153.57,
+          "probability": 0.7890625
+        },
+        {
+          "word": " strategies",
+          "start": 153.83,
+          "end": 154.29,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " and",
+          "start": 154.29,
+          "end": 155.03,
+          "probability": 0.6767578125
+        },
+        {
+          "word": " tactics",
+          "start": 155.03,
+          "end": 155.45,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " in",
+          "start": 155.45,
+          "end": 156.05,
+          "probability": 0.98046875
+        },
+        {
+          "word": " many",
+          "start": 156.05,
+          "end": 156.33,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " sectors.",
+          "start": 156.33,
+          "end": 156.77,
+          "probability": 0.99560546875
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 157.33,
+      "end": 167.13,
+      "text": "For example, today we are talking about smart cities, but it still does not pay enough attention",
+      "avg_logprob": -0.24180328259702588,
+      "no_speech_prob": 0.1282958984375,
+      "compression_ratio": 1.4461538461538461,
+      "words": [
+        {
+          "word": " For",
+          "start": 157.33,
+          "end": 157.47,
+          "probability": 0.9228515625
+        },
+        {
+          "word": " example,",
+          "start": 157.47,
+          "end": 157.85,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " today",
+          "start": 158.33,
+          "end": 158.55,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " we",
+          "start": 158.55,
+          "end": 158.81,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " are",
+          "start": 158.81,
+          "end": 159.03,
+          "probability": 0.96044921875
+        },
+        {
+          "word": " talking",
+          "start": 159.03,
+          "end": 159.77,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " about",
+          "start": 159.77,
+          "end": 160.39,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " smart",
+          "start": 160.39,
+          "end": 160.89,
+          "probability": 0.734375
+        },
+        {
+          "word": " cities,",
+          "start": 160.89,
+          "end": 161.31,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " but",
+          "start": 161.85,
+          "end": 162.21,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " it",
+          "start": 162.21,
+          "end": 163.41,
+          "probability": 0.73974609375
+        },
+        {
+          "word": " still",
+          "start": 163.41,
+          "end": 164.31,
+          "probability": 0.9384765625
+        },
+        {
+          "word": " does",
+          "start": 164.31,
+          "end": 164.65,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " not",
+          "start": 164.65,
+          "end": 165.19,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " pay",
+          "start": 165.19,
+          "end": 165.63,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " enough",
+          "start": 165.63,
+          "end": 166.31,
+          "probability": 0.970703125
+        },
+        {
+          "word": " attention",
+          "start": 166.31,
+          "end": 167.13,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 167.13,
+      "end": 169.51,
+      "text": "to the ethical aspects involved.",
+      "avg_logprob": -0.24180328259702588,
+      "no_speech_prob": 0.1282958984375,
+      "compression_ratio": 1.4461538461538461,
+      "words": [
+        {
+          "word": " to",
+          "start": 167.13,
+          "end": 167.53,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " the",
+          "start": 167.53,
+          "end": 167.67,
+          "probability": 0.9755859375
+        },
+        {
+          "word": " ethical",
+          "start": 167.67,
+          "end": 168.17,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " aspects",
+          "start": 168.17,
+          "end": 168.93,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " involved.",
+          "start": 168.93,
+          "end": 169.51,
+          "probability": 0.98486328125
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 170.45,
+      "end": 176.81,
+      "text": "According to Russell and Norbit, artificial intelligence is the brush of computer science",
+      "avg_logprob": -0.24180328259702588,
+      "no_speech_prob": 0.1282958984375,
+      "compression_ratio": 1.4461538461538461,
+      "words": [
+        {
+          "word": " According",
+          "start": 170.45,
+          "end": 170.91,
+          "probability": 0.9921875
+        },
+        {
+          "word": " to",
+          "start": 170.91,
+          "end": 171.27,
+          "probability": 0.99609375
+        },
+        {
+          "word": " Russell",
+          "start": 171.27,
+          "end": 171.69,
+          "probability": 0.75830078125
+        },
+        {
+          "word": " and",
+          "start": 171.69,
+          "end": 172.03,
+          "probability": 0.87841796875
+        },
+        {
+          "word": " Norbit,",
+          "start": 172.03,
+          "end": 172.41,
+          "probability": 0.56182861328125
+        },
+        {
+          "word": " artificial",
+          "start": 172.87,
+          "end": 173.17,
+          "probability": 0.7490234375
+        },
+        {
+          "word": " intelligence",
+          "start": 173.17,
+          "end": 173.95,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " is",
+          "start": 173.95,
+          "end": 174.61,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " the",
+          "start": 174.61,
+          "end": 174.83,
+          "probability": 0.9765625
+        },
+        {
+          "word": " brush",
+          "start": 174.83,
+          "end": 175.13,
+          "probability": 0.343017578125
+        },
+        {
+          "word": " of",
+          "start": 175.13,
+          "end": 175.57,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " computer",
+          "start": 175.57,
+          "end": 176.05,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " science",
+          "start": 176.05,
+          "end": 176.81,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 176.81,
+      "end": 185.53,
+      "text": "that deals with intelligent behavior of the study of how to make computers do things that",
+      "avg_logprob": -0.27708333863152396,
+      "no_speech_prob": 0.174072265625,
+      "compression_ratio": 1.385135135135135,
+      "words": [
+        {
+          "word": " that",
+          "start": 176.81,
+          "end": 177.53,
+          "probability": 0.397705078125
+        },
+        {
+          "word": " deals",
+          "start": 177.53,
+          "end": 177.99,
+          "probability": 0.9462890625
+        },
+        {
+          "word": " with",
+          "start": 177.99,
+          "end": 178.43,
+          "probability": 0.99609375
+        },
+        {
+          "word": " intelligent",
+          "start": 178.43,
+          "end": 179.05,
+          "probability": 0.1690673828125
+        },
+        {
+          "word": " behavior",
+          "start": 179.05,
+          "end": 179.85,
+          "probability": 0.802734375
+        },
+        {
+          "word": " of",
+          "start": 179.85,
+          "end": 180.43,
+          "probability": 0.94287109375
+        },
+        {
+          "word": " the",
+          "start": 180.43,
+          "end": 180.65,
+          "probability": 0.97265625
+        },
+        {
+          "word": " study",
+          "start": 180.65,
+          "end": 181.03,
+          "probability": 0.9658203125
+        },
+        {
+          "word": " of",
+          "start": 181.03,
+          "end": 181.95,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " how",
+          "start": 181.95,
+          "end": 182.51,
+          "probability": 0.9453125
+        },
+        {
+          "word": " to",
+          "start": 182.51,
+          "end": 182.73,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " make",
+          "start": 182.73,
+          "end": 183.05,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " computers",
+          "start": 183.05,
+          "end": 183.77,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " do",
+          "start": 183.77,
+          "end": 184.51,
+          "probability": 0.9482421875
+        },
+        {
+          "word": " things",
+          "start": 184.51,
+          "end": 184.91,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " that",
+          "start": 184.91,
+          "end": 185.53,
+          "probability": 0.97705078125
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 185.53,
+      "end": 187.83,
+      "text": "humans currently do better.",
+      "avg_logprob": -0.27708333863152396,
+      "no_speech_prob": 0.174072265625,
+      "compression_ratio": 1.385135135135135,
+      "words": [
+        {
+          "word": " humans",
+          "start": 185.53,
+          "end": 186.05,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " currently",
+          "start": 186.05,
+          "end": 186.87,
+          "probability": 0.8671875
+        },
+        {
+          "word": " do",
+          "start": 186.87,
+          "end": 187.45,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " better.",
+          "start": 187.45,
+          "end": 187.83,
+          "probability": 0.99560546875
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 188.69,
+      "end": 204.19,
+      "text": "The scientist Henry Atlan understands ethics and the principle that guides, directs and",
+      "avg_logprob": -0.27708333863152396,
+      "no_speech_prob": 0.174072265625,
+      "compression_ratio": 1.385135135135135,
+      "words": [
+        {
+          "word": " The",
+          "start": 188.69,
+          "end": 188.83,
+          "probability": 0.93212890625
+        },
+        {
+          "word": " scientist",
+          "start": 188.83,
+          "end": 189.41,
+          "probability": 0.89013671875
+        },
+        {
+          "word": " Henry",
+          "start": 189.41,
+          "end": 190.29,
+          "probability": 0.51953125
+        },
+        {
+          "word": " Atlan",
+          "start": 190.29,
+          "end": 190.87,
+          "probability": 0.567626953125
+        },
+        {
+          "word": " understands",
+          "start": 190.87,
+          "end": 192.33,
+          "probability": 0.92333984375
+        },
+        {
+          "word": " ethics",
+          "start": 192.33,
+          "end": 193.21,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " and",
+          "start": 193.21,
+          "end": 194.05,
+          "probability": 0.78173828125
+        },
+        {
+          "word": " the",
+          "start": 194.05,
+          "end": 194.27,
+          "probability": 0.8857421875
+        },
+        {
+          "word": " principle",
+          "start": 194.27,
+          "end": 194.89,
+          "probability": 0.92822265625
+        },
+        {
+          "word": " that",
+          "start": 194.89,
+          "end": 197.39,
+          "probability": 0.299560546875
+        },
+        {
+          "word": " guides,",
+          "start": 197.39,
+          "end": 198.95,
+          "probability": 0.9365234375
+        },
+        {
+          "word": " directs",
+          "start": 199.53,
+          "end": 201.25,
+          "probability": 0.969970703125
+        },
+        {
+          "word": " and",
+          "start": 201.25,
+          "end": 204.19,
+          "probability": 0.72021484375
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 204.19,
+      "end": 214.65,
+      "text": "in the lived reality of each person and ethics does not, a philosophy or knowledge is something like",
+      "avg_logprob": -0.24999999432336717,
+      "no_speech_prob": 0.1416015625,
+      "compression_ratio": 1.3722627737226278,
+      "words": [
+        {
+          "word": " in",
+          "start": 204.19,
+          "end": 204.41,
+          "probability": 0.8349609375
+        },
+        {
+          "word": " the",
+          "start": 204.41,
+          "end": 204.55,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " lived",
+          "start": 204.55,
+          "end": 204.83,
+          "probability": 0.285400390625
+        },
+        {
+          "word": " reality",
+          "start": 204.83,
+          "end": 205.97,
+          "probability": 0.90771484375
+        },
+        {
+          "word": " of",
+          "start": 205.97,
+          "end": 206.65,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " each",
+          "start": 206.65,
+          "end": 207.01,
+          "probability": 0.9921875
+        },
+        {
+          "word": " person",
+          "start": 207.01,
+          "end": 207.55,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " and",
+          "start": 207.55,
+          "end": 208.25,
+          "probability": 0.472900390625
+        },
+        {
+          "word": " ethics",
+          "start": 208.25,
+          "end": 208.75,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " does",
+          "start": 208.75,
+          "end": 209.25,
+          "probability": 0.93701171875
+        },
+        {
+          "word": " not,",
+          "start": 209.25,
+          "end": 209.59,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " a",
+          "start": 210.55,
+          "end": 210.77,
+          "probability": 0.84130859375
+        },
+        {
+          "word": " philosophy",
+          "start": 210.77,
+          "end": 211.25,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " or",
+          "start": 211.25,
+          "end": 212.21,
+          "probability": 0.9482421875
+        },
+        {
+          "word": " knowledge",
+          "start": 212.21,
+          "end": 213.03,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " is",
+          "start": 213.03,
+          "end": 213.83,
+          "probability": 0.8525390625
+        },
+        {
+          "word": " something",
+          "start": 213.83,
+          "end": 214.25,
+          "probability": 0.98828125
+        },
+        {
+          "word": " like",
+          "start": 214.25,
+          "end": 214.65,
+          "probability": 0.95751953125
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 214.99,
+      "end": 223.0,
+      "text": "refers to a project to a once. According to various authors, public policies can decide",
+      "avg_logprob": -0.24999999432336717,
+      "no_speech_prob": 0.1416015625,
+      "compression_ratio": 1.3722627737226278,
+      "words": [
+        {
+          "word": " refers",
+          "start": 214.99,
+          "end": 215.49,
+          "probability": 0.7802734375
+        },
+        {
+          "word": " to",
+          "start": 215.49,
+          "end": 216.17,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " a",
+          "start": 216.17,
+          "end": 216.35,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " project",
+          "start": 216.35,
+          "end": 216.73,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " to",
+          "start": 216.73,
+          "end": 217.13,
+          "probability": 0.880859375
+        },
+        {
+          "word": " a",
+          "start": 217.13,
+          "end": 217.29,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " once.",
+          "start": 217.29,
+          "end": 217.55,
+          "probability": 0.180419921875
+        },
+        {
+          "word": " According",
+          "start": 218.32,
+          "end": 218.88,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " to",
+          "start": 218.88,
+          "end": 219.18,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " various",
+          "start": 219.18,
+          "end": 219.56,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " authors,",
+          "start": 219.56,
+          "end": 220.22,
+          "probability": 0.98046875
+        },
+        {
+          "word": " public",
+          "start": 220.84,
+          "end": 221.04,
+          "probability": 0.9462890625
+        },
+        {
+          "word": " policies",
+          "start": 221.04,
+          "end": 221.78,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " can",
+          "start": 221.78,
+          "end": 222.4,
+          "probability": 0.89599609375
+        },
+        {
+          "word": " decide",
+          "start": 222.4,
+          "end": 223.0,
+          "probability": 0.9306640625
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "start": 224.88,
+      "end": 236.68,
+      "text": "is about authorities, about which government decides or what to do, as public police are",
+      "avg_logprob": -0.3244140699505806,
+      "no_speech_prob": 0.111328125,
+      "compression_ratio": 1.43801652892562,
+      "words": [
+        {
+          "word": " is",
+          "start": 224.88,
+          "end": 225.8,
+          "probability": 0.12445068359375
+        },
+        {
+          "word": " about",
+          "start": 225.8,
+          "end": 226.58,
+          "probability": 0.71875
+        },
+        {
+          "word": " authorities,",
+          "start": 226.58,
+          "end": 228.52,
+          "probability": 0.79833984375
+        },
+        {
+          "word": " about",
+          "start": 229.64,
+          "end": 230.1,
+          "probability": 0.83349609375
+        },
+        {
+          "word": " which",
+          "start": 230.1,
+          "end": 231.9,
+          "probability": 0.97021484375
+        },
+        {
+          "word": " government",
+          "start": 231.9,
+          "end": 232.46,
+          "probability": 0.93212890625
+        },
+        {
+          "word": " decides",
+          "start": 232.46,
+          "end": 233.22,
+          "probability": 0.919921875
+        },
+        {
+          "word": " or",
+          "start": 233.22,
+          "end": 233.88,
+          "probability": 0.5546875
+        },
+        {
+          "word": " what",
+          "start": 233.88,
+          "end": 234.14,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " to",
+          "start": 234.14,
+          "end": 234.34,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " do,",
+          "start": 234.34,
+          "end": 234.58,
+          "probability": 0.998046875
+        },
+        {
+          "word": " as",
+          "start": 235.04,
+          "end": 235.2,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " public",
+          "start": 235.2,
+          "end": 235.46,
+          "probability": 0.89697265625
+        },
+        {
+          "word": " police",
+          "start": 235.46,
+          "end": 235.92,
+          "probability": 0.462158203125
+        },
+        {
+          "word": " are",
+          "start": 235.92,
+          "end": 236.68,
+          "probability": 0.91796875
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "start": 236.68,
+      "end": 245.2,
+      "text": "a set of projects, programs and activities carried on, carried out by the government.",
+      "avg_logprob": -0.3244140699505806,
+      "no_speech_prob": 0.111328125,
+      "compression_ratio": 1.43801652892562,
+      "words": [
+        {
+          "word": " a",
+          "start": 236.68,
+          "end": 236.96,
+          "probability": 0.9462890625
+        },
+        {
+          "word": " set",
+          "start": 236.96,
+          "end": 237.34,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " of",
+          "start": 237.34,
+          "end": 237.72,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " projects,",
+          "start": 237.72,
+          "end": 238.38,
+          "probability": 0.82763671875
+        },
+        {
+          "word": " programs",
+          "start": 238.68,
+          "end": 239.14,
+          "probability": 0.90283203125
+        },
+        {
+          "word": " and",
+          "start": 239.14,
+          "end": 240.02,
+          "probability": 0.65673828125
+        },
+        {
+          "word": " activities",
+          "start": 240.02,
+          "end": 240.62,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " carried",
+          "start": 240.62,
+          "end": 241.52,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " on,",
+          "start": 241.52,
+          "end": 242.02,
+          "probability": 0.4912109375
+        },
+        {
+          "word": " carried",
+          "start": 242.28,
+          "end": 242.48,
+          "probability": 0.98046875
+        },
+        {
+          "word": " out",
+          "start": 242.48,
+          "end": 242.92,
+          "probability": 0.931640625
+        },
+        {
+          "word": " by",
+          "start": 242.92,
+          "end": 244.4,
+          "probability": 0.9599609375
+        },
+        {
+          "word": " the",
+          "start": 244.4,
+          "end": 244.8,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " government.",
+          "start": 244.8,
+          "end": 245.2,
+          "probability": 0.984375
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "start": 245.2,
+      "end": 256.77,
+      "text": "According to our research and surveys, we see that there is still not enough emphasis",
+      "avg_logprob": -0.1553819419609176,
+      "no_speech_prob": 0.1341552734375,
+      "compression_ratio": 1.5485714285714285,
+      "words": [
+        {
+          "word": " According",
+          "start": 245.2,
+          "end": 246.38,
+          "probability": 0.116455078125
+        },
+        {
+          "word": " to",
+          "start": 246.38,
+          "end": 246.8,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " our",
+          "start": 246.8,
+          "end": 247.08,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " research",
+          "start": 247.08,
+          "end": 247.74,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " and",
+          "start": 247.74,
+          "end": 248.32,
+          "probability": 0.94580078125
+        },
+        {
+          "word": " surveys,",
+          "start": 248.32,
+          "end": 248.74,
+          "probability": 0.95751953125
+        },
+        {
+          "word": " we",
+          "start": 249.44,
+          "end": 249.64,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " see",
+          "start": 249.64,
+          "end": 250.08,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " that",
+          "start": 250.91,
+          "end": 252.11,
+          "probability": 0.94091796875
+        },
+        {
+          "word": " there",
+          "start": 252.11,
+          "end": 253.09,
+          "probability": 0.93359375
+        },
+        {
+          "word": " is",
+          "start": 253.09,
+          "end": 253.41,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " still",
+          "start": 253.41,
+          "end": 253.93,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " not",
+          "start": 253.93,
+          "end": 254.51,
+          "probability": 0.4794921875
+        },
+        {
+          "word": " enough",
+          "start": 254.51,
+          "end": 255.97,
+          "probability": 0.82568359375
+        },
+        {
+          "word": " emphasis",
+          "start": 255.97,
+          "end": 256.77,
+          "probability": 0.974609375
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "start": 256.77,
+      "end": 264.37,
+      "text": "of ethics as part of public policies for the implementation and stimulation of the use",
+      "avg_logprob": -0.1553819419609176,
+      "no_speech_prob": 0.1341552734375,
+      "compression_ratio": 1.5485714285714285,
+      "words": [
+        {
+          "word": " of",
+          "start": 256.77,
+          "end": 257.23,
+          "probability": 0.90771484375
+        },
+        {
+          "word": " ethics",
+          "start": 257.23,
+          "end": 257.65,
+          "probability": 0.70751953125
+        },
+        {
+          "word": " as",
+          "start": 257.65,
+          "end": 258.19,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " part",
+          "start": 258.19,
+          "end": 258.55,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " of",
+          "start": 258.55,
+          "end": 258.89,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " public",
+          "start": 258.89,
+          "end": 259.31,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " policies",
+          "start": 259.31,
+          "end": 259.83,
+          "probability": 0.986328125
+        },
+        {
+          "word": " for",
+          "start": 259.83,
+          "end": 260.37,
+          "probability": 0.955078125
+        },
+        {
+          "word": " the",
+          "start": 260.37,
+          "end": 260.61,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " implementation",
+          "start": 260.61,
+          "end": 261.59,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " and",
+          "start": 261.59,
+          "end": 262.17,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " stimulation",
+          "start": 262.17,
+          "end": 262.61,
+          "probability": 0.951171875
+        },
+        {
+          "word": " of",
+          "start": 262.61,
+          "end": 263.63,
+          "probability": 0.994140625
+        },
+        {
+          "word": " the",
+          "start": 263.63,
+          "end": 263.95,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " use",
+          "start": 263.95,
+          "end": 264.37,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 264.37,
+      "end": 271.13,
+      "text": "of artificial intelligence in the areas of education, technology, innovation and entrepreneurship.",
+      "avg_logprob": -0.1553819419609176,
+      "no_speech_prob": 0.1341552734375,
+      "compression_ratio": 1.5485714285714285,
+      "words": [
+        {
+          "word": " of",
+          "start": 264.37,
+          "end": 264.69,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " artificial",
+          "start": 264.69,
+          "end": 265.11,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " intelligence",
+          "start": 265.11,
+          "end": 265.91,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " in",
+          "start": 265.91,
+          "end": 266.49,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " the",
+          "start": 266.49,
+          "end": 266.61,
+          "probability": 0.94091796875
+        },
+        {
+          "word": " areas",
+          "start": 266.61,
+          "end": 266.97,
+          "probability": 0.9921875
+        },
+        {
+          "word": " of",
+          "start": 266.97,
+          "end": 267.29,
+          "probability": 0.998046875
+        },
+        {
+          "word": " education,",
+          "start": 267.29,
+          "end": 267.83,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " technology,",
+          "start": 268.37,
+          "end": 268.81,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " innovation",
+          "start": 269.13,
+          "end": 269.51,
+          "probability": 0.9921875
+        },
+        {
+          "word": " and",
+          "start": 269.51,
+          "end": 270.35,
+          "probability": 0.58349609375
+        },
+        {
+          "word": " entrepreneurship.",
+          "start": 270.35,
+          "end": 271.13,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "start": 271.13,
+      "end": 280.19,
+      "text": "For example, even today, technology-based companies and startups do not have a transparency",
+      "avg_logprob": -0.1798177128036817,
+      "no_speech_prob": 0.295166015625,
+      "compression_ratio": 1.7345679012345678,
+      "words": [
+        {
+          "word": " For",
+          "start": 271.13,
+          "end": 272.03,
+          "probability": 0.2293701171875
+        },
+        {
+          "word": " example,",
+          "start": 272.03,
+          "end": 272.47,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " even",
+          "start": 273.21,
+          "end": 273.65,
+          "probability": 0.70947265625
+        },
+        {
+          "word": " today,",
+          "start": 273.65,
+          "end": 274.73,
+          "probability": 0.9765625
+        },
+        {
+          "word": " technology",
+          "start": 275.13,
+          "end": 275.61,
+          "probability": 0.8798828125
+        },
+        {
+          "word": "-based",
+          "start": 275.61,
+          "end": 275.97,
+          "probability": 0.94921875
+        },
+        {
+          "word": " companies",
+          "start": 275.97,
+          "end": 276.63,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " and",
+          "start": 276.63,
+          "end": 277.13,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " startups",
+          "start": 277.13,
+          "end": 277.47,
+          "probability": 0.9599609375
+        },
+        {
+          "word": " do",
+          "start": 277.47,
+          "end": 278.27,
+          "probability": 0.96484375
+        },
+        {
+          "word": " not",
+          "start": 278.27,
+          "end": 278.51,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " have",
+          "start": 278.51,
+          "end": 279.11,
+          "probability": 0.99609375
+        },
+        {
+          "word": " a",
+          "start": 279.11,
+          "end": 279.67,
+          "probability": 0.7744140625
+        },
+        {
+          "word": " transparency",
+          "start": 279.67,
+          "end": 280.19,
+          "probability": 0.9951171875
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "start": 280.19,
+      "end": 287.09,
+      "text": "policy regarding their algorithms and weight of selecting the members.",
+      "avg_logprob": -0.1798177128036817,
+      "no_speech_prob": 0.295166015625,
+      "compression_ratio": 1.7345679012345678,
+      "words": [
+        {
+          "word": " policy",
+          "start": 280.19,
+          "end": 280.99,
+          "probability": 0.99609375
+        },
+        {
+          "word": " regarding",
+          "start": 280.99,
+          "end": 281.83,
+          "probability": 0.984375
+        },
+        {
+          "word": " their",
+          "start": 281.83,
+          "end": 282.59,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " algorithms",
+          "start": 282.59,
+          "end": 284.01,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " and",
+          "start": 284.01,
+          "end": 284.67,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " weight",
+          "start": 284.67,
+          "end": 284.99,
+          "probability": 0.43505859375
+        },
+        {
+          "word": " of",
+          "start": 284.99,
+          "end": 285.41,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " selecting",
+          "start": 285.41,
+          "end": 285.95,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " the",
+          "start": 285.95,
+          "end": 286.65,
+          "probability": 0.8310546875
+        },
+        {
+          "word": " members.",
+          "start": 286.65,
+          "end": 287.09,
+          "probability": 0.990234375
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "start": 288.41,
+      "end": 297.01,
+      "text": "Even today, technology-based companies and startups have a few women's programmers and",
+      "avg_logprob": -0.1798177128036817,
+      "no_speech_prob": 0.295166015625,
+      "compression_ratio": 1.7345679012345678,
+      "words": [
+        {
+          "word": " Even",
+          "start": 288.41,
+          "end": 288.77,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " today,",
+          "start": 288.77,
+          "end": 289.39,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " technology",
+          "start": 290.07,
+          "end": 290.53,
+          "probability": 0.96240234375
+        },
+        {
+          "word": "-based",
+          "start": 290.53,
+          "end": 291.21,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " companies",
+          "start": 291.21,
+          "end": 291.93,
+          "probability": 0.99609375
+        },
+        {
+          "word": " and",
+          "start": 291.93,
+          "end": 292.63,
+          "probability": 0.99609375
+        },
+        {
+          "word": " startups",
+          "start": 292.63,
+          "end": 293.13,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " have",
+          "start": 293.13,
+          "end": 293.77,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " a",
+          "start": 293.77,
+          "end": 294.13,
+          "probability": 0.92529296875
+        },
+        {
+          "word": " few",
+          "start": 294.13,
+          "end": 294.33,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " women's",
+          "start": 294.33,
+          "end": 295.43,
+          "probability": 0.73779296875
+        },
+        {
+          "word": " programmers",
+          "start": 295.43,
+          "end": 296.27,
+          "probability": 0.943359375
+        },
+        {
+          "word": " and",
+          "start": 296.27,
+          "end": 297.01,
+          "probability": 0.978515625
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "start": 297.01,
+      "end": 299.61,
+      "text": "leaders of teams and companies.",
+      "avg_logprob": -0.1798177128036817,
+      "no_speech_prob": 0.295166015625,
+      "compression_ratio": 1.7345679012345678,
+      "words": [
+        {
+          "word": " leaders",
+          "start": 297.01,
+          "end": 297.47,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " of",
+          "start": 297.47,
+          "end": 298.15,
+          "probability": 0.986328125
+        },
+        {
+          "word": " teams",
+          "start": 298.15,
+          "end": 298.55,
+          "probability": 0.9765625
+        },
+        {
+          "word": " and",
+          "start": 298.55,
+          "end": 299.07,
+          "probability": 0.9921875
+        },
+        {
+          "word": " companies.",
+          "start": 299.07,
+          "end": 299.61,
+          "probability": 0.99365234375
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "start": 299.61,
+      "end": 305.75,
+      "text": "voice. This makes many of the program and artificial intelligence developed, gendered,",
+      "avg_logprob": -0.3115530447526412,
+      "no_speech_prob": 0.14306640625,
+      "compression_ratio": 1.5136612021857923,
+      "words": [
+        {
+          "word": " voice.",
+          "start": 299.61,
+          "end": 299.77,
+          "probability": 0.07830810546875
+        },
+        {
+          "word": " This",
+          "start": 300.39,
+          "end": 300.67,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " makes",
+          "start": 300.67,
+          "end": 301.01,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " many",
+          "start": 301.01,
+          "end": 301.57,
+          "probability": 0.98828125
+        },
+        {
+          "word": " of",
+          "start": 301.57,
+          "end": 301.75,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " the",
+          "start": 301.75,
+          "end": 301.91,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " program",
+          "start": 301.91,
+          "end": 302.29,
+          "probability": 0.6630859375
+        },
+        {
+          "word": " and",
+          "start": 302.29,
+          "end": 302.65,
+          "probability": 0.734375
+        },
+        {
+          "word": " artificial",
+          "start": 302.65,
+          "end": 303.01,
+          "probability": 0.76904296875
+        },
+        {
+          "word": " intelligence",
+          "start": 303.01,
+          "end": 303.81,
+          "probability": 0.962890625
+        },
+        {
+          "word": " developed,",
+          "start": 303.81,
+          "end": 304.45,
+          "probability": 0.5380859375
+        },
+        {
+          "word": " gendered,",
+          "start": 305.01,
+          "end": 305.75,
+          "probability": 0.948974609375
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "start": 305.97,
+      "end": 316.21,
+      "text": "blazed and execed and sexist. That is unethical. A phenomenon that we see a lot that has been",
+      "avg_logprob": -0.3115530447526412,
+      "no_speech_prob": 0.14306640625,
+      "compression_ratio": 1.5136612021857923,
+      "words": [
+        {
+          "word": " blazed",
+          "start": 305.97,
+          "end": 306.31,
+          "probability": 0.498779296875
+        },
+        {
+          "word": " and",
+          "start": 306.31,
+          "end": 306.85,
+          "probability": 0.580078125
+        },
+        {
+          "word": " execed",
+          "start": 306.85,
+          "end": 307.55,
+          "probability": 0.444091796875
+        },
+        {
+          "word": " and",
+          "start": 307.55,
+          "end": 307.75,
+          "probability": 0.58837890625
+        },
+        {
+          "word": " sexist.",
+          "start": 307.75,
+          "end": 308.41,
+          "probability": 0.64794921875
+        },
+        {
+          "word": " That",
+          "start": 309.06,
+          "end": 309.44,
+          "probability": 0.7705078125
+        },
+        {
+          "word": " is",
+          "start": 309.44,
+          "end": 309.92,
+          "probability": 0.6396484375
+        },
+        {
+          "word": " unethical.",
+          "start": 309.92,
+          "end": 310.94,
+          "probability": 0.8894856770833334
+        },
+        {
+          "word": " A",
+          "start": 311.97,
+          "end": 312.15,
+          "probability": 0.95703125
+        },
+        {
+          "word": " phenomenon",
+          "start": 312.15,
+          "end": 312.95,
+          "probability": 0.78173828125
+        },
+        {
+          "word": " that",
+          "start": 312.95,
+          "end": 313.85,
+          "probability": 0.9111328125
+        },
+        {
+          "word": " we",
+          "start": 313.85,
+          "end": 314.11,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " see",
+          "start": 314.11,
+          "end": 314.49,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " a",
+          "start": 314.49,
+          "end": 314.83,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " lot",
+          "start": 314.83,
+          "end": 315.13,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " that",
+          "start": 315.13,
+          "end": 315.53,
+          "probability": 0.927734375
+        },
+        {
+          "word": " has",
+          "start": 315.53,
+          "end": 315.85,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " been",
+          "start": 315.85,
+          "end": 316.21,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "start": 316.21,
+      "end": 324.51,
+      "text": "criticised by UN and UNESCO is that many artificial intelligence of telephone companies nowadays",
+      "avg_logprob": -0.3115530447526412,
+      "no_speech_prob": 0.14306640625,
+      "compression_ratio": 1.5136612021857923,
+      "words": [
+        {
+          "word": " criticised",
+          "start": 316.21,
+          "end": 317.33,
+          "probability": 0.65478515625
+        },
+        {
+          "word": " by",
+          "start": 317.33,
+          "end": 317.83,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " UN",
+          "start": 317.83,
+          "end": 318.77,
+          "probability": 0.8427734375
+        },
+        {
+          "word": " and",
+          "start": 318.77,
+          "end": 319.13,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " UNESCO",
+          "start": 319.13,
+          "end": 319.65,
+          "probability": 0.990966796875
+        },
+        {
+          "word": " is",
+          "start": 319.65,
+          "end": 320.25,
+          "probability": 0.7294921875
+        },
+        {
+          "word": " that",
+          "start": 320.25,
+          "end": 320.45,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " many",
+          "start": 320.45,
+          "end": 320.79,
+          "probability": 0.94287109375
+        },
+        {
+          "word": " artificial",
+          "start": 320.79,
+          "end": 321.33,
+          "probability": 0.92529296875
+        },
+        {
+          "word": " intelligence",
+          "start": 321.33,
+          "end": 322.23,
+          "probability": 0.92236328125
+        },
+        {
+          "word": " of",
+          "start": 322.23,
+          "end": 322.79,
+          "probability": 0.951171875
+        },
+        {
+          "word": " telephone",
+          "start": 322.79,
+          "end": 323.13,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " companies",
+          "start": 323.13,
+          "end": 323.85,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " nowadays",
+          "start": 323.85,
+          "end": 324.51,
+          "probability": 0.7822265625
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "start": 324.51,
+      "end": 332.79,
+      "text": "Today's continues to use female voice, thus placing women in subordinate positions, which",
+      "avg_logprob": -0.3323863538828763,
+      "no_speech_prob": 0.1392822265625,
+      "compression_ratio": 1.4545454545454546,
+      "words": [
+        {
+          "word": " Today's",
+          "start": 324.51,
+          "end": 324.87,
+          "probability": 0.41778564453125
+        },
+        {
+          "word": " continues",
+          "start": 324.87,
+          "end": 325.47,
+          "probability": 0.09869384765625
+        },
+        {
+          "word": " to",
+          "start": 325.47,
+          "end": 325.93,
+          "probability": 0.96044921875
+        },
+        {
+          "word": " use",
+          "start": 325.93,
+          "end": 326.23,
+          "probability": 0.978515625
+        },
+        {
+          "word": " female",
+          "start": 326.23,
+          "end": 327.05,
+          "probability": 0.1014404296875
+        },
+        {
+          "word": " voice,",
+          "start": 327.05,
+          "end": 327.79,
+          "probability": 0.69921875
+        },
+        {
+          "word": " thus",
+          "start": 328.03,
+          "end": 328.31,
+          "probability": 0.94140625
+        },
+        {
+          "word": " placing",
+          "start": 328.31,
+          "end": 328.87,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " women",
+          "start": 328.87,
+          "end": 329.39,
+          "probability": 0.5654296875
+        },
+        {
+          "word": " in",
+          "start": 329.39,
+          "end": 330.17,
+          "probability": 0.9189453125
+        },
+        {
+          "word": " subordinate",
+          "start": 330.17,
+          "end": 330.79,
+          "probability": 0.877197265625
+        },
+        {
+          "word": " positions,",
+          "start": 330.79,
+          "end": 331.77,
+          "probability": 0.74853515625
+        },
+        {
+          "word": " which",
+          "start": 332.49,
+          "end": 332.79,
+          "probability": 0.9775390625
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "start": 332.79,
+      "end": 339.75,
+      "text": "also indicates a lack of ethics and once again gender cultural barriers.",
+      "avg_logprob": -0.3323863538828763,
+      "no_speech_prob": 0.1392822265625,
+      "compression_ratio": 1.4545454545454546,
+      "words": [
+        {
+          "word": " also",
+          "start": 332.79,
+          "end": 333.29,
+          "probability": 0.7080078125
+        },
+        {
+          "word": " indicates",
+          "start": 333.29,
+          "end": 334.47,
+          "probability": 0.61083984375
+        },
+        {
+          "word": " a",
+          "start": 334.47,
+          "end": 335.05,
+          "probability": 0.8544921875
+        },
+        {
+          "word": " lack",
+          "start": 335.05,
+          "end": 335.35,
+          "probability": 0.99609375
+        },
+        {
+          "word": " of",
+          "start": 335.35,
+          "end": 335.67,
+          "probability": 0.998046875
+        },
+        {
+          "word": " ethics",
+          "start": 335.67,
+          "end": 336.17,
+          "probability": 0.6552734375
+        },
+        {
+          "word": " and",
+          "start": 336.17,
+          "end": 336.77,
+          "probability": 0.82177734375
+        },
+        {
+          "word": " once",
+          "start": 336.77,
+          "end": 337.43,
+          "probability": 0.82666015625
+        },
+        {
+          "word": " again",
+          "start": 337.43,
+          "end": 337.85,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " gender",
+          "start": 337.85,
+          "end": 338.55,
+          "probability": 0.759765625
+        },
+        {
+          "word": " cultural",
+          "start": 338.55,
+          "end": 339.11,
+          "probability": 0.7509765625
+        },
+        {
+          "word": " barriers.",
+          "start": 339.11,
+          "end": 339.75,
+          "probability": 0.99072265625
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "start": 340.61,
+      "end": 350.05,
+      "text": "Today, robots are used in political campaigns that often encourage hate speech and fake news.",
+      "avg_logprob": -0.3323863538828763,
+      "no_speech_prob": 0.1392822265625,
+      "compression_ratio": 1.4545454545454546,
+      "words": [
+        {
+          "word": " Today,",
+          "start": 340.61,
+          "end": 341.11,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " robots",
+          "start": 341.39,
+          "end": 341.83,
+          "probability": 0.94140625
+        },
+        {
+          "word": " are",
+          "start": 341.83,
+          "end": 342.43,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " used",
+          "start": 342.43,
+          "end": 342.83,
+          "probability": 0.935546875
+        },
+        {
+          "word": " in",
+          "start": 342.83,
+          "end": 343.65,
+          "probability": 0.982421875
+        },
+        {
+          "word": " political",
+          "start": 343.65,
+          "end": 344.71,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " campaigns",
+          "start": 344.71,
+          "end": 345.35,
+          "probability": 0.998046875
+        },
+        {
+          "word": " that",
+          "start": 345.35,
+          "end": 345.97,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " often",
+          "start": 345.97,
+          "end": 346.55,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " encourage",
+          "start": 346.55,
+          "end": 347.29,
+          "probability": 0.947265625
+        },
+        {
+          "word": " hate",
+          "start": 347.29,
+          "end": 347.99,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " speech",
+          "start": 347.99,
+          "end": 348.59,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " and",
+          "start": 348.59,
+          "end": 349.33,
+          "probability": 0.974609375
+        },
+        {
+          "word": " fake",
+          "start": 349.33,
+          "end": 349.71,
+          "probability": 0.5458984375
+        },
+        {
+          "word": " news.",
+          "start": 349.71,
+          "end": 350.05,
+          "probability": 0.9921875
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "start": 350.05,
+      "end": 357.37,
+      "text": "It is necessary to create public and legal policies through the ministries of justice",
+      "avg_logprob": -0.1655993793831497,
+      "no_speech_prob": 0.13134765625,
+      "compression_ratio": 1.6363636363636365,
+      "words": [
+        {
+          "word": " It",
+          "start": 350.05,
+          "end": 351.03,
+          "probability": 0.29931640625
+        },
+        {
+          "word": " is",
+          "start": 351.03,
+          "end": 351.23,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " necessary",
+          "start": 351.23,
+          "end": 351.95,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " to",
+          "start": 351.95,
+          "end": 352.53,
+          "probability": 0.98828125
+        },
+        {
+          "word": " create",
+          "start": 352.53,
+          "end": 352.87,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " public",
+          "start": 352.87,
+          "end": 353.39,
+          "probability": 0.97119140625
+        },
+        {
+          "word": " and",
+          "start": 353.39,
+          "end": 353.71,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " legal",
+          "start": 353.71,
+          "end": 354.09,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " policies",
+          "start": 354.09,
+          "end": 354.71,
+          "probability": 0.93701171875
+        },
+        {
+          "word": " through",
+          "start": 354.71,
+          "end": 355.45,
+          "probability": 0.77197265625
+        },
+        {
+          "word": " the",
+          "start": 355.45,
+          "end": 356.03,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " ministries",
+          "start": 356.03,
+          "end": 356.59,
+          "probability": 0.967041015625
+        },
+        {
+          "word": " of",
+          "start": 356.59,
+          "end": 356.93,
+          "probability": 0.99609375
+        },
+        {
+          "word": " justice",
+          "start": 356.93,
+          "end": 357.37,
+          "probability": 0.96826171875
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "start": 357.37,
+      "end": 365.49,
+      "text": "of these countries that regulate the use of robots for politicians and political purpose,",
+      "avg_logprob": -0.1655993793831497,
+      "no_speech_prob": 0.13134765625,
+      "compression_ratio": 1.6363636363636365,
+      "words": [
+        {
+          "word": " of",
+          "start": 357.37,
+          "end": 357.87,
+          "probability": 0.888671875
+        },
+        {
+          "word": " these",
+          "start": 357.87,
+          "end": 358.15,
+          "probability": 0.9609375
+        },
+        {
+          "word": " countries",
+          "start": 358.15,
+          "end": 358.59,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " that",
+          "start": 358.59,
+          "end": 359.23,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " regulate",
+          "start": 359.23,
+          "end": 359.75,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " the",
+          "start": 359.75,
+          "end": 360.39,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " use",
+          "start": 360.39,
+          "end": 360.77,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " of",
+          "start": 360.77,
+          "end": 361.17,
+          "probability": 0.998046875
+        },
+        {
+          "word": " robots",
+          "start": 361.17,
+          "end": 361.89,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " for",
+          "start": 361.89,
+          "end": 362.73,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " politicians",
+          "start": 362.73,
+          "end": 363.41,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " and",
+          "start": 363.41,
+          "end": 364.25,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " political",
+          "start": 364.25,
+          "end": 364.83,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " purpose,",
+          "start": 364.83,
+          "end": 365.49,
+          "probability": 0.73486328125
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "start": 366.19,
+      "end": 374.19,
+      "text": "with strong punishments for the creators of systems and platforms that disseminate fake",
+      "avg_logprob": -0.1655993793831497,
+      "no_speech_prob": 0.13134765625,
+      "compression_ratio": 1.6363636363636365,
+      "words": [
+        {
+          "word": " with",
+          "start": 366.19,
+          "end": 366.55,
+          "probability": 0.98828125
+        },
+        {
+          "word": " strong",
+          "start": 366.55,
+          "end": 367.29,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " punishments",
+          "start": 367.29,
+          "end": 368.13,
+          "probability": 0.982177734375
+        },
+        {
+          "word": " for",
+          "start": 368.13,
+          "end": 368.85,
+          "probability": 0.984375
+        },
+        {
+          "word": " the",
+          "start": 368.85,
+          "end": 369.13,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " creators",
+          "start": 369.13,
+          "end": 369.85,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " of",
+          "start": 369.85,
+          "end": 370.63,
+          "probability": 0.99609375
+        },
+        {
+          "word": " systems",
+          "start": 370.63,
+          "end": 371.21,
+          "probability": 0.85302734375
+        },
+        {
+          "word": " and",
+          "start": 371.21,
+          "end": 371.77,
+          "probability": 0.994140625
+        },
+        {
+          "word": " platforms",
+          "start": 371.77,
+          "end": 372.33,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " that",
+          "start": 372.33,
+          "end": 373.09,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " disseminate",
+          "start": 373.09,
+          "end": 373.87,
+          "probability": 0.994384765625
+        },
+        {
+          "word": " fake",
+          "start": 373.87,
+          "end": 374.19,
+          "probability": 0.79248046875
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "start": 374.19,
+      "end": 376.09,
+      "text": "news and hit the speech.",
+      "avg_logprob": -0.1655993793831497,
+      "no_speech_prob": 0.13134765625,
+      "compression_ratio": 1.6363636363636365,
+      "words": [
+        {
+          "word": " news",
+          "start": 374.19,
+          "end": 374.57,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " and",
+          "start": 374.57,
+          "end": 375.19,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " hit",
+          "start": 375.19,
+          "end": 375.57,
+          "probability": 0.468994140625
+        },
+        {
+          "word": " the",
+          "start": 375.57,
+          "end": 375.79,
+          "probability": 0.460205078125
+        },
+        {
+          "word": " speech.",
+          "start": 375.79,
+          "end": 376.09,
+          "probability": 0.66796875
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "start": 376.09,
+      "end": 385.37,
+      "text": "which we also have the general law on data protection of individuals that must be implemented",
+      "avg_logprob": -0.22440159511058888,
+      "no_speech_prob": 0.054351806640625,
+      "compression_ratio": 1.5298013245033113,
+      "words": [
+        {
+          "word": " which",
+          "start": 376.09,
+          "end": 376.31,
+          "probability": 0.19189453125
+        },
+        {
+          "word": " we",
+          "start": 376.47,
+          "end": 377.41,
+          "probability": 0.7001953125
+        },
+        {
+          "word": " also",
+          "start": 377.41,
+          "end": 377.83,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " have",
+          "start": 377.83,
+          "end": 378.33,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " the",
+          "start": 378.33,
+          "end": 378.91,
+          "probability": 0.94482421875
+        },
+        {
+          "word": " general",
+          "start": 378.91,
+          "end": 379.47,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " law",
+          "start": 379.47,
+          "end": 380.35,
+          "probability": 0.399658203125
+        },
+        {
+          "word": " on",
+          "start": 380.35,
+          "end": 380.87,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " data",
+          "start": 380.87,
+          "end": 381.09,
+          "probability": 0.78466796875
+        },
+        {
+          "word": " protection",
+          "start": 381.09,
+          "end": 381.49,
+          "probability": 0.89892578125
+        },
+        {
+          "word": " of",
+          "start": 381.49,
+          "end": 382.39,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " individuals",
+          "start": 382.39,
+          "end": 383.01,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " that",
+          "start": 383.01,
+          "end": 383.61,
+          "probability": 0.92578125
+        },
+        {
+          "word": " must",
+          "start": 383.61,
+          "end": 383.89,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " be",
+          "start": 383.89,
+          "end": 384.65,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " implemented",
+          "start": 384.65,
+          "end": 385.37,
+          "probability": 0.98388671875
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "start": 385.37,
+      "end": 393.19,
+      "text": "worldwide to protect the privacy of data of individuals.",
+      "avg_logprob": -0.22440159511058888,
+      "no_speech_prob": 0.054351806640625,
+      "compression_ratio": 1.5298013245033113,
+      "words": [
+        {
+          "word": " worldwide",
+          "start": 385.37,
+          "end": 386.25,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " to",
+          "start": 386.25,
+          "end": 386.85,
+          "probability": 0.9599609375
+        },
+        {
+          "word": " protect",
+          "start": 386.85,
+          "end": 389.21,
+          "probability": 0.8916015625
+        },
+        {
+          "word": " the",
+          "start": 389.21,
+          "end": 389.87,
+          "probability": 0.974609375
+        },
+        {
+          "word": " privacy",
+          "start": 389.87,
+          "end": 391.07,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " of",
+          "start": 391.07,
+          "end": 391.81,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " data",
+          "start": 391.81,
+          "end": 392.25,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " of",
+          "start": 392.25,
+          "end": 392.59,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " individuals.",
+          "start": 392.59,
+          "end": 393.19,
+          "probability": 0.990234375
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "start": 394.01,
+      "end": 401.11,
+      "text": "This point should also be the object of public artificial intelligence policies.",
+      "avg_logprob": -0.22440159511058888,
+      "no_speech_prob": 0.054351806640625,
+      "compression_ratio": 1.5298013245033113,
+      "words": [
+        {
+          "word": " This",
+          "start": 394.01,
+          "end": 394.45,
+          "probability": 0.978515625
+        },
+        {
+          "word": " point",
+          "start": 394.45,
+          "end": 394.93,
+          "probability": 0.99609375
+        },
+        {
+          "word": " should",
+          "start": 394.93,
+          "end": 395.43,
+          "probability": 0.572265625
+        },
+        {
+          "word": " also",
+          "start": 395.43,
+          "end": 396.25,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " be",
+          "start": 396.25,
+          "end": 397.05,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " the",
+          "start": 397.05,
+          "end": 397.29,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " object",
+          "start": 397.29,
+          "end": 397.79,
+          "probability": 0.9677734375
+        },
+        {
+          "word": " of",
+          "start": 397.79,
+          "end": 398.09,
+          "probability": 0.99609375
+        },
+        {
+          "word": " public",
+          "start": 398.09,
+          "end": 398.49,
+          "probability": 0.94873046875
+        },
+        {
+          "word": " artificial",
+          "start": 398.49,
+          "end": 399.09,
+          "probability": 0.86279296875
+        },
+        {
+          "word": " intelligence",
+          "start": 399.09,
+          "end": 400.15,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " policies.",
+          "start": 400.15,
+          "end": 401.11,
+          "probability": 0.986328125
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "start": 401.11,
+      "end": 408.39,
+      "text": "According to our research, when the cultural barriers to communication has a strong relationship",
+      "avg_logprob": -0.20572916721856152,
+      "no_speech_prob": 0.0570068359375,
+      "compression_ratio": 1.74,
+      "words": [
+        {
+          "word": " According",
+          "start": 401.11,
+          "end": 402.47,
+          "probability": 0.90966796875
+        },
+        {
+          "word": " to",
+          "start": 402.47,
+          "end": 403.01,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " our",
+          "start": 403.01,
+          "end": 403.35,
+          "probability": 0.98828125
+        },
+        {
+          "word": " research,",
+          "start": 403.35,
+          "end": 403.99,
+          "probability": 0.99609375
+        },
+        {
+          "word": " when",
+          "start": 404.47,
+          "end": 404.57,
+          "probability": 0.9541015625
+        },
+        {
+          "word": " the",
+          "start": 404.57,
+          "end": 404.73,
+          "probability": 0.90185546875
+        },
+        {
+          "word": " cultural",
+          "start": 404.73,
+          "end": 405.07,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " barriers",
+          "start": 405.07,
+          "end": 405.47,
+          "probability": 0.72412109375
+        },
+        {
+          "word": " to",
+          "start": 405.47,
+          "end": 405.81,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " communication",
+          "start": 405.81,
+          "end": 406.37,
+          "probability": 0.982421875
+        },
+        {
+          "word": " has",
+          "start": 406.37,
+          "end": 407.19,
+          "probability": 0.77001953125
+        },
+        {
+          "word": " a",
+          "start": 407.19,
+          "end": 407.47,
+          "probability": 0.64794921875
+        },
+        {
+          "word": " strong",
+          "start": 407.47,
+          "end": 407.79,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " relationship",
+          "start": 407.79,
+          "end": 408.39,
+          "probability": 0.865234375
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "start": 408.67,
+      "end": 409.55,
+      "text": "with ethics.",
+      "avg_logprob": -0.20572916721856152,
+      "no_speech_prob": 0.0570068359375,
+      "compression_ratio": 1.74,
+      "words": [
+        {
+          "word": " with",
+          "start": 408.67,
+          "end": 409.17,
+          "probability": 0.99609375
+        },
+        {
+          "word": " ethics.",
+          "start": 409.17,
+          "end": 409.55,
+          "probability": 0.98193359375
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "start": 410.37,
+      "end": 416.89,
+      "text": "When cultural barriers and prejudices increase, ethics decrease and vice versa.",
+      "avg_logprob": -0.20572916721856152,
+      "no_speech_prob": 0.0570068359375,
+      "compression_ratio": 1.74,
+      "words": [
+        {
+          "word": " When",
+          "start": 410.37,
+          "end": 410.63,
+          "probability": 0.98046875
+        },
+        {
+          "word": " cultural",
+          "start": 410.63,
+          "end": 411.17,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " barriers",
+          "start": 411.17,
+          "end": 411.65,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " and",
+          "start": 411.65,
+          "end": 412.39,
+          "probability": 0.59130859375
+        },
+        {
+          "word": " prejudices",
+          "start": 412.39,
+          "end": 412.81,
+          "probability": 0.7822265625
+        },
+        {
+          "word": " increase,",
+          "start": 412.81,
+          "end": 413.61,
+          "probability": 0.96875
+        },
+        {
+          "word": " ethics",
+          "start": 414.21,
+          "end": 414.61,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " decrease",
+          "start": 414.61,
+          "end": 415.41,
+          "probability": 0.94189453125
+        },
+        {
+          "word": " and",
+          "start": 415.41,
+          "end": 416.23,
+          "probability": 0.56982421875
+        },
+        {
+          "word": " vice",
+          "start": 416.23,
+          "end": 416.43,
+          "probability": 0.6533203125
+        },
+        {
+          "word": " versa.",
+          "start": 416.43,
+          "end": 416.89,
+          "probability": 0.9482421875
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "start": 417.49,
+      "end": 423.37,
+      "text": "When cultural barriers decrease, ethical behavior or the web increases.",
+      "avg_logprob": -0.20572916721856152,
+      "no_speech_prob": 0.0570068359375,
+      "compression_ratio": 1.74,
+      "words": [
+        {
+          "word": " When",
+          "start": 417.49,
+          "end": 417.75,
+          "probability": 0.98828125
+        },
+        {
+          "word": " cultural",
+          "start": 417.75,
+          "end": 418.25,
+          "probability": 0.990234375
+        },
+        {
+          "word": " barriers",
+          "start": 418.25,
+          "end": 418.71,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " decrease,",
+          "start": 418.71,
+          "end": 419.61,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " ethical",
+          "start": 420.23,
+          "end": 420.67,
+          "probability": 0.990234375
+        },
+        {
+          "word": " behavior",
+          "start": 420.67,
+          "end": 421.25,
+          "probability": 0.72998046875
+        },
+        {
+          "word": " or",
+          "start": 421.25,
+          "end": 421.95,
+          "probability": 0.8798828125
+        },
+        {
+          "word": " the",
+          "start": 421.95,
+          "end": 422.17,
+          "probability": 0.91455078125
+        },
+        {
+          "word": " web",
+          "start": 422.17,
+          "end": 422.47,
+          "probability": 0.916015625
+        },
+        {
+          "word": " increases.",
+          "start": 422.47,
+          "end": 423.37,
+          "probability": 0.966796875
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "start": 423.37,
+      "end": 431.83,
+      "text": "All these points have gained more strength during the pandemic of COVID-19, as home",
+      "avg_logprob": -0.24880827281434656,
+      "no_speech_prob": 0.1365966796875,
+      "compression_ratio": 1.3944444444444444,
+      "words": [
+        {
+          "word": " All",
+          "start": 423.37,
+          "end": 424.45,
+          "probability": 0.343017578125
+        },
+        {
+          "word": " these",
+          "start": 424.45,
+          "end": 424.69,
+          "probability": 0.927734375
+        },
+        {
+          "word": " points",
+          "start": 424.69,
+          "end": 425.09,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " have",
+          "start": 425.09,
+          "end": 425.67,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " gained",
+          "start": 425.67,
+          "end": 426.13,
+          "probability": 0.8974609375
+        },
+        {
+          "word": " more",
+          "start": 426.13,
+          "end": 427.05,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " strength",
+          "start": 427.05,
+          "end": 427.53,
+          "probability": 0.57568359375
+        },
+        {
+          "word": " during",
+          "start": 427.53,
+          "end": 428.41,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " the",
+          "start": 428.41,
+          "end": 428.75,
+          "probability": 0.984375
+        },
+        {
+          "word": " pandemic",
+          "start": 428.75,
+          "end": 429.35,
+          "probability": 0.93017578125
+        },
+        {
+          "word": " of",
+          "start": 429.35,
+          "end": 429.71,
+          "probability": 0.966796875
+        },
+        {
+          "word": " COVID",
+          "start": 429.71,
+          "end": 430.11,
+          "probability": 0.5498046875
+        },
+        {
+          "word": "-19,",
+          "start": 430.11,
+          "end": 430.51,
+          "probability": 0.948486328125
+        },
+        {
+          "word": " as",
+          "start": 431.29,
+          "end": 431.55,
+          "probability": 0.9365234375
+        },
+        {
+          "word": " home",
+          "start": 431.55,
+          "end": 431.83,
+          "probability": 0.28857421875
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "start": 431.83,
+      "end": 439.43,
+      "text": "office war has increased and we have all become more dependent of the internet.",
+      "avg_logprob": -0.24880827281434656,
+      "no_speech_prob": 0.1365966796875,
+      "compression_ratio": 1.3944444444444444,
+      "words": [
+        {
+          "word": " office",
+          "start": 431.83,
+          "end": 432.23,
+          "probability": 0.93115234375
+        },
+        {
+          "word": " war",
+          "start": 432.23,
+          "end": 432.83,
+          "probability": 0.37060546875
+        },
+        {
+          "word": " has",
+          "start": 432.83,
+          "end": 433.23,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " increased",
+          "start": 433.23,
+          "end": 433.79,
+          "probability": 0.9140625
+        },
+        {
+          "word": " and",
+          "start": 433.79,
+          "end": 434.71,
+          "probability": 0.78369140625
+        },
+        {
+          "word": " we",
+          "start": 434.71,
+          "end": 435.07,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " have",
+          "start": 435.07,
+          "end": 435.39,
+          "probability": 0.890625
+        },
+        {
+          "word": " all",
+          "start": 435.39,
+          "end": 435.89,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " become",
+          "start": 435.89,
+          "end": 436.29,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " more",
+          "start": 436.29,
+          "end": 436.73,
+          "probability": 0.9921875
+        },
+        {
+          "word": " dependent",
+          "start": 436.73,
+          "end": 437.25,
+          "probability": 0.9228515625
+        },
+        {
+          "word": " of",
+          "start": 437.25,
+          "end": 438.21,
+          "probability": 0.53564453125
+        },
+        {
+          "word": " the",
+          "start": 438.21,
+          "end": 438.87,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " internet.",
+          "start": 438.87,
+          "end": 439.43,
+          "probability": 0.6572265625
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "start": 439.99,
+      "end": 450.16,
+      "text": "We live in the time in a post-human world, but believe that technology alone will solve",
+      "avg_logprob": -0.24880827281434656,
+      "no_speech_prob": 0.1365966796875,
+      "compression_ratio": 1.3944444444444444,
+      "words": [
+        {
+          "word": " We",
+          "start": 439.99,
+          "end": 440.29,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " live",
+          "start": 440.29,
+          "end": 440.59,
+          "probability": 0.982421875
+        },
+        {
+          "word": " in",
+          "start": 440.59,
+          "end": 441.19,
+          "probability": 0.9765625
+        },
+        {
+          "word": " the",
+          "start": 441.19,
+          "end": 441.33,
+          "probability": 0.80517578125
+        },
+        {
+          "word": " time",
+          "start": 441.33,
+          "end": 441.81,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " in",
+          "start": 441.81,
+          "end": 442.73,
+          "probability": 0.89599609375
+        },
+        {
+          "word": " a",
+          "start": 442.73,
+          "end": 442.99,
+          "probability": 0.93359375
+        },
+        {
+          "word": " post",
+          "start": 442.99,
+          "end": 443.37,
+          "probability": 0.87548828125
+        },
+        {
+          "word": "-human",
+          "start": 443.37,
+          "end": 444.55,
+          "probability": 0.69482421875
+        },
+        {
+          "word": " world,",
+          "start": 444.55,
+          "end": 445.03,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " but",
+          "start": 445.46,
+          "end": 446.22,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " believe",
+          "start": 446.22,
+          "end": 446.74,
+          "probability": 0.73583984375
+        },
+        {
+          "word": " that",
+          "start": 446.74,
+          "end": 447.44,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " technology",
+          "start": 447.44,
+          "end": 448.12,
+          "probability": 0.91845703125
+        },
+        {
+          "word": " alone",
+          "start": 448.12,
+          "end": 448.82,
+          "probability": 0.9306640625
+        },
+        {
+          "word": " will",
+          "start": 448.82,
+          "end": 449.48,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " solve",
+          "start": 449.48,
+          "end": 450.16,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "start": 450.16,
+      "end": 454.52,
+      "text": "of any problems of humankind is the greatest mistake.",
+      "avg_logprob": -0.20151289162181674,
+      "no_speech_prob": 0.07244873046875,
+      "compression_ratio": 1.5076142131979695,
+      "words": [
+        {
+          "word": " of",
+          "start": 450.16,
+          "end": 450.96,
+          "probability": 0.142822265625
+        },
+        {
+          "word": " any",
+          "start": 450.96,
+          "end": 450.96,
+          "probability": 0.79736328125
+        },
+        {
+          "word": " problems",
+          "start": 450.96,
+          "end": 451.5,
+          "probability": 0.86328125
+        },
+        {
+          "word": " of",
+          "start": 451.5,
+          "end": 451.92,
+          "probability": 0.990234375
+        },
+        {
+          "word": " humankind",
+          "start": 451.92,
+          "end": 452.8,
+          "probability": 0.932373046875
+        },
+        {
+          "word": " is",
+          "start": 452.8,
+          "end": 453.46,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " the",
+          "start": 453.46,
+          "end": 453.66,
+          "probability": 0.8564453125
+        },
+        {
+          "word": " greatest",
+          "start": 453.66,
+          "end": 454.0,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " mistake.",
+          "start": 454.0,
+          "end": 454.52,
+          "probability": 0.986328125
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "start": 455.42,
+      "end": 463.0,
+      "text": "We need multicultural, transdisciplinary and multi-sectorial strategies, policies and solutions",
+      "avg_logprob": -0.20151289162181674,
+      "no_speech_prob": 0.07244873046875,
+      "compression_ratio": 1.5076142131979695,
+      "words": [
+        {
+          "word": " We",
+          "start": 455.42,
+          "end": 455.68,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " need",
+          "start": 455.68,
+          "end": 455.94,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " multicultural,",
+          "start": 455.94,
+          "end": 456.92,
+          "probability": 0.88720703125
+        },
+        {
+          "word": " transdisciplinary",
+          "start": 457.86,
+          "end": 458.46,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " and",
+          "start": 458.46,
+          "end": 459.22,
+          "probability": 0.68408203125
+        },
+        {
+          "word": " multi",
+          "start": 459.22,
+          "end": 459.58,
+          "probability": 0.6181640625
+        },
+        {
+          "word": "-sectorial",
+          "start": 459.58,
+          "end": 460.22,
+          "probability": 0.850830078125
+        },
+        {
+          "word": " strategies,",
+          "start": 460.22,
+          "end": 460.78,
+          "probability": 0.92919921875
+        },
+        {
+          "word": " policies",
+          "start": 461.5,
+          "end": 461.98,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " and",
+          "start": 461.98,
+          "end": 462.42,
+          "probability": 0.7109375
+        },
+        {
+          "word": " solutions",
+          "start": 462.42,
+          "end": 463.0,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "start": 463.18,
+      "end": 468.24,
+      "text": "to face the current challenges using artificial intelligence.",
+      "avg_logprob": -0.20151289162181674,
+      "no_speech_prob": 0.07244873046875,
+      "compression_ratio": 1.5076142131979695,
+      "words": [
+        {
+          "word": " to",
+          "start": 463.18,
+          "end": 463.74,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " face",
+          "start": 463.74,
+          "end": 464.08,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " the",
+          "start": 464.08,
+          "end": 464.3,
+          "probability": 0.990234375
+        },
+        {
+          "word": " current",
+          "start": 464.3,
+          "end": 464.72,
+          "probability": 0.982421875
+        },
+        {
+          "word": " challenges",
+          "start": 464.72,
+          "end": 465.46,
+          "probability": 0.8037109375
+        },
+        {
+          "word": " using",
+          "start": 465.46,
+          "end": 466.42,
+          "probability": 0.869140625
+        },
+        {
+          "word": " artificial",
+          "start": 466.42,
+          "end": 467.06,
+          "probability": 0.91259765625
+        },
+        {
+          "word": " intelligence.",
+          "start": 467.06,
+          "end": 468.24,
+          "probability": 0.99560546875
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "start": 469.02,
+      "end": 477.44,
+      "text": "New technologies also produce new ways of living and existing, but for this ethics is",
+      "avg_logprob": -0.20151289162181674,
+      "no_speech_prob": 0.07244873046875,
+      "compression_ratio": 1.5076142131979695,
+      "words": [
+        {
+          "word": " New",
+          "start": 469.02,
+          "end": 469.24,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " technologies",
+          "start": 469.24,
+          "end": 469.86,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " also",
+          "start": 469.86,
+          "end": 470.48,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " produce",
+          "start": 470.48,
+          "end": 470.92,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " new",
+          "start": 470.92,
+          "end": 471.54,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " ways",
+          "start": 471.54,
+          "end": 472.0,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " of",
+          "start": 472.0,
+          "end": 472.46,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " living",
+          "start": 472.46,
+          "end": 472.8,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " and",
+          "start": 472.8,
+          "end": 473.28,
+          "probability": 0.97021484375
+        },
+        {
+          "word": " existing,",
+          "start": 473.28,
+          "end": 473.88,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " but",
+          "start": 474.82,
+          "end": 475.12,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " for",
+          "start": 475.12,
+          "end": 475.66,
+          "probability": 0.91357421875
+        },
+        {
+          "word": " this",
+          "start": 475.66,
+          "end": 476.0,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " ethics",
+          "start": 476.0,
+          "end": 476.9,
+          "probability": 0.525390625
+        },
+        {
+          "word": " is",
+          "start": 476.9,
+          "end": 477.44,
+          "probability": 0.98828125
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "start": 477.44,
+      "end": 488.0,
+      "text": "necessary and essential. Thank you very much for your attention and we keep in touch. Thank you again.",
+      "avg_logprob": -0.3055013033250968,
+      "no_speech_prob": 0.0184173583984375,
+      "compression_ratio": 1.2289156626506024,
+      "words": [
+        {
+          "word": " necessary",
+          "start": 477.44,
+          "end": 478.16,
+          "probability": 0.6201171875
+        },
+        {
+          "word": " and",
+          "start": 478.16,
+          "end": 478.8,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " essential.",
+          "start": 478.8,
+          "end": 479.42,
+          "probability": 0.994140625
+        },
+        {
+          "word": " Thank",
+          "start": 480.22,
+          "end": 480.54,
+          "probability": 0.96728515625
+        },
+        {
+          "word": " you",
+          "start": 480.54,
+          "end": 480.72,
+          "probability": 0.99609375
+        },
+        {
+          "word": " very",
+          "start": 480.72,
+          "end": 480.88,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " much",
+          "start": 480.88,
+          "end": 481.2,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " for",
+          "start": 481.2,
+          "end": 481.46,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " your",
+          "start": 481.46,
+          "end": 481.7,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " attention",
+          "start": 481.7,
+          "end": 482.38,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " and",
+          "start": 482.38,
+          "end": 483.3,
+          "probability": 0.85986328125
+        },
+        {
+          "word": " we",
+          "start": 483.3,
+          "end": 485.1,
+          "probability": 0.7802734375
+        },
+        {
+          "word": " keep",
+          "start": 485.1,
+          "end": 486.14,
+          "probability": 0.40185546875
+        },
+        {
+          "word": " in",
+          "start": 486.14,
+          "end": 486.3,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " touch.",
+          "start": 486.3,
+          "end": 486.62,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " Thank",
+          "start": 487.16,
+          "end": 487.62,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " you",
+          "start": 487.62,
+          "end": 487.78,
+          "probability": 0.9921875
+        },
+        {
+          "word": " again.",
+          "start": 487.78,
+          "end": 488.0,
+          "probability": 0.97607421875
+        }
+      ]
+    }
+  ],
+  "text": "Hello everybody. I am really happy to be here.\nI am Felipe Chivas Ortiz, PID,\nAssociate Professor of the University of Sao Paulo,\nand Representative of the Regional Committee\nfor Latin America and the Caribbean of UNESCO Mil Alliance.\nThe title of my speech today is Artificial Intelligence,\npolicies and ethics, free related issues in the post-human society. In this presentation,\nwe will first define, according to no authors, what they mean by artificial intelligence,\nethics and public policies. Then we will talk about the multiple relationship between these\nfree elements. My speech today will be a provocation where I will address some of the challenges\nthat involve these free factors closely related in today's war in my books from Smart Cities\nto Mile Cities, metric inspired by UNESCO's vision and my other book, Marketing, Communication\ntechnology and innovation in mild cities, organized together with Professor Mingsuro\nGiannasset and chapters, authors from more than 20 countries are recommended by UNESCO.\nWe talk about the relationships of these three topics, artificial intelligence, policy and ethics.\nThus, with the advancement of increments of recent technologies in the field of artificial\nintelligence, accompanied by the fourth industrial revolution in the field of data governance\nand by the automation of process and exponential development in several areas like education,\nhealth, art, entrepreneurship, which give rise to numerous potentially innovative and\nat the same time disruptive tools. This situation has two and new ethics challenges.\nThe artificial intelligence is nowadays used in the process of planning, organizing, implementing\nand managing policies, strategies and tactics in many sectors.\nFor example, today we are talking about smart cities, but it still does not pay enough attention\nto the ethical aspects involved.\nAccording to Russell and Norbit, artificial intelligence is the brush of computer science\nthat deals with intelligent behavior of the study of how to make computers do things that\nhumans currently do better.\nThe scientist Henry Atlan understands ethics and the principle that guides, directs and\nin the lived reality of each person and ethics does not, a philosophy or knowledge is something like\nrefers to a project to a once. According to various authors, public policies can decide\nis about authorities, about which government decides or what to do, as public police are\na set of projects, programs and activities carried on, carried out by the government.\nAccording to our research and surveys, we see that there is still not enough emphasis\nof ethics as part of public policies for the implementation and stimulation of the use\nof artificial intelligence in the areas of education, technology, innovation and entrepreneurship.\nFor example, even today, technology-based companies and startups do not have a transparency\npolicy regarding their algorithms and weight of selecting the members.\nEven today, technology-based companies and startups have a few women's programmers and\nleaders of teams and companies.\nvoice. This makes many of the program and artificial intelligence developed, gendered,\nblazed and execed and sexist. That is unethical. A phenomenon that we see a lot that has been\ncriticised by UN and UNESCO is that many artificial intelligence of telephone companies nowadays\nToday's continues to use female voice, thus placing women in subordinate positions, which\nalso indicates a lack of ethics and once again gender cultural barriers.\nToday, robots are used in political campaigns that often encourage hate speech and fake news.\nIt is necessary to create public and legal policies through the ministries of justice\nof these countries that regulate the use of robots for politicians and political purpose,\nwith strong punishments for the creators of systems and platforms that disseminate fake\nnews and hit the speech.\nwhich we also have the general law on data protection of individuals that must be implemented\nworldwide to protect the privacy of data of individuals.\nThis point should also be the object of public artificial intelligence policies.\nAccording to our research, when the cultural barriers to communication has a strong relationship\nwith ethics.\nWhen cultural barriers and prejudices increase, ethics decrease and vice versa.\nWhen cultural barriers decrease, ethical behavior or the web increases.\nAll these points have gained more strength during the pandemic of COVID-19, as home\noffice war has increased and we have all become more dependent of the internet.\nWe live in the time in a post-human world, but believe that technology alone will solve\nof any problems of humankind is the greatest mistake.\nWe need multicultural, transdisciplinary and multi-sectorial strategies, policies and solutions\nto face the current challenges using artificial intelligence.\nNew technologies also produce new ways of living and existing, but for this ethics is\nnecessary and essential. Thank you very much for your attention and we keep in touch. Thank you again."
+}

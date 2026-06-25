@@ -136,12 +136,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.975662"
+      "classified_at": "2026-06-16T12:54:33.975662",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0002",
@@ -227,12 +229,14 @@
       "clip_usage_candidates": [
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.980149"
+      "classified_at": "2026-06-16T12:54:33.980149",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0003",
@@ -337,12 +341,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.985222"
+      "classified_at": "2026-06-16T12:54:33.985222",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0004",
@@ -460,12 +466,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.48,
       "clarity_score": 0.8,
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.990306"
+      "classified_at": "2026-06-16T12:54:33.990306",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0005",
@@ -578,12 +586,14 @@
       "clip_usage_candidates": [
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.996187"
+      "classified_at": "2026-06-16T12:54:33.996187",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0006",
@@ -703,16 +713,19 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.56,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.002107"
+      "classified_at": "2026-06-16T12:54:34.002107",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0007",
@@ -807,12 +820,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.008419"
+      "classified_at": "2026-06-16T12:54:34.008419",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0008",
@@ -888,12 +903,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.013603"
+      "classified_at": "2026-06-16T12:54:34.013603",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0009",
@@ -1006,14 +1023,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.019807"
+      "classified_at": "2026-06-16T12:54:34.019807",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0010",
@@ -1089,12 +1109,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.025137"
+      "classified_at": "2026-06-16T12:54:34.025137",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0011",
@@ -1166,12 +1188,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.36,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.031468"
+      "classified_at": "2026-06-16T12:54:34.031468",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0012",
@@ -1253,6 +1277,7 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "synthesis_candidate"
       ],
       "quote_strength": 0.54,
@@ -1260,7 +1285,9 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.037134"
+      "classified_at": "2026-06-16T12:54:34.037134",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0013",
@@ -1345,12 +1372,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.042316"
+      "classified_at": "2026-06-16T12:54:34.042316",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0196_RqkuLAtbc7o_Katrina Ingram - Trust and Automation Bias_0014",
@@ -1470,12 +1499,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.046164"
+      "classified_at": "2026-06-16T12:54:34.046164",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

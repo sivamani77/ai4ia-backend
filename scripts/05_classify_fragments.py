@@ -589,28 +589,55 @@ def estimate_clarity(text: str, duration: float, word_count: int) -> float:
 
 def estimate_quote_strength(text: str) -> float:
     text_norm = normalize(text)
+    word_count = len(text.split())
 
-    signal_phrases = [
-        "we need", "we must", "we should", "i believe", "i think", "the challenge",
-        "the problem", "the opportunity", "this is important", "it is important",
-        "ai is", "ai can", "ai must", "access to information is", "the future",
-        "not just", "only if", "the question is", "let's", "we are"
+    score = 0.30
+
+    # Penalize intro/outro filler — not quotable as soundbites
+    filler_openers = [
+        "thank you", "thanks very much", "good morning", "good afternoon",
+        "good evening", "it's a pleasure", "welcome to", "let me introduce",
+        "our next speaker", "i would like to thank", "before i begin",
+        "i'm delighted", "i'm honored", "thank you so much",
     ]
+    if any(phrase_count(text_norm, p) > 0 for p in filler_openers):
+        score -= 0.15
 
-    score = 0.35
+    # Strong claim signals — speaker asserting something specific and personal
+    strong_claim_phrases = [
+        "i argue", "i believe", "i am convinced", "we found", "our research",
+        "the data shows", "the evidence shows", "this is not acceptable",
+        "we cannot", "we must not", "i have seen", "i have witnessed",
+        "the reality is", "the truth is", "what we know is",
+        "this means that", "the consequence is",
+    ]
+    strong_hits = sum(1 for p in strong_claim_phrases if phrase_count(text_norm, p) > 0)
+    score += min(strong_hits * 0.10, 0.25)
 
-    for phrase in signal_phrases:
-        if phrase_count(text_norm, phrase) > 0:
-            score += 0.07
+    # Moderate claim signals — declarative but less specific
+    moderate_claim_phrases = [
+        "we need", "we must", "we should", "it is essential", "it is critical",
+        "the challenge is", "the opportunity is", "the question is",
+        "not just", "more importantly", "most importantly",
+        "this is why", "that is why",
+    ]
+    mod_hits = sum(1 for p in moderate_claim_phrases if phrase_count(text_norm, p) > 0)
+    score += min(mod_hits * 0.06, 0.15)
 
+    # Rhetorical question — engaging and quotable
     if "?" in text:
         score += 0.08
 
-    if any(term in text_norm for term in ["important", "crucial", "essential", "challenge", "opportunity"]):
-        score += 0.08
+    # Concrete evidence: numbers, percentages, scale
+    concrete_terms = ["percent", "million", "billion", "thousand", "majority", "minority"]
+    if any(t in text_norm for t in concrete_terms):
+        score += 0.06
 
-    if 35 <= len(text.split()) <= 170:
+    # Word count sweet spot for a standalone soundbite (50–150 words ideal)
+    if 50 <= word_count <= 150:
         score += 0.12
+    elif 35 <= word_count < 50 or 150 < word_count <= 200:
+        score += 0.06
 
     return round(max(0.0, min(score, 1.0)), 3)
 
@@ -641,7 +668,7 @@ def determine_clip_usage(text: str, quote_strength: float, clarity_score: float,
     text_norm = normalize(text)
     usage = []
 
-    if quote_strength >= 0.65 and clarity_score >= 0.55:
+    if quote_strength >= 0.50 and clarity_score >= 0.55:
         usage.append("speaker_soundbite")
 
     if narration_support_score >= 0.6:
@@ -795,6 +822,8 @@ def write_catalog(classified_payloads: list[dict]) -> None:
                     "fragment_id": fragment.get("fragment_id"),
                     "source_video": fragment.get("source_video"),
                     "video_id": fragment.get("video_id"),
+                    "video_year": fragment.get("video_year"),
+                    "video_upload_date": fragment.get("video_upload_date"),
                     "start": fragment.get("start"),
                     "end": fragment.get("end"),
                     "duration": fragment.get("duration"),

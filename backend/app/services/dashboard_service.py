@@ -1,4 +1,3 @@
-import json
 from pathlib import Path
 
 from app.core.config import (
@@ -29,19 +28,20 @@ def count_files(path: Path, pattern: str) -> int:
 
 
 def count_classified_fragments() -> int:
-    total = 0
+    try:
+        from app.db.repositories.fragment_repository import FragmentRepository
+        return FragmentRepository().count()
+    except Exception:
+        return 0
 
-    if not CLASSIFIED_FRAGMENTS_DIR.exists():
-        return total
 
-    for path in CLASSIFIED_FRAGMENTS_DIR.glob("*.classified.json"):
-        try:
-            data = json.loads(path.read_text(encoding="utf-8"))
-            total += len(data.get("fragments", []))
-        except Exception:
-            continue
-
-    return total
+def _latest_storyline_id() -> str | None:
+    try:
+        from app.db.repositories.storyline_repository import StorylineRepository
+        row = StorylineRepository().get_latest()
+        return row.get("id") if row else None
+    except Exception:
+        return latest_file(STORYLINES_DIR, "storyline_*.json")
 
 
 def latest_file(path: Path, pattern: str) -> str | None:
@@ -72,7 +72,7 @@ def get_dashboard() -> dict:
             "embedding_matrix": str(embedding_matrix) if embedding_matrix.exists() else None,
         },
         "latest": {
-            "storyline": latest_file(STORYLINES_DIR, "storyline_*.json"),
+            "storyline": _latest_storyline_id(),
             "asset_manifest": str(LATEST_ASSET_MANIFEST) if LATEST_ASSET_MANIFEST.exists() else None,
             "export": latest_file(EXPORTS_DIR, "*.mp4"),
         },

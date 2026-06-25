@@ -24,6 +24,14 @@ DEFAULT_VOLUME = "+0%"
 CARD_WIDTH = 1920
 CARD_HEIGHT = 1080
 
+# Speaker clip render bounds
+PRE_ROLL_SECONDS: float = 0.25
+POST_ROLL_SECONDS: float = 0.35
+CLIP_MIN_DURATION: float = 7.0
+CLIP_HARD_MAX: float = 22.0
+CLIP_EXPAND_SECONDS: float = 3.0
+QUOTE_COMPLETE_THRESHOLD: float = 0.80  # quote_completeness_score >= this → complete
+
 BACKGROUND_COLOR = (6, 10, 18)
 PANEL_COLOR = (15, 24, 38)
 TEXT_COLOR = (248, 250, 252)
@@ -34,6 +42,113 @@ DARK_OVERLAY = (0, 0, 0, 120)
 
 VISIBLE_BRAND_LABEL = "AI4IA 2026"
 VISIBLE_SERIES_LABEL = "Artificial Intelligence for Information Accessibility"
+
+STRICT_NO_GENERIC_FALLBACK = True
+
+GENERIC_CARD_TITLES = {
+    "a new information age",
+    "the future is already here",
+    "human story",
+    "people at the center",
+    "a shared future",
+    "designing for trust",
+    "evidence from the field",
+    "the way forward",
+    "when access is uneven",
+}
+
+DISALLOWED_VOICEOVER_PHRASES = [
+    "artificial intelligence is no longer a distant idea",
+    "shaping how people learn, communicate, govern and access knowledge",
+    "across the ai4ia archive",
+    "the promise of ai is powerful",
+    "the risks are equally real",
+    "inclusive design, local data, ethical governance",
+    "ai can become a bridge to knowledge",
+]
+
+INTERNAL_PIPELINE_TERMS_08 = [
+    "archive fragment",
+    "archive fragments",
+    "selected clips",
+    "confirmed archive clips",
+    "evidence package",
+    "retrieval",
+    "fallback",
+    "llm",
+    "json",
+    "manifest",
+    "qa report",
+    "pipeline",
+    "background task",
+    "candidate",
+    "candidate bucket",
+    "validation issue",
+    "evidence-based context",
+    "draws exclusively on confirmed",
+    "these fragments",
+    "the selected clips",
+    "this video explores",
+    "through evidence from the archive",
+    "the archive evidence shows",
+]
+
+DOCUMENTARY_CHAPTER_TITLES: dict[str, dict[str, dict[str, str]]] = {
+    "healthcare": {
+        "opening_hook": {"eyebrow": "THE QUESTION", "headline": "AI at the Bedside", "subtitle": "How is AI entering the spaces where people seek care?"},
+        "context": {"eyebrow": "CONTEXT", "headline": "Medicine in Motion", "subtitle": "Digital tools are already changing how patients and doctors connect."},
+        "problem_or_tension": {"eyebrow": "THE TENSION", "headline": "Trust Before Automation", "subtitle": "Speed without safety is not progress."},
+        "human_perspective": {"eyebrow": "THE HUMAN STAKES", "headline": "Care, Not Replacement", "subtitle": "Human judgment must remain at the center."},
+        "expert_evidence": {"eyebrow": "WHAT SPEAKERS SAY", "headline": "Voices from the Field", "subtitle": "Practitioners and researchers on what AI can and cannot do."},
+        "solution_direction": {"eyebrow": "THE PATH FORWARD", "headline": "Design for Safety", "subtitle": "Trust, transparency, and patient consent must come first."},
+        "final_synthesis": {"eyebrow": "THE MEASURE", "headline": "The Human Measure of Medicine", "subtitle": "AI in healthcare will be judged not by speed, but by whether it makes care safer and fairer."},
+    },
+    "health": {
+        "opening_hook": {"eyebrow": "THE QUESTION", "headline": "AI at the Bedside", "subtitle": "How is AI entering the spaces where people seek care?"},
+        "context": {"eyebrow": "CONTEXT", "headline": "Medicine in Motion", "subtitle": "Digital tools are already changing how patients and doctors connect."},
+        "problem_or_tension": {"eyebrow": "THE TENSION", "headline": "Trust Before Automation", "subtitle": "Speed without safety is not progress."},
+        "human_perspective": {"eyebrow": "THE HUMAN STAKES", "headline": "Care, Not Replacement", "subtitle": "Human judgment must remain at the center."},
+        "expert_evidence": {"eyebrow": "WHAT SPEAKERS SAY", "headline": "Voices from the Field", "subtitle": "Practitioners and researchers on what AI can and cannot do."},
+        "solution_direction": {"eyebrow": "THE PATH FORWARD", "headline": "Design for Safety", "subtitle": "Trust, transparency, and patient consent must come first."},
+        "final_synthesis": {"eyebrow": "THE MEASURE", "headline": "The Human Measure of Medicine", "subtitle": "AI in healthcare will be judged not by speed, but by whether it makes care safer and fairer."},
+    },
+    "women": {
+        "opening_hook": {"eyebrow": "THE QUESTION", "headline": "Agency and the Algorithm", "subtitle": "Who shapes the systems that shape women's lives?"},
+        "context": {"eyebrow": "CONTEXT", "headline": "The World as It Is", "subtitle": "Women are navigating AI systems they did not design."},
+        "problem_or_tension": {"eyebrow": "THE TENSION", "headline": "Access Is Not Enough", "subtitle": "Having a tool is not the same as having a voice."},
+        "human_perspective": {"eyebrow": "THE HUMAN STAKES", "headline": "Voice and Choice", "subtitle": "Real empowerment means real agency — in design, governance, and outcomes."},
+        "expert_evidence": {"eyebrow": "WHAT SPEAKERS SAY", "headline": "From the Ground Up", "subtitle": "Women and allies on what change actually looks like."},
+        "solution_direction": {"eyebrow": "THE PATH FORWARD", "headline": "Designing With, Not For", "subtitle": "Inclusion begins before the product is built."},
+        "final_synthesis": {"eyebrow": "THE MEASURE", "headline": "The Measure of Progress", "subtitle": "Progress means women gain real agency, real voice, and real power."},
+    },
+    "empowerment": {
+        "opening_hook": {"eyebrow": "THE QUESTION", "headline": "Agency and the Algorithm", "subtitle": "Who shapes the systems that shape women's lives?"},
+        "context": {"eyebrow": "CONTEXT", "headline": "The World as It Is", "subtitle": "Women are navigating AI systems they did not design."},
+        "problem_or_tension": {"eyebrow": "THE TENSION", "headline": "Access Is Not Enough", "subtitle": "Having a tool is not the same as having a voice."},
+        "human_perspective": {"eyebrow": "THE HUMAN STAKES", "headline": "Voice and Choice", "subtitle": "Real empowerment means real agency — in design, governance, and outcomes."},
+        "expert_evidence": {"eyebrow": "WHAT SPEAKERS SAY", "headline": "From the Ground Up", "subtitle": "Women and allies on what change actually looks like."},
+        "solution_direction": {"eyebrow": "THE PATH FORWARD", "headline": "Designing With, Not For", "subtitle": "Inclusion begins before the product is built."},
+        "final_synthesis": {"eyebrow": "THE MEASURE", "headline": "The Measure of Progress", "subtitle": "Progress means women gain real agency, real voice, and real power."},
+    },
+    "governance": {
+        "opening_hook": {"eyebrow": "THE QUESTION", "headline": "Who Writes the Rules", "subtitle": "As AI enters public systems, accountability becomes urgent."},
+        "context": {"eyebrow": "CONTEXT", "headline": "Power and Code", "subtitle": "Governance is not just technical — it is political."},
+        "problem_or_tension": {"eyebrow": "THE TENSION", "headline": "Fast Systems, Slow Rules", "subtitle": "Technology moves faster than the institutions designed to oversee it."},
+        "human_perspective": {"eyebrow": "THE HUMAN STAKES", "headline": "Rights Before Algorithms", "subtitle": "Decisions that affect people must be answerable to people."},
+        "expert_evidence": {"eyebrow": "WHAT SPEAKERS SAY", "headline": "Voices on Accountability", "subtitle": "Experts and policymakers on what responsible AI governance requires."},
+        "solution_direction": {"eyebrow": "THE PATH FORWARD", "headline": "Rules That Protect", "subtitle": "Transparency, accountability, and participation must be built in."},
+        "final_synthesis": {"eyebrow": "THE MEASURE", "headline": "The Shape of Accountability", "subtitle": "AI governance will be measured by who it protects and who it answers to."},
+    },
+    "youth": {
+        "opening_hook": {"eyebrow": "THE QUESTION", "headline": "The Next Generation", "subtitle": "A generation that grew up online is now asking harder questions."},
+        "context": {"eyebrow": "CONTEXT", "headline": "Born Into the Algorithm", "subtitle": "Young people live inside systems they cannot fully see."},
+        "problem_or_tension": {"eyebrow": "THE TENSION", "headline": "Shaped Without Consent", "subtitle": "Algorithmic decisions arrive before young people have a voice."},
+        "human_perspective": {"eyebrow": "THE HUMAN STAKES", "headline": "Their Future, Their Voice", "subtitle": "Young people are not passive recipients of the AI era."},
+        "expert_evidence": {"eyebrow": "WHAT SPEAKERS SAY", "headline": "Listening to Youth", "subtitle": "What young people and their advocates are saying about AI."},
+        "solution_direction": {"eyebrow": "THE PATH FORWARD", "headline": "Participation by Design", "subtitle": "Young voices must be part of how AI is governed."},
+        "final_synthesis": {"eyebrow": "THE MEASURE", "headline": "What They Inherit", "subtitle": "The next generation will decide whether to accept or change the systems they are given."},
+    },
+}
 
 SECTION_HEADLINES = {
     "opening_hook": {
@@ -236,6 +351,7 @@ def enrich_clip_candidate(
         return enriched
 
     enriched = dict(candidate)
+    preserved_fields = dict(enriched)
 
     for key, value in classified_fragment.items():
         if key not in enriched or enriched[key] in (None, "", [], {}):
@@ -264,6 +380,27 @@ def enrich_clip_candidate(
 
     if classified_fragment.get("speaker_attribution") and not enriched.get("speaker_attribution"):
         enriched["speaker_attribution"] = classified_fragment["speaker_attribution"]
+
+    # Preserve higher-level retrieval/selection metadata from Step 07.
+    for key, value in preserved_fields.items():
+        if key in {
+            "use_as",
+            "relevance_role",
+            "final_video_allowed",
+            "speaker_clip_allowed",
+            "speaker_visual_allowed",
+            "speaker_soundbite_allowed",
+            "selection_reason",
+            "retrieval_channels",
+            "direct_evidence_terms",
+            "expanded_evidence_terms",
+            "final_prompt_score",
+            "semantic_score",
+            "keyword_score",
+            "theme_chapter_score",
+            "speaker_score",
+        }:
+            enriched[key] = value
 
     metadata_stats["enriched_fragment_refs"] += 1
     return enriched
@@ -330,20 +467,138 @@ def make_display_title(title: str) -> str:
     return title
 
 
-def infer_section_copy(section: dict[str, Any]) -> dict[str, str]:
+def detect_internal_pipeline_language_08(text: str) -> list[str]:
+    """Detect internal pipeline terms in viewer-facing text."""
+    issues = []
+    if not text:
+        return issues
+    normalized = text.lower()
+    for term in INTERNAL_PIPELINE_TERMS_08:
+        if term in normalized:
+            issues.append(f"internal_pipeline_language_detected: '{term}'")
+    return issues
+
+
+def repair_internal_pipeline_language_08(text: str) -> str:
+    """Remove internal pipeline terms from viewer-facing card text."""
+    if not text:
+        return text
+    replacements = [
+        (r"\barchive fragments?\b", "recordings"),
+        (r"\bselected clips?\b", "speakers"),
+        (r"\bconfirmed archive clips?\b", "recordings"),
+        (r"\bevidence package\b", "evidence"),
+        (r"\bcandidate buckets?\b", "clips"),
+        (r"\bvalidation issues?\b", ""),
+        (r"\bpipeline\b", ""),
+        (r"\bfallback\b", ""),
+        (r"\bllm\b", ""),
+        (r"\bjson\b", ""),
+        (r"\bmanifest\b", ""),
+        (r"\bqa report\b", ""),
+        (r"\bbackground tasks?\b", ""),
+        (r"\bretrieval\b", "research"),
+        (r"this video explores\b[^.]*\.", ""),
+        (r"the archive evidence shows:?", ""),
+        (r"draws exclusively on confirmed archive clips?\.", ""),
+        (r"evidence-based context", "evidence"),
+    ]
+    result = text
+    for pattern, repl in replacements:
+        result = re.sub(pattern, repl, result, flags=re.IGNORECASE)
+    result = re.sub(r"  +", " ", result).strip(" .")
+    return result
+
+
+def infer_section_copy(
+    section: dict[str, Any],
+    prompt_profile: dict[str, Any] | None = None,
+) -> dict[str, str]:
+    """Generate cinematic documentary section card copy. No internal pipeline terms."""
     section_type = section.get("section_type", "section")
+    section_role = section.get("role", section_type)
     section_id = section.get("section_id", "")
+    claim_type = section.get("claim_type", "")
 
-    template = SECTION_HEADLINES.get(section_type)
+    topic_terms = list((prompt_profile or {}).get("topic_terms") or [])
+    requested_speaker = (prompt_profile or {}).get("requested_speaker")
+    primary_topic = topic_terms[0] if topic_terms else None
+    topic_label = " ".join(topic_terms[:2]).title() if topic_terms else None
 
-    if template:
-        return dict(template)
+    # Infer effective section type from role or section_type
+    effective_type = section_role if section_role != section_type else section_type
 
-    readable = section_type.replace("_", " ").title()
+    # Evidence gap section
+    if claim_type == "evidence_gap" or section_type == "evidence_gap_disclosure":
+        return {
+            "eyebrow": "EVIDENCE NOTE",
+            "headline": "Limited Coverage",
+            "subtitle": "The archive does not have enough direct evidence for this topic.",
+        }
+
+    # Speaker prompt copy — cinematic chapter style
+    if requested_speaker:
+        speaker_chapter_map = {
+            "hook": {"eyebrow": "THE VOICE", "headline": f"{requested_speaker}", "subtitle": "Contributions to the AI4IA conversation."},
+            "opening_hook": {"eyebrow": "THE VOICE", "headline": f"{requested_speaker}", "subtitle": "Contributions to the AI4IA conversation."},
+            "human_context": {"eyebrow": "THE CONTEXT", "headline": f"Questions That Matter", "subtitle": f"The themes {requested_speaker} returned to most."},
+            "context": {"eyebrow": "THE CONTEXT", "headline": f"Questions That Matter", "subtitle": f"The themes {requested_speaker} returned to most."},
+            "tension": {"eyebrow": "THE CHALLENGE", "headline": "The Difficult Questions", "subtitle": "Where the tensions lie."},
+            "problem_or_tension": {"eyebrow": "THE CHALLENGE", "headline": "The Difficult Questions", "subtitle": "Where the tensions lie."},
+            "expert_evidence": {"eyebrow": "THE EVIDENCE", "headline": "On the Record", "subtitle": f"What {requested_speaker} said."},
+            "synthesis": {"eyebrow": "THE MEANING", "headline": "What It Stands For", "subtitle": f"A summation of {requested_speaker}'s contribution."},
+            "final_synthesis": {"eyebrow": "THE MEANING", "headline": "What It Stands For", "subtitle": f"A summation of {requested_speaker}'s contribution."},
+        }
+        for key in (effective_type, section_type):
+            if key in speaker_chapter_map:
+                return speaker_chapter_map[key]
+        readable = effective_type.replace("_", " ").title()
+        return {"eyebrow": "THE STORY", "headline": f"{requested_speaker}: {readable}", "subtitle": f"From the AI4IA archive."}
+
+    # Topic prompt copy — use DOCUMENTARY_CHAPTER_TITLES if available
+    if primary_topic and primary_topic in DOCUMENTARY_CHAPTER_TITLES:
+        topic_chapters = DOCUMENTARY_CHAPTER_TITLES[primary_topic]
+        for key in (effective_type, section_type):
+            if key in topic_chapters:
+                return topic_chapters[key]
+        # Map documentary arc roles to standard types
+        role_to_type = {
+            "hook": "opening_hook",
+            "human_context": "context",
+            "tension": "problem_or_tension",
+            "expert_evidence": "expert_evidence",
+            "synthesis": "final_synthesis",
+        }
+        mapped = role_to_type.get(effective_type) or role_to_type.get(section_type)
+        if mapped and mapped in topic_chapters:
+            return topic_chapters[mapped]
+
+    # Generic topic copy for topics not in DOCUMENTARY_CHAPTER_TITLES
+    if topic_label:
+        role_map = {
+            "hook": {"eyebrow": "THE QUESTION", "headline": f"AI and {topic_label}", "subtitle": f"What is at stake?"},
+            "opening_hook": {"eyebrow": "THE QUESTION", "headline": f"AI and {topic_label}", "subtitle": f"What is at stake?"},
+            "human_context": {"eyebrow": "THE CONTEXT", "headline": f"The Human Side", "subtitle": f"People at the center of {topic_label}."},
+            "context": {"eyebrow": "THE CONTEXT", "headline": f"The Human Side", "subtitle": f"People at the center of {topic_label}."},
+            "tension": {"eyebrow": "THE TENSION", "headline": f"Where It Gets Hard", "subtitle": f"The challenges shaping {topic_label}."},
+            "problem_or_tension": {"eyebrow": "THE TENSION", "headline": f"Where It Gets Hard", "subtitle": f"The challenges shaping {topic_label}."},
+            "expert_evidence": {"eyebrow": "WHAT SPEAKERS SAY", "headline": f"Voices on {topic_label}", "subtitle": "From the AI4IA conference."},
+            "synthesis": {"eyebrow": "THE MEANING", "headline": f"What It Means for {topic_label}", "subtitle": "The story so far."},
+            "final_synthesis": {"eyebrow": "THE MEANING", "headline": f"What It Means for {topic_label}", "subtitle": "The story so far."},
+            "solution_direction": {"eyebrow": "THE PATH FORWARD", "headline": f"Moving Forward in {topic_label}", "subtitle": "What responsible progress requires."},
+        }
+        for key in (effective_type, section_type):
+            if key in role_map:
+                return role_map[key]
+        readable = effective_type.replace("_", " ").title()
+        return {"eyebrow": "THE STORY", "headline": f"{topic_label}: {readable}", "subtitle": "From the AI4IA archive."}
+
+    # Minimal fallback — no topic info
+    readable = effective_type.replace("_", " ").title()
     return {
-        "eyebrow": section_id or "SECTION",
+        "eyebrow": "THE STORY",
         "headline": readable,
-        "subtitle": "A key moment in the AI4IA story."
+        "subtitle": "From the AI4IA archive.",
     }
 
 
@@ -610,6 +865,8 @@ def create_section_card(
 def create_closing_card(
     output_path: Path,
     title: str,
+    closing_headline: str | None = None,
+    closing_subtitle: str | None = None,
 ) -> None:
     image = create_cinematic_background()
     draw = ImageDraw.Draw(image)
@@ -626,7 +883,7 @@ def create_closing_card(
     y = 370
     y = draw_wrapped_text(
         draw=draw,
-        text="A Shared Future",
+        text=closing_headline or make_display_title(title),
         xy=(130, y),
         font=headline_font,
         fill=TEXT_COLOR,
@@ -638,7 +895,7 @@ def create_closing_card(
 
     draw_wrapped_text(
         draw=draw,
-        text="AI can become a bridge to knowledge when inclusion, trust and responsibility guide its design.",
+        text=closing_subtitle or "Based on the AI4IA conference archive.",
         xy=(134, y),
         font=subtitle_font,
         fill=MUTED_TEXT_COLOR,
@@ -657,6 +914,212 @@ def create_closing_card(
     image.save(output_path)
 
 
+def create_year_stamp_card(
+    year: int,
+    output_path: Path,
+    width: int = 1920,
+    height: int = 1080,
+) -> Path:
+    image = Image.new("RGB", (width, height), (0, 0, 0))
+    draw = ImageDraw.Draw(image)
+
+    year_font = find_font(180, bold=True)
+    label_font = find_font(28, bold=False)
+
+    year_text = str(year)
+    bbox = draw.textbbox((0, 0), year_text, font=year_font)
+    year_w = bbox[2] - bbox[0]
+    year_h = bbox[3] - bbox[1]
+    year_x = (width - year_w) // 2
+    year_y = (height - year_h) // 2 - 40
+    draw.text((year_x, year_y), year_text, font=year_font, fill=(255, 255, 255))
+
+    rule_w = width // 5
+    rule_x0 = (width - rule_w) // 2
+    rule_x1 = rule_x0 + rule_w
+    rule_y = year_y + year_h + 28
+    draw.rectangle((rule_x0, rule_y, rule_x1, rule_y + 2), fill=(255, 255, 255))
+
+    label_text = " ".join(list("AI4IA CONFERENCE"))
+    label_bbox = draw.textbbox((0, 0), label_text, font=label_font)
+    label_w = label_bbox[2] - label_bbox[0]
+    label_x = (width - label_w) // 2
+    label_y = rule_y + 18
+    draw.text((label_x, label_y), label_text, font=label_font, fill=(255, 255, 255))
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    image.save(output_path)
+    return output_path
+
+
+def create_narration_visual_asset(
+    output_path: Path,
+    visual_title: str,
+    visual_asset_type: str,
+    visual_keywords: list,
+    section_id: str,
+) -> None:
+    """Generate a topic-specific visual asset PNG for a narration_broll item."""
+    W, H = CARD_WIDTH, CARD_HEIGHT
+    image = create_cinematic_background()
+    draw = ImageDraw.Draw(image)
+
+    # Letterbox bars
+    draw.rectangle((0, 0, W, 70), fill=(0, 0, 0))
+    draw.rectangle((0, H - 70, W, H), fill=(0, 0, 0))
+
+    title_font = find_font(68, bold=True)
+    sub_font = find_font(34, bold=False)
+    kw_font = find_font(28, bold=False)
+    label_font = find_font(22, bold=True)
+    small_font = find_font(18, bold=False)
+    footer_font = find_font(20, bold=False)
+
+    type_label = {
+        "concept_card": "OVERVIEW",
+        "diagram": "EXPLAINER",
+        "risk_map": "RISK ANALYSIS",
+        "mindmap": "CONNECTIONS",
+        "policy_card": "GOVERNANCE",
+        "closing_synthesis": "SYNTHESIS",
+    }.get(visual_asset_type, "NARRATION")
+
+    draw.text((110, 86), type_label, font=label_font, fill=GOLD_ACCENT)
+    draw.text((110, 110), section_id, font=small_font, fill=MUTED_TEXT_COLOR)
+
+    # Main title
+    y = draw_wrapped_text(draw, visual_title, (110, 195), title_font, TEXT_COLOR, max_width=1400, line_spacing=14)
+    y += 28
+
+    # Accent underline
+    draw.rectangle((110, y, 430, y + 4), fill=ACCENT_COLOR)
+    y += 32
+
+    kws = (visual_keywords or [])
+
+    if visual_asset_type == "concept_card":
+        kw_x, kw_y = 110, y + 20
+        for kw in kws[:5]:
+            txt = kw.upper()
+            bbox = draw.textbbox((kw_x, kw_y), txt, font=kw_font)
+            w = bbox[2] - bbox[0]
+            pad = 18
+            draw.rectangle((kw_x - pad, kw_y - 10, kw_x + w + pad, kw_y + 38), fill=(25, 48, 80), outline=ACCENT_COLOR, width=1)
+            draw.text((kw_x, kw_y), txt, font=kw_font, fill=ACCENT_COLOR)
+            kw_x += w + pad * 2 + 22
+            if kw_x > W - 350:
+                kw_x = 110
+                kw_y += 64
+
+    elif visual_asset_type == "diagram":
+        cx, cy = W // 2, y + 190
+        r_c, r_n = 44, 30
+        draw.ellipse((cx - r_c, cy - r_c, cx + r_c, cy + r_c), outline=ACCENT_COLOR, width=3, fill=(18, 38, 65))
+        center_txt = (kws[0] if kws else "AI").upper()[:8]
+        draw.text((cx - 32, cy - 12), center_txt, font=find_font(17, bold=True), fill=TEXT_COLOR)
+        offsets = [(-370, -10), (0, -155), (370, -10)]
+        branch_labels = (kws[1:] if len(kws) > 1 else kws) + ["concept A", "concept B", "concept C"]
+        for (dx, dy_), lbl in zip(offsets, branch_labels[:3]):
+            nx, ny = cx + dx, cy + dy_
+            draw.line((cx, cy, nx, ny), fill=MUTED_TEXT_COLOR, width=2)
+            draw.ellipse((nx - r_n, ny - r_n, nx + r_n, ny + r_n), outline=GOLD_ACCENT, width=2, fill=(22, 42, 68))
+            draw.text((nx - 32, ny - 10), lbl[:10].upper(), font=find_font(16, bold=True), fill=TEXT_COLOR)
+
+    elif visual_asset_type == "risk_map":
+        cx, cy = W // 2, y + 170
+        draw.ellipse((cx - 40, cy - 40, cx + 40, cy + 40), outline=(200, 80, 60), width=3, fill=(48, 12, 12))
+        draw.text((cx - 26, cy - 12), "HARM", font=find_font(22, bold=True), fill=(255, 120, 100))
+        ao = [(-290, -120), (-290, 120), (0, -175), (290, -120), (290, 120)]
+        risk_kws = kws[:5] or ["identity", "consent", "reputation", "harm", "safety"]
+        for (dx, dy_), lbl in zip(ao, risk_kws):
+            nx, ny = cx + dx, cy + dy_
+            draw.line((cx, cy, nx, ny), fill=(110, 55, 55), width=2)
+            draw.ellipse((nx - 28, ny - 28, nx + 28, ny + 28), outline=(200, 80, 60), width=2, fill=(38, 12, 12))
+            draw.text((nx - 26, ny - 10), lbl[:10].upper(), font=find_font(14, bold=True), fill=(220, 160, 150))
+
+    elif visual_asset_type == "mindmap":
+        cx, cy = W // 2, y + 150
+        draw.ellipse((cx - 58, cy - 30, cx + 58, cy + 30), outline=ACCENT_COLOR, width=2, fill=(14, 32, 60))
+        center_txt = (kws[0] if kws else "TOPIC").upper()[:10]
+        draw.text((cx - 42, cy - 12), center_txt, font=find_font(18, bold=True), fill=TEXT_COLOR)
+        branch_kws = kws[1:6] if len(kws) > 1 else kws * 4
+        bxs = [cx - 460, cx - 230, cx, cx + 230, cx + 460]
+        for bx, kw in zip(bxs, branch_kws[:5]):
+            by = cy + 130
+            draw.line((cx, cy + 30, bx, by - 20), fill=MUTED_TEXT_COLOR, width=1)
+            draw.rectangle((bx - 68, by - 20, bx + 68, by + 20), outline=GOLD_ACCENT, width=1, fill=(18, 32, 52))
+            draw.text((bx - 58, by - 8), kw[:12].upper(), font=find_font(14, bold=True), fill=GOLD_ACCENT)
+
+    elif visual_asset_type == "policy_card":
+        pillars = kws[:4] or ["transparency", "accountability", "detection", "literacy"]
+        cols = [150, W // 2 + 50]
+        rows = [y + 20, y + 148]
+        for i, pillar in enumerate(pillars):
+            col = cols[i % 2]
+            row_y = rows[i // 2]
+            draw.rectangle((col, row_y, col + 410, row_y + 108), fill=(16, 32, 58), outline=ACCENT_COLOR, width=1)
+            draw.text((col + 14, row_y + 14), f"  {pillar.upper()}", font=find_font(22, bold=True), fill=ACCENT_COLOR)
+            draw.text((col + 14, row_y + 58), "Policy pillar", font=small_font, fill=MUTED_TEXT_COLOR)
+
+    elif visual_asset_type == "closing_synthesis":
+        concepts = kws[:3] or ["trust", "safety", "governance"]
+        pill_x, pill_y = 110, y + 30
+        for concept in concepts:
+            txt = concept.upper()
+            bbox = draw.textbbox((pill_x, pill_y), txt, font=sub_font)
+            w = bbox[2] - bbox[0]
+            pad = 22
+            draw.rectangle((pill_x - pad, pill_y - 12, pill_x + w + pad, pill_y + 46), fill=(18, 48, 88), outline=ACCENT_COLOR, width=2)
+            draw.text((pill_x, pill_y), txt, font=sub_font, fill=TEXT_COLOR)
+            pill_x += w + pad * 2 + 28
+            if pill_x > W - 280:
+                pill_x = 110
+                pill_y += 96
+
+    draw.text((110, H - 136), f"AI4IA 2026  ·  {visual_title[:60]}", font=footer_font, fill=(180, 195, 210))
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    image.save(str(output_path))
+
+
+def generate_visual_assets_for_timeline(
+    final_timeline: list,
+    visuals_dir: Path,
+) -> list:
+    """Generate PIL visual assets for narration_broll items with visual_mode='generated_asset'.
+
+    Sets visual_path, render_visual_path, asset_path on each qualifying item.
+    Returns the updated list.
+    """
+    visuals_dir.mkdir(parents=True, exist_ok=True)
+    result = []
+    for item in final_timeline:
+        item = dict(item)
+        t = item.get("type") or item.get("segment_type") or ""
+        if t == "narration_broll" and item.get("visual_mode") == "generated_asset":
+            sid = item.get("section_id") or "S_UNKNOWN"
+            vtype = item.get("visual_asset_type") or "concept_card"
+            vtitle = item.get("visual_title") or sid.replace("_", " ").title()
+            vkws = item.get("visual_keywords") or []
+            output_path = visuals_dir / f"{sid}_visual.png"
+            try:
+                create_narration_visual_asset(
+                    output_path=output_path,
+                    visual_title=vtitle,
+                    visual_asset_type=vtype,
+                    visual_keywords=vkws,
+                    section_id=sid,
+                )
+                item["visual_path"] = str(output_path)
+                item["render_visual_path"] = str(output_path)
+                item["asset_path"] = str(output_path)
+                log(f"  [visual] {sid} → {output_path.name} ({vtype})")
+            except Exception as exc:
+                log(f"  [visual] WARNING: failed to render visual for {sid}: {exc}")
+        result.append(item)
+    return result
+
+
 def build_voiceover_script(storyline: dict[str, Any]) -> list[dict[str, str]]:
     sections = storyline.get("sections", [])
     voiceover_script = []
@@ -664,14 +1127,33 @@ def build_voiceover_script(storyline: dict[str, Any]) -> list[dict[str, str]]:
     for section in sections:
         section_id = section.get("section_id", "")
         section_type = section.get("section_type", "")
-        narration = section.get("narration", "")
+        # Phase 4O.3: use narration first, fall back to viewer_narration
+        narration = (section.get("narration") or section.get("viewer_narration") or "").strip()
 
         if narration:
             voiceover_script.append(
                 {
                     "section_id": section_id,
                     "section_type": section_type,
-                    "text": narration.strip(),
+                    "text": narration,
+                    "tone": "calm cinematic documentary narrator",
+                }
+            )
+
+    # Phase 4O.3: if no sections produced narration, build a fallback from top-level fields
+    if not voiceover_script:
+        logline = (storyline.get("logline") or "").strip()
+        closing = (storyline.get("closing_meaning") or "").strip()
+        thesis = (storyline.get("narrative_thesis") or "").strip()
+        central_q = (storyline.get("central_question") or "").strip()
+
+        fallback_parts = [p for p in [logline, thesis or central_q, closing] if p]
+        if fallback_parts:
+            voiceover_script.append(
+                {
+                    "section_id": "S_FALLBACK",
+                    "section_type": "narration_fallback",
+                    "text": "  ".join(fallback_parts),
                     "tone": "calm cinematic documentary narrator",
                 }
             )
@@ -733,7 +1215,18 @@ def write_voiceover_script_txt(
 
 
 def collect_archive_fragments(storyline: dict[str, Any]) -> list[dict[str, Any]]:
-    fragments = []
+    fragments: list[dict[str, Any]] = []
+    selected_candidates = storyline.get("selected_candidates", []) or []
+
+    for item in selected_candidates:
+        if not item.get("final_video_allowed") or not item.get("fragment_id"):
+            continue
+        record = dict(item)
+        record["asset_role"] = "selected_candidate"
+        fragments.append(record)
+
+    if fragments:
+        return dedupe_manifest_fragments(fragments)
 
     for section in storyline.get("sections", []):
         section_id = section.get("section_id")
@@ -750,7 +1243,155 @@ def collect_archive_fragments(storyline: dict[str, Any]) -> list[dict[str, Any]]
             record["asset_role"] = "speaker_soundbite"
             fragments.append(record)
 
-    return fragments
+    return dedupe_manifest_fragments(fragments)
+
+
+def dedupe_manifest_fragments(fragments: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    deduped: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for fragment in fragments:
+        fragment_id = str(fragment.get("fragment_id") or "").strip()
+        if not fragment_id or fragment_id in seen:
+            continue
+        seen.add(fragment_id)
+        deduped.append(fragment)
+    return deduped
+
+
+def timeline_segment_count_for_duration(target_duration_seconds: int) -> int:
+    if target_duration_seconds <= 60:
+        return 4
+    if target_duration_seconds <= 120:
+        return 6
+    return 8
+
+
+def timeline_card_duration(target_duration_seconds: int) -> int:
+    return 4 if target_duration_seconds <= 60 else 5
+
+
+def classify_timeline_segment_type(candidate: dict[str, Any]) -> str:
+    if candidate.get("speaker_clip_allowed") or candidate.get("speaker_soundbite_allowed"):
+        return "speaker_clip"
+    if candidate.get("speaker_visual_allowed"):
+        return "speaker_visual"
+    if candidate.get("use_as") == "archive_visual":
+        return "archive_visual"
+    if candidate.get("use_as") == "speaker_soundbite":
+        return "speaker_clip"
+    return "narration_broll"
+
+
+def normalize_candidate_time_bounds(candidate: dict[str, Any]) -> tuple[float | None, float | None, float | None]:
+    start = candidate.get("start", candidate.get("start_seconds"))
+    end = candidate.get("end", candidate.get("end_seconds"))
+    duration = candidate.get("duration")
+
+    try:
+        start_value = float(start) if start is not None else None
+    except (TypeError, ValueError):
+        start_value = None
+    try:
+        end_value = float(end) if end is not None else None
+    except (TypeError, ValueError):
+        end_value = None
+    try:
+        duration_value = float(duration) if duration is not None else None
+    except (TypeError, ValueError):
+        duration_value = None
+
+    if duration_value is None and start_value is not None and end_value is not None:
+        duration_value = max(0.0, end_value - start_value)
+    if end_value is None and start_value is not None and duration_value is not None:
+        end_value = start_value + duration_value
+    if start_value is None and end_value is not None and duration_value is not None:
+        start_value = max(0.0, end_value - duration_value)
+
+    return start_value, end_value, duration_value
+
+
+def build_export_timeline_from_candidates(
+    selected_candidates: list[dict[str, Any]],
+    prompt_profile: dict[str, Any],
+    target_duration_seconds: int,
+    title: str | None = None,
+) -> list[dict[str, Any]]:
+    safe_candidates = dedupe_manifest_fragments(
+        [dict(item) for item in selected_candidates if item.get("final_video_allowed") is True and item.get("fragment_id")]
+    )
+    if not safe_candidates:
+        return []
+
+    def sort_key(candidate: dict[str, Any]) -> tuple:
+        type_priority = {
+            "speaker_clip": 4,
+            "speaker_visual": 3,
+            "archive_visual": 2,
+            "narration_broll": 1,
+        }.get(classify_timeline_segment_type(candidate), 0)
+        role_priority = {
+            "exact": 3,
+            "strong_related": 2,
+            "weak_related": 1,
+        }.get(str(candidate.get("relevance_role") or ""), 0)
+        return (
+            type_priority,
+            role_priority,
+            float(candidate.get("final_prompt_score") or candidate.get("prompt_relevance_score") or 0.0),
+            float(candidate.get("selection_score") or 0.0),
+            float(candidate.get("semantic_score") or 0.0),
+        )
+
+    ranked = sorted(safe_candidates, key=sort_key, reverse=True)
+    desired = min(timeline_segment_count_for_duration(target_duration_seconds), len(ranked))
+    chosen = ranked[:desired]
+    if not chosen:
+        return []
+
+    card_duration = timeline_card_duration(target_duration_seconds)
+    content_budget = max(1, target_duration_seconds - (card_duration * 2))
+    per_segment_duration = max(6.0, round(content_budget / max(1, len(chosen)), 2))
+
+    timeline: list[dict[str, Any]] = [
+        {
+            "type": "title_card",
+            "title": title or prompt_profile.get("raw_prompt") or "AI4IA Storyline",
+            "duration": float(card_duration),
+        }
+    ]
+    for candidate in chosen:
+        fragment_id = str(candidate.get("fragment_id") or "").strip()
+        if not fragment_id:
+            continue
+        start_value, end_value, duration_value = normalize_candidate_time_bounds(candidate)
+        clip_duration = duration_value if duration_value is not None else per_segment_duration
+        clip_duration = max(1.0, min(per_segment_duration, clip_duration))
+        if start_value is not None:
+            end_value = start_value + clip_duration if end_value is None else min(end_value, start_value + clip_duration)
+            clip_duration = max(0.1, end_value - start_value)
+        timeline.append(
+            {
+                "type": classify_timeline_segment_type(candidate),
+                "fragment_id": fragment_id,
+                "source_video": candidate.get("source_video"),
+                "start": round(float(start_value), 3) if start_value is not None else None,
+                "end": round(float(end_value), 3) if end_value is not None else None,
+                "duration": round(float(clip_duration), 3),
+                "use_as": candidate.get("use_as"),
+                "relevance_role": candidate.get("relevance_role"),
+                "selection_reason": candidate.get("selection_reason"),
+                "speaker_clip_allowed": bool(candidate.get("speaker_clip_allowed") or candidate.get("speaker_soundbite_allowed")),
+                "speaker_visual_allowed": bool(candidate.get("speaker_visual_allowed")),
+            }
+        )
+    timeline.append(
+        {
+            "type": "closing_card",
+            "title": title or prompt_profile.get("raw_prompt") or "AI4IA Storyline",
+            "duration": float(card_duration),
+        }
+    )
+    return timeline
 
 
 def collect_generated_assets(storyline: dict[str, Any]) -> list[dict[str, Any]]:
@@ -779,6 +1420,511 @@ def collect_internet_assets(storyline: dict[str, Any]) -> list[dict[str, Any]]:
             assets.append(record)
 
     return assets
+
+
+def detect_generic_card_title(title: str) -> bool:
+    return title.lower().strip() in GENERIC_CARD_TITLES
+
+
+def detect_generic_voiceover(text: str) -> bool:
+    if not text:
+        return False
+    normalized = text.lower()
+    return any(phrase in normalized for phrase in DISALLOWED_VOICEOVER_PHRASES)
+
+
+MOMENT_FIELDS_FROM_STORYLINE = {
+    "moment_text",
+    "moment_summary",
+    "muted",
+    "subtitle_text",
+    "subtitle_kind",
+    "section_role",
+    "moment_selection_reason",
+    "speech_quality",
+    "moment_scores",
+    "segment_type",
+    "audio_mode",
+}
+
+INTRO_ADMIN_TERMS_08 = [
+    "hello everyone",
+    "good morning",
+    "good afternoon",
+    "thank you",
+    "thanks for inviting me",
+    "let me introduce",
+    "next slide",
+    "moving on",
+    "today i will",
+    "my name is",
+    "it is an honor",
+    "housekeeping",
+    "restroom",
+    "closed captioning",
+    "can you hear me",
+    "welcome remarks",
+]
+
+
+def enrich_timeline_with_moment_fields(
+    export_timeline: list[dict[str, Any]],
+    storyline_timeline: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """
+    Enrich asset manifest export_timeline with moment-level fields from the
+    storyline's export_timeline. Existing moment fields are NOT overwritten.
+    """
+    # Build lookup by fragment_id from storyline timeline
+    storyline_by_fid: dict[str, dict[str, Any]] = {}
+    for item in storyline_timeline:
+        fid = item.get("fragment_id")
+        if fid:
+            storyline_by_fid[str(fid)] = item
+
+    enriched = []
+    for item in export_timeline:
+        item = dict(item)
+        fid = item.get("fragment_id")
+        if fid:
+            source = storyline_by_fid.get(str(fid), {})
+            for field in MOMENT_FIELDS_FROM_STORYLINE:
+                if field not in item and field in source:
+                    item[field] = source[field]
+
+        # Phase 4Q: speaker_clip items must never receive AI voiceover
+        seg_type = item.get("segment_type") or item.get("type") or ""
+        if seg_type == "speaker_clip":
+            item["voiceover_text"] = ""
+            item["voiceover_path"] = None
+            item["audio_mode"] = "source_audio"
+            item["muted"] = False
+            # subtitle_text must be moment_text, not narration
+            if not item.get("subtitle_text"):
+                item["subtitle_text"] = item.get("moment_text", "")
+
+        enriched.append(item)
+    return enriched
+
+
+def _detect_intro_admin_in_moment(text: str) -> bool:
+    """Return True if the moment text is dominated by intro/admin language."""
+    if not text:
+        return False
+    normalized = text.lower()
+    count = sum(1 for term in INTRO_ADMIN_TERMS_08 if term in normalized)
+    return count >= 2
+
+
+def validate_asset_manifest_before_save(
+    manifest: dict[str, Any],
+    prompt_profile: dict[str, Any],
+    selected_candidates: list[dict[str, Any]],
+) -> list[str]:
+    """Strict pre-save validation for asset manifest."""
+    if not STRICT_NO_GENERIC_FALLBACK:
+        return []
+
+    issues = []
+    cards = manifest.get("cards") or {}
+    for sc in (cards.get("section_cards") or []):
+        headline = sc.get("headline", "")
+        subtitle = sc.get("subtitle", "")
+        sid = sc.get("section_id", "?")
+        if detect_generic_card_title(headline):
+            issues.append(f"generic_card_title_detected: '{headline}' in section {sid}")
+        pipeline_issues = detect_internal_pipeline_language_08(headline)
+        if pipeline_issues:
+            issues.append(f"card_not_documentary_style: internal language in section {sid} headline")
+        pipeline_issues_sub = detect_internal_pipeline_language_08(subtitle)
+        if pipeline_issues_sub:
+            issues.append(f"card_not_documentary_style: internal language in section {sid} subtitle")
+
+    voice = manifest.get("voice") or {}
+    for sv in (voice.get("section_voiceovers") or []):
+        text = sv.get("text", "")
+        sid = sv.get("section_id", "?")
+        if detect_generic_voiceover(text):
+            issues.append(f"generic_voiceover_detected in section {sid}")
+        pipeline_issues_vo = detect_internal_pipeline_language_08(text)
+        if pipeline_issues_vo:
+            issues.append(f"internal_pipeline_language_detected in voiceover section {sid}")
+
+    storyline = manifest.get("storyline") or {}
+    export_timeline = storyline.get("export_timeline") or []
+    timeline_fragment_ids = {item.get("fragment_id") for item in export_timeline if item.get("fragment_id")}
+    if selected_candidates and not timeline_fragment_ids:
+        issues.append("missing_evidence_links: export_timeline has no fragment_ids despite having selected_candidates")
+
+    closing_headline = manifest.get("closing_headline") or ""
+    if closing_headline:
+        pipeline_close = detect_internal_pipeline_language_08(closing_headline)
+        if pipeline_close:
+            issues.append(f"closing_not_prompt_specific: internal language in closing headline")
+
+    # Phase 4O: moment-level validation on export_timeline
+    storyline = manifest.get("storyline") or {}
+    manifest_timeline = (storyline.get("export_timeline") or [])
+    for titem in manifest_timeline:
+        seg_type = titem.get("type", "")
+        fid = titem.get("fragment_id")
+        if not fid or seg_type in ("title_card", "closing_card"):
+            continue
+
+        moment_text = titem.get("moment_text", "")
+        if seg_type == "speaker_clip" and not moment_text:
+            issues.append(f"selected_clip_missing_moment_text: {fid}")
+
+        if seg_type == "speaker_clip" and moment_text and _detect_intro_admin_in_moment(moment_text):
+            issues.append(f"speaker_clip_has_intro_language: {fid}")
+
+        speech_q = titem.get("speech_quality") or {}
+        if seg_type == "speaker_clip" and speech_q and not speech_q.get("is_usable_speech", True):
+            issues.append(f"speaker_clip_has_low_speech_ratio: {fid}")
+
+        if seg_type == "archive_visual" and titem.get("muted") is False:
+            issues.append(f"archive_visual_not_muted: {fid}")
+
+    return issues
+
+
+def _text_ends_complete(text: str) -> bool:
+    """Return True if text ends with terminal punctuation."""
+    t = (text or "").rstrip()
+    return bool(t) and t[-1] in ".!?"
+
+
+def _text_starts_mid_sentence(text: str) -> bool:
+    """Return True if text likely starts mid-sentence (first char is lowercase)."""
+    t = (text or "").lstrip()
+    return bool(t) and t[0].islower()
+
+
+def compute_quote_render_bounds(
+    item: dict[str, Any],
+    cand: dict[str, Any],
+    fragment_lookup: dict[str, dict[str, Any]] | None = None,
+) -> dict[str, Any]:
+    """
+    Compute render_start, render_end, render_duration, quote_complete for a speaker clip.
+
+    Uses the full fragment window (start → end) + padding as the baseline.
+    Attempts forward expansion using the source fragment boundary if the quote is incomplete.
+    Only demotes if quote_completeness < 0.20 AND incomplete_sentence_penalty > 0.30.
+    """
+    start = float(item.get("start") or 0.0)
+    end = float(item.get("end") or 0.0)
+    moment_text = (item.get("moment_text") or cand.get("moment_text") or "").strip()
+    moment_scores = item.get("moment_scores") or cand.get("moment_scores") or {}
+
+    completeness = float(moment_scores.get("quote_completeness_score") or 0.0)
+    penalty = float(moment_scores.get("incomplete_sentence_penalty") or 0.0)
+
+    text_complete = _text_ends_complete(moment_text)
+    text_mid_start = _text_starts_mid_sentence(moment_text)
+
+    is_complete = text_complete or (completeness >= QUOTE_COMPLETE_THRESHOLD and penalty < 0.05)
+
+    # Start with the full fragment window + padding
+    render_start = max(0.0, start - PRE_ROLL_SECONDS)
+    render_end = end + POST_ROLL_SECONDS
+    method = "complete_sentence" if is_complete else "padding_only"
+    expanded = False
+
+    # Try to expand an incomplete quote using the source fragment boundary
+    if not is_complete and fragment_lookup:
+        fid = str(item.get("fragment_id") or "")
+        cf = fragment_lookup.get(fid) or {}
+        raw_source_end = cf.get("end")
+        if raw_source_end is not None:
+            source_end = float(raw_source_end)
+            available = source_end - end
+            if available > 1.5:
+                expand_by = min(available - 0.1, CLIP_EXPAND_SECONDS)
+                if expand_by > 0.5:
+                    render_end = end + expand_by + POST_ROLL_SECONDS
+                    expanded = True
+                    method = "sentence_or_segment_expansion"
+                else:
+                    method = "at_fragment_boundary_no_expansion"
+            else:
+                method = "at_fragment_boundary_no_expansion"
+
+    # Enforce duration bounds
+    render_duration = render_end - render_start
+    if render_duration > CLIP_HARD_MAX:
+        render_end = render_start + CLIP_HARD_MAX
+        render_duration = CLIP_HARD_MAX
+    if render_duration < CLIP_MIN_DURATION:
+        render_end = render_start + CLIP_MIN_DURATION
+        render_duration = CLIP_MIN_DURATION
+
+    # Demote only if quote is truly unusable (very low completeness + very high penalty)
+    should_demote = (
+        not text_complete
+        and completeness < 0.20
+        and penalty > 0.30
+    )
+
+    return {
+        "render_start": round(render_start, 3),
+        "render_end": round(render_end, 3),
+        "render_duration": round(render_duration, 3),
+        "quote_complete": is_complete,
+        "quote_boundary_method": method,
+        "quote_expanded": expanded,
+        "should_demote": should_demote,
+    }
+
+
+def _speaker_clip_quality_score(item: dict[str, Any]) -> float:
+    """Score a timeline fragment item for speaker clip suitability (0.0–1.0)."""
+    sq = item.get("speech_quality") or {}
+    ms = item.get("moment_scores") or {}
+    is_usable = sq.get("is_usable_speech", True)
+    speech_ratio = float(sq.get("speech_ratio") or 0.0)
+    final_score = float(ms.get("final_moment_score") or 0.0)
+    base = speech_ratio * 0.4 + final_score * 0.6
+    # If speech quality heuristic says not usable but the candidate was explicitly approved
+    # as a speaker soundbite (speaker_soundbite_allowed / speaker_clip_allowed), use a floor
+    # score so the annotation decision is not overridden by the heuristic alone.
+    if not is_usable:
+        explicitly_approved = item.get("speaker_soundbite_allowed") or item.get("speaker_clip_allowed")
+        if explicitly_approved:
+            return max(base, 0.30)
+        return 0.0
+    return base
+
+
+def build_hybrid_export_timeline(
+    export_timeline: list[dict[str, Any]],
+    selected_candidates: list[dict[str, Any]],
+    section_voiceover_paths: list[str],
+    max_speaker_clips: int = 5,
+    speaker_clip_score_threshold: float = 0.20,
+    fragment_lookup: dict[str, dict[str, Any]] | None = None,
+    vo_path_to_text: dict[str, str] | None = None,
+) -> list[dict[str, Any]]:
+    """
+    Build a hybrid timeline mixing speaker_clip/source_audio and narration_broll/ai_voiceover.
+
+    Algorithm:
+    1. Non-card fragment items are scored for speaker clip suitability.
+    2. Top-N (up to max_speaker_clips) items that pass threshold become speaker_clip.
+    3. Speaker clips receive render_start/render_end/render_duration from compute_quote_render_bounds().
+    4. Remaining fragment items become narration_broll, each receiving an audio_path
+       from section_voiceover_paths (cycling if needed), with subtitle_text set from vo_path_to_text.
+    5. All type fields (type, asset_type, kind, segment_type) are normalised.
+    """
+    candidate_by_fid: dict[str, dict[str, Any]] = {}
+    for cand in (selected_candidates or []):
+        fid = cand.get("fragment_id")
+        if fid:
+            candidate_by_fid[str(fid)] = cand
+
+    # Collect eligible fragment items (non-card, has fragment_id, valid duration)
+    card_types = {"title_card", "closing_card"}
+    fragment_items: list[tuple[int, dict[str, Any]]] = []  # (original_index, item)
+    card_items: list[tuple[int, dict[str, Any]]] = []
+
+    for i, raw_item in enumerate(export_timeline):
+        item = dict(raw_item)
+        t = item.get("type") or item.get("segment_type") or ""
+        if t in card_types:
+            card_items.append((i, item))
+        elif item.get("fragment_id"):
+            fragment_items.append((i, item))
+        else:
+            card_items.append((i, item))  # treat non-fragment non-card as pass-through
+
+    # Score eligible fragment items
+    scored = []
+    for orig_idx, item in fragment_items:
+        fid = item.get("fragment_id") or ""
+        cand = candidate_by_fid.get(str(fid), {})
+        start = item.get("start")
+        end = item.get("end")
+        source_video = item.get("source_video") or cand.get("source_video")
+        role = item.get("relevance_role") or cand.get("relevance_role") or ""
+
+        # Basic eligibility for speaker clip
+        eligible = (
+            source_video is not None
+            and start is not None
+            and end is not None
+            and role in ("exact", "strong_related")
+        )
+        try:
+            dur = float(item.get("duration") or 0.0) or (float(end or 0) - float(start or 0))
+            if not (6.0 <= dur <= 20.0):
+                eligible = False
+        except (TypeError, ValueError):
+            eligible = False
+
+        score = _speaker_clip_quality_score(item) if eligible else 0.0
+        scored.append((orig_idx, item, cand, score, eligible))
+
+    # Select top-N as speaker clips (pre-filter: remove those flagged for demotion by bounds check)
+    eligible_only = [(i, item, cand, sc) for i, item, cand, sc, elig in scored if elig]
+    eligible_only.sort(key=lambda x: x[3], reverse=True)
+
+    # Pre-compute bounds for all eligible items to check should_demote
+    bounds_cache: dict[int, dict[str, Any]] = {}
+    for i, item, cand, sc in eligible_only:
+        b = compute_quote_render_bounds(item, cand, fragment_lookup)
+        bounds_cache[i] = b
+
+    speaker_clip_fids: set[str] = set()
+    selected_for_speaker = []
+    for i, item, cand, sc in eligible_only:
+        if sc < speaker_clip_score_threshold:
+            continue
+        if len(selected_for_speaker) >= max_speaker_clips:
+            break
+        b = bounds_cache.get(i, {})
+        if b.get("should_demote"):
+            log(f"  [hybrid] Demoting {item.get('fragment_id', '')[-40:]!r}: quote too incomplete")
+            continue
+        speaker_clip_fids.add(str(item.get("fragment_id") or ""))
+        selected_for_speaker.append(i)
+
+    # Build voiceover cycling iterator for narration_broll items
+    valid_vo_paths = [p for p in (section_voiceover_paths or []) if p and Path(p).exists()]
+    vo_cycle_idx = 0
+
+    # Diagnostics counters
+    stat_complete = 0
+    stat_expanded = 0
+    stat_demoted = 0
+    stat_zero_dur = 0
+
+    # Rebuild timeline preserving original order
+    result_by_idx: dict[int, dict[str, Any]] = {}
+
+    for orig_idx, item, cand, score, eligible in scored:
+        item = dict(item)
+        fid = str(item.get("fragment_id") or "")
+
+        if fid in speaker_clip_fids:
+            # Promote to speaker_clip with computed render bounds
+            bounds = bounds_cache.get(orig_idx) or compute_quote_render_bounds(item, cand, fragment_lookup)
+            item["type"] = "speaker_clip"
+            item["asset_type"] = "speaker_clip"
+            item["kind"] = "speaker_clip"
+            item["segment_type"] = "speaker_clip"
+            item["audio_mode"] = "source_audio"
+            item["muted"] = False
+            item["voiceover_text"] = ""
+            item["voiceover_path"] = None
+            item["audio_path"] = None
+            # Apply render bounds — keep original start/end for provenance
+            item["render_start"] = bounds["render_start"]
+            item["render_end"] = bounds["render_end"]
+            item["render_duration"] = bounds["render_duration"]
+            item["quote_complete"] = bounds["quote_complete"]
+            item["quote_boundary_method"] = bounds["quote_boundary_method"]
+            # Use render_duration as the operative duration
+            item["duration"] = bounds["render_duration"]
+            if not item.get("subtitle_text"):
+                item["subtitle_text"] = item.get("moment_text") or ""
+            # Carry over cleaned corpus metadata
+            for field in (
+                "source_transcript_version", "audio_quality_status",
+                "transcript_quality_score", "word_timing_available",
+                "text_hash", "text_truncated_for_embedding",
+            ):
+                if not item.get(field) and cand.get(field) is not None:
+                    item[field] = cand[field]
+            if bounds["quote_complete"]:
+                stat_complete += 1
+            if bounds.get("quote_expanded"):
+                stat_expanded += 1
+            log(
+                f"  [hybrid] speaker_clip {fid[-44:]!r}: "
+                f"render {bounds['render_start']:.2f}→{bounds['render_end']:.2f}s "
+                f"({bounds['render_duration']:.2f}s) complete={bounds['quote_complete']} "
+                f"method={bounds['quote_boundary_method']}"
+            )
+        else:
+            # Demote to narration_broll
+            item["type"] = "narration_broll"
+            item["asset_type"] = "narration_broll"
+            item["kind"] = "narration_broll"
+            item["segment_type"] = "narration_broll"
+            item["audio_mode"] = "ai_voiceover"
+            item["muted"] = True
+            b = bounds_cache.get(orig_idx, {})
+            if b.get("should_demote"):
+                stat_demoted += 1
+            # Assign section voiceover path by cycling
+            if valid_vo_paths:
+                vo_path = valid_vo_paths[vo_cycle_idx % len(valid_vo_paths)]
+                item["audio_path"] = vo_path
+                item["voiceover_path"] = vo_path
+                # Set subtitle/voiceover text from path→text map
+                if vo_path_to_text:
+                    vo_text = vo_path_to_text.get(vo_path, "")
+                    item["subtitle_text"] = vo_text
+                    item["voiceover_text"] = vo_text
+                    item["subtitle_kind"] = "voiceover"
+                vo_cycle_idx += 1
+            # Ensure duration is set from fragment window
+            frag_dur = float(item.get("duration") or 0.0)
+            start_v = item.get("start")
+            end_v = item.get("end")
+            if frag_dur <= 0.0 and start_v is not None and end_v is not None:
+                try:
+                    frag_dur = float(end_v) - float(start_v)
+                except (TypeError, ValueError):
+                    frag_dur = 0.0
+            item["duration"] = max(frag_dur, 0.0)
+            if item["duration"] == 0.0:
+                stat_zero_dur += 1
+
+        result_by_idx[orig_idx] = item
+
+    # Pass-through for cards and other items
+    for orig_idx, item in card_items:
+        item = dict(item)
+        t = item.get("type") or item.get("segment_type") or ""
+        if t in card_types:
+            item["type"] = t
+            item["asset_type"] = t
+            item["kind"] = t
+            item["segment_type"] = t
+        result_by_idx[orig_idx] = item
+
+    # Reconstruct in original order
+    result = [result_by_idx[i] for i in range(len(export_timeline)) if i in result_by_idx]
+
+    # Print diagnostics
+    sc_count = sum(1 for x in result if (x.get("type") or x.get("segment_type")) == "speaker_clip")
+    nb_count = sum(1 for x in result if (x.get("type") or x.get("segment_type")) == "narration_broll")
+    log("")
+    log("Hybrid timeline quote timing summary:")
+    log(f"  speaker clips:           {sc_count}")
+    log(f"  complete quotes:         {stat_complete}")
+    log(f"  expanded quotes:         {stat_expanded}")
+    log(f"  demoted incomplete:      {stat_demoted}")
+    log(f"  narration_broll:         {nb_count}")
+    log(f"  zero-duration items:     {stat_zero_dur}")
+    log("")
+    for x in result:
+        st = x.get("segment_type") or x.get("type") or ""
+        if st != "speaker_clip":
+            continue
+        fid = x.get("fragment_id", "")[-50:]
+        log(
+            f"  SC {fid!r}: "
+            f"src={x.get('start'):.2f}→{x.get('end'):.2f} "
+            f"render={x.get('render_start'):.2f}→{x.get('render_end'):.2f} "
+            f"({x.get('render_duration'):.2f}s) "
+            f"complete={x.get('quote_complete')} "
+            f"speech_ratio={x.get('speech_quality', {}).get('speech_ratio', '?')} "
+            f"score={x.get('moment_scores', {}).get('final_moment_score', '?')}"
+        )
+
+    return result
 
 
 def main() -> None:
@@ -819,6 +1965,36 @@ def main() -> None:
 
     payload = load_storyline(storyline_path)
     story = payload["storyline"]
+    story["selected_candidates"] = payload.get("selected_candidates") or []
+    prompt_profile = payload.get("prompt_profile") or payload.get("prompt_intent") or {}
+
+    # Phase 4V: if the storyline was validated by 07b, use final_timeline directly.
+    # final_timeline lives at top level of the JSON (and also inside story after 07b).
+    _validated_final_timeline = (
+        payload.get("final_timeline")
+        or story.get("final_timeline")
+        or (payload.get("validated_narrative") or {}).get("final_timeline")
+        or (story.get("validated_narrative") or {}).get("final_timeline")
+    )
+    _is_validated_storyline = bool(_validated_final_timeline) and payload.get("llm_validated", False)
+
+    if _is_validated_storyline:
+        log("Validated storyline detected — using final_timeline from 07b.")
+        story["export_timeline"] = _validated_final_timeline
+    elif not (story.get("export_timeline") or []) and payload.get("selected_candidates"):
+        story["export_timeline"] = build_export_timeline_from_candidates(
+            selected_candidates=story["selected_candidates"],
+            prompt_profile=prompt_profile,
+            target_duration_seconds=int(story.get("target_duration_seconds") or payload.get("target_duration_seconds") or 60),
+            title=story.get("title"),
+        )
+
+    # Phase 4V: for validated storylines, override title/logline from validated_narrative.
+    _validated_narrative = payload.get("validated_narrative") or story.get("validated_narrative") or {}
+    if _is_validated_storyline and _validated_narrative.get("title"):
+        story["title"] = _validated_narrative["title"]
+    if _is_validated_storyline and _validated_narrative.get("logline"):
+        story["logline"] = _validated_narrative["logline"]
 
     title = make_display_title(story.get("title", "AI4IA Documentary"))
     logline = sanitize_visible_text(story.get("logline", ""))
@@ -835,7 +2011,24 @@ def main() -> None:
     audio_dir.mkdir(parents=True, exist_ok=True)
     section_audio_dir.mkdir(parents=True, exist_ok=True)
 
-    voiceover_script = build_voiceover_script(story)
+    if _is_validated_storyline:
+        # Phase 4V: extract voiceover script from narration_broll items in final_timeline.
+        voiceover_script = []
+        for idx, item in enumerate(_validated_final_timeline or []):
+            t = item.get("type") or item.get("segment_type") or ""
+            if t == "narration_broll":
+                vo_text = item.get("voiceover_text") or item.get("subtitle_text") or ""
+                sid = item.get("section_id") or f"S{idx}"
+                if vo_text:
+                    voiceover_script.append({
+                        "section_id": sid,
+                        "section_type": t,
+                        "text": vo_text,
+                        "_timeline_index": idx,
+                    })
+        log(f"Validated voiceover script: {len(voiceover_script)} narration_broll items")
+    else:
+        voiceover_script = build_voiceover_script(story)
     full_voiceover_text = voiceover_text_for_tts(voiceover_script)
 
     voiceover_script_path = asset_root / "voiceover_script.txt"
@@ -862,9 +2055,43 @@ def main() -> None:
     log(f"Title card generated: {title_card_path}")
 
     closing_card_path = cards_dir / "closing_card.png"
+    _topic_terms_close = list(prompt_profile.get("topic_terms") or [])
+    _requested_speaker_close = prompt_profile.get("requested_speaker")
+    _primary_topic_close = _topic_terms_close[0] if _topic_terms_close else None
+    _topic_label_close = " ".join(_topic_terms_close[:2]).title() if _topic_terms_close else None
+
+    _cinematic_closings = {
+        "healthcare": ("The Human Measure of Medicine", "AI in healthcare will be judged not by speed, but by whether it makes care safer and fairer."),
+        "health": ("The Human Measure of Medicine", "AI in healthcare will be judged not by speed, but by whether it makes care safer and fairer."),
+        "women": ("The Measure of Progress", "Progress means women gain real agency, real voice, and real power."),
+        "empowerment": ("The Measure of Progress", "Progress means women gain real agency, real voice, and real power."),
+        "governance": ("The Shape of Accountability", "AI governance will be measured by who it protects and who it answers to."),
+        "youth": ("What They Inherit", "The next generation will decide whether to accept or change the systems they are given."),
+        "education": ("The Promise of Learning", "The future of learning is defined by whether every student can access knowledge that is true, useful, and theirs."),
+        "crypto": ("The Digital Promise", "A more open financial system will only arrive through transparency, safety, and rules that protect people."),
+        "accessibility": ("The Invisible Divide", "Access to information is not a given — it must be built, maintained, and defended."),
+    }
+
+    _storyline_closing = story.get("closing_meaning", "")
+
+    if _requested_speaker_close:
+        closing_headline = f"{_requested_speaker_close}: The Contribution"
+        closing_subtitle = _storyline_closing or f"A documentary on {_requested_speaker_close}'s contributions to AI4IA."
+    elif _primary_topic_close and _primary_topic_close in _cinematic_closings:
+        closing_headline, closing_subtitle = _cinematic_closings[_primary_topic_close]
+        if _storyline_closing:
+            closing_subtitle = _storyline_closing
+    elif _topic_label_close:
+        closing_headline = f"AI and {_topic_label_close}"
+        closing_subtitle = _storyline_closing or f"A documentary on AI and {_topic_label_close}."
+    else:
+        closing_headline = make_display_title(title)
+        closing_subtitle = _storyline_closing or "A documentary from the AI4IA conference archive."
     create_closing_card(
         output_path=closing_card_path,
         title=title,
+        closing_headline=closing_headline,
+        closing_subtitle=closing_subtitle,
     )
     log(f"Closing card generated: {closing_card_path}")
 
@@ -874,7 +2101,7 @@ def main() -> None:
         section_id = section.get("section_id", "S")
         section_type = section.get("section_type", "section")
 
-        copy = infer_section_copy(section)
+        copy = infer_section_copy(section, prompt_profile=prompt_profile)
 
         section_card_path = cards_dir / f"{section_id}_{slugify(section_type)}.png"
 
@@ -899,6 +2126,21 @@ def main() -> None:
         )
 
         log(f"Section card generated: {section_card_path}")
+
+    year_stamp_cards = []
+    _seen_year_stamp_years: set[int] = set()
+    for item in story.get("export_timeline") or []:
+        if item.get("type") == "year_stamp":
+            year_val = item.get("year")
+            if year_val is not None and year_val not in _seen_year_stamp_years:
+                _seen_year_stamp_years.add(year_val)
+                year_stamp_path = cards_dir / f"year_stamp_{year_val}.png"
+                try:
+                    create_year_stamp_card(year=year_val, output_path=year_stamp_path)
+                    year_stamp_cards.append({"year": year_val, "path": str(year_stamp_path)})
+                    log(f"Year stamp card generated: {year_stamp_path}")
+                except Exception as exc:
+                    log(f"WARNING: failed to render year_stamp card for {year_val}: {exc}")
 
     tts_status = "skipped"
     section_voiceovers = []
@@ -963,6 +2205,68 @@ def main() -> None:
         "missing_fragment_refs": set(),
     }
     enriched_story = enrich_fragment_refs(story, fragment_lookup, metadata_stats)
+    enriched_story["selected_candidates"] = story.get("selected_candidates") or []
+
+    if not (enriched_story.get("export_timeline") or []) and payload.get("selected_candidates"):
+        enriched_story["export_timeline"] = build_export_timeline_from_candidates(
+            selected_candidates=enriched_story["selected_candidates"],
+            prompt_profile=payload.get("prompt_profile") or payload.get("prompt_intent") or {},
+            target_duration_seconds=int(enriched_story.get("target_duration_seconds") or payload.get("target_duration_seconds") or 60),
+            title=enriched_story.get("title"),
+        )
+
+    if _is_validated_storyline:
+        # Phase 4V: validated storyline — final_timeline already has correct types.
+        # Attach audio_path from section_voiceovers to narration_broll items (by order).
+        nb_idx = 0
+        final_tl = enriched_story.get("export_timeline") or []
+        for item in final_tl:
+            t = item.get("type") or item.get("segment_type") or ""
+            if t == "narration_broll" and nb_idx < len(section_voiceovers):
+                sv = section_voiceovers[nb_idx]
+                item["audio_path"] = sv.get("audio_path", "")
+                if not item.get("subtitle_text"):
+                    item["subtitle_text"] = sv.get("text", "")
+                if not item.get("voiceover_text"):
+                    item["voiceover_text"] = sv.get("text", "")
+                item["subtitle_kind"] = "voiceover"
+                nb_idx += 1
+        enriched_story["export_timeline"] = final_tl
+        log(f"Phase 4V: {nb_idx} narration_broll items received audio_path from section_voiceovers.")
+
+        # Phase 4V+: generate topic-specific PIL visual assets for narration_broll items
+        visuals_dir = asset_root / "visuals"
+        final_tl = generate_visual_assets_for_timeline(final_tl, visuals_dir)
+        enriched_story["export_timeline"] = final_tl
+        _gen_vis_count = sum(1 for x in final_tl if x.get("render_visual_path"))
+        log(f"Phase 4V+: {_gen_vis_count} narration_broll visual assets generated in {visuals_dir}")
+    else:
+        # Phase 4O: enrich export_timeline with moment fields from the storyline
+        # (without overwriting fields already present)
+        storyline_timeline = payload.get("export_timeline") or enriched_story.get("export_timeline") or []
+        if enriched_story.get("export_timeline"):
+            enriched_story["export_timeline"] = enrich_timeline_with_moment_fields(
+                export_timeline=enriched_story["export_timeline"],
+                storyline_timeline=storyline_timeline,
+            )
+
+        # Phase 4S: build hybrid timeline — select best fragments as speaker_clip/source_audio,
+        # convert the rest to narration_broll/ai_voiceover using available section voiceovers.
+        if enriched_story.get("export_timeline"):
+            vo_paths = [sv.get("audio_path", "") for sv in section_voiceovers if sv.get("audio_path")]
+            # Build audio_path → voiceover text map for narration_broll subtitle coverage
+            vo_path_to_text: dict[str, str] = {
+                sv["audio_path"]: sv.get("text", "")
+                for sv in section_voiceovers
+                if sv.get("audio_path") and sv.get("text")
+            }
+            enriched_story["export_timeline"] = build_hybrid_export_timeline(
+                export_timeline=enriched_story["export_timeline"],
+                selected_candidates=enriched_story.get("selected_candidates") or payload.get("selected_candidates") or [],
+                section_voiceover_paths=vo_paths,
+                fragment_lookup=fragment_lookup,
+                vo_path_to_text=vo_path_to_text,
+            )
 
     archive_fragments = collect_archive_fragments(enriched_story)
     generated_assets = collect_generated_assets(enriched_story)
@@ -1007,6 +2311,7 @@ def main() -> None:
             "title_card": str(title_card_path),
             "closing_card": str(closing_card_path),
             "section_cards": section_cards,
+            "year_stamp_cards": year_stamp_cards,
         },
         "archive_fragments": archive_fragments,
         "generated_assets_requested_by_storyline": generated_assets,
@@ -1042,6 +2347,41 @@ def main() -> None:
         }
     }
 
+    # Visual quality gates (validated storylines only)
+    if _is_validated_storyline:
+        _tl_for_vqg = enriched_story.get("export_timeline") or []
+        _nb_items = [x for x in _tl_for_vqg if (x.get("type") or x.get("segment_type")) == "narration_broll"]
+        _gen_vis = [x for x in _nb_items if x.get("render_visual_path")]
+        _muted_arch = [x for x in _nb_items if not x.get("render_visual_path") and not x.get("visual_path")]
+        manifest["visual_strategy"] = (
+            "speaker_clip = source video + source audio. "
+            "narration_broll = generated topic visual + AI voiceover."
+        )
+        manifest["visual_quality_gates"] = {
+            "all_narration_broll_have_generated_visual": len(_gen_vis) == len(_nb_items) and len(_nb_items) > 0,
+            "generated_visual_segments": len(_gen_vis),
+            "muted_archive_narration_segments": len(_muted_arch),
+            "total_narration_broll": len(_nb_items),
+        }
+
+    # Write hybrid timeline to all downstream-compatible keys
+    hybrid_tl = enriched_story.get("export_timeline") or []
+    manifest["export_timeline"] = hybrid_tl
+    manifest["timeline"] = hybrid_tl
+
+    # Strict asset manifest validation before saving
+    manifest_validation_issues = validate_asset_manifest_before_save(
+        manifest=manifest,
+        prompt_profile=prompt_profile,
+        selected_candidates=story.get("selected_candidates") or [],
+    )
+    if manifest_validation_issues:
+        log("Asset manifest validation issues:")
+        for issue in manifest_validation_issues:
+            log(f"  - {issue}")
+    existing_manifest_issues = manifest.get("validation_issues") or []
+    manifest["validation_issues"] = existing_manifest_issues + manifest_validation_issues
+
     manifest_path = asset_root / "asset_manifest.json"
     manifest_path.write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2),
@@ -1053,6 +2393,19 @@ def main() -> None:
         json.dumps(manifest, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+
+    # Hybrid timeline diagnostics
+    sc_count = sum(1 for x in hybrid_tl if (x.get("type") or x.get("segment_type")) == "speaker_clip")
+    nb_count = sum(1 for x in hybrid_tl if (x.get("type") or x.get("segment_type")) == "narration_broll")
+    av_count = sum(1 for x in hybrid_tl if (x.get("type") or x.get("segment_type")) == "archive_visual")
+    card_tl_count = sum(1 for x in hybrid_tl if (x.get("type") or x.get("segment_type")) in ("title_card", "closing_card"))
+    log("")
+    log("Final hybrid timeline summary:")
+    log(f"  total items:                {len(hybrid_tl)}")
+    log(f"  speaker_clip/source_audio:  {sc_count}")
+    log(f"  narration_broll/ai_voiceover: {nb_count}")
+    log(f"  archive_visual/silent:      {av_count}")
+    log(f"  cards:                      {card_tl_count}")
 
     log("")
     log("Refined asset generation complete")

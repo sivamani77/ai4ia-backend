@@ -1,0 +1,156 @@
+Hello, my talk, they will be on the topic of AI and the question of trust.
+But instead of asking whether or not we can trust AI tools or AI systems,
+I will instead be talking about trusting those who inform us about AI.
+As the world gets more complicated, we are forced to outsource our knowledge,
+production, understanding and decision making to external parties.
+You can see this reflected in many aspects of our everyday life.
+For example, when your car breaks down, when your car breaks down,
+who should you go to?
+Usually a mechanic.
+When you feel tooth pain or a toothache, who do you go to?
+identity, relevant to this talk, when you're concerned about the impact of AI, who should
+you go to?
+And this is an important question of who is an expert and who can be trusted.
+So this is the first question that we will tackle in this talk, who are the experts
+that we can trust when it comes to AI?
+So first, some points, AI, like many other fields, is a specialized field of study
+that requires many years of education and practice in order to gain proficiency.
+Trusting incorrect parties can result in the propagation of harm, adoption of harmful
+or ineffective policies, unjust distributions of benefits and harms, among many other concerns.
+So the question is then, who should we trust when it comes to AI policy?
+And there is no single requirement for trust, while the question is important and sort
+of fundamental.
+People will disagree on who we should trust.
+One common understanding of trust is that it's composed of multiple parts.
+For example, an expert that you trust should be competent, have integrity, have independence,
+and have accountability.
+So let's talk about possible AI experts.
+So the first option is to sample random members of the public.
+While on average we can assume that they will not be conflicted
+and that their views will align with that of the public,
+they unfortunately do not possess the advanced specialized training
+in order to serve as experts.
+And this is a problem when we're looking for their input with respect to policies.
+Others would suggest industry experts,
+those that are building tools, be the experts that we rely on and trust.
+Often industry partners themselves try to position themselves, their employees or their representatives as experts that can be trusted to create policy.
+However, while they do possess the specialized training, their priorities do not necessarily apply or align with that of the public.
+Large and publicly traded companies are focused on company values, shareholder returns, and monetary concerns.
+And when this intersects with AI policy, as it often does, we cannot trust them to make the right decision.
+that benefit society even if it was at the cost of their own company.
+No, this does not mean that those working for or employed by industry are not trustworthy, lying or seeking to cause harm.
+Rather, only individuals who embody and personify and personally believe what is best for the company would be good for society,
+would be placed in such a role. Thus, relying on industry experts will bias any policy feedback to whatever is best for these companies,
+whether or not they intend this to be the case.
+The last possible option among many that what the last one that we'll be talking
+today about is academic experts or civic experts, i.e. those at civil
+organizations or nonprofits. While they do possess the advanced training, it's
+unclear whether or not their interests align with that of the general public.
+This leads us to our second question. Are the interests of academics aligned
+with that of the general public? And to start to intuitively explain this
+issue, I'd like to lean on analogy. That's not perfect, but I think we'll
+get us to where we need to go.
+So imagine there's this hypothetical health policy
+conference with 10,000 plus attendees.
+It was largely funded by Big Tobacco.
+And among the many topics covered in this health policy
+conference, it talks about wildfire smoke,
+but also among the many topics covered
+is how to best deal with the negative effects of increased
+tobacco usage.
+Would this be accepted by the health policy community
+or by the general public when it comes to the findings
+of this conference?
+No, this would be generally viewed as unacceptable.
+Article 5.3 of the WHO Framework Convention on Tobacco
+control states that in setting and implementing public health policies with respect to tobacco
+control, parties should act to protect their policies from commercial and other vested interests
+of the tobacco industry in accordance with national law. So clearly this is not acceptable.
+However, if we replace health policy with AI ethics or machine learning, big tobacco with
+big tech, then the effects of increased tobacco usage with the effects of increased AI
+deployment, would this be accepted? And this is not really a question. This is the current state
+of the art. It's no longer hypothetical, but the way things are right now. And this is whether or
+not you're talking about technical conferences like NeurIPS, the Neural Information Processing
+Systems Conference, or AI Ethics Conference, it's just Fairness, Accountability and Transparency
+Conference. All of these conferences have large amounts of funding coming from industry
+or vested parties as a WHO statement said.
+This is not just the views of an academic who's not
+on this line.
+For those who may doubt this thesis
+or think that this analogy is unfair,
+this is the best proof or argument for this analogy,
+being accurate, comes from industry themselves.
+So when Google was in a lawsuit against Oracle,
+there was this nonprofit called Campaign for Accountability.
+And Oracle was funding this nonprofit.
+And Google, in their blog post, questions the anti-Google work done by the campaign for accountability because they are funded by Oracle, which has an incentive to hurt Google.
+So if we extract the way the proper nouns, Google questions the work done by unaffiliated non-for-profit researchers because they are funded by a corporation which has a profit motive or sort of a competing interest.
+Essentially, this is the exact same thesis that we started out with, industry warps research
+by putting its values on those who accept the funding, or basically those that are conflicted.
+Why would industry fund academia?
+And largely speaking, if we leverage the history of big tobacco, there were four main
+reasons to fund academia, and you can see them listed here.
+The first of these is sort of PR, you want to reinvent yourself as socially responsible
+in the public image.
+You want to influence the decision or events made by funded universities or researchers.
+you want to influence the individual research plans of academics,
+or you want to discover receptive academics who can be leveraged.
+It's important, again, to note here that we're not making claims
+that they are intentionally trying to do this.
+Even if it's unintentional, these four points can be happened,
+and one argue could be stopped.
+So those that work in the field of AI,
+it's clear that a lot of research is funded by Big Tech.
+By acting as granting bodies,
+they will be able to modify the research of those who apply for funding.
+And this can happen without malintent from either side.
+For example, those working in Silicon Valley
+are more likely to believe in technical solutionism
+and other Silicon Valley-centric views.
+And therefore, the applications that hold those views
+are more likely to be selected when a funding call goes out
+because they're not challenging the underlying assumptions
+of those who are providing the funding.
+And this will become obvious to applicants
+who then face pressure to mold their application,
+such that it fits or at least does not challenge
+the views of those who are providing the money
+and therefore without any direct male intent or agreement between academia
+and researchers, Big Tech can direct the research funding into a sort of a
+friendly direction and sort of to put a quantitative lens to this instead of
+just you know theoretical analysis. We surveyed the CVs of four schools to
+see how deep the financial connections between these four schools and Big Tech
+really was. So these are the four schools, two public, two private, two
+East Coast to West Coast. And this is what we threw under the
+umbrella of Big Tech, all of the companies that you list see here.
+And we can see that it's a substantial number. If you look at all computer science faculty,
+52% of them have funding relationships with these companies. And if you limit it to AI
+faculty, it increases 58%. And those working in AI ethics, those that have previous research
+funding, it's 58%. And this is much greater than the percentage of researchers who are
+receiving funding from Big Tobacco at its peak, which was like 5% to 15% according to estimates.
+If we expand past financial relationship to be greater than just direct research funding,
+but let's say previous internships or I worked there at a previous time, the presented skyrockets
+for those in AI ethics to 97%. Again, we're not saying that this is conscious or going
+necessarily going to affect you, but it's a clear demonstration that a lot of academics
+in the field are exposed consistently to the logics of Silicon Valley and therefore were more likely
+to adopt their viewpoints. And there's a real-world example to this. So this paper by Young Atel studied
+a paper that was co-authored by industry and academics. It was published in fact 2021.
+I audited this candidate hiring screening algorithm. The paper was funded and enabled
+by the companies, but their viewers were double blind, so they did not know this. Once the paper
+had been published, the company claimed that this paper served as an independent audit of
+of their tool, which was not true,
+and lobbied for its use in New York City's bill
+about automated hiring.
+So this takes us back to the question of
+who should we trust as experts?
+And unfortunately, we see that systematic change
+in academia is required in order to win the trust
+of the people.
+While we do have the expertise,
+we unfortunately do not have the independence required
+to be trustworthy experts, and that processes
+need to be adopted to increase transparency,
+independence, and accountability.
+And without these, it's going to be hard to make an argument for people to trust us.
+Thank you for coming to my talk. I hope you found it interesting.
+And if you have any questions or would like to reach out, my email is on the screen. Thank you.

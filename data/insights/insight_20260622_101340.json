@@ -1,0 +1,310 @@
+{
+  "insight_id": "insight_20260622_101340",
+  "title": "The Double-Edged Sword of AI in Healthcare",
+  "query": "The promise and risks of AI in healthcare and medical decision-making",
+  "filters": {},
+  "summary": "AI has the potential to revolutionize healthcare by enhancing image scanning, improving workflow, and supporting decision-making. However, there are also risks associated with its use, including bias, discrimination, and lack of transparency. Experts emphasize the need for a risk-based approach to regulate AI in healthcare and ensure that its benefits are equitably distributed.",
+  "patterns": [
+    {
+      "statement": "AI has numerous potential applications in healthcare",
+      "fragment_refs": [
+        1,
+        6
+      ],
+      "support_count": 2
+    },
+    {
+      "statement": "Bias and discrimination are significant risks associated with AI in healthcare",
+      "fragment_refs": [
+        2,
+        3
+      ],
+      "support_count": 2
+    }
+  ],
+  "contrasts": [
+    {
+      "statement": "The benefits of AI in healthcare may not be equitably distributed",
+      "fragment_refs": [
+        2,
+        9
+      ],
+      "support_count": 2
+    },
+    {
+      "statement": "There is a tension between the potential benefits and risks of AI in healthcare",
+      "fragment_refs": [
+        1,
+        5
+      ],
+      "support_count": 2
+    }
+  ],
+  "recommended_clips": [
+    {
+      "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0009",
+      "ref": 1,
+      "reason": "This clip provides an overview of the potential applications of AI in healthcare",
+      "stream_url": "/api/archive/videos/0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care/stream",
+      "start": 540.44,
+      "end": 563.94
+    },
+    {
+      "fragment_id": "0043_tdQ9dt3zJCc_Matias_Karlsson_-_Representation_Is_a_Right_-_Equitable_AI_in_Health._0001",
+      "ref": 2,
+      "reason": "This clip highlights the risks associated with bias and discrimination in AI decision-making",
+      "stream_url": "/api/archive/videos/0043_tdQ9dt3zJCc_Matias_Karlsson_-_Representation_Is_a_Right_-_Equitable_AI_in_Health./stream",
+      "start": 0.75,
+      "end": 70.1
+    }
+  ],
+  "unsupported_claims": [],
+  "evidence_coverage": 1.0,
+  "evidence_pool": [
+    {
+      "ref": 1,
+      "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0009",
+      "speaker": "Poonam Verma",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "start": 540.44,
+      "end": 563.94,
+      "duration": 23.5,
+      "stream_url": "/api/archive/videos/0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care/stream",
+      "similarity": 0.8004,
+      "text": "There are many potential applications like enhancing image scanning and segmentation, integration and improvement of workflow, disease risk prediction and supported decision making. Overall, the future of AI in healthcare looks promising. Thank you very much for listening."
+    },
+    {
+      "ref": 2,
+      "fragment_id": "0043_tdQ9dt3zJCc_Matias_Karlsson_-_Representation_Is_a_Right_-_Equitable_AI_in_Health._0001",
+      "speaker": "Matias Karlsson",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "start": 0.75,
+      "end": 70.1,
+      "duration": 69.35,
+      "stream_url": "/api/archive/videos/0043_tdQ9dt3zJCc_Matias_Karlsson_-_Representation_Is_a_Right_-_Equitable_AI_in_Health./stream",
+      "similarity": 0.7503,
+      "text": "Hello everyone, thank you UNESCO and the AI for AI community for this opportunity. My name is Matias Carzon from Chroma data in Latin America and the Caribbean. My thesis for this presentation in one line, if you are not in the data you are not in the decision. In medicine, fairness isn't a feature, fairness is safety. Why equity equals safety in medicine? Let's talk about this. AI already influences triage, diagnosis, and care pathways. Average accuracy can look great and still leave some groups behind. We must ask, at the operating point we deploy, who is actually protected? Two concepts to hold, false negative rate, missing disease, and calibration, how predicted risk maps to real outcome in each group."
+    },
+    {
+      "ref": 3,
+      "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0004",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "start": 156.46,
+      "end": 212.54,
+      "duration": 56.08,
+      "stream_url": "/api/archive/videos/0176_KLAG1xufAp8_Kilian Gross - The AI act/stream",
+      "similarity": 0.7481,
+      "text": "there is a risk of discrimination due to bias training data. Therefore, we need an ecosystem of trust at the AI Act. In April 2021, so already more than two years ago, the European Commission published its proposal for such an AI Act a regulation on AI. This proposal is in our view proportionate, risk-based, and aims to regulate AI in order to create a single market for this new technology. While at the same time addressing the risks to health, safety, and fundamental rights, while most AI systems will pose low to no risks, certain AI systems create risks that need to be addressed to avoid undesirable outcomes. In this respect, we often speak about the Pyramid, where we see lower risk, medium risk, and high risk."
+    },
+    {
+      "ref": 4,
+      "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0005",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "start": 212.54,
+      "end": 260.97,
+      "duration": 48.43,
+      "stream_url": "/api/archive/videos/0176_KLAG1xufAp8_Kilian Gross - The AI act/stream",
+      "similarity": 0.7446,
+      "text": "We are now at the stage of the negotiation process. And there is a strong commitment from both EU-cooler to status to find an agreement on this file by the end of this year. The risk-based approach will therefore be key. On top of the risk pyramid, there are the unacceptable risks. A small number of AI practices that are considered to be clearly a threat to the safety and fundamental rights of people. They should be banned. This would, for instance, include public social scoring. On the second layer, there are high-risk systems. These high-risk systems pose a significant risk to fundamental rights and safety, for example, medical devices or AI used for recruitment, would be subject to specific requirements."
+    },
+    {
+      "ref": 5,
+      "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0003",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "start": 114.29,
+      "end": 180.53,
+      "duration": 66.24,
+      "stream_url": "/api/archive/videos/0083_UfD8_UVq8p0_Ropafadzo Makaza/stream",
+      "similarity": 0.7403,
+      "text": "Well, given example of AI being used in healthcare, where we have seen conversational being used is a mental health support true. So such that a user is somewhat with the need of mental health support and just get onto the platform that is dedicated for mental support and be able to confess with the generative AI model. So because of all these reasons, if information is not accurate, if information cannot be trusted in such an industry, such a fluid as healthcare, that brings a life-threatening risk. So these concerns all need to be addressed, concerns on data privacy, possible issues of generative AI and there is also a need for ethical transparency. We need to be cognizant of the threats that surround the integrity of information"
+    },
+    {
+      "ref": 6,
+      "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0006",
+      "speaker": "Poonam Verma",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "start": 345.55,
+      "end": 419.88,
+      "duration": 74.33,
+      "stream_url": "/api/archive/videos/0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care/stream",
+      "similarity": 0.7393,
+      "text": "AI is also attracting a lot of startups. So these are the six top startups out of over thousands, which are disrupting the healthcare industry. Alone in year 2023, these 24 startups have already revolutionized the healthcare with AI. AI's role in healthcare can be divided into two ways. One is the clinical application and administrative applications. In clinical application, it helps in monitoring patients, supporting population health management, guiding surgical care, predicting health trajectories and recommending treatments. Whereas in administrative application, it helps in automating labor risk tasks regarding digital clinical notes and optimizing operational processes. AI has already transformed healthcare in various sectors like diagnostics, patient risk identification, supply chain management, virtual nursing assistance, fitness and nutrition and mental health."
+    },
+    {
+      "ref": 7,
+      "fragment_id": "0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy_0005",
+      "speaker": "G Radwan",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "start": 221.56,
+      "end": 267.13,
+      "duration": 45.57,
+      "stream_url": "/api/archive/videos/0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy/stream",
+      "similarity": 0.7385,
+      "text": "and or acceptable to inform a patient of a certain prognosis based on probabilities? And how do we communicate this information? And what right does the patient then have to understand, for example, how the system arrived at that conclusion? And to what extent are they allowed to dispute it? As you can see, this isn't just about information. It's also intricately linked to issues around the explainability of AI systems, which we also cover in detail in the recommendation, technical limitations and advances of those systems, but also many legal and liability issues. This is a potentially much more complicated aspect of the link between AI and information than the regular issues around regionalism and social media content."
+    },
+    {
+      "ref": 8,
+      "fragment_id": "0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy_0004",
+      "speaker": "G Radwan",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "start": 167.73,
+      "end": 221.56,
+      "duration": 53.83,
+      "stream_url": "/api/archive/videos/0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy/stream",
+      "similarity": 0.7376,
+      "text": "And to what extent? We can count many stakeholders in this regard, we can count, of course, patients and their families, healthcare professionals of all specialties, doctors, nurses, managers, but also engineers and developers of the system itself, maintainers of it, healthcare providers, whether public or private, insurance, and pharmaceutical companies and many others. And while we could consider applying the same rules that govern today's healthcare services, things like informed consent, the right of patients and their families to be informed of and involved in every decision pertaining to their care, et cetera. There are still many new issues introduced by AI, such as the uncertainty associated with any result or decision provided by an AI system. At what point do we draw a line that makes it compulsory"
+    },
+    {
+      "ref": 9,
+      "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0008",
+      "speaker": "Mukesh Mehra",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "start": 406.15,
+      "end": 454.43,
+      "duration": 48.28,
+      "stream_url": "/api/archive/videos/0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine/stream",
+      "similarity": 0.7334,
+      "text": "health care inequalities also. Then the regulatory approvals also like the gaining trust from the both medical and the professionals and the patients and just to conclude my presentation, AI is undeniably transforming medicines from diagnostics and does discovery to personalize care and predictive analytics. While the future of AI promises even more efficient and accessible health care, it is essential that we as health care professionals collaborate and AI developers and policy makers to ensure its effective integration. Furthermore, as we continue to adapt AI, it is critical that we keep ethical consideration and patient safety at the forefront and thank you for your attention and I look forward to the discussion ahead. Thank you very much."
+    },
+    {
+      "ref": 10,
+      "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0001",
+      "speaker": "Poonam Verma",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "start": 4.43,
+      "end": 68.54,
+      "duration": 64.11,
+      "stream_url": "/api/archive/videos/0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care/stream",
+      "similarity": 0.7279,
+      "text": "Despite the fact that AI invokes fear in many of us, it is also benefiting us in numerous ways. AI is revolutionizing the healthcare industry by providing a helping hand. Hello everyone, this is Dr. Puna Merotras, Senior Physotherapist, and I welcome you to this session on AI in healthcare. In this session, we would be understanding the different ways in which AI is impacting the healthcare industry. I would like to begin the session by understanding what exactly is AI and how it is transforming the world. We will also understand the history and benefits. And in the end, we will learn the future of AI in healthcare. AI sometimes called as machine intelligence is the intelligence demonstrated by machines"
+    },
+    {
+      "ref": 11,
+      "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0003",
+      "speaker": "Angelo Ferraro",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "start": 114.41,
+      "end": 169.96,
+      "duration": 55.55,
+      "stream_url": "/api/archive/videos/0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times/stream",
+      "similarity": 0.7249,
+      "text": "of modifying a person's balances, emotional states, even beliefs, without that person's knowledge or consent, is by its very nature high risk and even dangerous if placed in the wrong hands. As a society, how do we choose who should have control of such risks? The intricacies of subtle complex that is difficult to imagine any individual with the knowledge and wisdom to protect basic human rights. And a group also designated to make those choices would carry those same human frailties. So not only is the issue of who decides, but who decides and the deciders must be addressed. Even in today's fledgling applications have been shown to be susceptible to weaknesses in its governance. So how do we manage the risks of, as AI continues to grow in its capabilities?"
+    },
+    {
+      "ref": 12,
+      "fragment_id": "0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology_0001",
+      "speaker": "Sandhu Namrita",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "start": 3.12,
+      "end": 65.41,
+      "duration": 62.29,
+      "stream_url": "/api/archive/videos/0105_bUymCM0SGJ8_Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gynaecology/stream",
+      "similarity": 0.7216,
+      "text": "A very warm welcome to all the delegates out there. I'm Dr. Namrata Sambhu, an obstetrician and gynecologist from India. And it gives me immense pleasure to be a part of this workshop and to talk about a subject that is very dear to me, the role of artificial intelligence in healthcare, especially obstetrician gynecology, is it a bone or a pain. I will also be talking about the opportunities and challenges of the technology and most importantly about the role of responsible use of AI in healthcare. Predicting the future isn't magic, it's artificial intelligence, wise words there, because predicting a future is not a dream anymore, because AI is there with us. Yes, without a doubt, we are in an era of possibility and there is no deny that AI is going"
+    },
+    {
+      "ref": 13,
+      "fragment_id": "0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information_0003",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+      "start": 107.17,
+      "end": 171.7,
+      "duration": 64.53,
+      "stream_url": "/api/archive/videos/0025_XQ7aWaXW3dw_Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_information/stream",
+      "similarity": 0.7185,
+      "text": "in critical industries such as healthcare, journalism, financial services, you name it. Well, give an example of AI being used in healthcare where we have seen conversational being used is a mental health support true. So such that a user is someone who is in need of mental support can just get onto the platform that is dedicated for mental support and be able to confess with the generative AI model. So because of all these reasons, if information is not accurate, if information cannot be trusted in such an industry in such a field as healthcare, that brings a life-threatening risk. So these concerns all need to be addressed, concerns on data privacy, possible misuse of generative AI"
+    },
+    {
+      "ref": 14,
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0060",
+      "speaker": null,
+      "speaker_attribution": "video-level",
+      "edition": "AI4IA 2025",
+      "year": 2025,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "start": 3753.63,
+      "end": 3815.79,
+      "duration": 62.16,
+      "stream_url": "/api/archive/videos/0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1/stream",
+      "similarity": 0.718,
+      "text": "the nation, to even improve ourselves so that we are able to stay relevant. Some of the risks that come with AI, for example, we know that AI helps us with automation of repetitive tasks. So most people are afraid that there's going to be some job displacement. But I think what is important is to be able to transition as we leverage AI. Some of the risks that come with AI, it depends in equalities, just like what Mrs. Cherapa mentioned earlier, and also lack of trust if there's no transparency and accountability. And we also have the risk of cybersecurity threats as well as intellectual property infringement. So these are some of the risks that come with AI and also perpetuating the bias."
+    },
+    {
+      "ref": 15,
+      "fragment_id": "0166_3cTDlBcYc9o_Maria Dolores Souza - Artificial Intelligence, common Good and human rights_0004",
+      "speaker": "Maria Dolores Souza",
+      "speaker_attribution": "video-level",
+      "edition": null,
+      "year": null,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
+      "start": 189.03,
+      "end": 245.07,
+      "duration": 56.04,
+      "stream_url": "/api/archive/videos/0166_3cTDlBcYc9o_Maria Dolores Souza - Artificial Intelligence, common Good and human rights/stream",
+      "similarity": 0.712,
+      "text": "They can be used to suggest us what series to watch in Netflix or what online newspaper to read, depending on past choices. In organizations, algorithms can be used for personal selection, to award a bank loan and to facial recognition. In the justice system, for example, risk assessment algorithms can be used to predict who is likely to commit a crime or become a victim. Depending on the level of importance, problem solving and decision-making through AI carries different kinds of risks that can pose different levels of harm. Some of them are the product of technical or human error, as in many other spheres of life, such as inaccuracies or mistakes. But other risks are intentional, such as smallware or falsehoods fed in the systems to"
+    }
+  ],
+  "models": {
+    "llm": "llama3.1:70b",
+    "embedding": "nomic-embed-text:v1.5"
+  },
+  "created_at": "2026-06-22T10:13:40.984389"
+}

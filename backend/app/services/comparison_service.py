@@ -6,7 +6,7 @@ we validate refs after generation. The relay is a thematic idea-thread ACROSS
 SPEAKERS (not across years — this archive is a single edition), so it embodies
 the "Relay of Ideas" with the axis being voices building on a theme.
 """
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 
 from app.core.config import INSIGHT_MODEL
@@ -121,7 +121,7 @@ def compare_speakers(speakers: list[str], topic: str | None = None,
         "unsupported_claims": a_bad + t_bad,
         "evidence_pool": numbered,
         "models": {"llm": model or INSIGHT_MODEL},
-        "created_at": datetime.utcnow().isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }
 
 
@@ -175,7 +175,7 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> d
         "unsupported_claims": kp_bad,
         "evidence_pool": numbered,
         "models": {"llm": model or INSIGHT_MODEL},
-        "created_at": datetime.utcnow().isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }
 
 
@@ -240,5 +240,5 @@ def build_relay(topic: str, limit: int = 20, model: str | None = None) -> dict:
         "distinct_speakers": len({s["speaker"] for s in steps if s.get("speaker")}),
         "edition": "AI4IA 2025",
         "models": {"llm": model or INSIGHT_MODEL},
-        "created_at": datetime.utcnow().isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }

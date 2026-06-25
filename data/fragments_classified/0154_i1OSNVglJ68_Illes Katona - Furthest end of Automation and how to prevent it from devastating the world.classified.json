@@ -93,12 +93,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.020450"
+      "classified_at": "2026-06-16T12:54:31.020450",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0154_i1OSNVglJ68_Illes Katona - Furthest end of Automation and how to prevent it from devastating the world_0002",
@@ -172,15 +174,18 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.025617"
+      "classified_at": "2026-06-16T12:54:31.025617",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0154_i1OSNVglJ68_Illes Katona - Furthest end of Automation and how to prevent it from devastating the world_0003",
@@ -284,14 +289,17 @@
       "primary_theme": "Disinformation, Deepfakes & AI Safety",
       "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.030352"
+      "classified_at": "2026-06-16T12:54:31.030352",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0154_i1OSNVglJ68_Illes Katona - Furthest end of Automation and how to prevent it from devastating the world_0004",
@@ -346,12 +354,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.035311"
+      "classified_at": "2026-06-16T12:54:31.035311",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0154_i1OSNVglJ68_Illes Katona - Furthest end of Automation and how to prevent it from devastating the world_0005",
@@ -470,15 +480,18 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.58,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.040380"
+      "classified_at": "2026-06-16T12:54:31.040380",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0154_i1OSNVglJ68_Illes Katona - Furthest end of Automation and how to prevent it from devastating the world_0006",
@@ -590,12 +603,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.045469"
+      "classified_at": "2026-06-16T12:54:31.045469",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     },
     {
       "fragment_id": "0154_i1OSNVglJ68_Illes Katona - Furthest end of Automation and how to prevent it from devastating the world_0007",
@@ -670,12 +685,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.33,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.050533"
+      "classified_at": "2026-06-16T12:54:31.050533",
+      "video_year": 2023,
+      "video_upload_date": "20231115"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

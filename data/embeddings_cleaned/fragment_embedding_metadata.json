@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-06-20T17:07:00.604936",
+  "embedding_model": "nomic-embed-text:v1.5",
+  "ollama_base_url": "http://ollama-mobius-sales.mobiusdtaas.ai",
+  "source": "data/fragments_cleaned/fragments_sanitized.jsonl",
+  "jsonl_path": "data/embeddings_cleaned/classified_fragments_embeddings.jsonl",
+  "matrix_path": "data/embeddings_cleaned/fragment_embedding_matrix.npy",
+  "total_fragments": 3871,
+  "embedded_fragments": 3871,
+  "failed_fragments": 0,
+  "embedding_dimension": 768,
+  "batch_size": 16,
+  "note": "Embeddings are L2-normalized. Use dot product or cosine similarity for retrieval.",
+  "failed": []
+}

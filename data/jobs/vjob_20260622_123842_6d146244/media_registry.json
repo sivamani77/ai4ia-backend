@@ -1,0 +1,245 @@
+{
+  "job_id": "vjob_20260622_123842_6d146244",
+  "storage_backend": "local",
+  "objects": {
+    "video": {
+      "object_id": "video",
+      "kind": "video",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_123842_6d146244_empowering_youth_with_ai.mp4",
+      "filename": "vjob_20260622_123842_6d146244_empowering_youth_with_ai.mp4",
+      "content_type": "video/mp4",
+      "size_bytes": 37231532,
+      "created_at": "2026-06-22T12:50:32.533870"
+    },
+    "srt": {
+      "object_id": "srt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_123842_6d146244_empowering_youth_with_ai.srt",
+      "filename": "vjob_20260622_123842_6d146244_empowering_youth_with_ai.srt",
+      "content_type": "application/x-subrip",
+      "size_bytes": 6873,
+      "created_at": "2026-06-22T12:51:37.811314",
+      "subtitle_format": "srt"
+    },
+    "vtt": {
+      "object_id": "vtt",
+      "kind": "subtitle",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_123842_6d146244_empowering_youth_with_ai.vtt",
+      "filename": "vjob_20260622_123842_6d146244_empowering_youth_with_ai.vtt",
+      "content_type": "text/vtt",
+      "size_bytes": 6734,
+      "created_at": "2026-06-22T12:51:37.812314",
+      "subtitle_format": "vtt"
+    },
+    "manifest": {
+      "object_id": "manifest",
+      "kind": "manifest",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/exports/vjob_20260622_123842_6d146244_empowering_youth_with_ai_export_manifest.json",
+      "filename": "export_manifest.json",
+      "content_type": "application/json",
+      "size_bytes": 128325,
+      "created_at": "2026-06-22T12:51:38.375309"
+    },
+    "visual_S2_CONTEXT": {
+      "object_id": "visual_S2_CONTEXT",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/visuals/S2_CONTEXT_visual.png",
+      "filename": "S2_CONTEXT_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 227732,
+      "created_at": "2026-06-22T12:47:24.829590",
+      "section_id": "S2_CONTEXT",
+      "visual_title": "Understanding the Issue",
+      "visual_asset_type": "diagram",
+      "visual_keywords": [
+        "context",
+        "definition",
+        "scope",
+        "concepts"
+      ]
+    },
+    "voiceover_S2_CONTEXT": {
+      "object_id": "voiceover_S2_CONTEXT",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/audio/sections/S2_CONTEXT_narration_broll_voiceover.mp3",
+      "filename": "S2_CONTEXT_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 316944,
+      "created_at": "2026-06-22T12:47:04.968784",
+      "section_id": "S2_CONTEXT",
+      "voiceover_text": "Across the world, conversations about artificial intelligence are raising a central question: what does it mean for technology to serve people? An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how AI can make hiring practices fairer and digital skills more accessible. Another example is the inaugural AI and data science boot camp, where we built AI literacy amongst underrepresented groups to help redress intersectional gender imbalances and broaden participation in digital economies. But there's a very key issue in terms of ethics when they're developing in the running various AI solutions. What do you think is the role, and what would you rather recommend doing in terms of the role as far as AI is concerned in the ethics area? Thank you, Tonya."
+    },
+    "visual_S3_EVIDENCE": {
+      "object_id": "visual_S3_EVIDENCE",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/visuals/S3_EVIDENCE_visual.png",
+      "filename": "S3_EVIDENCE_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 229487,
+      "created_at": "2026-06-22T12:47:27.506564",
+      "section_id": "S3_EVIDENCE",
+      "visual_title": "Real-World Impact",
+      "visual_asset_type": "risk_map",
+      "visual_keywords": [
+        "evidence",
+        "impact",
+        "communities",
+        "data"
+      ]
+    },
+    "voiceover_S3_EVIDENCE": {
+      "object_id": "voiceover_S3_EVIDENCE",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/audio/sections/S3_EVIDENCE_narration_broll_voiceover.mp3",
+      "filename": "S3_EVIDENCE_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 343296,
+      "created_at": "2026-06-22T12:47:08.677748",
+      "section_id": "S3_EVIDENCE",
+      "voiceover_text": "Across the AI4IA conversations, Access Empowerment is presented not as an abstraction, but as a challenge with concrete human consequences — for people who depend on these systems to work, and work fairly. An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how AI can make hiring practices fairer and digital skills more accessible. Another example is the inaugural AI and data science boot camp, where we built AI literacy amongst underrepresented groups to help redress intersectional gender imbalances and broaden participation in digital economies. But there's a very key issue in terms of ethics when they're developing in the running various AI solutions. What do you think is the role, and what would you rather recommend doing in terms of the role as far as AI is concerned in the ethics area? Thank you, Tonya."
+    },
+    "visual_S4_CHALLENGE": {
+      "object_id": "visual_S4_CHALLENGE",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/visuals/S4_CHALLENGE_visual.png",
+      "filename": "S4_CHALLENGE_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 221493,
+      "created_at": "2026-06-22T12:47:32.982511",
+      "section_id": "S4_CHALLENGE",
+      "visual_title": "The Core Challenge",
+      "visual_asset_type": "mindmap",
+      "visual_keywords": [
+        "challenge",
+        "tension",
+        "conflict",
+        "complexity"
+      ]
+    },
+    "voiceover_S4_CHALLENGE": {
+      "object_id": "voiceover_S4_CHALLENGE",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/audio/sections/S4_CHALLENGE_narration_broll_voiceover.mp3",
+      "filename": "S4_CHALLENGE_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 363312,
+      "created_at": "2026-06-22T12:47:20.187635",
+      "section_id": "S4_CHALLENGE",
+      "voiceover_text": "Across these conversations, Access Empowerment is not a distant aspiration. It is a field in motion — with real evidence, real failure, and real possibilities for change. One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to understand the intersection of impacts of existing and AI use cases in the ecosystem. We know that robust gender integration and personality, women's empowerment and can mitigate the risk associated with AI, women are not a monolith. run several programs like the AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation of more than 80,000 people from almost 81 countries across the world. And that showed what India, India strength is in building AI based solutions at scale. Welcome to the fourth Artificial Intelligence for Information Accessibility Conference."
+    },
+    "visual_S6_SYNTHESIS": {
+      "object_id": "visual_S6_SYNTHESIS",
+      "kind": "visual_asset",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/visuals/S6_SYNTHESIS_visual.png",
+      "filename": "S6_SYNTHESIS_visual.png",
+      "content_type": "image/png",
+      "size_bytes": 218355,
+      "created_at": "2026-06-22T12:47:35.721484",
+      "section_id": "S6_SYNTHESIS",
+      "visual_title": "Looking Forward",
+      "visual_asset_type": "closing_synthesis",
+      "visual_keywords": [
+        "synthesis",
+        "future",
+        "collective",
+        "change"
+      ]
+    },
+    "voiceover_S6_SYNTHESIS": {
+      "object_id": "voiceover_S6_SYNTHESIS",
+      "kind": "voiceover_audio",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/audio/sections/S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "filename": "S6_SYNTHESIS_narration_broll_voiceover.mp3",
+      "content_type": "audio/mpeg",
+      "size_bytes": 334080,
+      "created_at": "2026-06-22T12:47:21.532622",
+      "section_id": "S6_SYNTHESIS",
+      "voiceover_text": "The measure of AI will not be the speed of its systems, but whether the people it touches are better served, better heard, and more free. For championing transparency, ethical governance and global collaboration, we can ensure AI becomes a force for good and not a vector for harm. The Christchurch call community is deeply invested in this mission. So I urge all of us to put our voices and our resources together to ensure representation particularly of our youth, and ensure that they have the skills, the digital skills, the access to information, and are able to innovate and build a sustainable future. With that being said, as we all know, you want to destroy nations, destroy their language, destroy their culture, and we have the responsibility to ensure that our languages, our culture, our demographics are represented as we develop technologically and as we work towards artificial intelligence."
+    },
+    "title_card": {
+      "object_id": "title_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 262154,
+      "created_at": "2026-06-22T12:46:11.053327",
+      "card_type": "title_card"
+    },
+    "closing_card": {
+      "object_id": "closing_card",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/cards/closing_card.png",
+      "filename": "closing_card.png",
+      "content_type": "image/png",
+      "size_bytes": 256060,
+      "created_at": "2026-06-22T12:46:17.669259",
+      "card_type": "closing_card"
+    },
+    "section_card_S1": {
+      "object_id": "section_card_S1",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/cards/S1_opening_hook.png",
+      "filename": "S1_opening_hook.png",
+      "content_type": "image/png",
+      "size_bytes": 226164,
+      "created_at": "2026-06-22T12:46:22.990205",
+      "card_type": "section_card",
+      "section_id": "S1"
+    },
+    "section_card_S2": {
+      "object_id": "section_card_S2",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/cards/S2_context.png",
+      "filename": "S2_context.png",
+      "content_type": "image/png",
+      "size_bytes": 223442,
+      "created_at": "2026-06-22T12:46:26.430170",
+      "card_type": "section_card",
+      "section_id": "S2"
+    },
+    "section_card_S3": {
+      "object_id": "section_card_S3",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/cards/S3_problem_or_tension.png",
+      "filename": "S3_problem_or_tension.png",
+      "content_type": "image/png",
+      "size_bytes": 227134,
+      "created_at": "2026-06-22T12:46:31.409120",
+      "card_type": "section_card",
+      "section_id": "S3"
+    },
+    "section_card_S4": {
+      "object_id": "section_card_S4",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/cards/S4_human_perspective.png",
+      "filename": "S4_human_perspective.png",
+      "content_type": "image/png",
+      "size_bytes": 236087,
+      "created_at": "2026-06-22T12:46:36.249071",
+      "card_type": "section_card",
+      "section_id": "S4"
+    },
+    "section_card_S5": {
+      "object_id": "section_card_S5",
+      "kind": "card",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/cards/S5_expert_evidence.png",
+      "filename": "S5_expert_evidence.png",
+      "content_type": "image/png",
+      "size_bytes": 234674,
+      "created_at": "2026-06-22T12:46:40.919024",
+      "card_type": "section_card",
+      "section_id": "S5"
+    },
+    "thumbnail": {
+      "object_id": "thumbnail",
+      "kind": "thumbnail",
+      "local_path": "/home/ash/ai4ia-demo-pipeline/data/generated_assets/storyline_20260622_181025_validated/cards/title_card.png",
+      "filename": "title_card.png",
+      "content_type": "image/png",
+      "size_bytes": 262154,
+      "created_at": "2026-06-22T12:46:11.053327",
+      "card_type": "title_card"
+    }
+  }
+}

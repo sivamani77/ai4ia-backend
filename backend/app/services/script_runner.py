@@ -1,11 +1,12 @@
 import subprocess
 import threading
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+
 from app.core.paths import PROJECT_ROOT
-from app.services.job_service import update_job
+from app.services.job_store import load_job, save_job
 
 
 def run_script_background(
@@ -21,12 +22,19 @@ def run_script_background(
     thread.start()
 
 
+def _update_job(job_id: str, **updates: Any) -> dict[str, Any]:
+    job = load_job(job_id)
+    job.update(updates)
+    save_job(job_id, job)
+    return job
+
+
 def _run_script(job_id: str, command: list[str], result_resolver=None) -> None:
-    job = update_job(
+    job = _update_job(
         job_id,
         status="running",
         progress=10,
-        started_at=datetime.utcnow().isoformat(),
+        started_at=datetime.now(timezone.utc).isoformat(),
     )
 
     log_path = Path(job["log_path"])
@@ -53,11 +61,11 @@ def _run_script(job_id: str, command: list[str], result_resolver=None) -> None:
             return_code = process.wait()
 
         if return_code != 0:
-            update_job(
+            _update_job(
                 job_id,
                 status="failed",
                 progress=100,
-                completed_at=datetime.utcnow().isoformat(),
+                completed_at=datetime.now(timezone.utc).isoformat(),
                 error=f"Script failed with exit code {return_code}",
             )
             return
@@ -70,20 +78,20 @@ def _run_script(job_id: str, command: list[str], result_resolver=None) -> None:
             except Exception:
                 result_path = None
 
-        update_job(
+        _update_job(
             job_id,
             status="completed",
             progress=100,
-            completed_at=datetime.utcnow().isoformat(),
+            completed_at=datetime.now(timezone.utc).isoformat(),
             result_path=result_path,
             error=None,
         )
 
     except Exception as exc:
-        update_job(
+        _update_job(
             job_id,
             status="failed",
             progress=100,
-            completed_at=datetime.utcnow().isoformat(),
+            completed_at=datetime.now(timezone.utc).isoformat(),
             error=str(exc),
         )

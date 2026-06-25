@@ -1,0 +1,44 @@
+[project]
+name = "ai4ia-demo-pipeline-backend"
+version = "0.1.0"
+description = "AI4IA Demo Video Studio — backend API and pipeline services"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",
+    "requests",
+    "numpy",
+    "tqdm",
+    "pillow",
+    "edge-tts",
+    "python-multipart",
+    "aiofiles",
+    "supabase",
+    "celery",
+    "redis",
+    "chromadb",
+    "python-json-logger",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "mypy",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["backend"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+asyncio_mode = "auto"

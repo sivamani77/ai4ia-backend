@@ -144,12 +144,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.479631"
+      "classified_at": "2026-06-16T12:54:20.479631",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0002",
@@ -274,12 +276,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.484430"
+      "classified_at": "2026-06-16T12:54:20.484430",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0003",
@@ -412,12 +416,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.489493"
+      "classified_at": "2026-06-16T12:54:20.489493",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0004",
@@ -547,12 +553,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.494265"
+      "classified_at": "2026-06-16T12:54:20.494265",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0005",
@@ -651,12 +659,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.498833"
+      "classified_at": "2026-06-16T12:54:20.498833",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0006",
@@ -763,12 +773,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.503806"
+      "classified_at": "2026-06-16T12:54:20.503806",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0007",
@@ -878,12 +890,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.509130"
+      "classified_at": "2026-06-16T12:54:20.509130",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0008",
@@ -1013,12 +1027,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.514027"
+      "classified_at": "2026-06-16T12:54:20.514027",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0009",
@@ -1150,15 +1166,18 @@
       "primary_theme": "AI Equity, Inclusion & Social Justice",
       "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.518544"
+      "classified_at": "2026-06-16T12:54:20.518544",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0010",
@@ -1287,12 +1306,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.523199"
+      "classified_at": "2026-06-16T12:54:20.523199",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0011",
@@ -1373,12 +1394,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.42,
       "clarity_score": 0.85,
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.527608"
+      "classified_at": "2026-06-16T12:54:20.527608",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0012",
@@ -1503,12 +1526,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.532059"
+      "classified_at": "2026-06-16T12:54:20.532059",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0013",
@@ -1656,12 +1681,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.536695"
+      "classified_at": "2026-06-16T12:54:20.536695",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0014",
@@ -1777,12 +1804,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.539797"
+      "classified_at": "2026-06-16T12:54:20.539797",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

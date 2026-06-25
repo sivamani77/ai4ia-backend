@@ -1,0 +1,162 @@
+"""Unit tests for pipeline stages — input validation, stage 07, stage 10."""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from unittest.mock import patch, MagicMock
+
+import pytest
+
+
+def _make_context(tmp_path):
+    from app.pipeline.base import PipelineContext
+    return PipelineContext(
+        job_id="vjob_test",
+        request={"prompt": "test prompt", "target_duration": 120},
+    )
+
+
+# ---------------------------------------------------------------------------
+# stage_input_validation
+# ---------------------------------------------------------------------------
+
+class TestStageInputValidation:
+    def test_success_with_all_paths_present(self, tmp_path):
+        from app.pipeline.stage_input_validation import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_input_validation.STORYLINES_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.EXPORTS_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.DATA_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.SCRIPTS_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_input_validation.append_event", MagicMock()):
+            # Patch script existence checks
+            with patch("pathlib.Path.exists", return_value=True):
+                result = run("vjob_test", {"prompt": "make a film"}, ctx)
+
+        assert result.stage == "input_validation"
+        assert result.status == "completed"
+
+    def test_fails_with_missing_prompt(self, tmp_path):
+        from app.pipeline.stage_input_validation import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_input_validation.STORYLINES_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.EXPORTS_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.DATA_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.SCRIPTS_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_input_validation.append_event", MagicMock()), \
+             patch("pathlib.Path.exists", return_value=True):
+            with pytest.raises(RuntimeError, match="prompt"):
+                run("vjob_test", {"prompt": "  "}, ctx)
+
+    def test_fails_with_missing_directory(self, tmp_path):
+        from app.pipeline.stage_input_validation import run
+        ctx = _make_context(tmp_path)
+        missing = tmp_path / "does_not_exist"
+
+        with patch("app.pipeline.stage_input_validation.STORYLINES_DIR", missing), \
+             patch("app.pipeline.stage_input_validation.EXPORTS_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.DATA_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.SCRIPTS_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_input_validation.append_event", MagicMock()), \
+             patch("pathlib.Path.exists", side_effect=lambda p=None: Path(p if p else "").exists() if p else False):
+            # Let only the missing dir fail
+            with pytest.raises(RuntimeError, match="Directory not found"):
+                run("vjob_test", {"prompt": "valid prompt"}, ctx)
+
+
+# ---------------------------------------------------------------------------
+# stage_07_storyline
+# ---------------------------------------------------------------------------
+
+class TestStage07Storyline:
+    def test_success_when_script_exits_0(self, tmp_path):
+        from app.pipeline.stage_07_storyline import run
+        ctx = _make_context(tmp_path)
+        storyline_file = tmp_path / "storyline_20260101_120000.json"
+        storyline_file.write_text('{"title": "Test", "sections": []}')
+
+        job = {"job_id": "vjob_test", "paths": {}}
+        with patch("app.pipeline.stage_07_storyline.run_script", return_value=(0, "", "")), \
+             patch("app.pipeline.stage_07_storyline._newest_file_after", return_value=storyline_file), \
+             patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_07_storyline.append_event", MagicMock()), \
+             patch("app.pipeline.stage_07_storyline.load_job", return_value=job), \
+             patch("app.pipeline.stage_07_storyline.save_job", MagicMock()):
+            result = run("vjob_test", {"prompt": "AI film", "target_duration": 120}, ctx)
+        assert result.status == "completed"
+
+    def test_raises_when_script_non_zero(self, tmp_path):
+        from app.pipeline.stage_07_storyline import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_07_storyline.run_script", return_value=(1, "", "error output")), \
+             patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_07_storyline.append_event", MagicMock()):
+            with pytest.raises(RuntimeError, match="07_generate_storyline"):
+                run("vjob_test", {"prompt": "AI film"}, ctx)
+
+    def test_raises_when_no_output_file(self, tmp_path):
+        from app.pipeline.stage_07_storyline import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_07_storyline.run_script", return_value=(0, "", "")), \
+             patch("app.pipeline.stage_07_storyline._newest_file_after", return_value=None), \
+             patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_07_storyline.append_event", MagicMock()):
+            with pytest.raises(RuntimeError, match="No storyline JSON"):
+                run("vjob_test", {"prompt": "AI film"}, ctx)
+
+
+# ---------------------------------------------------------------------------
+# stage_10_validate
+# ---------------------------------------------------------------------------
+
+class TestStage10Validate:
+    def test_skipped_when_no_export_manifest(self, tmp_path):
+        from app.pipeline.stage_10_validate import run
+        ctx = _make_context(tmp_path)
+        ctx.export_manifest_path = str(tmp_path / "nonexistent_manifest.json")  # doesn't exist
+
+        with patch("app.pipeline.stage_10_validate.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_10_validate.append_event", MagicMock()):
+            result = run("vjob_test", {}, ctx)
+        assert result.status in ("skipped", "completed")
+
+    def test_success_on_exit_0(self, tmp_path):
+        from app.pipeline.stage_10_validate import run
+        ctx = _make_context(tmp_path)
+        manifest = tmp_path / "export_manifest.json"
+        manifest.write_text('{"clips": []}')
+        ctx.export_manifest_path = str(manifest)
+
+        with patch("app.pipeline.stage_10_validate.run_script", return_value=(0, "", "")), \
+             patch("app.pipeline.stage_10_validate.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_10_validate.append_event", MagicMock()), \
+             patch("pathlib.Path.exists", return_value=True):
+            result = run("vjob_test", {}, ctx)
+        assert result.status == "completed"
+
+    def test_non_zero_exit_adds_warning(self, tmp_path):
+        from app.pipeline.stage_10_validate import run
+        jobs = {"vjob_test": {"job_id": "vjob_test", "warnings": []}}
+        ctx = _make_context(tmp_path)
+        manifest = tmp_path / "export_manifest.json"
+        manifest.write_text('{"clips": []}')
+        ctx.export_manifest_path = str(manifest)
+
+        with patch("app.pipeline.stage_10_validate.run_script", return_value=(1, "", "validation warning")), \
+             patch("app.pipeline.stage_10_validate.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_10_validate.append_event", MagicMock()), \
+             patch("app.pipeline.stage_10_validate.load_job", side_effect=lambda jid: dict(jobs[jid])), \
+             patch("app.pipeline.stage_10_validate.save_job", side_effect=lambda jid, d: jobs.update({jid: d})), \
+             patch("pathlib.Path.exists", return_value=True):
+            result = run("vjob_test", {}, ctx)
+
+        assert result is not None
+        # Warning added to job
+        assert any("10_validate_export" in str(w) for w in jobs["vjob_test"].get("warnings", []))

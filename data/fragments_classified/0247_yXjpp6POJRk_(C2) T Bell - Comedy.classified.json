@@ -123,12 +123,14 @@
         "narration_support",
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.35,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.426839"
+      "classified_at": "2026-06-16T12:54:34.426839",
+      "video_year": 2021,
+      "video_upload_date": "20211017"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0002",
@@ -197,12 +199,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.45,
       "clarity_score": 0.85,
       "narration_support_score": 0.55,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.431749"
+      "classified_at": "2026-06-16T12:54:34.431749",
+      "video_year": 2021,
+      "video_upload_date": "20211017"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0003",
@@ -301,14 +305,17 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 5: Open Data & Information Accessibility",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.7,
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.436952"
+      "classified_at": "2026-06-16T12:54:34.436952",
+      "video_year": 2021,
+      "video_upload_date": "20211017"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0004",
@@ -391,14 +398,16 @@
       "primary_theme": "AI in Health, Science & Environment",
       "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.443296"
+      "classified_at": "2026-06-16T12:54:34.443296",
+      "video_year": 2021,
+      "video_upload_date": "20211017"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0005",
@@ -516,12 +525,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.35,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.448596"
+      "classified_at": "2026-06-16T12:54:34.448596",
+      "video_year": 2021,
+      "video_upload_date": "20211017"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0006",
@@ -594,12 +605,14 @@
       "clip_usage_candidates": [
         "speaker_soundbite"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.5,
       "clarity_score": 0.85,
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.453450"
+      "classified_at": "2026-06-16T12:54:34.453450",
+      "video_year": 2021,
+      "video_upload_date": "20211017"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0007",
@@ -673,14 +686,16 @@
       "primary_theme": "Disinformation, Deepfakes & AI Safety",
       "primary_chapter": "Ch 17: AI-Driven Disinformation & Propaganda",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.85,
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.458123"
+      "classified_at": "2026-06-16T12:54:34.458123",
+      "video_year": 2021,
+      "video_upload_date": "20211017"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0008",
@@ -747,14 +762,17 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.5,
       "clarity_score": 0.8,
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.462138"
+      "classified_at": "2026-06-16T12:54:34.462138",
+      "video_year": 2021,
+      "video_upload_date": "20211017"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

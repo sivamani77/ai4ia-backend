@@ -1,0 +1,7 @@
+{"created_at": "2026-06-23T05:47:05.705865", "event_type": "created", "stage": "queued", "payload": {"prompt": "Climate change, community resilience, and sustainable futures"}}
+{"created_at": "2026-06-23T05:47:05.718031", "event_type": "progress", "stage": "input_validation", "payload": {"stage": "input_validation", "status": "running", "progress": 10, "global_progress": 0, "message": "Checking required paths"}}
+{"created_at": "2026-06-23T05:47:05.719612", "event_type": "progress", "stage": "input_validation", "payload": {"stage": "input_validation", "status": "completed", "progress": 100, "global_progress": 2, "message": "Validation passed"}}
+{"created_at": "2026-06-23T05:47:05.719916", "event_type": "stage_completed", "stage": "input_validation", "payload": {"issues": []}}
+{"created_at": "2026-06-23T05:47:05.722456", "event_type": "progress", "stage": "07_storyline", "payload": {"stage": "07_storyline", "status": "running", "progress": 5, "global_progress": 2, "message": "Starting storyline generation"}}
+{"created_at": "2026-06-23T05:47:05.722973", "event_type": "stage_started", "stage": "07_storyline", "payload": {"prompt": "Climate change, community resilience, and sustainable futures"}}
+{"created_at": "2026-06-23T05:47:05.725304", "event_type": "progress", "stage": "07_storyline", "payload": {"stage": "07_storyline", "status": "running", "progress": 20, "global_progress": 5, "message": "Running storyline generation script"}}

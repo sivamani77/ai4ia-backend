@@ -1,3 +1,9 @@
+# DEPRECATED: This router uses the legacy 3-step script-runner flow
+# (job_service.create_job + run_script_background calling 09_export_video.py).
+# The GET endpoints (list, stream, artifact download) remain useful.
+# POST /generate and /generate-latest are superseded by POST /api/video-jobs.
+# Do not add new features to the POST endpoints here.
+
 import json
 from pathlib import Path
 
@@ -9,6 +15,17 @@ from app.core.paths import EXPORTS_DIR, LATEST_ASSET_MANIFEST, SCRIPTS_DIR
 from app.services.job_service import create_job
 from app.services.script_runner import run_script_background
 
+# Assets are written alongside exports; manifests live in the assets dir.
+# We allow manifest_path from anywhere under data/ by checking the assets dir's parent.
+_DATA_DIR = EXPORTS_DIR.resolve().parent
+
+
+def _safe_manifest_path(raw: str) -> str:
+    resolved = Path(raw).resolve()
+    if not str(resolved).startswith(str(_DATA_DIR)):
+        raise HTTPException(status_code=400, detail="manifest_path is outside the allowed directory")
+    return str(resolved)
+
 router = APIRouter(prefix="/exports", tags=["Exports"])
 
 
@@ -19,7 +36,7 @@ class GenerateExportRequest(BaseModel):
     no_subtitles: bool = False
 
 
-ARTIFACT_TYPES = {"download", "vtt", "srt", "manifest", "qa"}
+ARTIFACT_TYPES = {"download", "vtt", "srt", "manifest", "qa", "timeline"}
 
 
 def latest_export_path() -> Path | None:
@@ -74,6 +91,7 @@ def export_artifact_path(filename: str, artifact_type: str) -> Path:
         "srt": f"{stem}.srt",
         "manifest": f"{stem}_export_manifest.json",
         "qa": f"{stem}_qa_report.json",
+        "timeline": f"{stem}_timeline_metadata.json",
     }[artifact_type]
 
     return safe_export_path(artifact_name)
@@ -92,6 +110,7 @@ def list_exports():
         vtt_path = EXPORTS_DIR / f"{stem}.vtt"
         manifest_path = EXPORTS_DIR / f"{stem}_export_manifest.json"
         qa_report_path = EXPORTS_DIR / f"{stem}_qa_report.json"
+        timeline_path = EXPORTS_DIR / f"{stem}_timeline_metadata.json"
         size_bytes = path.stat().st_size
 
         items.append(
@@ -106,10 +125,12 @@ def list_exports():
                 "srt_url": f"/api/exports/{path.name}/artifact/srt",
                 "manifest_url": f"/api/exports/{path.name}/artifact/manifest",
                 "qa_report_url": f"/api/exports/{path.name}/artifact/qa",
+                "timeline_url": f"/api/exports/{path.name}/artifact/timeline",
                 "has_srt": srt_path.exists(),
                 "has_vtt": vtt_path.exists(),
                 "has_manifest": manifest_path.exists(),
                 "has_qa_report": qa_report_path.exists(),
+                "has_timeline": timeline_path.exists(),
             }
         )
 
@@ -129,7 +150,7 @@ def generate_export(request: GenerateExportRequest):
 
     manifest_path = normalized_manifest_path(request.manifest_path)
     if manifest_path:
-        command.extend(["--manifest", manifest_path])
+        command.extend(["--manifest", _safe_manifest_path(manifest_path)])
 
     if request.no_subtitles or not request.burn_subtitles:
         command.append("--no-subtitles")

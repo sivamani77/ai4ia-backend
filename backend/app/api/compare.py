@@ -7,18 +7,18 @@ router = APIRouter(tags=["Comparison & Relay"])
 
 
 class CompareSpeakersRequest(BaseModel):
-    speakers: list[str] = Field(..., min_length=2)
-    topic: str | None = None
+    speakers: list[str] = Field(..., min_length=2, max_length=10)
+    topic: str | None = Field(None, max_length=300)
     limit_per_speaker: int = Field(6, ge=1, le=20)
 
 
 class ThemeSynthesisRequest(BaseModel):
-    theme: str
+    theme: str = Field(..., min_length=2, max_length=200)
     limit: int = Field(20, ge=5, le=60)
 
 
 class RelayRequest(BaseModel):
-    topic: str
+    topic: str = Field(..., min_length=3, max_length=300)
     limit: int = Field(20, ge=5, le=60)
 
 

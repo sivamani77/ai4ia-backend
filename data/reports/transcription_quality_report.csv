@@ -1,0 +1,2 @@
+audio_file,video_id,source,status,transcript_json,segment_count,avg_confidence,avg_words_per_segment,empty_segment_ratio,repeated_phrase_ratio,low_confidence_ratio,recommended_action,error
+0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2.clean.wav,0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2,cleaned_audio,transcribed_chunked,/home/ash/ai4ia-demo-pipeline/data/transcripts_cleaned/0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2.json,1319,0.7768,11.93,0.0,0.0015,0.0243,ok,

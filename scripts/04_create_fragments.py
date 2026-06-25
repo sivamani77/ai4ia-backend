@@ -9,6 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 TRANSCRIPT_DIR = PROJECT_ROOT / "data" / "transcripts"
 FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments"
+RAW_DIR = PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel"
 REPORT_PATH = PROJECT_ROOT / "data" / "metadata" / "youtube" / "fragment_creation_report.csv"
 
 FRAGMENT_DIR.mkdir(parents=True, exist_ok=True)
@@ -87,6 +88,21 @@ def should_close_fragment(
     return False
 
 
+def lookup_video_year(transcript_stem: str) -> tuple[int | None, str | None]:
+    info_path = RAW_DIR / f"{transcript_stem}.info.json"
+    if not info_path.exists():
+        return None, None
+    try:
+        with info_path.open("r", encoding="utf-8") as f:
+            info = json.load(f)
+        upload_date = info.get("upload_date")
+        if upload_date and len(upload_date) >= 4:
+            return int(upload_date[:4]), upload_date
+    except Exception:
+        pass
+    return None, None
+
+
 def make_fragment(
     transcript_stem: str,
     video_id: str,
@@ -105,10 +121,14 @@ def make_fragment(
         if segment.get("id") is not None
     ]
 
+    video_year, video_upload_date = lookup_video_year(transcript_stem)
+
     return {
         "fragment_id": f"{transcript_stem}_{fragment_index:04d}",
         "source_video": transcript_stem,
         "video_id": video_id,
+        "video_year": video_year,
+        "video_upload_date": video_upload_date,
         "fragment_index": fragment_index,
         "start": round(start_time, 3),
         "end": round(end_time, 3),

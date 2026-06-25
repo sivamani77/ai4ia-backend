@@ -1,0 +1,380 @@
+"""
+Media streaming and download APIs for video jobs.
+
+GET /api/video-jobs/{job_id}/video/stream
+GET /api/video-jobs/{job_id}/video/download
+GET /api/video-jobs/{job_id}/video/signed-url
+GET /api/video-jobs/{job_id}/subtitles/{format}
+GET /api/video-jobs/{job_id}/manifest
+GET /api/video-jobs/{job_id}/media
+GET /api/video-jobs/{job_id}/thumbnail
+GET /api/video-jobs/{job_id}/assets/{asset_id}/stream
+GET /api/video-jobs/{job_id}/assets/{asset_id}/download
+GET /api/video-jobs/{job_id}/assets/{asset_id}/metadata
+GET /api/video-jobs/{job_id}/assets/{asset_id}/signed-url
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any
+
+from fastapi import APIRouter, HTTPException, Request
+from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
+
+from app.services.storage_service import (
+    LocalStorageService,
+    StorageObject,
+    _safe_path,
+    get_storage_service,
+    load_registry,
+)
+from app.services.media_registry import build_media_registry
+from app.services.video_job_runner import load_job
+
+router = APIRouter(prefix="/video-jobs", tags=["video-media"])
+
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+def _require_job(job_id: str) -> dict[str, Any]:
+    try:
+        return load_job(job_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Job not found: {job_id}")
+
+
+def _get_registry(job_id: str) -> dict[str, Any]:
+    """Load or lazily build the media registry."""
+    try:
+        return load_registry(job_id)
+    except FileNotFoundError:
+        pass
+    # Try to build it on-demand for already-completed jobs
+    job = _require_job(job_id)
+    if job.get("status") in ("completed", "failed"):
+        try:
+            return build_media_registry(job_id)
+        except Exception as exc:
+            raise HTTPException(status_code=404, detail=f"Media registry unavailable: {exc}")
+    raise HTTPException(status_code=404, detail="Media not yet available — job still running")
+
+
+def _resolve(job_id: str, object_id: str) -> StorageObject:
+    _get_registry(job_id)  # ensures registry exists (lazy-builds for completed jobs)
+    storage = get_storage_service()
+    try:
+        return storage.resolve(job_id, object_id)
+    except (KeyError, FileNotFoundError):
+        raise HTTPException(status_code=404, detail=f"Asset '{object_id}' not found")
+
+
+def _file_response(obj: StorageObject, disposition: str = "inline") -> FileResponse:
+    storage = get_storage_service()
+    local = storage.get_local_path(obj)
+    if not local or not local.exists():
+        raise HTTPException(status_code=404, detail=f"File not found: {obj.filename}")
+    return FileResponse(
+        path=str(local),
+        media_type=obj.content_type,
+        filename=obj.filename if disposition == "attachment" else None,
+        headers={
+            "Accept-Ranges": "bytes",
+            "Content-Disposition": f'{disposition}; filename="{obj.filename}"',
+        },
+    )
+
+
+def _range_response(obj: StorageObject, request: Request) -> Response:
+    """
+    Handle HTTP Range requests for binary files (video, audio).
+    FastAPI's FileResponse does support range requests in Starlette >= 0.20,
+    but we implement explicit handling here for reliability and transparency.
+    """
+    storage = get_storage_service()
+    local = storage.get_local_path(obj)
+    if not local or not local.exists():
+        raise HTTPException(status_code=404, detail=f"File not found: {obj.filename}")
+
+    file_size = local.stat().st_size
+    range_header = request.headers.get("range")
+
+    if not range_header:
+        # No range — stream full file via FileResponse (handles large files efficiently)
+        return FileResponse(
+            path=str(local),
+            media_type=obj.content_type,
+            headers={
+                "Accept-Ranges": "bytes",
+                "Content-Length": str(file_size),
+            },
+        )
+
+    # Parse "bytes=start-end"
+    try:
+        unit, ranges = range_header.split("=", 1)
+        if unit.strip() != "bytes":
+            raise ValueError("unsupported unit")
+        start_str, end_str = ranges.split("-", 1)
+        start = int(start_str) if start_str.strip() else 0
+        end = int(end_str) if end_str.strip() else file_size - 1
+    except Exception:
+        raise HTTPException(status_code=416, detail="Invalid Range header")
+
+    if start > end or end >= file_size:
+        raise HTTPException(
+            status_code=416,
+            detail="Range Not Satisfiable",
+            headers={"Content-Range": f"bytes */{file_size}"},
+        )
+
+    length = end - start + 1
+
+    def _iter():
+        with local.open("rb") as f:
+            f.seek(start)
+            remaining = length
+            while remaining > 0:
+                chunk = f.read(min(65536, remaining))
+                if not chunk:
+                    break
+                remaining -= len(chunk)
+                yield chunk
+
+    return StreamingResponse(
+        _iter(),
+        status_code=206,
+        media_type=obj.content_type,
+        headers={
+            "Accept-Ranges": "bytes",
+            "Content-Range": f"bytes {start}-{end}/{file_size}",
+            "Content-Length": str(length),
+        },
+    )
+
+
+def _media_list_entry(job_id: str, oid: str, obj_dict: dict[str, Any]) -> dict[str, Any]:
+    base = f"/api/video-jobs/{job_id}"
+    kind = obj_dict.get("kind", "")
+    entry: dict[str, Any] = {
+        "asset_id": oid,
+        "kind": kind,
+        "filename": obj_dict.get("filename", ""),
+        "content_type": obj_dict.get("content_type", ""),
+        "size_bytes": obj_dict.get("size_bytes"),
+    }
+    # Passthrough extra metadata fields
+    for k in ("section_id", "visual_title", "visual_asset_type", "visual_keywords",
+              "voiceover_text", "card_type", "subtitle_format"):
+        if k in obj_dict:
+            entry[k] = obj_dict[k]
+
+    if kind == "video":
+        entry["stream_url"] = f"{base}/video/stream"
+        entry["download_url"] = f"{base}/video/download"
+    elif kind == "subtitle":
+        fmt = obj_dict.get("subtitle_format") or oid
+        entry["stream_url"] = f"{base}/subtitles/{fmt}"
+    elif kind == "manifest":
+        entry["stream_url"] = f"{base}/manifest"
+    elif kind in ("visual_asset", "voiceover_audio", "card", "thumbnail"):
+        entry["stream_url"] = f"{base}/assets/{oid}/stream"
+        entry["download_url"] = f"{base}/assets/{oid}/download"
+    return entry
+
+
+# ---------------------------------------------------------------------------
+# Video stream / download
+# ---------------------------------------------------------------------------
+
+@router.get("/{job_id}/video/stream", operation_id="video_jobs_stream_video")
+async def stream_video(job_id: str, request: Request):
+    _require_job(job_id)
+    obj = _resolve(job_id, "video")
+    return _range_response(obj, request)
+
+
+@router.head("/{job_id}/video/stream", include_in_schema=False, operation_id="video_jobs_head_stream_video")
+async def stream_video_head(job_id: str, request: Request):
+    _require_job(job_id)
+    obj = _resolve(job_id, "video")
+    return _range_response(obj, request)
+
+
+@router.get("/{job_id}/video/download", operation_id="video_jobs_download_video")
+async def download_video(job_id: str):
+    _require_job(job_id)
+    obj = _resolve(job_id, "video")
+    return _file_response(obj, disposition="attachment")
+
+
+@router.head("/{job_id}/video/download", include_in_schema=False, operation_id="video_jobs_head_download_video")
+async def download_video_head(job_id: str):
+    _require_job(job_id)
+    obj = _resolve(job_id, "video")
+    return _file_response(obj, disposition="attachment")
+
+
+@router.get("/{job_id}/video/signed-url")
+async def video_signed_url(job_id: str):
+    _require_job(job_id)
+    return {
+        "url": f"/api/video-jobs/{job_id}/video/stream",
+        "expires_in": None,
+        "storage_backend": "local",
+    }
+
+
+# ---------------------------------------------------------------------------
+# Subtitles
+# ---------------------------------------------------------------------------
+
+@router.get("/{job_id}/subtitles/{fmt}")
+async def get_subtitles(job_id: str, fmt: str):
+    _require_job(job_id)
+    fmt = fmt.lower()
+    if fmt not in ("srt", "vtt"):
+        raise HTTPException(status_code=400, detail="Unsupported subtitle format. Use 'srt' or 'vtt'.")
+    try:
+        obj = _resolve(job_id, fmt)
+    except HTTPException:
+        raise HTTPException(status_code=404, detail="Subtitle format not available")
+    return _file_response(obj, disposition="inline")
+
+
+# ---------------------------------------------------------------------------
+# Export manifest
+# ---------------------------------------------------------------------------
+
+@router.get("/{job_id}/manifest")
+async def get_manifest(job_id: str):
+    _require_job(job_id)
+    obj = _resolve(job_id, "manifest")
+    storage = get_storage_service()
+    local = storage.get_local_path(obj)
+    if not local or not local.exists():
+        raise HTTPException(status_code=404, detail="Manifest not found")
+    try:
+        data = json.loads(local.read_text(encoding="utf-8"))
+        return JSONResponse(content=data)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to parse manifest: {exc}")
+
+
+# ---------------------------------------------------------------------------
+# Media registry listing
+# ---------------------------------------------------------------------------
+
+@router.get("/{job_id}/media")
+async def list_media(job_id: str):
+    _require_job(job_id)
+    reg = _get_registry(job_id)
+    objects_list = [
+        _media_list_entry(job_id, oid, obj)
+        for oid, obj in reg.get("objects", {}).items()
+        if oid != "thumbnail"  # expose thumbnail via /thumbnail endpoint
+    ]
+    return {
+        "job_id": job_id,
+        "storage_backend": reg.get("storage_backend", "local"),
+        "objects": objects_list,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Thumbnail
+# ---------------------------------------------------------------------------
+
+@router.get("/{job_id}/thumbnail", operation_id="video_jobs_get_thumbnail")
+async def get_thumbnail(job_id: str):
+    _require_job(job_id)
+    reg = _get_registry(job_id)
+    objects = reg.get("objects", {})
+
+    # Priority: thumbnail → title_card → first visual_asset
+    for candidate_id in ("thumbnail", "title_card"):
+        if candidate_id in objects:
+            try:
+                obj = _resolve(job_id, candidate_id)
+                storage = get_storage_service()
+                local = storage.get_local_path(obj)
+                if local and local.exists():
+                    return FileResponse(path=str(local), media_type=obj.content_type)
+            except Exception:
+                pass
+
+    for oid, entry in objects.items():
+        if entry.get("kind") == "visual_asset":
+            try:
+                obj = _resolve(job_id, oid)
+                storage = get_storage_service()
+                local = storage.get_local_path(obj)
+                if local and local.exists():
+                    return FileResponse(path=str(local), media_type=obj.content_type)
+            except Exception:
+                continue
+
+    raise HTTPException(status_code=404, detail="No thumbnail available")
+
+
+@router.head("/{job_id}/thumbnail", include_in_schema=False, operation_id="video_jobs_head_thumbnail")
+async def get_thumbnail_head(job_id: str):
+    return await get_thumbnail(job_id)
+
+
+# ---------------------------------------------------------------------------
+# Generic asset stream / download / metadata / signed-url
+# ---------------------------------------------------------------------------
+
+@router.get("/{job_id}/assets/{asset_id}/stream", operation_id="video_jobs_stream_asset")
+async def stream_asset(job_id: str, asset_id: str, request: Request):
+    _require_job(job_id)
+    obj = _resolve(job_id, asset_id)
+    # Use range support for audio/video; plain FileResponse for images/json
+    if obj.content_type.startswith(("audio/", "video/")):
+        return _range_response(obj, request)
+    return _file_response(obj, disposition="inline")
+
+
+@router.head("/{job_id}/assets/{asset_id}/stream", include_in_schema=False, operation_id="video_jobs_head_stream_asset")
+async def stream_asset_head(job_id: str, asset_id: str, request: Request):
+    return await stream_asset(job_id, asset_id, request)
+
+
+@router.get("/{job_id}/assets/{asset_id}/download")
+async def download_asset(job_id: str, asset_id: str):
+    _require_job(job_id)
+    obj = _resolve(job_id, asset_id)
+    return _file_response(obj, disposition="attachment")
+
+
+@router.get("/{job_id}/assets/{asset_id}/metadata")
+async def asset_metadata(job_id: str, asset_id: str):
+    _require_job(job_id)
+    obj = _resolve(job_id, asset_id)
+    base = f"/api/video-jobs/{job_id}"
+    return {
+        "asset_id": obj.object_id,
+        "job_id": obj.job_id,
+        "kind": obj.kind,
+        "filename": obj.filename,
+        "content_type": obj.content_type,
+        "size_bytes": obj.size_bytes,
+        "storage_backend": obj.storage_backend,
+        "stream_url": f"{base}/assets/{asset_id}/stream",
+        "download_url": f"{base}/assets/{asset_id}/download",
+        **obj.metadata,
+    }
+
+
+@router.get("/{job_id}/assets/{asset_id}/signed-url")
+async def asset_signed_url(job_id: str, asset_id: str):
+    _require_job(job_id)
+    _resolve(job_id, asset_id)  # validates existence
+    return {
+        "url": f"/api/video-jobs/{job_id}/assets/{asset_id}/stream",
+        "expires_in": None,
+        "storage_backend": "local",
+    }

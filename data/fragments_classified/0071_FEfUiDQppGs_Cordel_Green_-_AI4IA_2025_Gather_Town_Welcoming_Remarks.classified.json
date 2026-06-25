@@ -137,12 +137,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.33,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.915921"
+      "classified_at": "2026-06-16T12:54:20.915921",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0002",
@@ -225,14 +227,17 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.56,
       "clarity_score": 0.8,
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.920503"
+      "classified_at": "2026-06-16T12:54:20.920503",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0003",
@@ -339,12 +344,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.54,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.925585"
+      "classified_at": "2026-06-16T12:54:20.925585",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0071_FEfUiDQppGs_Cordel_Green_-_AI4IA_2025_Gather_Town_Welcoming_Remarks_0004",
@@ -477,12 +484,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.930463"
+      "classified_at": "2026-06-16T12:54:20.930463",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

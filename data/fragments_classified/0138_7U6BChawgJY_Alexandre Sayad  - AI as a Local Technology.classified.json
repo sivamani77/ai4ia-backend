@@ -94,12 +94,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.962680"
+      "classified_at": "2026-06-16T12:54:29.962680",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0002",
@@ -180,12 +182,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.967323"
+      "classified_at": "2026-06-16T12:54:29.967323",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0003",
@@ -299,12 +303,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.972671"
+      "classified_at": "2026-06-16T12:54:29.972671",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0004",
@@ -382,12 +388,14 @@
       "clip_usage_candidates": [
         "archive_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.977446"
+      "classified_at": "2026-06-16T12:54:29.977446",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0005",
@@ -483,16 +491,17 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 5: Open Data & Information Accessibility",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.75,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.982185"
+      "classified_at": "2026-06-16T12:54:29.982185",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0006",
@@ -623,12 +632,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.62,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.986829"
+      "classified_at": "2026-06-16T12:54:29.986829",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0007",
@@ -752,12 +763,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.991390"
+      "classified_at": "2026-06-16T12:54:29.991390",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0008",
@@ -880,12 +893,14 @@
         "speaker_soundbite",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.74,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.996916"
+      "classified_at": "2026-06-16T12:54:29.996916",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0009",
@@ -1003,15 +1018,18 @@
       "primary_theme": "AI in Education & Creative Industries",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.52,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.002781"
+      "classified_at": "2026-06-16T12:54:30.002781",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0010",
@@ -1110,14 +1128,16 @@
       "primary_theme": "AI Equity, Inclusion & Social Justice",
       "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
       "clip_usage_candidates": [
-        "archive_visual"
+        "speaker_soundbite"
       ],
-      "quote_strength": 0.63,
+      "quote_strength": 0.5,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.008048"
+      "classified_at": "2026-06-16T12:54:30.008048",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0011",
@@ -1235,17 +1255,18 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 5: Open Data & Information Accessibility",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support",
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.012924"
+      "classified_at": "2026-06-16T12:54:30.012924",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0012",
@@ -1357,15 +1378,18 @@
       "primary_theme": "AI & Information Access / Media / Journalism",
       "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
       "clip_usage_candidates": [
+        "speaker_soundbite",
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.61,
+      "quote_strength": 0.58,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.017872"
+      "classified_at": "2026-06-16T12:54:30.017872",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     },
     {
       "fragment_id": "0138_7U6BChawgJY_Alexandre Sayad  - AI as a Local Technology_0013",
@@ -1446,12 +1470,14 @@
       "clip_usage_candidates": [
         "context_visual"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.27,
       "clarity_score": 0.85,
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.021620"
+      "classified_at": "2026-06-16T12:54:30.021620",
+      "video_year": 2024,
+      "video_upload_date": "20241125"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

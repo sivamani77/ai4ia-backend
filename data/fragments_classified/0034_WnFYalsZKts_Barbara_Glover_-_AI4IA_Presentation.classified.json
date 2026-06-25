@@ -117,12 +117,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.33,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.453191"
+      "classified_at": "2026-06-16T12:54:17.453191",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0002",
@@ -251,12 +253,14 @@
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.459477"
+      "classified_at": "2026-06-16T12:54:17.459477",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0003",
@@ -342,12 +346,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.48,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.464729"
+      "classified_at": "2026-06-16T12:54:17.464729",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0004",
@@ -446,12 +452,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.469452"
+      "classified_at": "2026-06-16T12:54:17.469452",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0005",
@@ -542,12 +550,14 @@
         "narration_support",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.7,
+      "quote_strength": 0.56,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.474777"
+      "classified_at": "2026-06-16T12:54:17.474777",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0006",
@@ -688,12 +698,14 @@
         "narration_support",
         "evidence_clip"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.480341"
+      "classified_at": "2026-06-16T12:54:17.480341",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0007",
@@ -815,15 +827,16 @@
       "primary_theme": "Disinformation, Deepfakes & AI Safety",
       "primary_chapter": "Ch 18: AI Safety, Cybersecurity & Warfare",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "context_visual"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.485706"
+      "classified_at": "2026-06-16T12:54:17.485706",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0008",
@@ -956,12 +969,14 @@
       "clip_usage_candidates": [
         "narration_support"
       ],
-      "quote_strength": 0.55,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.491257"
+      "classified_at": "2026-06-16T12:54:17.491257",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0009",
@@ -1089,15 +1104,16 @@
       "primary_theme": "AI Ethics, Governance & Policy",
       "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
       "clip_usage_candidates": [
-        "speaker_soundbite",
         "narration_support"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.497405"
+      "classified_at": "2026-06-16T12:54:17.497405",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0010",
@@ -1223,12 +1239,14 @@
         "evidence_clip",
         "context_visual"
       ],
-      "quote_strength": 0.47,
+      "quote_strength": 0.42,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.502584"
+      "classified_at": "2026-06-16T12:54:17.502584",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0011",
@@ -1361,12 +1379,14 @@
         "speaker_soundbite",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.68,
+      "quote_strength": 0.58,
       "clarity_score": 0.95,
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.508157"
+      "classified_at": "2026-06-16T12:54:17.508157",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0012",
@@ -1493,12 +1513,14 @@
         "evidence_clip",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.69,
+      "quote_strength": 0.58,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.514026"
+      "classified_at": "2026-06-16T12:54:17.514026",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     },
     {
       "fragment_id": "0034_WnFYalsZKts_Barbara_Glover_-_AI4IA_Presentation_0013",
@@ -1559,12 +1581,14 @@
         "context_visual",
         "synthesis_candidate"
       ],
-      "quote_strength": 0.54,
+      "quote_strength": 0.27,
       "clarity_score": 0.95,
       "narration_support_score": 0.7,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.516181"
+      "classified_at": "2026-06-16T12:54:17.516181",
+      "video_year": 2025,
+      "video_upload_date": "20250929"
     }
   ],
   "classification_method": "rule_based_mvp_v1",

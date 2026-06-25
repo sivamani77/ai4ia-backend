@@ -1,0 +1,6083 @@
+{
+  "audio_file": "0174_4smj9mLlrb4_David Aguacheiro - Curated information.clean.wav",
+  "source_audio_path": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0174_4smj9mLlrb4_David Aguacheiro - Curated information.clean.wav",
+  "source_transcript_version": "cleaned_v2",
+  "model": "small",
+  "device": "cuda",
+  "compute_type": "float16",
+  "language": "en",
+  "language_probability": 1,
+  "duration_seconds": 674.881313,
+  "transcribed_at": "2026-06-19T14:14:18.239825",
+  "transcription_mode": "normal",
+  "chunk_seconds": null,
+  "quality": {
+    "segment_count": 63,
+    "avg_confidence": 0.7085,
+    "avg_words_per_segment": 14.9,
+    "empty_segment_ratio": 0.0,
+    "repeated_phrase_ratio": 0.0,
+    "low_confidence_ratio": 0.0317,
+    "recommended_action": "ok"
+  },
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.18,
+      "end": 8.38,
+      "text": "My name is David Aguasheru, I'm a visual artist, a multi-disciplinarist, I call it like that myself.",
+      "avg_logprob": -0.33904368259820594,
+      "no_speech_prob": 0.09075927734375,
+      "compression_ratio": 1.3968253968253967,
+      "words": [
+        {
+          "word": " My",
+          "start": 0.18,
+          "end": 0.68,
+          "probability": 0.5859375
+        },
+        {
+          "word": " name",
+          "start": 0.68,
+          "end": 0.98,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " is",
+          "start": 0.98,
+          "end": 1.48,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " David",
+          "start": 1.48,
+          "end": 2.58,
+          "probability": 0.6279296875
+        },
+        {
+          "word": " Aguasheru,",
+          "start": 2.58,
+          "end": 3.72,
+          "probability": 0.463427734375
+        },
+        {
+          "word": " I'm",
+          "start": 3.76,
+          "end": 4.0,
+          "probability": 0.8623046875
+        },
+        {
+          "word": " a",
+          "start": 4.0,
+          "end": 4.14,
+          "probability": 0.615234375
+        },
+        {
+          "word": " visual",
+          "start": 4.14,
+          "end": 4.36,
+          "probability": 0.64453125
+        },
+        {
+          "word": " artist,",
+          "start": 4.36,
+          "end": 4.9,
+          "probability": 0.95703125
+        },
+        {
+          "word": " a",
+          "start": 5.5,
+          "end": 5.72,
+          "probability": 0.308349609375
+        },
+        {
+          "word": " multi",
+          "start": 5.72,
+          "end": 5.94,
+          "probability": 0.59130859375
+        },
+        {
+          "word": "-disciplinarist,",
+          "start": 5.94,
+          "end": 6.92,
+          "probability": 0.86640625
+        },
+        {
+          "word": " I",
+          "start": 7.08,
+          "end": 7.26,
+          "probability": 0.638671875
+        },
+        {
+          "word": " call",
+          "start": 7.26,
+          "end": 7.48,
+          "probability": 0.83447265625
+        },
+        {
+          "word": " it",
+          "start": 7.48,
+          "end": 7.6,
+          "probability": 0.250732421875
+        },
+        {
+          "word": " like",
+          "start": 7.6,
+          "end": 7.78,
+          "probability": 0.356689453125
+        },
+        {
+          "word": " that",
+          "start": 7.78,
+          "end": 7.96,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " myself.",
+          "start": 7.96,
+          "end": 8.38,
+          "probability": 0.673828125
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 9.46,
+      "end": 16.99,
+      "text": "I am a Zambican, so it's a pleasure to be in this conversation with you.",
+      "avg_logprob": -0.33904368259820594,
+      "no_speech_prob": 0.09075927734375,
+      "compression_ratio": 1.3968253968253967,
+      "words": [
+        {
+          "word": " I",
+          "start": 9.46,
+          "end": 9.7,
+          "probability": 0.9609375
+        },
+        {
+          "word": " am",
+          "start": 9.7,
+          "end": 9.86,
+          "probability": 0.79443359375
+        },
+        {
+          "word": " a",
+          "start": 9.86,
+          "end": 9.98,
+          "probability": 0.255126953125
+        },
+        {
+          "word": " Zambican,",
+          "start": 9.98,
+          "end": 10.44,
+          "probability": 0.826171875
+        },
+        {
+          "word": " so",
+          "start": 11.1,
+          "end": 11.72,
+          "probability": 0.9306640625
+        },
+        {
+          "word": " it's",
+          "start": 11.72,
+          "end": 14.0,
+          "probability": 0.524169921875
+        },
+        {
+          "word": " a",
+          "start": 14.73,
+          "end": 14.81,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " pleasure",
+          "start": 14.81,
+          "end": 15.13,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " to",
+          "start": 15.13,
+          "end": 15.37,
+          "probability": 0.970703125
+        },
+        {
+          "word": " be",
+          "start": 15.37,
+          "end": 15.53,
+          "probability": 0.93310546875
+        },
+        {
+          "word": " in",
+          "start": 15.53,
+          "end": 15.61,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " this",
+          "start": 15.61,
+          "end": 15.79,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " conversation",
+          "start": 15.79,
+          "end": 16.43,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " with",
+          "start": 16.43,
+          "end": 16.75,
+          "probability": 0.994140625
+        },
+        {
+          "word": " you.",
+          "start": 16.75,
+          "end": 16.99,
+          "probability": 0.99853515625
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 18.08,
+      "end": 26.64,
+      "text": "That's nice for me that I can share my idea of how I think and I see things in my own way.",
+      "avg_logprob": -0.33904368259820594,
+      "no_speech_prob": 0.09075927734375,
+      "compression_ratio": 1.3968253968253967,
+      "words": [
+        {
+          "word": " That's",
+          "start": 18.08,
+          "end": 18.52,
+          "probability": 0.82666015625
+        },
+        {
+          "word": " nice",
+          "start": 18.52,
+          "end": 18.7,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " for",
+          "start": 18.7,
+          "end": 19.0,
+          "probability": 0.94580078125
+        },
+        {
+          "word": " me",
+          "start": 19.0,
+          "end": 19.12,
+          "probability": 0.998046875
+        },
+        {
+          "word": " that",
+          "start": 19.12,
+          "end": 19.3,
+          "probability": 0.65673828125
+        },
+        {
+          "word": " I",
+          "start": 19.3,
+          "end": 19.52,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " can",
+          "start": 19.52,
+          "end": 19.68,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " share",
+          "start": 19.68,
+          "end": 20.66,
+          "probability": 0.93212890625
+        },
+        {
+          "word": " my",
+          "start": 20.66,
+          "end": 21.02,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " idea",
+          "start": 21.02,
+          "end": 22.4,
+          "probability": 0.68994140625
+        },
+        {
+          "word": " of",
+          "start": 22.4,
+          "end": 22.8,
+          "probability": 0.405517578125
+        },
+        {
+          "word": " how",
+          "start": 22.8,
+          "end": 22.96,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " I",
+          "start": 22.96,
+          "end": 23.14,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " think",
+          "start": 23.14,
+          "end": 23.48,
+          "probability": 0.97265625
+        },
+        {
+          "word": " and",
+          "start": 23.48,
+          "end": 23.96,
+          "probability": 0.83642578125
+        },
+        {
+          "word": " I",
+          "start": 23.96,
+          "end": 24.16,
+          "probability": 0.60302734375
+        },
+        {
+          "word": " see",
+          "start": 24.16,
+          "end": 24.44,
+          "probability": 0.958984375
+        },
+        {
+          "word": " things",
+          "start": 24.44,
+          "end": 24.8,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " in",
+          "start": 24.8,
+          "end": 25.9,
+          "probability": 0.90478515625
+        },
+        {
+          "word": " my",
+          "start": 25.9,
+          "end": 26.04,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " own",
+          "start": 26.04,
+          "end": 26.3,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " way.",
+          "start": 26.3,
+          "end": 26.64,
+          "probability": 0.99609375
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 30.59,
+      "end": 54.67,
+      "text": "I got invited for Liverpool-Bernard, 2023. My piece was called Takeaway. Takeaway because",
+      "avg_logprob": -0.3257378360463513,
+      "no_speech_prob": 0.30078125,
+      "compression_ratio": 1.4123711340206186,
+      "words": [
+        {
+          "word": " I",
+          "start": 30.59,
+          "end": 31.55,
+          "probability": 0.379150390625
+        },
+        {
+          "word": " got",
+          "start": 42.53,
+          "end": 42.77,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " invited",
+          "start": 42.77,
+          "end": 43.27,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " for",
+          "start": 43.27,
+          "end": 43.77,
+          "probability": 0.9306640625
+        },
+        {
+          "word": " Liverpool",
+          "start": 43.77,
+          "end": 44.23,
+          "probability": 0.79150390625
+        },
+        {
+          "word": "-Bernard,",
+          "start": 44.23,
+          "end": 45.19,
+          "probability": 0.488555908203125
+        },
+        {
+          "word": " 2023.",
+          "start": 45.67,
+          "end": 47.43,
+          "probability": 0.77978515625
+        },
+        {
+          "word": " My",
+          "start": 48.33,
+          "end": 48.55,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " piece",
+          "start": 48.55,
+          "end": 48.93,
+          "probability": 0.8837890625
+        },
+        {
+          "word": " was",
+          "start": 48.93,
+          "end": 49.47,
+          "probability": 0.51171875
+        },
+        {
+          "word": " called",
+          "start": 49.47,
+          "end": 50.47,
+          "probability": 0.9599609375
+        },
+        {
+          "word": " Takeaway.",
+          "start": 50.47,
+          "end": 51.75,
+          "probability": 0.34075927734375
+        },
+        {
+          "word": " Takeaway",
+          "start": 53.29,
+          "end": 54.17,
+          "probability": 0.884765625
+        },
+        {
+          "word": " because",
+          "start": 54.17,
+          "end": 54.67,
+          "probability": 0.5859375
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 54.67,
+      "end": 60.57,
+      "text": "what's happening in my country. Mozambique is a new country. We've been colonized by",
+      "avg_logprob": -0.3257378360463513,
+      "no_speech_prob": 0.30078125,
+      "compression_ratio": 1.4123711340206186,
+      "words": [
+        {
+          "word": " what's",
+          "start": 54.67,
+          "end": 55.33,
+          "probability": 0.892578125
+        },
+        {
+          "word": " happening",
+          "start": 55.33,
+          "end": 55.75,
+          "probability": 0.994140625
+        },
+        {
+          "word": " in",
+          "start": 55.75,
+          "end": 55.95,
+          "probability": 0.96728515625
+        },
+        {
+          "word": " my",
+          "start": 55.95,
+          "end": 56.07,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " country.",
+          "start": 56.07,
+          "end": 56.59,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " Mozambique",
+          "start": 57.33,
+          "end": 57.85,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " is",
+          "start": 57.85,
+          "end": 58.05,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " a",
+          "start": 58.05,
+          "end": 58.17,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " new",
+          "start": 58.17,
+          "end": 58.31,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " country.",
+          "start": 58.31,
+          "end": 58.83,
+          "probability": 0.998046875
+        },
+        {
+          "word": " We've",
+          "start": 59.31,
+          "end": 59.51,
+          "probability": 0.934326171875
+        },
+        {
+          "word": " been",
+          "start": 59.51,
+          "end": 59.69,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " colonized",
+          "start": 59.69,
+          "end": 60.27,
+          "probability": 0.89111328125
+        },
+        {
+          "word": " by",
+          "start": 60.27,
+          "end": 60.57,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 60.57,
+      "end": 69.79,
+      "text": "Portuguese a long time ago. So we got independence in 1975. So when we got independence, we started",
+      "avg_logprob": -0.3257378360463513,
+      "no_speech_prob": 0.30078125,
+      "compression_ratio": 1.4123711340206186,
+      "words": [
+        {
+          "word": " Portuguese",
+          "start": 60.57,
+          "end": 61.05,
+          "probability": 0.70458984375
+        },
+        {
+          "word": " a",
+          "start": 61.05,
+          "end": 61.63,
+          "probability": 0.39794921875
+        },
+        {
+          "word": " long",
+          "start": 61.63,
+          "end": 62.23,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " time",
+          "start": 62.23,
+          "end": 62.51,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " ago.",
+          "start": 62.51,
+          "end": 62.83,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " So",
+          "start": 63.05,
+          "end": 63.15,
+          "probability": 0.900390625
+        },
+        {
+          "word": " we",
+          "start": 63.15,
+          "end": 63.29,
+          "probability": 0.8515625
+        },
+        {
+          "word": " got",
+          "start": 63.29,
+          "end": 63.49,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " independence",
+          "start": 63.49,
+          "end": 64.07,
+          "probability": 0.70166015625
+        },
+        {
+          "word": " in",
+          "start": 64.07,
+          "end": 64.49,
+          "probability": 0.7392578125
+        },
+        {
+          "word": " 1975.",
+          "start": 64.49,
+          "end": 66.17,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " So",
+          "start": 67.25,
+          "end": 67.61,
+          "probability": 0.91015625
+        },
+        {
+          "word": " when",
+          "start": 67.61,
+          "end": 68.53,
+          "probability": 0.8193359375
+        },
+        {
+          "word": " we",
+          "start": 68.53,
+          "end": 68.69,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " got",
+          "start": 68.69,
+          "end": 68.83,
+          "probability": 0.97021484375
+        },
+        {
+          "word": " independence,",
+          "start": 68.83,
+          "end": 69.31,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " we",
+          "start": 69.51,
+          "end": 69.57,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " started",
+          "start": 69.57,
+          "end": 69.79,
+          "probability": 0.826171875
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 69.79,
+      "end": 76.1,
+      "text": "to build our country. And then we start to have these issues now that the multinational",
+      "avg_logprob": -0.25997740461165647,
+      "no_speech_prob": 0.283203125,
+      "compression_ratio": 1.7122641509433962,
+      "words": [
+        {
+          "word": " to",
+          "start": 69.79,
+          "end": 69.97,
+          "probability": 0.33984375
+        },
+        {
+          "word": " build",
+          "start": 69.97,
+          "end": 70.21,
+          "probability": 0.7138671875
+        },
+        {
+          "word": " our",
+          "start": 70.21,
+          "end": 70.41,
+          "probability": 0.966796875
+        },
+        {
+          "word": " country.",
+          "start": 70.41,
+          "end": 70.97,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " And",
+          "start": 71.82,
+          "end": 72.12,
+          "probability": 0.69482421875
+        },
+        {
+          "word": " then",
+          "start": 72.12,
+          "end": 72.36,
+          "probability": 0.9326171875
+        },
+        {
+          "word": " we",
+          "start": 72.36,
+          "end": 72.88,
+          "probability": 0.88134765625
+        },
+        {
+          "word": " start",
+          "start": 72.88,
+          "end": 73.14,
+          "probability": 0.87451171875
+        },
+        {
+          "word": " to",
+          "start": 73.14,
+          "end": 73.38,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " have",
+          "start": 73.38,
+          "end": 73.52,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " these",
+          "start": 73.52,
+          "end": 73.76,
+          "probability": 0.875
+        },
+        {
+          "word": " issues",
+          "start": 73.76,
+          "end": 74.32,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " now",
+          "start": 74.32,
+          "end": 74.74,
+          "probability": 0.94189453125
+        },
+        {
+          "word": " that",
+          "start": 74.74,
+          "end": 75.16,
+          "probability": 0.56103515625
+        },
+        {
+          "word": " the",
+          "start": 75.16,
+          "end": 75.38,
+          "probability": 0.501953125
+        },
+        {
+          "word": " multinational",
+          "start": 75.38,
+          "end": 76.1,
+          "probability": 0.85498046875
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 76.1,
+      "end": 84.76,
+      "text": "company coming to our country to displace people in their lands and because they want",
+      "avg_logprob": -0.25997740461165647,
+      "no_speech_prob": 0.283203125,
+      "compression_ratio": 1.7122641509433962,
+      "words": [
+        {
+          "word": " company",
+          "start": 76.1,
+          "end": 76.82,
+          "probability": 0.77490234375
+        },
+        {
+          "word": " coming",
+          "start": 76.82,
+          "end": 77.26,
+          "probability": 0.53662109375
+        },
+        {
+          "word": " to",
+          "start": 77.26,
+          "end": 77.48,
+          "probability": 0.90234375
+        },
+        {
+          "word": " our",
+          "start": 77.48,
+          "end": 77.62,
+          "probability": 0.6796875
+        },
+        {
+          "word": " country",
+          "start": 77.62,
+          "end": 78.08,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " to",
+          "start": 78.08,
+          "end": 79.56,
+          "probability": 0.8623046875
+        },
+        {
+          "word": " displace",
+          "start": 79.62,
+          "end": 80.66,
+          "probability": 0.877197265625
+        },
+        {
+          "word": " people",
+          "start": 80.66,
+          "end": 81.2,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " in",
+          "start": 81.2,
+          "end": 81.92,
+          "probability": 0.73291015625
+        },
+        {
+          "word": " their",
+          "start": 81.92,
+          "end": 82.1,
+          "probability": 0.9921875
+        },
+        {
+          "word": " lands",
+          "start": 82.1,
+          "end": 82.62,
+          "probability": 0.87939453125
+        },
+        {
+          "word": " and",
+          "start": 82.62,
+          "end": 83.62,
+          "probability": 0.300537109375
+        },
+        {
+          "word": " because",
+          "start": 83.62,
+          "end": 84.38,
+          "probability": 0.9580078125
+        },
+        {
+          "word": " they",
+          "start": 84.38,
+          "end": 84.64,
+          "probability": 0.95361328125
+        },
+        {
+          "word": " want",
+          "start": 84.64,
+          "end": 84.76,
+          "probability": 0.92529296875
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 84.76,
+      "end": 91.85,
+      "text": "to explore all the mineral resources. So displace some people without recompostation, creating",
+      "avg_logprob": -0.25997740461165647,
+      "no_speech_prob": 0.283203125,
+      "compression_ratio": 1.7122641509433962,
+      "words": [
+        {
+          "word": " to",
+          "start": 84.76,
+          "end": 84.86,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " explore",
+          "start": 84.86,
+          "end": 85.16,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " all",
+          "start": 85.16,
+          "end": 85.42,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " the",
+          "start": 85.42,
+          "end": 85.56,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " mineral",
+          "start": 85.56,
+          "end": 85.76,
+          "probability": 0.79052734375
+        },
+        {
+          "word": " resources.",
+          "start": 85.76,
+          "end": 86.42,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " So",
+          "start": 87.51,
+          "end": 87.83,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " displace",
+          "start": 87.83,
+          "end": 88.39,
+          "probability": 0.708251953125
+        },
+        {
+          "word": " some",
+          "start": 88.39,
+          "end": 88.69,
+          "probability": 0.337890625
+        },
+        {
+          "word": " people",
+          "start": 88.69,
+          "end": 88.93,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " without",
+          "start": 88.93,
+          "end": 89.21,
+          "probability": 0.81640625
+        },
+        {
+          "word": " recompostation,",
+          "start": 89.21,
+          "end": 90.51,
+          "probability": 0.8035481770833334
+        },
+        {
+          "word": " creating",
+          "start": 91.25,
+          "end": 91.85,
+          "probability": 0.98583984375
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 91.85,
+      "end": 100.15,
+      "text": "a war for the people to destabilize the country that they can take what they want. A structure",
+      "avg_logprob": -0.25997740461165647,
+      "no_speech_prob": 0.283203125,
+      "compression_ratio": 1.7122641509433962,
+      "words": [
+        {
+          "word": " a",
+          "start": 91.85,
+          "end": 92.15,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " war",
+          "start": 92.15,
+          "end": 92.51,
+          "probability": 0.72607421875
+        },
+        {
+          "word": " for",
+          "start": 92.51,
+          "end": 93.23,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " the",
+          "start": 93.23,
+          "end": 93.39,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " people",
+          "start": 93.39,
+          "end": 93.75,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " to",
+          "start": 93.75,
+          "end": 94.05,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " destabilize",
+          "start": 94.05,
+          "end": 95.99,
+          "probability": 0.9514973958333334
+        },
+        {
+          "word": " the",
+          "start": 95.99,
+          "end": 96.15,
+          "probability": 0.953125
+        },
+        {
+          "word": " country",
+          "start": 96.15,
+          "end": 96.63,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " that",
+          "start": 96.63,
+          "end": 97.65,
+          "probability": 0.4228515625
+        },
+        {
+          "word": " they",
+          "start": 97.65,
+          "end": 97.83,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " can",
+          "start": 97.83,
+          "end": 98.01,
+          "probability": 0.990234375
+        },
+        {
+          "word": " take",
+          "start": 98.01,
+          "end": 98.33,
+          "probability": 0.9560546875
+        },
+        {
+          "word": " what",
+          "start": 98.33,
+          "end": 98.57,
+          "probability": 0.93408203125
+        },
+        {
+          "word": " they",
+          "start": 98.57,
+          "end": 98.75,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " want.",
+          "start": 98.75,
+          "end": 99.07,
+          "probability": 0.994140625
+        },
+        {
+          "word": " A",
+          "start": 99.73,
+          "end": 99.91,
+          "probability": 0.7158203125
+        },
+        {
+          "word": " structure",
+          "start": 99.91,
+          "end": 100.15,
+          "probability": 0.469482421875
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 100.15,
+      "end": 120.99,
+      "text": "It's not strativism, it's not strativism about all the mineral resources or it's about people too, about their culture, about their religions, about their beliefs, about the, you know, about be together, people as one, like long time ago, you know.",
+      "avg_logprob": -0.30580356575193857,
+      "no_speech_prob": 0.529296875,
+      "compression_ratio": 1.8235294117647058,
+      "words": [
+        {
+          "word": " It's",
+          "start": 100.15,
+          "end": 100.19,
+          "probability": 0.402679443359375
+        },
+        {
+          "word": " not",
+          "start": 100.19,
+          "end": 100.19,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " strativism,",
+          "start": 100.19,
+          "end": 100.57,
+          "probability": 0.6595865885416666
+        },
+        {
+          "word": " it's",
+          "start": 100.57,
+          "end": 100.73,
+          "probability": 0.906494140625
+        },
+        {
+          "word": " not",
+          "start": 100.73,
+          "end": 100.87,
+          "probability": 0.97265625
+        },
+        {
+          "word": " strativism",
+          "start": 100.87,
+          "end": 101.47,
+          "probability": 0.9925130208333334
+        },
+        {
+          "word": " about",
+          "start": 101.47,
+          "end": 101.75,
+          "probability": 0.9111328125
+        },
+        {
+          "word": " all",
+          "start": 101.75,
+          "end": 102.11,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " the",
+          "start": 102.11,
+          "end": 102.29,
+          "probability": 0.9296875
+        },
+        {
+          "word": " mineral",
+          "start": 102.29,
+          "end": 102.53,
+          "probability": 0.68505859375
+        },
+        {
+          "word": " resources",
+          "start": 102.53,
+          "end": 103.19,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " or",
+          "start": 103.19,
+          "end": 103.83,
+          "probability": 0.448486328125
+        },
+        {
+          "word": " it's",
+          "start": 103.83,
+          "end": 104.87,
+          "probability": 0.764404296875
+        },
+        {
+          "word": " about",
+          "start": 104.87,
+          "end": 105.11,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " people",
+          "start": 105.11,
+          "end": 105.57,
+          "probability": 0.96826171875
+        },
+        {
+          "word": " too,",
+          "start": 105.57,
+          "end": 105.97,
+          "probability": 0.39697265625
+        },
+        {
+          "word": " about",
+          "start": 106.41,
+          "end": 106.73,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " their",
+          "start": 106.73,
+          "end": 108.09,
+          "probability": 0.96875
+        },
+        {
+          "word": " culture,",
+          "start": 108.09,
+          "end": 108.67,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " about",
+          "start": 109.17,
+          "end": 109.59,
+          "probability": 0.96630859375
+        },
+        {
+          "word": " their",
+          "start": 109.59,
+          "end": 110.07,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " religions,",
+          "start": 110.07,
+          "end": 110.83,
+          "probability": 0.93359375
+        },
+        {
+          "word": " about",
+          "start": 111.35,
+          "end": 111.43,
+          "probability": 0.9765625
+        },
+        {
+          "word": " their",
+          "start": 111.43,
+          "end": 111.71,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " beliefs,",
+          "start": 111.71,
+          "end": 112.23,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " about",
+          "start": 112.81,
+          "end": 112.81,
+          "probability": 0.97216796875
+        },
+        {
+          "word": " the,",
+          "start": 112.81,
+          "end": 113.23,
+          "probability": 0.3623046875
+        },
+        {
+          "word": " you",
+          "start": 113.95,
+          "end": 114.09,
+          "probability": 0.86669921875
+        },
+        {
+          "word": " know,",
+          "start": 114.09,
+          "end": 114.37,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " about",
+          "start": 115.23,
+          "end": 115.55,
+          "probability": 0.96337890625
+        },
+        {
+          "word": " be",
+          "start": 115.55,
+          "end": 116.51,
+          "probability": 0.340576171875
+        },
+        {
+          "word": " together,",
+          "start": 116.51,
+          "end": 117.13,
+          "probability": 0.9462890625
+        },
+        {
+          "word": " people",
+          "start": 117.55,
+          "end": 117.89,
+          "probability": 0.9873046875
+        },
+        {
+          "word": " as",
+          "start": 117.89,
+          "end": 118.15,
+          "probability": 0.9111328125
+        },
+        {
+          "word": " one,",
+          "start": 118.15,
+          "end": 118.47,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " like",
+          "start": 118.97,
+          "end": 119.33,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " long",
+          "start": 119.33,
+          "end": 119.55,
+          "probability": 0.7119140625
+        },
+        {
+          "word": " time",
+          "start": 119.55,
+          "end": 119.83,
+          "probability": 0.994140625
+        },
+        {
+          "word": " ago,",
+          "start": 119.83,
+          "end": 120.19,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " you",
+          "start": 120.59,
+          "end": 120.87,
+          "probability": 0.916015625
+        },
+        {
+          "word": " know.",
+          "start": 120.87,
+          "end": 120.99,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 121.88,
+      "end": 128.41,
+      "text": "If you don't have land, you don't have a culture. If you don't have a culture, you don't have identity.",
+      "avg_logprob": -0.16786858726006287,
+      "no_speech_prob": 0.57177734375,
+      "compression_ratio": 1.814569536423841,
+      "words": [
+        {
+          "word": " If",
+          "start": 121.88,
+          "end": 122.4,
+          "probability": 0.6005859375
+        },
+        {
+          "word": " you",
+          "start": 122.4,
+          "end": 122.58,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " don't",
+          "start": 122.58,
+          "end": 122.76,
+          "probability": 0.92431640625
+        },
+        {
+          "word": " have",
+          "start": 122.76,
+          "end": 123.02,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " land,",
+          "start": 123.02,
+          "end": 123.42,
+          "probability": 0.439697265625
+        },
+        {
+          "word": " you",
+          "start": 123.8,
+          "end": 124.06,
+          "probability": 0.9345703125
+        },
+        {
+          "word": " don't",
+          "start": 124.06,
+          "end": 124.2,
+          "probability": 0.993896484375
+        },
+        {
+          "word": " have",
+          "start": 124.2,
+          "end": 124.4,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " a",
+          "start": 124.4,
+          "end": 124.5,
+          "probability": 0.91845703125
+        },
+        {
+          "word": " culture.",
+          "start": 124.5,
+          "end": 124.9,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " If",
+          "start": 125.59,
+          "end": 126.11,
+          "probability": 0.98046875
+        },
+        {
+          "word": " you",
+          "start": 126.11,
+          "end": 126.23,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " don't",
+          "start": 126.23,
+          "end": 126.39,
+          "probability": 0.9765625
+        },
+        {
+          "word": " have",
+          "start": 126.39,
+          "end": 126.55,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " a",
+          "start": 126.55,
+          "end": 126.65,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " culture,",
+          "start": 126.65,
+          "end": 127.03,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " you",
+          "start": 127.31,
+          "end": 127.49,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " don't",
+          "start": 127.49,
+          "end": 127.65,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " have",
+          "start": 127.65,
+          "end": 127.85,
+          "probability": 0.994140625
+        },
+        {
+          "word": " identity.",
+          "start": 127.85,
+          "end": 128.41,
+          "probability": 0.89306640625
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 129.89,
+      "end": 137.5,
+      "text": "If you don't have identity, you are object. For me, I like to bring this issue in my artwork.",
+      "avg_logprob": -0.16786858726006287,
+      "no_speech_prob": 0.57177734375,
+      "compression_ratio": 1.814569536423841,
+      "words": [
+        {
+          "word": " If",
+          "start": 129.89,
+          "end": 130.35,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " you",
+          "start": 130.35,
+          "end": 130.55,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " don't",
+          "start": 130.55,
+          "end": 130.79,
+          "probability": 0.982177734375
+        },
+        {
+          "word": " have",
+          "start": 130.79,
+          "end": 130.97,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " identity,",
+          "start": 130.97,
+          "end": 131.51,
+          "probability": 0.9365234375
+        },
+        {
+          "word": " you",
+          "start": 131.87,
+          "end": 132.07,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " are",
+          "start": 132.07,
+          "end": 132.17,
+          "probability": 0.8828125
+        },
+        {
+          "word": " object.",
+          "start": 132.17,
+          "end": 132.57,
+          "probability": 0.86181640625
+        },
+        {
+          "word": " For",
+          "start": 133.76,
+          "end": 134.0,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " me,",
+          "start": 134.0,
+          "end": 134.28,
+          "probability": 0.99609375
+        },
+        {
+          "word": " I",
+          "start": 134.92,
+          "end": 135.34,
+          "probability": 0.994140625
+        },
+        {
+          "word": " like",
+          "start": 135.34,
+          "end": 135.54,
+          "probability": 0.87548828125
+        },
+        {
+          "word": " to",
+          "start": 135.54,
+          "end": 135.76,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " bring",
+          "start": 135.76,
+          "end": 135.96,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " this",
+          "start": 135.96,
+          "end": 136.26,
+          "probability": 0.90283203125
+        },
+        {
+          "word": " issue",
+          "start": 136.26,
+          "end": 136.76,
+          "probability": 0.99609375
+        },
+        {
+          "word": " in",
+          "start": 136.76,
+          "end": 136.94,
+          "probability": 0.91064453125
+        },
+        {
+          "word": " my",
+          "start": 136.94,
+          "end": 137.1,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " artwork.",
+          "start": 137.1,
+          "end": 137.5,
+          "probability": 0.9677734375
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 139.97,
+      "end": 145.82,
+      "text": "Because this thing doesn't go out, doesn't go in the media, the information.",
+      "avg_logprob": -0.16786858726006287,
+      "no_speech_prob": 0.57177734375,
+      "compression_ratio": 1.814569536423841,
+      "words": [
+        {
+          "word": " Because",
+          "start": 139.97,
+          "end": 140.49,
+          "probability": 0.90087890625
+        },
+        {
+          "word": " this",
+          "start": 140.49,
+          "end": 141.01,
+          "probability": 0.6806640625
+        },
+        {
+          "word": " thing",
+          "start": 141.01,
+          "end": 141.35,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " doesn't",
+          "start": 141.35,
+          "end": 141.69,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " go",
+          "start": 141.69,
+          "end": 141.91,
+          "probability": 0.99609375
+        },
+        {
+          "word": " out,",
+          "start": 141.91,
+          "end": 142.35,
+          "probability": 0.984375
+        },
+        {
+          "word": " doesn't",
+          "start": 143.74,
+          "end": 144.26,
+          "probability": 0.929931640625
+        },
+        {
+          "word": " go",
+          "start": 144.26,
+          "end": 144.42,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " in",
+          "start": 144.42,
+          "end": 144.58,
+          "probability": 0.669921875
+        },
+        {
+          "word": " the",
+          "start": 144.58,
+          "end": 144.7,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " media,",
+          "start": 144.7,
+          "end": 144.96,
+          "probability": 0.97265625
+        },
+        {
+          "word": " the",
+          "start": 145.12,
+          "end": 145.18,
+          "probability": 0.953125
+        },
+        {
+          "word": " information.",
+          "start": 145.18,
+          "end": 145.82,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 145.82,
+      "end": 160.15,
+      "text": "is covering because those people there destroying our country, they want to control this information.",
+      "avg_logprob": -0.5018601204667773,
+      "no_speech_prob": 0.32958984375,
+      "compression_ratio": 1.3923076923076922,
+      "words": [
+        {
+          "word": " is",
+          "start": 145.82,
+          "end": 146.96,
+          "probability": 0.2288818359375
+        },
+        {
+          "word": " covering",
+          "start": 146.96,
+          "end": 147.36,
+          "probability": 0.273681640625
+        },
+        {
+          "word": " because",
+          "start": 147.36,
+          "end": 148.86,
+          "probability": 0.57861328125
+        },
+        {
+          "word": " those",
+          "start": 149.08,
+          "end": 150.18,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " people",
+          "start": 150.18,
+          "end": 150.7,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " there",
+          "start": 150.7,
+          "end": 151.22,
+          "probability": 0.1368408203125
+        },
+        {
+          "word": " destroying",
+          "start": 151.38,
+          "end": 152.84,
+          "probability": 0.912109375
+        },
+        {
+          "word": " our",
+          "start": 152.84,
+          "end": 153.98,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " country,",
+          "start": 153.98,
+          "end": 155.54,
+          "probability": 0.94921875
+        },
+        {
+          "word": " they",
+          "start": 157.75,
+          "end": 158.01,
+          "probability": 0.859375
+        },
+        {
+          "word": " want",
+          "start": 158.01,
+          "end": 158.37,
+          "probability": 0.81201171875
+        },
+        {
+          "word": " to",
+          "start": 158.37,
+          "end": 158.53,
+          "probability": 0.290283203125
+        },
+        {
+          "word": " control",
+          "start": 158.53,
+          "end": 159.05,
+          "probability": 0.92138671875
+        },
+        {
+          "word": " this",
+          "start": 159.05,
+          "end": 159.37,
+          "probability": 0.88623046875
+        },
+        {
+          "word": " information.",
+          "start": 159.37,
+          "end": 160.15,
+          "probability": 0.99560546875
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "start": 162.34,
+      "end": 172.02,
+      "text": "Sure. So even you search, looking, googling, everything, the database is there,",
+      "avg_logprob": -0.5018601204667773,
+      "no_speech_prob": 0.32958984375,
+      "compression_ratio": 1.3923076923076922,
+      "words": [
+        {
+          "word": " Sure.",
+          "start": 162.34,
+          "end": 162.5,
+          "probability": 0.368896484375
+        },
+        {
+          "word": " So",
+          "start": 163.7,
+          "end": 164.12,
+          "probability": 0.92333984375
+        },
+        {
+          "word": " even",
+          "start": 164.12,
+          "end": 165.28,
+          "probability": 0.420166015625
+        },
+        {
+          "word": " you",
+          "start": 165.28,
+          "end": 165.5,
+          "probability": 0.75244140625
+        },
+        {
+          "word": " search,",
+          "start": 165.5,
+          "end": 166.04,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " looking,",
+          "start": 166.62,
+          "end": 167.0,
+          "probability": 0.30029296875
+        },
+        {
+          "word": " googling,",
+          "start": 167.84,
+          "end": 168.18,
+          "probability": 0.7066650390625
+        },
+        {
+          "word": " everything,",
+          "start": 168.58,
+          "end": 168.96,
+          "probability": 0.9677734375
+        },
+        {
+          "word": " the",
+          "start": 170.1,
+          "end": 170.3,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " database",
+          "start": 170.3,
+          "end": 170.84,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " is",
+          "start": 170.84,
+          "end": 171.76,
+          "probability": 0.974609375
+        },
+        {
+          "word": " there,",
+          "start": 171.76,
+          "end": 172.02,
+          "probability": 0.79541015625
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "start": 172.02,
+      "end": 181.36,
+      "text": "is be created by those people because they have so much power to control. So for",
+      "avg_logprob": -0.28255206992228826,
+      "no_speech_prob": 0.499267578125,
+      "compression_ratio": 1.453416149068323,
+      "words": [
+        {
+          "word": " is",
+          "start": 172.02,
+          "end": 172.7,
+          "probability": 0.04931640625
+        },
+        {
+          "word": " be",
+          "start": 172.7,
+          "end": 172.94,
+          "probability": 0.45068359375
+        },
+        {
+          "word": " created",
+          "start": 172.94,
+          "end": 173.36,
+          "probability": 0.4189453125
+        },
+        {
+          "word": " by",
+          "start": 173.36,
+          "end": 173.74,
+          "probability": 0.9609375
+        },
+        {
+          "word": " those",
+          "start": 173.74,
+          "end": 173.98,
+          "probability": 0.982421875
+        },
+        {
+          "word": " people",
+          "start": 173.98,
+          "end": 174.38,
+          "probability": 0.994140625
+        },
+        {
+          "word": " because",
+          "start": 174.38,
+          "end": 175.52,
+          "probability": 0.68310546875
+        },
+        {
+          "word": " they",
+          "start": 175.59,
+          "end": 175.83,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " have",
+          "start": 175.83,
+          "end": 175.99,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " so",
+          "start": 175.99,
+          "end": 176.19,
+          "probability": 0.990234375
+        },
+        {
+          "word": " much",
+          "start": 176.19,
+          "end": 176.45,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " power",
+          "start": 176.45,
+          "end": 176.89,
+          "probability": 0.9921875
+        },
+        {
+          "word": " to",
+          "start": 176.89,
+          "end": 177.79,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " control.",
+          "start": 177.79,
+          "end": 178.33,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " So",
+          "start": 180.52,
+          "end": 181.04,
+          "probability": 0.7880859375
+        },
+        {
+          "word": " for",
+          "start": 181.04,
+          "end": 181.36,
+          "probability": 0.8388671875
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "start": 181.36,
+      "end": 188.2,
+      "text": "me I like this to bring for the people that when to go to my exhibition you",
+      "avg_logprob": -0.28255206992228826,
+      "no_speech_prob": 0.499267578125,
+      "compression_ratio": 1.453416149068323,
+      "words": [
+        {
+          "word": " me",
+          "start": 181.36,
+          "end": 181.5,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " I",
+          "start": 181.5,
+          "end": 181.72,
+          "probability": 0.1162109375
+        },
+        {
+          "word": " like",
+          "start": 181.72,
+          "end": 182.24,
+          "probability": 0.6171875
+        },
+        {
+          "word": " this",
+          "start": 182.24,
+          "end": 182.44,
+          "probability": 0.53271484375
+        },
+        {
+          "word": " to",
+          "start": 182.44,
+          "end": 182.56,
+          "probability": 0.94384765625
+        },
+        {
+          "word": " bring",
+          "start": 182.56,
+          "end": 182.78,
+          "probability": 0.994140625
+        },
+        {
+          "word": " for",
+          "start": 182.78,
+          "end": 182.98,
+          "probability": 0.6513671875
+        },
+        {
+          "word": " the",
+          "start": 182.98,
+          "end": 183.1,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " people",
+          "start": 183.1,
+          "end": 183.4,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " that",
+          "start": 183.4,
+          "end": 184.12,
+          "probability": 0.8134765625
+        },
+        {
+          "word": " when",
+          "start": 184.12,
+          "end": 184.36,
+          "probability": 0.86328125
+        },
+        {
+          "word": " to",
+          "start": 184.36,
+          "end": 184.62,
+          "probability": 0.630859375
+        },
+        {
+          "word": " go",
+          "start": 184.62,
+          "end": 184.88,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " to",
+          "start": 184.88,
+          "end": 185.2,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " my",
+          "start": 185.2,
+          "end": 186.24,
+          "probability": 0.90869140625
+        },
+        {
+          "word": " exhibition",
+          "start": 186.24,
+          "end": 186.82,
+          "probability": 0.85498046875
+        },
+        {
+          "word": " you",
+          "start": 186.82,
+          "end": 188.2,
+          "probability": 0.62841796875
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "start": 189.29,
+      "end": 200.45,
+      "text": "feel what's happening there. It's not direct but you can just imagine. So you",
+      "avg_logprob": -0.28255206992228826,
+      "no_speech_prob": 0.499267578125,
+      "compression_ratio": 1.453416149068323,
+      "words": [
+        {
+          "word": " feel",
+          "start": 189.29,
+          "end": 189.75,
+          "probability": 0.978515625
+        },
+        {
+          "word": " what's",
+          "start": 189.75,
+          "end": 192.01,
+          "probability": 0.906494140625
+        },
+        {
+          "word": " happening",
+          "start": 192.01,
+          "end": 192.47,
+          "probability": 0.8515625
+        },
+        {
+          "word": " there.",
+          "start": 192.47,
+          "end": 192.81,
+          "probability": 0.93115234375
+        },
+        {
+          "word": " It's",
+          "start": 193.21,
+          "end": 193.67,
+          "probability": 0.95751953125
+        },
+        {
+          "word": " not",
+          "start": 193.67,
+          "end": 193.83,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " direct",
+          "start": 193.83,
+          "end": 194.13,
+          "probability": 0.720703125
+        },
+        {
+          "word": " but",
+          "start": 194.13,
+          "end": 194.39,
+          "probability": 0.7373046875
+        },
+        {
+          "word": " you",
+          "start": 194.39,
+          "end": 194.61,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " can",
+          "start": 194.61,
+          "end": 194.83,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " just",
+          "start": 194.83,
+          "end": 195.21,
+          "probability": 0.953125
+        },
+        {
+          "word": " imagine.",
+          "start": 195.21,
+          "end": 195.75,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " So",
+          "start": 199.77,
+          "end": 200.45,
+          "probability": 0.72607421875
+        },
+        {
+          "word": " you",
+          "start": 200.45,
+          "end": 200.45,
+          "probability": 0.96533203125
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "start": 200.45,
+      "end": 205.36,
+      "text": "you can feel cold, you make part of the work.",
+      "avg_logprob": -0.22282608841424403,
+      "no_speech_prob": 0.44580078125,
+      "compression_ratio": 1.6262135922330097,
+      "words": [
+        {
+          "word": " you",
+          "start": 200.45,
+          "end": 200.45,
+          "probability": 0.266845703125
+        },
+        {
+          "word": " can",
+          "start": 200.45,
+          "end": 200.57,
+          "probability": 0.93017578125
+        },
+        {
+          "word": " feel",
+          "start": 200.57,
+          "end": 200.81,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " cold,",
+          "start": 200.81,
+          "end": 201.09,
+          "probability": 0.261474609375
+        },
+        {
+          "word": " you",
+          "start": 201.45,
+          "end": 201.61,
+          "probability": 0.9853515625
+        },
+        {
+          "word": " make",
+          "start": 201.61,
+          "end": 203.43,
+          "probability": 0.80029296875
+        },
+        {
+          "word": " part",
+          "start": 204.32,
+          "end": 204.66,
+          "probability": 0.970703125
+        },
+        {
+          "word": " of",
+          "start": 204.66,
+          "end": 204.82,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " the",
+          "start": 204.82,
+          "end": 204.98,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " work.",
+          "start": 204.98,
+          "end": 205.36,
+          "probability": 0.99267578125
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "start": 206.44,
+      "end": 210.04,
+      "text": "It's what I want for me to make you uncomfortable.",
+      "avg_logprob": -0.22282608841424403,
+      "no_speech_prob": 0.44580078125,
+      "compression_ratio": 1.6262135922330097,
+      "words": [
+        {
+          "word": " It's",
+          "start": 206.44,
+          "end": 206.86,
+          "probability": 0.9462890625
+        },
+        {
+          "word": " what",
+          "start": 206.86,
+          "end": 207.04,
+          "probability": 0.962890625
+        },
+        {
+          "word": " I",
+          "start": 207.04,
+          "end": 207.26,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " want",
+          "start": 207.26,
+          "end": 207.62,
+          "probability": 0.9921875
+        },
+        {
+          "word": " for",
+          "start": 207.62,
+          "end": 207.98,
+          "probability": 0.87060546875
+        },
+        {
+          "word": " me",
+          "start": 207.98,
+          "end": 208.22,
+          "probability": 0.9921875
+        },
+        {
+          "word": " to",
+          "start": 208.22,
+          "end": 209.06,
+          "probability": 0.6435546875
+        },
+        {
+          "word": " make",
+          "start": 209.06,
+          "end": 209.28,
+          "probability": 0.998046875
+        },
+        {
+          "word": " you",
+          "start": 209.28,
+          "end": 209.46,
+          "probability": 0.998046875
+        },
+        {
+          "word": " uncomfortable.",
+          "start": 209.46,
+          "end": 210.04,
+          "probability": 0.458984375
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "start": 230.53,
+      "end": 234.44,
+      "text": "When difficult time, I can do my best I can.",
+      "avg_logprob": -0.22282608841424403,
+      "no_speech_prob": 0.44580078125,
+      "compression_ratio": 1.6262135922330097,
+      "words": [
+        {
+          "word": " When",
+          "start": 230.53,
+          "end": 230.89,
+          "probability": 0.87939453125
+        },
+        {
+          "word": " difficult",
+          "start": 230.89,
+          "end": 231.31,
+          "probability": 0.5947265625
+        },
+        {
+          "word": " time,",
+          "start": 231.31,
+          "end": 231.85,
+          "probability": 0.86865234375
+        },
+        {
+          "word": " I",
+          "start": 232.7,
+          "end": 233.06,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " can",
+          "start": 233.06,
+          "end": 233.26,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " do",
+          "start": 233.26,
+          "end": 233.44,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " my",
+          "start": 233.44,
+          "end": 233.62,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " best",
+          "start": 233.62,
+          "end": 233.96,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " I",
+          "start": 233.96,
+          "end": 234.16,
+          "probability": 0.7177734375
+        },
+        {
+          "word": " can.",
+          "start": 234.16,
+          "end": 234.44,
+          "probability": 0.99951171875
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "start": 234.94,
+      "end": 238.76,
+      "text": "If I put some information in Google or in platform,",
+      "avg_logprob": -0.22282608841424403,
+      "no_speech_prob": 0.44580078125,
+      "compression_ratio": 1.6262135922330097,
+      "words": [
+        {
+          "word": " If",
+          "start": 234.94,
+          "end": 235.14,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " I",
+          "start": 235.14,
+          "end": 235.26,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " put",
+          "start": 235.26,
+          "end": 235.48,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " some",
+          "start": 235.48,
+          "end": 235.76,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " information",
+          "start": 235.76,
+          "end": 236.3,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " in",
+          "start": 236.3,
+          "end": 236.68,
+          "probability": 0.552734375
+        },
+        {
+          "word": " Google",
+          "start": 236.68,
+          "end": 236.96,
+          "probability": 0.89306640625
+        },
+        {
+          "word": " or",
+          "start": 236.96,
+          "end": 237.58,
+          "probability": 0.8232421875
+        },
+        {
+          "word": " in",
+          "start": 237.58,
+          "end": 238.12,
+          "probability": 0.265869140625
+        },
+        {
+          "word": " platform,",
+          "start": 238.12,
+          "end": 238.76,
+          "probability": 0.5498046875
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "start": 239.56,
+      "end": 242.32,
+      "text": "if those people see that this information is not good",
+      "avg_logprob": -0.22282608841424403,
+      "no_speech_prob": 0.44580078125,
+      "compression_ratio": 1.6262135922330097,
+      "words": [
+        {
+          "word": " if",
+          "start": 239.56,
+          "end": 239.7,
+          "probability": 0.72998046875
+        },
+        {
+          "word": " those",
+          "start": 239.7,
+          "end": 240.08,
+          "probability": 0.8896484375
+        },
+        {
+          "word": " people",
+          "start": 240.08,
+          "end": 240.52,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " see",
+          "start": 240.52,
+          "end": 240.84,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " that",
+          "start": 240.84,
+          "end": 241.04,
+          "probability": 0.97509765625
+        },
+        {
+          "word": " this",
+          "start": 241.04,
+          "end": 241.22,
+          "probability": 0.939453125
+        },
+        {
+          "word": " information",
+          "start": 241.22,
+          "end": 241.66,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " is",
+          "start": 241.66,
+          "end": 241.94,
+          "probability": 0.83935546875
+        },
+        {
+          "word": " not",
+          "start": 241.94,
+          "end": 242.08,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " good",
+          "start": 242.08,
+          "end": 242.32,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "start": 242.32,
+      "end": 244.88,
+      "text": "for them, we cannot found it.",
+      "avg_logprob": -0.22282608841424403,
+      "no_speech_prob": 0.44580078125,
+      "compression_ratio": 1.6262135922330097,
+      "words": [
+        {
+          "word": " for",
+          "start": 242.32,
+          "end": 242.54,
+          "probability": 0.998046875
+        },
+        {
+          "word": " them,",
+          "start": 242.54,
+          "end": 242.84,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " we",
+          "start": 243.82,
+          "end": 244.06,
+          "probability": 0.42919921875
+        },
+        {
+          "word": " cannot",
+          "start": 244.06,
+          "end": 244.28,
+          "probability": 0.94091796875
+        },
+        {
+          "word": " found",
+          "start": 244.28,
+          "end": 244.64,
+          "probability": 0.6640625
+        },
+        {
+          "word": " it.",
+          "start": 244.64,
+          "end": 244.88,
+          "probability": 0.9892578125
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "start": 247.57,
+      "end": 253.01,
+      "text": "So there are people, the information is not for everyone.",
+      "avg_logprob": -0.22282608841424403,
+      "no_speech_prob": 0.44580078125,
+      "compression_ratio": 1.6262135922330097,
+      "words": [
+        {
+          "word": " So",
+          "start": 247.57,
+          "end": 247.57,
+          "probability": 0.6689453125
+        },
+        {
+          "word": " there",
+          "start": 247.57,
+          "end": 249.39,
+          "probability": 0.343994140625
+        },
+        {
+          "word": " are",
+          "start": 249.52,
+          "end": 249.68,
+          "probability": 0.95166015625
+        },
+        {
+          "word": " people,",
+          "start": 249.68,
+          "end": 250.0,
+          "probability": 0.998046875
+        },
+        {
+          "word": " the",
+          "start": 251.17,
+          "end": 251.37,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " information",
+          "start": 251.37,
+          "end": 251.81,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " is",
+          "start": 251.81,
+          "end": 252.13,
+          "probability": 0.837890625
+        },
+        {
+          "word": " not",
+          "start": 252.13,
+          "end": 252.27,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " for",
+          "start": 252.27,
+          "end": 252.53,
+          "probability": 0.99609375
+        },
+        {
+          "word": " everyone.",
+          "start": 252.53,
+          "end": 253.01,
+          "probability": 0.99560546875
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "start": 255.63,
+      "end": 261.53,
+      "text": "That's why information is curated. They choose what the information is supposed to be there",
+      "avg_logprob": -0.20072115384615385,
+      "no_speech_prob": 0.1766357421875,
+      "compression_ratio": 1.691358024691358,
+      "words": [
+        {
+          "word": " That's",
+          "start": 255.63,
+          "end": 256.03,
+          "probability": 0.766845703125
+        },
+        {
+          "word": " why",
+          "start": 256.03,
+          "end": 256.15,
+          "probability": 0.7822265625
+        },
+        {
+          "word": " information",
+          "start": 256.15,
+          "end": 256.47,
+          "probability": 0.483642578125
+        },
+        {
+          "word": " is",
+          "start": 256.47,
+          "end": 256.85,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " curated.",
+          "start": 256.85,
+          "end": 257.31,
+          "probability": 0.380126953125
+        },
+        {
+          "word": " They",
+          "start": 257.77,
+          "end": 257.77,
+          "probability": 0.923828125
+        },
+        {
+          "word": " choose",
+          "start": 257.77,
+          "end": 258.69,
+          "probability": 0.849609375
+        },
+        {
+          "word": " what",
+          "start": 258.69,
+          "end": 258.93,
+          "probability": 0.95654296875
+        },
+        {
+          "word": " the",
+          "start": 258.93,
+          "end": 259.11,
+          "probability": 0.9169921875
+        },
+        {
+          "word": " information",
+          "start": 259.11,
+          "end": 259.53,
+          "probability": 0.96728515625
+        },
+        {
+          "word": " is",
+          "start": 259.53,
+          "end": 260.47,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " supposed",
+          "start": 260.47,
+          "end": 260.73,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " to",
+          "start": 260.73,
+          "end": 260.99,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " be",
+          "start": 260.99,
+          "end": 261.21,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " there",
+          "start": 261.21,
+          "end": 261.53,
+          "probability": 0.8056640625
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "start": 275.81,
+      "end": 285.66,
+      "text": "if I want information about Africa, about where I'm coming from. It's not us who wrote the history.",
+      "avg_logprob": -0.20072115384615385,
+      "no_speech_prob": 0.1766357421875,
+      "compression_ratio": 1.691358024691358,
+      "words": [
+        {
+          "word": " if",
+          "start": 275.81,
+          "end": 276.13,
+          "probability": 0.345703125
+        },
+        {
+          "word": " I",
+          "start": 276.13,
+          "end": 276.25,
+          "probability": 0.931640625
+        },
+        {
+          "word": " want",
+          "start": 276.25,
+          "end": 276.41,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " information",
+          "start": 276.41,
+          "end": 277.11,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " about",
+          "start": 277.11,
+          "end": 278.31,
+          "probability": 0.9404296875
+        },
+        {
+          "word": " Africa,",
+          "start": 279.05,
+          "end": 279.71,
+          "probability": 0.998046875
+        },
+        {
+          "word": " about",
+          "start": 280.85,
+          "end": 281.55,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " where",
+          "start": 281.55,
+          "end": 281.83,
+          "probability": 0.6611328125
+        },
+        {
+          "word": " I'm",
+          "start": 281.83,
+          "end": 282.01,
+          "probability": 0.943115234375
+        },
+        {
+          "word": " coming",
+          "start": 282.01,
+          "end": 282.23,
+          "probability": 0.9921875
+        },
+        {
+          "word": " from.",
+          "start": 282.23,
+          "end": 282.55,
+          "probability": 0.998046875
+        },
+        {
+          "word": " It's",
+          "start": 284.14,
+          "end": 284.4,
+          "probability": 0.98046875
+        },
+        {
+          "word": " not",
+          "start": 284.4,
+          "end": 284.58,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " us",
+          "start": 284.58,
+          "end": 284.94,
+          "probability": 0.5390625
+        },
+        {
+          "word": " who",
+          "start": 284.94,
+          "end": 285.14,
+          "probability": 0.380859375
+        },
+        {
+          "word": " wrote",
+          "start": 285.14,
+          "end": 285.24,
+          "probability": 0.970703125
+        },
+        {
+          "word": " the",
+          "start": 285.24,
+          "end": 285.44,
+          "probability": 0.962890625
+        },
+        {
+          "word": " history.",
+          "start": 285.44,
+          "end": 285.66,
+          "probability": 0.88232421875
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "start": 286.78,
+      "end": 292.46,
+      "text": "The information is there. When you go to Google or to the information found there,",
+      "avg_logprob": -0.20072115384615385,
+      "no_speech_prob": 0.1766357421875,
+      "compression_ratio": 1.691358024691358,
+      "words": [
+        {
+          "word": " The",
+          "start": 286.78,
+          "end": 286.96,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " information",
+          "start": 286.96,
+          "end": 287.34,
+          "probability": 0.998046875
+        },
+        {
+          "word": " is",
+          "start": 287.34,
+          "end": 287.68,
+          "probability": 0.85205078125
+        },
+        {
+          "word": " there.",
+          "start": 287.68,
+          "end": 287.9,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " When",
+          "start": 288.64,
+          "end": 288.82,
+          "probability": 0.9677734375
+        },
+        {
+          "word": " you",
+          "start": 288.82,
+          "end": 289.0,
+          "probability": 0.96484375
+        },
+        {
+          "word": " go",
+          "start": 289.0,
+          "end": 289.12,
+          "probability": 0.98828125
+        },
+        {
+          "word": " to",
+          "start": 289.12,
+          "end": 289.38,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " Google",
+          "start": 289.38,
+          "end": 289.72,
+          "probability": 0.974609375
+        },
+        {
+          "word": " or",
+          "start": 289.72,
+          "end": 290.0,
+          "probability": 0.693359375
+        },
+        {
+          "word": " to",
+          "start": 290.0,
+          "end": 290.34,
+          "probability": 0.7548828125
+        },
+        {
+          "word": " the",
+          "start": 290.34,
+          "end": 290.96,
+          "probability": 0.473388671875
+        },
+        {
+          "word": " information",
+          "start": 290.96,
+          "end": 291.56,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " found",
+          "start": 291.56,
+          "end": 292.1,
+          "probability": 0.82666015625
+        },
+        {
+          "word": " there,",
+          "start": 292.1,
+          "end": 292.46,
+          "probability": 0.9638671875
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "start": 292.46,
+      "end": 302.37,
+      "text": "his information is written by somebody else. He's been written by colonizer, not us. So",
+      "avg_logprob": -0.3210416563351949,
+      "no_speech_prob": 0.423828125,
+      "compression_ratio": 1.5112359550561798,
+      "words": [
+        {
+          "word": " his",
+          "start": 292.46,
+          "end": 292.76,
+          "probability": 0.11456298828125
+        },
+        {
+          "word": " information",
+          "start": 292.76,
+          "end": 293.04,
+          "probability": 0.60009765625
+        },
+        {
+          "word": " is",
+          "start": 293.04,
+          "end": 293.64,
+          "probability": 0.9208984375
+        },
+        {
+          "word": " written",
+          "start": 293.64,
+          "end": 294.4,
+          "probability": 0.966796875
+        },
+        {
+          "word": " by",
+          "start": 294.4,
+          "end": 294.98,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " somebody",
+          "start": 294.98,
+          "end": 295.76,
+          "probability": 0.0850830078125
+        },
+        {
+          "word": " else.",
+          "start": 295.76,
+          "end": 296.32,
+          "probability": 0.978515625
+        },
+        {
+          "word": " He's",
+          "start": 297.05,
+          "end": 297.37,
+          "probability": 0.738525390625
+        },
+        {
+          "word": " been",
+          "start": 297.37,
+          "end": 297.51,
+          "probability": 0.98388671875
+        },
+        {
+          "word": " written",
+          "start": 297.51,
+          "end": 297.81,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " by",
+          "start": 297.81,
+          "end": 298.17,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " colonizer,",
+          "start": 298.17,
+          "end": 298.93,
+          "probability": 0.68896484375
+        },
+        {
+          "word": " not",
+          "start": 300.26,
+          "end": 300.68,
+          "probability": 0.98681640625
+        },
+        {
+          "word": " us.",
+          "start": 300.68,
+          "end": 301.08,
+          "probability": 0.94140625
+        },
+        {
+          "word": " So",
+          "start": 301.93,
+          "end": 302.37,
+          "probability": 0.91064453125
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "start": 303.21,
+      "end": 338.53,
+      "text": "that's why I'm saying it's curated. I don't believe that the AIA can help us. No, I'm not,",
+      "avg_logprob": -0.3210416563351949,
+      "no_speech_prob": 0.423828125,
+      "compression_ratio": 1.5112359550561798,
+      "words": [
+        {
+          "word": " that's",
+          "start": 303.21,
+          "end": 303.59,
+          "probability": 0.8681640625
+        },
+        {
+          "word": " why",
+          "start": 303.59,
+          "end": 303.75,
+          "probability": 0.71240234375
+        },
+        {
+          "word": " I'm",
+          "start": 303.75,
+          "end": 303.89,
+          "probability": 0.4847412109375
+        },
+        {
+          "word": " saying",
+          "start": 303.89,
+          "end": 304.17,
+          "probability": 0.80712890625
+        },
+        {
+          "word": " it's",
+          "start": 304.17,
+          "end": 305.17,
+          "probability": 0.6072998046875
+        },
+        {
+          "word": " curated.",
+          "start": 305.17,
+          "end": 305.55,
+          "probability": 0.1839599609375
+        },
+        {
+          "word": " I",
+          "start": 332.44,
+          "end": 332.62,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " don't",
+          "start": 332.62,
+          "end": 332.76,
+          "probability": 0.994873046875
+        },
+        {
+          "word": " believe",
+          "start": 332.76,
+          "end": 332.94,
+          "probability": 0.91162109375
+        },
+        {
+          "word": " that",
+          "start": 332.94,
+          "end": 333.18,
+          "probability": 0.95263671875
+        },
+        {
+          "word": " the",
+          "start": 333.18,
+          "end": 333.4,
+          "probability": 0.79541015625
+        },
+        {
+          "word": " AIA",
+          "start": 333.4,
+          "end": 333.68,
+          "probability": 0.762451171875
+        },
+        {
+          "word": " can",
+          "start": 333.68,
+          "end": 334.18,
+          "probability": 0.8603515625
+        },
+        {
+          "word": " help",
+          "start": 334.18,
+          "end": 335.24,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " us.",
+          "start": 335.24,
+          "end": 335.6,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " No,",
+          "start": 337.49,
+          "end": 337.65,
+          "probability": 0.951171875
+        },
+        {
+          "word": " I'm",
+          "start": 338.09,
+          "end": 338.27,
+          "probability": 0.89697265625
+        },
+        {
+          "word": " not,",
+          "start": 338.27,
+          "end": 338.53,
+          "probability": 0.9970703125
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "start": 338.87,
+      "end": 354.24,
+      "text": "because the truth is not there and then they don't want to see the truth in this platform.",
+      "avg_logprob": -0.3210416563351949,
+      "no_speech_prob": 0.423828125,
+      "compression_ratio": 1.5112359550561798,
+      "words": [
+        {
+          "word": " because",
+          "start": 338.87,
+          "end": 339.23,
+          "probability": 0.95703125
+        },
+        {
+          "word": " the",
+          "start": 342.11,
+          "end": 344.03,
+          "probability": 0.415771484375
+        },
+        {
+          "word": " truth",
+          "start": 347.3,
+          "end": 348.88,
+          "probability": 0.783203125
+        },
+        {
+          "word": " is",
+          "start": 348.88,
+          "end": 349.1,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " not",
+          "start": 349.1,
+          "end": 349.26,
+          "probability": 0.998046875
+        },
+        {
+          "word": " there",
+          "start": 349.26,
+          "end": 349.56,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " and",
+          "start": 349.56,
+          "end": 350.16,
+          "probability": 0.3408203125
+        },
+        {
+          "word": " then",
+          "start": 350.16,
+          "end": 350.28,
+          "probability": 0.853515625
+        },
+        {
+          "word": " they",
+          "start": 350.28,
+          "end": 350.44,
+          "probability": 0.984375
+        },
+        {
+          "word": " don't",
+          "start": 350.44,
+          "end": 350.6,
+          "probability": 0.997314453125
+        },
+        {
+          "word": " want",
+          "start": 350.6,
+          "end": 350.78,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " to",
+          "start": 350.78,
+          "end": 350.94,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " see",
+          "start": 350.94,
+          "end": 351.12,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " the",
+          "start": 351.12,
+          "end": 351.28,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " truth",
+          "start": 351.28,
+          "end": 351.6,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " in",
+          "start": 351.6,
+          "end": 352.6,
+          "probability": 0.495361328125
+        },
+        {
+          "word": " this",
+          "start": 353.52,
+          "end": 353.7,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " platform.",
+          "start": 353.7,
+          "end": 354.24,
+          "probability": 0.99755859375
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "start": 368.63,
+      "end": 375.12,
+      "text": "Yeah, I'm saying like nothing, the information I'm working on, it cannot be this platform,",
+      "avg_logprob": -0.3486474005144034,
+      "no_speech_prob": 0.31494140625,
+      "compression_ratio": 1.7333333333333334,
+      "words": [
+        {
+          "word": " Yeah,",
+          "start": 368.63,
+          "end": 369.01,
+          "probability": 0.55810546875
+        },
+        {
+          "word": " I'm",
+          "start": 369.13,
+          "end": 369.31,
+          "probability": 0.700439453125
+        },
+        {
+          "word": " saying",
+          "start": 369.31,
+          "end": 369.53,
+          "probability": 0.196533203125
+        },
+        {
+          "word": " like",
+          "start": 369.53,
+          "end": 369.77,
+          "probability": 0.6142578125
+        },
+        {
+          "word": " nothing,",
+          "start": 369.77,
+          "end": 370.51,
+          "probability": 0.56591796875
+        },
+        {
+          "word": " the",
+          "start": 371.48,
+          "end": 372.24,
+          "probability": 0.79345703125
+        },
+        {
+          "word": " information",
+          "start": 372.24,
+          "end": 372.7,
+          "probability": 0.94873046875
+        },
+        {
+          "word": " I'm",
+          "start": 372.7,
+          "end": 373.08,
+          "probability": 0.689208984375
+        },
+        {
+          "word": " working",
+          "start": 373.08,
+          "end": 373.32,
+          "probability": 0.98095703125
+        },
+        {
+          "word": " on,",
+          "start": 373.32,
+          "end": 373.54,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " it",
+          "start": 373.6,
+          "end": 373.64,
+          "probability": 0.59423828125
+        },
+        {
+          "word": " cannot",
+          "start": 373.64,
+          "end": 373.92,
+          "probability": 0.92578125
+        },
+        {
+          "word": " be",
+          "start": 373.92,
+          "end": 374.3,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " this",
+          "start": 374.3,
+          "end": 374.66,
+          "probability": 0.927734375
+        },
+        {
+          "word": " platform,",
+          "start": 374.66,
+          "end": 375.12,
+          "probability": 0.998046875
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "start": 375.26,
+      "end": 386.4,
+      "text": "AI cannot help me, AI cannot help me anything because it could be against this platform,",
+      "avg_logprob": -0.3486474005144034,
+      "no_speech_prob": 0.31494140625,
+      "compression_ratio": 1.7333333333333334,
+      "words": [
+        {
+          "word": " AI",
+          "start": 375.26,
+          "end": 375.42,
+          "probability": 0.7216796875
+        },
+        {
+          "word": " cannot",
+          "start": 375.42,
+          "end": 375.86,
+          "probability": 0.93505859375
+        },
+        {
+          "word": " help",
+          "start": 375.86,
+          "end": 376.24,
+          "probability": 0.94287109375
+        },
+        {
+          "word": " me,",
+          "start": 376.24,
+          "end": 376.48,
+          "probability": 0.95947265625
+        },
+        {
+          "word": " AI",
+          "start": 376.58,
+          "end": 377.3,
+          "probability": 0.7900390625
+        },
+        {
+          "word": " cannot",
+          "start": 377.3,
+          "end": 377.82,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " help",
+          "start": 377.82,
+          "end": 378.2,
+          "probability": 0.994140625
+        },
+        {
+          "word": " me",
+          "start": 378.2,
+          "end": 378.5,
+          "probability": 0.9912109375
+        },
+        {
+          "word": " anything",
+          "start": 378.5,
+          "end": 379.0,
+          "probability": 0.609375
+        },
+        {
+          "word": " because",
+          "start": 379.0,
+          "end": 379.62,
+          "probability": 0.69384765625
+        },
+        {
+          "word": " it",
+          "start": 379.87,
+          "end": 381.31,
+          "probability": 0.69091796875
+        },
+        {
+          "word": " could",
+          "start": 381.31,
+          "end": 382.41,
+          "probability": 0.9638671875
+        },
+        {
+          "word": " be",
+          "start": 383.6,
+          "end": 383.84,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " against",
+          "start": 383.84,
+          "end": 384.36,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " this",
+          "start": 384.36,
+          "end": 385.52,
+          "probability": 0.97998046875
+        },
+        {
+          "word": " platform,",
+          "start": 385.84,
+          "end": 386.4,
+          "probability": 0.9990234375
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "start": 388.97,
+      "end": 405.68,
+      "text": "the truth, the truth could be against this platform. So, for example, when I am,",
+      "avg_logprob": -0.3486474005144034,
+      "no_speech_prob": 0.31494140625,
+      "compression_ratio": 1.7333333333333334,
+      "words": [
+        {
+          "word": " the",
+          "start": 388.97,
+          "end": 389.51,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " truth,",
+          "start": 389.51,
+          "end": 389.83,
+          "probability": 0.89208984375
+        },
+        {
+          "word": " the",
+          "start": 389.95,
+          "end": 390.65,
+          "probability": 0.9365234375
+        },
+        {
+          "word": " truth",
+          "start": 390.65,
+          "end": 390.89,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " could",
+          "start": 390.89,
+          "end": 391.11,
+          "probability": 0.87744140625
+        },
+        {
+          "word": " be",
+          "start": 391.11,
+          "end": 391.27,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " against",
+          "start": 391.27,
+          "end": 391.55,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " this",
+          "start": 391.55,
+          "end": 391.83,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " platform.",
+          "start": 391.83,
+          "end": 392.35,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " So,",
+          "start": 394.21,
+          "end": 394.31,
+          "probability": 0.8349609375
+        },
+        {
+          "word": " for",
+          "start": 400.45,
+          "end": 401.69,
+          "probability": 0.483154296875
+        },
+        {
+          "word": " example,",
+          "start": 403.84,
+          "end": 404.9,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " when",
+          "start": 405.06,
+          "end": 405.22,
+          "probability": 0.90771484375
+        },
+        {
+          "word": " I",
+          "start": 405.22,
+          "end": 405.4,
+          "probability": 0.96435546875
+        },
+        {
+          "word": " am,",
+          "start": 405.4,
+          "end": 405.68,
+          "probability": 0.260009765625
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "start": 405.68,
+      "end": 413.86,
+      "text": "I want to talk about, if I talk about AI, it's good.",
+      "avg_logprob": -0.3027935709917184,
+      "no_speech_prob": 0.62939453125,
+      "compression_ratio": 1.4743589743589745,
+      "words": [
+        {
+          "word": " I",
+          "start": 405.68,
+          "end": 406.72,
+          "probability": 0.2318115234375
+        },
+        {
+          "word": " want",
+          "start": 407.96,
+          "end": 408.1,
+          "probability": 0.70703125
+        },
+        {
+          "word": " to",
+          "start": 408.1,
+          "end": 408.24,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " talk",
+          "start": 408.24,
+          "end": 408.46,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " about,",
+          "start": 408.46,
+          "end": 409.0,
+          "probability": 0.96875
+        },
+        {
+          "word": " if",
+          "start": 409.22,
+          "end": 409.64,
+          "probability": 0.568359375
+        },
+        {
+          "word": " I",
+          "start": 409.64,
+          "end": 409.74,
+          "probability": 0.9423828125
+        },
+        {
+          "word": " talk",
+          "start": 409.74,
+          "end": 409.96,
+          "probability": 0.97265625
+        },
+        {
+          "word": " about",
+          "start": 409.96,
+          "end": 410.38,
+          "probability": 0.98828125
+        },
+        {
+          "word": " AI,",
+          "start": 410.38,
+          "end": 411.52,
+          "probability": 0.8916015625
+        },
+        {
+          "word": " it's",
+          "start": 413.0,
+          "end": 413.66,
+          "probability": 0.717529296875
+        },
+        {
+          "word": " good.",
+          "start": 413.66,
+          "end": 413.86,
+          "probability": 0.99365234375
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "start": 414.52,
+      "end": 417.24,
+      "text": "AI is good, artificial intelligence.",
+      "avg_logprob": -0.3027935709917184,
+      "no_speech_prob": 0.62939453125,
+      "compression_ratio": 1.4743589743589745,
+      "words": [
+        {
+          "word": " AI",
+          "start": 414.52,
+          "end": 414.84,
+          "probability": 0.52001953125
+        },
+        {
+          "word": " is",
+          "start": 414.84,
+          "end": 415.14,
+          "probability": 0.94775390625
+        },
+        {
+          "word": " good,",
+          "start": 415.14,
+          "end": 415.38,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " artificial",
+          "start": 416.04,
+          "end": 416.46,
+          "probability": 0.8310546875
+        },
+        {
+          "word": " intelligence.",
+          "start": 416.46,
+          "end": 417.24,
+          "probability": 0.916015625
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "start": 418.24,
+      "end": 423.92,
+      "text": "Okay, but if I put the real information, how?",
+      "avg_logprob": -0.3027935709917184,
+      "no_speech_prob": 0.62939453125,
+      "compression_ratio": 1.4743589743589745,
+      "words": [
+        {
+          "word": " Okay,",
+          "start": 418.24,
+          "end": 418.58,
+          "probability": 0.68408203125
+        },
+        {
+          "word": " but",
+          "start": 419.06,
+          "end": 419.42,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " if",
+          "start": 419.42,
+          "end": 420.94,
+          "probability": 0.9287109375
+        },
+        {
+          "word": " I",
+          "start": 420.94,
+          "end": 421.26,
+          "probability": 0.7412109375
+        },
+        {
+          "word": " put",
+          "start": 421.26,
+          "end": 421.58,
+          "probability": 0.61669921875
+        },
+        {
+          "word": " the",
+          "start": 421.58,
+          "end": 421.84,
+          "probability": 0.873046875
+        },
+        {
+          "word": " real",
+          "start": 421.84,
+          "end": 422.04,
+          "probability": 0.94970703125
+        },
+        {
+          "word": " information,",
+          "start": 422.04,
+          "end": 422.5,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " how?",
+          "start": 423.36,
+          "end": 423.92,
+          "probability": 0.9794921875
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "start": 425.71,
+      "end": 431.96,
+      "text": "How they get this mineral resource to make a ship for this machine?",
+      "avg_logprob": -0.3027935709917184,
+      "no_speech_prob": 0.62939453125,
+      "compression_ratio": 1.4743589743589745,
+      "words": [
+        {
+          "word": " How",
+          "start": 425.71,
+          "end": 426.39,
+          "probability": 0.96337890625
+        },
+        {
+          "word": " they",
+          "start": 426.39,
+          "end": 427.47,
+          "probability": 0.69482421875
+        },
+        {
+          "word": " get",
+          "start": 427.5,
+          "end": 427.92,
+          "probability": 0.994140625
+        },
+        {
+          "word": " this",
+          "start": 427.92,
+          "end": 428.24,
+          "probability": 0.79638671875
+        },
+        {
+          "word": " mineral",
+          "start": 428.24,
+          "end": 428.62,
+          "probability": 0.1414794921875
+        },
+        {
+          "word": " resource",
+          "start": 428.62,
+          "end": 429.24,
+          "probability": 0.95947265625
+        },
+        {
+          "word": " to",
+          "start": 429.24,
+          "end": 429.72,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " make",
+          "start": 429.72,
+          "end": 430.0,
+          "probability": 0.998046875
+        },
+        {
+          "word": " a",
+          "start": 430.0,
+          "end": 430.28,
+          "probability": 0.783203125
+        },
+        {
+          "word": " ship",
+          "start": 430.28,
+          "end": 430.66,
+          "probability": 0.82275390625
+        },
+        {
+          "word": " for",
+          "start": 430.66,
+          "end": 431.18,
+          "probability": 0.97314453125
+        },
+        {
+          "word": " this",
+          "start": 431.18,
+          "end": 431.46,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " machine?",
+          "start": 431.46,
+          "end": 431.96,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "start": 432.44,
+      "end": 433.92,
+      "text": "For this machine learning?",
+      "avg_logprob": -0.3027935709917184,
+      "no_speech_prob": 0.62939453125,
+      "compression_ratio": 1.4743589743589745,
+      "words": [
+        {
+          "word": " For",
+          "start": 432.44,
+          "end": 433.04,
+          "probability": 0.9482421875
+        },
+        {
+          "word": " this",
+          "start": 433.04,
+          "end": 433.2,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " machine",
+          "start": 433.2,
+          "end": 433.6,
+          "probability": 0.9921875
+        },
+        {
+          "word": " learning?",
+          "start": 433.6,
+          "end": 433.92,
+          "probability": 0.96435546875
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "start": 433.92,
+      "end": 447.81,
+      "text": "so we go deeper because everything sounds beautiful but a lot of these",
+      "avg_logprob": -0.2484374910593033,
+      "no_speech_prob": 0.63818359375,
+      "compression_ratio": 1.5664335664335665,
+      "words": [
+        {
+          "word": " so",
+          "start": 433.92,
+          "end": 435.0,
+          "probability": 0.054443359375
+        },
+        {
+          "word": " we",
+          "start": 436.85,
+          "end": 437.93,
+          "probability": 0.7724609375
+        },
+        {
+          "word": " go",
+          "start": 438.54,
+          "end": 438.76,
+          "probability": 0.876953125
+        },
+        {
+          "word": " deeper",
+          "start": 438.76,
+          "end": 439.16,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " because",
+          "start": 439.16,
+          "end": 440.4,
+          "probability": 0.84814453125
+        },
+        {
+          "word": " everything",
+          "start": 441.68,
+          "end": 442.1,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " sounds",
+          "start": 442.1,
+          "end": 442.5,
+          "probability": 0.98486328125
+        },
+        {
+          "word": " beautiful",
+          "start": 442.5,
+          "end": 443.12,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " but",
+          "start": 443.12,
+          "end": 445.1,
+          "probability": 0.58203125
+        },
+        {
+          "word": " a",
+          "start": 445.74,
+          "end": 447.04,
+          "probability": 0.88037109375
+        },
+        {
+          "word": " lot",
+          "start": 447.17,
+          "end": 447.31,
+          "probability": 0.998046875
+        },
+        {
+          "word": " of",
+          "start": 447.31,
+          "end": 447.51,
+          "probability": 0.998046875
+        },
+        {
+          "word": " these",
+          "start": 447.51,
+          "end": 447.81,
+          "probability": 0.83251953125
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "start": 447.81,
+      "end": 455.72,
+      "text": "mineral resources coming from Congo they say Congo it's poor country it's",
+      "avg_logprob": -0.2484374910593033,
+      "no_speech_prob": 0.63818359375,
+      "compression_ratio": 1.5664335664335665,
+      "words": [
+        {
+          "word": " mineral",
+          "start": 447.81,
+          "end": 448.09,
+          "probability": 0.93798828125
+        },
+        {
+          "word": " resources",
+          "start": 448.09,
+          "end": 448.77,
+          "probability": 0.986328125
+        },
+        {
+          "word": " coming",
+          "start": 448.77,
+          "end": 449.33,
+          "probability": 0.88720703125
+        },
+        {
+          "word": " from",
+          "start": 449.33,
+          "end": 449.67,
+          "probability": 0.99609375
+        },
+        {
+          "word": " Congo",
+          "start": 449.67,
+          "end": 450.11,
+          "probability": 0.93896484375
+        },
+        {
+          "word": " they",
+          "start": 450.11,
+          "end": 451.21,
+          "probability": 0.8095703125
+        },
+        {
+          "word": " say",
+          "start": 452.3,
+          "end": 452.58,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " Congo",
+          "start": 452.58,
+          "end": 453.02,
+          "probability": 0.796875
+        },
+        {
+          "word": " it's",
+          "start": 453.02,
+          "end": 454.02,
+          "probability": 0.716552734375
+        },
+        {
+          "word": " poor",
+          "start": 454.02,
+          "end": 454.28,
+          "probability": 0.73974609375
+        },
+        {
+          "word": " country",
+          "start": 454.28,
+          "end": 454.84,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " it's",
+          "start": 454.84,
+          "end": 455.72,
+          "probability": 0.8154296875
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "start": 455.72,
+      "end": 463.52,
+      "text": "what what Congo is most rich country in Africa because they have all of mineral",
+      "avg_logprob": -0.2484374910593033,
+      "no_speech_prob": 0.63818359375,
+      "compression_ratio": 1.5664335664335665,
+      "words": [
+        {
+          "word": " what",
+          "start": 455.72,
+          "end": 455.92,
+          "probability": 0.64208984375
+        },
+        {
+          "word": " what",
+          "start": 455.92,
+          "end": 456.26,
+          "probability": 0.3779296875
+        },
+        {
+          "word": " Congo",
+          "start": 456.29,
+          "end": 457.33,
+          "probability": 0.445068359375
+        },
+        {
+          "word": " is",
+          "start": 457.33,
+          "end": 457.59,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " most",
+          "start": 457.59,
+          "end": 457.89,
+          "probability": 0.72119140625
+        },
+        {
+          "word": " rich",
+          "start": 457.89,
+          "end": 458.43,
+          "probability": 0.9677734375
+        },
+        {
+          "word": " country",
+          "start": 458.43,
+          "end": 459.01,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " in",
+          "start": 459.01,
+          "end": 459.79,
+          "probability": 0.99609375
+        },
+        {
+          "word": " Africa",
+          "start": 459.79,
+          "end": 460.15,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " because",
+          "start": 460.15,
+          "end": 461.43,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " they",
+          "start": 462.04,
+          "end": 462.36,
+          "probability": 0.9736328125
+        },
+        {
+          "word": " have",
+          "start": 462.36,
+          "end": 462.52,
+          "probability": 0.90478515625
+        },
+        {
+          "word": " all",
+          "start": 462.52,
+          "end": 463.02,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " of",
+          "start": 463.02,
+          "end": 463.22,
+          "probability": 0.96728515625
+        },
+        {
+          "word": " mineral",
+          "start": 463.22,
+          "end": 463.52,
+          "probability": 0.90087890625
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "start": 463.52,
+      "end": 476.28,
+      "text": "resource. That's why war in Congo doesn't end. They're still slavering Congo. They're using kids",
+      "avg_logprob": -0.26630433746006177,
+      "no_speech_prob": 0.7216796875,
+      "compression_ratio": 1.5689655172413792,
+      "words": [
+        {
+          "word": " resource.",
+          "start": 463.52,
+          "end": 464.0,
+          "probability": 0.37646484375
+        },
+        {
+          "word": " That's",
+          "start": 466.43,
+          "end": 466.79,
+          "probability": 0.896728515625
+        },
+        {
+          "word": " why",
+          "start": 466.79,
+          "end": 467.05,
+          "probability": 0.9775390625
+        },
+        {
+          "word": " war",
+          "start": 467.5,
+          "end": 468.86,
+          "probability": 0.7822265625
+        },
+        {
+          "word": " in",
+          "start": 468.86,
+          "end": 469.2,
+          "probability": 0.970703125
+        },
+        {
+          "word": " Congo",
+          "start": 469.2,
+          "end": 469.74,
+          "probability": 0.90576171875
+        },
+        {
+          "word": " doesn't",
+          "start": 469.74,
+          "end": 470.34,
+          "probability": 0.96923828125
+        },
+        {
+          "word": " end.",
+          "start": 470.34,
+          "end": 470.72,
+          "probability": 0.89306640625
+        },
+        {
+          "word": " They're",
+          "start": 472.7,
+          "end": 473.12,
+          "probability": 0.51214599609375
+        },
+        {
+          "word": " still",
+          "start": 473.12,
+          "end": 473.12,
+          "probability": 0.96533203125
+        },
+        {
+          "word": " slavering",
+          "start": 473.12,
+          "end": 473.74,
+          "probability": 0.7080078125
+        },
+        {
+          "word": " Congo.",
+          "start": 473.74,
+          "end": 474.12,
+          "probability": 0.9208984375
+        },
+        {
+          "word": " They're",
+          "start": 475.16,
+          "end": 475.4,
+          "probability": 0.9375
+        },
+        {
+          "word": " using",
+          "start": 475.4,
+          "end": 475.64,
+          "probability": 0.99609375
+        },
+        {
+          "word": " kids",
+          "start": 475.64,
+          "end": 476.28,
+          "probability": 0.9755859375
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "start": 477.96,
+      "end": 484.65,
+      "text": "to go to mines to get these mineral resources and then to build these machines.",
+      "avg_logprob": -0.26630433746006177,
+      "no_speech_prob": 0.7216796875,
+      "compression_ratio": 1.5689655172413792,
+      "words": [
+        {
+          "word": " to",
+          "start": 477.96,
+          "end": 478.35,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " go",
+          "start": 478.35,
+          "end": 478.55,
+          "probability": 0.986328125
+        },
+        {
+          "word": " to",
+          "start": 478.55,
+          "end": 478.75,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " mines",
+          "start": 478.75,
+          "end": 479.19,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " to",
+          "start": 479.19,
+          "end": 479.67,
+          "probability": 0.78564453125
+        },
+        {
+          "word": " get",
+          "start": 479.67,
+          "end": 479.97,
+          "probability": 0.99609375
+        },
+        {
+          "word": " these",
+          "start": 479.97,
+          "end": 480.35,
+          "probability": 0.7783203125
+        },
+        {
+          "word": " mineral",
+          "start": 480.35,
+          "end": 480.65,
+          "probability": 0.8095703125
+        },
+        {
+          "word": " resources",
+          "start": 480.65,
+          "end": 481.23,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " and",
+          "start": 481.61,
+          "end": 482.65,
+          "probability": 0.71435546875
+        },
+        {
+          "word": " then",
+          "start": 482.65,
+          "end": 482.87,
+          "probability": 0.9111328125
+        },
+        {
+          "word": " to",
+          "start": 482.87,
+          "end": 483.31,
+          "probability": 0.9677734375
+        },
+        {
+          "word": " build",
+          "start": 483.31,
+          "end": 483.69,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " these",
+          "start": 483.69,
+          "end": 483.97,
+          "probability": 0.92822265625
+        },
+        {
+          "word": " machines.",
+          "start": 483.97,
+          "end": 484.65,
+          "probability": 0.986328125
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "start": 485.99,
+      "end": 495.8,
+      "text": "No, these machines that we are using for mobile phone, computer, everything. But when I put this",
+      "avg_logprob": -0.26630433746006177,
+      "no_speech_prob": 0.7216796875,
+      "compression_ratio": 1.5689655172413792,
+      "words": [
+        {
+          "word": " No,",
+          "start": 485.99,
+          "end": 486.05,
+          "probability": 0.189453125
+        },
+        {
+          "word": " these",
+          "start": 486.13,
+          "end": 486.25,
+          "probability": 0.60205078125
+        },
+        {
+          "word": " machines",
+          "start": 486.25,
+          "end": 486.93,
+          "probability": 0.8232421875
+        },
+        {
+          "word": " that",
+          "start": 487.7,
+          "end": 488.96,
+          "probability": 0.57470703125
+        },
+        {
+          "word": " we",
+          "start": 488.96,
+          "end": 489.2,
+          "probability": 0.6162109375
+        },
+        {
+          "word": " are",
+          "start": 489.2,
+          "end": 489.28,
+          "probability": 0.88232421875
+        },
+        {
+          "word": " using",
+          "start": 489.28,
+          "end": 489.68,
+          "probability": 0.998046875
+        },
+        {
+          "word": " for",
+          "start": 489.68,
+          "end": 490.44,
+          "probability": 0.771484375
+        },
+        {
+          "word": " mobile",
+          "start": 490.44,
+          "end": 490.74,
+          "probability": 0.97412109375
+        },
+        {
+          "word": " phone,",
+          "start": 490.74,
+          "end": 491.48,
+          "probability": 0.7802734375
+        },
+        {
+          "word": " computer,",
+          "start": 491.72,
+          "end": 492.56,
+          "probability": 0.74169921875
+        },
+        {
+          "word": " everything.",
+          "start": 493.0,
+          "end": 493.78,
+          "probability": 0.966796875
+        },
+        {
+          "word": " But",
+          "start": 494.62,
+          "end": 494.9,
+          "probability": 0.98876953125
+        },
+        {
+          "word": " when",
+          "start": 494.9,
+          "end": 495.14,
+          "probability": 0.9765625
+        },
+        {
+          "word": " I",
+          "start": 495.14,
+          "end": 495.32,
+          "probability": 0.9609375
+        },
+        {
+          "word": " put",
+          "start": 495.32,
+          "end": 495.56,
+          "probability": 0.966796875
+        },
+        {
+          "word": " this",
+          "start": 495.56,
+          "end": 495.8,
+          "probability": 0.9296875
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "start": 495.8,
+      "end": 504.81,
+      "text": "This information there, the truth, we not found this information because those companies",
+      "avg_logprob": -0.3365384642130289,
+      "no_speech_prob": 0.3388671875,
+      "compression_ratio": 1.5459183673469388,
+      "words": [
+        {
+          "word": " This",
+          "start": 495.8,
+          "end": 495.8,
+          "probability": 0.0506591796875
+        },
+        {
+          "word": " information",
+          "start": 495.8,
+          "end": 496.5,
+          "probability": 0.88037109375
+        },
+        {
+          "word": " there,",
+          "start": 496.5,
+          "end": 496.98,
+          "probability": 0.1690673828125
+        },
+        {
+          "word": " the",
+          "start": 499.89,
+          "end": 500.09,
+          "probability": 0.8037109375
+        },
+        {
+          "word": " truth,",
+          "start": 500.09,
+          "end": 500.39,
+          "probability": 0.81005859375
+        },
+        {
+          "word": " we",
+          "start": 501.43,
+          "end": 501.59,
+          "probability": 0.6474609375
+        },
+        {
+          "word": " not",
+          "start": 501.59,
+          "end": 501.75,
+          "probability": 0.432861328125
+        },
+        {
+          "word": " found",
+          "start": 501.75,
+          "end": 502.05,
+          "probability": 0.89111328125
+        },
+        {
+          "word": " this",
+          "start": 502.05,
+          "end": 502.23,
+          "probability": 0.86328125
+        },
+        {
+          "word": " information",
+          "start": 502.23,
+          "end": 502.81,
+          "probability": 0.994140625
+        },
+        {
+          "word": " because",
+          "start": 502.81,
+          "end": 503.87,
+          "probability": 0.52001953125
+        },
+        {
+          "word": " those",
+          "start": 503.87,
+          "end": 504.31,
+          "probability": 0.95068359375
+        },
+        {
+          "word": " companies",
+          "start": 504.31,
+          "end": 504.81,
+          "probability": 0.90478515625
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "start": 504.81,
+      "end": 511.44,
+      "text": "have a power, power, strong power to control everything.",
+      "avg_logprob": -0.3365384642130289,
+      "no_speech_prob": 0.3388671875,
+      "compression_ratio": 1.5459183673469388,
+      "words": [
+        {
+          "word": " have",
+          "start": 504.81,
+          "end": 505.13,
+          "probability": 0.62109375
+        },
+        {
+          "word": " a",
+          "start": 505.13,
+          "end": 505.25,
+          "probability": 0.5322265625
+        },
+        {
+          "word": " power,",
+          "start": 505.25,
+          "end": 505.85,
+          "probability": 0.8076171875
+        },
+        {
+          "word": " power,",
+          "start": 508.72,
+          "end": 509.2,
+          "probability": 0.308837890625
+        },
+        {
+          "word": " strong",
+          "start": 509.4,
+          "end": 509.68,
+          "probability": 0.80859375
+        },
+        {
+          "word": " power",
+          "start": 509.68,
+          "end": 510.1,
+          "probability": 0.9765625
+        },
+        {
+          "word": " to",
+          "start": 510.1,
+          "end": 510.28,
+          "probability": 0.96240234375
+        },
+        {
+          "word": " control",
+          "start": 510.28,
+          "end": 510.78,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " everything.",
+          "start": 510.78,
+          "end": 511.44,
+          "probability": 0.9814453125
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "start": 530.94,
+      "end": 539.32,
+      "text": "For me now I am like, for example, I am, it's a tough time now with AI because anyone can",
+      "avg_logprob": -0.3365384642130289,
+      "no_speech_prob": 0.3388671875,
+      "compression_ratio": 1.5459183673469388,
+      "words": [
+        {
+          "word": " For",
+          "start": 530.94,
+          "end": 531.08,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " me",
+          "start": 531.08,
+          "end": 531.32,
+          "probability": 0.99169921875
+        },
+        {
+          "word": " now",
+          "start": 531.32,
+          "end": 531.52,
+          "probability": 0.86474609375
+        },
+        {
+          "word": " I",
+          "start": 531.52,
+          "end": 531.74,
+          "probability": 0.50439453125
+        },
+        {
+          "word": " am",
+          "start": 531.74,
+          "end": 532.0,
+          "probability": 0.83203125
+        },
+        {
+          "word": " like,",
+          "start": 532.0,
+          "end": 532.32,
+          "probability": 0.61865234375
+        },
+        {
+          "word": " for",
+          "start": 532.44,
+          "end": 532.56,
+          "probability": 0.96875
+        },
+        {
+          "word": " example,",
+          "start": 532.56,
+          "end": 532.82,
+          "probability": 0.986328125
+        },
+        {
+          "word": " I",
+          "start": 532.96,
+          "end": 533.02,
+          "probability": 0.52392578125
+        },
+        {
+          "word": " am,",
+          "start": 533.02,
+          "end": 533.28,
+          "probability": 0.63330078125
+        },
+        {
+          "word": " it's",
+          "start": 533.38,
+          "end": 533.5,
+          "probability": 0.895263671875
+        },
+        {
+          "word": " a",
+          "start": 533.5,
+          "end": 533.58,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " tough",
+          "start": 533.58,
+          "end": 533.94,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " time",
+          "start": 533.94,
+          "end": 534.3,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " now",
+          "start": 534.3,
+          "end": 534.66,
+          "probability": 0.98583984375
+        },
+        {
+          "word": " with",
+          "start": 534.66,
+          "end": 535.4,
+          "probability": 0.93896484375
+        },
+        {
+          "word": " AI",
+          "start": 535.4,
+          "end": 535.76,
+          "probability": 0.96044921875
+        },
+        {
+          "word": " because",
+          "start": 535.76,
+          "end": 537.16,
+          "probability": 0.74951171875
+        },
+        {
+          "word": " anyone",
+          "start": 538.06,
+          "end": 538.94,
+          "probability": 0.9609375
+        },
+        {
+          "word": " can",
+          "start": 538.94,
+          "end": 539.32,
+          "probability": 0.99658203125
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "start": 539.32,
+      "end": 547.61,
+      "text": "just go to AI, write something and then can AI do the work for you.",
+      "avg_logprob": -0.3365384642130289,
+      "no_speech_prob": 0.3388671875,
+      "compression_ratio": 1.5459183673469388,
+      "words": [
+        {
+          "word": " just",
+          "start": 539.32,
+          "end": 539.66,
+          "probability": 0.99560546875
+        },
+        {
+          "word": " go",
+          "start": 539.66,
+          "end": 540.04,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " to",
+          "start": 540.04,
+          "end": 540.3,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " AI,",
+          "start": 540.3,
+          "end": 540.72,
+          "probability": 0.98046875
+        },
+        {
+          "word": " write",
+          "start": 541.08,
+          "end": 541.34,
+          "probability": 0.96435546875
+        },
+        {
+          "word": " something",
+          "start": 541.34,
+          "end": 541.84,
+          "probability": 0.9970703125
+        },
+        {
+          "word": " and",
+          "start": 541.84,
+          "end": 542.24,
+          "probability": 0.61376953125
+        },
+        {
+          "word": " then",
+          "start": 542.24,
+          "end": 542.52,
+          "probability": 0.95556640625
+        },
+        {
+          "word": " can",
+          "start": 542.52,
+          "end": 543.58,
+          "probability": 0.69091796875
+        },
+        {
+          "word": " AI",
+          "start": 544.57,
+          "end": 545.35,
+          "probability": 0.6357421875
+        },
+        {
+          "word": " do",
+          "start": 545.35,
+          "end": 545.85,
+          "probability": 0.9833984375
+        },
+        {
+          "word": " the",
+          "start": 545.85,
+          "end": 546.81,
+          "probability": 0.70361328125
+        },
+        {
+          "word": " work",
+          "start": 546.81,
+          "end": 547.13,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " for",
+          "start": 547.13,
+          "end": 547.43,
+          "probability": 0.99609375
+        },
+        {
+          "word": " you.",
+          "start": 547.43,
+          "end": 547.61,
+          "probability": 0.93798828125
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "start": 547.8,
+      "end": 556.47,
+      "text": "So, now we start to question, as a profession, which position am I going to be?",
+      "avg_logprob": -0.3124999960786418,
+      "no_speech_prob": 0.3623046875,
+      "compression_ratio": 1.5470588235294118,
+      "words": [
+        {
+          "word": " So,",
+          "start": 547.8,
+          "end": 548.82,
+          "probability": 0.3056640625
+        },
+        {
+          "word": " now",
+          "start": 549.32,
+          "end": 549.84,
+          "probability": 0.95458984375
+        },
+        {
+          "word": " we",
+          "start": 549.84,
+          "end": 550.02,
+          "probability": 0.86962890625
+        },
+        {
+          "word": " start",
+          "start": 550.02,
+          "end": 550.18,
+          "probability": 0.95166015625
+        },
+        {
+          "word": " to",
+          "start": 550.18,
+          "end": 550.46,
+          "probability": 0.8427734375
+        },
+        {
+          "word": " question,",
+          "start": 550.46,
+          "end": 550.76,
+          "probability": 0.994140625
+        },
+        {
+          "word": " as",
+          "start": 552.94,
+          "end": 553.2,
+          "probability": 0.94677734375
+        },
+        {
+          "word": " a",
+          "start": 553.2,
+          "end": 553.34,
+          "probability": 0.99609375
+        },
+        {
+          "word": " profession,",
+          "start": 553.34,
+          "end": 553.78,
+          "probability": 0.84912109375
+        },
+        {
+          "word": " which",
+          "start": 555.05,
+          "end": 555.15,
+          "probability": 0.9716796875
+        },
+        {
+          "word": " position",
+          "start": 555.15,
+          "end": 555.73,
+          "probability": 0.99609375
+        },
+        {
+          "word": " am",
+          "start": 555.73,
+          "end": 555.95,
+          "probability": 0.267578125
+        },
+        {
+          "word": " I",
+          "start": 555.95,
+          "end": 556.03,
+          "probability": 0.75732421875
+        },
+        {
+          "word": " going",
+          "start": 556.03,
+          "end": 556.03,
+          "probability": 0.7919921875
+        },
+        {
+          "word": " to",
+          "start": 556.03,
+          "end": 556.21,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " be?",
+          "start": 556.21,
+          "end": 556.47,
+          "probability": 0.9951171875
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "start": 558.32,
+      "end": 564.32,
+      "text": "As an artist, I started to think as a photographer, somebody just go to AI, type some code and",
+      "avg_logprob": -0.3124999960786418,
+      "no_speech_prob": 0.3623046875,
+      "compression_ratio": 1.5470588235294118,
+      "words": [
+        {
+          "word": " As",
+          "start": 558.32,
+          "end": 558.64,
+          "probability": 0.86865234375
+        },
+        {
+          "word": " an",
+          "start": 558.64,
+          "end": 558.84,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " artist,",
+          "start": 558.84,
+          "end": 559.16,
+          "probability": 0.9921875
+        },
+        {
+          "word": " I",
+          "start": 559.34,
+          "end": 559.52,
+          "probability": 0.452880859375
+        },
+        {
+          "word": " started",
+          "start": 559.52,
+          "end": 559.8,
+          "probability": 0.76171875
+        },
+        {
+          "word": " to",
+          "start": 559.8,
+          "end": 560.0,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " think",
+          "start": 560.0,
+          "end": 560.28,
+          "probability": 0.990234375
+        },
+        {
+          "word": " as",
+          "start": 560.28,
+          "end": 560.48,
+          "probability": 0.458251953125
+        },
+        {
+          "word": " a",
+          "start": 560.48,
+          "end": 560.62,
+          "probability": 0.9931640625
+        },
+        {
+          "word": " photographer,",
+          "start": 560.62,
+          "end": 561.06,
+          "probability": 0.9443359375
+        },
+        {
+          "word": " somebody",
+          "start": 561.34,
+          "end": 561.58,
+          "probability": 0.486083984375
+        },
+        {
+          "word": " just",
+          "start": 561.58,
+          "end": 562.0,
+          "probability": 0.443115234375
+        },
+        {
+          "word": " go",
+          "start": 562.0,
+          "end": 562.22,
+          "probability": 0.6591796875
+        },
+        {
+          "word": " to",
+          "start": 562.22,
+          "end": 562.4,
+          "probability": 0.95703125
+        },
+        {
+          "word": " AI,",
+          "start": 562.4,
+          "end": 562.72,
+          "probability": 0.6513671875
+        },
+        {
+          "word": " type",
+          "start": 563.22,
+          "end": 563.3,
+          "probability": 0.95849609375
+        },
+        {
+          "word": " some",
+          "start": 563.3,
+          "end": 563.68,
+          "probability": 0.93115234375
+        },
+        {
+          "word": " code",
+          "start": 563.68,
+          "end": 564.08,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " and",
+          "start": 564.08,
+          "end": 564.32,
+          "probability": 0.59228515625
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "start": 564.32,
+      "end": 566.26,
+      "text": "then got nice image, fantastic.",
+      "avg_logprob": -0.3124999960786418,
+      "no_speech_prob": 0.3623046875,
+      "compression_ratio": 1.5470588235294118,
+      "words": [
+        {
+          "word": " then",
+          "start": 564.32,
+          "end": 564.5,
+          "probability": 0.7080078125
+        },
+        {
+          "word": " got",
+          "start": 564.5,
+          "end": 564.9,
+          "probability": 0.8310546875
+        },
+        {
+          "word": " nice",
+          "start": 564.9,
+          "end": 565.22,
+          "probability": 0.841796875
+        },
+        {
+          "word": " image,",
+          "start": 565.22,
+          "end": 565.62,
+          "probability": 0.947265625
+        },
+        {
+          "word": " fantastic.",
+          "start": 565.78,
+          "end": 566.26,
+          "probability": 0.853515625
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "start": 567.46,
+      "end": 568.02,
+      "text": "Good.",
+      "avg_logprob": -0.3124999960786418,
+      "no_speech_prob": 0.3623046875,
+      "compression_ratio": 1.5470588235294118,
+      "words": [
+        {
+          "word": " Good.",
+          "start": 567.46,
+          "end": 568.02,
+          "probability": 0.77490234375
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "start": 568.5,
+      "end": 572.57,
+      "text": "So, we start to question, where is the artist now?",
+      "avg_logprob": -0.3124999960786418,
+      "no_speech_prob": 0.3623046875,
+      "compression_ratio": 1.5470588235294118,
+      "words": [
+        {
+          "word": " So,",
+          "start": 568.5,
+          "end": 568.86,
+          "probability": 0.97705078125
+        },
+        {
+          "word": " we",
+          "start": 569.06,
+          "end": 569.2,
+          "probability": 0.98291015625
+        },
+        {
+          "word": " start",
+          "start": 569.2,
+          "end": 569.36,
+          "probability": 0.884765625
+        },
+        {
+          "word": " to",
+          "start": 569.36,
+          "end": 569.5,
+          "probability": 0.73193359375
+        },
+        {
+          "word": " question,",
+          "start": 569.5,
+          "end": 569.86,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " where",
+          "start": 570.87,
+          "end": 571.15,
+          "probability": 0.908203125
+        },
+        {
+          "word": " is",
+          "start": 571.15,
+          "end": 571.39,
+          "probability": 0.97802734375
+        },
+        {
+          "word": " the",
+          "start": 571.39,
+          "end": 571.57,
+          "probability": 0.99072265625
+        },
+        {
+          "word": " artist",
+          "start": 571.57,
+          "end": 572.01,
+          "probability": 0.97607421875
+        },
+        {
+          "word": " now?",
+          "start": 572.01,
+          "end": 572.57,
+          "probability": 0.97802734375
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "start": 573.05,
+      "end": 579.63,
+      "text": "how are we going to know this book is coming from his knowledge or is coming",
+      "avg_logprob": -0.3352272813970392,
+      "no_speech_prob": 0.286376953125,
+      "compression_ratio": 1.5442176870748299,
+      "words": [
+        {
+          "word": " how",
+          "start": 573.05,
+          "end": 574.01,
+          "probability": 0.09576416015625
+        },
+        {
+          "word": " are",
+          "start": 574.01,
+          "end": 574.15,
+          "probability": 0.54248046875
+        },
+        {
+          "word": " we",
+          "start": 574.15,
+          "end": 574.17,
+          "probability": 0.80126953125
+        },
+        {
+          "word": " going",
+          "start": 574.17,
+          "end": 574.25,
+          "probability": 0.7001953125
+        },
+        {
+          "word": " to",
+          "start": 574.25,
+          "end": 574.33,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " know",
+          "start": 574.33,
+          "end": 574.51,
+          "probability": 0.9794921875
+        },
+        {
+          "word": " this",
+          "start": 574.51,
+          "end": 574.87,
+          "probability": 0.8046875
+        },
+        {
+          "word": " book",
+          "start": 574.87,
+          "end": 575.31,
+          "probability": 0.978515625
+        },
+        {
+          "word": " is",
+          "start": 575.31,
+          "end": 575.95,
+          "probability": 0.79248046875
+        },
+        {
+          "word": " coming",
+          "start": 575.95,
+          "end": 576.35,
+          "probability": 0.990234375
+        },
+        {
+          "word": " from",
+          "start": 576.35,
+          "end": 576.69,
+          "probability": 0.98193359375
+        },
+        {
+          "word": " his",
+          "start": 576.69,
+          "end": 577.09,
+          "probability": 0.9287109375
+        },
+        {
+          "word": " knowledge",
+          "start": 577.09,
+          "end": 578.39,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " or",
+          "start": 578.39,
+          "end": 579.17,
+          "probability": 0.77783203125
+        },
+        {
+          "word": " is",
+          "start": 579.17,
+          "end": 579.37,
+          "probability": 0.71923828125
+        },
+        {
+          "word": " coming",
+          "start": 579.37,
+          "end": 579.63,
+          "probability": 0.8486328125
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "start": 579.63,
+      "end": 596.67,
+      "text": "from AI for understand so this is very tricky this machine learning so it's a",
+      "avg_logprob": -0.3352272813970392,
+      "no_speech_prob": 0.286376953125,
+      "compression_ratio": 1.5442176870748299,
+      "words": [
+        {
+          "word": " from",
+          "start": 579.63,
+          "end": 579.99,
+          "probability": 0.95751953125
+        },
+        {
+          "word": " AI",
+          "start": 579.99,
+          "end": 581.05,
+          "probability": 0.80078125
+        },
+        {
+          "word": " for",
+          "start": 581.05,
+          "end": 582.29,
+          "probability": 0.0716552734375
+        },
+        {
+          "word": " understand",
+          "start": 584.6,
+          "end": 584.96,
+          "probability": 0.54541015625
+        },
+        {
+          "word": " so",
+          "start": 584.96,
+          "end": 586.14,
+          "probability": 0.5361328125
+        },
+        {
+          "word": " this",
+          "start": 586.78,
+          "end": 588.0,
+          "probability": 0.96142578125
+        },
+        {
+          "word": " is",
+          "start": 588.0,
+          "end": 588.18,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " very",
+          "start": 588.18,
+          "end": 588.46,
+          "probability": 0.93505859375
+        },
+        {
+          "word": " tricky",
+          "start": 588.46,
+          "end": 588.94,
+          "probability": 0.98828125
+        },
+        {
+          "word": " this",
+          "start": 588.94,
+          "end": 590.04,
+          "probability": 0.8583984375
+        },
+        {
+          "word": " machine",
+          "start": 592.82,
+          "end": 593.24,
+          "probability": 0.91943359375
+        },
+        {
+          "word": " learning",
+          "start": 593.24,
+          "end": 593.64,
+          "probability": 0.99267578125
+        },
+        {
+          "word": " so",
+          "start": 594.73,
+          "end": 596.31,
+          "probability": 0.5546875
+        },
+        {
+          "word": " it's",
+          "start": 596.31,
+          "end": 596.57,
+          "probability": 0.840087890625
+        },
+        {
+          "word": " a",
+          "start": 596.57,
+          "end": 596.67,
+          "probability": 0.8720703125
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "start": 596.67,
+      "end": 603.49,
+      "text": "question that I don't even answer yeah that's just coming and inside the",
+      "avg_logprob": -0.3352272813970392,
+      "no_speech_prob": 0.286376953125,
+      "compression_ratio": 1.5442176870748299,
+      "words": [
+        {
+          "word": " question",
+          "start": 596.67,
+          "end": 596.97,
+          "probability": 0.98828125
+        },
+        {
+          "word": " that",
+          "start": 596.97,
+          "end": 597.21,
+          "probability": 0.277099609375
+        },
+        {
+          "word": " I",
+          "start": 597.21,
+          "end": 597.43,
+          "probability": 0.931640625
+        },
+        {
+          "word": " don't",
+          "start": 597.43,
+          "end": 597.57,
+          "probability": 0.982177734375
+        },
+        {
+          "word": " even",
+          "start": 597.57,
+          "end": 597.75,
+          "probability": 0.3798828125
+        },
+        {
+          "word": " answer",
+          "start": 597.75,
+          "end": 598.25,
+          "probability": 0.86572265625
+        },
+        {
+          "word": " yeah",
+          "start": 599.37,
+          "end": 600.71,
+          "probability": 0.10784912109375
+        },
+        {
+          "word": " that's",
+          "start": 600.71,
+          "end": 602.05,
+          "probability": 0.91943359375
+        },
+        {
+          "word": " just",
+          "start": 602.05,
+          "end": 602.25,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " coming",
+          "start": 602.25,
+          "end": 602.69,
+          "probability": 0.93994140625
+        },
+        {
+          "word": " and",
+          "start": 602.69,
+          "end": 602.95,
+          "probability": 0.49560546875
+        },
+        {
+          "word": " inside",
+          "start": 602.95,
+          "end": 603.31,
+          "probability": 0.64306640625
+        },
+        {
+          "word": " the",
+          "start": 603.31,
+          "end": 603.49,
+          "probability": 0.75732421875
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "start": 603.49,
+      "end": 632.85,
+      "text": "process. I think my clients just want beautiful things. Some of them like they don't think",
+      "avg_logprob": -0.2921006948583656,
+      "no_speech_prob": 0.2186279296875,
+      "compression_ratio": 1.5664739884393064,
+      "words": [
+        {
+          "word": " process.",
+          "start": 603.49,
+          "end": 604.01,
+          "probability": 0.6572265625
+        },
+        {
+          "word": " I",
+          "start": 622.86,
+          "end": 623.08,
+          "probability": 0.9287109375
+        },
+        {
+          "word": " think",
+          "start": 623.08,
+          "end": 623.34,
+          "probability": 0.78076171875
+        },
+        {
+          "word": " my",
+          "start": 623.34,
+          "end": 623.84,
+          "probability": 0.60693359375
+        },
+        {
+          "word": " clients",
+          "start": 623.84,
+          "end": 624.6,
+          "probability": 0.317626953125
+        },
+        {
+          "word": " just",
+          "start": 624.6,
+          "end": 624.94,
+          "probability": 0.88916015625
+        },
+        {
+          "word": " want",
+          "start": 624.94,
+          "end": 625.3,
+          "probability": 0.9287109375
+        },
+        {
+          "word": " beautiful",
+          "start": 625.36,
+          "end": 626.54,
+          "probability": 0.97900390625
+        },
+        {
+          "word": " things.",
+          "start": 626.54,
+          "end": 627.14,
+          "probability": 0.99609375
+        },
+        {
+          "word": " Some",
+          "start": 629.32,
+          "end": 629.86,
+          "probability": 0.95703125
+        },
+        {
+          "word": " of",
+          "start": 629.86,
+          "end": 630.06,
+          "probability": 0.99609375
+        },
+        {
+          "word": " them",
+          "start": 630.06,
+          "end": 630.36,
+          "probability": 0.998046875
+        },
+        {
+          "word": " like",
+          "start": 630.36,
+          "end": 630.64,
+          "probability": 0.46240234375
+        },
+        {
+          "word": " they",
+          "start": 630.64,
+          "end": 631.8,
+          "probability": 0.4375
+        },
+        {
+          "word": " don't",
+          "start": 632.19,
+          "end": 632.47,
+          "probability": 0.992431640625
+        },
+        {
+          "word": " think",
+          "start": 632.47,
+          "end": 632.85,
+          "probability": 0.9921875
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "start": 632.85,
+      "end": 640.18,
+      "text": "if it's coming from AIA or it's my man. They just want beautiful things that is work for them,",
+      "avg_logprob": -0.2921006948583656,
+      "no_speech_prob": 0.2186279296875,
+      "compression_ratio": 1.5664739884393064,
+      "words": [
+        {
+          "word": " if",
+          "start": 632.85,
+          "end": 633.07,
+          "probability": 0.69921875
+        },
+        {
+          "word": " it's",
+          "start": 633.07,
+          "end": 633.39,
+          "probability": 0.735107421875
+        },
+        {
+          "word": " coming",
+          "start": 633.39,
+          "end": 633.57,
+          "probability": 0.5517578125
+        },
+        {
+          "word": " from",
+          "start": 633.57,
+          "end": 633.85,
+          "probability": 0.7880859375
+        },
+        {
+          "word": " AIA",
+          "start": 633.85,
+          "end": 634.61,
+          "probability": 0.552490234375
+        },
+        {
+          "word": " or",
+          "start": 634.61,
+          "end": 635.43,
+          "probability": 0.68017578125
+        },
+        {
+          "word": " it's",
+          "start": 635.43,
+          "end": 636.35,
+          "probability": 0.7335205078125
+        },
+        {
+          "word": " my",
+          "start": 636.8,
+          "end": 636.98,
+          "probability": 0.9619140625
+        },
+        {
+          "word": " man.",
+          "start": 636.98,
+          "end": 637.3,
+          "probability": 0.88818359375
+        },
+        {
+          "word": " They",
+          "start": 637.52,
+          "end": 637.56,
+          "probability": 0.685546875
+        },
+        {
+          "word": " just",
+          "start": 637.56,
+          "end": 637.72,
+          "probability": 0.986328125
+        },
+        {
+          "word": " want",
+          "start": 637.72,
+          "end": 637.94,
+          "probability": 0.990234375
+        },
+        {
+          "word": " beautiful",
+          "start": 637.94,
+          "end": 638.26,
+          "probability": 0.6689453125
+        },
+        {
+          "word": " things",
+          "start": 638.26,
+          "end": 638.76,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " that",
+          "start": 638.76,
+          "end": 639.02,
+          "probability": 0.79248046875
+        },
+        {
+          "word": " is",
+          "start": 639.02,
+          "end": 639.22,
+          "probability": 0.288330078125
+        },
+        {
+          "word": " work",
+          "start": 639.22,
+          "end": 639.58,
+          "probability": 0.80615234375
+        },
+        {
+          "word": " for",
+          "start": 639.58,
+          "end": 639.88,
+          "probability": 0.9951171875
+        },
+        {
+          "word": " them,",
+          "start": 639.88,
+          "end": 640.18,
+          "probability": 0.99609375
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "start": 641.04,
+      "end": 648.74,
+      "text": "for their brand. As an artist it's different. You need more research. You can be you,",
+      "avg_logprob": -0.2921006948583656,
+      "no_speech_prob": 0.2186279296875,
+      "compression_ratio": 1.5664739884393064,
+      "words": [
+        {
+          "word": " for",
+          "start": 641.04,
+          "end": 641.32,
+          "probability": 0.98974609375
+        },
+        {
+          "word": " their",
+          "start": 641.32,
+          "end": 641.6,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " brand.",
+          "start": 641.6,
+          "end": 642.1,
+          "probability": 0.94384765625
+        },
+        {
+          "word": " As",
+          "start": 643.48,
+          "end": 643.96,
+          "probability": 0.962890625
+        },
+        {
+          "word": " an",
+          "start": 643.96,
+          "end": 644.12,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " artist",
+          "start": 644.12,
+          "end": 644.42,
+          "probability": 0.9892578125
+        },
+        {
+          "word": " it's",
+          "start": 644.42,
+          "end": 644.82,
+          "probability": 0.6845703125
+        },
+        {
+          "word": " different.",
+          "start": 644.82,
+          "end": 645.3,
+          "probability": 0.99462890625
+        },
+        {
+          "word": " You",
+          "start": 646.12,
+          "end": 646.26,
+          "probability": 0.9697265625
+        },
+        {
+          "word": " need",
+          "start": 646.26,
+          "end": 646.48,
+          "probability": 0.99658203125
+        },
+        {
+          "word": " more",
+          "start": 646.48,
+          "end": 646.74,
+          "probability": 0.99365234375
+        },
+        {
+          "word": " research.",
+          "start": 646.74,
+          "end": 647.28,
+          "probability": 0.9814453125
+        },
+        {
+          "word": " You",
+          "start": 647.82,
+          "end": 647.92,
+          "probability": 0.91015625
+        },
+        {
+          "word": " can",
+          "start": 647.92,
+          "end": 648.14,
+          "probability": 0.9990234375
+        },
+        {
+          "word": " be",
+          "start": 648.14,
+          "end": 648.38,
+          "probability": 0.990234375
+        },
+        {
+          "word": " you,",
+          "start": 648.38,
+          "end": 648.74,
+          "probability": 0.9853515625
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "start": 648.74,
+      "end": 670.9,
+      "text": "but in design something that you can really control. Thank you so much. It was a pleasure to",
+      "avg_logprob": -0.32421874893563135,
+      "no_speech_prob": 0.022796630859375,
+      "compression_ratio": 1.1573033707865168,
+      "words": [
+        {
+          "word": " but",
+          "start": 648.74,
+          "end": 649.62,
+          "probability": 0.587890625
+        },
+        {
+          "word": " in",
+          "start": 649.62,
+          "end": 649.86,
+          "probability": 0.98046875
+        },
+        {
+          "word": " design",
+          "start": 649.86,
+          "end": 650.42,
+          "probability": 0.98828125
+        },
+        {
+          "word": " something",
+          "start": 650.42,
+          "end": 651.82,
+          "probability": 0.80322265625
+        },
+        {
+          "word": " that",
+          "start": 651.89,
+          "end": 652.17,
+          "probability": 0.986328125
+        },
+        {
+          "word": " you",
+          "start": 652.17,
+          "end": 652.29,
+          "probability": 0.9375
+        },
+        {
+          "word": " can",
+          "start": 652.29,
+          "end": 652.61,
+          "probability": 0.99853515625
+        },
+        {
+          "word": " really",
+          "start": 652.61,
+          "end": 653.29,
+          "probability": 0.89208984375
+        },
+        {
+          "word": " control.",
+          "start": 653.29,
+          "end": 653.93,
+          "probability": 0.99755859375
+        },
+        {
+          "word": " Thank",
+          "start": 668.38,
+          "end": 669.02,
+          "probability": 0.7373046875
+        },
+        {
+          "word": " you",
+          "start": 669.02,
+          "end": 669.34,
+          "probability": 0.96337890625
+        },
+        {
+          "word": " so",
+          "start": 669.34,
+          "end": 669.6,
+          "probability": 0.96875
+        },
+        {
+          "word": " much.",
+          "start": 669.6,
+          "end": 669.86,
+          "probability": 0.998046875
+        },
+        {
+          "word": " It",
+          "start": 669.96,
+          "end": 670.02,
+          "probability": 0.90966796875
+        },
+        {
+          "word": " was",
+          "start": 670.02,
+          "end": 670.18,
+          "probability": 0.974609375
+        },
+        {
+          "word": " a",
+          "start": 670.18,
+          "end": 670.34,
+          "probability": 0.98779296875
+        },
+        {
+          "word": " pleasure",
+          "start": 670.34,
+          "end": 670.66,
+          "probability": 0.99951171875
+        },
+        {
+          "word": " to",
+          "start": 670.66,
+          "end": 670.9,
+          "probability": 0.9951171875
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "start": 670.9,
+      "end": 671.44,
+      "text": "build you.",
+      "avg_logprob": -0.32421874893563135,
+      "no_speech_prob": 0.022796630859375,
+      "compression_ratio": 1.1573033707865168,
+      "words": [
+        {
+          "word": " build",
+          "start": 670.9,
+          "end": 671.1,
+          "probability": 0.383056640625
+        },
+        {
+          "word": " you.",
+          "start": 671.1,
+          "end": 671.44,
+          "probability": 0.712890625
+        }
+      ]
+    }
+  ],
+  "text": "My name is David Aguasheru, I'm a visual artist, a multi-disciplinarist, I call it like that myself.\nI am a Zambican, so it's a pleasure to be in this conversation with you.\nThat's nice for me that I can share my idea of how I think and I see things in my own way.\nI got invited for Liverpool-Bernard, 2023. My piece was called Takeaway. Takeaway because\nwhat's happening in my country. Mozambique is a new country. We've been colonized by\nPortuguese a long time ago. So we got independence in 1975. So when we got independence, we started\nto build our country. And then we start to have these issues now that the multinational\ncompany coming to our country to displace people in their lands and because they want\nto explore all the mineral resources. So displace some people without recompostation, creating\na war for the people to destabilize the country that they can take what they want. A structure\nIt's not strativism, it's not strativism about all the mineral resources or it's about people too, about their culture, about their religions, about their beliefs, about the, you know, about be together, people as one, like long time ago, you know.\nIf you don't have land, you don't have a culture. If you don't have a culture, you don't have identity.\nIf you don't have identity, you are object. For me, I like to bring this issue in my artwork.\nBecause this thing doesn't go out, doesn't go in the media, the information.\nis covering because those people there destroying our country, they want to control this information.\nSure. So even you search, looking, googling, everything, the database is there,\nis be created by those people because they have so much power to control. So for\nme I like this to bring for the people that when to go to my exhibition you\nfeel what's happening there. It's not direct but you can just imagine. So you\nyou can feel cold, you make part of the work.\nIt's what I want for me to make you uncomfortable.\nWhen difficult time, I can do my best I can.\nIf I put some information in Google or in platform,\nif those people see that this information is not good\nfor them, we cannot found it.\nSo there are people, the information is not for everyone.\nThat's why information is curated. They choose what the information is supposed to be there\nif I want information about Africa, about where I'm coming from. It's not us who wrote the history.\nThe information is there. When you go to Google or to the information found there,\nhis information is written by somebody else. He's been written by colonizer, not us. So\nthat's why I'm saying it's curated. I don't believe that the AIA can help us. No, I'm not,\nbecause the truth is not there and then they don't want to see the truth in this platform.\nYeah, I'm saying like nothing, the information I'm working on, it cannot be this platform,\nAI cannot help me, AI cannot help me anything because it could be against this platform,\nthe truth, the truth could be against this platform. So, for example, when I am,\nI want to talk about, if I talk about AI, it's good.\nAI is good, artificial intelligence.\nOkay, but if I put the real information, how?\nHow they get this mineral resource to make a ship for this machine?\nFor this machine learning?\nso we go deeper because everything sounds beautiful but a lot of these\nmineral resources coming from Congo they say Congo it's poor country it's\nwhat what Congo is most rich country in Africa because they have all of mineral\nresource. That's why war in Congo doesn't end. They're still slavering Congo. They're using kids\nto go to mines to get these mineral resources and then to build these machines.\nNo, these machines that we are using for mobile phone, computer, everything. But when I put this\nThis information there, the truth, we not found this information because those companies\nhave a power, power, strong power to control everything.\nFor me now I am like, for example, I am, it's a tough time now with AI because anyone can\njust go to AI, write something and then can AI do the work for you.\nSo, now we start to question, as a profession, which position am I going to be?\nAs an artist, I started to think as a photographer, somebody just go to AI, type some code and\nthen got nice image, fantastic.\nGood.\nSo, we start to question, where is the artist now?\nhow are we going to know this book is coming from his knowledge or is coming\nfrom AI for understand so this is very tricky this machine learning so it's a\nquestion that I don't even answer yeah that's just coming and inside the\nprocess. I think my clients just want beautiful things. Some of them like they don't think\nif it's coming from AIA or it's my man. They just want beautiful things that is work for them,\nfor their brand. As an artist it's different. You need more research. You can be you,\nbut in design something that you can really control. Thank you so much. It was a pleasure to\nbuild you."
+}
