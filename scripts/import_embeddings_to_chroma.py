@@ -29,10 +29,14 @@ import sys
 import time
 from pathlib import Path
 
+import os
+
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 JSONL_PATH = PROJECT_ROOT / "data" / "embeddings_cleaned" / "classified_fragments_embeddings.jsonl"
 CHROMA_DIR = PROJECT_ROOT / "data" / "chroma"
-COLLECTION_NAME = "fragments"
+COLLECTION_NAME = os.environ.get("CHROMA_COLLECTION", "fragments")
+CHROMA_HOST = os.environ.get("CHROMA_HOST", "localhost")
+CHROMA_PORT = int(os.environ.get("CHROMA_PORT", "8001"))
 BATCH_SIZE = 500
 
 
@@ -100,7 +104,8 @@ def main() -> None:
     CHROMA_DIR.mkdir(parents=True, exist_ok=True)
 
     import chromadb
-    client = chromadb.HttpClient(host="chromadb", port=8000)
+    print(f"Connecting to ChromaDB at {CHROMA_HOST}:{CHROMA_PORT} ...")
+    client = chromadb.HttpClient(host=CHROMA_HOST, port=CHROMA_PORT)
     
     if args.reset:
         try:
