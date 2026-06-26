@@ -65,8 +65,41 @@ class VideoJobRequest(BaseModel):
 # Helpers
 # ---------------------------------------------------------------------------
 
-_MAX_ACTIVE_PER_USER = 2
-_MAX_GLOBAL_QUEUED   = 20
+_MAX_RUNNING_PER_USER = 1   # only 1 active render per user at a time
+_MAX_QUEUED_PER_USER  = 3   # up to 3 more waiting behind it
+_MAX_GLOBAL_QUEUED    = 20  # hard cap on total active+queued jobs
+
+
+# ---------------------------------------------------------------------------
+# In-process rate limiter for job creation (no external dependency)
+# ---------------------------------------------------------------------------
+
+class _TokenBucket:
+    """Allow at most `rate` requests per `per` seconds per key."""
+
+    def __init__(self, rate: int, per: float) -> None:
+        self._rate = rate
+        self._per = per
+        self._lock = threading.Lock()
+        self._tokens: dict[str, float] = {}
+        self._last: dict[str, float] = {}
+
+    def allow(self, key: str) -> bool:
+        now = time.monotonic()
+        with self._lock:
+            last = self._last.get(key, now)
+            tokens = self._tokens.get(key, float(self._rate))
+            tokens = min(float(self._rate), tokens + (now - last) * (self._rate / self._per))
+            self._last[key] = now
+            if tokens >= 1:
+                self._tokens[key] = tokens - 1
+                return True
+            self._tokens[key] = tokens
+            return False
+
+
+# 5 job-creation requests per user per 60 seconds
+_create_limiter = _TokenBucket(rate=5, per=60.0)
 
 
 def _assert_owns(job: dict[str, Any], user_id: str) -> None:
@@ -136,24 +169,40 @@ def create_job(request: VideoJobRequest, user_id: str = Depends(extract_session_
     # Prefer user_id from request body (proxy-safe) over X-Session-ID header
     effective_user_id = request.user_id or user_id
 
-    all_jobs = list_jobs()
-    active_statuses = ("queued", "running")
+    # Rate limit: max 5 submission attempts per user per 60 s
+    rate_key = effective_user_id or "anonymous"
+    if not _create_limiter.allow(rate_key):
+        raise HTTPException(
+            status_code=429,
+            detail="Too many requests. Please wait before submitting another job.",
+        )
 
-    # Per-user quota
+    all_jobs = list_jobs()
+
+    # Per-user quota: 1 running + 3 queued max
     if effective_user_id:
-        user_active = [
+        user_running = [
             j for j in all_jobs
-            if j.get("user_id") == effective_user_id and j.get("status") in active_statuses
+            if j.get("user_id") == effective_user_id and j.get("status") == "running"
         ]
-        if len(user_active) >= _MAX_ACTIVE_PER_USER:
+        user_queued = [
+            j for j in all_jobs
+            if j.get("user_id") == effective_user_id and j.get("status") == "queued"
+        ]
+        if len(user_running) >= _MAX_RUNNING_PER_USER:
             raise HTTPException(
                 status_code=429,
-                detail=f"You already have {len(user_active)} active job(s). "
+                detail="You already have a job running. Wait for it to complete before submitting another.",
+            )
+        if len(user_queued) >= _MAX_QUEUED_PER_USER:
+            raise HTTPException(
+                status_code=429,
+                detail=f"You already have {len(user_queued)} job(s) queued. "
                        "Wait for one to complete before submitting another.",
             )
 
     # Global queue cap — prevent VM overload
-    global_active = [j for j in all_jobs if j.get("status") in active_statuses]
+    global_active = [j for j in all_jobs if j.get("status") in ("queued", "running")]
     if len(global_active) >= _MAX_GLOBAL_QUEUED:
         raise HTTPException(
             status_code=503,

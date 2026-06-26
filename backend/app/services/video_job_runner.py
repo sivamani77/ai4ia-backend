@@ -7,6 +7,7 @@ app.pipeline.stage_* modules. All stage logic lives there.
 from __future__ import annotations
 
 import logging
+import shutil
 import time
 import uuid
 from datetime import datetime, timezone
@@ -160,6 +161,14 @@ def _is_cancelling(job_id: str) -> bool:
         return False
 
 
+def _cleanup_job_tmp_dirs(job_id: str) -> None:
+    """Delete all pipeline /tmp stage directories for a job (safe, ignore_errors)."""
+    for prefix in (f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
+        p = Path(f"/tmp/ai4ia_pipeline/{prefix}")
+        if p.exists():
+            shutil.rmtree(p, ignore_errors=True)
+
+
 def _complete_job(job_id: str) -> None:
     job = load_job(job_id)
     job["status"] = "completed"
@@ -258,11 +267,13 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             if result.status == "failed":
                 stage_log.error("Stage failed: %s", result.message)
                 _fail_job(job_id, result.stage, "pipeline_error", result.message)
+                _cleanup_job_tmp_dirs(job_id)
                 return
             stage_log.info("Stage %s", result.status)
             if _is_cancelling(job_id):
                 log.info("Cancellation detected after stage %s", stage_name)
                 _cancel_job(job_id, "cancelled between stages")
+                _cleanup_job_tmp_dirs(job_id)
                 return
 
         _complete_job(job_id)
@@ -305,6 +316,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             pass
         log.exception("Pipeline error at stage %s: %s", stage, exc)
         _fail_job(job_id, stage, "pipeline_error", str(exc), tb)
+        _cleanup_job_tmp_dirs(job_id)
 
 
 # ---------------------------------------------------------------------------

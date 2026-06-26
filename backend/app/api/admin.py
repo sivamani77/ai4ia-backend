@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import shutil
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
 
 from app.services import embedding_index, fragment_store
@@ -369,4 +372,101 @@ def delete_export_artifacts(job_id: str, confirm: str = ""):
         "job_id": jid,
         "deleted_count": deleted,
         "deleted_keys": keys,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Local file retention cleanup
+# ---------------------------------------------------------------------------
+
+@router.post("/cleanup/local-exports")
+def cleanup_local_exports(
+    older_than_days: int = Query(7, ge=1, le=365, description="Delete local job artifacts older than N days"),
+    dry_run: bool = Query(True, description="Set to false to actually delete"),
+):
+    """
+    Delete local export files (mp4, srt, vtt, manifest) and per-job asset dirs
+    for jobs whose completed_at is older than `older_than_days` days.
+
+    Only removes files that have already been uploaded to S3 (storage_backend=s3)
+    or are from terminal jobs (completed/failed/cancelled) in local mode.
+
+    Always defaults to dry_run=true — pass ?dry_run=false to actually delete.
+    """
+    from app.core.paths import DATA_DIR
+    from app.services.job_store import list_jobs
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=older_than_days)
+    terminal_statuses = {"completed", "failed", "cancelled"}
+
+    try:
+        all_jobs = list_jobs()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to load jobs: {exc}")
+
+    deleted_paths: list[str] = []
+    skipped_paths: list[str] = []
+
+    for job in all_jobs:
+        status = job.get("status", "")
+        if status not in terminal_statuses:
+            continue
+
+        completed_at_raw = job.get("completed_at")
+        if not completed_at_raw:
+            continue
+
+        try:
+            completed_at = datetime.fromisoformat(completed_at_raw)
+            if completed_at.tzinfo is None:
+                completed_at = completed_at.replace(tzinfo=timezone.utc)
+        except Exception:
+            continue
+
+        if completed_at >= cutoff:
+            continue
+
+        job_id = job.get("job_id", "")
+
+        # Collect local export files from job paths
+        candidate_paths: list[Path] = []
+        paths = job.get("paths") or {}
+        for key in ("video_path", "export_manifest_path", "timeline_metadata_path", "srt_path", "vtt_path"):
+            val = paths.get(key)
+            if val:
+                candidate_paths.append(Path(val))
+
+        # Per-job generated_assets directory (local mode, stage 08)
+        job_assets_dir = DATA_DIR / "jobs" / job_id
+        if job_assets_dir.exists():
+            candidate_paths.append(job_assets_dir)
+
+        for path in candidate_paths:
+            if not path.exists():
+                continue
+            if dry_run:
+                skipped_paths.append(str(path))
+            else:
+                try:
+                    if path.is_dir():
+                        shutil.rmtree(path, ignore_errors=True)
+                    else:
+                        path.unlink(missing_ok=True)
+                    deleted_paths.append(str(path))
+                except Exception:
+                    skipped_paths.append(str(path))
+
+    return {
+        "dry_run": dry_run,
+        "older_than_days": older_than_days,
+        "cutoff": cutoff.isoformat(),
+        "deleted_count": len(deleted_paths),
+        "deleted_paths": deleted_paths,
+        "skipped_count": len(skipped_paths),
+        "skipped_paths": skipped_paths,
+        "message": (
+            f"Dry run — {len(skipped_paths)} path(s) would be deleted. Pass ?dry_run=false to apply."
+            if dry_run else
+            f"Deleted {len(deleted_paths)} path(s)."
+        ),
     }

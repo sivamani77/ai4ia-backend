@@ -19,9 +19,10 @@ import json
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 
+from app.core.auth import extract_session_id
 from app.services.storage_service import (
     LocalStorageService,
     StorageObject,
@@ -70,6 +71,18 @@ def _require_job(job_id: str) -> dict[str, Any]:
         return load_job(job_id)
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail=f"Job not found: {job_id}")
+
+
+def _assert_owns(job: dict[str, Any], user_id: str) -> None:
+    """Return 404 (not 403) to avoid leaking job existence to other users."""
+    if job.get("user_id") and user_id and job["user_id"] != user_id:
+        raise HTTPException(status_code=404, detail=f"Job not found: {job['job_id']}")
+
+
+def _require_owned_job(job_id: str, user_id: str) -> dict[str, Any]:
+    job = _require_job(job_id)
+    _assert_owns(job, user_id)
+    return job
 
 
 def _get_registry(job_id: str) -> dict[str, Any]:
@@ -319,36 +332,36 @@ def _media_list_entry(job_id: str, oid: str, obj_dict: dict[str, Any]) -> dict[s
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/video/stream", operation_id="video_jobs_stream_video")
-async def stream_video(job_id: str, request: Request):
-    _require_job(job_id)
+async def stream_video(job_id: str, request: Request, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, "video")
     return _range_response(obj, request)
 
 
 @router.head("/{job_id}/video/stream", include_in_schema=False, operation_id="video_jobs_head_stream_video")
-async def stream_video_head(job_id: str, request: Request):
-    _require_job(job_id)
+async def stream_video_head(job_id: str, request: Request, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, "video")
     return _range_response(obj, request)
 
 
 @router.get("/{job_id}/video/download", operation_id="video_jobs_download_video")
-async def download_video(job_id: str):
-    _require_job(job_id)
+async def download_video(job_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, "video")
     return _file_response(obj, disposition="attachment")
 
 
 @router.head("/{job_id}/video/download", include_in_schema=False, operation_id="video_jobs_head_download_video")
-async def download_video_head(job_id: str):
-    _require_job(job_id)
+async def download_video_head(job_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, "video")
     return _file_response(obj, disposition="attachment")
 
 
 @router.get("/{job_id}/video/signed-url")
-async def video_signed_url(job_id: str):
-    _require_job(job_id)
+async def video_signed_url(job_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, "video")
     if STORAGE_BACKEND == "s3" and obj.object_key:
         url = _make_presigned_url(obj.object_key)
@@ -365,8 +378,8 @@ async def video_signed_url(job_id: str):
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/subtitles/{fmt}")
-async def get_subtitles(job_id: str, fmt: str):
-    _require_job(job_id)
+async def get_subtitles(job_id: str, fmt: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     fmt = fmt.lower()
     if fmt not in ("srt", "vtt"):
         raise HTTPException(status_code=400, detail="Unsupported subtitle format. Use 'srt' or 'vtt'.")
@@ -382,8 +395,8 @@ async def get_subtitles(job_id: str, fmt: str):
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/manifest")
-async def get_manifest(job_id: str):
-    _require_job(job_id)
+async def get_manifest(job_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, "manifest")
     storage = get_storage_service()
     try:
@@ -403,8 +416,8 @@ async def get_manifest(job_id: str):
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/media")
-async def list_media(job_id: str):
-    _require_job(job_id)
+async def list_media(job_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     reg = _get_registry(job_id)
     objects_list = [
         _media_list_entry(job_id, oid, obj)
@@ -423,8 +436,8 @@ async def list_media(job_id: str):
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/thumbnail", operation_id="video_jobs_get_thumbnail")
-async def get_thumbnail(job_id: str):
-    _require_job(job_id)
+async def get_thumbnail(job_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     reg = _get_registry(job_id)
     objects = reg.get("objects", {})
 
@@ -449,8 +462,8 @@ async def get_thumbnail(job_id: str):
 
 
 @router.head("/{job_id}/thumbnail", include_in_schema=False, operation_id="video_jobs_head_thumbnail")
-async def get_thumbnail_head(job_id: str):
-    return await get_thumbnail(job_id)
+async def get_thumbnail_head(job_id: str, user_id: str = Depends(extract_session_id)):
+    return await get_thumbnail(job_id, user_id)
 
 
 # ---------------------------------------------------------------------------
@@ -458,8 +471,8 @@ async def get_thumbnail_head(job_id: str):
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/assets/{asset_id}/stream", operation_id="video_jobs_stream_asset")
-async def stream_asset(job_id: str, asset_id: str, request: Request):
-    _require_job(job_id)
+async def stream_asset(job_id: str, asset_id: str, request: Request, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, asset_id)
     # Use range support for audio/video; plain FileResponse for images/json
     if obj.content_type.startswith(("audio/", "video/")):
@@ -468,20 +481,20 @@ async def stream_asset(job_id: str, asset_id: str, request: Request):
 
 
 @router.head("/{job_id}/assets/{asset_id}/stream", include_in_schema=False, operation_id="video_jobs_head_stream_asset")
-async def stream_asset_head(job_id: str, asset_id: str, request: Request):
-    return await stream_asset(job_id, asset_id, request)
+async def stream_asset_head(job_id: str, asset_id: str, request: Request, user_id: str = Depends(extract_session_id)):
+    return await stream_asset(job_id, asset_id, request, user_id)
 
 
 @router.get("/{job_id}/assets/{asset_id}/download")
-async def download_asset(job_id: str, asset_id: str):
-    _require_job(job_id)
+async def download_asset(job_id: str, asset_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, asset_id)
     return _file_response(obj, disposition="attachment")
 
 
 @router.get("/{job_id}/assets/{asset_id}/metadata")
-async def asset_metadata(job_id: str, asset_id: str):
-    _require_job(job_id)
+async def asset_metadata(job_id: str, asset_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, asset_id)
     base = f"/api/video-jobs/{job_id}"
     return {
@@ -499,8 +512,8 @@ async def asset_metadata(job_id: str, asset_id: str):
 
 
 @router.get("/{job_id}/assets/{asset_id}/signed-url")
-async def asset_signed_url(job_id: str, asset_id: str):
-    _require_job(job_id)
+async def asset_signed_url(job_id: str, asset_id: str, user_id: str = Depends(extract_session_id)):
+    _require_owned_job(job_id, user_id)
     obj = _resolve(job_id, asset_id)
     if STORAGE_BACKEND == "s3" and obj.object_key:
         url = _make_presigned_url(obj.object_key)
