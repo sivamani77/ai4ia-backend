@@ -32,7 +32,9 @@ from pathlib import Path
 import os
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-JSONL_PATH = PROJECT_ROOT / "data" / "embeddings_cleaned" / "classified_fragments_embeddings.jsonl"
+# Use the full classified JSONL (data/embeddings/) which has quote_strength,
+# clarity_score, clip_usage_candidates — required for speaker clip selection.
+JSONL_PATH = PROJECT_ROOT / "data" / "embeddings" / "classified_fragments_embeddings.jsonl"
 CHROMA_DIR = PROJECT_ROOT / "data" / "chroma"
 COLLECTION_NAME = os.environ.get("CHROMA_COLLECTION", "fragments")
 CHROMA_HOST = os.environ.get("CHROMA_HOST", "localhost")
@@ -57,6 +59,13 @@ def sanitize_metadata(row: dict) -> dict:
         except (TypeError, ValueError):
             return 0
 
+    # clip_usage_candidates is a list — store as comma-separated string
+    clip_candidates = row.get("clip_usage_candidates") or []
+    if isinstance(clip_candidates, list):
+        clip_candidates_str = ",".join(clip_candidates)
+    else:
+        clip_candidates_str = _str(clip_candidates)
+
     return {
         "video_id":                  _str(row.get("video_id")),
         "source_video":              _str(row.get("source_video")),
@@ -65,13 +74,19 @@ def sanitize_metadata(row: dict) -> dict:
         "end":                       _float(row.get("end")),
         "duration":                  _float(row.get("duration")),
         "word_count":                _int(row.get("word_count")),
-        "theme":                     _str(row.get("theme")),
-        "chapter":                   _str(row.get("chapter")),
+        "theme":                     _str(row.get("theme") or row.get("primary_theme")),
+        "chapter":                   _str(row.get("chapter") or row.get("primary_chapter")),
         "storyline_role":            _str(row.get("storyline_role")),
         "summary":                   _str(row.get("summary")),
+        "speaker":                   _str(row.get("speaker") or row.get("speaker_name")),
+        "quote_strength":            _float(row.get("quote_strength")),
+        "clarity_score":             _float(row.get("clarity_score")),
+        "narration_support_score":   _float(row.get("narration_support_score")),
+        "clip_usage_candidates":     clip_candidates_str,
         "classification_confidence": _float(row.get("classification_confidence")),
         "audio_quality_status":      _str(row.get("audio_quality_status")),
         "transcript_quality_score":  _float(row.get("transcript_quality_score")),
+        "video_year":                _int(row.get("video_year")),
         "embedding_model":           _str(row.get("embedding_model")),
         "embedding_created_at":      _str(row.get("embedding_created_at")),
     }

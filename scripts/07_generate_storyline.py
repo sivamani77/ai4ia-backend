@@ -746,7 +746,11 @@ def classify_candidate_relevance(
     semantic_score = float(enriched.get("semantic_score") or 0.0)
     quote_strength = float(enriched.get("quote_strength") or 0.0)
     clarity_score = float(enriched.get("clarity_score") or 0.0)
-    usage_candidates = set(enriched.get("clip_usage_candidates") or [])
+    _raw_usage = enriched.get("clip_usage_candidates") or []
+    if isinstance(_raw_usage, str):
+        usage_candidates = set(c.strip() for c in _raw_usage.split(",") if c.strip())
+    else:
+        usage_candidates = set(_raw_usage)
 
     # Crypto/cryptography disambiguation
     if is_crypto_prompt:
@@ -1141,7 +1145,11 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     final_prompt_score = float(enriched.get("final_prompt_score") or 0.0)
     quote_strength = float(enriched.get("quote_strength") or 0.0)
     clarity_score = float(enriched.get("clarity_score") or 0.0)
-    usage_candidates = set(enriched.get("clip_usage_candidates") or [])
+    _raw_usage2 = enriched.get("clip_usage_candidates") or []
+    if isinstance(_raw_usage2, str):
+        usage_candidates = set(c.strip() for c in _raw_usage2.split(",") if c.strip())
+    else:
+        usage_candidates = set(_raw_usage2)
     chapter_match = bool(enriched.get("chapter_match"))
     theme_match = bool(enriched.get("theme_match"))
     generic_terms = enriched.get("generic_evidence_terms") or []
