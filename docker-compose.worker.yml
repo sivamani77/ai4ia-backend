@@ -19,7 +19,7 @@ services:
     ports:
       - "8001:8000"
     volumes:
-      - chroma_data:/data
+      - ./data/chroma:/chroma/chroma
     restart: unless-stopped
     stop_grace_period: 60s
     environment:
@@ -29,8 +29,5 @@ services:
       - CHROMA_SEGMENT_CACHE_POLICY=ALL
     healthcheck:
       disable: true
-
-volumes:
-  chroma_data:
 
 
