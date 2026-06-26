@@ -28,9 +28,35 @@ from app.services.storage_service import (
     _safe_path,
     get_storage_service,
     load_registry,
+    _OBJECT_STORAGE_BUCKET,
+    _OBJECT_STORAGE_REGION,
+    _OBJECT_STORAGE_ACCESS_KEY,
+    _OBJECT_STORAGE_SECRET_KEY,
+    _OBJECT_STORAGE_ENDPOINT,
+    STORAGE_BACKEND,
 )
 from app.services.media_registry import build_media_registry
 from app.services.video_job_runner import load_job
+
+_PRESIGNED_EXPIRY = 3600  # 1 hour
+
+
+def _make_presigned_url(object_key: str) -> str:
+    """Generate an S3 presigned GET URL for the given object key."""
+    import boto3
+    kwargs: dict[str, Any] = {
+        "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
+        "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
+        "region_name": _OBJECT_STORAGE_REGION or None,
+    }
+    if _OBJECT_STORAGE_ENDPOINT:
+        kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+    s3 = boto3.client("s3", **kwargs)
+    return s3.generate_presigned_url(
+        "get_object",
+        Params={"Bucket": _OBJECT_STORAGE_BUCKET, "Key": object_key},
+        ExpiresIn=_PRESIGNED_EXPIRY,
+    )
 
 router = APIRouter(prefix="/video-jobs", tags=["video-media"])
 
@@ -49,6 +75,9 @@ def _require_job(job_id: str) -> dict[str, Any]:
 def _get_registry(job_id: str) -> dict[str, Any]:
     """Load or lazily build the media registry."""
     try:
+        storage = get_storage_service()
+        if hasattr(storage, "_load_registry"):
+            return storage._load_registry(job_id)
         return load_registry(job_id)
     except FileNotFoundError:
         pass
@@ -71,18 +100,107 @@ def _resolve(job_id: str, object_id: str) -> StorageObject:
         raise HTTPException(status_code=404, detail=f"Asset '{object_id}' not found")
 
 
-def _file_response(obj: StorageObject, disposition: str = "inline") -> FileResponse:
+def _file_response(obj: StorageObject, disposition: str = "inline") -> Response:
     storage = get_storage_service()
     local = storage.get_local_path(obj)
-    if not local or not local.exists():
+    if local and local.exists():
+        return FileResponse(
+            path=str(local),
+            media_type=obj.content_type,
+            filename=obj.filename if disposition == "attachment" else None,
+            headers={
+                "Accept-Ranges": "bytes",
+                "Content-Disposition": f'{disposition}; filename="{obj.filename}"',
+            },
+        )
+    # S3 or missing local file — stream via storage abstraction
+    if not storage.exists(obj):
         raise HTTPException(status_code=404, detail=f"File not found: {obj.filename}")
-    return FileResponse(
-        path=str(local),
+    headers = {"Content-Disposition": f'{disposition}; filename="{obj.filename}"'}
+    if obj.size_bytes:
+        headers["Content-Length"] = str(obj.size_bytes)
+    return StreamingResponse(
+        storage.open_stream(obj),
         media_type=obj.content_type,
-        filename=obj.filename if disposition == "attachment" else None,
+        headers=headers,
+    )
+
+
+def _s3_range_response(obj: StorageObject, request: Request) -> Response:
+    """Stream an S3 object with proper HTTP Range support."""
+    from app.services.storage_service import (
+        _OBJECT_STORAGE_BUCKET,
+        _OBJECT_STORAGE_REGION,
+        _OBJECT_STORAGE_ACCESS_KEY,
+        _OBJECT_STORAGE_SECRET_KEY,
+        _OBJECT_STORAGE_ENDPOINT,
+    )
+    import boto3
+    kwargs: dict[str, Any] = {
+        "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
+        "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
+        "region_name": _OBJECT_STORAGE_REGION or None,
+    }
+    if _OBJECT_STORAGE_ENDPOINT:
+        kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+    s3 = boto3.client("s3", **kwargs)
+    s3_key = obj.object_key
+
+    try:
+        head = s3.head_object(Bucket=_OBJECT_STORAGE_BUCKET, Key=s3_key)
+        file_size = head["ContentLength"]
+    except Exception:
+        raise HTTPException(status_code=404, detail=f"File not found in S3: {obj.filename}")
+
+    range_header = request.headers.get("range")
+    if range_header:
+        try:
+            unit, rng = range_header.split("=", 1)
+            start_str, end_str = rng.split("-", 1)
+            start = int(start_str) if start_str.strip() else 0
+            end = int(end_str) if end_str.strip() else file_size - 1
+        except Exception:
+            raise HTTPException(status_code=416, detail="Invalid Range header")
+        end = min(end, file_size - 1)
+        length = end - start + 1
+
+        def _stream():
+            resp = s3.get_object(
+                Bucket=_OBJECT_STORAGE_BUCKET, Key=s3_key,
+                Range=f"bytes={start}-{end}",
+            )
+            body = resp["Body"]
+            while True:
+                chunk = body.read(65536)
+                if not chunk:
+                    break
+                yield chunk
+
+        return StreamingResponse(
+            _stream(), status_code=206, media_type=obj.content_type,
+            headers={
+                "Content-Range": f"bytes {start}-{end}/{file_size}",
+                "Content-Length": str(length),
+                "Accept-Ranges": "bytes",
+                "Cache-Control": "no-cache",
+            },
+        )
+
+    def _stream_full():
+        resp = s3.get_object(Bucket=_OBJECT_STORAGE_BUCKET, Key=s3_key)
+        body = resp["Body"]
+        while True:
+            chunk = body.read(65536)
+            if not chunk:
+                break
+            yield chunk
+
+    return StreamingResponse(
+        _stream_full(), status_code=200, media_type=obj.content_type,
         headers={
+            "Content-Length": str(file_size),
             "Accept-Ranges": "bytes",
-            "Content-Disposition": f'{disposition}; filename="{obj.filename}"',
+            "Cache-Control": "no-cache",
         },
     )
 
@@ -90,13 +208,24 @@ def _file_response(obj: StorageObject, disposition: str = "inline") -> FileRespo
 def _range_response(obj: StorageObject, request: Request) -> Response:
     """
     Handle HTTP Range requests for binary files (video, audio).
-    FastAPI's FileResponse does support range requests in Starlette >= 0.20,
-    but we implement explicit handling here for reliability and transparency.
     """
     storage = get_storage_service()
     local = storage.get_local_path(obj)
     if not local or not local.exists():
-        raise HTTPException(status_code=404, detail=f"File not found: {obj.filename}")
+        # S3 path — use proper byte-range streaming
+        if not storage.exists(obj):
+            raise HTTPException(status_code=404, detail=f"File not found: {obj.filename}")
+        if obj.object_key:
+            return _s3_range_response(obj, request)
+        # fallback: full stream (no range)
+        headers: dict[str, str] = {"Accept-Ranges": "none"}
+        if obj.size_bytes:
+            headers["Content-Length"] = str(obj.size_bytes)
+        return StreamingResponse(
+            storage.open_stream(obj),
+            media_type=obj.content_type,
+            headers=headers,
+        )
 
     file_size = local.stat().st_size
     range_header = request.headers.get("range")
@@ -220,6 +349,10 @@ async def download_video_head(job_id: str):
 @router.get("/{job_id}/video/signed-url")
 async def video_signed_url(job_id: str):
     _require_job(job_id)
+    obj = _resolve(job_id, "video")
+    if STORAGE_BACKEND == "s3" and obj.object_key:
+        url = _make_presigned_url(obj.object_key)
+        return {"url": url, "expires_in": _PRESIGNED_EXPIRY, "storage_backend": "s3"}
     return {
         "url": f"/api/video-jobs/{job_id}/video/stream",
         "expires_in": None,
@@ -253,14 +386,16 @@ async def get_manifest(job_id: str):
     _require_job(job_id)
     obj = _resolve(job_id, "manifest")
     storage = get_storage_service()
-    local = storage.get_local_path(obj)
-    if not local or not local.exists():
-        raise HTTPException(status_code=404, detail="Manifest not found")
     try:
-        data = json.loads(local.read_text(encoding="utf-8"))
+        local = storage.get_local_path(obj)
+        if local and local.exists():
+            data = json.loads(local.read_text(encoding="utf-8"))
+        else:
+            raw = b"".join(storage.open_stream(obj))
+            data = json.loads(raw.decode("utf-8"))
         return JSONResponse(content=data)
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"Failed to parse manifest: {exc}")
+        raise HTTPException(status_code=500, detail=f"Failed to read manifest: {exc}")
 
 
 # ---------------------------------------------------------------------------
@@ -298,10 +433,7 @@ async def get_thumbnail(job_id: str):
         if candidate_id in objects:
             try:
                 obj = _resolve(job_id, candidate_id)
-                storage = get_storage_service()
-                local = storage.get_local_path(obj)
-                if local and local.exists():
-                    return FileResponse(path=str(local), media_type=obj.content_type)
+                return _file_response(obj, disposition="inline")
             except Exception:
                 pass
 
@@ -309,10 +441,7 @@ async def get_thumbnail(job_id: str):
         if entry.get("kind") == "visual_asset":
             try:
                 obj = _resolve(job_id, oid)
-                storage = get_storage_service()
-                local = storage.get_local_path(obj)
-                if local and local.exists():
-                    return FileResponse(path=str(local), media_type=obj.content_type)
+                return _file_response(obj, disposition="inline")
             except Exception:
                 continue
 
@@ -372,7 +501,10 @@ async def asset_metadata(job_id: str, asset_id: str):
 @router.get("/{job_id}/assets/{asset_id}/signed-url")
 async def asset_signed_url(job_id: str, asset_id: str):
     _require_job(job_id)
-    _resolve(job_id, asset_id)  # validates existence
+    obj = _resolve(job_id, asset_id)
+    if STORAGE_BACKEND == "s3" and obj.object_key:
+        url = _make_presigned_url(obj.object_key)
+        return {"url": url, "expires_in": _PRESIGNED_EXPIRY, "storage_backend": "s3"}
     return {
         "url": f"/api/video-jobs/{job_id}/assets/{asset_id}/stream",
         "expires_in": None,

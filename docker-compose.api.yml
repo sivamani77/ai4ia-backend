@@ -1,0 +1,38 @@
+services:
+  api:
+    image: aswinmobiusdtaas/ai4ia-pipeline:v2
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/jobs:/app/data/jobs
+      - ./data/exports:/app/data/exports
+      - ./data/generated_assets:/app/data/generated_assets
+      - ./data/logs:/app/logs
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  redis_data:

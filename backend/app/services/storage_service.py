@@ -2,10 +2,12 @@
 Storage abstraction layer.
 
 LocalStorageService resolves files from disk.
-Later, ObjectStorageService can resolve from S3/MinIO/GCS without changing API contracts.
+S3StorageService resolves from AWS S3 (or S3-compatible endpoints).
+Switch via AI4IA_STORAGE_BACKEND=s3 in .env.
 """
 from __future__ import annotations
 
+import io
 import json
 import mimetypes
 from abc import ABC, abstractmethod
@@ -243,6 +245,249 @@ class LocalStorageService(StorageService):
 
 
 # ---------------------------------------------------------------------------
+# S3 storage implementation
+# ---------------------------------------------------------------------------
+
+class S3StorageService(StorageService):
+    """Resolves StorageObjects from AWS S3 (or any S3-compatible endpoint)."""
+
+    def __init__(self) -> None:
+        import boto3
+
+        kwargs: dict[str, Any] = {
+            "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
+            "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
+            "region_name": _OBJECT_STORAGE_REGION or None,
+        }
+        if _OBJECT_STORAGE_ENDPOINT:
+            kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+
+        self._s3 = boto3.client("s3", **kwargs)
+        self._bucket = _OBJECT_STORAGE_BUCKET
+
+    # ------------------------------------------------------------------
+    # Registry helpers (same structure as local — stored as JSON in S3)
+    # ------------------------------------------------------------------
+
+    def _registry_key(self, job_id: str) -> str:
+        return f"jobs/{job_id}/media_registry.json"
+
+    def _load_registry(self, job_id: str) -> dict[str, Any]:
+        key = self._registry_key(job_id)
+        try:
+            resp = self._s3.get_object(Bucket=self._bucket, Key=key)
+            return json.loads(resp["Body"].read().decode("utf-8"))
+        except self._s3.exceptions.NoSuchKey:
+            raise FileNotFoundError(f"Media registry not found for job {job_id} in S3")
+
+    # ------------------------------------------------------------------
+    # StorageService interface
+    # ------------------------------------------------------------------
+
+    def resolve(self, job_id: str, object_id: str) -> StorageObject:
+        reg = self._load_registry(job_id)
+        objects = reg.get("objects", {})
+        entry = objects.get(object_id)
+        if not entry:
+            raise KeyError(f"Asset '{object_id}' not in media registry for job {job_id}")
+
+        object_key = entry.get("object_key") or entry.get("local_path", "")
+        ct = entry.get("content_type") or (
+            _guess_content_type(Path(object_key)) if object_key else "application/octet-stream"
+        )
+
+        size = entry.get("size_bytes")
+        if size is None and object_key:
+            try:
+                head = self._s3.head_object(Bucket=self._bucket, Key=object_key)
+                size = head.get("ContentLength")
+            except Exception:
+                pass
+
+        meta = {k: v for k, v in entry.items()
+                if k not in ("object_id", "kind", "local_path", "object_key",
+                             "content_type", "filename", "storage_backend",
+                             "job_id", "size_bytes", "created_at")}
+
+        return StorageObject(
+            object_id=object_id,
+            job_id=job_id,
+            kind=entry.get("kind", "unknown"),
+            storage_backend="s3",
+            content_type=ct,
+            filename=entry.get("filename", Path(object_key).name if object_key else object_id),
+            object_key=object_key,
+            size_bytes=size,
+            created_at=entry.get("created_at"),
+            metadata=meta,
+        )
+
+    def exists(self, obj: StorageObject) -> bool:
+        if not obj.object_key:
+            return False
+        try:
+            self._s3.head_object(Bucket=self._bucket, Key=obj.object_key)
+            return True
+        except Exception:
+            return False
+
+    def open_stream(self, obj: StorageObject) -> Iterator[bytes]:
+        if not obj.object_key:
+            raise FileNotFoundError("No object key for S3 object")
+        resp = self._s3.get_object(Bucket=self._bucket, Key=obj.object_key)
+        body = resp["Body"]
+        while True:
+            chunk = body.read(65536)
+            if not chunk:
+                break
+            yield chunk
+
+    def get_local_path(self, obj: StorageObject) -> Path | None:
+        # S3 objects have no local path — callers must use open_stream
+        return None
+
+    def upload_fileobj(self, fileobj: io.IOBase, key: str,
+                       content_type: str = "application/octet-stream") -> None:
+        self._s3.upload_fileobj(
+            fileobj, self._bucket, key,
+            ExtraArgs={"ContentType": content_type},
+        )
+
+    def download_fileobj(self, key: str, fileobj: io.IOBase) -> None:
+        self._s3.download_fileobj(self._bucket, key, fileobj)
+
+    def delete_object(self, key: str) -> None:
+        self._s3.delete_object(Bucket=self._bucket, Key=key)
+
+    def list_objects(self, prefix: str = "", max_keys: int = 1000) -> list[dict[str, Any]]:
+        resp = self._s3.list_objects_v2(
+            Bucket=self._bucket, Prefix=prefix, MaxKeys=max_keys
+        )
+        return resp.get("Contents", [])
+
+
+# ---------------------------------------------------------------------------
+# S3 upload helper — call after a job completes to push all outputs to S3
+# and rewrite the media registry with object_key entries.
+# ---------------------------------------------------------------------------
+
+def upload_job_outputs_to_s3(job_id: str) -> dict[str, Any]:
+    """Upload all local job files to S3 and rewrite the media registry.
+
+    Reads the local media_registry.json, uploads every file that has a
+    local_path, replaces local_path with object_key in the registry, and
+    writes the updated registry back to S3 (and locally so the API can
+    serve it immediately without re-fetching from S3).
+
+    Returns the updated registry dict.
+    """
+    import logging
+    log = logging.getLogger("ai4ia.storage.s3_upload")
+
+    svc = get_storage_service()
+    if not isinstance(svc, S3StorageService):
+        raise RuntimeError("upload_job_outputs_to_s3 called but storage backend is not s3")
+
+    reg = load_registry(job_id)
+    objects = reg.get("objects", {})
+    updated: dict[str, Any] = {}
+
+    # Build a map of known S3 keys from job paths (set by stage_09 before cleanup)
+    from app.services.job_store import load_job as _load_job
+    try:
+        _job = _load_job(job_id)
+        _jpaths = _job.get("paths", {})
+    except Exception:
+        _jpaths = {}
+    _known_s3_keys: dict[str, str] = {
+        "video":    _jpaths.get("video_s3_key", ""),
+        "manifest": _jpaths.get("export_manifest_s3_key", ""),
+        "srt":      _jpaths.get("srt_s3_key", ""),
+        "vtt":      _jpaths.get("vtt_s3_key", ""),
+    }
+
+    for oid, entry in objects.items():
+        local_path = entry.get("local_path", "")
+        p = Path(local_path) if local_path else None
+
+        if not p or not p.exists():
+            # File already uploaded by stage — use the known S3 key if available
+            known_key = _known_s3_keys.get(oid, "")
+            if known_key:
+                try:
+                    svc._s3.head_object(Bucket=svc._bucket, Key=known_key)
+                    new_entry = {k: v for k, v in entry.items() if k != "local_path"}
+                    new_entry["object_key"] = known_key
+                    new_entry["storage_backend"] = "s3"
+                    updated[oid] = new_entry
+                    log.info("[%s] %s already in S3 at %s", job_id, oid, known_key)
+                    continue
+                except Exception:
+                    pass
+            log.warning("[%s] skipping %s — local file missing: %s", job_id, oid, local_path)
+            updated[oid] = entry
+            continue
+
+        object_key = f"jobs/{job_id}/{p.name}"
+        ct = entry.get("content_type") or _guess_content_type(p)
+
+        try:
+            with p.open("rb") as f:
+                svc.upload_fileobj(f, object_key, content_type=ct)
+            log.info("[%s] uploaded %s → s3://%s/%s", job_id, oid, svc._bucket, object_key)
+        except Exception as exc:
+            log.error("[%s] failed to upload %s: %s", job_id, oid, exc)
+            updated[oid] = entry
+            continue
+
+        new_entry = {k: v for k, v in entry.items() if k != "local_path"}
+        new_entry["object_key"] = object_key
+        new_entry["storage_backend"] = "s3"
+        updated[oid] = new_entry
+
+    # Add any known S3 entries that build_media_registry missed
+    # (happens when local files were cleaned up before registry was built)
+    _kind_map = {"video": "video", "manifest": "manifest", "srt": "subtitle", "vtt": "subtitle"}
+    _ct_map = {
+        "video": "video/mp4",
+        "manifest": "application/json",
+        "srt": "application/x-subrip",
+        "vtt": "text/vtt",
+    }
+    for oid, s3_key in _known_s3_keys.items():
+        if not s3_key or oid in updated:
+            continue
+        try:
+            svc._s3.head_object(Bucket=svc._bucket, Key=s3_key)
+            updated[oid] = {
+                "object_id": oid,
+                "kind": _kind_map.get(oid, oid),
+                "object_key": s3_key,
+                "storage_backend": "s3",
+                "content_type": _ct_map.get(oid, "application/octet-stream"),
+                "filename": Path(s3_key).name,
+                "job_id": job_id,
+            }
+            log.info("[%s] recovered missing registry entry %s from S3 key %s", job_id, oid, s3_key)
+        except Exception:
+            pass
+
+    reg["objects"] = updated
+    reg["storage_backend"] = "s3"
+
+    # Write registry to S3
+    registry_key = f"jobs/{job_id}/media_registry.json"
+    registry_bytes = json.dumps(reg, indent=2, ensure_ascii=False).encode("utf-8")
+    svc.upload_fileobj(io.BytesIO(registry_bytes), registry_key, content_type="application/json")
+
+    # Also keep a local copy so the API can serve immediately
+    save_registry(job_id, reg)
+
+    log.info("[%s] media registry uploaded to s3://%s/%s", job_id, svc._bucket, registry_key)
+    return reg
+
+
+# ---------------------------------------------------------------------------
 # Singleton factory
 # ---------------------------------------------------------------------------
 
@@ -255,6 +500,8 @@ def get_storage_service() -> StorageService:
         backend = STORAGE_BACKEND
         if backend == "local":
             _service_instance = LocalStorageService()
+        elif backend == "s3":
+            _service_instance = S3StorageService()
         else:
             raise NotImplementedError(f"Storage backend '{backend}' not implemented")
     return _service_instance

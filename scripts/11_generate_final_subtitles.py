@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-TEMP_ROOT = PROJECT_ROOT / "temp"
+TEMP_ROOT = Path("/tmp/ai4ia_pipeline/subtitles_temp")
 
 
 def log(message: str) -> None:

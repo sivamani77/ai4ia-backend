@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 import time
 from pathlib import Path
@@ -28,6 +29,57 @@ _ACTIVE_CORPUS_VERSION: str = "original_v1"
 _FILTERED_RECORDS: list | None = None
 _FILTERED_MATRIX: Any = None
 _CORPUS_DIAGNOSTICS: dict[str, Any] = {}
+
+# ChromaDB-loaded corpus (populated by _load_corpus_from_chroma when CHROMA_MODE is set)
+_CHROMA_MATRIX: Any = None
+_CHROMA_RECORDS: list | None = None
+
+
+def _chroma_mode() -> bool:
+    return os.environ.get("CHROMA_MODE", "").strip().lower() == "http"
+
+
+def _load_corpus_from_chroma() -> tuple[Any, list[dict[str, Any]]]:
+    """Load embedding matrix and metadata records directly from ChromaDB."""
+    global _CHROMA_MATRIX, _CHROMA_RECORDS
+    if _CHROMA_MATRIX is not None and _CHROMA_RECORDS is not None:
+        return _CHROMA_MATRIX, _CHROMA_RECORDS
+
+    import chromadb
+
+    host = os.environ.get("CHROMA_HOST", "chromadb")
+    port = int(os.environ.get("CHROMA_PORT", "8000"))
+    collection_name = os.environ.get("CHROMA_COLLECTION", "fragments")
+
+    client = chromadb.HttpClient(host=host, port=port)
+    collection = client.get_collection(collection_name)
+    total = collection.count()
+    if total == 0:
+        raise RuntimeError("ChromaDB collection is empty — run ingestion first")
+
+    log(f"Loading {total} fragments from ChromaDB {host}:{port} collection={collection_name}")
+
+    batch_size = 500
+    all_embeddings = []
+    all_records = []
+    offset = 0
+    while offset < total:
+        result = collection.get(
+            limit=batch_size,
+            offset=offset,
+            include=["embeddings", "metadatas"],
+        )
+        for fid, emb, meta in zip(result["ids"], result["embeddings"], result["metadatas"]):
+            all_embeddings.append(emb)
+            row = dict(meta or {})
+            row["fragment_id"] = fid
+            all_records.append(row)
+        offset += batch_size
+
+    _CHROMA_MATRIX = np.array(all_embeddings, dtype="float32")
+    _CHROMA_RECORDS = all_records
+    log(f"ChromaDB corpus loaded: {len(all_records)} records, matrix shape={_CHROMA_MATRIX.shape}")
+    return _CHROMA_MATRIX, _CHROMA_RECORDS
 
 
 STRICT_NO_GENERIC_FALLBACK = True
@@ -762,16 +814,16 @@ def classify_candidate_relevance(
             reason = "Speaker matched; selected as one of the strongest clips across available themes."
             speaker_clip_allowed = (
                 "speaker_soundbite" in usage_candidates
-                and quote_strength >= 0.65
-                and clarity_score >= 0.85
+                and quote_strength >= 0.50
+                and clarity_score >= 0.75
             )
         elif semantic_score >= 0.52:
             role = "strong_related"
             reason = f"Speaker matched with limited topic evidence; semantic {semantic_score:.3f}"
             speaker_clip_allowed = (
                 "speaker_soundbite" in usage_candidates
-                and quote_strength >= 0.70
-                and clarity_score >= 0.85
+                and quote_strength >= 0.55
+                and clarity_score >= 0.75
             )
         else:
             role = "weak_related"
@@ -782,40 +834,40 @@ def classify_candidate_relevance(
         reason = "Speaker and requested chapter matched."
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.65
-            and clarity_score >= 0.85
+            and quote_strength >= 0.50
+            and clarity_score >= 0.75
         )
     elif theme_match and (len(meaningful_overlap) >= 1 or semantic_score >= 0.58):
         role = "exact"
         reason = "Speaker and requested theme matched."
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.65
-            and clarity_score >= 0.85
+            and quote_strength >= 0.50
+            and clarity_score >= 0.75
         )
     elif len(meaningful_overlap) >= 2 and semantic_score >= 0.62:
         role = "exact"
         reason = f"Strong meaningful overlap ({meaningful_overlap}) + semantic {semantic_score:.3f}"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.65
-            and clarity_score >= 0.85
+            and quote_strength >= 0.50
+            and clarity_score >= 0.75
         )
     elif len(meaningful_overlap) >= 1 and semantic_score >= 0.66:
         role = "exact"
         reason = f"Meaningful overlap ({meaningful_overlap}) + high semantic {semantic_score:.3f}"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.65
-            and clarity_score >= 0.85
+            and quote_strength >= 0.50
+            and clarity_score >= 0.75
         )
     elif len(expanded_overlap) >= 2 and semantic_score >= 0.65:
         role = "exact"
         reason = f"Non-generic expanded overlap ({expanded_overlap}) + semantic {semantic_score:.3f}"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.65
-            and clarity_score >= 0.85
+            and quote_strength >= 0.50
+            and clarity_score >= 0.75
         )
     elif len(generic_expanded_overlap) >= 2 and semantic_score >= 0.67:
         # Generic terms (inclusion/equity/diversity) only → strong_related at best
@@ -827,16 +879,16 @@ def classify_candidate_relevance(
         reason = f"High semantic {semantic_score:.3f} + theme/expanded match"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.70
-            and clarity_score >= 0.85
+            and quote_strength >= 0.55
+            and clarity_score >= 0.75
         )
     elif (total_theme >= 1 or total_meaningful >= 1 or len(expanded_overlap) >= 1) and semantic_score >= 0.62:
         role = "strong_related"
         reason = f"Topic/theme overlap at moderate semantic {semantic_score:.3f}: meaningful={meaningful_overlap}, theme={theme_overlap}, expanded={expanded_overlap[:3]}"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.70
-            and clarity_score >= 0.85
+            and quote_strength >= 0.55
+            and clarity_score >= 0.75
         )
     elif total_meaningful >= 1 or total_theme >= 1 or len(expanded_overlap) >= 1:
         role = "weak_related"
@@ -1373,7 +1425,11 @@ def timeline_segment_count_for_duration(target_duration_seconds: int) -> int:
         return 4
     if target_duration_seconds <= 120:
         return 6
-    return 7
+    if target_duration_seconds <= 300:
+        return 8
+    if target_duration_seconds <= 600:
+        return 12
+    return 15
 
 
 def timeline_card_duration(target_duration_seconds: int) -> int:
@@ -2026,6 +2082,8 @@ def score_all_records(prompt: str) -> list[dict[str, Any]]:
     if _FILTERED_RECORDS is not None and _FILTERED_MATRIX is not None:
         records = _FILTERED_RECORDS
         matrix = _FILTERED_MATRIX
+    elif _chroma_mode():
+        matrix, records = _load_corpus_from_chroma()
     else:
         if not _ACTIVE_MATRIX_PATH.exists():
             raise FileNotFoundError(f"Missing embedding matrix: {_ACTIVE_MATRIX_PATH}")
@@ -2114,17 +2172,18 @@ def embed_query(query: str) -> np.ndarray:
 
 
 def load_embedding_records() -> list[dict[str, Any]]:
-    records = []
+    if _chroma_mode():
+        _, records = _load_corpus_from_chroma()
+        return records
 
+    records = []
     with _ACTIVE_JSONL_PATH.open("r", encoding="utf-8") as f:
         for line in f:
             if line.strip():
                 record = json.loads(line)
-                # Keep output lightweight; matrix already stores embeddings.
                 record.pop("embedding", None)
                 record.pop("embedding_text", None)
                 records.append(record)
-
     return records
 
 
@@ -2619,21 +2678,23 @@ TEMPORAL ARC RULES (chronological_relay mode):
         director_plan = relay_plan
 
     # Compute word budget so the LLM writes narration proportional to the target duration.
-    # 7 sections, title+closing cards take 10s, remainder split equally. ~2.5 words/sec for TTS.
+    # Cards take ~10s; remaining content split equally across sections. ~2.5 words/sec for TTS.
+    _num_sections = timeline_segment_count_for_duration(duration)
     _content_budget_s = max(1, duration - 10)
-    _per_section_s = round(_content_budget_s / 7)
-    _words_per_section = max(15, round(_per_section_s * 2.5))
+    _per_section_s = round(_content_budget_s / _num_sections)
+    _words_per_section = max(30, round(_per_section_s * 2.5))
 
     user_instruction = {
         "user_prompt": user_prompt,
         "prompt_intent": prompt_intent,
         "target_duration_seconds": duration,
         "narration_guidance": (
-            f"The video is {duration} seconds long with 7 sections. "
+            f"The video is {duration} seconds long with {_num_sections} sections. "
             f"Each section has roughly {_per_section_s} seconds of content. "
             f"Write each section's narration/voiceover as approximately {_words_per_section} words "
             f"(at ~2.5 words/second TTS pace). "
-            f"Do NOT write short 1-2 sentence narrations. Fill the time with substantive, specific, evidence-grounded content."
+            f"IMPORTANT: Do NOT write short narrations. You MUST write at least {_words_per_section} words per section. "
+            f"Fill every section with substantive, specific, evidence-grounded content that the audience can follow."
         ),
         "style": style,
         "director_plan": director_plan,
@@ -4152,7 +4213,7 @@ def build_documentary_arc(
     })
 
     # Expand narration to fill target duration.
-    # Each section gets roughly (target - 10s cards) / 7 sections worth of content.
+    # Each section gets roughly (target - 10s cards) / num_sections worth of content.
     # At ~2.5 words/sec TTS pace, compute the target word count per section.
     _section_budget_s = max(8, (target_duration_seconds - 10) // max(1, len(sections)))
     _target_words = max(20, int(_section_budget_s * 2.5))
@@ -4995,13 +5056,15 @@ def activate_corpus(
     log(f"Embedding dir: {active_dir}")
     log(f"Corpus version: {corpus_version}")
 
-    if not _ACTIVE_MATRIX_PATH.exists():
-        raise FileNotFoundError(f"Missing embedding matrix: {_ACTIVE_MATRIX_PATH}")
-    if not _ACTIVE_JSONL_PATH.exists():
-        raise FileNotFoundError(f"Missing embedding JSONL: {_ACTIVE_JSONL_PATH}")
-
-    all_records = load_embedding_records()
-    matrix = np.load(_ACTIVE_MATRIX_PATH)
+    if _chroma_mode():
+        matrix, all_records = _load_corpus_from_chroma()
+    else:
+        if not _ACTIVE_MATRIX_PATH.exists():
+            raise FileNotFoundError(f"Missing embedding matrix: {_ACTIVE_MATRIX_PATH}")
+        if not _ACTIVE_JSONL_PATH.exists():
+            raise FileNotFoundError(f"Missing embedding JSONL: {_ACTIVE_JSONL_PATH}")
+        all_records = load_embedding_records()
+        matrix = np.load(_ACTIVE_MATRIX_PATH)
 
     if matrix.shape[0] != len(all_records):
         raise RuntimeError(

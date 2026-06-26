@@ -17,3 +17,5 @@ celery==5.6.3
 redis==6.4.0
 chromadb==1.5.9
 python-json-logger==4.1.0
+boto3==1.43.36
+faster-whisper==1.1.1

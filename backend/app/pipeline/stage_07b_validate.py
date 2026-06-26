@@ -1,4 +1,5 @@
 from __future__ import annotations
+import sys
 
 import json
 from pathlib import Path
@@ -6,12 +7,46 @@ from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script
+from app.pipeline.s3_helpers import use_s3, download, download_prefix, tmp_dir, cleanup_tmp_dir
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
 
-PYTHON_BIN = str(PROJECT_ROOT / ".venv" / "bin" / "python")
-TRANSCRIPTS_DIR_ALIGNED = DATA_DIR / "transcripts_cleaned_aligned"
-TRANSCRIPTS_DIR_FALLBACK = DATA_DIR / "transcripts"
+PYTHON_BIN = sys.executable
+
+
+def _prepare_inputs(storyline_path: str, job_id: str) -> tuple[Path, Path, Path, Path]:
+    """
+    In S3 mode: download storyline JSON + transcripts from S3 to /tmp.
+    In local mode: use paths as-is.
+    Returns (storyline_local, transcripts_dir, fallback_transcripts_dir, output_path).
+    """
+    if not use_s3():
+        sp = Path(storyline_path)
+        validated = sp.parent / (sp.stem + "_validated.json")
+        return sp, DATA_DIR / "transcripts_cleaned_aligned", DATA_DIR / "transcripts", validated
+
+    # S3 mode — work entirely in /tmp
+    work = tmp_dir(f"07b_{job_id}")
+
+    # Download storyline JSON from S3
+    # storyline_path is a local path like /app/data/storylines/storyline_xxx.json
+    # In S3 mode, stage_07 wrote the file to S3 at raw/storylines/<filename>
+    sp_local = Path(storyline_path)
+    storyline_local = work / sp_local.name
+    if not storyline_local.exists():
+        s3_key = f"raw/storylines/{sp_local.name}"
+        download(s3_key, storyline_local)
+
+    # Download transcripts from S3 to /tmp
+    transcripts_dir = work / "transcripts_cleaned_aligned"
+    fallback_dir = work / "transcripts"
+    if not transcripts_dir.exists() or not any(transcripts_dir.iterdir()):
+        download_prefix("raw/transcripts_cleaned/", transcripts_dir)
+    if not fallback_dir.exists() or not any(fallback_dir.iterdir()):
+        download_prefix("raw/transcripts/", fallback_dir)
+
+    validated_local = work / (sp_local.stem + "_validated.json")
+    return storyline_local, transcripts_dir, fallback_dir, validated_local
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -19,16 +54,18 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     update_stage(job_id, "07b_validate_storyline", "running", 5, "Starting LLM editorial validation")
     append_event(job_id, "stage_started", "07b_validate_storyline", {"storyline_path": storyline_path})
 
-    sp = Path(storyline_path)
-    validated_path = sp.parent / (sp.stem + "_validated.json")
+    if use_s3():
+        update_stage(job_id, "07b_validate_storyline", "running", 8, "Downloading inputs from S3")
+
+    sp, transcripts_dir, fallback_dir, validated_path = _prepare_inputs(storyline_path, job_id)
     max_iter = int(request.get("max_validation_iterations", 3))
 
     cmd = [
         PYTHON_BIN,
         str(SCRIPTS_DIR / "07b_validate_storyline_with_llm.py"),
         "--storyline", str(sp),
-        "--transcripts-dir", str(TRANSCRIPTS_DIR_ALIGNED),
-        "--fallback-transcripts-dir", str(TRANSCRIPTS_DIR_FALLBACK),
+        "--transcripts-dir", str(transcripts_dir),
+        "--fallback-transcripts-dir", str(fallback_dir),
         "--output", str(validated_path),
         "--max-iterations", str(max_iter),
     ]
@@ -41,6 +78,12 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
 
     if not validated_path.exists():
         raise RuntimeError(f"Validated storyline not found: {validated_path}")
+
+    # Upload validated storyline to S3
+    if use_s3():
+        from app.pipeline.s3_helpers import upload
+        s3_key = f"raw/storylines/{validated_path.name}"
+        upload(validated_path, s3_key)
 
     # Parse result
     try:
@@ -64,10 +107,11 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
 
     job = load_job(job_id)
     job["paths"]["validated_storyline_path"] = str(validated_path)
+    if use_s3():
+        job["paths"]["validated_storyline_s3_key"] = f"raw/storylines/{validated_path.name}"
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
 
-    # Store warnings in job
     if warnings_list:
         jb = load_job(job_id)
         jb["warnings"] = jb.get("warnings", []) + [w["note"] or w["issue"] for w in warnings_list]
@@ -87,6 +131,9 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         append_event(job_id, "validation_warning", "07b_validate_storyline", w)
     append_event(job_id, "quality_gate", "07b_validate_storyline", gates)
     append_event(job_id, "stage_completed", "07b_validate_storyline", {"validated_path": str(validated_path)})
+
+    if use_s3():
+        cleanup_tmp_dir(f"07b_{job_id}")
 
     context.validated_storyline_path = str(validated_path)
     return StageResult(

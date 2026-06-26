@@ -1,15 +1,40 @@
 from __future__ import annotations
+import sys
 
 import json
+from pathlib import Path
 from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script
+from app.pipeline.s3_helpers import use_s3, download, upload, upload_dir, tmp_dir, cleanup_tmp_dir
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
 
-PYTHON_BIN = str(PROJECT_ROOT / ".venv" / "bin" / "python")
-LATEST_ASSET_MANIFEST = DATA_DIR / "generated_assets" / "latest_asset_manifest.json"
+PYTHON_BIN = sys.executable
+
+_LOCAL_MANIFEST = DATA_DIR / "generated_assets" / "latest_asset_manifest.json"
+_S3_ASSETS_PREFIX = "generated_assets"
+
+
+def _prepare_storyline(validated_path: str, job_id: str) -> Path:
+    """Return local path to validated storyline JSON, downloading from S3 if needed."""
+    if not use_s3():
+        return Path(validated_path)
+
+    vp = Path(validated_path)
+    work = tmp_dir(f"08_{job_id}")
+    local = work / vp.name
+    if not local.exists():
+        download(f"raw/storylines/{vp.name}", local)
+    return local
+
+
+def _manifest_path(job_id: str) -> Path:
+    """Where the script will write latest_asset_manifest.json."""
+    if use_s3():
+        return tmp_dir(f"08_{job_id}") / "generated_assets" / "latest_asset_manifest.json"
+    return _LOCAL_MANIFEST
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -17,21 +42,48 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     update_stage(job_id, "08_assets", "running", 5, "Starting voiceover and visual asset generation")
     append_event(job_id, "stage_started", "08_assets", {"validated_path": validated_path})
 
+    if use_s3():
+        update_stage(job_id, "08_assets", "running", 8, "Downloading storyline from S3")
+
+    storyline_local = _prepare_storyline(validated_path, job_id)
+
+    # In S3 mode, override GENERATED_ASSETS_DIR so the script writes into /tmp
+    env_overrides: dict[str, str] = {}
+    if use_s3():
+        assets_tmp = tmp_dir(f"08_{job_id}") / "generated_assets"
+        assets_tmp.mkdir(parents=True, exist_ok=True)
+        env_overrides["AI4IA_LOCAL_ASSETS_DIR"] = str(assets_tmp)
+
     cmd = [
         PYTHON_BIN,
         str(SCRIPTS_DIR / "08_generate_assets.py"),
-        "--storyline", validated_path,
+        "--storyline", str(storyline_local),
     ]
 
     update_stage(job_id, "08_assets", "running", 10, "Generating voiceovers and visual assets")
-    code, stdout, stderr = run_script(job_id, "08_assets", cmd)
+    code, stdout, stderr = run_script(job_id, "08_assets", cmd, extra_env=env_overrides or None)
 
     if code != 0:
         raise RuntimeError(f"08_generate_assets.py exited {code}: {stderr[-1000:]}")
 
-    manifest_path = LATEST_ASSET_MANIFEST
-    if not manifest_path.exists():
-        raise RuntimeError(f"Asset manifest not found at {manifest_path}")
+    # Find the manifest — script writes it to GENERATED_ASSETS_DIR
+    if use_s3():
+        assets_tmp = tmp_dir(f"08_{job_id}") / "generated_assets"
+        # Find latest_asset_manifest.json recursively
+        manifests = list(assets_tmp.rglob("latest_asset_manifest.json"))
+        if not manifests:
+            raise RuntimeError(f"Asset manifest not found under {assets_tmp}")
+        manifest_path = manifests[0]
+
+        update_stage(job_id, "08_assets", "running", 85, "Uploading generated assets to S3")
+        # Upload all generated assets (audio, cards, visual PNGs, manifest)
+        upload_dir(assets_tmp, _S3_ASSETS_PREFIX)
+        # Upload manifest under a job-scoped key so concurrent jobs don't collide
+        upload(manifest_path, f"{_S3_ASSETS_PREFIX}/{job_id}_manifest.json")
+    else:
+        manifest_path = _LOCAL_MANIFEST
+        if not manifest_path.exists():
+            raise RuntimeError(f"Asset manifest not found at {manifest_path}")
 
     # Parse manifest for details
     try:
@@ -70,6 +122,9 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         "voiceovers_count": len(svos),
         "visual_quality_gates": vqg,
     })
+
+    if use_s3():
+        cleanup_tmp_dir(f"08_{job_id}")
 
     context.asset_manifest_path = str(manifest_path)
     return StageResult(

@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import os
-import signal
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -31,20 +29,20 @@ class StageResult:
 
 
 # ---------------------------------------------------------------------------
-# Script runner (moved from video_job_runner._run_script)
+# Script runner
 # ---------------------------------------------------------------------------
 
-def _logs_dir(job_id: str) -> Path:
-    from app.core.paths import DATA_DIR
-    return DATA_DIR / "jobs" / job_id / "logs"
+def run_script(
+    job_id: str,
+    stage_name: str,
+    cmd: list[str],
+    extra_env: dict[str, str] | None = None,
+) -> tuple[int, str, str]:
+    """Run a subprocess and emit stdout/stderr to Supabase events. Returns (exit_code, stdout, stderr)."""
+    import os
+    from app.services.job_store import append_event
 
-
-def run_script(job_id: str, stage_name: str, cmd: list[str]) -> tuple[int, str, str]:
-    """Run a subprocess, save stdout/stderr logs, return (exit_code, stdout, stderr)."""
-    logs = _logs_dir(job_id)
-    out_log = logs / f"{stage_name}.stdout.log"
-    err_log = logs / f"{stage_name}.stderr.log"
-    pid_file = logs / f"{stage_name}.pid"
+    env = {**os.environ, **(extra_env or {})} if extra_env else None
 
     try:
         process = subprocess.Popen(
@@ -53,36 +51,20 @@ def run_script(job_id: str, stage_name: str, cmd: list[str]) -> tuple[int, str, 
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
+            env=env,
         )
-        pid_file.write_text(str(process.pid))
         stdout, stderr = process.communicate()
-        pid_file.unlink(missing_ok=True)
-        out_log.write_text(stdout or "", encoding="utf-8")
-        err_log.write_text(stderr or "", encoding="utf-8")
-        return process.returncode, stdout or "", stderr or ""
+        stdout = stdout or ""
+        stderr = stderr or ""
+        append_event(job_id, "script_output", stage_name, {
+            "exit_code": process.returncode,
+            "stdout": stdout[-4000:],
+            "stderr": stderr[-4000:],
+        })
+        return process.returncode, stdout, stderr
     except Exception as exc:
-        pid_file.unlink(missing_ok=True)
-        err_log.write_text(str(exc), encoding="utf-8")
+        append_event(job_id, "script_error", stage_name, {"error": str(exc)})
         return -1, "", str(exc)
-
-
-def kill_running_stage(job_id: str, stage_name: str) -> bool:
-    """Send SIGTERM to the process recorded in the stage's PID file.
-
-    Returns True if a signal was delivered, False if no process was found
-    (already finished, never started, or PID file missing).
-    """
-    pid_file = _logs_dir(job_id) / f"{stage_name}.pid"
-    if not pid_file.exists():
-        return False
-    try:
-        pid = int(pid_file.read_text().strip())
-        os.kill(pid, signal.SIGTERM)
-        pid_file.unlink(missing_ok=True)
-        return True
-    except (ProcessLookupError, ValueError):
-        pid_file.unlink(missing_ok=True)
-        return False
 
 
 # ---------------------------------------------------------------------------

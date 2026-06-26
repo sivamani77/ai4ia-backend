@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 from typing import Any, Mapping, TypedDict
+from urllib.parse import quote
 
 from app.db.supabase import get_supabase_client
 from app.db.utils import normalize_value
@@ -54,18 +55,28 @@ class FragmentRepository:
         return self._from_row(response.data[0]) if response.data else None
 
     def list_all(self, limit: int = 10000) -> list[FragmentRecord]:
+        """Fetch all rows, paginating in 1000-row pages to bypass Supabase default cap."""
         self._log("select_all")
-        try:
-            response = (
-                self._table.select("*")
-                .order("fragment_id")
-                .limit(limit)
-                .execute()
-            )
-        except Exception:
-            logger.exception("fragments list_all failed")
-            raise
-        return [self._from_row(row) for row in response.data or []]
+        PAGE = 1000
+        all_rows: list[dict] = []
+        offset = 0
+        while True:
+            try:
+                response = (
+                    self._table.select("*")
+                    .order("fragment_id")
+                    .range(offset, offset + PAGE - 1)
+                    .execute()
+                )
+            except Exception:
+                logger.exception("fragments list_all failed at offset=%d", offset)
+                raise
+            page_data = response.data or []
+            all_rows.extend(page_data)
+            if len(page_data) < PAGE or len(all_rows) >= limit:
+                break
+            offset += PAGE
+        return [self._from_row(row) for row in all_rows[:limit]]
 
     def search(
         self,
@@ -242,7 +253,7 @@ class FragmentRepository:
             keywords=d.get("keywords") or [],
             extra=d.get("extra") or {},
             # Virtual field — callers that need stream_url get it from here
-            stream_url=f"/api/archive/videos/{source_video}/stream",  # type: ignore[typeddict-unknown-key]
+            stream_url=f"/api/archive/videos/{quote(source_video, safe='')}/stream",  # type: ignore[typeddict-unknown-key]
         )
 
     def _log(self, operation: str, record_id: str | None = None) -> None:

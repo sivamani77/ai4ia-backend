@@ -29,7 +29,6 @@ from app.services.job_store import (
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
-VIDEO_JOBS_DIR = DATA_DIR / "jobs"
 PYTHON_BIN = sys.executable
 TRANSCRIPTS_DIR_ALIGNED = DATA_DIR / "transcripts_cleaned_aligned"
 TRANSCRIPTS_DIR_FALLBACK = DATA_DIR / "transcripts"
@@ -75,19 +74,6 @@ def _job_logger(job_id: str, stage: str = "") -> logging.LoggerAdapter:
 
 def _utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
-
-
-def _job_dir(job_id: str) -> Path:
-    return VIDEO_JOBS_DIR / job_id
-
-
-def _logs_dir(job_id: str) -> Path:
-    return _job_dir(job_id) / "logs"
-
-
-def _ensure_job_dirs(job_id: str) -> None:
-    _job_dir(job_id).mkdir(parents=True, exist_ok=True)
-    _logs_dir(job_id).mkdir(parents=True, exist_ok=True)
 
 
 # ---------------------------------------------------------------------------
@@ -194,7 +180,6 @@ def _complete_job(job_id: str) -> None:
 
 def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
     job_id = f"vjob_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
-    _ensure_job_dirs(job_id)
 
     job: dict[str, Any] = {
         "job_id": job_id,
@@ -291,6 +276,17 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             build_media_registry(job_id)
         except Exception:
             pass  # non-fatal; job is still complete
+
+        try:
+            from app.services.storage_service import STORAGE_BACKEND, upload_job_outputs_to_s3
+            if STORAGE_BACKEND == "s3":
+                upload_job_outputs_to_s3(job_id)
+                # Clean up all stage tmp dirs now that everything is in S3
+                from app.pipeline.s3_helpers import cleanup_tmp_dir
+                for stage_prefix in (f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
+                    cleanup_tmp_dir(stage_prefix)
+        except Exception:
+            log.warning("S3 upload failed for job %s — outputs remain on local disk", job_id, exc_info=True)
 
         job = load_job(job_id)
         vp = job["paths"].get("video_path", "")

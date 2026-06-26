@@ -1,0 +1,36 @@
+services:
+  worker:
+    image: aswinmobiusdtaas/ai4ia-pipeline:v2
+    command: celery -A app.worker.celery_app worker -Q video_jobs -c 2 --loglevel=info
+    env_file: .env
+    volumes:
+      - ./data/embeddings:/app/data/embeddings
+      - ./data/embeddings_cleaned:/app/data/embeddings_cleaned
+      - ./data/jobs:/app/data/jobs
+      - ./data/exports:/app/data/exports
+      - ./data/generated_assets:/app/data/generated_assets
+      - ./data/logs:/app/logs
+    depends_on:
+      - chromadb
+    restart: unless-stopped
+
+  chromadb:
+    image: chromadb/chroma:1.5.9
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/data
+    restart: unless-stopped
+    stop_grace_period: 60s
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+      - CHROMA_SERVER_AUTHN_PROVIDER=
+      - CHROMA_SEGMENT_CACHE_POLICY=ALL
+    healthcheck:
+      disable: true
+
+volumes:
+  chroma_data:
+
+

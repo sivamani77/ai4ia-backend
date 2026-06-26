@@ -279,22 +279,52 @@ def generate_concept_mindmap(query: str, storyline_id: str | None = None) -> dic
     }
 
 
+def _list_s3_storylines() -> list[dict]:
+    """Return list of {key, last_modified, name} for storyline files in S3."""
+    try:
+        from app.pipeline.s3_helpers import _s3, _bucket
+        s3 = _s3()
+        bucket = _bucket()
+        paginator = s3.get_paginator("list_objects_v2")
+        results = []
+        for page in paginator.paginate(Bucket=bucket, Prefix="raw/storylines/"):
+            for obj in page.get("Contents", []):
+                key = obj["Key"]
+                name = Path(key).name
+                if name.startswith("storyline_") and name.endswith(".json"):
+                    results.append({"key": key, "last_modified": obj["LastModified"], "name": name})
+        return sorted(results, key=lambda x: x["last_modified"], reverse=True)
+    except Exception:
+        return []
+
+
+def _read_s3_storyline(key: str) -> dict:
+    from app.pipeline.s3_helpers import _s3, _bucket
+    resp = _s3().get_object(Bucket=_bucket(), Key=key)
+    return json.loads(resp["Body"].read().decode("utf-8"))
+
+
 def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, Any], Path]:
+    from app.pipeline.s3_helpers import use_s3
     if storyline_id:
         direct = STORYLINES_DIR / f"{storyline_id}.json"
-        if not direct.exists():
-            raise FileNotFoundError(f"Storyline '{storyline_id}' not found")
-        return json.loads(direct.read_text(encoding="utf-8")), direct
+        if direct.exists():
+            return json.loads(direct.read_text(encoding="utf-8")), direct
+        if use_s3():
+            s3_items = _list_s3_storylines()
+            for item in s3_items:
+                if storyline_id in item["name"]:
+                    return _read_s3_storyline(item["key"]), Path(item["name"])
+        raise FileNotFoundError(f"Storyline '{storyline_id}' not found")
 
+    # Try local first, then S3
     candidates = sorted(STORYLINES_DIR.glob("storyline_*.json"), reverse=True)
-    if not candidates:
-        raise FileNotFoundError("No storyline files found")
-
-    best_path = None
-    best_score = -1.0
     query_tokens = set(_tokenize(query))
     query_norm = clean_text(query).lower()
 
+    # Score and pick best from local candidates
+    best_path = None
+    best_score = -1.0
     for path in candidates:
         payload = json.loads(path.read_text(encoding="utf-8"))
         story = payload.get("storyline") or payload
@@ -307,7 +337,6 @@ def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, 
         haystack = " ".join(clean_text(f).lower() for f in fields if f)
         if not haystack:
             continue
-
         score = 0.0
         if query_norm and query_norm in haystack:
             score += 5.0
@@ -316,17 +345,47 @@ def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, 
             score += len(overlap) / max(len(query_tokens), 1)
         if path.name.endswith("_validated.json"):
             score += 0.25
-
         if score > best_score:
             best_score = score
             best_path = path
 
-    if not best_path or best_score < 0.35:
-        raise FileNotFoundError(
-            "No matching storyline found for this query. Generate a storyline first or pass storyline_id."
-        )
+    if best_path and best_score >= 0.35:
+        return json.loads(best_path.read_text(encoding="utf-8")), best_path
 
-    return json.loads(best_path.read_text(encoding="utf-8")), best_path
+    # Fall back to S3 when no local candidates or no good match
+    if use_s3():
+        s3_items = _list_s3_storylines()
+        if not s3_items:
+            raise FileNotFoundError("No storyline files found")
+        best_s3: dict | None = None
+        best_score = -1.0
+        for item in s3_items:
+            payload = _read_s3_storyline(item["key"])
+            story = payload.get("storyline") or payload
+            fields = [
+                payload.get("user_prompt", ""),
+                story.get("title", ""),
+                story.get("logline", ""),
+                story.get("central_question", ""),
+            ]
+            haystack = " ".join(clean_text(f).lower() for f in fields if f)
+            score = 0.0
+            if query_norm and query_norm in haystack:
+                score += 5.0
+            overlap = query_tokens.intersection(_tokenize(haystack))
+            if query_tokens:
+                score += len(overlap) / max(len(query_tokens), 1)
+            if item["name"].endswith("_validated.json"):
+                score += 0.25
+            if score > best_score:
+                best_score = score
+                best_s3 = {"payload": payload, "name": item["name"]}
+        if best_s3 and best_score >= 0.0:
+            return best_s3["payload"], Path(best_s3["name"])
+
+    raise FileNotFoundError(
+        "No matching storyline found for this query. Generate a storyline first or pass storyline_id."
+    )
 
 
 def _extract_sections(payload: dict[str, Any]) -> list[dict[str, Any]]:

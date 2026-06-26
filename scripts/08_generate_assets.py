@@ -1,6 +1,7 @@
 import argparse
 import asyncio
 import json
+import os
 import re
 from pathlib import Path
 from datetime import datetime
@@ -13,7 +14,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 STORYLINES_DIR = PROJECT_ROOT / "data" / "storylines"
-GENERATED_ASSETS_DIR = PROJECT_ROOT / "data" / "generated_assets"
+GENERATED_ASSETS_DIR = Path(os.environ.get("AI4IA_LOCAL_ASSETS_DIR", str(PROJECT_ROOT / "data" / "generated_assets")))
 FRAGMENTS_CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
 SPEAKERS_METADATA_DIR = PROJECT_ROOT / "data" / "metadata" / "speakers"
 

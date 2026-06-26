@@ -1,9 +1,12 @@
-from fastapi import APIRouter, HTTPException, Query
-from fastapi.responses import FileResponse
+from urllib.parse import quote
+
+from fastapi import APIRouter, HTTPException, Query, Request
+from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
 from app.core.config import SEMANTIC_TOP_K_DEFAULT
 from app.core.paths import RAW_VIDEO_DIR
+from app.core.settings import settings
 from app.services import embedding_index, fragment_store
 from app.services.archive_service import (
     list_videos,
@@ -11,6 +14,7 @@ from app.services.archive_service import (
     search_fragments,
     get_fragment,
     get_themes_and_chapters,
+    _S3_RAW_PREFIX,
 )
 
 router = APIRouter(prefix="/archive", tags=["Archive"])
@@ -73,15 +77,102 @@ def api_get_video(video_id: str):
 
 
 @router.get("/videos/{video_id}/stream")
-def api_stream_video(video_id: str):
-    path = RAW_VIDEO_DIR / f"{video_id}.mp4"
+def api_stream_video(video_id: str, request: Request):
+    if settings.ai4ia_storage_backend == "s3":
+        video = get_video(video_id)
+        if not video or not video.get("s3_key"):
+            raise HTTPException(status_code=404, detail="Video file not found")
+        from app.services.storage_service import (
+            _OBJECT_STORAGE_BUCKET,
+            _OBJECT_STORAGE_REGION,
+            _OBJECT_STORAGE_ACCESS_KEY,
+            _OBJECT_STORAGE_SECRET_KEY,
+            _OBJECT_STORAGE_ENDPOINT,
+        )
+        import boto3
+        kwargs = {
+            "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
+            "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
+            "region_name": _OBJECT_STORAGE_REGION or None,
+        }
+        if _OBJECT_STORAGE_ENDPOINT:
+            kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+        s3 = boto3.client("s3", **kwargs)
+        s3_key = video["s3_key"]
 
+        # Get object size for range support
+        try:
+            head = s3.head_object(Bucket=_OBJECT_STORAGE_BUCKET, Key=s3_key)
+            file_size = head["ContentLength"]
+        except Exception:
+            raise HTTPException(status_code=404, detail="Video file not found in S3")
+
+        range_header = request.headers.get("range")
+        if range_header:
+            # Parse Range: bytes=start-end
+            try:
+                unit, rng = range_header.split("=", 1)
+                start_str, end_str = rng.split("-", 1)
+                start = int(start_str) if start_str.strip() else 0
+                end = int(end_str) if end_str.strip() else file_size - 1
+            except Exception:
+                raise HTTPException(status_code=416, detail="Invalid Range header")
+
+            end = min(end, file_size - 1)
+            length = end - start + 1
+
+            def _stream_range():
+                resp = s3.get_object(
+                    Bucket=_OBJECT_STORAGE_BUCKET,
+                    Key=s3_key,
+                    Range=f"bytes={start}-{end}",
+                )
+                body = resp["Body"]
+                while True:
+                    chunk = body.read(65536)
+                    if not chunk:
+                        break
+                    yield chunk
+
+            return StreamingResponse(
+                _stream_range(),
+                status_code=206,
+                media_type="video/mp4",
+                headers={
+                    "Content-Range": f"bytes {start}-{end}/{file_size}",
+                    "Content-Length": str(length),
+                    "Accept-Ranges": "bytes",
+                    "Cache-Control": "no-cache",
+                },
+            )
+
+        # No range — stream full object
+        def _stream_full():
+            resp = s3.get_object(Bucket=_OBJECT_STORAGE_BUCKET, Key=s3_key)
+            body = resp["Body"]
+            while True:
+                chunk = body.read(65536)
+                if not chunk:
+                    break
+                yield chunk
+
+        return StreamingResponse(
+            _stream_full(),
+            status_code=200,
+            media_type="video/mp4",
+            headers={
+                "Content-Length": str(file_size),
+                "Accept-Ranges": "bytes",
+                "Cache-Control": "no-cache",
+            },
+        )
+
+    path = RAW_VIDEO_DIR / f"{video_id}.mp4"
     if not path.exists():
         matches = sorted(RAW_VIDEO_DIR.glob(f"*{video_id}*.mp4"))
         if not matches:
             raise HTTPException(status_code=404, detail="Video file not found")
         path = matches[0]
-
     return FileResponse(path, media_type="video/mp4", filename=path.name)
 
 
@@ -158,7 +249,7 @@ def api_fragment_preview(fragment_id: str):
     source_video = fragment.get("source_video")
     return {
         "fragment_id": fragment_id,
-        "video_stream_url": f"/api/archive/videos/{source_video}/stream",
+        "video_stream_url": f"/api/archive/videos/{quote(source_video, safe='')}/stream",
         "start": fragment.get("start"),
         "end": fragment.get("end"),
         "duration": fragment.get("duration"),

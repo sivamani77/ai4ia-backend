@@ -5,8 +5,11 @@ from pathlib import Path
 from typing import Any
 
 from app.core.paths import RAW_VIDEO_DIR, CLASSIFIED_FRAGMENTS_DIR
+from app.core.settings import settings
 from app.core.taxonomy import THEMES, CHAPTERS, chapter_id_from_name
 from app.db.repositories.fragment_repository import FragmentRepository
+
+_S3_RAW_PREFIX = "raw/youtube/ai4ia_channel/"
 
 _CACHE_TTL = 60.0  # seconds
 
@@ -50,49 +53,95 @@ def load_all_classified_fragments() -> list[dict[str, Any]]:
     return [dict(r) for r in FragmentRepository().list_all()]
 
 
+def _list_videos_from_s3() -> list[dict[str, Any]]:
+    """List source videos by scanning the raw/ prefix in S3."""
+    from app.services.storage_service import S3StorageService, _OBJECT_STORAGE_BUCKET, _OBJECT_STORAGE_REGION, _OBJECT_STORAGE_ACCESS_KEY, _OBJECT_STORAGE_SECRET_KEY, _OBJECT_STORAGE_ENDPOINT
+    import boto3
+
+    kwargs: dict[str, Any] = {
+        "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
+        "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
+        "region_name": _OBJECT_STORAGE_REGION or None,
+    }
+    if _OBJECT_STORAGE_ENDPOINT:
+        kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+
+    s3 = boto3.client("s3", **kwargs)
+    bucket = _OBJECT_STORAGE_BUCKET
+
+    paginator = s3.get_paginator("list_objects_v2")
+    mp4_keys: list[str] = []
+    info_map: dict[str, Any] = {}
+
+    for page in paginator.paginate(Bucket=bucket, Prefix=_S3_RAW_PREFIX):
+        for obj in page.get("Contents", []):
+            key = obj["Key"]
+            if key.endswith(".mp4"):
+                mp4_keys.append(key)
+            elif key.endswith(".info.json"):
+                stem = Path(key).stem.replace(".info", "")
+                try:
+                    resp = s3.get_object(Bucket=bucket, Key=key)
+                    info_map[stem] = json.loads(resp["Body"].read().decode("utf-8"))
+                except Exception:
+                    pass
+
+    videos = []
+    for key in sorted(mp4_keys):
+        stem = Path(key).stem
+        info = info_map.get(stem, {})
+        stem_parts = stem.split("_")
+        youtube_id = stem_parts[1] if len(stem_parts) >= 2 else stem
+        title = info.get("title") or infer_speaker_from_filename(stem)
+        videos.append({
+            "video_id": youtube_id,
+            "source_video": stem,
+            "filename": Path(key).name,
+            "title": title,
+            "speaker_or_topic": infer_speaker_from_filename(stem),
+            "path": None,
+            "thumbnail": None,
+            "duration": info.get("duration"),
+            "webpage_url": info.get("webpage_url"),
+            "s3_key": key,
+            "stream_url": f"/api/archive/videos/{youtube_id}/stream",
+        })
+    return videos
+
+
 def list_videos() -> list[dict[str, Any]]:
     global _videos_cache
     data, ts = _videos_cache
     if data and time.monotonic() - ts < _CACHE_TTL:
         return data
 
-    videos = []
+    videos: list[dict[str, Any]] = []
 
-    if not RAW_VIDEO_DIR.exists():
-        return videos
-
-    for path in sorted(RAW_VIDEO_DIR.glob("*.mp4")):
-        stem = path.stem
-        info_path = RAW_VIDEO_DIR / f"{stem}.info.json"
-        info = safe_read_json(info_path)
-
-        title = stem
-        duration = None
-        webpage_url = None
-
-        if isinstance(info, dict):
-            title = info.get("title") or stem
-            duration = info.get("duration")
-            webpage_url = info.get("webpage_url")
-
-        # Extract the YouTube ID (second _-delimited part: 0139_<youtube_id>_title)
-        stem_parts = stem.split("_")
-        youtube_id = stem_parts[1] if len(stem_parts) >= 2 else stem
-
-        videos.append(
-            {
-                "video_id": youtube_id,
-                "source_video": stem,
-                "filename": path.name,
-                "title": title,
-                "speaker_or_topic": infer_speaker_from_filename(path.name),
-                "path": str(path),
-                "thumbnail": str(RAW_VIDEO_DIR / f"{stem}.jpg") if (RAW_VIDEO_DIR / f"{stem}.jpg").exists() else None,
-                "duration": duration,
-                "webpage_url": webpage_url,
-                "stream_url": f"/api/archive/videos/{youtube_id}/stream",
-            }
-        )
+    if settings.ai4ia_storage_backend == "s3":
+        try:
+            videos = _list_videos_from_s3()
+        except Exception:
+            pass
+    else:
+        if RAW_VIDEO_DIR.exists():
+            for path in sorted(RAW_VIDEO_DIR.glob("*.mp4")):
+                stem = path.stem
+                info = safe_read_json(RAW_VIDEO_DIR / f"{stem}.info.json")
+                title = (info or {}).get("title") or stem
+                stem_parts = stem.split("_")
+                youtube_id = stem_parts[1] if len(stem_parts) >= 2 else stem
+                videos.append({
+                    "video_id": youtube_id,
+                    "source_video": stem,
+                    "filename": path.name,
+                    "title": title,
+                    "speaker_or_topic": infer_speaker_from_filename(path.name),
+                    "path": str(path),
+                    "thumbnail": str(RAW_VIDEO_DIR / f"{stem}.jpg") if (RAW_VIDEO_DIR / f"{stem}.jpg").exists() else None,
+                    "duration": (info or {}).get("duration"),
+                    "webpage_url": (info or {}).get("webpage_url"),
+                    "stream_url": f"/api/archive/videos/{youtube_id}/stream",
+                })
 
     _videos_cache = (videos, time.monotonic())
     return videos

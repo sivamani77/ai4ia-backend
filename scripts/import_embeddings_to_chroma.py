@@ -100,8 +100,8 @@ def main() -> None:
     CHROMA_DIR.mkdir(parents=True, exist_ok=True)
 
     import chromadb
-    client = chromadb.PersistentClient(path=str(CHROMA_DIR))
-
+    client = chromadb.HttpClient(host="chromadb", port=8000)
+    
     if args.reset:
         try:
             client.delete_collection(COLLECTION_NAME)

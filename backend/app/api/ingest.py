@@ -185,11 +185,21 @@ def trigger_single_video_sync(video_id: str) -> dict[str, Any]:
     It bypasses the discovery stage and goes straight to download/process.
     """
     from app.core.paths import RAW_VIDEO_DIR
+    from app.core.settings import settings
     from app.services.ingest_store import upsert_video_stage
 
-    # Check if the video exists on disk already — if so, skip download
-    mp4_files = list(RAW_VIDEO_DIR.glob(f"*_{video_id}_*.mp4"))
-    already_downloaded = len(mp4_files) > 0
+    # Check if the video exists — S3 or local depending on backend
+    already_downloaded = False
+    if settings.ai4ia_storage_backend == "s3":
+        try:
+            from app.services.ingest_job_runner import _s3_list_keys
+            s3_stems = _s3_list_keys("raw/youtube/ai4ia_channel/")
+            already_downloaded = any(video_id in s for s in s3_stems)
+        except Exception:
+            already_downloaded = False
+    else:
+        mp4_files = list(RAW_VIDEO_DIR.glob(f"*_{video_id}_*.mp4"))
+        already_downloaded = len(mp4_files) > 0
 
     if not already_downloaded:
         # Full re-ingest: create a standard job but limit to this video

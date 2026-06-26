@@ -40,7 +40,6 @@ from app.services.video_job_runner import (
     EXPORTS_DIR,
 )
 from app.services.job_store import load_events_after
-from app.pipeline.base import kill_running_stage
 
 router = APIRouter(prefix="/video-jobs", tags=["video-jobs"])
 
@@ -201,11 +200,6 @@ def cancel_video_job(job_id: str):
         except Exception:
             pass  # non-fatal; PID kill and status write are the primary mechanism
 
-    # Kill the subprocess for whichever stage is currently running
-    current_stage = job.get("current_stage")
-    if current_stage and current_stage not in ("queued", "completed"):
-        kill_running_stage(job_id, current_stage)
-
     # Write "cancelled" status and emit SSE event
     _cancel_job(job_id, "Job cancelled by user")
 
@@ -296,7 +290,13 @@ def get_job_storyline(job_id: str):
 
     target = vsp or isp
     try:
-        data = json.loads(Path(target).read_text(encoding="utf-8"))
+        from app.pipeline.s3_helpers import use_s3, _s3, _bucket
+        s3_key = paths.get("validated_storyline_s3_key") or paths.get("storyline_s3_key")
+        if use_s3() and s3_key:
+            resp = _s3().get_object(Bucket=_bucket(), Key=s3_key)
+            data = json.loads(resp["Body"].read().decode("utf-8"))
+        else:
+            data = json.loads(Path(target).read_text(encoding="utf-8"))
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Failed to read storyline: {exc}")
 
@@ -539,11 +539,35 @@ def get_job_result(job_id: str):
 
     base = f"/api/video-jobs/{job_id}"
 
-    # Stable API URLs (frontend should use these)
-    has_video = bool(vp and Path(vp).exists())
-    has_srt = bool(srtp and Path(srtp).exists())
-    has_vtt = bool(vttp and Path(vttp).exists())
-    has_manifest = bool(emp and Path(emp).exists())
+    # Check asset availability via registry (works for both local and S3)
+    try:
+        from app.services.storage_service import get_storage_service
+        storage = get_storage_service()
+        # Use S3-aware registry loader if available, else fall back to local
+        if hasattr(storage, "_load_registry"):
+            reg = storage._load_registry(job_id)
+        else:
+            from app.services.storage_service import load_registry
+            reg = load_registry(job_id)
+        reg_objects = reg.get("objects", {})
+        def _asset_available(oid: str) -> bool:
+            if oid not in reg_objects:
+                return False
+            try:
+                obj = storage.resolve(job_id, oid)
+                return storage.exists(obj)
+            except Exception:
+                return False
+        has_video = _asset_available("video")
+        has_srt = _asset_available("srt")
+        has_vtt = _asset_available("vtt")
+        has_manifest = _asset_available("manifest")
+    except Exception:
+        # Fall back to local path checks
+        has_video = bool(vp and Path(vp).exists())
+        has_srt = bool(srtp and Path(srtp).exists())
+        has_vtt = bool(vttp and Path(vttp).exists())
+        has_manifest = bool(emp and Path(emp).exists())
 
     # Parse export manifest
     summary: dict[str, Any] = {}
@@ -552,9 +576,16 @@ def get_job_result(job_id: str):
     title = ""
     warnings: list[str] = job.get("warnings", [])
 
-    if emp and Path(emp).exists():
+    if has_manifest:
         try:
-            emdata = json.loads(Path(emp).read_text(encoding="utf-8"))
+            from app.services.storage_service import get_storage_service as _gss
+            _storage = _gss()
+            _obj = _storage.resolve(job_id, "manifest")
+            _local = _storage.get_local_path(_obj)
+            if _local and _local.exists():
+                emdata = json.loads(_local.read_text(encoding="utf-8"))
+            else:
+                emdata = json.loads(b"".join(_storage.open_stream(_obj)).decode("utf-8"))
             qc = emdata.get("quality_checks") or {}
             summary = {
                 "speaker_clips": qc.get("speaker_clip_count", 0),

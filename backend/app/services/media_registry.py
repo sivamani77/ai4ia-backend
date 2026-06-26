@@ -13,6 +13,7 @@ from typing import Any
 
 from app.services.job_store import load_job
 from app.services.storage_service import (
+    STORAGE_BACKEND,
     _guess_content_type,
     _safe_path,
     _LOCAL_JOBS_DIR,
@@ -197,7 +198,7 @@ def build_media_registry(job_id: str) -> dict[str, Any]:
 
     registry = {
         "job_id": job_id,
-        "storage_backend": "local",
+        "storage_backend": STORAGE_BACKEND,
         "objects": objects,
     }
 

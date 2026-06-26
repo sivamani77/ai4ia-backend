@@ -37,6 +37,25 @@ def latest_asset_manifest_path() -> Path | None:
 
 @router.get("/latest")
 def get_latest_assets():
+    # In S3 mode, find the latest asset manifest from S3
+    try:
+        from app.pipeline.s3_helpers import use_s3, _s3, _bucket
+        if use_s3():
+            s3 = _s3()
+            bucket = _bucket()
+            paginator = s3.get_paginator("list_objects_v2")
+            candidates = []
+            for page in paginator.paginate(Bucket=bucket, Prefix="generated_assets/"):
+                for obj in page.get("Contents", []):
+                    if obj["Key"].endswith("latest_asset_manifest.json") or obj["Key"].endswith("asset_manifest.json"):
+                        candidates.append((obj["LastModified"], obj["Key"]))
+            if candidates:
+                candidates.sort(reverse=True)
+                resp = s3.get_object(Bucket=bucket, Key=candidates[0][1])
+                return json.loads(resp["Body"].read().decode("utf-8"))
+    except Exception:
+        pass
+
     if not LATEST_ASSET_MANIFEST.exists():
         raise HTTPException(status_code=404, detail="No latest asset manifest found")
 

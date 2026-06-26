@@ -188,7 +188,7 @@ def _check_supabase() -> dict:
 
 def _check_chroma() -> dict:
     try:
-        from app.services.embedding_index import embedding_index
+        from app.services import embedding_index
         if not embedding_index.available():
             return {"ok": False, "error": "collection not loaded"}
         return {"ok": True}

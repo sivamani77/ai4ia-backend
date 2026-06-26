@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -12,16 +13,17 @@ from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-RAW_VIDEO_DIR = PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel"
-GENERATED_ASSETS_DIR = PROJECT_ROOT / "data" / "generated_assets"
-EXPORTS_DIR = PROJECT_ROOT / "data" / "exports"
+RAW_VIDEO_DIR = Path(os.environ.get("AI4IA_RAW_VIDEO_DIR", str(PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel")))
+GENERATED_ASSETS_DIR = Path(os.environ.get("AI4IA_LOCAL_ASSETS_DIR", str(PROJECT_ROOT / "data" / "generated_assets")))
+EXPORTS_DIR = Path(os.environ.get("AI4IA_EXPORTS_DIR", str(PROJECT_ROOT / "data" / "exports")))
 TEMP_DIR = PROJECT_ROOT / "temp" / "video_export"
 
 LATEST_MANIFEST_PATH = GENERATED_ASSETS_DIR / "latest_asset_manifest.json"
 FINAL_SUBTITLE_SCRIPT = PROJECT_ROOT / "scripts" / "11_generate_final_subtitles.py"
 
 EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
-TEMP_DIR.mkdir(parents=True, exist_ok=True)
+Path("/tmp/ai4ia_pipeline/video_export").mkdir(parents=True, exist_ok=True)
+TEMP_DIR = Path("/tmp/ai4ia_pipeline/video_export")
 
 OUTPUT_WIDTH = 1920
 OUTPUT_HEIGHT = 1080
@@ -54,9 +56,12 @@ def run_cmd(cmd: list[str]) -> None:
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
     if result.returncode != 0:
-        log(result.stdout)
-        log(result.stderr)
-        raise RuntimeError(f"Command failed: {' '.join(cmd)}")
+        if result.stdout.strip():
+            log(result.stdout.rstrip())
+        if result.stderr.strip():
+            log(result.stderr.rstrip())
+        detail = (result.stderr.strip() or result.stdout.strip() or "no output")[-3000:]
+        raise RuntimeError(f"Command failed: {' '.join(cmd)}\n{detail}")
 
 
 def run_cmd_capture(cmd: list[str]) -> str:
@@ -78,7 +83,8 @@ def run_cmd_logged(cmd: list[str]) -> None:
         log(result.stderr.rstrip())
 
     if result.returncode != 0:
-        raise RuntimeError(f"Command failed: {' '.join(cmd)}")
+        detail = (result.stderr.strip() or result.stdout.strip() or "no output")[-2000:]
+        raise RuntimeError(f"Command failed: {' '.join(cmd)}\n{detail}")
 
 
 def slugify(text: str, max_len: int = 80) -> str:
@@ -1633,9 +1639,14 @@ def _build_canonical_rendering_timeline(
 def _render_timeline_items(
     timeline: list[dict[str, Any]],
     work_dir: Path,
+    target_sec_per_segment: float = 0.0,
 ) -> tuple[list[Path], list[dict[str, Any]], float]:
     """
     Render each timeline item to a segment file.
+
+    target_sec_per_segment: minimum display duration for narration_broll visual-card segments,
+    derived from manifest target_duration / num content segments. Ensures final video fills
+    the target duration even when TTS audio is shorter than the allotted time.
 
     Returns (segment_paths, segment_infos, total_duration).
     """
@@ -1668,7 +1679,8 @@ def _render_timeline_items(
                 audio_path=audio_path,
             )
 
-        elif item_type == "archive_clip":
+        elif item_type == "archive_clip" or item.get("fragment_id"):
+            item["type"] = "archive_clip"
             fragment_id = item.get("fragment_id")
             source_video = item.get("source_video")
             role = item.get("role", seg_type or "archive_visual")
@@ -1777,14 +1789,18 @@ def _render_timeline_items(
                     log(f"  [render] External audio not found: {external_audio_path}. Falling back to muted.")
                     ffmpeg_audio_mode = "muted"
                     external_audio_path = None
-                target_duration = float(
+                tts_duration = float(
                     item.get("render_duration") or item.get("duration") or get_clip_candidate_duration(item)
                 )
-                if target_duration <= 0.0:
+                if tts_duration <= 0.0:
                     raise RuntimeError(
                         f"narration_broll item {idx} ({fragment_id!r}) has zero target_duration — "
                         f"audio_path={item.get('audio_path')!r}. Aborting export."
                     )
+                # Expand duration to fill the per-segment share of the target video length.
+                # This ensures the rendered video reaches the requested target_duration_seconds
+                # even when the TTS voiceover is shorter than the allotted time.
+                target_duration = max(tts_duration, target_sec_per_segment)
                 # Use generated visual asset if available (generated_asset > archive fallback)
                 _vis_path_str = (
                     item.get("render_visual_path")
@@ -1794,11 +1810,14 @@ def _render_timeline_items(
                 if _vis_path_str:
                     _vis_p = Path(_vis_path_str)
                     if _vis_p.exists():
-                        log(f"  [render] narration_broll item {idx}: generated visual {_vis_p.name} + ai_voiceover")
+                        # Ensure card stays on screen for at least the per-segment share of the target
+                        # duration, so the final video fills the requested length even when TTS is short.
+                        card_min_dur = max(target_duration, target_sec_per_segment)
+                        log(f"  [render] narration_broll item {idx}: generated visual {_vis_p.name} + ai_voiceover (min_dur={card_min_dur:.1f}s)")
                         make_card_video_with_optional_voiceover(
                             image_path=_vis_p,
                             output_path=segment_path,
-                            min_duration=target_duration,
+                            min_duration=card_min_dur,
                             audio_path=external_audio_path,
                         )
                         _seg_dur = get_media_duration(segment_path)
@@ -1961,7 +1980,22 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
     log(f"  archive_visuals:{len(archive_visual_items)}")
     log(f"  narration_broll:{len(narration_broll_items)}")
 
-    segment_paths, segment_infos, current_time = _render_timeline_items(timeline, work_dir)
+    # Compute per-segment minimum duration from the target duration so each narration_broll
+    # segment fills its proportional share of the target video length.
+    _manifest_target_dur = (
+        manifest.get("target_duration_seconds")
+        or (manifest.get("storyline") or {}).get("target_duration_seconds")
+        or 0
+    )
+    _content_item_count = max(1, len(narration_broll_items) + len(speaker_clip_items) + len(archive_visual_items))
+    _target_sec_per_segment = (
+        float(_manifest_target_dur) / _content_item_count
+        if _manifest_target_dur else 0.0
+    )
+    if _manifest_target_dur:
+        log(f"  target_dur={_manifest_target_dur}s → min_sec_per_segment={_target_sec_per_segment:.1f}s ({_content_item_count} content items)")
+
+    segment_paths, segment_infos, current_time = _render_timeline_items(timeline, work_dir, _target_sec_per_segment)
 
     # Post-render validation
     rendered_archive_visuals = sum(1 for s in segment_infos if s.get("segment_type") == "archive_visual")

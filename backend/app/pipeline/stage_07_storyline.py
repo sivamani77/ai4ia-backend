@@ -1,14 +1,16 @@
 from __future__ import annotations
+import sys
 
 import json
 from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, STORYLINES_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script, _newest_file_after
+from app.pipeline.s3_helpers import use_s3, upload
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
 
-PYTHON_BIN = str(PROJECT_ROOT / ".venv" / "bin" / "python")
+PYTHON_BIN = sys.executable
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -48,8 +50,14 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     except Exception:
         title, cands, logline, sections = "", 0, "", []
 
+    # Upload storyline to S3 so downstream stages (07b, 08) can access it
+    if use_s3():
+        upload(storyline_path, f"raw/storylines/{storyline_path.name}")
+
     job = load_job(job_id)
     job["paths"]["storyline_path"] = str(storyline_path)
+    if use_s3():
+        job["paths"]["storyline_s3_key"] = f"raw/storylines/{storyline_path.name}"
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
 

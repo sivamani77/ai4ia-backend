@@ -28,6 +28,91 @@ from app.core.paths import (
     RAW_VIDEO_DIR,
 )
 from app.core.settings import settings
+
+# ---------------------------------------------------------------------------
+# S3 helpers for ingest
+# ---------------------------------------------------------------------------
+
+def _s3_client():
+    import boto3
+    from app.services.storage_service import (
+        _OBJECT_STORAGE_BUCKET, _OBJECT_STORAGE_REGION,
+        _OBJECT_STORAGE_ACCESS_KEY, _OBJECT_STORAGE_SECRET_KEY, _OBJECT_STORAGE_ENDPOINT,
+    )
+    kwargs = {
+        "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
+        "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
+        "region_name": _OBJECT_STORAGE_REGION or None,
+    }
+    if _OBJECT_STORAGE_ENDPOINT:
+        kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+    return boto3.client("s3", **kwargs), _OBJECT_STORAGE_BUCKET
+
+
+def _s3_upload_file(local_path: Path, s3_key: str) -> None:
+    s3, bucket = _s3_client()
+    import mimetypes
+    ct, _ = mimetypes.guess_type(str(local_path))
+    s3.upload_file(str(local_path), bucket, s3_key,
+                   ExtraArgs={"ContentType": ct or "application/octet-stream"})
+
+
+def _s3_list_keys(prefix: str) -> set[str]:
+    """Return set of stem names (without prefix) for files under a prefix."""
+    s3, bucket = _s3_client()
+    paginator = s3.get_paginator("list_objects_v2")
+    keys = set()
+    for page in paginator.paginate(Bucket=bucket, Prefix=prefix):
+        for obj in page.get("Contents", []):
+            keys.add(Path(obj["Key"]).stem)
+    return keys
+
+
+def _s3_upload_dir(local_dir: Path, s3_prefix: str, pattern: str = "*",
+                   delete_after: bool = True) -> int:
+    """Upload all files matching pattern from local_dir to S3, optionally delete local."""
+    if not local_dir.exists():
+        return 0
+    count = 0
+    for f in local_dir.glob(pattern):
+        if not f.is_file():
+            continue
+        key = f"{s3_prefix}/{f.name}"
+        try:
+            _s3_upload_file(f, key)
+            if delete_after:
+                f.unlink()
+            count += 1
+        except Exception as exc:
+            logger.warning("S3 upload failed %s: %s", f.name, exc)
+    return count
+
+
+def _ingest_use_s3() -> bool:
+    return settings.ai4ia_storage_backend == "s3"
+
+
+def _resolve_stem(video_id: str) -> str | None:
+    """Find the filename stem (e.g. 0001_abc_Title) for a video_id.
+
+    In S3 mode the MP4 was uploaded and deleted locally, so look up S3.
+    Falls back to local disk glob.
+    """
+    if _ingest_use_s3():
+        try:
+            for stem in _s3_list_keys("raw/youtube/ai4ia_channel/"):
+                parts = stem.split("_", 2)
+                if len(parts) >= 2 and parts[1] == video_id:
+                    return stem
+        except Exception:
+            pass
+    # Local fallback
+    matches = list(RAW_VIDEO_DIR.glob(f"*_{video_id}_*.mp4"))
+    if matches:
+        return matches[0].stem
+    return None
+
+
 from app.services.ingest_store import (
     save_ingest_job,
     load_ingest_job,
@@ -251,12 +336,25 @@ def _stage_discover(job_id: str, channel_url: str, video_limit: int | None) -> l
     _update_job(job_id, "discover", "running", 60, f"Found {len(channel_videos)} videos on channel")
     append_ingest_event(job_id, "channel_scanned", {"total_on_channel": len(channel_videos)})
 
-    # Find already-downloaded video IDs from existing .mp4 filenames
+    # Find already-downloaded video IDs — check S3 in s3 mode, local disk otherwise
     existing_ids: set[str] = set()
-    for f in RAW_VIDEO_DIR.glob("*.mp4"):
-        parts = f.stem.split("_", 2)
-        if len(parts) >= 2:
-            existing_ids.add(parts[1])
+    if _ingest_use_s3():
+        try:
+            for stem in _s3_list_keys("raw/youtube/ai4ia_channel/"):
+                parts = stem.split("_", 2)
+                if len(parts) >= 2:
+                    existing_ids.add(parts[1])
+        except Exception as exc:
+            logger.warning("S3 discover check failed, falling back to local: %s", exc)
+            for f in RAW_VIDEO_DIR.glob("*.mp4"):
+                parts = f.stem.split("_", 2)
+                if len(parts) >= 2:
+                    existing_ids.add(parts[1])
+    else:
+        for f in RAW_VIDEO_DIR.glob("*.mp4"):
+            parts = f.stem.split("_", 2)
+            if len(parts) >= 2:
+                existing_ids.add(parts[1])
 
     new_videos = [v for v in channel_videos if v["video_id"] not in existing_ids]
     skipped = len(channel_videos) - len(new_videos)
@@ -314,28 +412,60 @@ def _stage_download(job_id: str, new_videos: list[dict[str, Any]], channel_url: 
         timeout=7200,
     )
 
-    # Determine which videos are now present on disk
+    # Upload downloaded videos to S3, then verify
     downloaded_ids: list[str] = []
     failed_ids: list[str] = []
 
-    existing_ids_after: set[str] = set()
-    for f in RAW_VIDEO_DIR.glob("*.mp4"):
-        parts = f.stem.split("_", 2)
-        if len(parts) >= 2:
-            existing_ids_after.add(parts[1])
-
-    for v in new_videos:
-        vid = v["video_id"]
-        if vid in existing_ids_after:
-            downloaded_ids.append(vid)
-            upsert_video_stage(vid, "download", "completed", job_id=job_id,
-                               metadata={"title": v.get("title", "")})
-            append_ingest_event(job_id, "video_downloaded", {"video_id": vid, "title": v.get("title", "")})
-        else:
-            failed_ids.append(vid)
-            upsert_video_stage(vid, "download", "failed", job_id=job_id,
-                               error=f"File not found after download (rc={returncode})")
-            append_ingest_event(job_id, "video_download_failed", {"video_id": vid})
+    if _ingest_use_s3():
+        # Upload all new mp4/info.json/jpg/vtt files to S3, delete local to free disk
+        for f in list(RAW_VIDEO_DIR.glob("*")):
+            if not f.is_file():
+                continue
+            key = f"raw/youtube/ai4ia_channel/{f.name}"
+            try:
+                _s3_upload_file(f, key)
+                f.unlink()
+            except Exception as exc:
+                logger.warning("Failed to upload %s to S3: %s", f.name, exc)
+        # Verify by checking S3
+        s3_ids_after: set[str] = set()
+        try:
+            for stem in _s3_list_keys("raw/youtube/ai4ia_channel/"):
+                parts = stem.split("_", 2)
+                if len(parts) >= 2:
+                    s3_ids_after.add(parts[1])
+        except Exception:
+            pass
+        for v in new_videos:
+            vid = v["video_id"]
+            if vid in s3_ids_after:
+                downloaded_ids.append(vid)
+                upsert_video_stage(vid, "download", "completed", job_id=job_id,
+                                   metadata={"title": v.get("title", "")})
+                append_ingest_event(job_id, "video_downloaded", {"video_id": vid, "title": v.get("title", "")})
+            else:
+                failed_ids.append(vid)
+                upsert_video_stage(vid, "download", "failed", job_id=job_id,
+                                   error=f"Not found in S3 after upload (rc={returncode})")
+                append_ingest_event(job_id, "video_download_failed", {"video_id": vid})
+    else:
+        existing_ids_after: set[str] = set()
+        for f in RAW_VIDEO_DIR.glob("*.mp4"):
+            parts = f.stem.split("_", 2)
+            if len(parts) >= 2:
+                existing_ids_after.add(parts[1])
+        for v in new_videos:
+            vid = v["video_id"]
+            if vid in existing_ids_after:
+                downloaded_ids.append(vid)
+                upsert_video_stage(vid, "download", "completed", job_id=job_id,
+                                   metadata={"title": v.get("title", "")})
+                append_ingest_event(job_id, "video_downloaded", {"video_id": vid, "title": v.get("title", "")})
+            else:
+                failed_ids.append(vid)
+                upsert_video_stage(vid, "download", "failed", job_id=job_id,
+                                   error=f"File not found after download (rc={returncode})")
+                append_ingest_event(job_id, "video_download_failed", {"video_id": vid})
 
     _update_job(
         job_id, "download", "completed", 100,
@@ -374,14 +504,12 @@ def _stage_extract_audio(job_id: str, video_ids: list[str]) -> list[str]:
     failed: list[str] = []
 
     for vid in video_ids:
-        # Find the mp4 file for this video_id
-        mp4_files = list(RAW_VIDEO_DIR.glob(f"*_{vid}_*.mp4"))
-        if not mp4_files:
+        stem = _resolve_stem(vid)
+        if not stem:
             failed.append(vid)
             upsert_video_stage(vid, "extract_audio", "failed", job_id=job_id,
-                               error="Source mp4 not found")
+                               error="Source video stem not found")
             continue
-        stem = mp4_files[0].stem
         wav = audio_dir / f"{stem}.wav"
         if wav.exists():
             succeeded.append(vid)
@@ -390,6 +518,9 @@ def _stage_extract_audio(job_id: str, video_ids: list[str]) -> list[str]:
             failed.append(vid)
             upsert_video_stage(vid, "extract_audio", "failed", job_id=job_id,
                                error=f"WAV not found: {wav.name}")
+
+    if _ingest_use_s3():
+        _s3_upload_dir(DATA_DIR / "audio", "raw/audio", "*.wav", delete_after=True)
 
     _update_job(
         job_id, "extract_audio", "completed", 100,
@@ -426,13 +557,12 @@ def _stage_transcribe(job_id: str, video_ids: list[str]) -> list[str]:
     failed: list[str] = []
 
     for vid in video_ids:
-        mp4_files = list(RAW_VIDEO_DIR.glob(f"*_{vid}_*.mp4"))
-        if not mp4_files:
+        stem = _resolve_stem(vid)
+        if not stem:
             failed.append(vid)
             upsert_video_stage(vid, "transcribe", "failed", job_id=job_id,
-                               error="Source mp4 not found")
+                               error="Source video stem not found")
             continue
-        stem = mp4_files[0].stem
         transcript = transcript_dir / f"{stem}.json"
         if transcript.exists():
             succeeded.append(vid)
@@ -442,6 +572,9 @@ def _stage_transcribe(job_id: str, video_ids: list[str]) -> list[str]:
             failed.append(vid)
             upsert_video_stage(vid, "transcribe", "failed", job_id=job_id,
                                error=f"Transcript not found: {transcript.name}")
+
+    if _ingest_use_s3():
+        _s3_upload_dir(DATA_DIR / "transcripts", "raw/transcripts", "*", delete_after=True)
 
     _update_job(
         job_id, "transcribe", "completed", 100,
@@ -478,13 +611,12 @@ def _stage_create_fragments(job_id: str, video_ids: list[str]) -> list[str]:
     failed: list[str] = []
 
     for vid in video_ids:
-        mp4_files = list(RAW_VIDEO_DIR.glob(f"*_{vid}_*.mp4"))
-        if not mp4_files:
+        stem = _resolve_stem(vid)
+        if not stem:
             failed.append(vid)
             upsert_video_stage(vid, "create_fragments", "failed", job_id=job_id,
-                               error="Source mp4 not found")
+                               error="Source video stem not found")
             continue
-        stem = mp4_files[0].stem
         frag_file = fragment_dir / f"{stem}.fragments.json"
         if frag_file.exists():
             try:
@@ -499,6 +631,9 @@ def _stage_create_fragments(job_id: str, video_ids: list[str]) -> list[str]:
             failed.append(vid)
             upsert_video_stage(vid, "create_fragments", "failed", job_id=job_id,
                                error=f"Fragment file not found: {frag_file.name}")
+
+    if _ingest_use_s3():
+        _s3_upload_dir(DATA_DIR / "fragments", "raw/fragments", "*.fragments.json", delete_after=True)
 
     _update_job(
         job_id, "create_fragments", "completed", 100,
@@ -535,13 +670,12 @@ def _stage_classify(job_id: str, video_ids: list[str]) -> list[str]:
     failed: list[str] = []
 
     for vid in video_ids:
-        mp4_files = list(RAW_VIDEO_DIR.glob(f"*_{vid}_*.mp4"))
-        if not mp4_files:
+        stem = _resolve_stem(vid)
+        if not stem:
             failed.append(vid)
             upsert_video_stage(vid, "classify", "failed", job_id=job_id,
-                               error="Source mp4 not found")
+                               error="Source video stem not found")
             continue
-        stem = mp4_files[0].stem
         classified_file = classified_dir / f"{stem}.classified.json"
         if classified_file.exists():
             succeeded.append(vid)
@@ -550,6 +684,10 @@ def _stage_classify(job_id: str, video_ids: list[str]) -> list[str]:
             failed.append(vid)
             upsert_video_stage(vid, "classify", "failed", job_id=job_id,
                                error=f"Classified file not found: {classified_file.name}")
+
+    if _ingest_use_s3():
+        _s3_upload_dir(DATA_DIR / "fragments_classified", "raw/fragments_classified",
+                       "*.classified.json", delete_after=True)
 
     _update_job(
         job_id, "classify", "completed", 100,
@@ -599,6 +737,10 @@ def _stage_embed(job_id: str, video_ids: list[str]) -> list[str]:
         )
         if returncode2 != 0:
             _log(job_id).warning("ChromaDB import returned rc=%d: %s", returncode2, stderr2[:200])
+
+    if _ingest_use_s3():
+        _s3_upload_dir(DATA_DIR / "embeddings", "raw/embeddings", "*.jsonl", delete_after=False)
+        _s3_upload_dir(DATA_DIR / "embeddings_cleaned", "raw/embeddings_cleaned", "*.jsonl", delete_after=False)
 
     for vid in video_ids:
         upsert_video_stage(vid, "embed", "completed", job_id=job_id)

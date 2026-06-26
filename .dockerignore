@@ -1,0 +1,43 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.coverage
+coverage.json
+htmlcov/
+
+# Data — never baked into the image, mounted as volumes at runtime
+data/
+
+# Logs and temp
+logs/
+temp/
+*.log
+
+# Tests
+tests/
+test/
+
+# Git
+.git/
+.gitignore
+
+# Secrets
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.zip
+ai4ia-pipeline.zip
+FRONTEND_API_GUIDE.md
