@@ -19,7 +19,7 @@ services:
     ports:
       - "8001:8000"
     volumes:
-      - ./data/chroma:/chroma/chroma
+      - ./data/chroma:/data
     restart: unless-stopped
     stop_grace_period: 60s
     environment:
