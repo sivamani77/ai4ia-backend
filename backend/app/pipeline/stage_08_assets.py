@@ -13,7 +13,6 @@ from app.services.video_job_runner import update_stage, _utc_now
 
 PYTHON_BIN = sys.executable
 
-_LOCAL_MANIFEST = DATA_DIR / "generated_assets" / "latest_asset_manifest.json"
 _S3_ASSETS_PREFIX = "generated_assets"
 
 
@@ -31,10 +30,13 @@ def _prepare_storyline(validated_path: str, job_id: str) -> Path:
 
 
 def _manifest_path(job_id: str) -> Path:
-    """Where the script will write latest_asset_manifest.json."""
+    """Job-scoped manifest path — never shared between concurrent jobs."""
     if use_s3():
         return tmp_dir(f"08_{job_id}") / "generated_assets" / "latest_asset_manifest.json"
-    return _LOCAL_MANIFEST
+    # Local mode: write to a per-job directory so concurrent jobs don't overwrite each other
+    job_assets = DATA_DIR / "jobs" / job_id / "generated_assets"
+    job_assets.mkdir(parents=True, exist_ok=True)
+    return job_assets / "latest_asset_manifest.json"
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -81,7 +83,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         # Upload manifest under a job-scoped key so concurrent jobs don't collide
         upload(manifest_path, f"{_S3_ASSETS_PREFIX}/{job_id}_manifest.json")
     else:
-        manifest_path = _LOCAL_MANIFEST
+        manifest_path = _manifest_path(job_id)
         if not manifest_path.exists():
             raise RuntimeError(f"Asset manifest not found at {manifest_path}")
 

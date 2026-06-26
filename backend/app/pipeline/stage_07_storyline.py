@@ -6,11 +6,32 @@ from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, STORYLINES_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script, _newest_file_after
-from app.pipeline.s3_helpers import use_s3, upload
+from app.pipeline.s3_helpers import use_s3, upload, download, tmp_dir
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
 
 PYTHON_BIN = sys.executable
+
+_S3_EMBEDDINGS_PREFIX = "raw/embeddings"
+_EMBEDDINGS_FILES = [
+    "classified_fragments_embeddings.jsonl",
+    "fragment_embedding_matrix.npy",
+    "fragment_embedding_metadata.json",
+]
+
+
+def _prepare_embeddings(job_id: str) -> dict[str, str]:
+    """Download embeddings from S3 to /tmp and return AI4IA_EMBEDDINGS_DIR env override."""
+    if not use_s3():
+        return {}
+    work = tmp_dir(f"07_{job_id}")
+    embeddings_tmp = work / "embeddings"
+    embeddings_tmp.mkdir(parents=True, exist_ok=True)
+    for fname in _EMBEDDINGS_FILES:
+        local = embeddings_tmp / fname
+        if not local.exists():
+            download(f"{_S3_EMBEDDINGS_PREFIX}/{fname}", local)
+    return {"AI4IA_EMBEDDINGS_DIR": str(embeddings_tmp)}
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -19,6 +40,10 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
 
     import time
     ts_before = time.time()
+
+    if use_s3():
+        update_stage(job_id, "07_storyline", "running", 8, "Downloading embeddings from S3")
+    env_overrides = _prepare_embeddings(job_id)
 
     cmd = [
         PYTHON_BIN,
@@ -29,7 +54,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     ]
 
     update_stage(job_id, "07_storyline", "running", 20, "Running storyline generation script")
-    code, stdout, stderr = run_script(job_id, "07_storyline", cmd)
+    code, stdout, stderr = run_script(job_id, "07_storyline", cmd, extra_env=env_overrides or None)
 
     if code != 0:
         raise RuntimeError(f"07_generate_storyline.py exited {code}: {stderr[-1000:]}")

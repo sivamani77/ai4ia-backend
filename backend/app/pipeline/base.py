@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+import signal
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -32,6 +34,41 @@ class StageResult:
 # Script runner
 # ---------------------------------------------------------------------------
 
+_STAGE_TIMEOUTS: dict[str, int] = {
+    "07_storyline":           600,
+    "07b_validate_storyline": 900,
+    "08_assets":             1200,
+    "09_export":              900,
+    "10_validate_export":     120,
+    "11_subtitles":           600,
+    "_default":               600,
+}
+
+
+def _kill_process_group(pid: int) -> None:
+    """Send SIGTERM to the process group, then SIGKILL after 5 s if still alive."""
+    try:
+        pgid = os.getpgid(pid)
+        os.killpg(pgid, signal.SIGTERM)
+    except ProcessLookupError:
+        return
+    except Exception:
+        return
+
+    import threading
+
+    def _force_kill():
+        try:
+            pgid = os.getpgid(pid)
+            os.killpg(pgid, signal.SIGKILL)
+        except Exception:
+            pass
+
+    t = threading.Timer(5.0, _force_kill)
+    t.daemon = True
+    t.start()
+
+
 def run_script(
     job_id: str,
     stage_name: str,
@@ -39,10 +76,10 @@ def run_script(
     extra_env: dict[str, str] | None = None,
 ) -> tuple[int, str, str]:
     """Run a subprocess and emit stdout/stderr to Supabase events. Returns (exit_code, stdout, stderr)."""
-    import os
-    from app.services.job_store import append_event
+    from app.services.job_store import append_event, load_job, save_job
 
     env = {**os.environ, **(extra_env or {})} if extra_env else None
+    timeout = _STAGE_TIMEOUTS.get(stage_name, _STAGE_TIMEOUTS["_default"])
 
     try:
         process = subprocess.Popen(
@@ -52,8 +89,34 @@ def run_script(
             stderr=subprocess.PIPE,
             text=True,
             env=env,
+            preexec_fn=os.setsid,  # own process group so we can kill the whole tree
         )
-        stdout, stderr = process.communicate()
+
+        # Store PID so cancellation can kill the process group
+        try:
+            job = load_job(job_id)
+            job["active_pid"] = process.pid
+            save_job(job_id, job)
+        except Exception:
+            pass
+
+        try:
+            stdout, stderr = process.communicate(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            _kill_process_group(process.pid)
+            process.communicate()  # drain pipes to avoid deadlock
+            msg = f"Stage {stage_name} timed out after {timeout}s"
+            append_event(job_id, "script_error", stage_name, {"error": msg})
+            return -1, "", msg
+        finally:
+            # Clear PID once the process is no longer running
+            try:
+                job = load_job(job_id)
+                job.pop("active_pid", None)
+                save_job(job_id, job)
+            except Exception:
+                pass
+
         stdout = stdout or ""
         stderr = stderr or ""
         append_event(job_id, "script_output", stage_name, {

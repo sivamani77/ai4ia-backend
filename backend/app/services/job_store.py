@@ -66,6 +66,7 @@ def load_job(job_id: str) -> dict[str, Any]:
     metadata["job_id"] = row["id"]
     metadata["status"] = row.get("status")
     metadata["progress_percent"] = row.get("progress", 0)
+    metadata["user_id"] = metadata.get("user_id") or row.get("user_id", "")
 
     logger.info("Job loaded from Supabase id=%s", job_id)
 
@@ -141,6 +142,7 @@ def list_jobs() -> list[dict[str, Any]]:
         metadata["job_id"] = row["id"]
         metadata["status"] = row.get("status")
         metadata["progress_percent"] = row.get("progress", 0)
+        metadata["user_id"] = metadata.get("user_id") or row.get("user_id", "")
 
         jobs.append(metadata)
 

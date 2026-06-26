@@ -6,16 +6,13 @@ app.pipeline.stage_* modules. All stage logic lives there.
 """
 from __future__ import annotations
 
-import json
 import logging
-import sys
 import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from app.core.paths import PROJECT_ROOT, DATA_DIR, SCRIPTS_DIR, STORYLINES_DIR, EXPORTS_DIR
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext
 from app.services.job_store import (
@@ -25,14 +22,6 @@ from app.services.job_store import (
     load_events,
     list_jobs,
 )
-
-# ---------------------------------------------------------------------------
-# Paths
-# ---------------------------------------------------------------------------
-PYTHON_BIN = sys.executable
-TRANSCRIPTS_DIR_ALIGNED = DATA_DIR / "transcripts_cleaned_aligned"
-TRANSCRIPTS_DIR_FALLBACK = DATA_DIR / "transcripts"
-LATEST_ASSET_MANIFEST = DATA_DIR / "generated_assets" / "latest_asset_manifest.json"
 
 # ---------------------------------------------------------------------------
 # Stage weights (must sum to 100)
@@ -153,6 +142,14 @@ def _cancel_job(job_id: str, message: str = "") -> None:
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
     append_event(job_id, "cancelled", job.get("current_stage", "unknown"), {"message": message})
+
+    pid = job.get("active_pid")
+    if pid:
+        try:
+            from app.pipeline.base import _kill_process_group
+            _kill_process_group(pid)
+        except Exception:
+            pass
 
 
 def _is_cancelling(job_id: str) -> bool:
@@ -345,22 +342,20 @@ def _redis_reachable() -> bool:
 
 
 def start_video_job_background(job_id: str, request: dict[str, Any]) -> None:
-    """Dispatch to Celery if Redis is reachable, otherwise run in a thread."""
-    import threading
+    """Dispatch to Celery. Raises HTTP 503 if Redis is unreachable — no thread fallback."""
+    from fastapi import HTTPException
 
-    use_celery = bool(settings.redis_url) and _redis_reachable()
-
-    if use_celery:
-        try:
-            from app.worker.tasks import run_video_job_task
-            run_video_job_task.delay(job_id, request)
-            return
-        except Exception:
-            logger.warning(
-                "Celery dispatch failed for job %s — falling back to thread",
-                job_id,
-                exc_info=True,
-            )
-
-    t = threading.Thread(target=run_video_job, args=(job_id, request), daemon=False)
-    t.start()
+    if not (settings.redis_url and _redis_reachable()):
+        raise HTTPException(
+            status_code=503,
+            detail="Job queue unavailable. Please try again in a moment.",
+        )
+    try:
+        from app.worker.tasks import run_video_job_task
+        run_video_job_task.delay(job_id, request)
+    except Exception as exc:
+        logger.error("Celery dispatch failed for job %s: %s", job_id, exc, exc_info=True)
+        raise HTTPException(
+            status_code=503,
+            detail="Failed to queue job. Please try again.",
+        ) from exc

@@ -156,6 +156,16 @@ class TestJobRepositoryNormalize:
         assert payload["id"] == "j1"
         assert payload["status"] == "queued"
 
+    def test_normalize_input_preserves_user_id_column(self):
+        repo = self._repo()
+        payload = repo._normalize_input({"id": "j1", "user_id": "user_abc"})
+        assert payload["user_id"] == "user_abc"
+
+    def test_normalize_output_preserves_user_id_column(self):
+        repo = self._repo()
+        output = repo._normalize_output({"id": "j1", "user_id": "user_abc"})
+        assert output["user_id"] == "user_abc"
+
     def test_normalizes_decimal_values(self):
         repo = self._repo()
         payload = repo._normalize_input({"id": "j1", "progress": Decimal("42")})

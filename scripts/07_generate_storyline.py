@@ -13,7 +13,12 @@ import requests
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-EMBEDDINGS_DIR = PROJECT_ROOT / "data" / "embeddings"
+# Allow the stage runner to override the embeddings directory via env var.
+# In S3 deployment mode the stage runner downloads the embeddings from S3
+# to a /tmp path and passes AI4IA_EMBEDDINGS_DIR so we read the correctly
+# classified data instead of whatever is on the worker VM's local disk.
+_env_embeddings_dir = os.environ.get("AI4IA_EMBEDDINGS_DIR")
+EMBEDDINGS_DIR = Path(_env_embeddings_dir) if _env_embeddings_dir else PROJECT_ROOT / "data" / "embeddings"
 STORYLINES_DIR = PROJECT_ROOT / "data" / "storylines"
 
 MATRIX_PATH = EMBEDDINGS_DIR / "fragment_embedding_matrix.npy"

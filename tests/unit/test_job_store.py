@@ -155,6 +155,40 @@ class TestSaveLoadJob:
         # but load_job overrides it with row.get("progress", 0) which is set from data["progress_percent"]
         assert "progress_percent" in loaded
 
+    def test_load_merges_user_id_from_row_when_metadata_missing(self, patched_store):
+        from app.services.job_store import load_job
+
+        patched_store["job_repo"]._store["j_user"] = {
+            "id": "j_user",
+            "status": "queued",
+            "progress": 0,
+            "user_id": "user_from_row",
+            "metadata": {"status": "queued", "request": {}},
+        }
+
+        loaded = load_job("j_user")
+
+        assert loaded["user_id"] == "user_from_row"
+
+    def test_load_preserves_metadata_user_id_when_present(self, patched_store):
+        from app.services.job_store import load_job
+
+        patched_store["job_repo"]._store["j_user"] = {
+            "id": "j_user",
+            "status": "queued",
+            "progress": 0,
+            "user_id": "user_from_row",
+            "metadata": {
+                "status": "queued",
+                "request": {},
+                "user_id": "user_from_metadata",
+            },
+        }
+
+        loaded = load_job("j_user")
+
+        assert loaded["user_id"] == "user_from_metadata"
+
     def test_overwrite_existing_job(self, patched_store):
         from app.services.job_store import save_job, load_job
 
@@ -258,6 +292,21 @@ class TestListJobs:
     def test_empty_returns_empty_list(self, patched_store):
         from app.services.job_store import list_jobs
         assert list_jobs() == []
+
+    def test_merges_user_id_from_row_when_metadata_missing(self, patched_store):
+        from app.services.job_store import list_jobs
+
+        patched_store["job_repo"]._store["j_user"] = {
+            "id": "j_user",
+            "status": "queued",
+            "progress": 0,
+            "user_id": "user_from_row",
+            "metadata": {"status": "queued", "request": {}},
+        }
+
+        jobs = list_jobs()
+
+        assert jobs[0]["user_id"] == "user_from_row"
 
     def test_lists_all_jobs(self, patched_store):
         from app.services.job_store import save_job, list_jobs

@@ -1679,18 +1679,32 @@ def _render_timeline_items(
                 audio_path=audio_path,
             )
 
-        elif item_type == "archive_clip" or item.get("fragment_id"):
-            item["type"] = "archive_clip"
+        elif (
+            item_type == "archive_clip"
+            or item.get("fragment_id")
+            or seg_type in ("narration_broll", "speaker_clip", "archive_visual", "speaker_visual")
+            or item_type in ("narration_broll", "speaker_clip", "archive_visual", "speaker_visual")
+        ):
             fragment_id = item.get("fragment_id")
             source_video = item.get("source_video")
             role = item.get("role", seg_type or "archive_visual")
             source_path = find_source_video(source_video, fragment_id)
 
-            if not source_path:
-                log(f"  [render] Source video not found for fragment {fragment_id} (source_video={source_video!r}). Skipping.")
+            item_audio_mode = item.get("audio_mode") or ""
+
+            # narration_broll items with a generated visual card don't need an archive source video.
+            # Defer the missing-source check to after the generated-visual fast path inside the branch.
+            _has_generated_visual = bool(
+                item.get("render_visual_path") or item.get("visual_path") or item.get("asset_path")
+            )
+            _is_narration = seg_type == "narration_broll" or item_type == "narration_broll" or item_audio_mode == "ai_voiceover"
+            if not source_path and not (_is_narration and _has_generated_visual):
+                log(f"  [render] Source video not found for fragment {fragment_id!r} (source_video={source_video!r}). Skipping.")
                 continue
 
-            item_audio_mode = item.get("audio_mode") or ""
+            if item_type not in ("narration_broll", "speaker_clip"):
+                item["type"] = "archive_clip"
+
             external_audio_path = None
             target_duration = None
             lower_third = item.get("lower_third")
@@ -1698,7 +1712,7 @@ def _render_timeline_items(
 
             # Check how far the video stream actually extends in this source file.
             # Some recordings have audio continuing long past where the video track ends.
-            video_stream_dur = get_video_stream_duration(source_path)
+            video_stream_dur = get_video_stream_duration(source_path) if source_path else 0.0
 
             # Phase 4Q: route audio mode from item.audio_mode field first,
             # then fall back to seg_type-based rules.
@@ -1792,6 +1806,9 @@ def _render_timeline_items(
                 tts_duration = float(
                     item.get("render_duration") or item.get("duration") or get_clip_candidate_duration(item)
                 )
+                # Fallback: probe the audio file directly when render_duration wasn't recorded
+                if tts_duration <= 0.0 and external_audio_path and external_audio_path.exists():
+                    tts_duration = get_media_duration(external_audio_path)
                 if tts_duration <= 0.0:
                     raise RuntimeError(
                         f"narration_broll item {idx} ({fragment_id!r}) has zero target_duration — "
@@ -1843,6 +1860,11 @@ def _render_timeline_items(
                         })
                         current_time += _seg_dur
                         continue
+                # No generated visual — fall back to archive clip as visual background.
+                # Requires source_path; skip if not available (shouldn't happen for well-formed data).
+                if not source_path:
+                    log(f"  [render] narration_broll item {idx}: no generated visual and no source video. Skipping.")
+                    continue
                 # If source video has no frames at this timestamp, use beginning of video as fallback visual
                 if video_stream_dur > 0 and start >= (video_stream_dur - 0.5):
                     fallback_start = max(0.0, video_stream_dur - target_duration - 1.0)

@@ -304,12 +304,41 @@ def _read_s3_storyline(key: str) -> dict:
     return json.loads(resp["Body"].read().decode("utf-8"))
 
 
+def _resolve_storyline_from_job(job_id: str) -> tuple[dict[str, Any], Path] | None:
+    try:
+        from app.services.job_store import load_job
+        job = load_job(job_id)
+    except FileNotFoundError:
+        return None
+
+    paths = job.get("paths") or {}
+    storyline_path = paths.get("validated_storyline_path") or paths.get("storyline_path")
+    if storyline_path:
+        direct = Path(storyline_path)
+        if direct.exists():
+            return json.loads(direct.read_text(encoding="utf-8")), direct
+
+        local_fallback = STORYLINES_DIR / direct.name
+        if local_fallback.exists():
+            return json.loads(local_fallback.read_text(encoding="utf-8")), local_fallback
+
+    from app.pipeline.s3_helpers import use_s3
+    s3_key = paths.get("validated_storyline_s3_key") or paths.get("storyline_s3_key")
+    if use_s3() and s3_key:
+        return _read_s3_storyline(s3_key), Path(s3_key)
+
+    return None
+
+
 def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, Any], Path]:
     from app.pipeline.s3_helpers import use_s3
     if storyline_id:
         direct = STORYLINES_DIR / f"{storyline_id}.json"
         if direct.exists():
             return json.loads(direct.read_text(encoding="utf-8")), direct
+        job_storyline = _resolve_storyline_from_job(storyline_id)
+        if job_storyline:
+            return job_storyline
         if use_s3():
             s3_items = _list_s3_storylines()
             for item in s3_items:
