@@ -322,16 +322,19 @@ def _resolve_storyline_from_job(job_id: str) -> tuple[dict[str, Any], Path] | No
         if local_fallback.exists():
             return json.loads(local_fallback.read_text(encoding="utf-8")), local_fallback
 
-    from app.pipeline.s3_helpers import use_s3
+    # Try S3 whenever the key is recorded — the file may have been generated on
+    # the worker VM and uploaded there even when the API server runs in local mode.
     s3_key = paths.get("validated_storyline_s3_key") or paths.get("storyline_s3_key")
-    if use_s3() and s3_key:
-        return _read_s3_storyline(s3_key), Path(s3_key)
+    if s3_key:
+        try:
+            return _read_s3_storyline(s3_key), Path(s3_key)
+        except Exception:
+            pass
 
     return None
 
 
 def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, Any], Path]:
-    from app.pipeline.s3_helpers import use_s3
     if storyline_id:
         direct = STORYLINES_DIR / f"{storyline_id}.json"
         if direct.exists():
@@ -339,11 +342,10 @@ def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, 
         job_storyline = _resolve_storyline_from_job(storyline_id)
         if job_storyline:
             return job_storyline
-        if use_s3():
-            s3_items = _list_s3_storylines()
-            for item in s3_items:
-                if storyline_id in item["name"]:
-                    return _read_s3_storyline(item["key"]), Path(item["name"])
+        s3_items = _list_s3_storylines()
+        for item in s3_items:
+            if storyline_id in item["name"]:
+                return _read_s3_storyline(item["key"]), Path(item["name"])
         raise FileNotFoundError(f"Storyline '{storyline_id}' not found")
 
     # Try local first, then S3
