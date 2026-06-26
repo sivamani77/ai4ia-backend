@@ -187,11 +187,18 @@ def _check_supabase() -> dict:
 
 
 def _check_chroma() -> dict:
+    import urllib.request, json as _json
+    host = settings.chroma_host
+    port = settings.chroma_port
+    url = f"http://{host}:{port}/api/v2/tenants/default_tenant/databases/default_database/collections"
     try:
-        from app.services import embedding_index
-        if not embedding_index.available():
-            return {"ok": False, "error": "collection not loaded"}
-        return {"ok": True}
+        req = urllib.request.Request(url, headers={"Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=4) as r:
+            collections = _json.loads(r.read())
+            names = [c.get("name") for c in collections]
+            if settings.chroma_collection in names:
+                return {"ok": True}
+            return {"ok": False, "error": f"collection '{settings.chroma_collection}' not found (have: {names})"}
     except Exception as exc:
         return {"ok": False, "error": str(exc)[:120]}
 
