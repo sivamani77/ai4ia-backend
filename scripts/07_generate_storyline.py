@@ -2573,66 +2573,38 @@ def select_balanced_candidates(retrieved: list[dict[str, Any]], limit: int) -> l
 
 
 def build_candidate_pack(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Build a compact candidate pack for the LLM prompt.
+    Only include fields the LLM needs — trimmed to keep prompt under token budget."""
     packed = []
-
     for item in candidates:
-        packed.append(
-            {
-                "fragment_id": item.get("fragment_id"),
-                "source_video": item.get("source_video"),
-                "video_id": item.get("video_id"),
-                "start": item.get("start"),
-                "end": item.get("end"),
-                "duration": item.get("duration"),
-                "primary_theme": item.get("primary_theme"),
-                "primary_chapter": item.get("primary_chapter"),
-                "summary": item.get("summary"),
-                "keywords": item.get("keywords", [])[:10],
-                "clip_usage_candidates": item.get("clip_usage_candidates", []),
-                "quote_strength": item.get("quote_strength"),
-                "clarity_score": item.get("clarity_score"),
-                "narration_support_score": item.get("narration_support_score"),
-                "semantic_score": item.get("semantic_score"),
-                "prompt_relevance_score": item.get("prompt_relevance_score"),
-                "final_prompt_score": item.get("final_prompt_score"),
-                "selection_score": item.get("selection_score"),
-                "relevance_role": item.get("relevance_role"),
-                "prompt_keyword_overlap": item.get("prompt_keyword_overlap", [])[:8],
-                "direct_evidence_terms": item.get("direct_evidence_terms", [])[:8],
-                "expanded_evidence_terms": item.get("expanded_evidence_terms", [])[:8],
-                "negative_evidence_terms": item.get("negative_evidence_terms", [])[:8],
-                "retrieval_channels": item.get("retrieval_channels", []),
-                "requested_speaker": item.get("requested_speaker"),
-                "speaker_match": item.get("speaker_match"),
-                "speaker_match_reason": item.get("speaker_match_reason"),
-                "speaker_soundbite_allowed": item.get("speaker_soundbite_allowed", False),
-                "speaker_visual_allowed": item.get("speaker_visual_allowed", False),
-                "speaker_clip_allowed": item.get("speaker_clip_allowed", False),
-                "broll_allowed": item.get("broll_allowed", True),
-                "relevance_reason": item.get("relevance_reason", ""),
-                "selection_reason": item.get("selection_reason", ""),
-                "keyword_score": item.get("keyword_score"),
-                "expanded_keyword_score": item.get("expanded_keyword_score"),
-                "theme_chapter_score": item.get("theme_chapter_score"),
-                "speaker_score": item.get("speaker_score"),
-                "quote_quality_score": item.get("quote_quality_score"),
-                "generic_penalty": item.get("generic_penalty"),
-                "negative_term_penalty": item.get("negative_term_penalty"),
-                "meaningful_prompt_overlap": item.get("meaningful_prompt_overlap", []),
-                "final_video_allowed": item.get("final_video_allowed", False),
-                "use_as": item.get("use_as", ""),
-                "text": truncate_text(item.get("text", ""), 700),
-                "source_transcript_version": item.get("source_transcript_version"),
-                "audio_quality_status": item.get("audio_quality_status"),
-                "transcript_quality_score": item.get("transcript_quality_score"),
-                "word_timing_available": item.get("word_timing_available"),
-                "text_hash": item.get("text_hash"),
-                "text_truncated_for_embedding": item.get("text_truncated_for_embedding"),
-                "video_year": item.get("video_year"),
-                "video_upload_date": item.get("video_upload_date"),
-            }
-        )
+        # Resolve clip_usage_candidates — may be comma-string from ChromaDB
+        cuc = item.get("clip_usage_candidates", [])
+        if isinstance(cuc, str):
+            cuc = [c.strip() for c in cuc.split(",") if c.strip()]
 
+        packed.append({
+            "fragment_id": item.get("fragment_id"),
+            "source_video": item.get("source_video"),
+            "video_id": item.get("video_id"),
+            "start": item.get("start"),
+            "end": item.get("end"),
+            "duration": item.get("duration"),
+            "primary_theme": item.get("primary_theme"),
+            "primary_chapter": item.get("primary_chapter"),
+            "summary": truncate_text(item.get("summary", ""), 150),
+            "keywords": item.get("keywords", [])[:6],
+            "clip_usage_candidates": cuc,
+            "quote_strength": item.get("quote_strength"),
+            "clarity_score": item.get("clarity_score"),
+            "relevance_role": item.get("relevance_role"),
+            "speaker_clip_allowed": item.get("speaker_clip_allowed", False),
+            "speaker_soundbite_allowed": item.get("speaker_soundbite_allowed", False),
+            "relevance_reason": item.get("relevance_reason", ""),
+            "text": truncate_text(item.get("text", ""), 200),
+            "video_year": item.get("video_year"),
+            "audio_quality_status": item.get("audio_quality_status"),
+            "final_video_allowed": item.get("final_video_allowed", False),
+        })
     return packed
 
 
@@ -2647,7 +2619,11 @@ def generate_llm_storyline(
 ) -> dict[str, Any]:
     candidate_pack = build_candidate_pack(candidates)
 
-    system_instruction = """
+    _num_sections_hint = timeline_segment_count_for_duration(duration)
+    _per_section_s_hint = round(max(1, duration - 10) / _num_sections_hint)
+    _words_per_section_hint = max(30, round(_per_section_s_hint * 2.5))
+
+    system_instruction = f"""
 You are a senior documentary producer and AI research editor.
 
 Create a production-ready storyline blueprint for a documentary-style video.
@@ -2659,6 +2635,14 @@ The final video should feel like a National Geographic / premium explainer docum
 - speaker soundbites used selectively
 - generated or internet B-roll used where conference footage is insufficient
 
+=== NARRATION LENGTH — CRITICAL REQUIREMENT ===
+The video is {duration} seconds long with {_num_sections_hint} sections.
+Each section narration MUST be at least {_words_per_section_hint} words long.
+At 2.5 words/second TTS pace, {_words_per_section_hint} words = {_per_section_s_hint} seconds of voiceover per section.
+NEVER write a narration shorter than {_words_per_section_hint} words. One or two sentences is NOT acceptable.
+Write full, substantive paragraphs. Each narration should be a complete passage of {_words_per_section_hint}+ words.
+===============================================
+
 Important rules:
 1. Do not invent speaker names unless they are visible in source_video text.
 2. Use only fragment_id values from the provided candidate fragments.
@@ -2668,9 +2652,6 @@ Important rules:
 6. Keep narration cinematic but factual.
 7. Return valid JSON only. No markdown. No backticks.
 8. Respect evidence_gaps and must_not_claim. Never upgrade supporting/context clips into direct claims.
-9. Write narration/voiceover text proportional to the target_duration_seconds supplied in the request.
-   The user_instruction includes a narration_guidance field with the exact target word count per section — follow it precisely.
-   Short 1-sentence narrations are ONLY acceptable for videos under 90 seconds.
 """
 
     video_mode = director_plan.get("video_mode", "")
@@ -2826,7 +2807,7 @@ TEMPORAL ARC RULES (chronological_relay mode):
         "options": {
             "temperature": 0.4,
             "top_p": 0.9,
-            "num_ctx": 24000
+            "num_ctx": 32000
         }
     }
 
@@ -2901,6 +2882,65 @@ TEXT:
 
     data = post_with_retries(url, payload, timeout=300)
     return extract_json_object(data.get("response", ""))
+
+
+def expand_short_narrations(
+    storyline: dict[str, Any],
+    target_duration_seconds: int,
+) -> dict[str, Any]:
+    """Expand any section narrations that are shorter than the word budget."""
+    sections = storyline.get("sections") or []
+    if not sections:
+        return storyline
+
+    _n = timeline_segment_count_for_duration(target_duration_seconds)
+    _per_s = round(max(1, target_duration_seconds - 10) / _n)
+    min_words = max(30, round(_per_s * 2.5))
+
+    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    expanded = 0
+
+    for sec in sections:
+        narr = sec.get("narration", "")
+        word_count = len(narr.split())
+        if word_count >= min_words:
+            continue
+
+        context = {
+            "section_type": sec.get("section_type", ""),
+            "planning_note": sec.get("planning_note", ""),
+            "keywords": sec.get("evidence_terms", [])[:6],
+        }
+
+        expand_prompt = (
+            f"Expand the following documentary narration to at least {min_words} words. "
+            f"Keep the same meaning and tone. Write only the expanded narration text — no labels, no quotes, no explanation.\n\n"
+            f"Context: {json.dumps(context)}\n\n"
+            f"Original narration:\n{narr}\n\n"
+            f"Expanded narration ({min_words}+ words):"
+        )
+
+        payload = {
+            "model": FAST_LLM_MODEL,
+            "prompt": expand_prompt,
+            "stream": False,
+            "options": {"temperature": 0.3, "num_ctx": 4000},
+        }
+
+        try:
+            data = post_with_retries(url, payload, timeout=120)
+            expanded_text = (data.get("response") or "").strip()
+            if expanded_text and len(expanded_text.split()) >= min_words:
+                sec["narration"] = expanded_text
+                sec["viewer_narration"] = expanded_text
+                expanded += 1
+        except Exception:
+            pass  # Keep original if expansion fails
+
+    if expanded:
+        log(f"Expanded {expanded}/{len(sections)} short narrations to ≥{min_words} words.")
+
+    return storyline
 
 
 def validate_fragment_references(storyline: dict[str, Any], valid_fragment_ids: set[str]) -> list[str]:
@@ -4160,7 +4200,7 @@ def build_documentary_arc(
 
     fragment_ids_all = [c.get("fragment_id") for c in selected_candidates if c.get("fragment_id")]
     n_candidates = len(selected_candidates)
-    sections_target = 3 if target_duration_seconds <= 60 else (5 if target_duration_seconds <= 120 else 7)
+    sections_target = timeline_segment_count_for_duration(target_duration_seconds)
     chunk_size = max(1, n_candidates // max(1, sections_target - 2))
 
     sections = []
@@ -4459,7 +4499,7 @@ def build_evidence_grounded_narration(
     sections = []
     fragment_ids_used = [e["fragment_id"] for e in evidence_summaries if e["fragment_id"]]
     source_videos_used = list(dict.fromkeys(e["source_video"] for e in evidence_summaries if e["source_video"]))
-    sections_target = 3 if target_duration_seconds <= 60 else (5 if target_duration_seconds <= 120 else 7)
+    sections_target = timeline_segment_count_for_duration(target_duration_seconds)
     chunk_size = max(1, len(evidence_summaries) // max(1, sections_target - 2))
 
     doc_arc = build_documentary_arc(prompt_profile, selected_candidates, target_duration_seconds)
@@ -5444,6 +5484,9 @@ def main() -> None:
             section["evidence_terms"] = ev_terms
 
     storyline = enrich_storyline_with_director_plan(storyline, director_plan)
+
+    # Expand narrations that are shorter than the word budget
+    storyline = expand_short_narrations(storyline, args.duration)
 
     # Sanitize all viewer-facing text before validation and save
     storyline, sanitize_notes = sanitize_viewer_facing_storyline_text(storyline, prompt_intent)

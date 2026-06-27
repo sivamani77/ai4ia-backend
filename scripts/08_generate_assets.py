@@ -1757,7 +1757,7 @@ def build_hybrid_export_timeline(
         )
         try:
             dur = float(item.get("duration") or 0.0) or (float(end or 0) - float(start or 0))
-            if not (6.0 <= dur <= 20.0):
+            if not (6.0 <= dur <= 60.0):
                 eligible = False
         except (TypeError, ValueError):
             eligible = False
