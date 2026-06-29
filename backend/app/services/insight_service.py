@@ -133,6 +133,34 @@ def generate_insight(query: str, filters: dict | None = None, limit: int | None 
         "evidence_pool": pool,
         "models": {"llm": INSIGHT_MODEL, "embedding": "nomic-embed-text:v1.5"},
         "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "Semantic search embeds your query with nomic-embed-text:v1.5 and retrieves "
+                "the top-K fragments by cosine similarity from the 3875-fragment corpus. "
+                "The LLM (llama3.1:70b) is given only those numbered fragments as its evidence "
+                "pool and must cite fragment numbers for every claim it makes. "
+                "After generation, any claim whose fragment_refs don't resolve to real fragments "
+                "is moved to unsupported_claims and excluded from the final output."
+            ),
+            "retrieval": {
+                "method": "semantic_cosine_similarity",
+                "embedding_model": "nomic-embed-text:v1.5",
+                "fragments_retrieved": len(pool),
+                "filters_applied": filters or {},
+            },
+            "generation": {
+                "model": INSIGHT_MODEL,
+                "temperature": 0.2,
+                "citation_contract": "LLM may only cite numbered fragments from the evidence pool",
+            },
+            "validation": {
+                "total_claims_generated": total_claims,
+                "supported_claims": len(patterns) + len(contrasts),
+                "unsupported_claims_dropped": len(unsupported),
+                "evidence_coverage_score": coverage,
+                "coverage_meaning": "Fraction of generated claims that resolved to at least one real fragment",
+            },
+        },
     }
     InsightRepository().create(insight)
     return insight

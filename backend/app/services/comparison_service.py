@@ -110,6 +110,10 @@ def compare_speakers(speakers: list[str], topic: str | None = None,
     tensions, t_bad = _validate(raw.get("tensions"), valid)
     per_speaker, _ = _validate(raw.get("per_speaker"), valid)
 
+    total_claims = len(agreements) + len(tensions) + len(a_bad) + len(t_bad)
+    supported_claims = len(agreements) + len(tensions)
+    coverage = round(supported_claims / total_claims, 3) if total_claims else 0.0
+
     return {
         "topic": topic,
         "speakers_requested": speakers,
@@ -122,6 +126,35 @@ def compare_speakers(speakers: list[str], topic: str | None = None,
         "evidence_pool": numbered,
         "models": {"llm": model or INSIGHT_MODEL},
         "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "For each requested speaker, their fragments are retrieved from the fragment store. "
+                "If a topic is given, fragments are re-ranked by semantic similarity to that topic "
+                "using nomic-embed-text:v1.5. All speakers' fragments are merged into one numbered "
+                "evidence pool. The LLM (llama3.1:70b) must cite fragment numbers for every "
+                "agreement, tension, and per-speaker position it identifies. Claims without valid "
+                "fragment references are dropped."
+            ),
+            "retrieval": {
+                "method": "fragment_store_by_speaker + semantic_reranking_if_topic",
+                "embedding_model": "nomic-embed-text:v1.5",
+                "limit_per_speaker": limit_per_speaker,
+                "total_fragments_in_pool": len(numbered),
+                "speakers_found": [s for s in speakers if s not in missing],
+                "speakers_missing": missing,
+            },
+            "generation": {
+                "model": model or INSIGHT_MODEL,
+                "temperature": 0.2,
+                "citation_contract": "LLM may only cite numbered fragments from the evidence pool",
+            },
+            "validation": {
+                "total_claims_generated": total_claims,
+                "supported_claims": supported_claims,
+                "unsupported_claims_dropped": len(a_bad) + len(t_bad),
+                "evidence_coverage_score": coverage,
+            },
+        },
     }
 
 
@@ -166,6 +199,9 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> d
             p = next(x for x in numbered if x["ref"] == ref)
             rep.append({**_clip(p), "reason": r.get("reason")})
 
+    total_kp = len(key_points) + len(kp_bad)
+    kp_coverage = round(len(key_points) / total_kp, 3) if total_kp else 0.0
+
     return {
         "theme": theme,
         "title": raw.get("title") or theme,
@@ -176,6 +212,33 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> d
         "evidence_pool": numbered,
         "models": {"llm": model or INSIGHT_MODEL},
         "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "Fragments are retrieved by exact theme facet match first; if that returns nothing, "
+                "a pure semantic search on the theme string is used as fallback. "
+                "The numbered pool is fed to llama3.1:70b which must cite fragment numbers for "
+                "every key point. Uncited key points are dropped. Representative clips are resolved "
+                "from the pool by their ref number."
+            ),
+            "retrieval": {
+                "method": "theme_facet_match → semantic_fallback",
+                "embedding_model": "nomic-embed-text:v1.5",
+                "fragments_in_pool": len(numbered),
+                "limit_requested": limit,
+            },
+            "generation": {
+                "model": model or INSIGHT_MODEL,
+                "temperature": 0.2,
+                "citation_contract": "LLM may only cite numbered fragments from the evidence pool",
+            },
+            "validation": {
+                "key_points_generated": total_kp,
+                "key_points_supported": len(key_points),
+                "key_points_dropped": len(kp_bad),
+                "evidence_coverage_score": kp_coverage,
+                "representative_clips_resolved": len(rep),
+            },
+        },
     }
 
 
@@ -241,4 +304,32 @@ def build_relay(topic: str, limit: int = 20, model: str | None = None) -> dict:
         "edition": "AI4IA 2025",
         "models": {"llm": model or INSIGHT_MODEL},
         "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "A semantic search retrieves the top-K fragments most similar to the topic. "
+                "The candidate pool is deduplicated by speaker so no voice dominates — each unique "
+                "speaker appears at most once in the first pass. The LLM then selects 3-6 clips "
+                "and assigns each a role in the relay thread (opening / development / tension / "
+                "synthesis) plus a one-sentence bridge explaining how that voice advances the idea. "
+                "Only clips whose ref resolves to a real pool entry are included in relay_steps."
+            ),
+            "retrieval": {
+                "method": "semantic_cosine_similarity + speaker_diversity_dedup",
+                "embedding_model": "nomic-embed-text:v1.5",
+                "fragments_retrieved": len(frags),
+                "unique_speakers_in_pool": len(seen),
+                "pool_size_after_dedup": len(pool_frags),
+            },
+            "generation": {
+                "model": model or INSIGHT_MODEL,
+                "temperature": 0.3,
+                "relay_roles": ["opening", "development", "tension", "synthesis"],
+                "target_steps": "3-6",
+            },
+            "validation": {
+                "steps_selected_by_llm": len(raw.get("relay_steps") or []),
+                "steps_resolved_to_real_clips": len(steps),
+                "distinct_speakers_in_relay": len({s["speaker"] for s in steps if s.get("speaker")}),
+            },
+        },
     }

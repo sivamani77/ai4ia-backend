@@ -651,7 +651,7 @@ Return JSON with these exact fields:
 
     try:
         raw = post_with_retries({
-            "model": STRONG_LLM_MODEL,
+            "model": FAST_LLM_MODEL,
             "prompt": prompt,
             "stream": False,
             "options": {"temperature": 0.2, "num_ctx": 8000},
@@ -1763,11 +1763,12 @@ def main() -> None:
     log(f"Narrative structure: {[s['section_id'] for s in narrative_sections]}")
     log(f"Fragment items to validate: {len(fragment_items)}")
 
-    # Validate each fragment
-    validated_candidates: list[dict[str, Any]] = []
-    llm_fallback_count = 0
-
-    for i, item in enumerate(fragment_items):
+    # Validate each fragment (parallel — each LLM call is independent)
+    def _validate_one_fragment(
+        i: int,
+        item: dict[str, Any],
+    ) -> tuple[int, dict[str, Any], bool]:
+        """Returns (i, result, used_fallback)."""
         fid = str(item.get("fragment_id") or "")
         source_video = item.get("source_video") or ""
         start = float(item.get("start") or 0)
@@ -1776,12 +1777,10 @@ def main() -> None:
         log(f"\n[{i+1}/{len(fragment_items)}] Validating: {fid[:60]!r}")
         log(f"  source_video: {source_video[:60]!r}  window: {start:.1f}→{end:.1f}s")
 
-        # Merge candidate data into item
         cand_data = candidate_map.get(fid, {})
         merged = {**cand_data, **item}
         merged["fragment_id"] = fid
 
-        # Load transcript and extract context window
         transcript_path = find_transcript_file(source_video, transcripts_dir, fallback_dir)
         context_window: list[dict[str, Any]] = []
 
@@ -1793,7 +1792,7 @@ def main() -> None:
         else:
             log(f"  transcript: NOT FOUND for {source_video[:50]!r}")
 
-        # Validate
+        used_fallback = False
         if args.skip_llm:
             result = fallback_validation(merged)
             log(f"  fallback decision: {result['decision']} | approved={result['approved']}")
@@ -1806,8 +1805,8 @@ def main() -> None:
                 target_duration=target_duration,
             )
             if result is None:
-                llm_fallback_count += 1
-                log(f"  WARNING: LLM validation failed — using score-based fallback (#{llm_fallback_count}).")
+                used_fallback = True
+                log(f"  WARNING: LLM validation failed — using score-based fallback.")
                 result = fallback_validation(merged)
                 result["_fallback_reason"] = "llm_failed"
 
@@ -1815,11 +1814,33 @@ def main() -> None:
             if not result.get("approved"):
                 log(f"  reason: {result.get('reason', '')}")
 
-        # Carry forward source_video from item
         result["source_video"] = source_video
         result["start"] = start
         result["end"] = end
         result["text"] = merged.get("text") or merged.get("moment_text") or ""
+        return i, result, used_fallback
+
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    # Cap at 3 workers to avoid overwhelming Ollama with concurrent requests.
+    max_workers = min(3, max(1, len(fragment_items)))
+    raw_results: dict[int, tuple[dict[str, Any], bool]] = {}
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(_validate_one_fragment, i, item): i
+            for i, item in enumerate(fragment_items)
+        }
+        for future in as_completed(futures):
+            i, result, used_fallback = future.result()
+            raw_results[i] = (result, used_fallback)
+
+    validated_candidates: list[dict[str, Any]] = []
+    llm_fallback_count = 0
+    for i in sorted(raw_results.keys()):
+        result, used_fallback = raw_results[i]
+        if used_fallback:
+            llm_fallback_count += 1
         validated_candidates.append(result)
 
     approved_count = sum(1 for c in validated_candidates if c.get("approved"))

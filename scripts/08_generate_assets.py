@@ -1738,11 +1738,22 @@ def build_hybrid_export_timeline(
         else:
             card_items.append((i, item))  # treat non-fragment non-card as pass-through
 
-    # Score eligible fragment items
+    # Score eligible fragment items.
+    # Items already typed as "speaker_clip" by 07b validation are pre-approved — don't re-score them.
     scored = []
+    pre_approved_speaker_fids: set[str] = set()
+
     for orig_idx, item in fragment_items:
         fid = item.get("fragment_id") or ""
         cand = candidate_by_fid.get(str(fid), {})
+        pre_type = item.get("type") or item.get("segment_type") or ""
+
+        # 07b already approved this as a speaker clip — honour it, bypass re-scoring
+        if pre_type == "speaker_clip" and fid:
+            pre_approved_speaker_fids.add(str(fid))
+            scored.append((orig_idx, item, cand, 1.0, True))
+            continue
+
         start = item.get("start")
         end = item.get("end")
         source_video = item.get("source_video") or cand.get("source_video")
@@ -1766,8 +1777,12 @@ def build_hybrid_export_timeline(
         scored.append((orig_idx, item, cand, score, eligible))
 
     # Select top-N as speaker clips (pre-filter: remove those flagged for demotion by bounds check)
+    # Pre-approved items (from 07b) are always included first, then fill remaining slots from scored.
     eligible_only = [(i, item, cand, sc) for i, item, cand, sc, elig in scored if elig]
-    eligible_only.sort(key=lambda x: x[3], reverse=True)
+    eligible_only.sort(key=lambda x: (
+        0 if str(x[1].get("fragment_id") or "") in pre_approved_speaker_fids else 1,
+        -x[3]
+    ))
 
     # Pre-compute bounds for all eligible items to check should_demote
     bounds_cache: dict[int, dict[str, Any]] = {}
@@ -1778,15 +1793,19 @@ def build_hybrid_export_timeline(
     speaker_clip_fids: set[str] = set()
     selected_for_speaker = []
     for i, item, cand, sc in eligible_only:
-        if sc < speaker_clip_score_threshold:
-            continue
-        if len(selected_for_speaker) >= max_speaker_clips:
-            break
-        b = bounds_cache.get(i, {})
-        if b.get("should_demote"):
-            log(f"  [hybrid] Demoting {item.get('fragment_id', '')[-40:]!r}: quote too incomplete")
-            continue
-        speaker_clip_fids.add(str(item.get("fragment_id") or ""))
+        fid = str(item.get("fragment_id") or "")
+        is_pre_approved = fid in pre_approved_speaker_fids
+        # Pre-approved items (07b validated) bypass score and demotion thresholds
+        if not is_pre_approved:
+            if sc < speaker_clip_score_threshold:
+                continue
+            if len(selected_for_speaker) >= max_speaker_clips:
+                break
+            b = bounds_cache.get(i, {})
+            if b.get("should_demote"):
+                log(f"  [hybrid] Demoting {item.get('fragment_id', '')[-40:]!r}: quote too incomplete")
+                continue
+        speaker_clip_fids.add(fid)
         selected_for_speaker.append(i)
 
     # Build voiceover cycling iterator for narration_broll items

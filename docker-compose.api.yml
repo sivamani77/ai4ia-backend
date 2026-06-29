@@ -1,6 +1,6 @@
 services:
   api:
-    image: aswinmobiusdtaas/ai4ia-pipeline:v2.3
+    image: aswinmobiusdtaas/ai4ia-pipeline:v2.4
     env_file: .env
     ports:
       - "8000:8000"

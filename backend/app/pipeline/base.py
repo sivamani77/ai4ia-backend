@@ -36,7 +36,7 @@ class StageResult:
 
 _STAGE_TIMEOUTS: dict[str, int] = {
     "07_storyline":           600,
-    "07b_validate_storyline": 900,
+    "07b_validate_storyline": 1800,
     "08_assets":             1200,
     "09_export":              900,
     "10_validate_export":     120,

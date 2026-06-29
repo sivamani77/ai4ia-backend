@@ -5,11 +5,12 @@ POST   /api/video-jobs              — start a new job
 GET    /api/video-jobs              — list all jobs
 GET    /api/video-jobs/{job_id}     — job status + stage progress
 DELETE /api/video-jobs/{job_id}     — cancel a running or queued job
-GET    /api/video-jobs/{job_id}/events          — SSE stream
-GET    /api/video-jobs/{job_id}/storyline       — parsed storyline data
+GET    /api/video-jobs/{job_id}/events            — SSE stream
+GET    /api/video-jobs/{job_id}/storyline         — parsed storyline data
+GET    /api/video-jobs/{job_id}/explainability    — full reasoning trace (prompt→retrieval→scoring→timeline→gates)
 GET    /api/video-jobs/{job_id}/validation-report — validation gates & decisions
-GET    /api/video-jobs/{job_id}/assets          — generated visuals and voiceovers
-GET    /api/video-jobs/{job_id}/result          — final video URLs and quality summary
+GET    /api/video-jobs/{job_id}/assets            — generated visuals and voiceovers
+GET    /api/video-jobs/{job_id}/result            — final video URLs and quality summary
 """
 from __future__ import annotations
 
@@ -421,6 +422,228 @@ def get_job_storyline(job_id: str, user_id: str = Depends(extract_session_id)):
         "quality_gates": gates,
         "repair_iterations": data.get("repair_iterations", 0),
     }
+
+
+# ---------------------------------------------------------------------------
+# Explainability — full reasoning trace for AI agents
+# ---------------------------------------------------------------------------
+
+@router.get("/{job_id}/explainability")
+def get_job_explainability(job_id: str, user_id: str = Depends(extract_session_id)):
+    """Return a structured reasoning trace explaining how this job's output was derived.
+
+    Covers every decision layer:
+      1. Prompt parsing (intent, topic terms, speaker detection)
+      2. Corpus retrieval (semantic + keyword + chapter + speaker searches)
+      3. Candidate scoring and role classification (exact / strong_related / etc.)
+      4. Video mode and evidence-strength selection
+      5. Timeline construction and any LLM repair passes
+      6. Editorial quality gates from validation stage
+    """
+    job = _require_job(job_id)
+    _assert_owns(job, user_id)
+    paths = job.get("paths", {})
+
+    # Prefer the initial (pre-validation) storyline: it carries the full retrieval trace.
+    isp = paths.get("storyline_path")
+    vsp = paths.get("validated_storyline_path")
+
+    if not isp and not vsp:
+        return {
+            "job_id": job_id,
+            "status": "not_available",
+            "message": "Storyline not yet generated — explainability unavailable",
+        }
+
+    # Load the initial storyline for the retrieval/scoring trace
+    initial_data: dict[str, Any] = {}
+    if isp:
+        try:
+            from app.pipeline.s3_helpers import use_s3, _s3, _bucket
+            s3_key = paths.get("storyline_s3_key")
+            if use_s3() and s3_key:
+                resp = _s3().get_object(Bucket=_bucket(), Key=s3_key)
+                initial_data = json.loads(resp["Body"].read().decode("utf-8"))
+            else:
+                initial_data = json.loads(Path(isp).read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    # Load the validated storyline for editorial gate results
+    validated_data: dict[str, Any] = {}
+    if vsp:
+        try:
+            from app.pipeline.s3_helpers import use_s3 as _use_s3, _s3 as _s3v, _bucket as _bktv
+            vs3_key = paths.get("validated_storyline_s3_key")
+            if _use_s3() and vs3_key:
+                resp = _s3v().get_object(Bucket=_bktv(), Key=vs3_key)
+                validated_data = json.loads(resp["Body"].read().decode("utf-8"))
+            else:
+                validated_data = json.loads(Path(vsp).read_text(encoding="utf-8"))
+        except Exception:
+            pass
+
+    src = initial_data or validated_data
+
+    # ── 1. Prompt understanding ──────────────────────────────────────────────
+    profile = src.get("prompt_profile") or src.get("prompt_intent") or {}
+    prompt_understanding = {
+        "raw_prompt": profile.get("raw_prompt") or job.get("prompt", ""),
+        "intent_type": profile.get("intent_type"),
+        "scope": profile.get("scope"),
+        "topic_terms": profile.get("topic_terms") or [],
+        "expanded_synonym_terms": profile.get("expanded_terms") or [],
+        "negative_terms": profile.get("negative_terms") or [],
+        "generic_terms_removed": profile.get("generic_terms_removed") or [],
+        "detected_speaker": profile.get("requested_speaker"),
+        "speaker_required": bool(profile.get("speaker_required")),
+        "theme_hint": profile.get("theme_hint"),
+        "chapter_hint": profile.get("chapter_hint"),
+        "evidence_requirement": profile.get("evidence_requirement"),
+        "strictness": profile.get("strictness"),
+    }
+
+    # ── 2. Corpus retrieval ──────────────────────────────────────────────────
+    ret_diag = src.get("retrieval_diagnostics") or {}
+    corpus_diag = src.get("corpus_diagnostics") or {}
+    ret_summary = src.get("retrieval_summary") or {}
+    retrieval = {
+        "corpus_size": corpus_diag.get("total_embedding_records"),
+        "corpus_after_filtering": corpus_diag.get("records_after_filtering"),
+        "embedding_model": (src.get("models") or {}).get("embedding_model"),
+        "embedding_dimension": corpus_diag.get("embedding_dimension"),
+        "search_channels": {
+            "semantic": ret_diag.get("semantic_count", 0),
+            "keyword": ret_diag.get("keyword_count", 0),
+            "chapter": ret_diag.get("chapter_count", 0),
+            "speaker": ret_diag.get("speaker_count", 0),
+        },
+        "merged_candidates": ret_diag.get("merged_count", 0),
+        "top_semantic_score": ret_summary.get("top_semantic_score"),
+    }
+
+    # ── 3. Candidate scoring summary ─────────────────────────────────────────
+    bucket = src.get("candidate_bucket_summary") or {}
+    planning = src.get("planning_summary") or {}
+    scoring_summary = {
+        "selected_count": bucket.get("selected", 0),
+        "supporting_count": bucket.get("supporting", 0),
+        "context_count": bucket.get("context", 0),
+        "rejected_count": bucket.get("rejected", 0),
+        "selected_cap": bucket.get("selected_cap"),
+        "cap_reason": bucket.get("cap_reason"),
+        "exact_clip_count": planning.get("exact_clip_count", 0),
+        "strong_related_count": planning.get("strong_related_count", 0),
+        "usable_speaker_clip_count": planning.get("usable_speaker_clip_count", 0),
+        "fallback_risk": planning.get("fallback_risk"),
+    }
+
+    # Per-candidate scoring trace (selected only — others available on request)
+    def _candidate_trace(c: dict[str, Any]) -> dict[str, Any]:
+        return {
+            "fragment_id": c.get("fragment_id"),
+            "source_video": c.get("source_video"),
+            "speaker": c.get("speaker") or c.get("primary_speaker"),
+            "primary_theme": c.get("primary_theme"),
+            "primary_chapter": c.get("primary_chapter"),
+            "relevance_role": c.get("relevance_role"),
+            "relevance_reason": c.get("relevance_reason"),
+            "use_as": c.get("use_as"),
+            "final_prompt_score": c.get("final_prompt_score") or c.get("prompt_relevance_score"),
+            "semantic_score": c.get("semantic_score"),
+            "keyword_score": c.get("keyword_score"),
+            "quote_strength": c.get("quote_strength"),
+            "clarity_score": c.get("clarity_score"),
+            "direct_evidence_terms": c.get("direct_evidence_terms") or c.get("meaningful_prompt_overlap") or [],
+            "expanded_evidence_terms": c.get("expanded_evidence_terms") or [],
+            "speaker_clip_allowed": bool(c.get("speaker_clip_allowed") or c.get("speaker_soundbite_allowed")),
+            "final_video_allowed": bool(c.get("final_video_allowed")),
+            "start": c.get("start"),
+            "end": c.get("end"),
+            "duration": c.get("duration"),
+            "video_year": c.get("video_year"),
+        }
+
+    selected_traces = [_candidate_trace(c) for c in (src.get("selected_candidates") or [])]
+    supporting_traces = [_candidate_trace(c) for c in (src.get("supporting_candidates") or [])]
+
+    # ── 4. Planning decisions ────────────────────────────────────────────────
+    story = src.get("storyline") or {}
+    director = story.get("director_plan") or {}
+    planning_decisions = {
+        "video_mode": planning.get("video_mode") or director.get("video_mode"),
+        "video_mode_rationale": _video_mode_rationale(
+            planning.get("video_mode") or director.get("video_mode"),
+            scoring_summary,
+        ),
+        "evidence_strength": planning.get("evidence_strength") or director.get("evidence_strength"),
+        "llm_model_used": (src.get("models") or {}).get("strong_llm_model"),
+        "generation_mode": src.get("generation_mode"),
+        "theme_coverage": director.get("theme_coverage") or [],
+        "chapter_coverage": director.get("chapter_coverage") or [],
+        "unique_source_videos": director.get("unique_source_video_count"),
+        "average_similarity": director.get("average_similarity"),
+        "planning_notes": planning.get("planning_notes") or director.get("planning_notes") or [],
+    }
+
+    # ── 5. Timeline construction ──────────────────────────────────────────────
+    tl_repair = src.get("timeline_repair") or story.get("timeline_repair") or {}
+    export_tl = src.get("export_timeline") or story.get("export_timeline") or []
+    timeline_info = {
+        "segment_count": len(export_tl),
+        "repair_applied": bool(tl_repair.get("required")),
+        "repair_reason": tl_repair.get("reason"),
+        "raw_items_before_repair": tl_repair.get("raw_timeline_items"),
+        "rebuilt_items_after_repair": tl_repair.get("rebuilt_timeline_items"),
+        "validation_iterations": validated_data.get("repair_iterations", 0),
+        "validation_issues": src.get("validation_issues") or [],
+    }
+
+    # ── 6. Editorial quality gates ────────────────────────────────────────────
+    gates = validated_data.get("editorial_quality_gates") or {}
+    editorial_gates = {
+        "all_sections_covered": gates.get("all_sections_covered"),
+        "all_speaker_labels_present": gates.get("all_speaker_labels_present"),
+        "all_speaker_quotes_complete": gates.get("all_speaker_quotes_complete"),
+        "no_instruction_leakage_in_voiceover": gates.get("no_instruction_leakage_in_voiceover"),
+        "all_voiceovers_topic_specific": gates.get("all_voiceovers_topic_specific"),
+        "final_timeline_approved": gates.get("final_timeline_approved"),
+        "has_visual_asset_plan": gates.get("all_narration_broll_have_visual_asset_prompt"),
+        "offending_items": gates.get("offending_items") or {},
+    } if gates else None
+
+    return {
+        "job_id": job_id,
+        "status": "available",
+        "explainability_version": "1.0",
+        "prompt_understanding": prompt_understanding,
+        "retrieval": retrieval,
+        "scoring_summary": scoring_summary,
+        "planning_decisions": planning_decisions,
+        "timeline_construction": timeline_info,
+        "editorial_gates": editorial_gates,
+        "selected_candidates": selected_traces,
+        "supporting_candidates": supporting_traces,
+    }
+
+
+def _video_mode_rationale(mode: str | None, scoring: dict[str, Any]) -> str:
+    """Return a human-readable explanation for why this video_mode was chosen."""
+    exact = scoring.get("exact_clip_count", 0)
+    speaker = scoring.get("usable_speaker_clip_count", 0)
+    fallback = scoring.get("fallback_risk", "")
+    rationale_map = {
+        "speaker_led_documentary": f"Chose speaker-led documentary: {exact} exact clips with {speaker} usable speaker soundbites.",
+        "relay_of_ideas": f"Chose relay of ideas: {exact} exact clips from multiple speakers.",
+        "chronological_relay": f"Chose chronological relay: clips span multiple years, ordered to show evolution over time.",
+        "theme_summary_explainer": f"Chose theme-summary explainer: {exact} exact + strong related clips, narration-heavy.",
+        "narration_led_explainer": f"Chose narration-led explainer: {exact} exact clips, supplemented by narration.",
+        "speaker_led_theme_summary": f"Chose speaker-led theme summary: speaker-constrained prompt with sufficient clips.",
+        "low_evidence_brief": f"Chose low-evidence brief: only {exact} exact clips found — short narration-led format.",
+        "low_evidence_speaker_brief": f"Chose low-evidence speaker brief: speaker requested but few usable clips found.",
+        "no_evidence": "No usable evidence found for the requested speaker — video could not be generated.",
+    }
+    return rationale_map.get(mode or "", f"Mode '{mode}' selected based on available evidence.")
 
 
 # ---------------------------------------------------------------------------

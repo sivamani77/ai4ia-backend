@@ -168,7 +168,13 @@ def _run_script(
     stage: str,
     timeout: int = 7200,
 ) -> tuple[int, str, str]:
-    """Run a script subprocess, capturing stdout/stderr. Returns (returncode, stdout, stderr)."""
+    """Run a script subprocess, writing stdout/stderr line-by-line in real time.
+
+    Log files grow during execution so the SSE log-tail endpoint can stream
+    live output. Returns (returncode, stdout, stderr) for backward compat.
+    """
+    import threading as _threading
+
     log_dir = DATA_DIR / "jobs" / job_id / "logs"
     log_dir.mkdir(parents=True, exist_ok=True)
 
@@ -177,22 +183,61 @@ def _run_script(
 
     stdout_log = log_dir / f"{stage}.stdout.log"
     stderr_log = log_dir / f"{stage}.stderr.log"
+    # Clear / create both log files up front so the tail endpoint can open them
+    stdout_log.write_text("")
+    stderr_log.write_text("")
+
+    def _drain(pipe, log_path: Path) -> str:
+        """Read pipe line by line, appending to log file in real time."""
+        buf: list[str] = []
+        try:
+            with open(log_path, "a", buffering=1) as fh:
+                for line in pipe:
+                    fh.write(line)
+                    buf.append(line)
+        except Exception:
+            pass
+        return "".join(buf)
 
     try:
-        result = subprocess.run(
+        proc = subprocess.Popen(
             cmd,
-            capture_output=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
             text=True,
-            timeout=timeout,
+            bufsize=1,
             cwd=str(PROJECT_ROOT),
         )
-        stdout_log.write_text(result.stdout or "")
-        stderr_log.write_text(result.stderr or "")
-        return result.returncode, result.stdout or "", result.stderr or ""
-    except subprocess.TimeoutExpired:
-        msg = f"Script timed out after {timeout}s: {script}"
-        stderr_log.write_text(msg)
-        return -1, "", msg
+
+        stdout_buf: list[str] = []
+        stderr_buf: list[str] = []
+
+        def _drain_stdout():
+            stdout_buf.append(_drain(proc.stdout, stdout_log))
+
+        def _drain_stderr():
+            stderr_buf.append(_drain(proc.stderr, stderr_log))
+
+        t_out = _threading.Thread(target=_drain_stdout, daemon=True)
+        t_err = _threading.Thread(target=_drain_stderr, daemon=True)
+        t_out.start()
+        t_err.start()
+
+        try:
+            proc.wait(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            t_out.join(timeout=5)
+            t_err.join(timeout=5)
+            msg = f"Script timed out after {timeout}s: {script}"
+            with open(stderr_log, "a") as fh:
+                fh.write(f"\n{msg}\n")
+            return -1, "".join(stdout_buf), msg
+
+        t_out.join()
+        t_err.join()
+        return proc.returncode, "".join(stdout_buf), "".join(stderr_buf)
+
     except Exception as exc:
         msg = str(exc)
         stderr_log.write_text(msg)
@@ -336,8 +381,21 @@ def _stage_discover(job_id: str, channel_url: str, video_limit: int | None) -> l
     _update_job(job_id, "discover", "running", 60, f"Found {len(channel_videos)} videos on channel")
     append_ingest_event(job_id, "channel_scanned", {"total_on_channel": len(channel_videos)})
 
-    # Find already-downloaded video IDs — check S3 in s3 mode, local disk otherwise
+    # Find already-downloaded video IDs.
+    # Always read the yt-dlp download archive first (most authoritative — survives local deletes).
+    # Then supplement with local mp4 scan and, in s3 mode, S3 key scan.
     existing_ids: set[str] = set()
+
+    archive_file = DATA_DIR / "metadata" / "youtube" / "download_archive.txt"
+    if archive_file.exists():
+        try:
+            for line in archive_file.read_text(encoding="utf-8").splitlines():
+                parts = line.strip().split()
+                if len(parts) >= 2:
+                    existing_ids.add(parts[1])  # format: "youtube <video_id>"
+        except Exception as exc:
+            logger.warning("Could not read download archive: %s", exc)
+
     if _ingest_use_s3():
         try:
             for stem in _s3_list_keys("raw/youtube/ai4ia_channel/"):

@@ -158,22 +158,36 @@ def sanitize_metadata(frag: dict) -> dict:
         try: return int(v) if v is not None else 0
         except: return 0
 
+    extra = frag.get("extra") or {}
+
+    # clip_usage_candidates may be a list — store as comma-separated string for ChromaDB
+    cuc = frag.get("clip_usage_candidates") or extra.get("clip_usage_candidates") or []
+    if isinstance(cuc, list):
+        cuc_str = ",".join(str(x) for x in cuc if x)
+    else:
+        cuc_str = _s(cuc)
+
     return {
         "video_id":                  _s(frag.get("video_id")),
         "source_video":              _s(frag.get("source_video")),
-        "fragment_index":            _i((frag.get("extra") or {}).get("fragment_index")),
+        "fragment_index":            _i(extra.get("fragment_index")),
         "start":                     _f(frag.get("start")),
         "end":                       _f(frag.get("end")),
         "duration":                  _f(frag.get("duration")),
-        "word_count":                _i((frag.get("extra") or {}).get("word_count")),
+        "word_count":                _i(extra.get("word_count")),
         "theme":                     _s(frag.get("primary_theme")),
         "chapter":                   _s(frag.get("primary_chapter")),
         "speaker":                   _s(frag.get("speaker")),
-        "storyline_role":            "",
+        "storyline_role":            _s(frag.get("storyline_role")),
         "summary":                   _s(frag.get("summary")),
-        "classification_confidence": _f((frag.get("extra") or {}).get("classification_confidence")),
-        "audio_quality_status":      "",
-        "transcript_quality_score":  0.0,
+        "quote_strength":            _f(frag.get("quote_strength") or extra.get("quote_strength")),
+        "clarity_score":             _f(frag.get("clarity_score") or extra.get("clarity_score")),
+        "narration_support_score":   _f(frag.get("narration_support_score") or extra.get("narration_support_score")),
+        "clip_usage_candidates":     cuc_str,
+        "classification_confidence": _f(extra.get("classification_confidence")),
+        "audio_quality_status":      _s(frag.get("audio_quality_status") or extra.get("audio_quality_status")),
+        "transcript_quality_score":  _f(frag.get("transcript_quality_score") or extra.get("transcript_quality_score")),
+        "video_year":                _i(frag.get("video_year") or extra.get("video_year")),
         "embedding_model":           EMBEDDING_MODEL,
         "embedding_created_at":      "",
     }
@@ -310,20 +324,28 @@ def main():
         # Update JSONL records
         for frag, vec, et in zip(batch, vectors, embedding_texts):
             fid = frag["fragment_id"]
+            extra = frag.get("extra") or {}
             rec = existing_jsonl.get(fid, {})
             rec.update({
-                "fragment_id": fid,
-                "source_video": frag.get("source_video", ""),
-                "video_id": frag.get("video_id", ""),
-                "text": frag.get("text", ""),
-                "primary_theme": frag.get("primary_theme"),
-                "primary_chapter": frag.get("primary_chapter"),
-                "speaker": frag.get("speaker"),
-                "keywords": frag.get("keywords") or [],
-                "summary": frag.get("summary"),
-                "embedding_text": et,
-                "embedding_model": EMBEDDING_MODEL,
-                "embedding": vec,
+                "fragment_id":             fid,
+                "source_video":            frag.get("source_video", ""),
+                "video_id":                frag.get("video_id", ""),
+                "text":                    frag.get("text", ""),
+                "primary_theme":           frag.get("primary_theme"),
+                "primary_chapter":         frag.get("primary_chapter"),
+                "speaker":                 frag.get("speaker"),
+                "keywords":                frag.get("keywords") or [],
+                "summary":                 frag.get("summary"),
+                "quote_strength":          frag.get("quote_strength") or extra.get("quote_strength"),
+                "clarity_score":           frag.get("clarity_score") or extra.get("clarity_score"),
+                "narration_support_score": frag.get("narration_support_score") or extra.get("narration_support_score"),
+                "clip_usage_candidates":   frag.get("clip_usage_candidates") or extra.get("clip_usage_candidates") or [],
+                "audio_quality_status":    frag.get("audio_quality_status") or extra.get("audio_quality_status"),
+                "transcript_quality_score":frag.get("transcript_quality_score") or extra.get("transcript_quality_score"),
+                "video_year":              frag.get("video_year") or extra.get("video_year"),
+                "embedding_text":          et,
+                "embedding_model":         EMBEDDING_MODEL,
+                "embedding":               vec,
             })
             existing_jsonl[fid] = rec
 

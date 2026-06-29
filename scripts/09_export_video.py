@@ -317,15 +317,13 @@ def make_card_video_with_optional_voiceover(
 
     duration = max(min_duration, audio_duration + 0.8)
 
-    total_frames = max(int(duration * FPS), 1)
-
+    # scale+crop is ~5× faster than zoompan (no per-frame computation) while still
+    # giving a slightly zoomed-in cinematic look with fade in/out.
     zoom_filter = (
-        f"scale={OUTPUT_WIDTH + 180}:{OUTPUT_HEIGHT + 100},"
-        f"zoompan=z='min(zoom+0.00085,1.08)':"
-        f"d={total_frames}:"
-        f"x='iw/2-(iw/zoom/2)':"
-        f"y='ih/2-(ih/zoom/2)':"
-        f"s={OUTPUT_WIDTH}x{OUTPUT_HEIGHT}:fps={FPS},"
+        f"scale={OUTPUT_WIDTH + 120}:{OUTPUT_HEIGHT + 68}:flags=lanczos,"
+        f"crop={OUTPUT_WIDTH}:{OUTPUT_HEIGHT}:(iw-ow)/2:(ih-oh)/2,"
+        f"setsar=1,"
+        f"fps={FPS},"
         f"fade=t=in:st=0:d={FADE_DURATION},"
         f"fade=t=out:st={max(duration - FADE_DURATION, 0)}:d={FADE_DURATION},"
         f"format=yuv420p"
@@ -343,6 +341,7 @@ def make_card_video_with_optional_voiceover(
             "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.6",
             "-shortest",
             "-c:v", "libx264",
+            "-threads", "2",
             "-preset", "veryfast",
             "-c:a", "aac",
             "-ar", "48000",
@@ -362,6 +361,7 @@ def make_card_video_with_optional_voiceover(
             "-vf", zoom_filter,
             "-shortest",
             "-c:v", "libx264",
+            "-threads", "2",
             "-preset", "veryfast",
             "-c:a", "aac",
             "-ar", "48000",
@@ -486,6 +486,7 @@ def render_archive_clip(
             "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.4",
             "-shortest",
             "-c:v", "libx264",
+            "-threads", "2",
             "-preset", "veryfast",
             "-c:a", "aac",
             "-ar", "48000",
@@ -503,6 +504,7 @@ def render_archive_clip(
             "-vf", vf,
             "-an",
             "-c:v", "libx264",
+            "-threads", "2",
             "-preset", "veryfast",
             "-pix_fmt", "yuv420p",
             str(output_path),
@@ -523,6 +525,7 @@ def render_archive_clip(
             "-vf", vf,
             "-af", af,
             "-c:v", "libx264",
+            "-threads", "2",
             "-preset", "veryfast",
             "-c:a", "aac",
             "-ar", "48000",
@@ -553,6 +556,7 @@ def concat_segments(segment_paths: list[Path], output_path: Path) -> None:
         "-vf", "fps=30,setpts=N/(30*TB),format=yuv420p",
         "-af", "aresample=async=1:first_pts=0",
         "-c:v", "libx264",
+        "-threads", "0",
         "-preset", "veryfast",
         "-r", "30",
         "-vsync", "cfr",
@@ -1636,306 +1640,124 @@ def _build_canonical_rendering_timeline(
     return rendering, quality_checks
 
 
-def _render_timeline_items(
-    timeline: list[dict[str, Any]],
+def _render_one_segment(
+    idx: int,
+    item: dict[str, Any],
     work_dir: Path,
-    target_sec_per_segment: float = 0.0,
-) -> tuple[list[Path], list[dict[str, Any]], float]:
-    """
-    Render each timeline item to a segment file.
+    target_sec_per_segment: float,
+) -> tuple[int, Path | None, dict[str, Any] | None]:
+    """Render one timeline segment to a file. Returns (idx, path, partial_info) or (idx, None, None) to skip."""
+    segment_label = slugify(item.get("label") or item.get("fragment_id") or f"segment_{idx}", 70)
+    segment_path = work_dir / f"{idx:03d}_{segment_label}.mp4"
 
-    target_sec_per_segment: minimum display duration for narration_broll visual-card segments,
-    derived from manifest target_duration / num content segments. Ensures final video fills
-    the target duration even when TTS audio is shorter than the allotted time.
+    item_type = item.get("type", "")
+    seg_type = item.get("segment_type", "")
 
-    Returns (segment_paths, segment_infos, total_duration).
-    """
-    segment_paths: list[Path] = []
-    segment_infos: list[dict[str, Any]] = []
-    current_time = 0.0
-    rendered_archive_visual = 0
-    rendered_speaker = 0
+    if item_type == "card":
+        image_path = Path(item.get("path", ""))
+        audio_path = Path(item["audio_path"]) if item.get("audio_path") else None
+        min_duration = float(item.get("duration") or STATIC_CARD_DURATION)
 
-    for idx, item in enumerate(timeline, start=1):
-        segment_label = slugify(item.get("label") or item.get("fragment_id") or f"segment_{idx}", 70)
-        segment_path = work_dir / f"{idx:03d}_{segment_label}.mp4"
+        if not image_path.exists():
+            log(f"  [render] Missing card image, skipping: {image_path}")
+            return idx, None, None
 
-        item_type = item.get("type", "")
-        seg_type = item.get("segment_type", "")
+        make_card_video_with_optional_voiceover(
+            image_path=image_path,
+            output_path=segment_path,
+            min_duration=min_duration,
+            audio_path=audio_path,
+        )
 
-        if item_type == "card":
-            image_path = Path(item.get("path", ""))
-            audio_path = Path(item["audio_path"]) if item.get("audio_path") else None
-            min_duration = float(item.get("duration") or STATIC_CARD_DURATION)
+    elif (
+        item_type == "archive_clip"
+        or item.get("fragment_id")
+        or seg_type in ("narration_broll", "speaker_clip", "archive_visual", "speaker_visual")
+        or item_type in ("narration_broll", "speaker_clip", "archive_visual", "speaker_visual")
+    ):
+        fragment_id = item.get("fragment_id")
+        source_video = item.get("source_video")
+        role = item.get("role", seg_type or "archive_visual")
+        source_path = find_source_video(source_video, fragment_id)
 
-            if not image_path.exists():
-                log(f"  [render] Missing card image, skipping: {image_path}")
-                continue
+        item_audio_mode = item.get("audio_mode") or ""
 
-            make_card_video_with_optional_voiceover(
-                image_path=image_path,
-                output_path=segment_path,
-                min_duration=min_duration,
-                audio_path=audio_path,
-            )
+        _has_generated_visual = bool(
+            item.get("render_visual_path") or item.get("visual_path") or item.get("asset_path")
+        )
+        _is_narration = seg_type == "narration_broll" or item_type == "narration_broll" or item_audio_mode == "ai_voiceover"
+        if not source_path and not (_is_narration and _has_generated_visual):
+            log(f"  [render] Source video not found for fragment {fragment_id!r} (source_video={source_video!r}). Skipping.")
+            return idx, None, None
 
-        elif (
-            item_type == "archive_clip"
-            or item.get("fragment_id")
-            or seg_type in ("narration_broll", "speaker_clip", "archive_visual", "speaker_visual")
-            or item_type in ("narration_broll", "speaker_clip", "archive_visual", "speaker_visual")
-        ):
-            fragment_id = item.get("fragment_id")
-            source_video = item.get("source_video")
-            role = item.get("role", seg_type or "archive_visual")
-            source_path = find_source_video(source_video, fragment_id)
+        if item_type not in ("narration_broll", "speaker_clip"):
+            item["type"] = "archive_clip"
 
-            item_audio_mode = item.get("audio_mode") or ""
+        external_audio_path = None
+        target_duration = None
+        lower_third = item.get("lower_third")
+        ffmpeg_audio_mode: str
 
-            # narration_broll items with a generated visual card don't need an archive source video.
-            # Defer the missing-source check to after the generated-visual fast path inside the branch.
-            _has_generated_visual = bool(
-                item.get("render_visual_path") or item.get("visual_path") or item.get("asset_path")
-            )
-            _is_narration = seg_type == "narration_broll" or item_type == "narration_broll" or item_audio_mode == "ai_voiceover"
-            if not source_path and not (_is_narration and _has_generated_visual):
-                log(f"  [render] Source video not found for fragment {fragment_id!r} (source_video={source_video!r}). Skipping.")
-                continue
+        video_stream_dur = get_video_stream_duration(source_path) if source_path else 0.0
 
-            if item_type not in ("narration_broll", "speaker_clip"):
-                item["type"] = "archive_clip"
+        if seg_type == "speaker_clip" or item_audio_mode == "source_audio":
+            start = float(item.get("render_start") or item.get("start") or 0)
+            end = float(item.get("render_end") or item.get("end") or (start + DEFAULT_CLIP_DURATION))
+            if end <= start:
+                end = start + DEFAULT_CLIP_DURATION
+            target_duration = float(item.get("render_duration") or (end - start))
 
-            external_audio_path = None
-            target_duration = None
-            lower_third = item.get("lower_third")
-            ffmpeg_audio_mode: str
-
-            # Check how far the video stream actually extends in this source file.
-            # Some recordings have audio continuing long past where the video track ends.
-            video_stream_dur = get_video_stream_duration(source_path) if source_path else 0.0
-
-            # Phase 4Q: route audio mode from item.audio_mode field first,
-            # then fall back to seg_type-based rules.
-            if seg_type == "speaker_clip" or item_audio_mode == "source_audio":
-                # Use render_start/render_end when set by Step 08 (quote boundary aware)
-                start = float(item.get("render_start") or item.get("start") or 0)
-                end = float(item.get("render_end") or item.get("end") or (start + DEFAULT_CLIP_DURATION))
-                if end <= start:
-                    end = start + DEFAULT_CLIP_DURATION
-                target_duration = float(item.get("render_duration") or (end - start))
-
-                # Check if video frames exist at this timestamp
-                no_video_frames = video_stream_dur > 0 and start >= (video_stream_dur - 0.5)
-                if no_video_frames:
-                    log(
-                        f"  [render] speaker_clip {fragment_id[:40] if fragment_id else '?'!r}: "
-                        f"video ends at {video_stream_dur:.1f}s — ts={start:.1f}s beyond video track. "
-                        f"Rendering with black video + source audio."
-                    )
-                    vf = build_video_filter(duration=target_duration, lower_third=lower_third)
-                    run_cmd([
-                        "ffmpeg", "-y",
-                        "-f", "lavfi",
-                        "-i", f"color=black:size={OUTPUT_WIDTH}x{OUTPUT_HEIGHT}:duration={target_duration:.3f}:rate={FPS}",
-                        "-ss", str(start),
-                        "-i", str(source_path),
-                        "-map", "0:v:0", "-map", "1:a:0",
-                        "-t", str(target_duration),
-                        "-vf", vf,
-                        "-filter:a", f"volume={ARCHIVE_AUDIO_VOLUME},afade=t=in:st=0:d=0.15,afade=t=out:st={max(target_duration - 0.25, 0):.3f}:d=0.25",
-                        "-c:v", "libx264", "-preset", "veryfast",
-                        "-c:a", "aac", "-ar", "48000", "-ac", "2",
-                        "-pix_fmt", "yuv420p",
-                        str(segment_path),
-                    ])
-                    rendered_speaker += 1
-                else:
-                    # Speaker clip: original source audio, no AI voiceover, no muting
-                    ffmpeg_audio_mode = "source"
-                    log(
-                        f"  [render] speaker_clip {fragment_id[:40] if fragment_id else '?'!r}: "
-                        f"source_audio {start:.2f}→{end:.2f} ({target_duration:.2f}s)"
-                    )
-                    render_archive_clip(
-                        source_path=source_path,
-                        output_path=segment_path,
-                        start=start,
-                        end=end,
-                        role=role,
-                        audio_mode=ffmpeg_audio_mode,
-                        external_audio_path=None,
-                        target_duration=target_duration,
-                        lower_third=lower_third,
-                    )
-                    rendered_speaker += 1
-
-                duration = get_media_duration(segment_path)
-                if duration == 0.0:
-                    raise RuntimeError(
-                        f"Rendered segment {idx} (speaker_clip, fragment={fragment_id!r}) "
-                        f"has duration 0.0 at {segment_path}. Aborting export."
-                    )
-                segment_paths.append(segment_path)
-                segment_infos.append({
-                    "index": idx,
-                    "path": str(segment_path),
-                    "timeline_item": item,
-                    "start_time": current_time,
-                    "end_time": current_time + duration,
-                    "duration": duration,
-                    "subtitle_text": "",
-                    "rendered": True,
-                    "segment_type": seg_type,
-                    "fragment_id": item.get("fragment_id"),
-                    "muted": item.get("muted", False),
-                })
-                current_time += duration
-                continue  # skip the generic render below
-
-            elif seg_type == "narration_broll" or item_audio_mode == "ai_voiceover":
-                start = float(item.get("start") or 0)
-                end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
-                if end <= start:
-                    end = start + DEFAULT_CLIP_DURATION
-                ffmpeg_audio_mode = "external"
-                external_audio_path = Path(item["audio_path"]) if item.get("audio_path") else None
-                if external_audio_path and not external_audio_path.exists():
-                    log(f"  [render] External audio not found: {external_audio_path}. Falling back to muted.")
-                    ffmpeg_audio_mode = "muted"
-                    external_audio_path = None
-                tts_duration = float(
-                    item.get("render_duration") or item.get("duration") or get_clip_candidate_duration(item)
+            no_video_frames = video_stream_dur > 0 and start >= (video_stream_dur - 0.5)
+            if no_video_frames:
+                log(
+                    f"  [render] speaker_clip {fragment_id[:40] if fragment_id else '?'!r}: "
+                    f"video ends at {video_stream_dur:.1f}s — ts={start:.1f}s beyond video track. "
+                    f"Rendering with black video + source audio."
                 )
-                # Fallback: probe the audio file directly when render_duration wasn't recorded
-                if tts_duration <= 0.0 and external_audio_path and external_audio_path.exists():
-                    tts_duration = get_media_duration(external_audio_path)
-                if tts_duration <= 0.0:
-                    raise RuntimeError(
-                        f"narration_broll item {idx} ({fragment_id!r}) has zero target_duration — "
-                        f"audio_path={item.get('audio_path')!r}. Aborting export."
-                    )
-                # Expand duration to fill the per-segment share of the target video length.
-                # This ensures the rendered video reaches the requested target_duration_seconds
-                # even when the TTS voiceover is shorter than the allotted time.
-                target_duration = max(tts_duration, target_sec_per_segment)
-                # Use generated visual asset if available (generated_asset > archive fallback)
-                _vis_path_str = (
-                    item.get("render_visual_path")
-                    or item.get("visual_path")
-                    or item.get("asset_path")
-                )
-                if _vis_path_str:
-                    _vis_p = Path(_vis_path_str)
-                    if _vis_p.exists():
-                        # Ensure card stays on screen for at least the per-segment share of the target
-                        # duration, so the final video fills the requested length even when TTS is short.
-                        card_min_dur = max(target_duration, target_sec_per_segment)
-                        log(f"  [render] narration_broll item {idx}: generated visual {_vis_p.name} + ai_voiceover (min_dur={card_min_dur:.1f}s)")
-                        make_card_video_with_optional_voiceover(
-                            image_path=_vis_p,
-                            output_path=segment_path,
-                            min_duration=card_min_dur,
-                            audio_path=external_audio_path,
-                        )
-                        _seg_dur = get_media_duration(segment_path)
-                        if _seg_dur == 0.0:
-                            raise RuntimeError(
-                                f"Rendered narration_broll visual segment {idx} (fragment={fragment_id!r}) "
-                                f"has duration 0.0. Aborting."
-                            )
-                        segment_paths.append(segment_path)
-                        segment_infos.append({
-                            "index": idx,
-                            "path": str(segment_path),
-                            "timeline_item": item,
-                            "start_time": current_time,
-                            "end_time": current_time + _seg_dur,
-                            "duration": _seg_dur,
-                            "subtitle_text": item.get("voiceover_text") or item.get("subtitle_text") or "",
-                            "rendered": True,
-                            "segment_type": "narration_broll",
-                            "fragment_id": item.get("fragment_id"),
-                            "muted": False,
-                            "visual_mode": "generated_asset",
-                        })
-                        current_time += _seg_dur
-                        continue
-                # No generated visual — fall back to archive clip as visual background.
-                # Requires source_path; skip if not available (shouldn't happen for well-formed data).
-                if not source_path:
-                    log(f"  [render] narration_broll item {idx}: no generated visual and no source video. Skipping.")
-                    continue
-                # If source video has no frames at this timestamp, use beginning of video as fallback visual
-                if video_stream_dur > 0 and start >= (video_stream_dur - 0.5):
-                    fallback_start = max(0.0, video_stream_dur - target_duration - 1.0)
-                    fallback_start = max(0.0, fallback_start)
-                    log(
-                        f"  [render] narration_broll item {idx}: source video ends at {video_stream_dur:.1f}s "
-                        f"(requested ts={start:.1f}s). Using fallback visual at ts={fallback_start:.1f}s."
-                    )
-                    start = fallback_start
-                    end = fallback_start + target_duration
-                lower_third = None
-
-            elif seg_type == "archive_visual" or item_audio_mode == "silent" or item.get("muted") is True:
-                start = float(item.get("start") or 0)
-                end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
-                if end <= start:
-                    end = start + DEFAULT_CLIP_DURATION
-                # Muted visual: render video frames with silent audio
-                ffmpeg_audio_mode = "muted"
-                lower_third = None
-
-            elif seg_type == "speaker_visual":
-                start = float(item.get("start") or 0)
-                end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
-                if end <= start:
-                    end = start + DEFAULT_CLIP_DURATION
-                ffmpeg_audio_mode = "source"
-
+                vf = build_video_filter(duration=target_duration, lower_third=lower_third)
+                run_cmd([
+                    "ffmpeg", "-y",
+                    "-f", "lavfi",
+                    "-i", f"color=black:size={OUTPUT_WIDTH}x{OUTPUT_HEIGHT}:duration={target_duration:.3f}:rate={FPS}",
+                    "-ss", str(start),
+                    "-i", str(source_path),
+                    "-map", "0:v:0", "-map", "1:a:0",
+                    "-t", str(target_duration),
+                    "-vf", vf,
+                    "-filter:a", f"volume={ARCHIVE_AUDIO_VOLUME},afade=t=in:st=0:d=0.15,afade=t=out:st={max(target_duration - 0.25, 0):.3f}:d=0.25",
+                    "-c:v", "libx264", "-threads", "2", "-preset", "veryfast",
+                    "-c:a", "aac", "-ar", "48000", "-ac", "2",
+                    "-pix_fmt", "yuv420p",
+                    str(segment_path),
+                ])
             else:
-                start = float(item.get("start") or 0)
-                end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
-                if end <= start:
-                    end = start + DEFAULT_CLIP_DURATION
                 ffmpeg_audio_mode = "source"
+                log(
+                    f"  [render] speaker_clip {fragment_id[:40] if fragment_id else '?'!r}: "
+                    f"source_audio {start:.2f}→{end:.2f} ({target_duration:.2f}s)"
+                )
+                render_archive_clip(
+                    source_path=source_path,
+                    output_path=segment_path,
+                    start=start,
+                    end=end,
+                    role=role,
+                    audio_mode=ffmpeg_audio_mode,
+                    external_audio_path=None,
+                    target_duration=target_duration,
+                    lower_third=lower_third,
+                )
 
-            render_archive_clip(
-                source_path=source_path,
-                output_path=segment_path,
-                start=start,
-                end=end,
-                role=role,
-                audio_mode=ffmpeg_audio_mode,
-                external_audio_path=external_audio_path,
-                target_duration=target_duration,
-                lower_third=lower_third,
-            )
-
-            if seg_type == "archive_visual":
-                rendered_archive_visual += 1
-            elif seg_type == "speaker_clip":
-                rendered_speaker += 1
-
-        else:
-            log(f"  [render] Unknown timeline item type: {item_type!r} — skipping.")
-            continue
-
-        duration = get_media_duration(segment_path)
-        if duration == 0.0:
-            seg_type_check = item.get("segment_type") or item.get("type") or "?"
-            raise RuntimeError(
-                f"Rendered segment {idx} ({seg_type_check}, fragment={item.get('fragment_id')!r}) "
-                f"has duration 0.0 at {segment_path}. Aborting export."
-            )
-        segment_paths.append(segment_path)
-        segment_infos.append(
-            {
+            duration = get_media_duration(segment_path)
+            if duration == 0.0:
+                raise RuntimeError(
+                    f"Rendered segment {idx} (speaker_clip, fragment={fragment_id!r}) "
+                    f"has duration 0.0 at {segment_path}. Aborting export."
+                )
+            return idx, segment_path, {
                 "index": idx,
                 "path": str(segment_path),
                 "timeline_item": item,
-                "start_time": current_time,
-                "end_time": current_time + duration,
                 "duration": duration,
                 "subtitle_text": "",
                 "rendered": True,
@@ -1943,8 +1765,178 @@ def _render_timeline_items(
                 "fragment_id": item.get("fragment_id"),
                 "muted": item.get("muted", False),
             }
+
+        elif seg_type == "narration_broll" or item_audio_mode == "ai_voiceover":
+            start = float(item.get("start") or 0)
+            end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
+            if end <= start:
+                end = start + DEFAULT_CLIP_DURATION
+            ffmpeg_audio_mode = "external"
+            external_audio_path = Path(item["audio_path"]) if item.get("audio_path") else None
+            if external_audio_path and not external_audio_path.exists():
+                log(f"  [render] External audio not found: {external_audio_path}. Falling back to muted.")
+                ffmpeg_audio_mode = "muted"
+                external_audio_path = None
+            tts_duration = float(
+                item.get("render_duration") or item.get("duration") or get_clip_candidate_duration(item)
+            )
+            if tts_duration <= 0.0 and external_audio_path and external_audio_path.exists():
+                tts_duration = get_media_duration(external_audio_path)
+            if tts_duration <= 0.0:
+                raise RuntimeError(
+                    f"narration_broll item {idx} ({fragment_id!r}) has zero target_duration — "
+                    f"audio_path={item.get('audio_path')!r}. Aborting export."
+                )
+            target_duration = max(tts_duration, target_sec_per_segment)
+            _vis_path_str = (
+                item.get("render_visual_path")
+                or item.get("visual_path")
+                or item.get("asset_path")
+            )
+            if _vis_path_str:
+                _vis_p = Path(_vis_path_str)
+                if _vis_p.exists():
+                    card_min_dur = max(target_duration, target_sec_per_segment)
+                    log(f"  [render] narration_broll item {idx}: generated visual {_vis_p.name} + ai_voiceover (min_dur={card_min_dur:.1f}s)")
+                    make_card_video_with_optional_voiceover(
+                        image_path=_vis_p,
+                        output_path=segment_path,
+                        min_duration=card_min_dur,
+                        audio_path=external_audio_path,
+                    )
+                    _seg_dur = get_media_duration(segment_path)
+                    if _seg_dur == 0.0:
+                        raise RuntimeError(
+                            f"Rendered narration_broll visual segment {idx} (fragment={fragment_id!r}) "
+                            f"has duration 0.0. Aborting."
+                        )
+                    return idx, segment_path, {
+                        "index": idx,
+                        "path": str(segment_path),
+                        "timeline_item": item,
+                        "duration": _seg_dur,
+                        "subtitle_text": item.get("voiceover_text") or item.get("subtitle_text") or "",
+                        "rendered": True,
+                        "segment_type": "narration_broll",
+                        "fragment_id": item.get("fragment_id"),
+                        "muted": False,
+                        "visual_mode": "generated_asset",
+                    }
+            if not source_path:
+                log(f"  [render] narration_broll item {idx}: no generated visual and no source video. Skipping.")
+                return idx, None, None
+            if video_stream_dur > 0 and start >= (video_stream_dur - 0.5):
+                fallback_start = max(0.0, video_stream_dur - target_duration - 1.0)
+                fallback_start = max(0.0, fallback_start)
+                log(
+                    f"  [render] narration_broll item {idx}: source video ends at {video_stream_dur:.1f}s "
+                    f"(requested ts={start:.1f}s). Using fallback visual at ts={fallback_start:.1f}s."
+                )
+                start = fallback_start
+                end = fallback_start + target_duration
+            lower_third = None
+
+        elif seg_type == "archive_visual" or item_audio_mode == "silent" or item.get("muted") is True:
+            start = float(item.get("start") or 0)
+            end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
+            if end <= start:
+                end = start + DEFAULT_CLIP_DURATION
+            ffmpeg_audio_mode = "muted"
+            lower_third = None
+
+        elif seg_type == "speaker_visual":
+            start = float(item.get("start") or 0)
+            end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
+            if end <= start:
+                end = start + DEFAULT_CLIP_DURATION
+            ffmpeg_audio_mode = "source"
+
+        else:
+            start = float(item.get("start") or 0)
+            end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
+            if end <= start:
+                end = start + DEFAULT_CLIP_DURATION
+            ffmpeg_audio_mode = "source"
+
+        render_archive_clip(
+            source_path=source_path,
+            output_path=segment_path,
+            start=start,
+            end=end,
+            role=role,
+            audio_mode=ffmpeg_audio_mode,
+            external_audio_path=external_audio_path,
+            target_duration=target_duration,
+            lower_third=lower_third,
         )
-        current_time += duration
+
+    else:
+        log(f"  [render] Unknown timeline item type: {item_type!r} — skipping.")
+        return idx, None, None
+
+    duration = get_media_duration(segment_path)
+    if duration == 0.0:
+        seg_type_check = item.get("segment_type") or item.get("type") or "?"
+        raise RuntimeError(
+            f"Rendered segment {idx} ({seg_type_check}, fragment={item.get('fragment_id')!r}) "
+            f"has duration 0.0 at {segment_path}. Aborting export."
+        )
+    return idx, segment_path, {
+        "index": idx,
+        "path": str(segment_path),
+        "timeline_item": item,
+        "duration": duration,
+        "subtitle_text": "",
+        "rendered": True,
+        "segment_type": seg_type,
+        "fragment_id": item.get("fragment_id"),
+        "muted": item.get("muted", False),
+    }
+
+
+def _render_timeline_items(
+    timeline: list[dict[str, Any]],
+    work_dir: Path,
+    target_sec_per_segment: float = 0.0,
+) -> tuple[list[Path], list[dict[str, Any]], float]:
+    """
+    Render all timeline segments in parallel (up to 4 concurrent ffmpeg processes),
+    then assemble results in original order with sequential timestamps.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    MAX_WORKERS = min(4, max(1, len(timeline)))
+    raw_results: dict[int, tuple[Path | None, dict[str, Any] | None]] = {}
+
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = {
+            executor.submit(_render_one_segment, idx, item, work_dir, target_sec_per_segment): idx
+            for idx, item in enumerate(timeline, start=1)
+        }
+        for future in as_completed(futures):
+            idx, path, info = future.result()  # re-raises any RuntimeError from render
+            raw_results[idx] = (path, info)
+
+    segment_paths: list[Path] = []
+    segment_infos: list[dict[str, Any]] = []
+    current_time = 0.0
+    rendered_archive_visual = 0
+    rendered_speaker = 0
+
+    for idx in sorted(raw_results.keys()):
+        path, info = raw_results[idx]
+        if path is None or info is None:
+            continue
+        info["start_time"] = current_time
+        info["end_time"] = current_time + info["duration"]
+        current_time += info["duration"]
+        seg_type = info.get("segment_type", "")
+        if seg_type == "archive_visual":
+            rendered_archive_visual += 1
+        elif seg_type == "speaker_clip":
+            rendered_speaker += 1
+        segment_paths.append(path)
+        segment_infos.append(info)
 
     log(f"  [render] rendered_archive_visual={rendered_archive_visual}  rendered_speaker={rendered_speaker}  total_segments={len(segment_paths)}")
     return segment_paths, segment_infos, current_time

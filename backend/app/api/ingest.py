@@ -2,13 +2,17 @@
 YouTube channel ingestion API.
 
 Endpoints:
-  POST /api/ingest/sync                    — trigger a full channel sync
-  POST /api/ingest/videos/{video_id}/sync  — re-ingest a single video
-  GET  /api/ingest/jobs                    — list ingest jobs
-  GET  /api/ingest/jobs/{job_id}           — get job status
-  GET  /api/ingest/jobs/{job_id}/events    — SSE stream of job events
-  GET  /api/ingest/videos                  — inventory of all known videos + ingest status
-  GET  /api/ingest/videos/{video_id}       — single video full stage breakdown
+  POST /api/ingest/sync                           — trigger a full channel sync
+  POST /api/ingest/videos/{video_id}/sync         — re-ingest a single video
+  GET  /api/ingest/jobs                           — list ingest jobs
+  GET  /api/ingest/jobs/{job_id}                  — get job status
+  GET  /api/ingest/jobs/{job_id}/events           — SSE stream of job events
+  GET  /api/ingest/jobs/{job_id}/explainability   — structured stage-by-stage reasoning trace
+  GET  /api/ingest/jobs/{job_id}/logs             — list available stage log files
+  GET  /api/ingest/jobs/{job_id}/logs/{stage}     — full log text for a stage (stdout + stderr)
+  GET  /api/ingest/jobs/{job_id}/logs/{stage}/stream — SSE tail of a live stage log
+  GET  /api/ingest/videos                         — inventory of all known videos + ingest status
+  GET  /api/ingest/videos/{video_id}              — single video full stage breakdown
 """
 from __future__ import annotations
 
@@ -17,8 +21,10 @@ import json
 import logging
 from typing import Any
 
+from pathlib import Path
+
 from fastapi import APIRouter, HTTPException, Query
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, PlainTextResponse
 from pydantic import BaseModel, Field
 
 from app.services.ingest_job_runner import (
@@ -316,6 +322,350 @@ async def stream_job_events(
 
     return StreamingResponse(
         _sse_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "X-Accel-Buffering": "no",
+            "Connection": "keep-alive",
+        },
+    )
+
+
+# ---------------------------------------------------------------------------
+# GET /ingest/jobs/{job_id}/explainability
+# ---------------------------------------------------------------------------
+
+# Ordered pipeline stages with what each one does and what tool it uses
+_STAGE_DESCRIPTIONS: dict[str, dict[str, str]] = {
+    "discover": {
+        "label": "Discover new channel videos",
+        "tool": "yt-dlp --flat-playlist",
+        "how": "Fetches the full channel playlist via yt-dlp, then diffs against the local download archive (data/metadata/youtube/download_archive.txt) and existing MP4 files (or S3 keys in cloud mode) to produce only net-new video IDs.",
+        "output": "List of {video_id, title, index} dicts for videos not yet downloaded",
+    },
+    "download": {
+        "label": "Download videos",
+        "tool": "scripts/01_download_videos.py (yt-dlp)",
+        "how": "Downloads each new video as MP4 with yt-dlp, using the download archive for deduplication. In S3 mode, files are uploaded and deleted locally immediately after download.",
+        "output": "MP4 files in data/raw_videos/ (or S3 raw/youtube/ai4ia_channel/)",
+    },
+    "extract_audio": {
+        "label": "Extract audio",
+        "tool": "scripts/02_extract_audio.py (ffmpeg)",
+        "how": "Runs ffmpeg to extract 16kHz mono WAV from each MP4. Verifies output WAV exists before marking the stage complete.",
+        "output": "WAV files in data/audio/",
+    },
+    "transcribe": {
+        "label": "Transcribe audio (Whisper)",
+        "tool": "scripts/03_transcribe.py (OpenAI Whisper)",
+        "how": "Runs Whisper on each WAV file to produce word-level JSON transcripts with speaker timestamps.",
+        "output": "JSON transcript files in data/transcripts/",
+    },
+    "create_fragments": {
+        "label": "Create speaker fragments",
+        "tool": "scripts/04_create_fragments.py",
+        "how": "Splits each transcript into semantically coherent speaker fragments (typically 30–120 seconds) using pause detection and topic-shift heuristics. Each fragment gets a stable fragment_id.",
+        "output": "*.fragments.json files in data/fragments/",
+    },
+    "classify": {
+        "label": "Classify fragments",
+        "tool": "scripts/05_classify_fragments.py (llama3.1:70b)",
+        "how": "Sends each fragment to llama3.1:70b for classification: assigns primary_theme, primary_chapter, speaker, quote_strength, clarity_score, and clip_usage_candidates.",
+        "output": "*.classified.json files in data/fragments_classified/",
+    },
+    "embed": {
+        "label": "Generate & import embeddings",
+        "tool": "scripts/06_generate_embeddings.py (nomic-embed-text:v1.5) + import_embeddings_to_chroma.py",
+        "how": "Generates 768-dim embeddings for each classified fragment using nomic-embed-text:v1.5 via Ollama, writes fragment_embedding_matrix.npy + classified_fragments_embeddings.jsonl, then imports into ChromaDB for retrieval.",
+        "output": "data/embeddings/ (npy + jsonl) + ChromaDB collection 'fragments'",
+    },
+}
+
+_STAGE_ORDER = ["discover", "download", "extract_audio", "transcribe", "create_fragments", "classify", "embed"]
+
+
+@router.get("/jobs/{job_id}/explainability")
+def get_ingest_explainability(job_id: str) -> dict[str, Any]:
+    """Structured stage-by-stage reasoning trace for an ingest job.
+
+    Shows what each stage did, how many videos entered vs exited each stage,
+    where failures occurred, and what tools/models were used.
+    """
+    try:
+        job = load_ingest_job(job_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Ingest job not found: {job_id}")
+
+    stage_status: dict[str, Any] = job.get("stage_status") or {}
+    summary: dict[str, Any] = job.get("summary") or {}
+
+    # ── Pipeline overview ────────────────────────────────────────────────────
+    overview = {
+        "job_id": job_id,
+        "status": job.get("status"),
+        "channel_url": job.get("channel_url"),
+        "video_limit_requested": job.get("video_limit"),
+        "progress_percent": job.get("progress", 0),
+        "created_at": job.get("created_at"),
+        "started_at": job.get("started_at"),
+        "completed_at": job.get("completed_at"),
+    }
+
+    # ── Data funnel — how many videos passed through each stage ──────────────
+    funnel = {
+        "new_videos_found":   summary.get("new_videos_found", 0),
+        "downloaded":         summary.get("downloaded", 0),
+        "audio_extracted":    summary.get("audio_extracted", 0),
+        "transcribed":        summary.get("transcribed", 0),
+        "fragmented":         summary.get("fragmented", 0),
+        "classified":         summary.get("classified", 0),
+        "embedded":           summary.get("embedded", 0),
+    }
+
+    # ── Per-stage trace ──────────────────────────────────────────────────────
+    stages_trace = []
+    for stage in _STAGE_ORDER:
+        s = stage_status.get(stage) or {}
+        desc = _STAGE_DESCRIPTIONS.get(stage, {})
+
+        entry: dict[str, Any] = {
+            "stage": stage,
+            "label": desc.get("label", stage),
+            "status": s.get("status", "pending"),
+            "progress_percent": s.get("progress", 0),
+            "message": s.get("message", ""),
+            "tool": desc.get("tool"),
+            "how": desc.get("how"),
+            "output_location": desc.get("output"),
+        }
+
+        # Attach per-stage counts from stage_status extras
+        if "new_count" in s:
+            entry["new_videos_found"] = s["new_count"]
+            entry["skipped_already_downloaded"] = s.get("skipped_count", 0)
+            entry["total_on_channel"] = s.get("total_count", 0)
+        if "downloaded" in s:
+            entry["videos_downloaded"] = len(s.get("downloaded") or [])
+            entry["videos_failed"] = len(s.get("failed") or [])
+        if "succeeded" in s:
+            entry["succeeded"] = len(s.get("succeeded") or [])
+            entry["failed"] = len(s.get("failed") or [])
+        if "embedded" in s:
+            entry["embedded"] = len(s.get("embedded") or [])
+
+        # Log file availability
+        from app.core.paths import DATA_DIR as _DATA_DIR
+        log_base = _DATA_DIR / "jobs" / job_id / "logs"
+        entry["logs_available"] = {
+            "stdout": (log_base / f"{stage}.stdout.log").exists(),
+            "stderr": (log_base / f"{stage}.stderr.log").exists(),
+            "log_url": f"/api/ingest/jobs/{job_id}/logs/{stage}",
+            "stream_url": f"/api/ingest/jobs/{job_id}/logs/{stage}/stream",
+        }
+
+        stages_trace.append(entry)
+
+    # ── Error summary ─────────────────────────────────────────────────────────
+    error = job.get("error")
+    failure_summary = None
+    if error:
+        failure_summary = {
+            "failed_at_stage": error.get("stage"),
+            "message": error.get("message"),
+            "details_truncated": (error.get("details") or "")[:500],
+        }
+
+    # ── Model / tool inventory ────────────────────────────────────────────────
+    tools_used = {
+        "video_discovery": "yt-dlp --flat-playlist",
+        "video_download": "yt-dlp",
+        "audio_extraction": "ffmpeg (16kHz mono WAV)",
+        "transcription": "OpenAI Whisper",
+        "classification_llm": "llama3.1:70b via Ollama",
+        "embedding_model": "nomic-embed-text:v1.5 via Ollama",
+        "vector_store": "ChromaDB (collection: fragments)",
+        "embedding_dimension": 768,
+    }
+
+    return {
+        "explainability_version": "1.0",
+        "overview": overview,
+        "data_funnel": funnel,
+        "stages": stages_trace,
+        "tools_used": tools_used,
+        "failure": failure_summary,
+    }
+
+
+# ---------------------------------------------------------------------------
+# GET /ingest/jobs/{job_id}/logs — list available stage log files
+# ---------------------------------------------------------------------------
+
+@router.get("/jobs/{job_id}/logs")
+def list_job_logs(job_id: str) -> dict[str, Any]:
+    """List all available stage log files for an ingest job."""
+    try:
+        load_ingest_job(job_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Ingest job not found: {job_id}")
+
+    from app.core.paths import DATA_DIR as _DATA_DIR
+    log_dir = _DATA_DIR / "jobs" / job_id / "logs"
+
+    available = []
+    for stage in _STAGE_ORDER:
+        stdout_path = log_dir / f"{stage}.stdout.log"
+        stderr_path = log_dir / f"{stage}.stderr.log"
+        stdout_exists = stdout_path.exists()
+        stderr_exists = stderr_path.exists()
+        if stdout_exists or stderr_exists:
+            available.append({
+                "stage": stage,
+                "label": _STAGE_DESCRIPTIONS.get(stage, {}).get("label", stage),
+                "stdout_bytes": stdout_path.stat().st_size if stdout_exists else 0,
+                "stderr_bytes": stderr_path.stat().st_size if stderr_exists else 0,
+                "log_url": f"/api/ingest/jobs/{job_id}/logs/{stage}",
+                "stream_url": f"/api/ingest/jobs/{job_id}/logs/{stage}/stream",
+            })
+
+    return {
+        "job_id": job_id,
+        "log_dir": str(log_dir),
+        "stages_with_logs": available,
+    }
+
+
+# ---------------------------------------------------------------------------
+# GET /ingest/jobs/{job_id}/logs/{stage} — full log text
+# ---------------------------------------------------------------------------
+
+@router.get("/jobs/{job_id}/logs/{stage}")
+def get_stage_log(
+    job_id: str,
+    stage: str,
+    stream_type: str = Query("both", description="stdout | stderr | both"),
+) -> PlainTextResponse:
+    """Return the full log output for a stage as plain text.
+
+    Use ?stream_type=stdout, stderr, or both (default).
+    """
+    try:
+        load_ingest_job(job_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Ingest job not found: {job_id}")
+
+    from app.core.paths import DATA_DIR as _DATA_DIR
+    log_dir = _DATA_DIR / "jobs" / job_id / "logs"
+
+    parts: list[str] = []
+
+    if stream_type in ("stdout", "both"):
+        p = log_dir / f"{stage}.stdout.log"
+        if p.exists():
+            text = p.read_text(encoding="utf-8", errors="replace")
+            if stream_type == "both" and text:
+                parts.append(f"=== STDOUT ===\n{text}")
+            else:
+                parts.append(text)
+
+    if stream_type in ("stderr", "both"):
+        p = log_dir / f"{stage}.stderr.log"
+        if p.exists():
+            text = p.read_text(encoding="utf-8", errors="replace")
+            if stream_type == "both" and text:
+                parts.append(f"=== STDERR ===\n{text}")
+            else:
+                parts.append(text)
+
+    if not parts:
+        raise HTTPException(
+            status_code=404,
+            detail=f"No logs found for stage '{stage}' in job '{job_id}'. "
+                   "The stage may not have started yet.",
+        )
+
+    return PlainTextResponse("\n".join(parts))
+
+
+# ---------------------------------------------------------------------------
+# GET /ingest/jobs/{job_id}/logs/{stage}/stream — SSE live tail
+# ---------------------------------------------------------------------------
+
+@router.get("/jobs/{job_id}/logs/{stage}/stream")
+async def stream_stage_log(
+    job_id: str,
+    stage: str,
+    stream_type: str = Query("stdout", description="stdout | stderr"),
+) -> StreamingResponse:
+    """SSE stream that tails a stage log file in real time.
+
+    Emits 'log_line' events while the stage is running, then a 'done' event
+    when the stage reaches a terminal state (completed/failed) and no new
+    lines appear. Reconnect-safe: use ?after_byte=N to resume from offset.
+
+    The log file grows line-by-line because _run_script uses Popen with
+    live writing — so this stream delivers output as the subprocess produces it.
+    """
+    try:
+        load_ingest_job(job_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Ingest job not found: {job_id}")
+
+    from app.core.paths import DATA_DIR as _DATA_DIR
+    log_dir = _DATA_DIR / "jobs" / job_id / "logs"
+    log_path = log_dir / f"{stage}.{stream_type}.log"
+
+    async def _generator():
+        yield "retry: 1000\n\n"
+
+        offset = 0
+        idle_ticks = 0
+        max_idle = 120  # 120 × 0.5s = 60s of silence after stage ends
+
+        while idle_ticks < max_idle:
+            # Read new content from the log file
+            new_lines: list[str] = []
+            try:
+                if log_path.exists():
+                    text = log_path.read_text(encoding="utf-8", errors="replace")
+                    new_chunk = text[offset:]
+                    if new_chunk:
+                        offset = len(text)
+                        new_lines = new_chunk.splitlines()
+            except Exception:
+                pass
+
+            for line in new_lines:
+                payload = json.dumps({"stage": stage, "stream": stream_type, "line": line})
+                yield f"event: log_line\ndata: {payload}\n\n"
+
+            if new_lines:
+                idle_ticks = 0
+            else:
+                idle_ticks += 1
+
+            # Check if stage is terminal and no more new lines
+            if idle_ticks >= 4:  # 2s of silence — check stage status
+                try:
+                    job = load_ingest_job(job_id)
+                    stage_st = (job.get("stage_status") or {}).get(stage, {}).get("status")
+                    job_status = job.get("status")
+                    is_terminal = (
+                        stage_st in ("completed", "failed")
+                        or job_status in ("completed", "failed", "cancelled")
+                    )
+                    if is_terminal and idle_ticks >= 6:
+                        yield f"event: done\ndata: {json.dumps({'stage': stage, 'status': stage_st or job_status})}\n\n"
+                        return
+                except Exception:
+                    pass
+
+            await asyncio.sleep(0.5)
+
+        yield f"event: timeout\ndata: {json.dumps({'stage': stage})}\n\n"
+
+    return StreamingResponse(
+        _generator(),
         media_type="text/event-stream",
         headers={
             "Cache-Control": "no-cache",
