@@ -278,6 +278,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
 
         _complete_job(job_id)
         log.info("Pipeline completed")
+        _emit_job_decision_record(job_id, outcome="video_generated")
 
         try:
             from app.services.media_registry import build_media_registry
@@ -317,6 +318,89 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         log.exception("Pipeline error at stage %s: %s", stage, exc)
         _fail_job(job_id, stage, "pipeline_error", str(exc), tb)
         _cleanup_job_tmp_dirs(job_id)
+
+
+# ---------------------------------------------------------------------------
+# Provenance helpers
+# ---------------------------------------------------------------------------
+
+def _emit_job_decision_record(job_id: str, outcome: str) -> None:
+    """Fire-and-forget Layer 1 decision record for a completed video job."""
+    import threading as _threading
+
+    def _insert() -> None:
+        try:
+            from app.db.repositories.decision_record_repository import DecisionRecordRepository
+            from datetime import timedelta
+
+            job = load_job(job_id)
+            paths = job.get("paths", {})
+            storyline_data: dict = {}
+            sp = paths.get("validated_storyline_path") or paths.get("storyline_path")
+            if sp:
+                try:
+                    storyline_data = json.loads(Path(sp).read_text(encoding="utf-8"))
+                except Exception:
+                    pass
+
+            models = storyline_data.get("models") or {}
+            planning = storyline_data.get("planning_summary") or {}
+            story = storyline_data.get("storyline") or {}
+            director = story.get("director_plan") or {}
+            bucket = storyline_data.get("candidate_bucket_summary") or {}
+            gates = storyline_data.get("editorial_quality_gates") or {}
+
+            started_at = job.get("started_at")
+            completed_at = job.get("completed_at")
+            duration_ms: int | None = None
+            if started_at and completed_at:
+                try:
+                    from datetime import datetime as _dt
+                    t0 = _dt.fromisoformat(started_at.replace("Z", "+00:00"))
+                    t1 = _dt.fromisoformat(completed_at.replace("Z", "+00:00"))
+                    duration_ms = int((t1 - t0).total_seconds() * 1000)
+                except Exception:
+                    pass
+
+            expires_at = (datetime.now(timezone.utc) + timedelta(days=365)).isoformat()
+
+            DecisionRecordRepository().create({
+                "id": f"dr_{job_id}",
+                "job_id": job_id,
+                "user_id": job.get("user_id"),
+                "schema_version": "osi-1.0",
+                "subject": "documentary_generation",
+                "user_prompt": job.get("prompt"),
+                "accountability": "ai4ia-pipeline-v2",
+                "agents_executed": [
+                    "intent", "retrieval", "classification",
+                    "director", "synthesis", "storyline", "validation",
+                ],
+                "decisions": {
+                    "intent_type": (storyline_data.get("prompt_profile") or {}).get("intent_type"),
+                    "video_mode": planning.get("video_mode") or director.get("video_mode"),
+                    "evidence_strength": planning.get("evidence_strength") or director.get("evidence_strength"),
+                    "section_count": len(story.get("sections") or []),
+                    "fragments_selected": bucket.get("selected", 0),
+                    "fragments_rejected": bucket.get("rejected", 0),
+                    "validation_passed": bool(gates.get("final_timeline_approved")),
+                },
+                "models_used": {
+                    "embedding": models.get("embedding_model", "nomic-embed-text:v1.5"),
+                    "director": models.get("strong_llm_model"),
+                    "synthesis": models.get("strong_llm_model"),
+                    "storyline": models.get("strong_llm_model"),
+                    "validation": models.get("strong_llm_model"),
+                },
+                "outcome": outcome,
+                "total_duration_ms": duration_ms,
+                "expires_at": expires_at,
+                "created_at": completed_at or _utc_now(),
+            })
+        except Exception:
+            pass
+
+    _threading.Thread(target=_insert, daemon=True).start()
 
 
 # ---------------------------------------------------------------------------

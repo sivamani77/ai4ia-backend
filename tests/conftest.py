@@ -32,10 +32,19 @@ def mock_settings(tmp_path, monkeypatch):
     from app.core import settings as settings_module
 
     fake = MagicMock()
+    fake.app_name = "AI4IA Demo Video Studio"
     fake.supabase_url = "https://test.supabase.co"
     fake.supabase_service_key = "test-key"
     fake.redis_url = "redis://localhost:6379/0"
     fake.project_root = tmp_path
+    fake.ai4ia_local_exports_dir = tmp_path / "exports"
+    fake.ai4ia_local_assets_dir = tmp_path / "assets"
+    fake.ai4ia_local_jobs_dir = tmp_path / "jobs"
+    fake.ai4ia_object_storage_bucket = "test-bucket"
+    fake.ai4ia_object_storage_endpoint = ""
+    fake.ai4ia_object_storage_region = ""
+    fake.ai4ia_object_storage_access_key = ""
+    fake.ai4ia_object_storage_secret_key = ""
     fake.ollama_base_url = "http://localhost:11434"
     fake.speaker_extraction_model = "llama3.1:8b"
     fake.insight_model = "llama3.1:8b"
@@ -46,7 +55,9 @@ def mock_settings(tmp_path, monkeypatch):
     fake.chroma_auth_token = ""
     fake.chroma_collection = "fragments"
     fake.api_key = ""
+    fake.ai4ia_storage_backend = "local"
     fake.allowed_origins = ["*"]
+    fake.validate_deployment_env.return_value = []
 
     monkeypatch.setattr(settings_module, "settings", fake)
     return fake

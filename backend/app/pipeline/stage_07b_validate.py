@@ -1,7 +1,10 @@
 from __future__ import annotations
 import sys
+import threading
+import uuid
 
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -135,6 +138,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if use_s3():
         cleanup_tmp_dir(f"07b_{job_id}")
 
+    _emit_validation_trace(job_id, repair_iters)
+
     context.validated_storyline_path = str(validated_path)
     return StageResult(
         stage="07b_validate_storyline",
@@ -148,3 +153,29 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
             "sections_covered": sections_covered,
         },
     )
+
+
+def _emit_validation_trace(job_id: str, repair_iterations: int) -> None:
+    """Emit a post-hoc LLM trace for the A7 Validation Agent (subprocess call)."""
+    def _insert() -> None:
+        try:
+            from app.core.config import STRONG_LLM_MODEL
+            from app.db.repositories.llm_trace_repository import LLMTraceRepository
+            job = load_job(job_id)
+            for i in range(max(1, repair_iterations)):
+                LLMTraceRepository().create({
+                    "id": f"lt_{uuid.uuid4().hex}",
+                    "job_id": job_id,
+                    "user_id": job.get("user_id"),
+                    "stage": "07b_validate_storyline",
+                    "agent": "validation",
+                    "model": STRONG_LLM_MODEL,
+                    "call_type": "generate_json",
+                    "decision_label": f"editorial_validation_iteration_{i + 1}",
+                    "retry_count": 0,
+                    "called_at": datetime.now(timezone.utc).isoformat(),
+                })
+        except Exception:
+            pass
+
+    threading.Thread(target=_insert, daemon=True).start()

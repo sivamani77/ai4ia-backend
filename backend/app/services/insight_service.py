@@ -6,6 +6,8 @@ build via semantic retrieval, and every generated claim must carry
 the real fragments, drop dangling ones, and report an `evidence_coverage`
 score. This is what separates a grounded synthesis from a plausible paragraph.
 """
+import threading
+import uuid
 from datetime import datetime, timezone
 from typing import Any
 
@@ -87,17 +89,32 @@ def _validate(claims: list[dict], valid_refs: set[int]) -> tuple[list[dict], lis
     return supported, unsupported
 
 
-def generate_insight(query: str, filters: dict | None = None, limit: int | None = None) -> dict:
+def generate_insight(
+    query: str,
+    filters: dict | None = None,
+    limit: int | None = None,
+    user_id: str | None = None,
+) -> dict:
     limit = limit or INSIGHT_DEFAULT_LIMIT
+    insight_id = f"insight_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}"
+
     pool = build_evidence_pool(query, filters, limit)
     if not pool:
         raise ValueError("No fragments retrieved for this query/filters.")
 
     valid_refs = {p["ref"] for p in pool}
+    llm_trace_ctx = {
+        "insight_id": insight_id,
+        "user_id": user_id,
+        "stage": "insight",
+        "agent": "insight",
+        "decision_label": "evidence_synthesis",
+    }
     raw = generate_json(
         _PROMPT.format(query=query, evidence=_format_evidence(pool)),
         model=INSIGHT_MODEL,
         temperature=0.2,
+        _trace=llm_trace_ctx,
     )
 
     patterns, p_bad = _validate(raw.get("patterns"), valid_refs)
@@ -117,7 +134,6 @@ def generate_insight(query: str, filters: dict | None = None, limit: int | None 
     total_claims = len(patterns) + len(contrasts) + len(unsupported)
     coverage = round((len(patterns) + len(contrasts)) / total_claims, 3) if total_claims else 0.0
 
-    insight_id = f"insight_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}"
     insight = {
         "id": insight_id,
         "insight_id": insight_id,
@@ -163,6 +179,7 @@ def generate_insight(query: str, filters: dict | None = None, limit: int | None 
         },
     }
     InsightRepository().create(insight)
+    _emit_insight_decision_record(insight, user_id)
     return insight
 
 
@@ -249,3 +266,45 @@ def storyline_evidence_map(storyline: dict) -> dict:
         "resolved_count": sum(1 for c in clips if c["resolved"]),
         "evidence": clips,
     }
+
+
+def _emit_insight_decision_record(insight: dict, user_id: str | None) -> None:
+    """Fire-and-forget Layer 1 decision record for an insight generation run."""
+    def _insert() -> None:
+        try:
+            from app.db.repositories.decision_record_repository import DecisionRecordRepository
+            models = insight.get("models") or {}
+            explain = insight.get("_explain") or {}
+            val = (explain.get("validation") or {})
+            DecisionRecordRepository().create({
+                "id": f"dr_{insight['id']}",
+                "insight_id": insight["id"],
+                "user_id": user_id,
+                "schema_version": "osi-1.0",
+                "subject": "insight_generation",
+                "user_prompt": insight.get("query"),
+                "agents_executed": ["retrieval", "insight"],
+                "decisions": {
+                    "evidence_pool_size": len(insight.get("evidence_pool") or []),
+                    "patterns_count": len(insight.get("patterns") or []),
+                    "contrasts_count": len(insight.get("contrasts") or []),
+                    "unsupported_claims_dropped": val.get("unsupported_claims_dropped", 0),
+                    "evidence_coverage": insight.get("evidence_coverage"),
+                },
+                "models_used": {
+                    "embedding": models.get("embedding", "nomic-embed-text:v1.5"),
+                    "insight": models.get("llm", INSIGHT_MODEL),
+                },
+                "outcome": "insight_generated",
+                "expires_at": _one_year_from_now(),
+                "created_at": insight.get("created_at"),
+            })
+        except Exception:
+            pass
+
+    threading.Thread(target=_insert, daemon=True).start()
+
+
+def _one_year_from_now() -> str:
+    from datetime import timedelta
+    return (datetime.now(timezone.utc) + timedelta(days=365)).isoformat()

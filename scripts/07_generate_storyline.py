@@ -93,7 +93,7 @@ OLLAMA_BASE_URL = "http://ollama-mobius-sales.mobiusdtaas.ai"
 
 EMBED_MODEL = "nomic-embed-text:v1.5"
 FAST_LLM_MODEL = "llama3.1:8b"
-STRONG_LLM_MODEL = "llama3.1:70b"
+STRONG_LLM_MODEL = "gpt-oss:120b"
 
 EMBED_ENDPOINT = "/api/embed"
 GENERATE_ENDPOINT = "/api/generate"

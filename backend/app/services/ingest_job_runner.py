@@ -639,6 +639,9 @@ def _stage_transcribe(job_id: str, video_ids: list[str]) -> list[str]:
         f"Transcribed {len(succeeded)}/{len(video_ids)} files",
         succeeded=succeeded, failed=failed,
     )
+    _emit_ingest_trace(job_id, agent="transcription", model="faster-whisper",
+                       call_type="speech_to_text", decision_label="audio_transcription",
+                       video_count=len(succeeded))
     return succeeded
 
 
@@ -808,7 +811,95 @@ def _stage_embed(job_id: str, video_ids: list[str]) -> list[str]:
         f"Embeddings generated and imported for {len(video_ids)} videos",
         embedded=video_ids,
     )
+    _emit_ingest_trace(job_id, agent="embedding", model="nomic-embed-text:v1.5",
+                       call_type="embed", decision_label="fragment_embedding",
+                       video_count=len(video_ids))
     return video_ids
+
+
+# ---------------------------------------------------------------------------
+# Provenance helpers
+# ---------------------------------------------------------------------------
+
+def _emit_ingest_decision_record(job_id: str, summary: dict) -> None:
+    """Fire-and-forget Layer 1 decision record for a completed ingest job."""
+    import threading
+
+    def _insert() -> None:
+        try:
+            from app.db.repositories.decision_record_repository import DecisionRecordRepository
+            from datetime import timedelta
+            job = load_ingest_job(job_id)
+            started_at = job.get("started_at")
+            completed_at = job.get("completed_at")
+            duration_ms: int | None = None
+            if started_at and completed_at:
+                try:
+                    t0 = datetime.fromisoformat(started_at.replace("Z", "+00:00"))
+                    t1 = datetime.fromisoformat(completed_at.replace("Z", "+00:00"))
+                    duration_ms = int((t1 - t0).total_seconds() * 1000)
+                except Exception:
+                    pass
+            expires_at = (datetime.now(timezone.utc) + timedelta(days=365)).isoformat()
+            DecisionRecordRepository().create({
+                "id": f"dr_{job_id}",
+                "job_id": job_id,
+                "schema_version": "osi-1.0",
+                "subject": "video_ingestion",
+                "user_prompt": job.get("channel_url"),
+                "accountability": "ai4ia-pipeline-v2",
+                "agents_executed": ["transcription", "classification", "embedding"],
+                "decisions": {
+                    "videos_discovered": summary.get("new_videos_found", 0),
+                    "videos_transcribed": summary.get("transcribed", 0),
+                    "fragments_classified": summary.get("classified", 0),
+                    "fragments_embedded": summary.get("embedded", 0),
+                },
+                "models_used": {
+                    "transcription": "faster-whisper",
+                    "classification": "rule_based_keyword_taxonomy",
+                    "embedding": "nomic-embed-text:v1.5",
+                },
+                "outcome": "ingestion_completed",
+                "total_duration_ms": duration_ms,
+                "expires_at": expires_at,
+                "created_at": completed_at or datetime.now(timezone.utc).isoformat(),
+            })
+        except Exception:
+            pass
+
+    threading.Thread(target=_insert, daemon=True).start()
+
+
+def _emit_ingest_trace(
+    job_id: str,
+    agent: str,
+    model: str,
+    call_type: str,
+    decision_label: str,
+    video_count: int = 0,
+) -> None:
+    """Fire-and-forget LLM/model trace for an ingest stage that ran as a subprocess."""
+    import threading
+
+    def _insert() -> None:
+        try:
+            from app.db.repositories.llm_trace_repository import LLMTraceRepository
+            LLMTraceRepository().create({
+                "id": f"lt_{uuid.uuid4().hex}",
+                "job_id": job_id,
+                "stage": "ingest",
+                "agent": agent,
+                "model": model,
+                "call_type": call_type,
+                "decision_label": f"{decision_label}:{video_count}_videos",
+                "retry_count": 0,
+                "called_at": datetime.now(timezone.utc).isoformat(),
+            })
+        except Exception:
+            pass
+
+    threading.Thread(target=_insert, daemon=True).start()
 
 
 # ---------------------------------------------------------------------------
@@ -921,6 +1012,7 @@ def run_ingest_job(job_id: str) -> None:
         }
         _complete_job(job_id, summary)
         log.info("Ingest pipeline completed: %s", summary)
+        _emit_ingest_decision_record(job_id, summary)
 
     except Exception as exc:
         import traceback
