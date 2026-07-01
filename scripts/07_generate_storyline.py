@@ -90,6 +90,10 @@ def _load_corpus_from_chroma() -> tuple[Any, list[dict[str, Any]]]:
 STRICT_NO_GENERIC_FALLBACK = True
 
 OLLAMA_BASE_URL = "http://ollama-mobius-sales.mobiusdtaas.ai"
+VLLM_MODEL = "openai/gpt-oss-20b"
+VLLM_BASE_URL = "http://vllm-gpt-oss.mobiusdtaas.ai"
+
+CHAT_ENDPOINT = "/v1/chat/completions"
 
 EMBED_MODEL = "nomic-embed-text:v1.5"
 FAST_LLM_MODEL = "llama3.1:8b"

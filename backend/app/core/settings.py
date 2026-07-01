@@ -37,8 +37,8 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------
     # LLM models
     # ------------------------------------------------------------------
-    speaker_extraction_model: str = "llama3.1:70b"
-    insight_model: str = "llama3.1:70b"
+    speaker_extraction_model: str = "gpt-oss:120b"
+    insight_model: str = "gpt-oss:120b"
 
     # ------------------------------------------------------------------
     # YouTube ingestion

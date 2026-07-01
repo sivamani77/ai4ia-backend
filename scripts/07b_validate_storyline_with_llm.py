@@ -32,6 +32,8 @@ STORYLINES_DIR = PROJECT_ROOT / "data" / "storylines"
 
 OLLAMA_BASE_URL = "http://ollama-mobius-sales.mobiusdtaas.ai"
 GENERATE_ENDPOINT = "/api/generate"
+VLLM_BASE_URL = "http://vllm-gpt-oss.mobiusdtaas.ai"
+CHAT_ENDPOINT = "/v1/chat/completions"
 STRONG_LLM_MODEL = "gpt-oss:120b"
 FAST_LLM_MODEL = "llama3.1:8b"
 

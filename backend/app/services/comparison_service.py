@@ -131,7 +131,7 @@ def compare_speakers(speakers: list[str], topic: str | None = None,
                 "For each requested speaker, their fragments are retrieved from the fragment store. "
                 "If a topic is given, fragments are re-ranked by semantic similarity to that topic "
                 "using nomic-embed-text:v1.5. All speakers' fragments are merged into one numbered "
-                "evidence pool. The LLM (llama3.1:70b) must cite fragment numbers for every "
+                "evidence pool. The LLM (gpt-oss:120b) must cite fragment numbers for every "
                 "agreement, tension, and per-speaker position it identifies. Claims without valid "
                 "fragment references are dropped."
             ),
@@ -216,7 +216,7 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> d
             "how_it_works": (
                 "Fragments are retrieved by exact theme facet match first; if that returns nothing, "
                 "a pure semantic search on the theme string is used as fallback. "
-                "The numbered pool is fed to llama3.1:70b which must cite fragment numbers for "
+                "The numbered pool is fed to gpt-oss:120b which must cite fragment numbers for "
                 "every key point. Uncited key points are dropped. Representative clips are resolved "
                 "from the pool by their ref number."
             ),

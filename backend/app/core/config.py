@@ -9,7 +9,7 @@ SUPABASE_URL = settings.supabase_url
 SUPABASE_SERVICE_KEY = settings.supabase_service_key
 
 EMBEDDING_MODEL = "nomic-embed-text:v1.5"
-STRONG_LLM_MODEL = "llama3.1:70b"
+STRONG_LLM_MODEL = "gpt-oss:120b"
 FAST_LLM_MODEL = "llama3.1:8b"
 SPEAKER_EXTRACTION_MODEL = settings.speaker_extraction_model
 TTS_PROVIDER = "edge-tts"
