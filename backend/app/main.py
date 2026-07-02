@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pythonjsonlogger.json import JsonFormatter
 
 from app.core.auth import require_api_key
-from app.core.config import API_PREFIX
+from app.core.config import API_PREFIX, VLLM_BASE_URL
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
 
@@ -27,6 +27,7 @@ from app.api.video_jobs import router as video_jobs_router
 from app.api.video_media import router as video_media_router
 from app.api.concept_mindmap import router as concept_mindmap_router
 from app.api.ingest import router as ingest_router
+from app.api.provenance import router as provenance_router
 
 
 class _PipelineLogFilter(logging.Filter):
@@ -203,9 +204,9 @@ def _check_chroma() -> dict:
         return {"ok": False, "error": str(exc)[:120]}
 
 
-def _check_ollama() -> dict:
+def _check_vllm() -> dict:
     import urllib.request
-    url = settings.ollama_base_url.rstrip("/") + "/api/tags"
+    url = VLLM_BASE_URL.rstrip("/") + "/health"
     try:
         req = urllib.request.Request(url, headers={"Accept": "application/json"})
         with urllib.request.urlopen(req, timeout=4) as r:
@@ -221,10 +222,10 @@ async def health():
     redis_up = _redis_reachable()
     use_celery = bool(settings.redis_url) and redis_up
 
-    supabase, chroma, ollama = await asyncio.gather(
+    supabase, chroma, vllm = await asyncio.gather(
         asyncio.to_thread(_check_supabase),
         asyncio.to_thread(_check_chroma),
-        asyncio.to_thread(_check_ollama),
+        asyncio.to_thread(_check_vllm),
     )
 
     all_ok = redis_up and supabase["ok"] and chroma["ok"]
@@ -236,7 +237,7 @@ async def health():
             "redis": {"ok": redis_up},
             "supabase": supabase,
             "chroma": chroma,
-            "ollama": ollama,
+            "vllm": vllm,
         },
         "worker_mode": "celery" if use_celery else "thread_fallback",
     }
@@ -258,3 +259,4 @@ app.include_router(video_media_router, prefix=API_PREFIX, dependencies=_auth_dep
 app.include_router(concept_mindmap_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(concept_mindmap_router, prefix="/api/v1", dependencies=_auth_dep)
 app.include_router(ingest_router, prefix=API_PREFIX, dependencies=_auth_dep)
+app.include_router(provenance_router, prefix=API_PREFIX, dependencies=_auth_dep)

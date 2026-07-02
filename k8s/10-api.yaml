@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: ai4ia
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      # Keep api pods off the GPU nodes — they're untainted, so without this
+      # the scheduler could happily waste an H100 node on a CPU-only pod.
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - { key: nvidia.com/gpu.present, operator: NotIn, values: ["true"] }
+      containers:
+        - name: api
+          image: aswinmobiusdtaas/ai4ia-pipeline:v2.8
+          command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef: { name: ai4ia-config }
+            - secretRef: { name: ai4ia-secrets }
+          volumeMounts:
+            - { name: jobs-data, mountPath: /app/data/jobs }
+          readinessProbe:
+            httpGet: { path: /api/health, port: 8000 }
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 6
+          livenessProbe:
+            httpGet: { path: /api/health, port: 8000 }
+            initialDelaySeconds: 20
+            periodSeconds: 20
+            timeoutSeconds: 6
+          resources:
+            requests: { cpu: "250m", memory: "512Mi" }
+            limits: { cpu: "1", memory: "1Gi" }
+      volumes:
+        # Scratch only — see 05-shared-storage.yaml note. S3 is the source
+        # of truth for everything else with AI4IA_STORAGE_BACKEND=s3.
+        - { name: jobs-data, emptyDir: {} }
+---
+# LoadBalancer so the cloud provider hands out a public IP directly for the
+# API — no Ingress/NodePort layer needed.
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+  namespace: ai4ia
+spec:
+  type: LoadBalancer
+  selector:
+    app: api
+  ports:
+    - port: 80
+      targetPort: 8000
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: api
+  namespace: ai4ia
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: api
+  minReplicas: 2
+  maxReplicas: 6
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target: { type: Utilization, averageUtilization: 70 }

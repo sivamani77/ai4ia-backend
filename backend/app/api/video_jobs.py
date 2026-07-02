@@ -513,7 +513,9 @@ def get_job_provenance(job_id: str, user_id: str = Depends(extract_session_id)):
     _assert_owns(job, user_id)
     paths = job.get("paths", {})
 
-    # Load storyline data (prefer validated)
+    # Load storyline data (prefer validated). Try S3 key always if present —
+    # the s3_key is the reliable path; local paths may be temp dirs that got
+    # cleaned up (07b validated file) or inside a remote Docker container.
     src: dict[str, Any] = {}
     validated_data: dict[str, Any] = {}
     for key, dest in [
@@ -521,26 +523,24 @@ def get_job_provenance(job_id: str, user_id: str = Depends(extract_session_id)):
         ("storyline_path", "initial"),
     ]:
         p = paths.get(key)
-        if not p:
+        s3_key = paths.get(key.replace("_path", "_s3_key"))
+        if not p and not s3_key:
             continue
         try:
-            from app.pipeline.s3_helpers import use_s3, _s3, _bucket
-            s3_key = paths.get(key.replace("_path", "_s3_key"))
-            if use_s3() and s3_key:
+            from app.pipeline.s3_helpers import _s3, _bucket
+            if s3_key:
                 resp = _s3().get_object(Bucket=_bucket(), Key=s3_key)
                 data = json.loads(resp["Body"].read().decode("utf-8"))
-            else:
+            elif p and Path(p).exists():
                 data = json.loads(Path(p).read_text(encoding="utf-8"))
+            else:
+                continue
             if dest == "validated":
                 validated_data = data
             if not src:
                 src = data
         except Exception:
             pass
-
-    if not src and not validated_data:
-        return {"job_id": job_id, "status": "not_available",
-                "message": "Storyline not yet generated — provenance unavailable"}
 
     if not src:
         src = validated_data
@@ -576,6 +576,34 @@ def get_job_provenance(job_id: str, user_id: str = Depends(extract_session_id)):
     # Serialize sets
     for a in agents_summary:
         agents_summary[a]["models"] = list(agents_summary[a]["models"])
+
+    # Seed LLM agents from storyline models when no traces exist (pre-deployment jobs
+    # or jobs where trace emission failed). Traces override these defaults if present.
+    models_meta = src.get("models") or {}
+    dr_models = (decision_record or {}).get("models_used") or {}
+    embed_model = models_meta.get("embedding_model") or dr_models.get("embedding") or "nomic-embed-text:v1.5"
+    strong_model = models_meta.get("strong_llm_model") or dr_models.get("director")
+    if strong_model:
+        agents_summary.setdefault("retrieval", {}).update({
+            "rule_based": False,
+            "description": "Embeds the user prompt and retrieves candidate fragments via cosine similarity.",
+            "models": agents_summary.get("retrieval", {}).get("models") or [embed_model],
+        })
+        agents_summary.setdefault("director", {}).update({
+            "rule_based": False,
+            "description": "Decides video_mode and section structure from evidence strength.",
+            "models": agents_summary.get("director", {}).get("models") or [strong_model],
+        })
+        agents_summary.setdefault("storyline", {}).update({
+            "rule_based": False,
+            "description": "Generates the full structured documentary storyline JSON.",
+            "models": agents_summary.get("storyline", {}).get("models") or [strong_model],
+        })
+        agents_summary.setdefault("validation", {}).update({
+            "rule_based": False,
+            "description": "LLM editorial validation and repair of the timeline.",
+            "models": agents_summary.get("validation", {}).get("models") or [strong_model],
+        })
 
     # Enrich with rule-based agents (no LLM calls, so no traces)
     profile = src.get("prompt_profile") or src.get("prompt_intent") or {}

@@ -33,8 +33,9 @@ STORYLINES_DIR = PROJECT_ROOT / "data" / "storylines"
 OLLAMA_BASE_URL = "http://ollama-mobius-sales.mobiusdtaas.ai"
 GENERATE_ENDPOINT = "/api/generate"
 VLLM_BASE_URL = "http://vllm-gpt-oss.mobiusdtaas.ai"
+VLLM_MODEL = "openai/gpt-oss-20b"
 CHAT_ENDPOINT = "/v1/chat/completions"
-STRONG_LLM_MODEL = "gpt-oss:120b"
+#STRONG_LLM_MODEL = "gpt-oss:120b"
 FAST_LLM_MODEL = "llama3.1:8b"
 
 REQUEST_TIMEOUT_SECONDS = 300
@@ -332,13 +333,24 @@ def log(msg: str) -> None:
 def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SECONDS) -> str:
     """POST to Ollama generate endpoint, return response text. Raises on failure."""
     import requests
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    # url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    # last_error: Exception | None = None
+    # for attempt in range(1, MAX_RETRIES + 1):
+    #     try:
+    #         resp = requests.post(url, json=payload, timeout=timeout)
+    #         resp.raise_for_status()
+    #         return resp.json().get("response", "")
+    url = VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
     last_error: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
         try:
+            _t0 = time.time()
             resp = requests.post(url, json=payload, timeout=timeout)
             resp.raise_for_status()
-            return resp.json().get("response", "")
+            _content = resp.json()["choices"][0]["message"]["content"]
+            log(f"  [llm-timing] model={payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            return _content
+
         except Exception as exc:
             last_error = exc
             log(f"  [llm] Attempt {attempt}/{MAX_RETRIES} failed: {exc}")
@@ -652,11 +664,18 @@ Return JSON with these exact fields:
 """
 
     try:
+        # raw = post_with_retries({
+        #     "model": FAST_LLM_MODEL,
+        #     "prompt": prompt,
+        #     "stream": False,
+        #     "options": {"temperature": 0.2, "num_ctx": 8000},
+        # })
         raw = post_with_retries({
-            "model": FAST_LLM_MODEL,
-            "prompt": prompt,
+            "model": VLLM_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.3,
+            "max_completion_tokens": 4096,
             "stream": False,
-            "options": {"temperature": 0.2, "num_ctx": 8000},
         })
         result = extract_json_object(raw)
         if not result:
@@ -838,11 +857,18 @@ Return JSON with this exact structure:
 """
 
     try:
+        # raw = post_with_retries({
+        #     "model": STRONG_LLM_MODEL,
+        #     "prompt": prompt,
+        #     "stream": False,
+        #     "options": {"temperature": 0.3, "num_ctx": 12000},
+        # })
         raw = post_with_retries({
-            "model": STRONG_LLM_MODEL,
-            "prompt": prompt,
+            "model": VLLM_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.3,
+            "max_completion_tokens": 4096,
             "stream": False,
-            "options": {"temperature": 0.3, "num_ctx": 12000},
         })
         result = extract_json_object(raw)
         if not result:
@@ -1086,12 +1112,20 @@ Return ONLY a JSON array with one entry per segment:
 """
 
     try:
+        # raw = post_with_retries({
+        #     "model": STRONG_LLM_MODEL,
+        #     "prompt": prompt,
+        #     "stream": False,
+        #     "options": {"temperature": 0.4, "num_ctx": 6000},
+        # })
         raw = post_with_retries({
-            "model": STRONG_LLM_MODEL,
-            "prompt": prompt,
+            "model": VLLM_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.3,
+            "max_completion_tokens": 4096,
             "stream": False,
-            "options": {"temperature": 0.4, "num_ctx": 6000},
         })
+
         vo_list = extract_json_array(raw)
         if not vo_list:
             log("  [llm] No JSON array from voiceover generation.")
@@ -1568,12 +1602,20 @@ def _llm_repair_timeline(
         current_timeline, quality_gates, narrative_sections, user_prompt, iteration, target_duration
     )
     try:
+        # raw = post_with_retries({
+        #     "model": STRONG_LLM_MODEL,
+        #     "prompt": prompt,
+        #     "stream": False,
+        #     "options": {"temperature": 0.3, "num_ctx": 10000},
+        # })
         raw = post_with_retries({
-            "model": STRONG_LLM_MODEL,
-            "prompt": prompt,
+            "model": VLLM_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.3,
+            "max_completion_tokens": 4096,
             "stream": False,
-            "options": {"temperature": 0.3, "num_ctx": 10000},
         })
+
         repaired = extract_json_array(raw)
         if repaired and isinstance(repaired, list):
             return repaired
@@ -2076,7 +2118,8 @@ def main() -> None:
     output_data = dict(data)
     output_data["llm_validated"] = True
     output_data["validation_run_at"] = datetime.utcnow().isoformat()
-    output_data["validated_with"] = STRONG_LLM_MODEL if not args.skip_llm else "fallback"
+    # output_data["validated_with"] = STRONG_LLM_MODEL if not args.skip_llm else "fallback"
+    output_data["validated_with"] = VLLM_MODEL if not args.skip_llm else "fallback"
     output_data["repair_iterations"] = repair_iter
     output_data["final_timeline"] = enriched_timeline
     output_data["editorial_quality_gates"] = quality_gates

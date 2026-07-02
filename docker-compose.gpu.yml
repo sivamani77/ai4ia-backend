@@ -1,0 +1,73 @@
+services:
+  api:
+    image: aswinmobiusdtaas/ai4ia-pipeline:v2.8
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data/jobs:/app/data/jobs
+      - ./data/exports:/app/data/exports
+      - ./data/generated_assets:/app/data/generated_assets
+      - ./data/logs:/app/logs
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      disable: true
+
+  worker:
+    image: aswinmobiusdtaas/ai4ia-pipeline:v2.9-gpu
+    command: celery -A app.worker.celery_app worker -Q video_jobs,ingest_jobs -c 2 --loglevel=info
+    env_file: .env
+    volumes:
+      - ./data/embeddings:/app/data/embeddings
+      - ./data/embeddings_cleaned:/app/data/embeddings_cleaned
+      - ./data/jobs:/app/data/jobs
+      - ./data/exports:/app/data/exports
+      - ./data/generated_assets:/app/data/generated_assets
+      - ./data/logs:/app/logs
+    depends_on:
+      - chromadb
+      - redis
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  chromadb:
+    image: chromadb/chroma:1.5.9
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./data/chroma:/data
+    restart: unless-stopped
+    stop_grace_period: 60s
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+      - CHROMA_SERVER_AUTHN_PROVIDER=
+      - CHROMA_SEGMENT_CACHE_POLICY=ALL
+    healthcheck:
+      disable: true
+
+volumes:
+  redis_data:

@@ -37,11 +37,11 @@ class DecisionRecordRepository:
 
     def create(self, data: Mapping[str, Any]) -> DecisionRecord:
         payload = self._to_row(data)
-        self._log("insert", payload.get("id"))
+        self._log("upsert", payload.get("id"))
         try:
-            response = self._table.insert(payload).execute()
+            response = self._table.upsert(payload, on_conflict="id").execute()
         except Exception:
-            logger.exception("decision_records insert failed id=%s", payload.get("id"))
+            logger.exception("decision_records upsert failed id=%s", payload.get("id"))
             raise
         return self._from_row(response.data[0]) if response.data else payload  # type: ignore[return-value]
 
@@ -83,6 +83,22 @@ class DecisionRecordRepository:
             logger.exception("decision_records select_by_insight failed insight_id=%s", insight_id)
             raise
         return self._from_row(response.data[0]) if response.data else None
+
+    def list_all(self, limit: int = 100, offset: int = 0) -> list[DecisionRecord]:
+        self._log("select_all")
+        try:
+            response = (
+                self._table.select(
+                    "id,job_id,insight_id,user_id,subject,outcome,decisions,models_used,agents_executed,total_duration_ms,created_at"
+                )
+                .order("created_at", desc=True)
+                .range(offset, offset + limit - 1)
+                .execute()
+            )
+        except Exception:
+            logger.exception("decision_records list_all failed")
+            raise
+        return [self._from_row(row) for row in response.data or []]
 
     def list_by_user(self, user_id: str, limit: int = 50) -> list[DecisionRecord]:
         self._log("select_by_user", user_id)

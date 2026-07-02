@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: redis
+  namespace: ai4ia
+spec:
+  serviceName: redis
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      # Keep Redis off the (expensive, scarce) GPU nodes.
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - { key: nvidia.com/gpu.present, operator: NotIn, values: ["true"] }
+      containers:
+        - name: redis
+          image: redis:7-alpine
+          command: ["redis-server", "--appendonly", "yes"]
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name: redis-data
+              mountPath: /data
+          readinessProbe:
+            exec: { command: ["redis-cli", "ping"] }
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            exec: { command: ["redis-cli", "ping"] }
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          resources:
+            requests: { cpu: "100m", memory: "128Mi" }
+            limits: { cpu: "500m", memory: "512Mi" }
+      # No StorageClass exists on this cluster, so this can't be a PVC yet.
+      # emptyDir is safe here: job/task state lives in Supabase (job_store.py),
+      # not Redis — losing the queue on pod restart just means any in-flight
+      # Celery tasks need to be re-triggered, nothing is silently lost.
+      # Swap back to a PVC (see volumeClaimTemplates below, commented out)
+      # once a StorageClass is available.
+      volumes:
+        - name: redis-data
+          emptyDir: {}
+# volumeClaimTemplates:
+#   - metadata:
+#       name: redis-data
+#     spec:
+#       accessModes: ["ReadWriteOnce"]
+#       storageClassName: <your-storage-class>
+#       resources:
+#         requests:
+#           storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: ai4ia
+spec:
+  clusterIP: None    # headless — StatefulSet
+  selector:
+    app: redis
+  ports:
+    - port: 6379
+      targetPort: 6379

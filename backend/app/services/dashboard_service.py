@@ -2,7 +2,7 @@ from pathlib import Path
 
 from app.core.config import (
     EMBEDDING_MODEL,
-    STRONG_LLM_MODEL,
+    VLLM_MODEL,
     FAST_LLM_MODEL,
     TTS_PROVIDER,
     EXPORT_ENGINE,
@@ -180,7 +180,7 @@ def get_dashboard() -> dict:
         },
         "models": {
             "embedding": EMBEDDING_MODEL,
-            "strong_llm": STRONG_LLM_MODEL,
+            "strong_llm": VLLM_MODEL,
             "fast_llm": FAST_LLM_MODEL,
             "tts": TTS_PROVIDER,
             "export": EXPORT_ENGINE,

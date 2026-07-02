@@ -1,6 +1,6 @@
 services:
   worker:
-    image: aswinmobiusdtaas/ai4ia-pipeline:v2.7
+    image: aswinmobiusdtaas/ai4ia-pipeline:v2.8
     command: celery -A app.worker.celery_app worker -Q video_jobs -c 2 --loglevel=info
     env_file: .env
     volumes:

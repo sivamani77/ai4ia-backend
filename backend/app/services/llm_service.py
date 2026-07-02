@@ -1,7 +1,4 @@
-"""Unified Ollama client (embeddings + generation).
-
-Lifts the working /api/embed -> /api/embeddings fallback out of
-scripts/07_generate_storyline.py into one reusable place.
+"""LLM client — embeddings (Ollama) + generation (vLLM for strong, Ollama for fast).
 
 Provenance tracing
 ------------------
@@ -12,6 +9,7 @@ insight_id, user_id, stage, decision_label.
 import hashlib
 import json
 import logging
+import re
 import threading
 import time
 import uuid
@@ -26,6 +24,9 @@ from app.core.config import (
     STRONG_LLM_MODEL,
     FAST_LLM_MODEL,
     SPEAKER_EXTRACTION_MODEL,
+    VLLM_BASE_URL,
+    VLLM_MODEL,
+    VLLM_CHAT_ENDPOINT,
 )
 
 logger = logging.getLogger("ai4ia.services.llm")
@@ -51,11 +52,34 @@ def _post_with_retries(url: str, payload: dict, timeout: int = REQUEST_TIMEOUT_S
             last_error = exc
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_SLEEP_SECONDS)
-    raise RuntimeError(f"Ollama request failed after {MAX_RETRIES} retries: {last_error}")
+    raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")
 
 
 def _sha256(text: str) -> str:
     return "sha256:" + hashlib.sha256(text.encode("utf-8", errors="replace")).hexdigest()
+
+
+_FENCE_RE = re.compile(r"^```(?:json)?\s*|\s*```$", re.IGNORECASE)
+_DUP_OPEN_RE = re.compile(r"^\{\s*\{")
+_DUP_CLOSE_RE = re.compile(r"\}\s*\}\s*$")
+
+
+def _strip_json_wrapping(raw: str) -> str:
+    """Best-effort repair of common LLM JSON malformations: markdown fences,
+    leading/trailing prose, and a duplicated opening/closing brace."""
+    text = _FENCE_RE.sub("", raw.strip()).strip()
+
+    start = text.find("{")
+    end = text.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        text = text[start : end + 1]
+
+    # Duplicated brace, e.g. "{\n{\"key\": ...}\n}"
+    if _DUP_OPEN_RE.match(text) and _DUP_CLOSE_RE.search(text):
+        text = _DUP_OPEN_RE.sub("{", text, count=1)
+        text = _DUP_CLOSE_RE.sub("}", text, count=1)
+
+    return text.strip()
 
 
 def _emit_trace(trace: dict) -> None:
@@ -182,7 +206,7 @@ def generate_text(
     temperature: float = 0.3,
     _trace: dict | None = None,
 ) -> str:
-    resolved_model = model or STRONG_LLM_MODEL
+    resolved_model = model or VLLM_MODEL
     t0 = time.time()
     retry_count = 0
     response_text = ""
@@ -190,15 +214,16 @@ def generate_text(
 
     try:
         data, retry_count = _post_with_retries(
-            f"{OLLAMA_BASE_URL}/api/generate",
+            f"{VLLM_BASE_URL}{VLLM_CHAT_ENDPOINT}",
             {
                 "model": resolved_model,
-                "prompt": prompt,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": temperature,
+                "max_completion_tokens": 4096,
                 "stream": False,
-                "options": {"temperature": temperature},
             },
         )
-        response_text = data.get("response", "")
+        response_text = data["choices"][0]["message"]["content"]
         return response_text
     except Exception as exc:
         error_str = str(exc)
@@ -220,34 +245,58 @@ def generate_json(
     temperature: float = 0.2,
     _trace: dict | None = None,
 ) -> Any:
-    """Generate and parse JSON. Uses Ollama format=json, with a salvage fallback."""
+    """Generate and parse JSON.
+
+    Routing:
+    - Fast model (llama3.1:8b / default) → Ollama /api/generate with format=json
+    - Strong model (openai/gpt-oss-20b or explicit override) → vLLM /v1/chat/completions
+    """
     resolved_model = model or FAST_LLM_MODEL
+    use_vllm = resolved_model == VLLM_MODEL
     t0 = time.time()
     retry_count = 0
     response_text = ""
     error_str: str | None = None
 
     try:
-        data, retry_count = _post_with_retries(
-            f"{OLLAMA_BASE_URL}/api/generate",
-            {
-                "model": resolved_model,
-                "prompt": prompt,
-                "stream": False,
-                "format": "json",
-                "options": {"temperature": temperature},
-            },
-        )
-        raw = (data.get("response") or "").strip()
+        if use_vllm:
+            data, retry_count = _post_with_retries(
+                f"{VLLM_BASE_URL}{VLLM_CHAT_ENDPOINT}",
+                {
+                    "model": resolved_model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": temperature,
+                    "max_completion_tokens": 4096,
+                    "stream": False,
+                },
+            )
+            raw = (data["choices"][0]["message"]["content"] or "").strip()
+        else:
+            data, retry_count = _post_with_retries(
+                f"{OLLAMA_BASE_URL}/api/generate",
+                {
+                    "model": resolved_model,
+                    "prompt": prompt,
+                    "stream": False,
+                    "format": "json",
+                    "options": {"temperature": temperature},
+                },
+            )
+            raw = (data.get("response") or "").strip()
+
         response_text = raw
         try:
             return json.loads(raw)
         except json.JSONDecodeError:
-            start = raw.find("{")
-            end = raw.rfind("}")
-            if start != -1 and end != -1 and end > start:
-                return json.loads(raw[start : end + 1])
-            raise
+            cleaned = _strip_json_wrapping(raw)
+            try:
+                return json.loads(cleaned)
+            except json.JSONDecodeError:
+                logger.warning(
+                    "generate_json: failed to parse LLM output as JSON (model=%s). Raw output: %r",
+                    resolved_model, raw,
+                )
+                raise
     except Exception as exc:
         error_str = str(exc)
         raise
@@ -270,4 +319,7 @@ __all__ = [
     "STRONG_LLM_MODEL",
     "FAST_LLM_MODEL",
     "SPEAKER_EXTRACTION_MODEL",
+    "VLLM_MODEL",
+    "VLLM_BASE_URL",
+    "VLLM_CHAT_ENDPOINT",
 ]

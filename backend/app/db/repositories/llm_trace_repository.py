@@ -73,6 +73,20 @@ class LLMTraceRepository:
             raise
         return [self._from_row(row) for row in response.data or []]
 
+    def list_all(self, limit: int = 200, offset: int = 0) -> list[LLMTraceRecord]:
+        self._log("select_all")
+        try:
+            response = (
+                self._table.select("*")
+                .order("called_at", desc=True)
+                .range(offset, offset + limit - 1)
+                .execute()
+            )
+        except Exception:
+            logger.exception("llm_traces list_all failed")
+            raise
+        return [self._from_row(row) for row in response.data or []]
+
     def list_by_agent(self, agent: str, limit: int = 100) -> list[LLMTraceRecord]:
         self._log("select_by_agent", agent)
         try:

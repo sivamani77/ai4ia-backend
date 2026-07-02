@@ -47,6 +47,35 @@ DEFAULT_SUBTITLE_CHUNK_WORDS = 10
 MIN_SUBTITLE_ENTRY_DURATION = 1.2
 
 
+def _probe_nvenc() -> bool:
+    try:
+        r = subprocess.run(
+            ["ffmpeg", "-hide_banner", "-encoders"],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=5,
+        )
+        return "h264_nvenc" in r.stdout
+    except Exception:
+        return False
+
+
+NVENC: bool = _probe_nvenc()
+
+
+def _vcodec_flags(threads: int | None = 2) -> list[str]:
+    """Return video codec flags for the current environment.
+
+    On NVIDIA GPU hosts h264_nvenc is used (p4 preset, VBR quality 23).
+    On CPU-only hosts libx264 is used with veryfast preset.
+    threads is only applied for the CPU path; nvenc manages its own scheduling.
+    """
+    if NVENC:
+        return ["-c:v", "h264_nvenc", "-preset", "p4", "-rc", "vbr", "-cq", "23", "-pix_fmt", "yuv420p"]
+    flags = ["-c:v", "libx264"]
+    if threads is not None:
+        flags += ["-threads", str(threads)]
+    return flags + ["-preset", "veryfast", "-pix_fmt", "yuv420p"]
+
+
 def log(message: str) -> None:
     print(message, flush=True)
 
@@ -340,13 +369,10 @@ def make_card_video_with_optional_voiceover(
             "-vf", zoom_filter,
             "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.6",
             "-shortest",
-            "-c:v", "libx264",
-            "-threads", "2",
-            "-preset", "veryfast",
+            *_vcodec_flags(threads=2),
             "-c:a", "aac",
             "-ar", "48000",
             "-ac", "2",
-            "-pix_fmt", "yuv420p",
             str(output_path),
         ]
     else:
@@ -360,13 +386,10 @@ def make_card_video_with_optional_voiceover(
             "-t", str(duration),
             "-vf", zoom_filter,
             "-shortest",
-            "-c:v", "libx264",
-            "-threads", "2",
-            "-preset", "veryfast",
+            *_vcodec_flags(threads=2),
             "-c:a", "aac",
             "-ar", "48000",
             "-ac", "2",
-            "-pix_fmt", "yuv420p",
             str(output_path),
         ]
 
@@ -485,13 +508,10 @@ def render_archive_clip(
             "-map", "1:a:0",
             "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.4",
             "-shortest",
-            "-c:v", "libx264",
-            "-threads", "2",
-            "-preset", "veryfast",
+            *_vcodec_flags(threads=2),
             "-c:a", "aac",
             "-ar", "48000",
             "-ac", "2",
-            "-pix_fmt", "yuv420p",
             str(output_path),
         ]
     elif audio_mode == "muted":
@@ -503,10 +523,7 @@ def render_archive_clip(
             "-t", str(duration),
             "-vf", vf,
             "-an",
-            "-c:v", "libx264",
-            "-threads", "2",
-            "-preset", "veryfast",
-            "-pix_fmt", "yuv420p",
+            *_vcodec_flags(threads=2),
             str(output_path),
         ]
     else:
@@ -524,13 +541,10 @@ def render_archive_clip(
             "-t", str(duration),
             "-vf", vf,
             "-af", af,
-            "-c:v", "libx264",
-            "-threads", "2",
-            "-preset", "veryfast",
+            *_vcodec_flags(threads=2),
             "-c:a", "aac",
             "-ar", "48000",
             "-ac", "2",
-            "-pix_fmt", "yuv420p",
             str(output_path),
         ]
 
@@ -555,9 +569,7 @@ def concat_segments(segment_paths: list[Path], output_path: Path) -> None:
         "-i", str(concat_file),
         "-vf", "fps=30,setpts=N/(30*TB),format=yuv420p",
         "-af", "aresample=async=1:first_pts=0",
-        "-c:v", "libx264",
-        "-threads", "0",
-        "-preset", "veryfast",
+        *_vcodec_flags(threads=0),
         "-r", "30",
         "-vsync", "cfr",
         "-c:a", "aac",
@@ -1386,10 +1398,8 @@ def burn_subtitles(input_video: Path, subtitle_path: Path, output_path: Path) ->
         "-y",
         "-i", str(input_video),
         "-vf", f"subtitles='{subtitle_filter_path}':force_style='Fontsize=16,Outline=1,Shadow=1,MarginV=32,Alignment=2'",
-        "-c:v", "libx264",
-        "-preset", "veryfast",
+        *_vcodec_flags(threads=None),
         "-c:a", "copy",
-        "-pix_fmt", "yuv420p",
         str(output_path),
     ]
 
@@ -1725,9 +1735,8 @@ def _render_one_segment(
                     "-t", str(target_duration),
                     "-vf", vf,
                     "-filter:a", f"volume={ARCHIVE_AUDIO_VOLUME},afade=t=in:st=0:d=0.15,afade=t=out:st={max(target_duration - 0.25, 0):.3f}:d=0.25",
-                    "-c:v", "libx264", "-threads", "2", "-preset", "veryfast",
+                    *_vcodec_flags(threads=2),
                     "-c:a", "aac", "-ar", "48000", "-ac", "2",
-                    "-pix_fmt", "yuv420p",
                     str(segment_path),
                 ])
             else:
@@ -2127,9 +2136,8 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
             run_cmd([
                 "ffmpeg", "-y", "-i", str(output_path),
                 "-vf", f"tpad=stop_mode=clone:stop_duration={_av_delta + 0.15:.3f}",
-                "-c:v", "libx264", "-preset", "veryfast",
+                *_vcodec_flags(threads=None),
                 "-c:a", "copy",
-                "-pix_fmt", "yuv420p",
                 str(_padded),
             ])
             _padded.replace(output_path)

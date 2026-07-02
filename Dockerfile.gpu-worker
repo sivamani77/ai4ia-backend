@@ -1,0 +1,52 @@
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
+
+# Base image has no Python at all — install it before any pip/python calls below.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        python3.10 \
+        python3-pip \
+        curl \
+        libgomp1 \
+        xz-utils \
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -sf /usr/bin/python3.10 /usr/bin/python \
+    && ln -sf /usr/bin/pip3 /usr/bin/pip
+
+# Debian's apt ffmpeg has no NVENC (licensing) — use a static GPL build that
+# includes it instead. NVIDIA driver libs get injected into the container at
+# runtime by the NVIDIA Container Toolkit (already present on the GPU nodes),
+# so this binary just needs to be built with nvenc support, nothing more.
+RUN curl -L https://github.com/BtbN/FFmpeg-Builds/releases/latest/download/ffmpeg-master-latest-linux64-gpl.tar.xz \
+        -o /tmp/ffmpeg.tar.xz \
+    && tar -xf /tmp/ffmpeg.tar.xz -C /tmp \
+    && mv /tmp/ffmpeg-*-linux64-gpl/bin/ffmpeg /usr/local/bin/ffmpeg \
+    && mv /tmp/ffmpeg-*-linux64-gpl/bin/ffprobe /usr/local/bin/ffprobe \
+    && rm -rf /tmp/ffmpeg* \
+    && ffmpeg -version
+
+WORKDIR /app
+
+COPY pyproject.toml ./
+COPY requirements.txt ./
+COPY backend/app/ ./app/
+COPY scripts/ ./scripts/
+COPY config/ ./config/
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+# CUDA-enabled torch so scripts/11_generate_final_subtitles.py's
+# resolve_device_and_compute_type("auto") picks up the GPU via
+# torch.cuda.is_available() — plain requirements.txt has no torch at all,
+# so without this the worker silently stays on CPU even with a GPU attached.
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu118
+
+# Pre-download the Whisper small model (weights only — device is chosen at
+# runtime by resolve_device_and_compute_type, not baked in here).
+RUN python -c "from faster_whisper import WhisperModel; WhisperModel('small', device='cpu', compute_type='int8')"
+
+ENV PROJECT_ROOT=/app
+
+# Both queues: video_jobs (video generation pipeline) AND ingest_jobs
+# (YouTube channel sync, triggered by POST /api/ingest/sync). Nothing else in
+# this codebase consumes ingest_jobs — without it here, ingest requests queue
+# in Redis forever and never run.
+CMD ["celery", "-A", "app.worker.celery_app", "worker", "-Q", "video_jobs,ingest_jobs", "-c", "2", "--loglevel=info"]

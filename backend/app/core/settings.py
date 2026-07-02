@@ -35,10 +35,17 @@ class Settings(BaseSettings):
     supabase_service_key: str = ""
 
     # ------------------------------------------------------------------
+    # vLLM (strong model — gpt-oss-20b via OpenAI-compatible API)
+    # ------------------------------------------------------------------
+    vllm_base_url: str = "http://vllm-gpt-oss.mobiusdtaas.ai"
+    vllm_model: str = "openai/gpt-oss-20b"
+    vllm_chat_endpoint: str = "/v1/chat/completions"
+
+    # ------------------------------------------------------------------
     # LLM models
     # ------------------------------------------------------------------
-    speaker_extraction_model: str = "gpt-oss:120b"
-    insight_model: str = "gpt-oss:120b"
+    speaker_extraction_model: str = "openai/gpt-oss-20b"
+    insight_model: str = "openai/gpt-oss-20b"
 
     # ------------------------------------------------------------------
     # YouTube ingestion

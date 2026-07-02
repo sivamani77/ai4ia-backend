@@ -6,6 +6,7 @@ app.pipeline.stage_* modules. All stage logic lives there.
 """
 from __future__ import annotations
 
+import json
 import logging
 import shutil
 import time
@@ -14,6 +15,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+logger = logging.getLogger("ai4ia.services.video_job_runner")
+
+from app.core.config import VLLM_MODEL
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext
 from app.services.job_store import (
@@ -280,6 +284,11 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         log.info("Pipeline completed")
         _emit_job_decision_record(job_id, outcome="video_generated")
 
+        # load_job here re-establishes the Supabase connection if it dropped during
+        # the long pipeline run (HTTP/2 keepalive timeout). build_media_registry and
+        # S3 upload must come AFTER this reconnect to avoid FileNotFoundError.
+        job = load_job(job_id)
+
         try:
             from app.services.media_registry import build_media_registry
             build_media_registry(job_id)
@@ -297,7 +306,6 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         except Exception:
             log.warning("S3 upload failed for job %s — outputs remain on local disk", job_id, exc_info=True)
 
-        job = load_job(job_id)
         vp = job["paths"].get("video_path", "")
         rel = Path(vp).name if vp else ""
         append_event(job_id, "completed", "completed", {
@@ -332,16 +340,34 @@ def _emit_job_decision_record(job_id: str, outcome: str) -> None:
         try:
             from app.db.repositories.decision_record_repository import DecisionRecordRepository
             from datetime import timedelta
+            from app.pipeline.s3_helpers import use_s3 as _use_s3
 
             job = load_job(job_id)
             paths = job.get("paths", {})
-            storyline_data: dict = {}
-            sp = paths.get("validated_storyline_path") or paths.get("storyline_path")
-            if sp:
-                try:
-                    storyline_data = json.loads(Path(sp).read_text(encoding="utf-8"))
-                except Exception:
-                    pass
+
+            def _read_storyline(path_key: str, s3_key_key: str) -> dict:
+                """Read storyline JSON from S3 (preferred in S3 mode) or local path."""
+                s3_key = paths.get(s3_key_key)
+                local = paths.get(path_key)
+                # S3 first — local /tmp paths for validated storyline get cleaned up after stage 07b
+                if _use_s3() and s3_key:
+                    try:
+                        from app.pipeline.s3_helpers import _s3, _bucket
+                        resp = _s3().get_object(Bucket=_bucket(), Key=s3_key)
+                        return json.loads(resp["Body"].read().decode("utf-8"))
+                    except Exception:
+                        pass
+                if local and Path(local).exists():
+                    try:
+                        return json.loads(Path(local).read_text(encoding="utf-8"))
+                    except Exception:
+                        pass
+                return {}
+
+            # Validated storyline has editorial gates; fall back to initial if missing
+            storyline_data = _read_storyline(
+                "validated_storyline_path", "validated_storyline_s3_key"
+            ) or _read_storyline("storyline_path", "storyline_s3_key")
 
             models = storyline_data.get("models") or {}
             planning = storyline_data.get("planning_summary") or {}
@@ -349,6 +375,8 @@ def _emit_job_decision_record(job_id: str, outcome: str) -> None:
             director = story.get("director_plan") or {}
             bucket = storyline_data.get("candidate_bucket_summary") or {}
             gates = storyline_data.get("editorial_quality_gates") or {}
+            # Script writes VLLM_MODEL under "strong_llm_model" key
+            llm_model = models.get("strong_llm_model") or VLLM_MODEL
 
             started_at = job.get("started_at")
             completed_at = job.get("completed_at")
@@ -387,10 +415,10 @@ def _emit_job_decision_record(job_id: str, outcome: str) -> None:
                 },
                 "models_used": {
                     "embedding": models.get("embedding_model", "nomic-embed-text:v1.5"),
-                    "director": models.get("strong_llm_model"),
-                    "synthesis": models.get("strong_llm_model"),
-                    "storyline": models.get("strong_llm_model"),
-                    "validation": models.get("strong_llm_model"),
+                    "director": llm_model,
+                    "synthesis": llm_model,
+                    "storyline": llm_model,
+                    "validation": llm_model,
                 },
                 "outcome": outcome,
                 "total_duration_ms": duration_ms,

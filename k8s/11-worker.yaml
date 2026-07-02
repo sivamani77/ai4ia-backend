@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker
+  namespace: ai4ia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker
+  template:
+    metadata:
+      labels:
+        app: worker
+    spec:
+      nodeSelector:
+        nvidia.com/gpu.present: "true"
+      tolerations:
+        - key: "nvidia.com/gpu"
+          operator: "Exists"
+          effect: "NoSchedule"
+      containers:
+        - name: worker
+          image: aswinmobiusdtaas/ai4ia-pipeline:v2.9-gpu   # built from Dockerfile.gpu-worker
+          command:
+            - celery
+            - -A
+            - app.worker.celery_app
+            - worker
+            - -Q
+            - video_jobs,ingest_jobs
+            - -c
+            - "4"
+            - --loglevel=info
+          envFrom:
+            - configMapRef: { name: ai4ia-config }
+            - secretRef: { name: ai4ia-secrets }
+          volumeMounts:
+            - { name: jobs-data, mountPath: /app/data/jobs }
+          resources:
+            requests: { cpu: "2", memory: "4Gi", ephemeral-storage: "20Gi" }
+            limits: { cpu: "6", memory: "12Gi", nvidia.com/gpu: 1, ephemeral-storage: "60Gi" }
+      volumes:
+        - { name: jobs-data, emptyDir: {} }

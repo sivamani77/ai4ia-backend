@@ -9,9 +9,13 @@ SUPABASE_URL = settings.supabase_url
 SUPABASE_SERVICE_KEY = settings.supabase_service_key
 
 EMBEDDING_MODEL = "nomic-embed-text:v1.5"
-STRONG_LLM_MODEL = "gpt-oss:120b"
 FAST_LLM_MODEL = "llama3.1:8b"
 SPEAKER_EXTRACTION_MODEL = settings.speaker_extraction_model
+
+VLLM_BASE_URL = settings.vllm_base_url
+VLLM_MODEL = settings.vllm_model
+VLLM_CHAT_ENDPOINT = settings.vllm_chat_endpoint
+STRONG_LLM_MODEL = VLLM_MODEL   # alias — strong model is the vLLM model
 TTS_PROVIDER = "edge-tts"
 EXPORT_ENGINE = "ffmpeg"
 

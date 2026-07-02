@@ -97,7 +97,7 @@ CHAT_ENDPOINT = "/v1/chat/completions"
 
 EMBED_MODEL = "nomic-embed-text:v1.5"
 FAST_LLM_MODEL = "llama3.1:8b"
-STRONG_LLM_MODEL = "gpt-oss:120b"
+#STRONG_LLM_MODEL = "gpt-oss:120b"
 
 EMBED_ENDPOINT = "/api/embed"
 GENERATE_ENDPOINT = "/api/generate"
@@ -123,9 +123,12 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
+            _t0 = time.time()
             response = requests.post(url, json=payload, timeout=timeout)
             response.raise_for_status()
-            return response.json()
+            _result = response.json()
+            log(f"  [llm-timing] model={payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            return _result
         except Exception as exc:
             last_error = exc
             log(f"Request failed attempt {attempt}/{MAX_RETRIES}: {exc}")
@@ -137,23 +140,14 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
 
 
 def warm_up_ollama() -> None:
-    """Ping Ollama and pre-load the embedding model so the first real call
+    """Ping VLL gpt-oss-20b and pre-load the embedding model so the first real call
     doesn't hit a cold-load timeout. Best-effort: failures here are non-fatal."""
     try:
-        requests.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=15)
-    except Exception as exc:  # noqa: BLE001
-        log(f"Warm-up ping failed (continuing): {exc}")
-        return
-    try:
-        log("Warming up embedding model ...")
-        requests.post(
-            f"{OLLAMA_BASE_URL}/api/embed",
-            json={"model": EMBED_MODEL, "input": "warm up"},
-            timeout=EMBED_TIMEOUT_SECONDS,
-        )
-        log("Warm-up complete.")
-    except Exception as exc:  # noqa: BLE001
-        log(f"Warm-up embed failed (continuing, will retry on real call): {exc}")
+        requests.get(f"{VLLM_BASE_URL}/health", timeout=15)
+        log("vLLM health check passed.")
+    except Exception as exc:
+        log(f"vLLM health check failed (continuing): {exc}")
+
 
 
 def clean_text(text: str) -> str:
@@ -2800,25 +2794,47 @@ TEMPORAL ARC RULES (chronological_relay mode):
         }
     }
 
-    prompt = system_instruction.strip() + "\n\nINPUT:\n" + json.dumps(user_instruction, ensure_ascii=False, indent=2)
+    # prompt = system_instruction.strip() + "\n\nINPUT:\n" + json.dumps(user_instruction, ensure_ascii=False, indent=2)
 
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    # url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+
+    # payload = {
+    #     "model": STRONG_LLM_MODEL,
+    #     "prompt": prompt,
+    #     "stream": False,
+    #     "options": {
+    #         "temperature": 0.4,
+    #         "top_p": 0.9,
+    #         "num_ctx": 32000
+    #     }
+    # }
+    
+    #log(f"Calling storyline model: {STRONG_LLM_MODEL}")
+    # data = post_with_retries(url, payload, timeout=600)
+
+    # response_text = data.get("response", "")
+
+    
+    ##vll-gpt-oss-20b payload for storyline generation
+    url = VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
 
     payload = {
-        "model": STRONG_LLM_MODEL,
-        "prompt": prompt,
+        "model": VLLM_MODEL,
+        "messages": [
+            {"role": "system", "content": system_instruction.strip()},
+            {"role": "user", "content": "INPUT:\n" + json.dumps(user_instruction, ensure_ascii=False, indent=2)},
+        ],
+        "temperature": 0.4,
+        "top_p": 0.9,
+        "max_completion_tokens": 8192,
+        "response_format": {"type": "json_object"},
         "stream": False,
-        "options": {
-            "temperature": 0.4,
-            "top_p": 0.9,
-            "num_ctx": 32000
-        }
     }
 
-    log(f"Calling storyline model: {STRONG_LLM_MODEL}")
+    log(f"Calling storyline model: {VLLM_MODEL}")
     data = post_with_retries(url, payload, timeout=600)
 
-    response_text = data.get("response", "")
+    response_text = data["choices"][0]["message"]["content"]
 
     parsed = extract_json_object(response_text)
 
@@ -2872,20 +2888,38 @@ TEXT:
 {raw_text}
 """
 
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    # url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+
+    # payload = {
+    #     "model": FAST_LLM_MODEL,
+    #     "prompt": repair_prompt,
+    #     "stream": False,
+    #     "options": {
+    #         "temperature": 0.1,
+    #         "num_ctx": 12000
+    #     }
+    # }
+
+    # data = post_with_retries(url, payload, timeout=300)
+    # return extract_json_object(data.get("response", ""))
+    
+    url = VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
 
     payload = {
-        "model": FAST_LLM_MODEL,
-        "prompt": repair_prompt,
+        "model": VLLM_MODEL,
+        "messages": [
+            {"role": "system", "content": "You are a JSON repair assistant. Output only valid JSON with no markdown or explanation."},
+            {"role": "user", "content": raw_text},
+        ],
+        "temperature": 0.1,
+        "max_completion_tokens": 4096,
+        "response_format": {"type": "json_object"},
         "stream": False,
-        "options": {
-            "temperature": 0.1,
-            "num_ctx": 12000
-        }
     }
 
     data = post_with_retries(url, payload, timeout=300)
-    return extract_json_object(data.get("response", ""))
+    return extract_json_object(data["choices"][0]["message"]["content"])
+
 
 
 def expand_short_narrations(
@@ -2901,7 +2935,8 @@ def expand_short_narrations(
     _per_s = round(max(1, target_duration_seconds - 10) / _n)
     min_words = max(30, round(_per_s * 2.5))
 
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    # url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    url = VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
     expanded = 0
 
     for sec in sections:
@@ -2924,16 +2959,31 @@ def expand_short_narrations(
             f"Expanded narration ({min_words}+ words):"
         )
 
-        payload = {
-            "model": FAST_LLM_MODEL,
-            "prompt": expand_prompt,
-            "stream": False,
-            "options": {"temperature": 0.3, "num_ctx": 4000},
-        }
+        # payload = {
+        #     "model": FAST_LLM_MODEL,
+        #     "prompt": expand_prompt,
+        #     "stream": False,
+        #     "options": {"temperature": 0.3, "num_ctx": 4000},
+        # }
 
+        # try:
+        #     data = post_with_retries(url, payload, timeout=120)
+        #     expanded_text = (data.get("response") or "").strip()
+        
+        payload = {
+            "model": VLLM_MODEL,
+            "messages": [
+                {"role": "system", "content": "You are a documentary narration writer. Write only the expanded narration text with no labels, quotes, or explanation."},
+                {"role": "user", "content": expand_prompt},
+            ],
+            "temperature": 0.3,
+            "max_completion_tokens": 2048,
+            "stream": False,
+        }
+        
         try:
             data = post_with_retries(url, payload, timeout=120)
-            expanded_text = (data.get("response") or "").strip()
+            expanded_text = (data["choices"][0]["message"]["content"] or "").strip()
             if expanded_text and len(expanded_text.split()) >= min_words:
                 sec["narration"] = expanded_text
                 sec["viewer_narration"] = expanded_text
@@ -5007,7 +5057,7 @@ def save_storyline(
         "should_export_video": storyline.get("should_export_video", True),
         "models": {
             "embedding_model": EMBED_MODEL,
-            "strong_llm_model": STRONG_LLM_MODEL,
+            "strong_llm_model": VLLM_MODEL,
             "fast_llm_model": FAST_LLM_MODEL,
         },
         "source_files": {

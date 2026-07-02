@@ -159,7 +159,7 @@ def _emit_validation_trace(job_id: str, repair_iterations: int) -> None:
     """Emit a post-hoc LLM trace for the A7 Validation Agent (subprocess call)."""
     def _insert() -> None:
         try:
-            from app.core.config import STRONG_LLM_MODEL
+            from app.core.config import VLLM_MODEL
             from app.db.repositories.llm_trace_repository import LLMTraceRepository
             job = load_job(job_id)
             for i in range(max(1, repair_iterations)):
@@ -169,7 +169,7 @@ def _emit_validation_trace(job_id: str, repair_iterations: int) -> None:
                     "user_id": job.get("user_id"),
                     "stage": "07b_validate_storyline",
                     "agent": "validation",
-                    "model": STRONG_LLM_MODEL,
+                    "model": VLLM_MODEL,
                     "call_type": "generate_json",
                     "decision_label": f"editorial_validation_iteration_{i + 1}",
                     "retry_count": 0,

@@ -369,8 +369,8 @@ _STAGE_DESCRIPTIONS: dict[str, dict[str, str]] = {
     },
     "classify": {
         "label": "Classify fragments",
-        "tool": "scripts/05_classify_fragments.py (gpt-oss:120b)",
-        "how": "Sends each fragment to gpt-oss:120b for classification: assigns primary_theme, primary_chapter, speaker, quote_strength, clarity_score, and clip_usage_candidates.",
+        "tool": "scripts/05_classify_fragments.py (openai/gpt-oss-20b)",
+        "how": "Sends each fragment to openai/gpt-oss-20b for classification: assigns primary_theme, primary_chapter, speaker, quote_strength, clarity_score, and clip_usage_candidates.",
         "output": "*.classified.json files in data/fragments_classified/",
     },
     "embed": {

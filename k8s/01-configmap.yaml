@@ -1,0 +1,33 @@
+# Non-secret settings — maps 1:1 to backend/app/core/settings.py fields.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai4ia-config
+  namespace: ai4ia
+data:
+  OLLAMA_BASE_URL: "http://ollama-mobius-sales.mobiusdtaas.ai"
+  VLLM_BASE_URL: "http://vllm-gpt-oss.mobiusdtaas.ai"
+  VLLM_MODEL: "openai/gpt-oss-20b"
+  REDIS_URL: "redis://redis:6379/0"
+
+  # ChromaDB — HTTP mode, pointed at the in-cluster StatefulSet service
+  CHROMA_MODE: "http"
+  CHROMA_HOST: "chromadb"
+  CHROMA_PORT: "8000"
+  CHROMA_SSL: "false"
+  CHROMA_COLLECTION: "fragments"
+
+  ALLOWED_ORIGINS: '["https://ai4ia.io","http://localhost:8080","https://ai4iah.gov-cloud.ai","https://d2voopzhlp2jkx.cloudfront.net"]'
+
+  ENABLE_AUTO_SYNC: "false"
+  WORKER_CONCURRENCY: "2"
+  WORKER_QUEUE: "video_jobs"
+  WORKER_LOGLEVEL: "info"
+
+  # S3 storage backend — switches exports/assets/storylines/ingest pipeline
+  # output to S3 instead of local disk (see storage_service.py / s3_helpers.py).
+  # No StorageClass exists on this cluster, so this is required, not optional.
+  AI4IA_STORAGE_BACKEND: "s3"
+  AI4IA_OBJECT_STORAGE_BUCKET: "ai4ia-data"        # <-- change to your bucket
+  AI4IA_OBJECT_STORAGE_REGION: "ap-south-2"             # <-- change to your region
+  AI4IA_OBJECT_STORAGE_ENDPOINT: ""                    # only set for non-AWS S3-compatible
