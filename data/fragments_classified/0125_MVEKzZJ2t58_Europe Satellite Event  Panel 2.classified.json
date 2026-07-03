@@ -3,11 +3,11 @@
   "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
   "video_id": "MVEKzZJ2t58",
   "fragment_count": 123,
-  "created_at": "2026-06-16T12:54:13.521619",
+  "created_at": "2026-07-03T10:35:24.432656",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0001",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 5.1,
       "end": 66.85,
@@ -34,7 +36,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:13.489287",
+      "created_at": "2026-07-03T10:35:24.166944",
       "keywords": [
         "artificial intelligence",
         "access to information",
@@ -143,14 +145,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.320159",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.975156"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0002",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 66.85,
       "end": 127.14,
@@ -169,7 +171,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:13.489558",
+      "created_at": "2026-07-03T10:35:24.169099",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -285,14 +287,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.324794",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.980051"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0003",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 127.14,
       "end": 210.78,
@@ -311,7 +313,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.489834",
+      "created_at": "2026-07-03T10:35:24.171235",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -401,14 +403,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.329746",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.985497"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0004",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 210.78,
       "end": 288.77,
@@ -428,7 +430,7 @@
         39,
         40
       ],
-      "created_at": "2026-06-16T12:54:13.490105",
+      "created_at": "2026-07-03T10:35:24.173330",
       "keywords": [
         "artificial intelligence",
         "truth",
@@ -482,14 +484,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.334453",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.990488"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0005",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 288.77,
       "end": 365.26,
@@ -507,7 +509,7 @@
         48,
         49
       ],
-      "created_at": "2026-06-16T12:54:13.490333",
+      "created_at": "2026-07-03T10:35:24.175377",
       "keywords": [
         "news",
         "information",
@@ -598,14 +600,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.338511",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.994871"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0006",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 365.26,
       "end": 440.59,
@@ -622,7 +624,7 @@
         56,
         57
       ],
-      "created_at": "2026-06-16T12:54:13.490573",
+      "created_at": "2026-07-03T10:35:24.177368",
       "keywords": [
         "information",
         "conference",
@@ -674,14 +676,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.343224",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.999477"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0007",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 440.59,
       "end": 517.68,
@@ -698,7 +700,7 @@
         64,
         65
       ],
-      "created_at": "2026-06-16T12:54:13.490794",
+      "created_at": "2026-07-03T10:35:24.179605",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -817,14 +819,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.348001",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.004171"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0008",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 517.68,
       "end": 595.14,
@@ -846,7 +848,7 @@
         77,
         78
       ],
-      "created_at": "2026-06-16T12:54:13.491117",
+      "created_at": "2026-07-03T10:35:24.181968",
       "keywords": [
         "open data",
         "governance",
@@ -967,14 +969,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.353761",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.009474"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0009",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 595.14,
       "end": 663.82,
@@ -997,7 +999,7 @@
         91,
         92
       ],
-      "created_at": "2026-06-16T12:54:13.491430",
+      "created_at": "2026-07-03T10:35:24.184545",
       "keywords": [
         "accessibility",
         "research",
@@ -1081,14 +1083,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.358561",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.015093"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0010",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 663.82,
       "end": 741.24,
@@ -1108,7 +1110,7 @@
         102,
         103
       ],
-      "created_at": "2026-06-16T12:54:13.491670",
+      "created_at": "2026-07-03T10:35:24.187178",
       "keywords": [
         "ethical",
         "standards",
@@ -1214,14 +1216,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.362635",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.019437"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0011",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 11,
       "start": 741.24,
       "end": 816.46,
@@ -1243,7 +1245,7 @@
         115,
         116
       ],
-      "created_at": "2026-06-16T12:54:13.491981",
+      "created_at": "2026-07-03T10:35:24.189590",
       "keywords": [
         "copyright",
         "research",
@@ -1318,14 +1320,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.367552",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.025052"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0012",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 12,
       "start": 816.46,
       "end": 883.46,
@@ -1347,7 +1349,7 @@
         128,
         129
       ],
-      "created_at": "2026-06-16T12:54:13.492299",
+      "created_at": "2026-07-03T10:35:24.191945",
       "keywords": [
         "governance",
         "copyright",
@@ -1444,14 +1446,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.372204",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.030341"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0013",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 13,
       "start": 883.46,
       "end": 953.76,
@@ -1469,7 +1471,7 @@
         137,
         138
       ],
-      "created_at": "2026-06-16T12:54:13.492561",
+      "created_at": "2026-07-03T10:35:24.194041",
       "keywords": [
         "learning",
         "government",
@@ -1535,14 +1537,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.376822",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.035608"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0014",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 14,
       "start": 953.76,
       "end": 1025.68,
@@ -1562,7 +1564,7 @@
         148,
         149
       ],
-      "created_at": "2026-06-16T12:54:13.492839",
+      "created_at": "2026-07-03T10:35:24.196078",
       "keywords": [
         "ethics",
         "standards",
@@ -1649,14 +1651,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.381751",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.041305"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0015",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 15,
       "start": 1025.68,
       "end": 1090.38,
@@ -1677,7 +1679,7 @@
         160,
         161
       ],
-      "created_at": "2026-06-16T12:54:13.493148",
+      "created_at": "2026-07-03T10:35:24.198358",
       "keywords": [
         "human rights",
         "rights",
@@ -1755,14 +1757,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.386486",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.046544"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0016",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 16,
       "start": 1090.38,
       "end": 1149.7,
@@ -1780,7 +1782,7 @@
         169,
         170
       ],
-      "created_at": "2026-06-16T12:54:13.493386",
+      "created_at": "2026-07-03T10:35:24.201078",
       "keywords": [
         "school",
         "authors",
@@ -1873,14 +1875,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.391168",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.051962"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0017",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 17,
       "start": 1149.7,
       "end": 1226.94,
@@ -1902,7 +1904,7 @@
         3,
         4
       ],
-      "created_at": "2026-06-16T12:54:13.493715",
+      "created_at": "2026-07-03T10:35:24.203740",
       "keywords": [
         "open data",
         "news",
@@ -1987,14 +1989,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.396282",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.057371"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0018",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 18,
       "start": 1226.94,
       "end": 1302.18,
@@ -2014,7 +2016,7 @@
         14,
         15
       ],
-      "created_at": "2026-06-16T12:54:13.493997",
+      "created_at": "2026-07-03T10:35:24.206180",
       "keywords": [
         "governance",
         "policy",
@@ -2121,14 +2123,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.401701",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.062435"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0019",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 19,
       "start": 1302.18,
       "end": 1372.66,
@@ -2147,7 +2149,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:13.494268",
+      "created_at": "2026-07-03T10:35:24.208384",
       "keywords": [
         "information",
         "public sector",
@@ -2205,14 +2207,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.406825",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.067559"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0020",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 20,
       "start": 1372.66,
       "end": 1448.13,
@@ -2230,7 +2232,7 @@
         33,
         34
       ],
-      "created_at": "2026-06-16T12:54:13.494516",
+      "created_at": "2026-07-03T10:35:24.210516",
       "keywords": [
         "information",
         "creative",
@@ -2309,14 +2311,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.411508",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.072673"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0021",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 21,
       "start": 1448.13,
       "end": 1519.38,
@@ -2334,7 +2336,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:13.494894",
+      "created_at": "2026-07-03T10:35:24.212686",
       "keywords": [
         "accessibility",
         "information",
@@ -2407,14 +2409,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.416448",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.077929"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0022",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 22,
       "start": 1519.38,
       "end": 1593.83,
@@ -2432,7 +2434,7 @@
         51,
         52
       ],
-      "created_at": "2026-06-16T12:54:13.495168",
+      "created_at": "2026-07-03T10:35:24.214805",
       "keywords": [
         "information",
         "conference",
@@ -2522,14 +2524,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.421369",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.083298"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0023",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 23,
       "start": 1593.83,
       "end": 1657.99,
@@ -2546,7 +2548,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:13.495395",
+      "created_at": "2026-07-03T10:35:24.216856",
       "keywords": [
         "open data",
         "information",
@@ -2640,14 +2642,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.426209",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.088531"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0024",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 24,
       "start": 1657.99,
       "end": 1736.69,
@@ -2663,7 +2665,7 @@
         66,
         67
       ],
-      "created_at": "2026-06-16T12:54:13.495617",
+      "created_at": "2026-07-03T10:35:24.218871",
       "keywords": [
         "open data",
         "information",
@@ -2736,14 +2738,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.431164",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.093453"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0025",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 25,
       "start": 1736.69,
       "end": 1808.71,
@@ -2759,7 +2761,7 @@
         73,
         74
       ],
-      "created_at": "2026-06-16T12:54:13.495860",
+      "created_at": "2026-07-03T10:35:24.220927",
       "keywords": [
         "artificial intelligence",
         "access to information",
@@ -2878,14 +2880,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.437102",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.099169"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0026",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 26,
       "start": 1808.71,
       "end": 1875.45,
@@ -2902,7 +2904,7 @@
         81,
         82
       ],
-      "created_at": "2026-06-16T12:54:13.496078",
+      "created_at": "2026-07-03T10:35:24.223026",
       "keywords": [
         "access to information",
         "information",
@@ -2986,14 +2988,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.442283",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.103848"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0027",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 27,
       "start": 1875.45,
       "end": 1930.45,
@@ -3006,7 +3008,7 @@
         85,
         86
       ],
-      "created_at": "2026-06-16T12:54:13.496250",
+      "created_at": "2026-07-03T10:35:24.225115",
       "keywords": [
         "access to information",
         "information",
@@ -3067,14 +3069,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.448105",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.108426"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0028",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 28,
       "start": 1930.45,
       "end": 1998.51,
@@ -3087,7 +3089,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:13.496431",
+      "created_at": "2026-07-03T10:35:24.227187",
       "keywords": [
         "access to information",
         "governance",
@@ -3165,14 +3167,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.453883",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.113837"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0029",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 29,
       "start": 1998.51,
       "end": 2075.51,
@@ -3186,7 +3188,7 @@
         94,
         95
       ],
-      "created_at": "2026-06-16T12:54:13.496638",
+      "created_at": "2026-07-03T10:35:24.229259",
       "keywords": [
         "access to information",
         "information",
@@ -3275,14 +3277,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.459580",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.119681"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0030",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 30,
       "start": 2075.51,
       "end": 2142.67,
@@ -3296,7 +3298,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.496839",
+      "created_at": "2026-07-03T10:35:24.231294",
       "keywords": [
         "access to information",
         "law",
@@ -3378,14 +3380,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.464931",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.125328"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0031",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 31,
       "start": 2142.67,
       "end": 2215.74,
@@ -3399,7 +3401,7 @@
         104,
         105
       ],
-      "created_at": "2026-06-16T12:54:13.497060",
+      "created_at": "2026-07-03T10:35:24.233312",
       "keywords": [
         "access to information",
         "information",
@@ -3499,14 +3501,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.470812",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.131318"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0032",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 32,
       "start": 2215.74,
       "end": 2286.74,
@@ -3520,7 +3522,7 @@
         109,
         110
       ],
-      "created_at": "2026-06-16T12:54:13.497264",
+      "created_at": "2026-07-03T10:35:24.235268",
       "keywords": [
         "artificial intelligence",
         "news",
@@ -3577,14 +3579,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.476157",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.136803"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0033",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 33,
       "start": 2286.74,
       "end": 2342.74,
@@ -3597,7 +3599,7 @@
         113,
         114
       ],
-      "created_at": "2026-06-16T12:54:13.497450",
+      "created_at": "2026-07-03T10:35:24.237674",
       "keywords": [
         "information",
         "citizens",
@@ -3668,14 +3670,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.481108",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.141851"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0034",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 34,
       "start": 2342.74,
       "end": 2416.0,
@@ -3689,7 +3691,7 @@
         118,
         1
       ],
-      "created_at": "2026-06-16T12:54:13.497675",
+      "created_at": "2026-07-03T10:35:24.239864",
       "keywords": [
         "access to information",
         "information",
@@ -3780,14 +3782,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.486391",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.147388"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0035",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 35,
       "start": 2416.0,
       "end": 2490.26,
@@ -3801,7 +3803,7 @@
         5,
         6
       ],
-      "created_at": "2026-06-16T12:54:13.497865",
+      "created_at": "2026-07-03T10:35:24.242032",
       "keywords": [
         "access to information",
         "information",
@@ -3869,14 +3871,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.491639",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.153321"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0036",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 36,
       "start": 2490.26,
       "end": 2547.06,
@@ -3889,7 +3891,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.498017",
+      "created_at": "2026-07-03T10:35:24.244066",
       "keywords": [
         "information",
         "freedom of information",
@@ -3975,14 +3977,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.496674",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.158675"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0037",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 37,
       "start": 2547.06,
       "end": 2605.06,
@@ -3995,7 +3997,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:13.498188",
+      "created_at": "2026-07-03T10:35:24.246253",
       "keywords": [
         "public services",
         "services",
@@ -4038,14 +4040,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.501603",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.163854"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0038",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 38,
       "start": 2605.06,
       "end": 2664.69,
@@ -4058,7 +4060,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.498358",
+      "created_at": "2026-07-03T10:35:24.248559",
       "keywords": [
         "access to information",
         "information",
@@ -4159,14 +4161,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.506380",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.168800"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0039",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 39,
       "start": 2664.69,
       "end": 2730.26,
@@ -4178,7 +4180,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.498514",
+      "created_at": "2026-07-03T10:35:24.250886",
       "keywords": [
         "oversight",
         "privacy",
@@ -4276,14 +4278,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.511834",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.174124"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0040",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 40,
       "start": 2730.26,
       "end": 2801.26,
@@ -4297,7 +4299,7 @@
         25,
         26
       ],
-      "created_at": "2026-06-16T12:54:13.498744",
+      "created_at": "2026-07-03T10:35:24.253636",
       "keywords": [
         "public trust",
         "information",
@@ -4408,14 +4410,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.518232",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.180509"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0041",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 41,
       "start": 2801.26,
       "end": 2858.38,
@@ -4427,7 +4429,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.498894",
+      "created_at": "2026-07-03T10:35:24.255651",
       "keywords": [
         "access to information",
         "information",
@@ -4473,14 +4475,14 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.524038",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.185150"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0042",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 42,
       "start": 2858.38,
       "end": 2926.43,
@@ -4492,7 +4494,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:13.499076",
+      "created_at": "2026-07-03T10:35:24.257730",
       "keywords": [
         "information",
         "heritage",
@@ -4549,14 +4551,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.531063",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.191457"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0043",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 43,
       "start": 2928.43,
       "end": 2987.43,
@@ -4568,7 +4570,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.499233",
+      "created_at": "2026-07-03T10:35:24.259759",
       "keywords": [
         "people",
         "did",
@@ -4609,14 +4611,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.536156",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.196260"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0044",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 44,
       "start": 2987.43,
       "end": 3056.62,
@@ -4631,7 +4633,7 @@
         40,
         41
       ],
-      "created_at": "2026-06-16T12:54:13.499418",
+      "created_at": "2026-07-03T10:35:24.261818",
       "keywords": [
         "information",
         "freedom of information",
@@ -4725,14 +4727,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.540811",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.200934"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0045",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 45,
       "start": 3056.62,
       "end": 3111.78,
@@ -4745,7 +4747,7 @@
         44,
         45
       ],
-      "created_at": "2026-06-16T12:54:13.499579",
+      "created_at": "2026-07-03T10:35:24.263796",
       "keywords": [
         "health",
         "content",
@@ -4831,14 +4833,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.545864",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.205650"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0046",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 46,
       "start": 3111.78,
       "end": 3174.46,
@@ -4851,7 +4853,7 @@
         48,
         49
       ],
-      "created_at": "2026-06-16T12:54:13.499744",
+      "created_at": "2026-07-03T10:35:24.265822",
       "keywords": [
         "health",
         "information",
@@ -4935,14 +4937,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.551793",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.210497"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0047",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 47,
       "start": 3174.46,
       "end": 3236.0,
@@ -4954,7 +4956,7 @@
         51,
         52
       ],
-      "created_at": "2026-06-16T12:54:13.499909",
+      "created_at": "2026-07-03T10:35:24.267839",
       "keywords": [
         "health",
         "information",
@@ -5046,14 +5048,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.559308",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.215617"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0048",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 48,
       "start": 3236.0,
       "end": 3300.7,
@@ -5065,7 +5067,7 @@
         54,
         55
       ],
-      "created_at": "2026-06-16T12:54:13.500078",
+      "created_at": "2026-07-03T10:35:24.269825",
       "keywords": [
         "access to information",
         "information",
@@ -5152,14 +5154,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.565867",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.220577"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0049",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 49,
       "start": 3300.7,
       "end": 3375.5,
@@ -5173,7 +5175,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:13.500280",
+      "created_at": "2026-07-03T10:35:24.271818",
       "keywords": [
         "access to information",
         "disinformation",
@@ -5289,14 +5291,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.573484",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.225918"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0050",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 50,
       "start": 3377.05,
       "end": 3433.0,
@@ -5310,7 +5312,7 @@
         64,
         65
       ],
-      "created_at": "2026-06-16T12:54:13.500478",
+      "created_at": "2026-07-03T10:35:24.273792",
       "keywords": [
         "access to information",
         "disinformation",
@@ -5406,14 +5408,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.579268",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.230570"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0051",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 51,
       "start": 3433.0,
       "end": 3507.42,
@@ -5431,7 +5433,7 @@
         73,
         74
       ],
-      "created_at": "2026-06-16T12:54:13.500733",
+      "created_at": "2026-07-03T10:35:24.275814",
       "keywords": [
         "legislation",
         "information",
@@ -5494,14 +5496,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.586882",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.235874"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0052",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 52,
       "start": 3507.42,
       "end": 3564.97,
@@ -5514,7 +5516,7 @@
         77,
         78
       ],
-      "created_at": "2026-06-16T12:54:13.500898",
+      "created_at": "2026-07-03T10:35:24.277771",
       "keywords": [
         "misinformation",
         "information",
@@ -5578,14 +5580,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.592406",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.240917"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0053",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 53,
       "start": 3564.97,
       "end": 3618.72,
@@ -5600,7 +5602,7 @@
         2,
         3
       ],
-      "created_at": "2026-06-16T12:54:13.501105",
+      "created_at": "2026-07-03T10:35:24.279815",
       "keywords": [
         "disinformation",
         "information",
@@ -5688,14 +5690,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.597955",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.245818"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0054",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 54,
       "start": 3620.02,
       "end": 3691.81,
@@ -5713,7 +5715,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:13.501366",
+      "created_at": "2026-07-03T10:35:24.281873",
       "keywords": [
         "disinformation",
         "productivity",
@@ -5784,14 +5786,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.603497",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.251000"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0055",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 55,
       "start": 3691.81,
       "end": 3760.69,
@@ -5809,7 +5811,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.501638",
+      "created_at": "2026-07-03T10:35:24.283957",
       "keywords": [
         "disinformation",
         "media",
@@ -5907,14 +5909,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.609314",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.256290"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0056",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 56,
       "start": 3760.69,
       "end": 3823.82,
@@ -5931,7 +5933,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.501868",
+      "created_at": "2026-07-03T10:35:24.286043",
       "keywords": [
         "disinformation",
         "information",
@@ -5993,14 +5995,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.615037",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.261394"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0057",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 57,
       "start": 3823.82,
       "end": 3885.98,
@@ -6017,7 +6019,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:13.502216",
+      "created_at": "2026-07-03T10:35:24.288302",
       "keywords": [
         "disinformation",
         "content",
@@ -6094,14 +6096,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.620764",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.266528"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0058",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 58,
       "start": 3885.98,
       "end": 3946.19,
@@ -6118,7 +6120,7 @@
         44,
         45
       ],
-      "created_at": "2026-06-16T12:54:13.502471",
+      "created_at": "2026-07-03T10:35:24.290526",
       "keywords": [
         "disinformation",
         "might",
@@ -6162,14 +6164,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.625912",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.272056"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0059",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 59,
       "start": 3947.38,
       "end": 4015.31,
@@ -6187,7 +6189,7 @@
         53,
         54
       ],
-      "created_at": "2026-06-16T12:54:13.502733",
+      "created_at": "2026-07-03T10:35:24.292673",
       "keywords": [
         "disinformation",
         "creative",
@@ -6253,14 +6255,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.631680",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.278148"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0060",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 60,
       "start": 4015.31,
       "end": 4073.71,
@@ -6277,7 +6279,7 @@
         61,
         62
       ],
-      "created_at": "2026-06-16T12:54:13.502967",
+      "created_at": "2026-07-03T10:35:24.294774",
       "keywords": [
         "misinformation",
         "information",
@@ -6341,14 +6343,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.637220",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.283620"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0061",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 61,
       "start": 4073.79,
       "end": 4137.22,
@@ -6365,7 +6367,7 @@
         69,
         70
       ],
-      "created_at": "2026-06-16T12:54:13.503191",
+      "created_at": "2026-07-03T10:35:24.296852",
       "keywords": [
         "disinformation",
         "false",
@@ -6432,14 +6434,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.642600",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.289119"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0062",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 62,
       "start": 4137.22,
       "end": 4191.38,
@@ -6456,7 +6458,7 @@
         77,
         78
       ],
-      "created_at": "2026-06-16T12:54:13.503424",
+      "created_at": "2026-07-03T10:35:24.299012",
       "keywords": [
         "disinformation",
         "malicious",
@@ -6508,14 +6510,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.648215",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.294297"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0063",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 63,
       "start": 4191.38,
       "end": 4248.4,
@@ -6532,7 +6534,7 @@
         85,
         86
       ],
-      "created_at": "2026-06-16T12:54:13.503656",
+      "created_at": "2026-07-03T10:35:24.301191",
       "keywords": [
         "disinformation",
         "regulation",
@@ -6635,14 +6637,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.653761",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.299400"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0064",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 64,
       "start": 4248.4,
       "end": 4308.08,
@@ -6660,7 +6662,7 @@
         94,
         95
       ],
-      "created_at": "2026-06-16T12:54:13.503918",
+      "created_at": "2026-07-03T10:35:24.303497",
       "keywords": [
         "disinformation",
         "content",
@@ -6770,14 +6772,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.659131",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.304583"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0065",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 65,
       "start": 4308.08,
       "end": 4370.8,
@@ -6794,7 +6796,7 @@
         102,
         103
       ],
-      "created_at": "2026-06-16T12:54:13.504149",
+      "created_at": "2026-07-03T10:35:24.306261",
       "keywords": [
         "disinformation",
         "content",
@@ -6859,14 +6861,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.664829",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.309631"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0066",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 66,
       "start": 4370.8,
       "end": 4429.92,
@@ -6883,7 +6885,7 @@
         110,
         111
       ],
-      "created_at": "2026-06-16T12:54:13.504376",
+      "created_at": "2026-07-03T10:35:24.308642",
       "keywords": [
         "regulation",
         "data protection",
@@ -6996,14 +6998,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.670539",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.314530"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0067",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 67,
       "start": 4429.92,
       "end": 4505.12,
@@ -7020,7 +7022,7 @@
         118,
         119
       ],
-      "created_at": "2026-06-16T12:54:13.504612",
+      "created_at": "2026-07-03T10:35:24.310874",
       "keywords": [
         "legislation",
         "information",
@@ -7114,14 +7116,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.675659",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.319615"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0068",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 68,
       "start": 4506.08,
       "end": 4573.22,
@@ -7138,7 +7140,7 @@
         126,
         127
       ],
-      "created_at": "2026-06-16T12:54:13.504851",
+      "created_at": "2026-07-03T10:35:24.313041",
       "keywords": [
         "content",
         "transparency",
@@ -7222,14 +7224,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.680548",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.324914"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0069",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 69,
       "start": 4573.22,
       "end": 4627.9,
@@ -7246,7 +7248,7 @@
         134,
         135
       ],
-      "created_at": "2026-06-16T12:54:13.505085",
+      "created_at": "2026-07-03T10:35:24.315106",
       "keywords": [
         "literacy",
         "digital literacy",
@@ -7301,14 +7303,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.685275",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.329747"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0070",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 70,
       "start": 4628.46,
       "end": 4691.78,
@@ -7325,7 +7327,7 @@
         142,
         143
       ],
-      "created_at": "2026-06-16T12:54:13.505324",
+      "created_at": "2026-07-03T10:35:24.317169",
       "keywords": [
         "legislation",
         "information",
@@ -7389,14 +7391,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.690122",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.334757"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0071",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 71,
       "start": 4691.78,
       "end": 4755.86,
@@ -7413,7 +7415,7 @@
         150,
         151
       ],
-      "created_at": "2026-06-16T12:54:13.505561",
+      "created_at": "2026-07-03T10:35:24.320217",
       "keywords": [
         "content",
         "information",
@@ -7519,14 +7521,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.695587",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.339927"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0072",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 72,
       "start": 4755.86,
       "end": 4812.36,
@@ -7543,7 +7545,7 @@
         2,
         3
       ],
-      "created_at": "2026-06-16T12:54:13.505793",
+      "created_at": "2026-07-03T10:35:24.322512",
       "keywords": [
         "content",
         "transparency",
@@ -7639,14 +7641,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.700364",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.344444"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0073",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 73,
       "start": 4812.36,
       "end": 4867.04,
@@ -7671,7 +7673,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:13.506151",
+      "created_at": "2026-07-03T10:35:24.324769",
       "keywords": [
         "ai literacy",
         "literacy",
@@ -7737,14 +7739,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.705118",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.349401"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0074",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 74,
       "start": 4867.96,
       "end": 4917.58,
@@ -7768,7 +7770,7 @@
         33,
         34
       ],
-      "created_at": "2026-06-16T12:54:13.506490",
+      "created_at": "2026-07-03T10:35:24.326985",
       "keywords": [
         "ai literacy",
         "literacy",
@@ -7882,14 +7884,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.709669",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.353864"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0075",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 75,
       "start": 4917.58,
       "end": 4975.5,
@@ -7916,7 +7918,7 @@
         51,
         52
       ],
-      "created_at": "2026-06-16T12:54:13.506884",
+      "created_at": "2026-07-03T10:35:24.329198",
       "keywords": [
         "access to information",
         "regulation",
@@ -8017,14 +8019,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.714282",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.358474"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0076",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 76,
       "start": 4975.5,
       "end": 5026.56,
@@ -8050,7 +8052,7 @@
         68,
         69
       ],
-      "created_at": "2026-06-16T12:54:13.507332",
+      "created_at": "2026-07-03T10:35:24.331377",
       "keywords": [
         "ukraine",
         "number",
@@ -8087,14 +8089,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.718581",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.362867"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0077",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 77,
       "start": 5026.56,
       "end": 5082.09,
@@ -8120,7 +8122,7 @@
         85,
         86
       ],
-      "created_at": "2026-06-16T12:54:13.507782",
+      "created_at": "2026-07-03T10:35:24.334170",
       "keywords": [
         "artificial intelligence",
         "law",
@@ -8215,14 +8217,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.723358",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.367777"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0078",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 78,
       "start": 5082.09,
       "end": 5140.45,
@@ -8245,7 +8247,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.508109",
+      "created_at": "2026-07-03T10:35:24.336455",
       "keywords": [
         "artificial intelligence",
         "regulation",
@@ -8350,14 +8352,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.728660",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.372554"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0079",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 79,
       "start": 5140.45,
       "end": 5195.85,
@@ -8381,7 +8383,7 @@
         114,
         115
       ],
-      "created_at": "2026-06-16T12:54:13.508450",
+      "created_at": "2026-07-03T10:35:24.338697",
       "keywords": [
         "regulation",
         "legislation",
@@ -8462,14 +8464,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.733485",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.377340"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0080",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 80,
       "start": 5195.85,
       "end": 5259.87,
@@ -8495,7 +8497,7 @@
         131,
         132
       ],
-      "created_at": "2026-06-16T12:54:13.508861",
+      "created_at": "2026-07-03T10:35:24.340940",
       "keywords": [
         "human rights",
         "regulation",
@@ -8608,14 +8610,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.738979",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.382311"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0081",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 81,
       "start": 5259.87,
       "end": 5319.53,
@@ -8641,7 +8643,7 @@
         148,
         149
       ],
-      "created_at": "2026-06-16T12:54:13.509243",
+      "created_at": "2026-07-03T10:35:24.343128",
       "keywords": [
         "environment",
         "legislation",
@@ -8749,14 +8751,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.744356",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.387211"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0082",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 82,
       "start": 5319.53,
       "end": 5384.02,
@@ -8782,7 +8784,7 @@
         165,
         166
       ],
-      "created_at": "2026-06-16T12:54:13.509775",
+      "created_at": "2026-07-03T10:35:24.345402",
       "keywords": [
         "human rights",
         "public trust",
@@ -8893,14 +8895,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.749939",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.392692"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0083",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 83,
       "start": 5384.02,
       "end": 5448.71,
@@ -8927,7 +8929,7 @@
         183,
         184
       ],
-      "created_at": "2026-06-16T12:54:13.510201",
+      "created_at": "2026-07-03T10:35:24.347632",
       "keywords": [
         "regulation",
         "intellectual property",
@@ -9036,14 +9038,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.754789",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.398458"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0084",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 84,
       "start": 5448.71,
       "end": 5512.63,
@@ -9071,7 +9073,7 @@
         202,
         203
       ],
-      "created_at": "2026-06-16T12:54:13.510619",
+      "created_at": "2026-07-03T10:35:24.349834",
       "keywords": [
         "regulation",
         "education",
@@ -9188,14 +9190,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.759566",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.403409"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0085",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 85,
       "start": 5512.63,
       "end": 5570.78,
@@ -9222,7 +9224,7 @@
         220,
         221
       ],
-      "created_at": "2026-06-16T12:54:13.511013",
+      "created_at": "2026-07-03T10:35:24.352023",
       "keywords": [
         "human rights",
         "rights",
@@ -9300,14 +9302,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.764145",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.408201"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0086",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 86,
       "start": 5570.78,
       "end": 5629.32,
@@ -9333,7 +9335,7 @@
         237,
         238
       ],
-      "created_at": "2026-06-16T12:54:13.511408",
+      "created_at": "2026-07-03T10:35:24.354197",
       "keywords": [
         "government",
         "protection",
@@ -9396,14 +9398,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.768828",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.413401"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0087",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 87,
       "start": 5629.32,
       "end": 5688.08,
@@ -9431,7 +9433,7 @@
         256,
         257
       ],
-      "created_at": "2026-06-16T12:54:13.511853",
+      "created_at": "2026-07-03T10:35:24.356496",
       "keywords": [
         "legislation",
         "government",
@@ -9512,14 +9514,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.775644",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.418906"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0088",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 88,
       "start": 5688.08,
       "end": 5755.93,
@@ -9546,7 +9548,7 @@
         274,
         275
       ],
-      "created_at": "2026-06-16T12:54:13.512275",
+      "created_at": "2026-07-03T10:35:24.358732",
       "keywords": [
         "education",
         "content authenticity",
@@ -9653,14 +9655,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.780841",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.424228"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0089",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 89,
       "start": 5755.93,
       "end": 5822.22,
@@ -9688,7 +9690,7 @@
         293,
         294
       ],
-      "created_at": "2026-06-16T12:54:13.512715",
+      "created_at": "2026-07-03T10:35:24.360947",
       "keywords": [
         "disinformation",
         "university",
@@ -9789,14 +9791,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.786140",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.429606"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0090",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 90,
       "start": 5822.22,
       "end": 5881.22,
@@ -9821,7 +9823,7 @@
         309,
         310
       ],
-      "created_at": "2026-06-16T12:54:13.513088",
+      "created_at": "2026-07-03T10:35:24.363112",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -9931,14 +9933,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.792139",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.434407"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0091",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 91,
       "start": 5881.22,
       "end": 5935.38,
@@ -9962,7 +9964,7 @@
         324,
         325
       ],
-      "created_at": "2026-06-16T12:54:13.513429",
+      "created_at": "2026-07-03T10:35:24.365251",
       "keywords": [
         "artificial intelligence",
         "access to information",
@@ -10070,14 +10072,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.797283",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.439279"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0092",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 92,
       "start": 5935.38,
       "end": 5985.86,
@@ -10102,7 +10104,7 @@
         340,
         341
       ],
-      "created_at": "2026-06-16T12:54:13.513836",
+      "created_at": "2026-07-03T10:35:24.367950",
       "keywords": [
         "artificial intelligence",
         "human rights",
@@ -10197,14 +10199,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.802926",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.444383"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0093",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 93,
       "start": 5985.86,
       "end": 6045.46,
@@ -10224,7 +10226,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.514096",
+      "created_at": "2026-07-03T10:35:24.370539",
       "keywords": [
         "policy",
         "legal",
@@ -10331,14 +10333,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.807920",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.449458"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0094",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 94,
       "start": 6045.46,
       "end": 6111.87,
@@ -10359,7 +10361,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:13.514405",
+      "created_at": "2026-07-03T10:35:24.372817",
       "keywords": [
         "human rights",
         "rights",
@@ -10462,14 +10464,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.813192",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.455016"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0095",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 95,
       "start": 6111.87,
       "end": 6164.07,
@@ -10488,7 +10490,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.514679",
+      "created_at": "2026-07-03T10:35:24.374921",
       "keywords": [
         "human rights",
         "regulation",
@@ -10583,14 +10585,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.818219",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.460076"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0096",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 96,
       "start": 6164.07,
       "end": 6221.62,
@@ -10609,7 +10611,7 @@
         38,
         39
       ],
-      "created_at": "2026-06-16T12:54:13.514946",
+      "created_at": "2026-07-03T10:35:24.376995",
       "keywords": [
         "oversight",
         "security",
@@ -10680,14 +10682,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.823615",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.465109"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0097",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 97,
       "start": 6221.62,
       "end": 6269.77,
@@ -10706,7 +10708,7 @@
         48,
         49
       ],
-      "created_at": "2026-06-16T12:54:13.515216",
+      "created_at": "2026-07-03T10:35:24.379129",
       "keywords": [
         "information",
         "public information",
@@ -10782,14 +10784,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.828552",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.470083"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0098",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 98,
       "start": 6269.77,
       "end": 6322.49,
@@ -10808,7 +10810,7 @@
         58,
         59
       ],
-      "created_at": "2026-06-16T12:54:13.515492",
+      "created_at": "2026-07-03T10:35:24.381295",
       "keywords": [
         "deepfakes",
         "disinformation",
@@ -10898,14 +10900,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.833451",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.474953"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0099",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 99,
       "start": 6322.49,
       "end": 6384.37,
@@ -10926,7 +10928,7 @@
         70,
         71
       ],
-      "created_at": "2026-06-16T12:54:13.515910",
+      "created_at": "2026-07-03T10:35:24.383477",
       "keywords": [
         "artificial intelligence",
         "human rights",
@@ -11034,14 +11036,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.838514",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.481223"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0100",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 100,
       "start": 6384.37,
       "end": 6441.69,
@@ -11060,7 +11062,7 @@
         80,
         81
       ],
-      "created_at": "2026-06-16T12:54:13.516190",
+      "created_at": "2026-07-03T10:35:24.385599",
       "keywords": [
         "inclusion",
         "security",
@@ -11134,14 +11136,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.843327",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.489926"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0101",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 101,
       "start": 6441.69,
       "end": 6495.49,
@@ -11159,7 +11161,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:13.516444",
+      "created_at": "2026-07-03T10:35:24.387680",
       "keywords": [
         "security",
         "standards",
@@ -11246,14 +11248,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.848284",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.499346"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0102",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 102,
       "start": 6495.49,
       "end": 6556.33,
@@ -11272,7 +11274,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.516727",
+      "created_at": "2026-07-03T10:35:24.389785",
       "keywords": [
         "human rights",
         "law",
@@ -11382,14 +11384,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.853884",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.509606"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0103",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 103,
       "start": 6556.33,
       "end": 6617.2,
@@ -11407,7 +11409,7 @@
         108,
         109
       ],
-      "created_at": "2026-06-16T12:54:13.516984",
+      "created_at": "2026-07-03T10:35:24.391827",
       "keywords": [
         "artificial intelligence",
         "human rights",
@@ -11515,14 +11517,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.859016",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.518834"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0104",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 104,
       "start": 6617.2,
       "end": 6669.82,
@@ -11540,7 +11542,7 @@
         117,
         118
       ],
-      "created_at": "2026-06-16T12:54:13.517232",
+      "created_at": "2026-07-03T10:35:24.393860",
       "keywords": [
         "human rights",
         "environment",
@@ -11630,14 +11632,14 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.863883",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.526263"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0105",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 105,
       "start": 6669.82,
       "end": 6730.78,
@@ -11655,7 +11657,7 @@
         126,
         127
       ],
-      "created_at": "2026-06-16T12:54:13.517508",
+      "created_at": "2026-07-03T10:35:24.395934",
       "keywords": [
         "session",
         "important",
@@ -11698,14 +11700,14 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.868811",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.534001"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0106",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 106,
       "start": 6730.78,
       "end": 6779.62,
@@ -11722,7 +11724,7 @@
         134,
         135
       ],
-      "created_at": "2026-06-16T12:54:13.517745",
+      "created_at": "2026-07-03T10:35:24.397951",
       "keywords": [
         "human rights",
         "regulation",
@@ -11831,14 +11833,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.873435",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.539411"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0107",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 107,
       "start": 6779.62,
       "end": 6836.14,
@@ -11855,7 +11857,7 @@
         142,
         143
       ],
-      "created_at": "2026-06-16T12:54:13.517976",
+      "created_at": "2026-07-03T10:35:24.399960",
       "keywords": [
         "ethics",
         "research",
@@ -11925,14 +11927,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.878208",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.544534"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0108",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 108,
       "start": 6836.14,
       "end": 6911.1,
@@ -11949,7 +11951,7 @@
         150,
         151
       ],
-      "created_at": "2026-06-16T12:54:13.518214",
+      "created_at": "2026-07-03T10:35:24.401990",
       "keywords": [
         "ethics",
         "regulation",
@@ -12048,14 +12050,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.883102",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.549563"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0109",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 109,
       "start": 6911.1,
       "end": 6972.94,
@@ -12071,7 +12073,7 @@
         157,
         158
       ],
-      "created_at": "2026-06-16T12:54:13.518432",
+      "created_at": "2026-07-03T10:35:24.403994",
       "keywords": [
         "legal",
         "ethical",
@@ -12141,14 +12143,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.887481",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.555376"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0110",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 110,
       "start": 6973.34,
       "end": 7035.02,
@@ -12164,7 +12166,7 @@
         164,
         165
       ],
-      "created_at": "2026-06-16T12:54:13.518649",
+      "created_at": "2026-07-03T10:35:24.406063",
       "keywords": [
         "ethics",
         "law",
@@ -12259,14 +12261,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.892113",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.560222"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0111",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 111,
       "start": 7035.58,
       "end": 7096.78,
@@ -12282,7 +12284,7 @@
         171,
         172
       ],
-      "created_at": "2026-06-16T12:54:13.518851",
+      "created_at": "2026-07-03T10:35:24.408053",
       "keywords": [
         "ethics",
         "law",
@@ -12375,14 +12377,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.896619",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.565039"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0112",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 112,
       "start": 7096.78,
       "end": 7157.56,
@@ -12400,7 +12402,7 @@
         180,
         181
       ],
-      "created_at": "2026-06-16T12:54:13.519111",
+      "created_at": "2026-07-03T10:35:24.410085",
       "keywords": [
         "ethics",
         "education",
@@ -12507,14 +12509,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.902112",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.570742"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0113",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 113,
       "start": 7157.56,
       "end": 7212.36,
@@ -12531,7 +12533,7 @@
         1,
         2
       ],
-      "created_at": "2026-06-16T12:54:13.519356",
+      "created_at": "2026-07-03T10:35:24.412124",
       "keywords": [
         "ethics",
         "regulation",
@@ -12629,14 +12631,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.907002",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.575757"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0114",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 114,
       "start": 7212.36,
       "end": 7270.96,
@@ -12653,7 +12655,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.519597",
+      "created_at": "2026-07-03T10:35:24.414145",
       "keywords": [
         "ethics",
         "regulation",
@@ -12746,14 +12748,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.912010",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.581192"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0115",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 115,
       "start": 7270.96,
       "end": 7330.14,
@@ -12770,7 +12772,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.519832",
+      "created_at": "2026-07-03T10:35:24.416164",
       "keywords": [
         "regulation",
         "ethical",
@@ -12856,14 +12858,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.917192",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.586354"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0116",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 116,
       "start": 7330.7,
       "end": 7388.93,
@@ -12880,7 +12882,7 @@
         25,
         26
       ],
-      "created_at": "2026-06-16T12:54:13.520054",
+      "created_at": "2026-07-03T10:35:24.418184",
       "keywords": [
         "human rights",
         "ethics",
@@ -12990,14 +12992,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.921968",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.591303"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0117",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 117,
       "start": 7388.93,
       "end": 7438.03,
@@ -13013,7 +13015,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:13.520262",
+      "created_at": "2026-07-03T10:35:24.420257",
       "keywords": [
         "ethics",
         "ethical",
@@ -13071,14 +13073,14 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.926548",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.595785"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0118",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 118,
       "start": 7438.67,
       "end": 7482.35,
@@ -13094,7 +13096,7 @@
         39,
         40
       ],
-      "created_at": "2026-06-16T12:54:13.520463",
+      "created_at": "2026-07-03T10:35:24.422295",
       "keywords": [
         "regulation",
         "law",
@@ -13197,14 +13199,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.931180",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.600468"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0119",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 119,
       "start": 7483.63,
       "end": 7544.77,
@@ -13221,7 +13223,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.520690",
+      "created_at": "2026-07-03T10:35:24.424325",
       "keywords": [
         "artificial intelligence",
         "ethics",
@@ -13330,14 +13332,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.936591",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.605734"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0120",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 120,
       "start": 7544.77,
       "end": 7610.24,
@@ -13354,7 +13356,7 @@
         55,
         56
       ],
-      "created_at": "2026-06-16T12:54:13.520922",
+      "created_at": "2026-07-03T10:35:24.426406",
       "keywords": [
         "ethics",
         "education",
@@ -13455,14 +13457,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.943215",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.611803"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0121",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 121,
       "start": 7610.24,
       "end": 7691.71,
@@ -13479,7 +13481,7 @@
         63,
         64
       ],
-      "created_at": "2026-06-16T12:54:13.521166",
+      "created_at": "2026-07-03T10:35:24.428521",
       "keywords": [
         "regulation",
         "education",
@@ -13566,14 +13568,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.949340",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.617287"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0122",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 122,
       "start": 7692.27,
       "end": 7759.76,
@@ -13589,7 +13591,7 @@
         70,
         71
       ],
-      "created_at": "2026-06-16T12:54:13.521372",
+      "created_at": "2026-07-03T10:35:24.430561",
       "keywords": [
         "regulation",
         "ethical",
@@ -13669,14 +13671,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.954407",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.622785"
     },
     {
       "fragment_id": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2_0123",
       "source_video": "0125_MVEKzZJ2t58_Europe Satellite Event  Panel 2",
       "video_id": "MVEKzZJ2t58",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 123,
       "start": 7759.76,
       "end": 7801.54,
@@ -13690,7 +13692,7 @@
         75,
         76
       ],
-      "created_at": "2026-06-16T12:54:13.521493",
+      "created_at": "2026-07-03T10:35:24.432480",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -13763,11 +13765,9 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.957594",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:19.626827"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:28.957600"
+  "classified_at": "2026-07-03T11:40:19.626835"
 }

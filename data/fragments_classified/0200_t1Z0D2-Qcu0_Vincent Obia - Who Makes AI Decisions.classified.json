@@ -3,11 +3,11 @@
   "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
   "video_id": "t1Z0D2-Qcu0",
   "fragment_count": 12,
-  "created_at": "2026-06-16T12:54:13.891782",
+  "created_at": "2026-07-03T10:35:26.851288",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0001",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 0.72,
       "end": 45.42,
@@ -31,7 +33,7 @@
         5,
         6
       ],
-      "created_at": "2026-06-16T12:54:13.889608",
+      "created_at": "2026-07-03T10:35:26.829948",
       "keywords": [
         "governance",
         "inclusive",
@@ -140,14 +142,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.211954",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.971596",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0002",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 45.42,
       "end": 103.7,
@@ -161,7 +165,7 @@
         10,
         11
       ],
-      "created_at": "2026-06-16T12:54:13.889818",
+      "created_at": "2026-07-03T10:35:26.832258",
       "keywords": [
         "education",
         "health",
@@ -269,14 +273,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.217827",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.977882",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0003",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 103.7,
       "end": 143.7,
@@ -289,7 +295,7 @@
         14,
         15
       ],
-      "created_at": "2026-06-16T12:54:13.889981",
+      "created_at": "2026-07-03T10:35:26.834287",
       "keywords": [
         "language",
         "africa",
@@ -358,14 +364,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.222869",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.983996",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0004",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 143.7,
       "end": 200.7,
@@ -378,7 +386,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:13.890187",
+      "created_at": "2026-07-03T10:35:26.836197",
       "keywords": [
         "standards",
         "principles",
@@ -490,14 +498,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.229379",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.990883",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0005",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 200.7,
       "end": 257.69,
@@ -510,7 +520,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:13.890391",
+      "created_at": "2026-07-03T10:35:26.838057",
       "keywords": [
         "accountability",
         "transparency",
@@ -622,14 +632,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.235736",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.997455",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0006",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 257.69,
       "end": 310.1,
@@ -640,7 +652,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:13.890552",
+      "created_at": "2026-07-03T10:35:26.839830",
       "keywords": [
         "artificial intelligence",
         "policy",
@@ -745,14 +757,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.241531",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:25.003466",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0007",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 310.1,
       "end": 359.1,
@@ -763,7 +777,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:13.890706",
+      "created_at": "2026-07-03T10:35:26.841763",
       "keywords": [
         "africa",
         "knowledge",
@@ -846,14 +860,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.247156",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:25.009414",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0008",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 359.1,
       "end": 412.1,
@@ -867,7 +883,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:13.890923",
+      "created_at": "2026-07-03T10:35:26.843643",
       "keywords": [
         "education",
         "africa",
@@ -961,14 +977,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.253843",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:25.016745",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0009",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 9,
       "start": 412.1,
       "end": 452.2,
@@ -981,7 +999,7 @@
         35,
         36
       ],
-      "created_at": "2026-06-16T12:54:13.891078",
+      "created_at": "2026-07-03T10:35:26.845445",
       "keywords": [
         "governance",
         "regulation",
@@ -1066,14 +1084,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.258603",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:25.022214",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0010",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 10,
       "start": 452.2,
       "end": 499.2,
@@ -1089,7 +1109,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:13.891322",
+      "created_at": "2026-07-03T10:35:26.847374",
       "keywords": [
         "governance",
         "regulation",
@@ -1197,14 +1217,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.264623",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:25.029208",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0011",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 11,
       "start": 499.2,
       "end": 546.39,
@@ -1221,7 +1243,7 @@
         50,
         51
       ],
-      "created_at": "2026-06-16T12:54:13.891566",
+      "created_at": "2026-07-03T10:35:26.849454",
       "keywords": [
         "global south",
         "regulation",
@@ -1329,14 +1351,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.270081",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:25.036269",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions_0012",
       "source_video": "0200_t1Z0D2-Qcu0_Vincent Obia - Who Makes AI Decisions",
       "video_id": "t1Z0D2-Qcu0",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 12,
       "start": 546.39,
       "end": 585.84,
@@ -1349,7 +1373,7 @@
         54,
         55
       ],
-      "created_at": "2026-06-16T12:54:13.891762",
+      "created_at": "2026-07-03T10:35:26.851263",
       "keywords": [
         "law",
         "africa",
@@ -1434,11 +1458,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.274371",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:25.041077",
+      "speaker": "Vincent Obia",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:34.274377"
+  "classified_at": "2026-07-03T11:40:25.041088"
 }

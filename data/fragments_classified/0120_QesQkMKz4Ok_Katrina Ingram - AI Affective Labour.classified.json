@@ -3,11 +3,11 @@
   "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
   "video_id": "QesQkMKz4Ok",
   "fragment_count": 10,
-  "created_at": "2026-06-16T12:54:13.466360",
+  "created_at": "2026-07-03T10:35:24.028624",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0001",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 5.26,
       "end": 59.22,
@@ -40,7 +42,7 @@
         14,
         15
       ],
-      "created_at": "2026-06-16T12:54:13.462898",
+      "created_at": "2026-07-03T10:35:24.007146",
       "keywords": [
         "labor",
         "young",
@@ -83,14 +85,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:27.967396",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.608013",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0002",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 59.22,
       "end": 112.02,
@@ -114,7 +118,7 @@
         29,
         30
       ],
-      "created_at": "2026-06-16T12:54:13.463259",
+      "created_at": "2026-07-03T10:35:24.009249",
       "keywords": [
         "market",
         "labor",
@@ -157,14 +161,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:27.971944",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.613036",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0003",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 112.02,
       "end": 158.33,
@@ -188,7 +194,7 @@
         44,
         45
       ],
-      "created_at": "2026-06-16T12:54:13.463625",
+      "created_at": "2026-07-03T10:35:24.011200",
       "keywords": [
         "draft",
         "writer",
@@ -223,14 +229,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:27.976223",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.617468",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0004",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 158.33,
       "end": 204.54,
@@ -255,7 +263,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:13.463987",
+      "created_at": "2026-07-03T10:35:24.013104",
       "keywords": [
         "language",
         "care",
@@ -296,14 +304,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:27.980707",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.622408",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0005",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 204.54,
       "end": 256.21,
@@ -327,7 +337,7 @@
         75,
         76
       ],
-      "created_at": "2026-06-16T12:54:13.464351",
+      "created_at": "2026-07-03T10:35:24.014976",
       "keywords": [
         "content",
         "labor",
@@ -369,14 +379,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:27.985185",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.627468",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0006",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 256.21,
       "end": 306.68,
@@ -402,7 +414,7 @@
         92,
         93
       ],
-      "created_at": "2026-06-16T12:54:13.464731",
+      "created_at": "2026-07-03T10:35:24.017317",
       "keywords": [
         "work",
         "spend",
@@ -442,14 +454,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:27.989680",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.632333",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0007",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 306.68,
       "end": 355.82,
@@ -473,7 +487,7 @@
         107,
         108
       ],
-      "created_at": "2026-06-16T12:54:13.465096",
+      "created_at": "2026-07-03T10:35:24.019351",
       "keywords": [
         "research",
         "process",
@@ -513,14 +527,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:27.994239",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.637347",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0008",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 355.82,
       "end": 404.39,
@@ -544,7 +560,7 @@
         122,
         123
       ],
-      "created_at": "2026-06-16T12:54:13.465459",
+      "created_at": "2026-07-03T10:35:24.021347",
       "keywords": [
         "labor",
         "house",
@@ -584,14 +600,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:27.998780",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.642435",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0009",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 404.39,
       "end": 453.31,
@@ -614,7 +632,7 @@
         136,
         137
       ],
-      "created_at": "2026-06-16T12:54:13.465790",
+      "created_at": "2026-07-03T10:35:24.023287",
       "keywords": [
         "ethics",
         "editorial",
@@ -665,14 +683,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.003395",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.647019",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour_0010",
       "source_video": "0120_QesQkMKz4Ok_Katrina Ingram - AI Affective Labour",
       "video_id": "QesQkMKz4Ok",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 453.31,
       "end": 516.05,
@@ -702,7 +722,7 @@
         157,
         158
       ],
-      "created_at": "2026-06-16T12:54:13.466338",
+      "created_at": "2026-07-03T10:35:24.028591",
       "keywords": [
         "productivity",
         "session",
@@ -753,11 +773,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.009359",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.653010",
+      "speaker": "Katrina Ingram",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:28.009370"
+  "classified_at": "2026-07-03T11:40:18.653018"
 }

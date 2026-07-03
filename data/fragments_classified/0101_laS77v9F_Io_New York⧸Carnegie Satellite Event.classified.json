@@ -3,11 +3,11 @@
   "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
   "video_id": "laS77v9F",
   "fragment_count": 66,
-  "created_at": "2026-06-16T12:54:13.384846",
+  "created_at": "2026-07-03T10:35:23.555960",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0001",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 3.6,
       "end": 79.05,
@@ -31,7 +33,7 @@
         5,
         6
       ],
-      "created_at": "2026-06-16T12:54:13.370303",
+      "created_at": "2026-07-03T10:35:23.424298",
       "keywords": [
         "artificial intelligence",
         "fake",
@@ -70,14 +72,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.385575",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.106955",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0002",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 79.05,
       "end": 160.42,
@@ -90,7 +94,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.370472",
+      "created_at": "2026-07-03T10:35:23.427446",
       "keywords": [
         "media",
         "news",
@@ -185,14 +189,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.390887",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.112502",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0003",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 160.42,
       "end": 236.64,
@@ -207,7 +213,7 @@
         15,
         16
       ],
-      "created_at": "2026-06-16T12:54:13.370670",
+      "created_at": "2026-07-03T10:35:23.430407",
       "keywords": [
         "conference",
         "threat",
@@ -260,14 +266,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.396769",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.117974",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0004",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 236.64,
       "end": 316.24,
@@ -280,7 +288,7 @@
         19,
         20
       ],
-      "created_at": "2026-06-16T12:54:13.370826",
+      "created_at": "2026-07-03T10:35:23.433058",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -399,14 +407,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.403516",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.123947",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0005",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 317.24,
       "end": 379.39,
@@ -420,7 +430,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:13.371012",
+      "created_at": "2026-07-03T10:35:23.435576",
       "keywords": [
         "information accessibility",
         "policy",
@@ -531,14 +541,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.409061",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.129696",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0006",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 379.39,
       "end": 422.52,
@@ -552,7 +564,7 @@
         29,
         30
       ],
-      "created_at": "2026-06-16T12:54:13.371175",
+      "created_at": "2026-07-03T10:35:23.437871",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -664,14 +676,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.414840",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.134692",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0007",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 422.52,
       "end": 468.22,
@@ -685,7 +699,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.371357",
+      "created_at": "2026-07-03T10:35:23.440127",
       "keywords": [
         "university",
         "compliance",
@@ -780,14 +794,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.420356",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.139856",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0008",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 468.22,
       "end": 528.26,
@@ -800,7 +816,7 @@
         38,
         39
       ],
-      "created_at": "2026-06-16T12:54:13.371588",
+      "created_at": "2026-07-03T10:35:23.442238",
       "keywords": [
         "climate",
         "audience",
@@ -853,14 +869,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.427544",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.146627",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0009",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 528.26,
       "end": 584.18,
@@ -873,7 +891,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:13.371754",
+      "created_at": "2026-07-03T10:35:23.444281",
       "keywords": [
         "climate",
         "water",
@@ -921,14 +939,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.432390",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.151626",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0010",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 584.18,
       "end": 630.18,
@@ -940,7 +960,7 @@
         45,
         46
       ],
-      "created_at": "2026-06-16T12:54:13.371900",
+      "created_at": "2026-07-03T10:35:23.446153",
       "keywords": [
         "environmental",
         "industry",
@@ -994,14 +1014,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.439311",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.156525",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0011",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 11,
       "start": 630.18,
       "end": 683.24,
@@ -1014,7 +1036,7 @@
         49,
         50
       ],
-      "created_at": "2026-06-16T12:54:13.372060",
+      "created_at": "2026-07-03T10:35:23.447983",
       "keywords": [
         "misinformation",
         "environmental",
@@ -1105,14 +1127,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.446458",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.161568",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0012",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 12,
       "start": 683.24,
       "end": 736.24,
@@ -1125,7 +1149,7 @@
         53,
         54
       ],
-      "created_at": "2026-06-16T12:54:13.372245",
+      "created_at": "2026-07-03T10:35:23.449847",
       "keywords": [
         "environment",
         "water",
@@ -1176,14 +1200,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.452873",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.167414",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0013",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 13,
       "start": 736.24,
       "end": 780.62,
@@ -1196,7 +1222,7 @@
         57,
         58
       ],
-      "created_at": "2026-06-16T12:54:13.372429",
+      "created_at": "2026-07-03T10:35:23.451610",
       "keywords": [
         "environment",
         "environmental",
@@ -1246,14 +1272,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.458896",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.173180",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0014",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 14,
       "start": 780.62,
       "end": 845.68,
@@ -1267,7 +1295,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:13.372603",
+      "created_at": "2026-07-03T10:35:23.453412",
       "keywords": [
         "water",
         "economy",
@@ -1341,14 +1369,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.465077",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.178855",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0015",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 15,
       "start": 845.68,
       "end": 916.54,
@@ -1362,7 +1392,7 @@
         67,
         68
       ],
-      "created_at": "2026-06-16T12:54:13.372800",
+      "created_at": "2026-07-03T10:35:23.455193",
       "keywords": [
         "artificial intelligence",
         "environment",
@@ -1451,14 +1481,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.471821",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.184793",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0016",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 16,
       "start": 916.54,
       "end": 987.73,
@@ -1472,7 +1504,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:13.373003",
+      "created_at": "2026-07-03T10:35:23.456970",
       "keywords": [
         "regulation",
         "environment",
@@ -1580,14 +1612,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.477966",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.190767",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0017",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 17,
       "start": 987.73,
       "end": 1032.05,
@@ -1606,7 +1640,7 @@
         82,
         83
       ],
-      "created_at": "2026-06-16T12:54:13.373263",
+      "created_at": "2026-07-03T10:35:23.458898",
       "keywords": [
         "legal",
         "unesco",
@@ -1669,14 +1703,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.483511",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.195613",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0018",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 18,
       "start": 1032.05,
       "end": 1074.05,
@@ -1691,7 +1727,7 @@
         88,
         89
       ],
-      "created_at": "2026-06-16T12:54:13.373465",
+      "created_at": "2026-07-03T10:35:23.460834",
       "keywords": [
         "ethics",
         "conference",
@@ -1774,14 +1810,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.489473",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.201030",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0019",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 19,
       "start": 1074.05,
       "end": 1123.05,
@@ -1801,7 +1839,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.373756",
+      "created_at": "2026-07-03T10:35:23.462860",
       "keywords": [
         "water",
         "cultural",
@@ -1856,14 +1894,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.495132",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.206416",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0020",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 20,
       "start": 1123.05,
       "end": 1163.05,
@@ -1881,7 +1921,7 @@
         108,
         109
       ],
-      "created_at": "2026-06-16T12:54:13.374020",
+      "created_at": "2026-07-03T10:35:23.465035",
       "keywords": [
         "artificial intelligence",
         "culture",
@@ -1931,14 +1971,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.502697",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.211525",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0021",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 21,
       "start": 1163.05,
       "end": 1205.36,
@@ -1966,7 +2008,7 @@
         127,
         1
       ],
-      "created_at": "2026-06-16T12:54:13.374451",
+      "created_at": "2026-07-03T10:35:23.467648",
       "keywords": [
         "water",
         "panelists",
@@ -2022,14 +2064,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.508058",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.216279",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0022",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 22,
       "start": 1205.36,
       "end": 1252.06,
@@ -2046,7 +2090,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:13.374685",
+      "created_at": "2026-07-03T10:35:23.469721",
       "keywords": [
         "accessibility",
         "sustainability",
@@ -2117,14 +2161,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.513970",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.221751",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0023",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 23,
       "start": 1252.06,
       "end": 1301.6,
@@ -2141,7 +2187,7 @@
         16,
         17
       ],
-      "created_at": "2026-06-16T12:54:13.374921",
+      "created_at": "2026-07-03T10:35:23.471706",
       "keywords": [
         "water",
         "accessible",
@@ -2218,14 +2264,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.519660",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.226919",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0024",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 24,
       "start": 1301.6,
       "end": 1349.44,
@@ -2241,7 +2289,7 @@
         23,
         24
       ],
-      "created_at": "2026-06-16T12:54:13.375126",
+      "created_at": "2026-07-03T10:35:23.473831",
       "keywords": [
         "ethics",
         "accessibility",
@@ -2327,14 +2375,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.525928",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.231574",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0025",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 25,
       "start": 1349.44,
       "end": 1399.56,
@@ -2350,7 +2400,7 @@
         30,
         31
       ],
-      "created_at": "2026-06-16T12:54:13.375331",
+      "created_at": "2026-07-03T10:35:23.475649",
       "keywords": [
         "ethical",
         "principles",
@@ -2406,14 +2456,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.531735",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.236277",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0026",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 26,
       "start": 1399.56,
       "end": 1446.53,
@@ -2429,7 +2481,7 @@
         37,
         38
       ],
-      "created_at": "2026-06-16T12:54:13.375537",
+      "created_at": "2026-07-03T10:35:23.477491",
       "keywords": [
         "ethical",
         "oversight",
@@ -2509,14 +2561,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.537607",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.241538",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0027",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 27,
       "start": 1446.53,
       "end": 1516.79,
@@ -2533,7 +2587,7 @@
         45,
         46
       ],
-      "created_at": "2026-06-16T12:54:13.375772",
+      "created_at": "2026-07-03T10:35:23.479742",
       "keywords": [
         "human rights",
         "privacy",
@@ -2652,14 +2706,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.543095",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.246601",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0028",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 28,
       "start": 1518.05,
       "end": 1595.72,
@@ -2677,7 +2733,7 @@
         54,
         55
       ],
-      "created_at": "2026-06-16T12:54:13.376042",
+      "created_at": "2026-07-03T10:35:23.482289",
       "keywords": [
         "artificial intelligence",
         "education",
@@ -2795,14 +2851,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.549084",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.252402",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0029",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 29,
       "start": 1595.72,
       "end": 1672.13,
@@ -2819,7 +2877,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:13.376285",
+      "created_at": "2026-07-03T10:35:23.484411",
       "keywords": [
         "research",
         "language",
@@ -2898,14 +2956,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.554724",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.257900",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0030",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 30,
       "start": 1672.13,
       "end": 1724.2,
@@ -2921,7 +2981,7 @@
         69,
         70
       ],
-      "created_at": "2026-06-16T12:54:13.376491",
+      "created_at": "2026-07-03T10:35:23.486325",
       "keywords": [
         "public trust",
         "transparency",
@@ -3025,14 +3085,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.559531",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.262727",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0031",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 31,
       "start": 1724.2,
       "end": 1773.97,
@@ -3048,7 +3110,7 @@
         76,
         77
       ],
-      "created_at": "2026-06-16T12:54:13.376697",
+      "created_at": "2026-07-03T10:35:23.488272",
       "keywords": [
         "global south",
         "model",
@@ -3125,14 +3187,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.565502",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.267949",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0032",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 32,
       "start": 1773.97,
       "end": 1824.13,
@@ -3149,7 +3213,7 @@
         84,
         85
       ],
-      "created_at": "2026-06-16T12:54:13.376931",
+      "created_at": "2026-07-03T10:35:23.490140",
       "keywords": [
         "health",
         "medical",
@@ -3227,14 +3291,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.571521",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.273194",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0033",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 33,
       "start": 1824.21,
       "end": 1870.95,
@@ -3250,7 +3316,7 @@
         91,
         92
       ],
-      "created_at": "2026-06-16T12:54:13.377143",
+      "created_at": "2026-07-03T10:35:23.492656",
       "keywords": [
         "global south",
         "accountability",
@@ -3323,14 +3389,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.576379",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.278087",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0034",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 34,
       "start": 1870.95,
       "end": 1911.81,
@@ -3346,7 +3414,7 @@
         98,
         99
       ],
-      "created_at": "2026-06-16T12:54:13.377360",
+      "created_at": "2026-07-03T10:35:23.495638",
       "keywords": [
         "inclusive",
         "caribbean",
@@ -3425,14 +3493,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.581240",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.283080",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0035",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 35,
       "start": 1911.81,
       "end": 1955.09,
@@ -3448,7 +3518,7 @@
         105,
         106
       ],
-      "created_at": "2026-06-16T12:54:13.377577",
+      "created_at": "2026-07-03T10:35:23.497631",
       "keywords": [
         "artificial intelligence",
         "caribbean",
@@ -3542,14 +3612,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.586019",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.287902",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0036",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 36,
       "start": 1955.09,
       "end": 2002.39,
@@ -3565,7 +3637,7 @@
         112,
         113
       ],
-      "created_at": "2026-06-16T12:54:13.377811",
+      "created_at": "2026-07-03T10:35:23.499506",
       "keywords": [
         "principles",
         "make",
@@ -3611,14 +3683,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.590893",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.292919",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0037",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 37,
       "start": 2002.39,
       "end": 2050.31,
@@ -3634,7 +3708,7 @@
         119,
         120
       ],
-      "created_at": "2026-06-16T12:54:13.378018",
+      "created_at": "2026-07-03T10:35:23.501375",
       "keywords": [
         "policy",
         "panel",
@@ -3697,14 +3771,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.595766",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.297808",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0038",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 38,
       "start": 2050.31,
       "end": 2098.55,
@@ -3720,7 +3796,7 @@
         126,
         127
       ],
-      "created_at": "2026-06-16T12:54:13.378227",
+      "created_at": "2026-07-03T10:35:23.503269",
       "keywords": [
         "global south",
         "digital divide",
@@ -3808,14 +3884,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.601363",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.302741",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0039",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 39,
       "start": 2099.11,
       "end": 2149.22,
@@ -3831,7 +3909,7 @@
         133,
         134
       ],
-      "created_at": "2026-06-16T12:54:13.378439",
+      "created_at": "2026-07-03T10:35:23.505278",
       "keywords": [
         "policy",
         "regulation",
@@ -3906,14 +3984,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.607500",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.307333",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0040",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 40,
       "start": 2149.22,
       "end": 2193.83,
@@ -3929,7 +4009,7 @@
         140,
         141
       ],
-      "created_at": "2026-06-16T12:54:13.378658",
+      "created_at": "2026-07-03T10:35:23.507195",
       "keywords": [
         "trust",
         "government",
@@ -4009,14 +4089,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.613086",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.312083",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0041",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 41,
       "start": 2194.47,
       "end": 2243.83,
@@ -4031,7 +4113,7 @@
         146,
         147
       ],
-      "created_at": "2026-06-16T12:54:13.378855",
+      "created_at": "2026-07-03T10:35:23.509107",
       "keywords": [
         "we're",
         "seeing",
@@ -4072,14 +4154,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.617580",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.316674",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0042",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 42,
       "start": 2243.83,
       "end": 2289.83,
@@ -4095,7 +4179,7 @@
         153,
         154
       ],
-      "created_at": "2026-06-16T12:54:13.379082",
+      "created_at": "2026-07-03T10:35:23.510956",
       "keywords": [
         "policy",
         "law",
@@ -4187,14 +4271,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.622353",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.321773",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0043",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 43,
       "start": 2289.83,
       "end": 2351.16,
@@ -4211,7 +4297,7 @@
         161,
         162
       ],
-      "created_at": "2026-06-16T12:54:13.379370",
+      "created_at": "2026-07-03T10:35:23.512860",
       "keywords": [
         "artificial intelligence",
         "freedom",
@@ -4264,14 +4350,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.627439",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.326860",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0044",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 44,
       "start": 2351.88,
       "end": 2414.84,
@@ -4288,7 +4376,7 @@
         1,
         2
       ],
-      "created_at": "2026-06-16T12:54:13.379606",
+      "created_at": "2026-07-03T10:35:23.514688",
       "keywords": [
         "policy",
         "environment",
@@ -4363,14 +4451,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.632788",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.331643",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0045",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 45,
       "start": 2414.84,
       "end": 2484.69,
@@ -4390,7 +4480,7 @@
         12,
         13
       ],
-      "created_at": "2026-06-16T12:54:13.379886",
+      "created_at": "2026-07-03T10:35:23.516575",
       "keywords": [
         "deepfakes",
         "disinformation",
@@ -4448,14 +4538,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.639418",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.337332",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0046",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 46,
       "start": 2484.69,
       "end": 2551.6,
@@ -4474,7 +4566,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:13.380122",
+      "created_at": "2026-07-03T10:35:23.518413",
       "keywords": [
         "disinformation",
         "unesco",
@@ -4534,14 +4626,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.644490",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.342341",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0047",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 47,
       "start": 2551.6,
       "end": 2632.35,
@@ -4560,7 +4654,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:13.380399",
+      "created_at": "2026-07-03T10:35:23.520335",
       "keywords": [
         "disinformation",
         "institutional",
@@ -4623,14 +4717,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.649841",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.347641",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0048",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 48,
       "start": 2633.15,
       "end": 2717.74,
@@ -4649,7 +4745,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:13.380681",
+      "created_at": "2026-07-03T10:35:23.522205",
       "keywords": [
         "media literacy",
         "disinformation",
@@ -4750,14 +4846,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.655806",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.354031",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0049",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 49,
       "start": 2719.98,
       "end": 2755.34,
@@ -4773,7 +4871,7 @@
         49,
         50
       ],
-      "created_at": "2026-06-16T12:54:13.380895",
+      "created_at": "2026-07-03T10:35:23.523990",
       "keywords": [
         "ethics",
         "policy",
@@ -4850,14 +4948,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.660584",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.359055",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0050",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 50,
       "start": 2755.34,
       "end": 2799.74,
@@ -4873,7 +4973,7 @@
         56,
         57
       ],
-      "created_at": "2026-06-16T12:54:13.381108",
+      "created_at": "2026-07-03T10:35:23.525783",
       "keywords": [
         "research",
         "training",
@@ -4930,14 +5030,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.665366",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.364412",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0051",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 51,
       "start": 2799.74,
       "end": 2843.26,
@@ -4953,7 +5055,7 @@
         63,
         64
       ],
-      "created_at": "2026-06-16T12:54:13.381322",
+      "created_at": "2026-07-03T10:35:23.527566",
       "keywords": [
         "economic",
         "hearing",
@@ -5008,14 +5110,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.670222",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.369955",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0052",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 52,
       "start": 2843.26,
       "end": 2888.29,
@@ -5031,7 +5135,7 @@
         70,
         71
       ],
-      "created_at": "2026-06-16T12:54:13.381536",
+      "created_at": "2026-07-03T10:35:23.529369",
       "keywords": [
         "policy",
         "caribbean",
@@ -5113,14 +5217,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.675103",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.374973",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0053",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 53,
       "start": 2888.29,
       "end": 2938.53,
@@ -5137,7 +5243,7 @@
         78,
         79
       ],
-      "created_at": "2026-06-16T12:54:13.381770",
+      "created_at": "2026-07-03T10:35:23.531424",
       "keywords": [
         "policy",
         "accessibility",
@@ -5239,14 +5345,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.680419",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.380515",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0054",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 54,
       "start": 2938.53,
       "end": 2987.74,
@@ -5262,7 +5370,7 @@
         85,
         86
       ],
-      "created_at": "2026-06-16T12:54:13.381998",
+      "created_at": "2026-07-03T10:35:23.533378",
       "keywords": [
         "accessibility",
         "panel",
@@ -5323,14 +5431,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.685225",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.385344",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0055",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 55,
       "start": 2988.75,
       "end": 3029.44,
@@ -5346,7 +5456,7 @@
         92,
         93
       ],
-      "created_at": "2026-06-16T12:54:13.382201",
+      "created_at": "2026-07-03T10:35:23.535265",
       "keywords": [
         "accessibility",
         "there's",
@@ -5394,14 +5504,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.691130",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.390474",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0056",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 56,
       "start": 3029.44,
       "end": 3079.92,
@@ -5418,7 +5530,7 @@
         100,
         101
       ],
-      "created_at": "2026-06-16T12:54:13.382447",
+      "created_at": "2026-07-03T10:35:23.537095",
       "keywords": [
         "accessibility",
         "language",
@@ -5508,14 +5620,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.697133",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.395889",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0057",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 57,
       "start": 3079.92,
       "end": 3124.18,
@@ -5531,7 +5645,7 @@
         107,
         108
       ],
-      "created_at": "2026-06-16T12:54:13.382657",
+      "created_at": "2026-07-03T10:35:23.538905",
       "keywords": [
         "accessibility",
         "local context",
@@ -5588,14 +5702,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.702138",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.400407",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0058",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 58,
       "start": 3125.63,
       "end": 3176.05,
@@ -5611,7 +5727,7 @@
         114,
         115
       ],
-      "created_at": "2026-06-16T12:54:13.382870",
+      "created_at": "2026-07-03T10:35:23.540715",
       "keywords": [
         "internet",
         "think",
@@ -5648,14 +5764,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.706932",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.405258",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0059",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 59,
       "start": 3176.05,
       "end": 3221.44,
@@ -5671,7 +5789,7 @@
         121,
         122
       ],
-      "created_at": "2026-06-16T12:54:13.383074",
+      "created_at": "2026-07-03T10:35:23.542795",
       "keywords": [
         "infrastructure",
         "think",
@@ -5715,14 +5833,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.712218",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.410062",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0060",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 60,
       "start": 3221.44,
       "end": 3269.68,
@@ -5738,7 +5858,7 @@
         128,
         129
       ],
-      "created_at": "2026-06-16T12:54:13.383278",
+      "created_at": "2026-07-03T10:35:23.544712",
       "keywords": [
         "information accessibility",
         "policy",
@@ -5842,14 +5962,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.717131",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.414744",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0061",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 61,
       "start": 3269.68,
       "end": 3325.65,
@@ -5865,7 +5987,7 @@
         135,
         136
       ],
-      "created_at": "2026-06-16T12:54:13.383502",
+      "created_at": "2026-07-03T10:35:23.546541",
       "keywords": [
         "policy",
         "education",
@@ -5948,14 +6070,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.722089",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.419750",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0062",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 62,
       "start": 3326.45,
       "end": 3402.22,
@@ -5972,7 +6096,7 @@
         143,
         144
       ],
-      "created_at": "2026-06-16T12:54:13.383744",
+      "created_at": "2026-07-03T10:35:23.548382",
       "keywords": [
         "education",
         "law",
@@ -6057,14 +6181,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.727517",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.425141",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0063",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 63,
       "start": 3402.22,
       "end": 3454.59,
@@ -6080,7 +6206,7 @@
         150,
         151
       ],
-      "created_at": "2026-06-16T12:54:13.383959",
+      "created_at": "2026-07-03T10:35:23.550273",
       "keywords": [
         "education",
         "audience",
@@ -6147,14 +6273,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.733956",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.430233",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0064",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 64,
       "start": 3455.07,
       "end": 3516.26,
@@ -6170,7 +6298,7 @@
         157,
         158
       ],
-      "created_at": "2026-06-16T12:54:13.384176",
+      "created_at": "2026-07-03T10:35:23.552075",
       "keywords": [
         "global south",
         "governance",
@@ -6278,14 +6406,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.740315",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.435086",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0065",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 65,
       "start": 3516.26,
       "end": 3584.06,
@@ -6301,7 +6431,7 @@
         164,
         165
       ],
-      "created_at": "2026-06-16T12:54:13.384379",
+      "created_at": "2026-07-03T10:35:23.553879",
       "keywords": [
         "global south",
         "accessibility",
@@ -6360,14 +6490,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.745505",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.440144",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0066",
       "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
       "video_id": "laS77v9F",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 66,
       "start": 3584.06,
       "end": 3645.26,
@@ -6392,7 +6524,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:13.384789",
+      "created_at": "2026-07-03T10:35:23.555870",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -6493,11 +6625,11 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.751335",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.445190",
+      "speaker": "I",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:26.751348"
+  "classified_at": "2026-07-03T11:40:17.445220"
 }

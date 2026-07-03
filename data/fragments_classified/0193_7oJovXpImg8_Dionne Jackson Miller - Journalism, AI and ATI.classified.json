@@ -3,11 +3,11 @@
   "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
   "video_id": "7oJovXpImg8",
   "fragment_count": 14,
-  "created_at": "2026-06-16T12:54:13.855144",
+  "created_at": "2026-07-03T10:35:26.653828",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0001",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 3.66,
       "end": 46.52,
@@ -39,7 +41,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:13.848244",
+      "created_at": "2026-07-03T10:35:26.626218",
       "keywords": [
         "access to information",
         "journalism",
@@ -92,14 +94,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.764151",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.503824",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0002",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 46.52,
       "end": 82.56,
@@ -121,7 +125,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:13.848862",
+      "created_at": "2026-07-03T10:35:26.628495",
       "keywords": [
         "health",
         "legal",
@@ -191,14 +195,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.768842",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.508477",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0003",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 82.56,
       "end": 131.11,
@@ -224,7 +230,7 @@
         43,
         44
       ],
-      "created_at": "2026-06-16T12:54:13.849754",
+      "created_at": "2026-07-03T10:35:26.630649",
       "keywords": [
         "artificial intelligence",
         "journalism",
@@ -286,14 +292,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.773967",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.513371",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0004",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 131.11,
       "end": 180.31,
@@ -319,7 +327,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:13.850394",
+      "created_at": "2026-07-03T10:35:26.632664",
       "keywords": [
         "news",
         "content",
@@ -407,14 +415,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.778855",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.518934",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0005",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 180.31,
       "end": 223.63,
@@ -437,7 +447,7 @@
         74,
         75
       ],
-      "created_at": "2026-06-16T12:54:13.850942",
+      "created_at": "2026-07-03T10:35:26.634665",
       "keywords": [
         "journalism",
         "media",
@@ -499,14 +509,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.783315",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.524167",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0006",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 223.63,
       "end": 265.35,
@@ -531,7 +543,7 @@
         90,
         91
       ],
-      "created_at": "2026-06-16T12:54:13.851612",
+      "created_at": "2026-07-03T10:35:26.636741",
       "keywords": [
         "journalism",
         "information",
@@ -613,14 +625,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.788083",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.529273",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0007",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 265.35,
       "end": 308.91,
@@ -645,7 +659,7 @@
         106,
         107
       ],
-      "created_at": "2026-06-16T12:54:13.852066",
+      "created_at": "2026-07-03T10:35:26.638737",
       "keywords": [
         "media",
         "news",
@@ -700,14 +714,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.792532",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.534546",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0008",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 308.91,
       "end": 352.03,
@@ -731,7 +747,7 @@
         121,
         122
       ],
-      "created_at": "2026-06-16T12:54:13.852447",
+      "created_at": "2026-07-03T10:35:26.640828",
       "keywords": [
         "education",
         "health",
@@ -836,14 +852,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.797165",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.539645",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0009",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 9,
       "start": 352.03,
       "end": 400.67,
@@ -868,7 +886,7 @@
         137,
         138
       ],
-      "created_at": "2026-06-16T12:54:13.852808",
+      "created_at": "2026-07-03T10:35:26.642809",
       "keywords": [
         "media",
         "news",
@@ -955,14 +973,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.801958",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.544879",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0010",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 10,
       "start": 400.67,
       "end": 446.83,
@@ -987,7 +1007,7 @@
         153,
         154
       ],
-      "created_at": "2026-06-16T12:54:13.853179",
+      "created_at": "2026-07-03T10:35:26.645206",
       "keywords": [
         "media",
         "information",
@@ -1088,14 +1108,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.806657",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.550177",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0011",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 11,
       "start": 446.83,
       "end": 493.07,
@@ -1122,7 +1144,7 @@
         171,
         172
       ],
-      "created_at": "2026-06-16T12:54:13.853627",
+      "created_at": "2026-07-03T10:35:26.647414",
       "keywords": [
         "misinformation",
         "content",
@@ -1213,14 +1235,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.811459",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.555465",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0012",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 12,
       "start": 493.07,
       "end": 548.43,
@@ -1247,7 +1271,7 @@
         189,
         190
       ],
-      "created_at": "2026-06-16T12:54:13.854150",
+      "created_at": "2026-07-03T10:35:26.649749",
       "keywords": [
         "disinformation",
         "journalism",
@@ -1368,14 +1392,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.816415",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.561013",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0013",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 13,
       "start": 548.43,
       "end": 593.55,
@@ -1401,7 +1427,7 @@
         206,
         207
       ],
-      "created_at": "2026-06-16T12:54:13.854736",
+      "created_at": "2026-07-03T10:35:26.651717",
       "keywords": [
         "artificial intelligence",
         "ethics",
@@ -1507,14 +1533,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.821116",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.566525",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI_0014",
       "source_video": "0193_7oJovXpImg8_Dionne Jackson Miller - Journalism, AI and ATI",
       "video_id": "7oJovXpImg8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 14,
       "start": 593.55,
       "end": 633.55,
@@ -1540,7 +1568,7 @@
         223,
         224
       ],
-      "created_at": "2026-06-16T12:54:13.855081",
+      "created_at": "2026-07-03T10:35:26.653779",
       "keywords": [
         "ethics",
         "policy",
@@ -1647,11 +1675,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.825166",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.570738",
+      "speaker": "Dionne Jackson Miller",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:33.825172"
+  "classified_at": "2026-07-03T11:40:24.570752"
 }

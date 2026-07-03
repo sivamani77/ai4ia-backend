@@ -3,11 +3,11 @@
   "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
   "video_id": "EuOmgzYu4e4",
   "fragment_count": 20,
-  "created_at": "2026-06-16T12:54:13.477754",
+  "created_at": "2026-07-03T10:35:24.111298",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0001",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 0.0,
       "end": 47.58,
@@ -32,7 +34,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.473417",
+      "created_at": "2026-07-03T10:35:24.074989",
       "keywords": [
         "going",
         "idea",
@@ -74,14 +76,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.111288",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.760482",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0002",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 47.58,
       "end": 102.03,
@@ -97,7 +101,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:13.473648",
+      "created_at": "2026-07-03T10:35:24.076873",
       "keywords": [
         "training",
         "model",
@@ -158,14 +162,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.116266",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.766016",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0003",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 102.99,
       "end": 150.38,
@@ -181,7 +187,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.473877",
+      "created_at": "2026-07-03T10:35:24.079531",
       "keywords": [
         "translation",
         "loss",
@@ -225,14 +231,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.121055",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.771215",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0004",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 151.1,
       "end": 191.94,
@@ -248,7 +256,7 @@
         27,
         28
       ],
-      "created_at": "2026-06-16T12:54:13.474094",
+      "created_at": "2026-07-03T10:35:24.081768",
       "keywords": [
         "translation",
         "little",
@@ -290,14 +298,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.125908",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.776097",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0005",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 191.94,
       "end": 243.41,
@@ -313,7 +323,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.474325",
+      "created_at": "2026-07-03T10:35:24.083685",
       "keywords": [
         "token",
         "say",
@@ -360,14 +370,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.130794",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.781465",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0006",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 243.41,
       "end": 278.67,
@@ -382,7 +394,7 @@
         40,
         41
       ],
-      "created_at": "2026-06-16T12:54:13.474520",
+      "created_at": "2026-07-03T10:35:24.085582",
       "keywords": [
         "features",
         "don't",
@@ -417,14 +429,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.134891",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.786034",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0007",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 279.15,
       "end": 333.89,
@@ -440,7 +454,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.474864",
+      "created_at": "2026-07-03T10:35:24.087399",
       "keywords": [
         "training",
         "values",
@@ -511,14 +525,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.140350",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.791062",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0008",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 333.89,
       "end": 372.67,
@@ -534,7 +550,7 @@
         54,
         55
       ],
-      "created_at": "2026-06-16T12:54:13.475103",
+      "created_at": "2026-07-03T10:35:24.089305",
       "keywords": [
         "values",
         "going",
@@ -579,14 +595,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.583,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.146137",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.796800",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0009",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 372.67,
       "end": 425.63,
@@ -602,7 +620,7 @@
         61,
         62
       ],
-      "created_at": "2026-06-16T12:54:13.475317",
+      "created_at": "2026-07-03T10:35:24.091155",
       "keywords": [
         "model",
         "ones",
@@ -644,14 +662,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.683,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.151224",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.801943",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0010",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 425.63,
       "end": 467.86,
@@ -667,7 +687,7 @@
         68,
         69
       ],
-      "created_at": "2026-06-16T12:54:13.475547",
+      "created_at": "2026-07-03T10:35:24.093001",
       "keywords": [
         "love",
         "it's",
@@ -707,14 +727,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.156095",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.806783",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0011",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 11,
       "start": 467.86,
       "end": 539.18,
@@ -730,7 +752,7 @@
         75,
         76
       ],
-      "created_at": "2026-06-16T12:54:13.475764",
+      "created_at": "2026-07-03T10:35:24.094777",
       "keywords": [
         "multi",
         "head",
@@ -775,14 +797,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.160765",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.811562",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0012",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 12,
       "start": 540.21,
       "end": 583.62,
@@ -797,7 +821,7 @@
         81,
         82
       ],
-      "created_at": "2026-06-16T12:54:13.475953",
+      "created_at": "2026-07-03T10:35:24.096549",
       "keywords": [
         "values",
         "set",
@@ -840,14 +864,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.164954",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.816031",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0013",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 13,
       "start": 583.62,
       "end": 629.84,
@@ -863,7 +889,7 @@
         88,
         89
       ],
-      "created_at": "2026-06-16T12:54:13.476185",
+      "created_at": "2026-07-03T10:35:24.098388",
       "keywords": [
         "values",
         "going",
@@ -909,14 +935,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.683,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.169610",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.821117",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0014",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 14,
       "start": 629.84,
       "end": 680.56,
@@ -932,7 +960,7 @@
         95,
         96
       ],
-      "created_at": "2026-06-16T12:54:13.476420",
+      "created_at": "2026-07-03T10:35:24.100159",
       "keywords": [
         "information",
         "going",
@@ -980,14 +1008,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.174127",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.826225",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0015",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 15,
       "start": 680.56,
       "end": 725.66,
@@ -1003,7 +1033,7 @@
         102,
         103
       ],
-      "created_at": "2026-06-16T12:54:13.476646",
+      "created_at": "2026-07-03T10:35:24.101993",
       "keywords": [
         "it's",
         "add",
@@ -1048,14 +1078,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.178673",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.831351",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0016",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 16,
       "start": 725.66,
       "end": 765.76,
@@ -1071,7 +1103,7 @@
         109,
         110
       ],
-      "created_at": "2026-06-16T12:54:13.476882",
+      "created_at": "2026-07-03T10:35:24.103933",
       "keywords": [
         "information",
         "going",
@@ -1119,14 +1151,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.183582",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.836302",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0017",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 17,
       "start": 765.76,
       "end": 816.08,
@@ -1142,7 +1176,7 @@
         116,
         117
       ],
-      "created_at": "2026-06-16T12:54:13.477101",
+      "created_at": "2026-07-03T10:35:24.105795",
       "keywords": [
         "it's",
         "forward",
@@ -1181,14 +1215,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.188164",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.841074",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0018",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 18,
       "start": 816.08,
       "end": 863.12,
@@ -1204,7 +1240,7 @@
         123,
         124
       ],
-      "created_at": "2026-06-16T12:54:13.477323",
+      "created_at": "2026-07-03T10:35:24.107613",
       "keywords": [
         "information",
         "it's",
@@ -1253,14 +1289,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.192939",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.846017",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0019",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 19,
       "start": 863.12,
       "end": 908.62,
@@ -1276,7 +1314,7 @@
         130,
         131
       ],
-      "created_at": "2026-06-16T12:54:13.477554",
+      "created_at": "2026-07-03T10:35:24.109428",
       "keywords": [
         "it's",
         "going",
@@ -1317,14 +1355,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.198509",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.850605",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level_0020",
       "source_video": "0122_EuOmgzYu4e4_Elliot Arledge - Transformer Architecture High Level",
       "video_id": "EuOmgzYu4e4",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 20,
       "start": 908.62,
       "end": 948.06,
@@ -1339,7 +1379,7 @@
         136,
         137
       ],
-      "created_at": "2026-06-16T12:54:13.477733",
+      "created_at": "2026-07-03T10:35:24.111261",
       "keywords": [
         "that's",
         "sample",
@@ -1375,11 +1415,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:28.202883",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:18.854631",
+      "speaker": "Elliot Arledge",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:28.202891"
+  "classified_at": "2026-07-03T11:40:18.854640"
 }

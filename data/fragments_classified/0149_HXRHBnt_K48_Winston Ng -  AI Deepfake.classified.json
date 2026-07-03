@@ -3,11 +3,11 @@
   "source_video": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake",
   "video_id": "HXRHBnt",
   "fragment_count": 7,
-  "created_at": "2026-06-16T12:54:13.638770",
+  "created_at": "2026-07-03T10:35:25.201634",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0001",
       "source_video": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake",
       "video_id": "HXRHBnt",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 0.0,
       "end": 45.72,
@@ -35,7 +37,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.637001",
+      "created_at": "2026-07-03T10:35:25.189500",
       "keywords": [
         "deepfakes",
         "deepfake",
@@ -136,14 +138,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.715038",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.497780",
+      "speaker": "Winston Ng",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0002",
       "source_video": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake",
       "video_id": "HXRHBnt",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 45.72,
       "end": 99.69,
@@ -165,7 +169,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:13.637352",
+      "created_at": "2026-07-03T10:35:25.191630",
       "keywords": [
         "artificial intelligence",
         "deepfakes",
@@ -271,14 +275,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.721220",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.503114",
+      "speaker": "Winston Ng",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0003",
       "source_video": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake",
       "video_id": "HXRHBnt",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 99.69,
       "end": 155.36,
@@ -301,7 +307,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:13.637692",
+      "created_at": "2026-07-03T10:35:25.193692",
       "keywords": [
         "deepfakes",
         "deepfake",
@@ -401,14 +407,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.726694",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.508373",
+      "speaker": "Winston Ng",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0004",
       "source_video": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake",
       "video_id": "HXRHBnt",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 155.36,
       "end": 219.85,
@@ -430,7 +438,7 @@
         49,
         50
       ],
-      "created_at": "2026-06-16T12:54:13.638010",
+      "created_at": "2026-07-03T10:35:25.195815",
       "keywords": [
         "deepfakes",
         "misinformation",
@@ -549,14 +557,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.732918",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.515101",
+      "speaker": "Winston Ng",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0005",
       "source_video": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake",
       "video_id": "HXRHBnt",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 219.85,
       "end": 277.05,
@@ -578,7 +588,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:13.638342",
+      "created_at": "2026-07-03T10:35:25.197878",
       "keywords": [
         "deepfakes",
         "fake",
@@ -638,14 +648,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.738238",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.520313",
+      "speaker": "Winston Ng",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0006",
       "source_video": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake",
       "video_id": "HXRHBnt",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 277.05,
       "end": 324.77,
@@ -663,7 +675,7 @@
         71,
         72
       ],
-      "created_at": "2026-06-16T12:54:13.638607",
+      "created_at": "2026-07-03T10:35:25.199777",
       "keywords": [
         "deepfakes",
         "deepfake",
@@ -732,14 +744,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.743215",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.525144",
+      "speaker": "Winston Ng",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake_0007",
       "source_video": "0149_HXRHBnt_K48_Winston Ng -  AI Deepfake",
       "video_id": "HXRHBnt",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 324.77,
       "end": 353.69,
@@ -755,7 +769,7 @@
         78,
         79
       ],
-      "created_at": "2026-06-16T12:54:13.638750",
+      "created_at": "2026-07-03T10:35:25.201590",
       "keywords": [
         "conference",
         "actually",
@@ -794,11 +808,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.746718",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.528321",
+      "speaker": "Winston Ng",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:30.746728"
+  "classified_at": "2026-07-03T11:40:21.528329"
 }

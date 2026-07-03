@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import re
+import sys
 import time
 from pathlib import Path
 from datetime import datetime
@@ -12,6 +13,12 @@ import requests
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+# Local dev layout: backend/app/. Docker image layout (see Dockerfile): app/
+# directly under PROJECT_ROOT, with no backend/ directory at all.
+_BACKEND_DIR = PROJECT_ROOT / "backend"
+sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
+
+from app.core.settings import settings  # noqa: E402
 
 # Allow the stage runner to override the embeddings directory via env var.
 # In S3 deployment mode the stage runner downloads the embeddings from S3
@@ -89,14 +96,14 @@ def _load_corpus_from_chroma() -> tuple[Any, list[dict[str, Any]]]:
 
 STRICT_NO_GENERIC_FALLBACK = True
 
-OLLAMA_BASE_URL = "http://ollama-mobius-sales.mobiusdtaas.ai"
-VLLM_MODEL = "openai/gpt-oss-20b"
-VLLM_BASE_URL = "http://vllm-gpt-oss.mobiusdtaas.ai"
+OLLAMA_BASE_URL = settings.ollama_base_url
+VLLM_MODEL = settings.vllm_model
+VLLM_BASE_URL = settings.vllm_base_url
 
-CHAT_ENDPOINT = "/v1/chat/completions"
+CHAT_ENDPOINT = settings.vllm_chat_endpoint
 
-EMBED_MODEL = "nomic-embed-text:v1.5"
-FAST_LLM_MODEL = "llama3.1:8b"
+EMBED_MODEL = settings.embedding_model
+FAST_LLM_MODEL = settings.fast_llm_model
 #STRONG_LLM_MODEL = "gpt-oss:120b"
 
 EMBED_ENDPOINT = "/api/embed"
@@ -110,8 +117,8 @@ RETRY_SLEEP_SECONDS = 5           # base for exponential backoff (5, 10, 20, ...
 
 DEFAULT_TOP_K = 90
 DEFAULT_FINAL_CANDIDATES = 35
-MAX_SOURCE_VIDEO_OCCURRENCES = 2
-MAX_SPEAKER_OCCURRENCES = 2
+MAX_SOURCE_VIDEO_OCCURRENCES = settings.max_uses_per_source_video
+MAX_SPEAKER_OCCURRENCES = settings.max_uses_per_speaker
 
 
 def log(message: str) -> None:
@@ -1686,6 +1693,8 @@ def build_export_timeline_from_candidates(
                 "source_video": candidate.get("source_video"),
                 "video_year": candidate.get("video_year"),
                 "video_upload_date": candidate.get("video_upload_date"),
+                "speaker": candidate.get("speaker"),
+                "speaker_attribution": candidate.get("speaker_attribution"),
                 "start": round(float(start_value), 3) if start_value is not None else None,
                 "end": round(float(end_value), 3) if end_value is not None else None,
                 "duration": round(float(clip_duration), 3),
@@ -1719,6 +1728,8 @@ def build_export_timeline_from_candidates(
                 "source_video": moment.get("source_video") or candidate.get("source_video"),
                 "video_year": candidate.get("video_year"),
                 "video_upload_date": candidate.get("video_upload_date"),
+                "speaker": moment.get("speaker") or candidate.get("speaker"),
+                "speaker_attribution": moment.get("speaker_attribution") or candidate.get("speaker_attribution"),
                 "start": moment["start"],
                 "end": moment["end"],
                 "duration": moment["duration"],
@@ -2595,6 +2606,8 @@ def build_candidate_pack(candidates: list[dict[str, Any]]) -> list[dict[str, Any
             "quote_strength": item.get("quote_strength"),
             "clarity_score": item.get("clarity_score"),
             "relevance_role": item.get("relevance_role"),
+            "speaker": item.get("speaker"),
+            "speaker_attribution": item.get("speaker_attribution"),
             "speaker_clip_allowed": item.get("speaker_clip_allowed", False),
             "speaker_soundbite_allowed": item.get("speaker_soundbite_allowed", False),
             "relevance_reason": item.get("relevance_reason", ""),

@@ -3,11 +3,11 @@
   "source_video": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025",
   "video_id": "rv64-QE9z5E",
   "fragment_count": 2,
-  "created_at": "2026-06-16T12:54:12.825107",
+  "created_at": "2026-07-03T10:35:20.078732",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025_0001",
       "source_video": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025",
       "video_id": "rv64-QE9z5E",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 1.55,
       "end": 78.46,
@@ -42,7 +44,7 @@
         16,
         17
       ],
-      "created_at": "2026-06-16T12:54:12.824929",
+      "created_at": "2026-07-03T10:35:20.076962",
       "keywords": [
         "artificial intelligence",
         "ethics",
@@ -172,14 +174,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.414764",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:09.250252",
+      "speaker": "Ms Nisha",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025_0002",
       "source_video": "0049_rv64-QE9z5E_Ms_Nisha_AI4IA_2025",
       "video_id": "rv64-QE9z5E",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 78.46,
       "end": 119.81,
@@ -198,7 +202,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:12.825095",
+      "created_at": "2026-07-03T10:35:20.078716",
       "keywords": [
         "education",
         "health",
@@ -309,11 +313,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.418036",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:09.253440",
+      "speaker": "Ms Nisha",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:18.418048"
+  "classified_at": "2026-07-03T11:40:09.253446"
 }

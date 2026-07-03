@@ -18,6 +18,7 @@ Step 08 uses `final_timeline` directly when present.
 import argparse
 import json
 import re
+import sys
 import time
 from pathlib import Path
 from datetime import datetime
@@ -28,15 +29,22 @@ from typing import Any
 # ---------------------------------------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+# Local dev layout: backend/app/. Docker image layout (see Dockerfile): app/
+# directly under PROJECT_ROOT, with no backend/ directory at all.
+_BACKEND_DIR = PROJECT_ROOT / "backend"
+sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
+
+from app.core.settings import settings  # noqa: E402
+
 STORYLINES_DIR = PROJECT_ROOT / "data" / "storylines"
 
-OLLAMA_BASE_URL = "http://ollama-mobius-sales.mobiusdtaas.ai"
+OLLAMA_BASE_URL = settings.ollama_base_url
 GENERATE_ENDPOINT = "/api/generate"
-VLLM_BASE_URL = "http://vllm-gpt-oss.mobiusdtaas.ai"
-VLLM_MODEL = "openai/gpt-oss-20b"
-CHAT_ENDPOINT = "/v1/chat/completions"
+VLLM_BASE_URL = settings.vllm_base_url
+VLLM_MODEL = settings.vllm_model
+CHAT_ENDPOINT = settings.vllm_chat_endpoint
 #STRONG_LLM_MODEL = "gpt-oss:120b"
-FAST_LLM_MODEL = "llama3.1:8b"
+FAST_LLM_MODEL = settings.fast_llm_model
 
 REQUEST_TIMEOUT_SECONDS = 300
 MAX_RETRIES = 3

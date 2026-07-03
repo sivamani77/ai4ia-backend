@@ -3,11 +3,11 @@
   "source_video": "0080_zVzcNE98nJ8_Cordel Green AI4IA 2025 Satellite Events",
   "video_id": "zVzcNE98nJ8",
   "fragment_count": 1,
-  "created_at": "2026-06-16T12:54:13.031254",
+  "created_at": "2026-07-03T10:35:21.233104",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0080_zVzcNE98nJ8_Cordel Green AI4IA 2025 Satellite Events_0001",
       "source_video": "0080_zVzcNE98nJ8_Cordel Green AI4IA 2025 Satellite Events",
       "video_id": "zVzcNE98nJ8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 1.42,
       "end": 91.71,
@@ -35,7 +37,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.031244",
+      "created_at": "2026-07-03T10:35:21.233084",
       "keywords": [
         "artificial intelligence",
         "satellite event",
@@ -147,11 +149,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.343565",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.112869",
+      "speaker": "Cordel Green",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:21.343571"
+  "classified_at": "2026-07-03T11:40:12.112875"
 }

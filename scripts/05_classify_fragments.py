@@ -2,340 +2,28 @@ import csv
 import json
 import math
 import re
+import sys
 from pathlib import Path
 from datetime import datetime
 from collections import Counter
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+# Local dev layout: backend/app/. Docker image layout (see Dockerfile): app/
+# directly under PROJECT_ROOT, with no backend/ directory at all.
+_BACKEND_DIR = PROJECT_ROOT / "backend"
+sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
+
+from app.core.taxonomy_loader import THEMES, CHAPTERS  # noqa: E402
 
 FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments"
 CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
+SPEAKERS_METADATA_DIR = PROJECT_ROOT / "data" / "metadata" / "speakers"
 REPORT_PATH = PROJECT_ROOT / "data" / "metadata" / "youtube" / "fragment_classification_report.csv"
 CATALOG_PATH = PROJECT_ROOT / "data" / "metadata" / "youtube" / "classified_fragments_catalog.jsonl"
 
 CLASSIFIED_DIR.mkdir(parents=True, exist_ok=True)
 REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
-
-
-THEMES = {
-    "T1": {
-        "name": "AI Ethics, Governance & Policy",
-        "chapters": ["Ch 1", "Ch 2", "Ch 3", "Ch 4"],
-        "keywords": [
-            "ethics", "ethical", "governance", "policy", "regulation", "legislation",
-            "oversight", "accountability", "transparency", "responsible ai", "trust",
-            "framework", "standards", "principles", "risk", "human centered",
-            "fairness", "bias", "algorithmic", "competition", "market", "economy",
-            "economic", "sovereign ai", "national ai strategy", "strategy"
-        ],
-    },
-    "T2": {
-        "name": "AI & Information Access / Media / Journalism",
-        "chapters": ["Ch 5", "Ch 6", "Ch 7", "Ch 8"],
-        "keywords": [
-            "access to information", "information accessibility", "open data",
-            "public access", "journalism", "media", "news", "press", "content",
-            "information", "public information", "government information",
-            "public services", "administrative", "transparency", "data access",
-            "knowledge", "information systems", "satellite event", "conference",
-            "regional", "ifap", "unesco", "freedom of information"
-        ],
-    },
-    "T3": {
-        "name": "AI Equity, Inclusion & Social Justice",
-        "chapters": ["Ch 9", "Ch 10", "Ch 11", "Ch 12"],
-        "keywords": [
-            "equity", "inclusion", "inclusive", "justice", "social justice",
-            "global south", "developing nations", "africa", "caribbean", "youth",
-            "young people", "aging", "elderly", "senior citizens", "gender",
-            "race", "diversity", "disability", "disabilities", "accessibility",
-            "assistive", "screen reader", "voice interface", "sign language",
-            "marginalized", "underserved", "rural", "local communities",
-            "empowerment", "digital divide", "minorities"
-        ],
-    },
-    "T4": {
-        "name": "AI in Health, Science & Environment",
-        "chapters": ["Ch 13", "Ch 14", "Ch 15"],
-        "keywords": [
-            "health", "healthcare", "medicine", "medical", "patient", "disease",
-            "diagnosis", "clinical", "hospital", "medicine waste", "environment",
-            "climate", "sustainability", "water", "hydrology", "satellite",
-            "agriculture", "food security", "farm", "farming", "smallholders",
-            "rainfall", "drought", "biodiversity", "pollution", "natural resources",
-            "early warning", "environmental", "cholera", "water quality"
-        ],
-    },
-    "T5": {
-        "name": "Disinformation, Deepfakes & AI Safety",
-        "chapters": ["Ch 16", "Ch 17", "Ch 18"],
-        "keywords": [
-            "disinformation", "misinformation", "deepfake", "deepfakes",
-            "synthetic media", "propaganda", "information integrity", "truth",
-            "false", "fake", "trust", "cybersecurity", "cyberwarfare", "warfare",
-            "security", "safety", "online harms", "manipulation", "deception",
-            "hallucination", "content authenticity", "fact checking", "fact-checking",
-            "participatory propaganda", "weaponization"
-        ],
-    },
-    "T6": {
-        "name": "AI in Education & Creative Industries",
-        "chapters": ["Ch 19", "Ch 20", "Ch 21", "Ch 22"],
-        "keywords": [
-            "education", "learning", "literacy", "ai literacy", "students",
-            "teachers", "curriculum", "assessment", "academic", "research",
-            "knowledge production", "university", "school", "creative", "arts",
-            "music", "culture", "poetry", "authors", "creativity", "indigenous",
-            "language", "localized ai", "local language", "mother tongue",
-            "knowledge systems", "cultural", "heritage", "training", "upskilling",
-            "reskilling", "prompt engineering"
-        ],
-    },
-    "T7": {
-        "name": "AI, Law & Human Rights",
-        "chapters": ["Ch 23", "Ch 24", "Ch 25"],
-        "keywords": [
-            "law", "legal", "justice", "human rights", "civil liberties",
-            "privacy", "data protection", "compliance", "intellectual property",
-            "copyright", "rights", "access to justice", "legal systems",
-            "regulation", "liability", "public trust", "ip", "policy", "freedom",
-            "right to information", "right not to know", "neurotechnology",
-            "neuro technology"
-        ],
-    },
-}
-
-
-CHAPTERS = {
-    "Ch 1": {
-        "theme_id": "T1",
-        "name": "Foundations of AI Ethics & Philosophy",
-        "keywords": [
-            "ethics", "ethical", "philosophy", "values", "moral", "human centered",
-            "responsible ai", "principles", "fairness", "bias", "trust",
-            "transparency", "accountability", "humanity", "coexistence"
-        ],
-    },
-    "Ch 2": {
-        "theme_id": "T1",
-        "name": "AI Governance Models & Oversight",
-        "keywords": [
-            "governance", "oversight", "accountability", "framework", "model",
-            "standards", "audit", "responsibility", "platform responsibility",
-            "sovereign ai", "national ai strategy", "institutional"
-        ],
-    },
-    "Ch 3": {
-        "theme_id": "T1",
-        "name": "AI Policy, Regulation & Legislation",
-        "keywords": [
-            "policy", "regulation", "legislation", "law", "government", "strategy",
-            "national ai", "member states", "recommendation", "unesco recommendation",
-            "governance", "public policy", "compliance"
-        ],
-    },
-    "Ch 4": {
-        "theme_id": "T1",
-        "name": "AI Economics, Competition & Markets",
-        "keywords": [
-            "economy", "economic", "competition", "markets", "jobs", "workforce",
-            "labour", "labor", "productivity", "innovation", "business",
-            "small business", "sme", "industry", "investment", "employment"
-        ],
-    },
-    "Ch 5": {
-        "theme_id": "T2",
-        "name": "Open Data & Information Accessibility",
-        "keywords": [
-            "open data", "data access", "information accessibility", "access to information",
-            "public access", "knowledge", "repositories", "data sets", "datasets",
-            "information systems", "information access", "archives", "catalogue",
-            "cataloguing", "information"
-        ],
-    },
-    "Ch 6": {
-        "theme_id": "T2",
-        "name": "AI in Journalism & the Media Landscape",
-        "keywords": [
-            "journalism", "media", "news", "press", "content creation", "broadcast",
-            "journalists", "editorial", "media literacy", "information integrity",
-            "content authenticity", "fact checking", "fact-checking"
-        ],
-    },
-    "Ch 7": {
-        "theme_id": "T2",
-        "name": "Government Information & Public Services",
-        "keywords": [
-            "government information", "public services", "administrative", "public sector",
-            "government", "citizens", "public information", "civic", "services",
-            "policy access", "public records", "transparency"
-        ],
-    },
-    "Ch 8": {
-        "theme_id": "T2",
-        "name": "Regional & Satellite Conference Events",
-        "keywords": [
-            "conference", "satellite event", "regional", "session", "panel",
-            "remarks", "welcome", "speaker", "unesco", "ifap", "ai4ia",
-            "dialogue", "event", "audience", "moderator", "panelists"
-        ],
-    },
-    "Ch 9": {
-        "theme_id": "T3",
-        "name": "AI Equity in the Global South & Developing Nations",
-        "keywords": [
-            "global south", "developing nations", "africa", "caribbean", "latin america",
-            "equity", "inclusion", "digital divide", "local capacity", "sovereignty",
-            "infrastructure", "underserved", "rural", "communities", "local problems"
-        ],
-    },
-    "Ch 10": {
-        "theme_id": "T3",
-        "name": "Gender, Race & Diversity in AI",
-        "keywords": [
-            "gender", "race", "diversity", "women", "girls", "bias", "representation",
-            "minorities", "inclusion", "equitable", "fairness", "discrimination",
-            "diverse", "african faces"
-        ],
-    },
-    "Ch 11": {
-        "theme_id": "T3",
-        "name": "Disabilities, Assistive Tech & Accessibility",
-        "keywords": [
-            "disability", "disabilities", "assistive", "accessibility", "screen reader",
-            "voice interface", "sign language", "hearing", "visual impairment",
-            "inclusive design", "accessible", "persons with disabilities"
-        ],
-    },
-    "Ch 12": {
-        "theme_id": "T3",
-        "name": "Youth, Aging & Generational Perspectives",
-        "keywords": [
-            "youth", "young people", "students", "elderly", "aging", "senior citizens",
-            "generation", "generational", "children", "young innovators", "digital literacy",
-            "future generations", "intergenerational"
-        ],
-    },
-    "Ch 13": {
-        "theme_id": "T4",
-        "name": "AI in Healthcare & Medicine",
-        "keywords": [
-            "health", "healthcare", "medicine", "medical", "patient", "disease",
-            "diagnosis", "clinical", "hospital", "medicine waste", "public health",
-            "cholera", "doctor", "health systems"
-        ],
-    },
-    "Ch 14": {
-        "theme_id": "T4",
-        "name": "AI for Environment, Climate & Sustainability",
-        "keywords": [
-            "environment", "climate", "sustainability", "water", "hydrology",
-            "satellite", "rainfall", "drought", "biodiversity", "pollution",
-            "water quality", "natural resources", "early warning", "cyclone",
-            "sustainable", "environmental"
-        ],
-    },
-    "Ch 15": {
-        "theme_id": "T4",
-        "name": "AI in Agriculture & Food Security",
-        "keywords": [
-            "agriculture", "food security", "farm", "farming", "smallholders",
-            "crop", "crops", "livestock", "soil", "irrigation", "farmers",
-            "agricultural", "drought resistant"
-        ],
-    },
-    "Ch 16": {
-        "theme_id": "T5",
-        "name": "Deepfakes, Synthetic Media & Copyright",
-        "keywords": [
-            "deepfake", "deepfakes", "synthetic media", "copyright", "image generation",
-            "voice clone", "cloned", "fake video", "ai-generated image",
-            "synthetic", "content authenticity"
-        ],
-    },
-    "Ch 17": {
-        "theme_id": "T5",
-        "name": "AI-Driven Disinformation & Propaganda",
-        "keywords": [
-            "disinformation", "misinformation", "propaganda", "false information",
-            "fake news", "truth", "information integrity", "manipulation",
-            "fact checking", "fact-checking", "devaluation of truth", "trust"
-        ],
-    },
-    "Ch 18": {
-        "theme_id": "T5",
-        "name": "AI Safety, Cybersecurity & Warfare",
-        "keywords": [
-            "safety", "cybersecurity", "cyberwarfare", "warfare", "security",
-            "weaponization", "threat", "risk", "online harms", "attack",
-            "defense", "malicious", "harm"
-        ],
-    },
-    "Ch 19": {
-        "theme_id": "T6",
-        "name": "AI Literacy, Learning & Education Reform",
-        "keywords": [
-            "ai literacy", "education", "learning", "students", "teachers",
-            "curriculum", "assessment", "school", "digital literacy", "training",
-            "upskilling", "reskilling", "prompt engineering", "classroom"
-        ],
-    },
-    "Ch 20": {
-        "theme_id": "T6",
-        "name": "AI in Creative Arts, Music & Culture",
-        "keywords": [
-            "creative", "arts", "music", "culture", "poetry", "authors", "poets",
-            "creativity", "artist", "screenwriter", "storytelling", "creative industries",
-            "cultural production"
-        ],
-    },
-    "Ch 21": {
-        "theme_id": "T6",
-        "name": "Indigenous Knowledge, Language & Localized AI",
-        "keywords": [
-            "indigenous", "language", "localized ai", "local language", "mother tongue",
-            "community knowledge", "cultural awareness", "local data", "translation",
-            "shona", "ndebele", "tonga", "knowledge systems", "local context",
-            "local repository", "datasets"
-        ],
-    },
-    "Ch 22": {
-        "theme_id": "T6",
-        "name": "AI in Academic Research & Knowledge Production",
-        "keywords": [
-            "academic", "research", "knowledge production", "university", "scholarship",
-            "publication", "science", "research data", "data repository",
-            "lecturer", "institutional repository", "datasets"
-        ],
-    },
-    "Ch 23": {
-        "theme_id": "T7",
-        "name": "AI & Legal Systems / Access to Justice",
-        "keywords": [
-            "legal", "law", "justice", "access to justice", "legal systems",
-            "compliance", "court", "rights", "legal information", "law and compliance",
-            "lawyers", "regulation"
-        ],
-    },
-    "Ch 24": {
-        "theme_id": "T7",
-        "name": "Privacy, Human Rights & Civil Liberties",
-        "keywords": [
-            "privacy", "human rights", "civil liberties", "data protection",
-            "digital freedom", "freedom", "surveillance", "rights", "right to know",
-            "right not to know", "neurotechnology", "protection"
-        ],
-    },
-    "Ch 25": {
-        "theme_id": "T7",
-        "name": "AI & Intellectual Property",
-        "keywords": [
-            "intellectual property", "copyright", "public trust", "ip", "authors",
-            "ownership", "licensing", "creative rights", "patent", "content rights"
-        ],
-    },
-}
 
 
 STOPWORDS = {
@@ -698,6 +386,33 @@ def determine_clip_usage(text: str, quote_strength: float, clarity_score: float,
     return usage[:4]
 
 
+def load_speaker_lookup() -> dict[str, dict]:
+    """video_id/source_video -> speaker roster record from 04b_extract_speakers.py output."""
+    lookup: dict[str, dict] = {}
+
+    if not SPEAKERS_METADATA_DIR.exists():
+        return lookup
+
+    for path in sorted(SPEAKERS_METADATA_DIR.glob("*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+
+        if not isinstance(data, dict):
+            continue
+
+        source_video = data.get("source_video")
+        video_id = data.get("video_id")
+
+        if source_video:
+            lookup[str(source_video)] = data
+        if video_id:
+            lookup[str(video_id)] = data
+
+    return lookup
+
+
 def classify_fragment(fragment: dict) -> dict:
     text = fragment.get("text", "")
     duration = float(fragment.get("duration", 0) or 0)
@@ -752,12 +467,28 @@ def classify_fragment(fragment: dict) -> dict:
     return updated
 
 
-def classify_fragment_file(path: Path) -> tuple[dict, dict]:
+def classify_fragment_file(path: Path, speaker_lookup: dict[str, dict] | None = None) -> tuple[dict, dict]:
     with path.open("r", encoding="utf-8") as f:
         payload = json.load(f)
 
+    speaker_lookup = speaker_lookup if speaker_lookup is not None else load_speaker_lookup()
+    speaker_meta = (
+        speaker_lookup.get(str(payload.get("source_video")))
+        or speaker_lookup.get(str(payload.get("video_id")))
+        or {}
+    )
+    fallback_speaker = speaker_meta.get("primary_speaker")
+    fallback_speaker_attribution = speaker_meta.get("attribution")
+
     fragments = payload.get("fragments", [])
     classified_fragments = [classify_fragment(fragment) for fragment in fragments]
+
+    if fallback_speaker:
+        for fragment in classified_fragments:
+            if not fragment.get("speaker"):
+                fragment["speaker"] = fallback_speaker
+            if not fragment.get("speaker_attribution"):
+                fragment["speaker_attribution"] = fallback_speaker_attribution
 
     classified_payload = dict(payload)
     classified_payload["classification_method"] = "rule_based_mvp_v1"
@@ -862,6 +593,7 @@ def main() -> None:
     classified_payloads = []
 
     total_fragments = 0
+    speaker_lookup = load_speaker_lookup()
 
     for path in fragment_files:
         output_path = CLASSIFIED_DIR / path.name.replace(".fragments.json", ".classified.json")
@@ -869,7 +601,7 @@ def main() -> None:
         log(f"CLASSIFYING: {path.name}")
 
         try:
-            classified_payload, report_row = classify_fragment_file(path)
+            classified_payload, report_row = classify_fragment_file(path, speaker_lookup)
 
             output_path.write_text(
                 json.dumps(classified_payload, ensure_ascii=False, indent=2),

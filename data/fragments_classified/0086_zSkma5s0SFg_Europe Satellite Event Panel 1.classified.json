@@ -3,11 +3,11 @@
   "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
   "video_id": "zSkma5s0SFg",
   "fragment_count": 148,
-  "created_at": "2026-06-16T12:54:13.187300",
+  "created_at": "2026-07-03T10:35:22.348660",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0001",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 7.76,
       "end": 65.59,
@@ -34,7 +36,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:13.146052",
+      "created_at": "2026-07-03T10:35:21.989045",
       "keywords": [
         "artificial intelligence",
         "access to information",
@@ -143,14 +145,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.827870",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.852714",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0002",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 65.59,
       "end": 120.89,
@@ -169,7 +173,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:13.146298",
+      "created_at": "2026-07-03T10:35:21.991438",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -285,14 +289,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.832305",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.857611",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0003",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 120.89,
       "end": 179.98,
@@ -310,7 +316,7 @@
         27,
         28
       ],
-      "created_at": "2026-06-16T12:54:13.146548",
+      "created_at": "2026-07-03T10:35:21.993846",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -398,14 +404,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.836967",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.862975",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0004",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 179.98,
       "end": 272.05,
@@ -418,7 +426,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:13.146608",
+      "created_at": "2026-07-03T10:35:21.996193",
       "keywords": [
         "welcome",
         "don't",
@@ -455,14 +463,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.838642",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.864933",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0005",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 272.05,
       "end": 350.3,
@@ -485,7 +495,7 @@
         45,
         46
       ],
-      "created_at": "2026-06-16T12:54:13.146860",
+      "created_at": "2026-07-03T10:35:21.998777",
       "keywords": [
         "artificial intelligence",
         "well",
@@ -526,14 +536,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.842781",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.869464",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0006",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 350.3,
       "end": 431.99,
@@ -556,7 +568,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:13.147149",
+      "created_at": "2026-07-03T10:35:22.001192",
       "keywords": [
         "threat",
         "humanity",
@@ -604,14 +616,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.847371",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.874548",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0007",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 431.99,
       "end": 511.13,
@@ -635,7 +649,7 @@
         74,
         75
       ],
-      "created_at": "2026-06-16T12:54:13.147438",
+      "created_at": "2026-07-03T10:35:22.003759",
       "keywords": [
         "governance",
         "values",
@@ -697,14 +711,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.851632",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.879368",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0008",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 511.13,
       "end": 587.62,
@@ -729,7 +745,7 @@
         90,
         91
       ],
-      "created_at": "2026-06-16T12:54:13.147855",
+      "created_at": "2026-07-03T10:35:22.006111",
       "keywords": [
         "ethical",
         "economic",
@@ -832,14 +848,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.856072",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.883925",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0009",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 587.62,
       "end": 649.59,
@@ -863,7 +881,7 @@
         105,
         106
       ],
-      "created_at": "2026-06-16T12:54:13.148229",
+      "created_at": "2026-07-03T10:35:22.008449",
       "keywords": [
         "governance",
         "policy",
@@ -978,14 +996,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.860523",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.890010",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0010",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 649.59,
       "end": 704.83,
@@ -1011,7 +1031,7 @@
         122,
         123
       ],
-      "created_at": "2026-06-16T12:54:13.148613",
+      "created_at": "2026-07-03T10:35:22.010965",
       "keywords": [
         "global south",
         "content",
@@ -1082,14 +1102,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.865058",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.894712",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0011",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 11,
       "start": 704.83,
       "end": 742.86,
@@ -1111,7 +1133,7 @@
         135,
         136
       ],
-      "created_at": "2026-06-16T12:54:13.148895",
+      "created_at": "2026-07-03T10:35:22.013373",
       "keywords": [
         "research",
         "markets",
@@ -1174,14 +1196,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.869032",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.899486",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0012",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 12,
       "start": 742.86,
       "end": 786.26,
@@ -1206,7 +1230,7 @@
         151,
         152
       ],
-      "created_at": "2026-06-16T12:54:13.149233",
+      "created_at": "2026-07-03T10:35:22.016009",
       "keywords": [
         "global south",
         "africa",
@@ -1274,14 +1298,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.873602",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.906103",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0013",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 13,
       "start": 786.26,
       "end": 829.18,
@@ -1307,7 +1333,7 @@
         168,
         169
       ],
-      "created_at": "2026-06-16T12:54:13.149810",
+      "created_at": "2026-07-03T10:35:22.018840",
       "keywords": [
         "global south",
         "information",
@@ -1366,14 +1392,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.878073",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.911394",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0014",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 14,
       "start": 829.18,
       "end": 870.66,
@@ -1397,7 +1425,7 @@
         183,
         184
       ],
-      "created_at": "2026-06-16T12:54:13.150124",
+      "created_at": "2026-07-03T10:35:22.022677",
       "keywords": [
         "global south",
         "digital divide",
@@ -1489,14 +1517,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.882332",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.916275",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0015",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 15,
       "start": 870.66,
       "end": 912.78,
@@ -1520,7 +1550,7 @@
         198,
         199
       ],
-      "created_at": "2026-06-16T12:54:13.150588",
+      "created_at": "2026-07-03T10:35:22.026876",
       "keywords": [
         "global south",
         "media",
@@ -1587,14 +1617,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.886924",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.921250",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0016",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 16,
       "start": 912.78,
       "end": 959.54,
@@ -1618,7 +1650,7 @@
         213,
         214
       ],
-      "created_at": "2026-06-16T12:54:13.150935",
+      "created_at": "2026-07-03T10:35:22.029960",
       "keywords": [
         "global south",
         "media",
@@ -1682,14 +1714,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.891779",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.926467",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0017",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 17,
       "start": 959.54,
       "end": 1007.76,
@@ -1713,7 +1747,7 @@
         228,
         229
       ],
-      "created_at": "2026-06-16T12:54:13.151263",
+      "created_at": "2026-07-03T10:35:22.032854",
       "keywords": [
         "africa",
         "employment",
@@ -1765,14 +1799,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.896285",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.934001",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0018",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 18,
       "start": 1007.76,
       "end": 1054.64,
@@ -1797,7 +1833,7 @@
         244,
         245
       ],
-      "created_at": "2026-06-16T12:54:13.151641",
+      "created_at": "2026-07-03T10:35:22.035467",
       "keywords": [
         "africa",
         "freedom",
@@ -1883,14 +1919,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.900944",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.943400",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0019",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 19,
       "start": 1054.64,
       "end": 1101.96,
@@ -1914,7 +1952,7 @@
         259,
         260
       ],
-      "created_at": "2026-06-16T12:54:13.152007",
+      "created_at": "2026-07-03T10:35:22.038180",
       "keywords": [
         "content",
         "language",
@@ -1968,14 +2006,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.905779",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.950631",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0020",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 20,
       "start": 1101.96,
       "end": 1146.6,
@@ -2000,7 +2040,7 @@
         275,
         276
       ],
-      "created_at": "2026-06-16T12:54:13.152458",
+      "created_at": "2026-07-03T10:35:22.040799",
       "keywords": [
         "global south",
         "africa",
@@ -2097,14 +2137,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.910589",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.957317",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0021",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 21,
       "start": 1146.6,
       "end": 1196.42,
@@ -2130,7 +2172,7 @@
         292,
         293
       ],
-      "created_at": "2026-06-16T12:54:13.153171",
+      "created_at": "2026-07-03T10:35:22.044148",
       "keywords": [
         "policy",
         "economic",
@@ -2212,14 +2254,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.915289",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.962440",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0022",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 22,
       "start": 1196.42,
       "end": 1240.2,
@@ -2240,7 +2284,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.153585",
+      "created_at": "2026-07-03T10:35:22.046919",
       "keywords": [
         "content",
         "ethical",
@@ -2312,14 +2356,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.919925",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.967524",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0023",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 23,
       "start": 1240.2,
       "end": 1294.26,
@@ -2342,7 +2388,7 @@
         23,
         24
       ],
-      "created_at": "2026-06-16T12:54:13.153952",
+      "created_at": "2026-07-03T10:35:22.049360",
       "keywords": [
         "health",
         "content",
@@ -2396,14 +2442,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.925202",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.973295",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0024",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 24,
       "start": 1294.26,
       "end": 1342.86,
@@ -2422,7 +2470,7 @@
         33,
         34
       ],
-      "created_at": "2026-06-16T12:54:13.154209",
+      "created_at": "2026-07-03T10:35:22.052363",
       "keywords": [
         "global south",
         "law",
@@ -2501,14 +2549,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.929679",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.978356",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0025",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 25,
       "start": 1342.86,
       "end": 1388.45,
@@ -2527,7 +2577,7 @@
         43,
         44
       ],
-      "created_at": "2026-06-16T12:54:13.154455",
+      "created_at": "2026-07-03T10:35:22.055598",
       "keywords": [
         "content",
         "legal",
@@ -2591,14 +2641,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.934763",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.988185",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0026",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 26,
       "start": 1388.45,
       "end": 1441.17,
@@ -2616,7 +2668,7 @@
         52,
         53
       ],
-      "created_at": "2026-06-16T12:54:13.154734",
+      "created_at": "2026-07-03T10:35:22.058139",
       "keywords": [
         "accountability",
         "responsibility",
@@ -2672,14 +2724,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.939859",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.997785",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0027",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 27,
       "start": 1441.17,
       "end": 1487.41,
@@ -2697,7 +2751,7 @@
         61,
         62
       ],
-      "created_at": "2026-06-16T12:54:13.155086",
+      "created_at": "2026-07-03T10:35:22.060711",
       "keywords": [
         "human rights",
         "rights",
@@ -2768,14 +2822,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.945051",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.008195",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0028",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 28,
       "start": 1487.41,
       "end": 1544.89,
@@ -2794,7 +2850,7 @@
         71,
         72
       ],
-      "created_at": "2026-06-16T12:54:13.155520",
+      "created_at": "2026-07-03T10:35:22.063226",
       "keywords": [
         "fake",
         "government",
@@ -2847,14 +2903,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.951432",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.019795",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0029",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 29,
       "start": 1544.89,
       "end": 1599.24,
@@ -2872,7 +2930,7 @@
         80,
         81
       ],
-      "created_at": "2026-06-16T12:54:13.155813",
+      "created_at": "2026-07-03T10:35:22.065616",
       "keywords": [
         "human rights",
         "rights",
@@ -2968,14 +3026,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.956458",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.029839",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0030",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 30,
       "start": 1599.24,
       "end": 1649.72,
@@ -2993,7 +3053,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:13.156065",
+      "created_at": "2026-07-03T10:35:22.067946",
       "keywords": [
         "content",
         "africa",
@@ -3066,14 +3126,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.961392",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.036689",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0031",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 31,
       "start": 1649.72,
       "end": 1700.44,
@@ -3090,7 +3152,7 @@
         97,
         98
       ],
-      "created_at": "2026-06-16T12:54:13.156359",
+      "created_at": "2026-07-03T10:35:22.070684",
       "keywords": [
         "policy",
         "standards",
@@ -3186,14 +3248,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.966231",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.042602",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0032",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 32,
       "start": 1700.44,
       "end": 1752.44,
@@ -3210,7 +3274,7 @@
         105,
         106
       ],
-      "created_at": "2026-06-16T12:54:13.156615",
+      "created_at": "2026-07-03T10:35:22.073205",
       "keywords": [
         "content",
         "government",
@@ -3266,14 +3330,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.971011",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.048338",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0033",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 33,
       "start": 1752.44,
       "end": 1799.4,
@@ -3290,7 +3356,7 @@
         113,
         114
       ],
-      "created_at": "2026-06-16T12:54:13.156875",
+      "created_at": "2026-07-03T10:35:22.075434",
       "keywords": [
         "content",
         "information",
@@ -3390,14 +3456,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.975806",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.054259",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0034",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 34,
       "start": 1799.4,
       "end": 1850.28,
@@ -3414,7 +3482,7 @@
         121,
         122
       ],
-      "created_at": "2026-06-16T12:54:13.157131",
+      "created_at": "2026-07-03T10:35:22.077670",
       "keywords": [
         "bias",
         "research",
@@ -3507,14 +3575,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.980842",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.060730",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0035",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 35,
       "start": 1850.28,
       "end": 1900.25,
@@ -3530,7 +3600,7 @@
         128,
         129
       ],
-      "created_at": "2026-06-16T12:54:13.157454",
+      "created_at": "2026-07-03T10:35:22.079876",
       "keywords": [
         "media",
         "government",
@@ -3595,14 +3665,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.985157",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.068266",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0036",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 36,
       "start": 1900.25,
       "end": 1953.05,
@@ -3619,7 +3691,7 @@
         136,
         137
       ],
-      "created_at": "2026-06-16T12:54:13.157775",
+      "created_at": "2026-07-03T10:35:22.082357",
       "keywords": [
         "rights",
         "government",
@@ -3691,14 +3763,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.989871",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.074176",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0037",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 37,
       "start": 1953.05,
       "end": 2013.69,
@@ -3716,7 +3790,7 @@
         145,
         146
       ],
-      "created_at": "2026-06-16T12:54:13.158038",
+      "created_at": "2026-07-03T10:35:22.084676",
       "keywords": [
         "content",
         "innovation",
@@ -3779,14 +3853,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.994663",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.081159",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0038",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 38,
       "start": 2015.13,
       "end": 2066.92,
@@ -3803,7 +3879,7 @@
         153,
         154
       ],
-      "created_at": "2026-06-16T12:54:13.158270",
+      "created_at": "2026-07-03T10:35:22.087008",
       "keywords": [
         "accountability",
         "innovation",
@@ -3877,14 +3953,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.999247",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.086973",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0039",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 39,
       "start": 2066.92,
       "end": 2118.04,
@@ -3901,7 +3979,7 @@
         161,
         162
       ],
-      "created_at": "2026-06-16T12:54:13.158521",
+      "created_at": "2026-07-03T10:35:22.089256",
       "keywords": [
         "legal",
         "rights",
@@ -3975,14 +4053,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.004075",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.092535",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0040",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 40,
       "start": 2118.04,
       "end": 2170.07,
@@ -4000,7 +4080,7 @@
         170,
         171
       ],
-      "created_at": "2026-06-16T12:54:13.158794",
+      "created_at": "2026-07-03T10:35:22.091538",
       "keywords": [
         "policy",
         "rights",
@@ -4098,14 +4178,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.009183",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.099322",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0041",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 41,
       "start": 2170.07,
       "end": 2211.54,
@@ -4121,7 +4203,7 @@
         177,
         178
       ],
-      "created_at": "2026-06-16T12:54:13.159009",
+      "created_at": "2026-07-03T10:35:22.093827",
       "keywords": [
         "media",
         "policies",
@@ -4165,14 +4247,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.013454",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.104253",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0042",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 42,
       "start": 2211.54,
       "end": 2272.9,
@@ -4189,7 +4273,7 @@
         185,
         186
       ],
-      "created_at": "2026-06-16T12:54:13.159251",
+      "created_at": "2026-07-03T10:35:22.096122",
       "keywords": [
         "research",
         "training",
@@ -4296,14 +4380,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.018021",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.109891",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0043",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 43,
       "start": 2272.9,
       "end": 2317.06,
@@ -4320,7 +4406,7 @@
         193,
         194
       ],
-      "created_at": "2026-06-16T12:54:13.159504",
+      "created_at": "2026-07-03T10:35:22.098508",
       "keywords": [
         "human rights",
         "rights",
@@ -4409,14 +4495,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.022652",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.116989",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0044",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 44,
       "start": 2318.1,
       "end": 2360.18,
@@ -4432,7 +4520,7 @@
         200,
         201
       ],
-      "created_at": "2026-06-16T12:54:13.159728",
+      "created_at": "2026-07-03T10:35:22.101049",
       "keywords": [
         "news",
         "content",
@@ -4523,14 +4611,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.027157",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.123172",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0045",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 45,
       "start": 2360.18,
       "end": 2407.09,
@@ -4547,7 +4637,7 @@
         208,
         1
       ],
-      "created_at": "2026-06-16T12:54:13.159982",
+      "created_at": "2026-07-03T10:35:22.103664",
       "keywords": [
         "language",
         "content",
@@ -4605,14 +4695,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.031978",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.128963",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0046",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 46,
       "start": 2408.21,
       "end": 2475.97,
@@ -4629,7 +4721,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:13.160357",
+      "created_at": "2026-07-03T10:35:22.106229",
       "keywords": [
         "disinformation",
         "ethics",
@@ -4746,14 +4838,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.036776",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.135481",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0047",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 47,
       "start": 2475.97,
       "end": 2530.0,
@@ -4769,7 +4863,7 @@
         15,
         16
       ],
-      "created_at": "2026-06-16T12:54:13.160661",
+      "created_at": "2026-07-03T10:35:22.108731",
       "keywords": [
         "artificial intelligence",
         "disinformation",
@@ -4856,14 +4950,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.041096",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.140838",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0048",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 48,
       "start": 2530.0,
       "end": 2594.72,
@@ -4880,7 +4976,7 @@
         23,
         24
       ],
-      "created_at": "2026-06-16T12:54:13.160928",
+      "created_at": "2026-07-03T10:35:22.111038",
       "keywords": [
         "artificial intelligence",
         "disinformation",
@@ -4991,14 +5087,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.045865",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.146683",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0049",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 49,
       "start": 2595.12,
       "end": 2671.6,
@@ -5016,7 +5114,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:13.161200",
+      "created_at": "2026-07-03T10:35:22.113240",
       "keywords": [
         "artificial intelligence",
         "disinformation",
@@ -5095,14 +5193,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.050907",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.157348",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0050",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 50,
       "start": 2671.6,
       "end": 2745.2,
@@ -5119,7 +5219,7 @@
         40,
         41
       ],
-      "created_at": "2026-06-16T12:54:13.161683",
+      "created_at": "2026-07-03T10:35:22.115405",
       "keywords": [
         "artificial intelligence",
         "disinformation",
@@ -5213,14 +5313,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.055534",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.163047",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0051",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 51,
       "start": 2745.2,
       "end": 2820.64,
@@ -5237,7 +5339,7 @@
         48,
         49
       ],
-      "created_at": "2026-06-16T12:54:13.161954",
+      "created_at": "2026-07-03T10:35:22.117664",
       "keywords": [
         "disinformation",
         "fake",
@@ -5342,14 +5444,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.060242",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.168860",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0052",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 52,
       "start": 2820.64,
       "end": 2901.44,
@@ -5367,7 +5471,7 @@
         57,
         58
       ],
-      "created_at": "2026-06-16T12:54:13.162205",
+      "created_at": "2026-07-03T10:35:22.120081",
       "keywords": [
         "artificial intelligence",
         "disinformation",
@@ -5448,14 +5552,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.065127",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.174521",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0053",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 53,
       "start": 2901.44,
       "end": 2985.52,
@@ -5473,7 +5579,7 @@
         66,
         67
       ],
-      "created_at": "2026-06-16T12:54:13.162620",
+      "created_at": "2026-07-03T10:35:22.122540",
       "keywords": [
         "disinformation",
         "media",
@@ -5555,14 +5661,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.069990",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.180065",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0054",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 54,
       "start": 2986.48,
       "end": 3071.92,
@@ -5580,7 +5688,7 @@
         75,
         76
       ],
-      "created_at": "2026-06-16T12:54:13.162872",
+      "created_at": "2026-07-03T10:35:22.125011",
       "keywords": [
         "artificial intelligence",
         "disinformation",
@@ -5692,14 +5800,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.080693",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.185414",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0055",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 55,
       "start": 3072.56,
       "end": 3154.26,
@@ -5716,7 +5826,7 @@
         83,
         84
       ],
-      "created_at": "2026-06-16T12:54:13.163090",
+      "created_at": "2026-07-03T10:35:22.127564",
       "keywords": [
         "artificial intelligence",
         "disinformation",
@@ -5825,14 +5935,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.086044",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.190482",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0056",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 56,
       "start": 3154.26,
       "end": 3217.36,
@@ -5849,7 +5961,7 @@
         91,
         92
       ],
-      "created_at": "2026-06-16T12:54:13.163343",
+      "created_at": "2026-07-03T10:35:22.130407",
       "keywords": [
         "human rights",
         "law",
@@ -5969,14 +6081,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.091123",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.195824",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0057",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 57,
       "start": 3217.36,
       "end": 3267.68,
@@ -5992,7 +6106,7 @@
         98,
         99
       ],
-      "created_at": "2026-06-16T12:54:13.163584",
+      "created_at": "2026-07-03T10:35:22.132782",
       "keywords": [
         "it's",
         "digital",
@@ -6029,14 +6143,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.095737",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.200701",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0058",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 58,
       "start": 3267.68,
       "end": 3309.36,
@@ -6052,7 +6168,7 @@
         105,
         106
       ],
-      "created_at": "2026-06-16T12:54:13.163806",
+      "created_at": "2026-07-03T10:35:22.135041",
       "keywords": [
         "access to information",
         "information",
@@ -6115,14 +6231,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.100185",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.206187",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0059",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 59,
       "start": 3309.36,
       "end": 3349.68,
@@ -6138,7 +6256,7 @@
         112,
         113
       ],
-      "created_at": "2026-06-16T12:54:13.164025",
+      "created_at": "2026-07-03T10:35:22.137393",
       "keywords": [
         "regulation",
         "information",
@@ -6219,14 +6337,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.104430",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.211223",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0060",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 60,
       "start": 3349.68,
       "end": 3389.6,
@@ -6242,7 +6362,7 @@
         119,
         120
       ],
-      "created_at": "2026-06-16T12:54:13.164262",
+      "created_at": "2026-07-03T10:35:22.139907",
       "keywords": [
         "rights",
         "know",
@@ -6296,14 +6416,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.108637",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.217132",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0061",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 61,
       "start": 3389.6,
       "end": 3435.46,
@@ -6319,7 +6441,7 @@
         126,
         127
       ],
-      "created_at": "2026-06-16T12:54:13.164496",
+      "created_at": "2026-07-03T10:35:22.143934",
       "keywords": [
         "rights",
         "know",
@@ -6374,14 +6496,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.112980",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.222338",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0062",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 62,
       "start": 3435.54,
       "end": 3474.53,
@@ -6397,7 +6521,7 @@
         133,
         134
       ],
-      "created_at": "2026-06-16T12:54:13.164750",
+      "created_at": "2026-07-03T10:35:22.147427",
       "keywords": [
         "access to information",
         "information",
@@ -6475,14 +6599,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.117258",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.227413",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0063",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 63,
       "start": 3474.53,
       "end": 3513.49,
@@ -6498,7 +6624,7 @@
         140,
         141
       ],
-      "created_at": "2026-06-16T12:54:13.164982",
+      "created_at": "2026-07-03T10:35:22.151010",
       "keywords": [
         "policy",
         "information",
@@ -6590,14 +6716,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.121623",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.232712",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0064",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 64,
       "start": 3513.49,
       "end": 3552.53,
@@ -6613,7 +6741,7 @@
         147,
         148
       ],
-      "created_at": "2026-06-16T12:54:13.165246",
+      "created_at": "2026-07-03T10:35:22.153770",
       "keywords": [
         "course",
         "know",
@@ -6650,14 +6778,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.283,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.125911",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.237954",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0065",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 65,
       "start": 3552.53,
       "end": 3596.69,
@@ -6673,7 +6803,7 @@
         154,
         155
       ],
-      "created_at": "2026-06-16T12:54:13.165480",
+      "created_at": "2026-07-03T10:35:22.156750",
       "keywords": [
         "access to information",
         "content",
@@ -6725,14 +6855,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.130288",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.244007",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0066",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 66,
       "start": 3596.69,
       "end": 3632.96,
@@ -6748,7 +6880,7 @@
         5,
         6
       ],
-      "created_at": "2026-06-16T12:54:13.165687",
+      "created_at": "2026-07-03T10:35:22.159112",
       "keywords": [
         "content",
         "information",
@@ -6825,14 +6957,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.134573",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.249443",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0067",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 67,
       "start": 3632.96,
       "end": 3669.28,
@@ -6848,7 +6982,7 @@
         12,
         13
       ],
-      "created_at": "2026-06-16T12:54:13.165897",
+      "created_at": "2026-07-03T10:35:22.162073",
       "keywords": [
         "access to information",
         "content",
@@ -6929,14 +7063,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.138965",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.254834",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0068",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 68,
       "start": 3669.28,
       "end": 3708.72,
@@ -6953,7 +7089,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.166152",
+      "created_at": "2026-07-03T10:35:22.164542",
       "keywords": [
         "policy",
         "information",
@@ -7030,14 +7166,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.143741",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.260485",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0069",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 69,
       "start": 3708.72,
       "end": 3752.72,
@@ -7054,7 +7192,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.166406",
+      "created_at": "2026-07-03T10:35:22.167350",
       "keywords": [
         "access to information",
         "information",
@@ -7121,14 +7259,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.148641",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.266058",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0070",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 70,
       "start": 3752.72,
       "end": 3794.96,
@@ -7145,7 +7285,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:13.166762",
+      "created_at": "2026-07-03T10:35:22.170258",
       "keywords": [
         "research",
         "information",
@@ -7211,14 +7351,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.153401",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.271621",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0071",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 71,
       "start": 3794.96,
       "end": 3831.6,
@@ -7235,7 +7377,7 @@
         44,
         45
       ],
-      "created_at": "2026-06-16T12:54:13.167115",
+      "created_at": "2026-07-03T10:35:22.172527",
       "keywords": [
         "governance",
         "market",
@@ -7344,14 +7486,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.158093",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.277049",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0072",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 72,
       "start": 3832.32,
       "end": 3875.76,
@@ -7368,7 +7512,7 @@
         52,
         53
       ],
-      "created_at": "2026-06-16T12:54:13.167392",
+      "created_at": "2026-07-03T10:35:22.174814",
       "keywords": [
         "content",
         "information",
@@ -7443,14 +7587,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.162999",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.282530",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0073",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 73,
       "start": 3875.76,
       "end": 3911.2,
@@ -7466,7 +7612,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:13.167622",
+      "created_at": "2026-07-03T10:35:22.177058",
       "keywords": [
         "information",
         "access",
@@ -7511,14 +7657,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.167397",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.287542",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0074",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 74,
       "start": 3911.2,
       "end": 3947.76,
@@ -7534,7 +7682,7 @@
         66,
         67
       ],
-      "created_at": "2026-06-16T12:54:13.167841",
+      "created_at": "2026-07-03T10:35:22.179234",
       "keywords": [
         "know",
         "powers",
@@ -7575,14 +7723,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.283,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.171927",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.292571",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0075",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 75,
       "start": 3947.76,
       "end": 3987.52,
@@ -7598,7 +7748,7 @@
         73,
         74
       ],
-      "created_at": "2026-06-16T12:54:13.168072",
+      "created_at": "2026-07-03T10:35:22.181352",
       "keywords": [
         "regulation",
         "need",
@@ -7664,14 +7814,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.176506",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.300308",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0076",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 76,
       "start": 3987.52,
       "end": 4030.0,
@@ -7688,7 +7840,7 @@
         81,
         82
       ],
-      "created_at": "2026-06-16T12:54:13.168345",
+      "created_at": "2026-07-03T10:35:22.183522",
       "keywords": [
         "governance",
         "dsas",
@@ -7749,14 +7901,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.181650",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.305663",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0077",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 77,
       "start": 4030.0,
       "end": 4087.38,
@@ -7773,7 +7927,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:13.168613",
+      "created_at": "2026-07-03T10:35:22.185729",
       "keywords": [
         "academic",
         "standards",
@@ -7845,14 +7999,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.186580",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.310868",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0078",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 78,
       "start": 4088.5,
       "end": 4129.38,
@@ -7869,7 +8025,7 @@
         97,
         98
       ],
-      "created_at": "2026-06-16T12:54:13.168891",
+      "created_at": "2026-07-03T10:35:22.188044",
       "keywords": [
         "member states",
         "court",
@@ -7924,14 +8080,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.517,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.191465",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.316193",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0079",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 79,
       "start": 4129.38,
       "end": 4167.7,
@@ -7947,7 +8105,7 @@
         104,
         105
       ],
-      "created_at": "2026-06-16T12:54:13.169175",
+      "created_at": "2026-07-03T10:35:22.190372",
       "keywords": [
         "mean",
         "it's",
@@ -7987,14 +8145,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.283,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.195908",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.321173",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0080",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 80,
       "start": 4167.7,
       "end": 4207.78,
@@ -8012,7 +8172,7 @@
         113,
         114
       ],
-      "created_at": "2026-06-16T12:54:13.169544",
+      "created_at": "2026-07-03T10:35:22.192766",
       "keywords": [
         "content",
         "know",
@@ -8058,14 +8218,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.567,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.201544",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.327168",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0081",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 81,
       "start": 4207.78,
       "end": 4243.63,
@@ -8081,7 +8243,7 @@
         120,
         121
       ],
-      "created_at": "2026-06-16T12:54:13.169784",
+      "created_at": "2026-07-03T10:35:22.195084",
       "keywords": [
         "accountability",
         "information",
@@ -8186,14 +8348,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.206031",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.332522",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0082",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 82,
       "start": 4243.63,
       "end": 4313.18,
@@ -8211,7 +8375,7 @@
         129,
         130
       ],
-      "created_at": "2026-06-16T12:54:13.170069",
+      "created_at": "2026-07-03T10:35:22.197317",
       "keywords": [
         "deepfakes",
         "governance",
@@ -8327,14 +8491,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.211046",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.338645",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0083",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 83,
       "start": 4313.18,
       "end": 4360.72,
@@ -8350,7 +8516,7 @@
         136,
         137
       ],
-      "created_at": "2026-06-16T12:54:13.170323",
+      "created_at": "2026-07-03T10:35:22.199569",
       "keywords": [
         "welcome",
         "here",
@@ -8392,14 +8558,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.215337",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.345658",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0084",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 84,
       "start": 4360.72,
       "end": 4424.67,
@@ -8416,7 +8584,7 @@
         144,
         145
       ],
-      "created_at": "2026-06-16T12:54:13.170705",
+      "created_at": "2026-07-03T10:35:22.202158",
       "keywords": [
         "deepfakes",
         "false",
@@ -8513,14 +8681,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.220162",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.353275",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0085",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 85,
       "start": 4424.67,
       "end": 4475.87,
@@ -8536,7 +8706,7 @@
         151,
         152
       ],
-      "created_at": "2026-06-16T12:54:13.170954",
+      "created_at": "2026-07-03T10:35:22.204422",
       "keywords": [
         "deepfakes",
         "high",
@@ -8579,14 +8749,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.224431",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.359368",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0086",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 86,
       "start": 4475.87,
       "end": 4527.23,
@@ -8602,7 +8774,7 @@
         158,
         159
       ],
-      "created_at": "2026-06-16T12:54:13.171181",
+      "created_at": "2026-07-03T10:35:22.206597",
       "keywords": [
         "deepfakes",
         "policy",
@@ -8672,14 +8844,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.228724",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.364307",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0087",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 87,
       "start": 4528.03,
       "end": 4575.04,
@@ -8695,7 +8869,7 @@
         165,
         166
       ],
-      "created_at": "2026-06-16T12:54:13.171401",
+      "created_at": "2026-07-03T10:35:22.208755",
       "keywords": [
         "deepfake",
         "right",
@@ -8742,14 +8916,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.233176",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.370398",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0088",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 88,
       "start": 4575.04,
       "end": 4618.58,
@@ -8765,7 +8941,7 @@
         172,
         173
       ],
-      "created_at": "2026-06-16T12:54:13.171638",
+      "created_at": "2026-07-03T10:35:22.210919",
       "keywords": [
         "deepfakes",
         "fake",
@@ -8827,14 +9003,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.237690",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.375921",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0089",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 89,
       "start": 4618.58,
       "end": 4658.02,
@@ -8850,7 +9028,7 @@
         179,
         180
       ],
-      "created_at": "2026-06-16T12:54:13.171867",
+      "created_at": "2026-07-03T10:35:22.213053",
       "keywords": [
         "risk",
         "deepfake",
@@ -8923,14 +9101,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.242294",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.380987",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0090",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 90,
       "start": 4658.02,
       "end": 4707.38,
@@ -8946,7 +9126,7 @@
         186,
         187
       ],
-      "created_at": "2026-06-16T12:54:13.172095",
+      "created_at": "2026-07-03T10:35:22.215212",
       "keywords": [
         "law",
         "deepfake",
@@ -9018,14 +9198,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.246917",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.386583",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0091",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 91,
       "start": 4707.38,
       "end": 4763.57,
@@ -9042,7 +9224,7 @@
         194,
         195
       ],
-      "created_at": "2026-06-16T12:54:13.172355",
+      "created_at": "2026-07-03T10:35:22.217460",
       "keywords": [
         "deepfakes",
         "journalists",
@@ -9101,14 +9283,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.251888",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.392301",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0092",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 92,
       "start": 4763.57,
       "end": 4812.0,
@@ -9124,7 +9308,7 @@
         201,
         1
       ],
-      "created_at": "2026-06-16T12:54:13.172588",
+      "created_at": "2026-07-03T10:35:22.219712",
       "keywords": [
         "fake",
         "fake video",
@@ -9169,14 +9353,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.256279",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.397267",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0093",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 93,
       "start": 4812.0,
       "end": 4860.06,
@@ -9191,7 +9377,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.172812",
+      "created_at": "2026-07-03T10:35:22.221845",
       "keywords": [
         "content",
         "responsibility",
@@ -9247,14 +9433,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.261185",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.404195",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0094",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 94,
       "start": 4860.06,
       "end": 4904.32,
@@ -9268,7 +9456,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:13.173011",
+      "created_at": "2026-07-03T10:35:22.223951",
       "keywords": [
         "synthetic media",
         "security",
@@ -9367,14 +9555,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.265476",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.413135",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0095",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 95,
       "start": 4904.32,
       "end": 4948.51,
@@ -9385,7 +9575,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:13.173127",
+      "created_at": "2026-07-03T10:35:22.226377",
       "keywords": [
         "legislation",
         "terms",
@@ -9424,14 +9614,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.269532",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.419587",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0096",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 96,
       "start": 4948.51,
       "end": 5004.83,
@@ -9444,7 +9636,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.173350",
+      "created_at": "2026-07-03T10:35:22.228699",
       "keywords": [
         "fake",
         "government",
@@ -9500,14 +9692,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.275430",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.426246",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0097",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 97,
       "start": 5004.83,
       "end": 5052.02,
@@ -9519,7 +9713,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.173579",
+      "created_at": "2026-07-03T10:35:22.231244",
       "keywords": [
         "fake",
         "communities",
@@ -9576,14 +9770,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.279767",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.431194",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0098",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 98,
       "start": 5052.02,
       "end": 5094.02,
@@ -9594,7 +9790,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:13.173786",
+      "created_at": "2026-07-03T10:35:22.233410",
       "keywords": [
         "there's",
         "really",
@@ -9638,14 +9834,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.284452",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.436478",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0099",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 99,
       "start": 5094.02,
       "end": 5175.01,
@@ -9661,7 +9859,7 @@
         29,
         30
       ],
-      "created_at": "2026-06-16T12:54:13.173995",
+      "created_at": "2026-07-03T10:35:22.235673",
       "keywords": [
         "ethics",
         "law",
@@ -9764,14 +9962,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.289098",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.441113",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0100",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 100,
       "start": 5175.01,
       "end": 5254.2,
@@ -9787,7 +9987,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:13.174233",
+      "created_at": "2026-07-03T10:35:22.237877",
       "keywords": [
         "artificial intelligence",
         "governance",
@@ -9902,14 +10102,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.294660",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.447095",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0101",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 101,
       "start": 5254.2,
       "end": 5327.92,
@@ -9929,7 +10131,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.174522",
+      "created_at": "2026-07-03T10:35:22.240178",
       "keywords": [
         "policy",
         "regulation",
@@ -10038,14 +10240,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.299721",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.452617",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0102",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 102,
       "start": 5327.92,
       "end": 5387.08,
@@ -10060,7 +10264,7 @@
         53,
         54
       ],
-      "created_at": "2026-06-16T12:54:13.174733",
+      "created_at": "2026-07-03T10:35:22.242327",
       "keywords": [
         "media",
         "news",
@@ -10146,14 +10350,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.305044",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.458419",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0103",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 103,
       "start": 5387.08,
       "end": 5441.91,
@@ -10166,7 +10372,7 @@
         57,
         58
       ],
-      "created_at": "2026-06-16T12:54:13.174887",
+      "created_at": "2026-07-03T10:35:22.244393",
       "keywords": [
         "media",
         "news",
@@ -10247,14 +10453,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.310173",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.463613",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0104",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 104,
       "start": 5441.91,
       "end": 5499.14,
@@ -10268,7 +10476,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:13.175064",
+      "created_at": "2026-07-03T10:35:22.246490",
       "keywords": [
         "media",
         "news",
@@ -10366,14 +10574,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.315942",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.469393",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0105",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 105,
       "start": 5499.14,
       "end": 5561.0,
@@ -10386,7 +10596,7 @@
         66,
         67
       ],
-      "created_at": "2026-06-16T12:54:13.175243",
+      "created_at": "2026-07-03T10:35:22.248615",
       "keywords": [
         "human rights",
         "rights",
@@ -10468,14 +10678,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.322773",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.476007",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0106",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 106,
       "start": 5561.0,
       "end": 5625.58,
@@ -10489,7 +10701,7 @@
         71,
         72
       ],
-      "created_at": "2026-06-16T12:54:13.175440",
+      "created_at": "2026-07-03T10:35:22.250806",
       "keywords": [
         "media",
         "news",
@@ -10575,14 +10787,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.328638",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.482110",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0107",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 107,
       "start": 5625.58,
       "end": 5685.58,
@@ -10594,7 +10808,7 @@
         74,
         75
       ],
-      "created_at": "2026-06-16T12:54:13.175624",
+      "created_at": "2026-07-03T10:35:22.252952",
       "keywords": [
         "media",
         "news",
@@ -10695,14 +10909,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.333820",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.487238",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0108",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 108,
       "start": 5685.58,
       "end": 5751.58,
@@ -10715,7 +10931,7 @@
         78,
         79
       ],
-      "created_at": "2026-06-16T12:54:13.175812",
+      "created_at": "2026-07-03T10:35:22.255086",
       "keywords": [
         "media",
         "news",
@@ -10764,14 +10980,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.339688",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.493185",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0109",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 109,
       "start": 5751.58,
       "end": 5805.7,
@@ -10783,7 +11001,7 @@
         81,
         82
       ],
-      "created_at": "2026-06-16T12:54:13.175975",
+      "created_at": "2026-07-03T10:35:22.257171",
       "keywords": [
         "human rights",
         "content",
@@ -10851,14 +11069,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.344795",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.498473",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0110",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 110,
       "start": 5807.02,
       "end": 5868.47,
@@ -10871,7 +11091,7 @@
         85,
         86
       ],
-      "created_at": "2026-06-16T12:54:13.176169",
+      "created_at": "2026-07-03T10:35:22.259407",
       "keywords": [
         "media",
         "news",
@@ -10969,14 +11189,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.351293",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.504430",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0111",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 111,
       "start": 5868.47,
       "end": 5923.92,
@@ -10989,7 +11211,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:13.176355",
+      "created_at": "2026-07-03T10:35:22.261518",
       "keywords": [
         "human rights",
         "media",
@@ -11097,14 +11319,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.357150",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.510255",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0112",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 112,
       "start": 5923.92,
       "end": 5996.21,
@@ -11118,7 +11342,7 @@
         94,
         95
       ],
-      "created_at": "2026-06-16T12:54:13.176595",
+      "created_at": "2026-07-03T10:35:22.263676",
       "keywords": [
         "media",
         "news",
@@ -11229,14 +11453,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.363120",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.517372",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0113",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 113,
       "start": 5996.21,
       "end": 6051.2,
@@ -11253,7 +11479,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.176848",
+      "created_at": "2026-07-03T10:35:22.265837",
       "keywords": [
         "copyright",
         "news",
@@ -11348,14 +11574,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.367874",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.523105",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0114",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 114,
       "start": 6051.2,
       "end": 6105.54,
@@ -11372,7 +11600,7 @@
         14,
         15
       ],
-      "created_at": "2026-06-16T12:54:13.177183",
+      "created_at": "2026-07-03T10:35:22.268017",
       "keywords": [
         "media",
         "repository",
@@ -11414,14 +11642,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.372975",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.529019",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0115",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 115,
       "start": 6105.54,
       "end": 6155.55,
@@ -11438,7 +11668,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:13.177435",
+      "created_at": "2026-07-03T10:35:22.270166",
       "keywords": [
         "media",
         "university",
@@ -11497,14 +11727,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.378034",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.534420",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0116",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 116,
       "start": 6156.11,
       "end": 6223.38,
@@ -11521,7 +11753,7 @@
         30,
         31
       ],
-      "created_at": "2026-06-16T12:54:13.177670",
+      "created_at": "2026-07-03T10:35:22.272288",
       "keywords": [
         "news",
         "content",
@@ -11587,14 +11819,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.383571",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.541821",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0117",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 117,
       "start": 6223.38,
       "end": 6306.02,
@@ -11612,7 +11846,7 @@
         39,
         40
       ],
-      "created_at": "2026-06-16T12:54:13.177955",
+      "created_at": "2026-07-03T10:35:22.274449",
       "keywords": [
         "accessibility",
         "news",
@@ -11687,14 +11921,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.393384",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.550106",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0118",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 118,
       "start": 6306.02,
       "end": 6354.11,
@@ -11710,7 +11946,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:13.178178",
+      "created_at": "2026-07-03T10:35:22.276557",
       "keywords": [
         "information",
         "liability",
@@ -11759,14 +11995,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.399773",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.556222",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0119",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 119,
       "start": 6354.11,
       "end": 6398.37,
@@ -11782,7 +12020,7 @@
         53,
         54
       ],
-      "created_at": "2026-06-16T12:54:13.178463",
+      "created_at": "2026-07-03T10:35:22.278679",
       "keywords": [
         "media",
         "information",
@@ -11847,14 +12085,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.404843",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.563612",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0120",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 120,
       "start": 6398.37,
       "end": 6440.45,
@@ -11870,7 +12110,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:13.178657",
+      "created_at": "2026-07-03T10:35:22.280946",
       "keywords": [
         "right to information",
         "information",
@@ -11946,14 +12186,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.409733",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.569347",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0121",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 121,
       "start": 6440.45,
       "end": 6482.56,
@@ -11969,7 +12211,7 @@
         67,
         68
       ],
-      "created_at": "2026-06-16T12:54:13.178893",
+      "created_at": "2026-07-03T10:35:22.284174",
       "keywords": [
         "research",
         "economy",
@@ -12033,14 +12275,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.416083",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.574855",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0122",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 122,
       "start": 6482.56,
       "end": 6525.2,
@@ -12056,7 +12300,7 @@
         74,
         75
       ],
-      "created_at": "2026-06-16T12:54:13.179093",
+      "created_at": "2026-07-03T10:35:22.286585",
       "keywords": [
         "information",
         "cost",
@@ -12100,14 +12344,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.421584",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.579754",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0123",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 123,
       "start": 6525.2,
       "end": 6562.72,
@@ -12123,7 +12369,7 @@
         81,
         82
       ],
-      "created_at": "2026-06-16T12:54:13.179288",
+      "created_at": "2026-07-03T10:35:22.288792",
       "keywords": [
         "media",
         "information",
@@ -12179,14 +12425,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.883,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.427569",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.584996",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0124",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 124,
       "start": 6562.72,
       "end": 6599.04,
@@ -12202,7 +12450,7 @@
         88,
         89
       ],
-      "created_at": "2026-06-16T12:54:13.179488",
+      "created_at": "2026-07-03T10:35:22.292426",
       "keywords": [
         "information",
         "hallucination",
@@ -12265,14 +12513,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.883,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.433932",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.590943",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0125",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 125,
       "start": 6599.04,
       "end": 6637.84,
@@ -12289,7 +12539,7 @@
         96,
         97
       ],
-      "created_at": "2026-06-16T12:54:13.179780",
+      "created_at": "2026-07-03T10:35:22.294925",
       "keywords": [
         "access to information",
         "deepfakes",
@@ -12399,14 +12649,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.833,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.441191",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.597123",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0126",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 126,
       "start": 6637.84,
       "end": 6682.61,
@@ -12422,7 +12674,7 @@
         103,
         104
       ],
-      "created_at": "2026-06-16T12:54:13.180100",
+      "created_at": "2026-07-03T10:35:22.297404",
       "keywords": [
         "framework",
         "market",
@@ -12517,14 +12769,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.447917",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.604772",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0127",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 127,
       "start": 6682.61,
       "end": 6727.33,
@@ -12540,7 +12794,7 @@
         110,
         111
       ],
-      "created_at": "2026-06-16T12:54:13.180305",
+      "created_at": "2026-07-03T10:35:22.300556",
       "keywords": [
         "news",
         "content",
@@ -12585,14 +12839,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.454734",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.609953",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0128",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 128,
       "start": 6727.89,
       "end": 6777.06,
@@ -12609,7 +12865,7 @@
         118,
         119
       ],
-      "created_at": "2026-06-16T12:54:13.180537",
+      "created_at": "2026-07-03T10:35:22.302892",
       "keywords": [
         "human rights",
         "disinformation",
@@ -12709,14 +12965,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.460457",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.617420",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0129",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 129,
       "start": 6777.06,
       "end": 6828.74,
@@ -12733,7 +12991,7 @@
         126,
         127
       ],
-      "created_at": "2026-06-16T12:54:13.180892",
+      "created_at": "2026-07-03T10:35:22.305053",
       "keywords": [
         "law",
         "privacy",
@@ -12833,14 +13091,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.466492",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.624867",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0130",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 130,
       "start": 6828.74,
       "end": 6897.58,
@@ -12857,7 +13117,7 @@
         134,
         135
       ],
-      "created_at": "2026-06-16T12:54:13.181202",
+      "created_at": "2026-07-03T10:35:22.307168",
       "keywords": [
         "trust",
         "information",
@@ -12959,14 +13219,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.471752",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.631905",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0131",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 131,
       "start": 6898.54,
       "end": 6965.01,
@@ -12982,7 +13244,7 @@
         141,
         142
       ],
-      "created_at": "2026-06-16T12:54:13.181449",
+      "created_at": "2026-07-03T10:35:22.309382",
       "keywords": [
         "media literacy",
         "synthetic media",
@@ -13070,14 +13332,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.476687",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.639232",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0132",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 132,
       "start": 6965.17,
       "end": 7007.79,
@@ -13093,7 +13357,7 @@
         148,
         149
       ],
-      "created_at": "2026-06-16T12:54:13.181668",
+      "created_at": "2026-07-03T10:35:22.311618",
       "keywords": [
         "intellectual property",
         "rights",
@@ -13170,14 +13434,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.481530",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.647306",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0133",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 133,
       "start": 7008.51,
       "end": 7050.91,
@@ -13193,7 +13459,7 @@
         155,
         156
       ],
-      "created_at": "2026-06-16T12:54:13.181878",
+      "created_at": "2026-07-03T10:35:22.313853",
       "keywords": [
         "media literacy",
         "education",
@@ -13274,14 +13540,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.486545",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.654969",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0134",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 134,
       "start": 7050.91,
       "end": 7102.91,
@@ -13297,7 +13565,7 @@
         162,
         163
       ],
-      "created_at": "2026-06-16T12:54:13.182075",
+      "created_at": "2026-07-03T10:35:22.316138",
       "keywords": [
         "literacy",
         "generation",
@@ -13363,14 +13631,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.491558",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.661845",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0135",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 135,
       "start": 7102.91,
       "end": 7147.55,
@@ -13386,7 +13656,7 @@
         169,
         170
       ],
-      "created_at": "2026-06-16T12:54:13.182275",
+      "created_at": "2026-07-03T10:35:22.318417",
       "keywords": [
         "deepfakes",
         "policy",
@@ -13490,14 +13760,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.496233",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.668273",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0136",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 136,
       "start": 7147.55,
       "end": 7203.76,
@@ -13514,7 +13786,7 @@
         177,
         1
       ],
-      "created_at": "2026-06-16T12:54:13.182512",
+      "created_at": "2026-07-03T10:35:22.320691",
       "keywords": [
         "deepfakes",
         "education",
@@ -13588,14 +13860,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.501310",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.674631",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0137",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 137,
       "start": 7203.76,
       "end": 7253.71,
@@ -13620,7 +13894,7 @@
         16,
         17
       ],
-      "created_at": "2026-06-16T12:54:13.182881",
+      "created_at": "2026-07-03T10:35:22.322934",
       "keywords": [
         "media literacy",
         "fact checking",
@@ -13718,14 +13992,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.506159",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.682294",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0138",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 138,
       "start": 7253.71,
       "end": 7291.07,
@@ -13750,7 +14026,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:13.183309",
+      "created_at": "2026-07-03T10:35:22.325342",
       "keywords": [
         "media literacy",
         "fact checking",
@@ -13838,14 +14114,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.510906",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.689684",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0139",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 139,
       "start": 7291.07,
       "end": 7342.79,
@@ -13870,7 +14148,7 @@
         48,
         49
       ],
-      "created_at": "2026-06-16T12:54:13.183758",
+      "created_at": "2026-07-03T10:35:22.327945",
       "keywords": [
         "disinformation",
         "news",
@@ -13947,14 +14225,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.515897",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.695887",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0140",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 140,
       "start": 7342.79,
       "end": 7392.94,
@@ -13978,7 +14258,7 @@
         63,
         64
       ],
-      "created_at": "2026-06-16T12:54:13.184114",
+      "created_at": "2026-07-03T10:35:22.330285",
       "keywords": [
         "information",
         "literacy",
@@ -14030,14 +14310,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.521048",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.702467",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0141",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 141,
       "start": 7392.94,
       "end": 7433.06,
@@ -14059,7 +14341,7 @@
         76,
         77
       ],
-      "created_at": "2026-06-16T12:54:13.184510",
+      "created_at": "2026-07-03T10:35:22.332497",
       "keywords": [
         "organizations",
         "society",
@@ -14098,14 +14380,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.526221",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.709060",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0142",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 142,
       "start": 7433.06,
       "end": 7470.58,
@@ -14130,7 +14414,7 @@
         92,
         93
       ],
-      "created_at": "2026-06-16T12:54:13.184850",
+      "created_at": "2026-07-03T10:35:22.334768",
       "keywords": [
         "policy",
         "information",
@@ -14203,14 +14487,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.531372",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.716447",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0143",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 143,
       "start": 7470.58,
       "end": 7508.7,
@@ -14236,7 +14522,7 @@
         109,
         110
       ],
-      "created_at": "2026-06-16T12:54:13.185255",
+      "created_at": "2026-07-03T10:35:22.337292",
       "keywords": [
         "journalism",
         "media",
@@ -14317,14 +14603,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.536292",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.724285",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0144",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 144,
       "start": 7508.7,
       "end": 7558.46,
@@ -14350,7 +14638,7 @@
         126,
         127
       ],
-      "created_at": "2026-06-16T12:54:13.185858",
+      "created_at": "2026-07-03T10:35:22.339662",
       "keywords": [
         "media",
         "information",
@@ -14452,14 +14740,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.541019",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.730408",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0145",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 145,
       "start": 7558.46,
       "end": 7606.3,
@@ -14483,7 +14773,7 @@
         141,
         142
       ],
-      "created_at": "2026-06-16T12:54:13.186225",
+      "created_at": "2026-07-03T10:35:22.342031",
       "keywords": [
         "media",
         "content",
@@ -14594,14 +14884,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.545729",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.735952",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0146",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 146,
       "start": 7606.3,
       "end": 7674.42,
@@ -14627,7 +14919,7 @@
         158,
         159
       ],
-      "created_at": "2026-06-16T12:54:13.186653",
+      "created_at": "2026-07-03T10:35:22.344345",
       "keywords": [
         "human rights",
         "media literacy",
@@ -14744,14 +15036,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.551545",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.741169",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0147",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 147,
       "start": 7675.74,
       "end": 7731.62,
@@ -14775,7 +15069,7 @@
         173,
         174
       ],
-      "created_at": "2026-06-16T12:54:13.186980",
+      "created_at": "2026-07-03T10:35:22.346530",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -14856,14 +15150,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.556681",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.746126",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1_0148",
       "source_video": "0086_zSkma5s0SFg_Europe Satellite Event Panel 1",
       "video_id": "zSkma5s0SFg",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 148,
       "start": 7731.62,
       "end": 7754.62,
@@ -14884,7 +15180,7 @@
         185,
         186
       ],
-      "created_at": "2026-06-16T12:54:13.187104",
+      "created_at": "2026-07-03T10:35:22.348463",
       "keywords": [
         "great"
       ],
@@ -14917,11 +15213,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.558768",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.747982",
+      "speaker": "Dario Prishko",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:23.558777"
+  "classified_at": "2026-07-03T11:40:14.748026"
 }

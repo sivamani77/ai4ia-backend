@@ -22,11 +22,18 @@ import argparse
 import csv
 import json
 import re
+import sys
 from pathlib import Path
 from datetime import datetime
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+# Local dev layout: backend/app/. Docker image layout (see Dockerfile): app/
+# directly under PROJECT_ROOT, with no backend/ directory at all.
+_BACKEND_DIR = PROJECT_ROOT / "backend"
+sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
+
+from app.core.settings import settings  # noqa: E402
 
 ALIGNED_DIR = PROJECT_ROOT / "data" / "transcripts_cleaned_aligned"
 CLEANED_DIR = PROJECT_ROOT / "data" / "transcripts_cleaned"
@@ -39,13 +46,13 @@ REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
 REPORT_CSV = REPORT_DIR / "fragment_regeneration_report.csv"
 
-MIN_DURATION_SECONDS = 35
-TARGET_DURATION_SECONDS = 75
-MAX_DURATION_SECONDS = 130
+MIN_DURATION_SECONDS = settings.fragment_min_duration_seconds
+TARGET_DURATION_SECONDS = settings.fragment_target_duration_seconds
+MAX_DURATION_SECONDS = settings.fragment_max_duration_seconds
 
-MIN_WORDS = 35
-TARGET_WORDS = 120
-MAX_WORDS = 230
+MIN_WORDS = settings.fragment_min_words
+TARGET_WORDS = settings.fragment_target_words
+MAX_WORDS = settings.fragment_max_words
 
 STORYLINE_PLACEHOLDER = {
     "theme": None,

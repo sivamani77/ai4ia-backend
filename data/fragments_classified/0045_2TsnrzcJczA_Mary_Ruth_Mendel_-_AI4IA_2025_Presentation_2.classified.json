@@ -3,11 +3,11 @@
   "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
   "video_id": "2TsnrzcJczA",
   "fragment_count": 10,
-  "created_at": "2026-06-16T12:54:12.809006",
+  "created_at": "2026-07-03T10:35:19.978518",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0001",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 4.08,
       "end": 68.0,
@@ -34,7 +36,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:12.806891",
+      "created_at": "2026-07-03T10:35:19.961911",
       "keywords": [
         "learning",
         "literacy",
@@ -126,14 +128,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.138740",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.981031",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0002",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 68.0,
       "end": 122.48,
@@ -150,7 +154,7 @@
         16,
         17
       ],
-      "created_at": "2026-06-16T12:54:12.807131",
+      "created_at": "2026-07-03T10:35:19.963759",
       "keywords": [
         "health",
         "learning",
@@ -261,14 +265,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.144242",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.986498",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0003",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 122.48,
       "end": 173.36,
@@ -285,7 +291,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:12.807453",
+      "created_at": "2026-07-03T10:35:19.965740",
       "keywords": [
         "learning",
         "literacy",
@@ -395,14 +401,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.149254",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.992092",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0004",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 173.36,
       "end": 222.48,
@@ -418,7 +426,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:12.807718",
+      "created_at": "2026-07-03T10:35:19.967600",
       "keywords": [
         "language",
         "information",
@@ -483,14 +491,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.153742",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.996978",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0005",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 222.48,
       "end": 267.52,
@@ -506,7 +516,7 @@
         38,
         39
       ],
-      "created_at": "2026-06-16T12:54:12.807920",
+      "created_at": "2026-07-03T10:35:19.969434",
       "keywords": [
         "equitable",
         "translation",
@@ -561,14 +571,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.158292",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:09.001924",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0006",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 267.52,
       "end": 316.32,
@@ -585,7 +597,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:12.808170",
+      "created_at": "2026-07-03T10:35:19.971415",
       "keywords": [
         "language",
         "words",
@@ -633,14 +645,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.163160",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:09.007014",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0007",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 316.4,
       "end": 367.04,
@@ -657,7 +671,7 @@
         54,
         55
       ],
-      "created_at": "2026-06-16T12:54:12.808413",
+      "created_at": "2026-07-03T10:35:19.973213",
       "keywords": [
         "learning",
         "curriculum",
@@ -770,14 +784,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.168186",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:09.012024",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0008",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 367.04,
       "end": 422.8,
@@ -794,7 +810,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:12.808642",
+      "created_at": "2026-07-03T10:35:19.974989",
       "keywords": [
         "governance",
         "language",
@@ -906,14 +922,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.173007",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:09.017500",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0009",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 422.8,
       "end": 473.2,
@@ -929,7 +947,7 @@
         69,
         70
       ],
-      "created_at": "2026-06-16T12:54:12.808853",
+      "created_at": "2026-07-03T10:35:19.976747",
       "keywords": [
         "governance",
         "education",
@@ -1032,14 +1050,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.177636",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:09.022408",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2_0010",
       "source_video": "0045_2TsnrzcJczA_Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2",
       "video_id": "2TsnrzcJczA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 473.2,
       "end": 505.6,
@@ -1054,7 +1074,7 @@
         75,
         76
       ],
-      "created_at": "2026-06-16T12:54:12.808985",
+      "created_at": "2026-07-03T10:35:19.978490",
       "keywords": [
         "model",
         "communities",
@@ -1103,11 +1123,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:18.181674",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:09.025853",
+      "speaker": "Mary Ruth Mendel",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:18.181684"
+  "classified_at": "2026-07-03T11:40:09.025860"
 }

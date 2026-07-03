@@ -3,11 +3,11 @@
   "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
   "video_id": "yXjpp6POJRk",
   "fragment_count": 8,
-  "created_at": "2026-06-16T12:54:13.910556",
+  "created_at": "2026-07-03T10:35:26.944827",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0001",
       "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
       "video_id": "yXjpp6POJRk",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 1,
       "start": 0.24,
       "end": 42.14,
@@ -32,7 +34,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.907820",
+      "created_at": "2026-07-03T10:35:26.927430",
       "keywords": [
         "artificial intelligence",
         "information",
@@ -128,14 +130,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.426839",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.204118",
+      "speaker": "Trudy Bell",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0002",
       "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
       "video_id": "yXjpp6POJRk",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 2,
       "start": 42.14,
       "end": 118.95,
@@ -158,7 +162,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.908140",
+      "created_at": "2026-07-03T10:35:26.929802",
       "keywords": [
         "doctor",
         "whoa",
@@ -204,14 +208,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.431749",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.209038",
+      "speaker": "Trudy Bell",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0003",
       "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
       "video_id": "yXjpp6POJRk",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 3,
       "start": 118.95,
       "end": 158.14,
@@ -234,7 +240,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.908507",
+      "created_at": "2026-07-03T10:35:26.933168",
       "keywords": [
         "artificial intelligence",
         "information",
@@ -313,14 +319,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.436952",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.214183",
+      "speaker": "Trudy Bell",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0004",
       "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
       "video_id": "yXjpp6POJRk",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 4,
       "start": 158.14,
       "end": 196.66,
@@ -342,7 +350,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.908841",
+      "created_at": "2026-07-03T10:35:26.935883",
       "keywords": [
         "medical",
         "legal",
@@ -405,14 +413,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.443296",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.218915",
+      "speaker": "Trudy Bell",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0005",
       "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
       "video_id": "yXjpp6POJRk",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 5,
       "start": 196.66,
       "end": 244.82,
@@ -435,7 +445,7 @@
         61,
         62
       ],
-      "created_at": "2026-06-16T12:54:13.909154",
+      "created_at": "2026-07-03T10:35:26.938524",
       "keywords": [
         "trust",
         "privacy",
@@ -530,14 +540,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.448596",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.223390",
+      "speaker": "Trudy Bell",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0006",
       "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
       "video_id": "yXjpp6POJRk",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 6,
       "start": 244.82,
       "end": 310.61,
@@ -565,7 +577,7 @@
         80,
         81
       ],
-      "created_at": "2026-06-16T12:54:13.909589",
+      "created_at": "2026-07-03T10:35:26.940617",
       "keywords": [
         "strawberry",
         "i'm",
@@ -610,14 +622,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.453450",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.228112",
+      "speaker": "Trudy Bell",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0007",
       "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
       "video_id": "yXjpp6POJRk",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 7,
       "start": 310.61,
       "end": 359.85,
@@ -649,7 +663,7 @@
         103,
         104
       ],
-      "created_at": "2026-06-16T12:54:13.910083",
+      "created_at": "2026-07-03T10:35:26.942708",
       "keywords": [
         "misinformation",
         "whoa",
@@ -693,14 +707,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.458123",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.233185",
+      "speaker": "Trudy Bell",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0247_yXjpp6POJRk_(C2) T Bell - Comedy_0008",
       "source_video": "0247_yXjpp6POJRk_(C2) T Bell - Comedy",
       "video_id": "yXjpp6POJRk",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 8,
       "start": 359.85,
       "end": 409.91,
@@ -729,7 +745,7 @@
         123,
         124
       ],
-      "created_at": "2026-06-16T12:54:13.910509",
+      "created_at": "2026-07-03T10:35:26.944787",
       "keywords": [
         "media",
         "yes",
@@ -770,11 +786,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.462138",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.237303",
+      "speaker": "Trudy Bell",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:34.462144"
+  "classified_at": "2026-07-03T11:40:25.237311"
 }

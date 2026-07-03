@@ -3,11 +3,11 @@
   "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
   "video_id": "Txl1nmb84VA",
   "fragment_count": 6,
-  "created_at": "2026-06-16T12:54:12.987986",
+  "created_at": "2026-07-03T10:35:20.926376",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0001",
       "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
       "video_id": "Txl1nmb84VA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 4.14,
       "end": 53.94,
@@ -31,7 +33,7 @@
         5,
         6
       ],
-      "created_at": "2026-06-16T12:54:12.986787",
+      "created_at": "2026-07-03T10:35:20.910425",
       "keywords": [
         "human rights",
         "rights",
@@ -111,14 +113,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.783116",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.513252",
+      "speaker": "Paul Ash",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0002",
       "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
       "video_id": "Txl1nmb84VA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 53.94,
       "end": 114.15,
@@ -134,7 +138,7 @@
         12,
         13
       ],
-      "created_at": "2026-06-16T12:54:12.987029",
+      "created_at": "2026-07-03T10:35:20.912387",
       "keywords": [
         "information integrity",
         "youth",
@@ -247,14 +251,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.789137",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.519742",
+      "speaker": "Paul Ash",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0003",
       "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
       "video_id": "Txl1nmb84VA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 114.15,
       "end": 179.2,
@@ -271,7 +277,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:12.987286",
+      "created_at": "2026-07-03T10:35:20.914330",
       "keywords": [
         "ethics",
         "trust",
@@ -382,14 +388,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.795348",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.526245",
+      "speaker": "Paul Ash",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0004",
       "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
       "video_id": "Txl1nmb84VA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 179.2,
       "end": 239.06,
@@ -404,7 +412,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:12.987515",
+      "created_at": "2026-07-03T10:35:20.916350",
       "keywords": [
         "human rights",
         "disinformation",
@@ -528,14 +536,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.800803",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.532239",
+      "speaker": "Paul Ash",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0005",
       "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
       "video_id": "Txl1nmb84VA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 239.06,
       "end": 297.56,
@@ -549,7 +559,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:12.987720",
+      "created_at": "2026-07-03T10:35:20.918381",
       "keywords": [
         "governance",
         "bias",
@@ -655,14 +665,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.806370",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.537895",
+      "speaker": "Paul Ash",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0006",
       "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
       "video_id": "Txl1nmb84VA",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 297.56,
       "end": 352.42,
@@ -676,7 +688,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:12.987972",
+      "created_at": "2026-07-03T10:35:20.926329",
       "keywords": [
         "governance",
         "ethical",
@@ -791,11 +803,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.812133",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.543401",
+      "speaker": "Paul Ash",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:20.812141"
+  "classified_at": "2026-07-03T11:40:11.543409"
 }

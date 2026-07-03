@@ -3,11 +3,11 @@
   "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
   "video_id": "I3Pkdd",
   "fragment_count": 12,
-  "created_at": "2026-06-16T12:54:13.750369",
+  "created_at": "2026-07-03T10:35:26.009832",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0001",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 1.39,
       "end": 64.49,
@@ -30,7 +32,7 @@
         4,
         5
       ],
-      "created_at": "2026-06-16T12:54:13.748578",
+      "created_at": "2026-07-03T10:35:25.984749",
       "keywords": [
         "touring",
         "test",
@@ -69,14 +71,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.364076",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.157580",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0002",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 64.49,
       "end": 128.42,
@@ -90,7 +94,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.748794",
+      "created_at": "2026-07-03T10:35:25.987116",
       "keywords": [
         "issue",
         "machine",
@@ -134,14 +138,16 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.371231",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.163155",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0003",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 128.42,
       "end": 183.66,
@@ -155,7 +161,7 @@
         14,
         15
       ],
-      "created_at": "2026-06-16T12:54:13.748976",
+      "created_at": "2026-07-03T10:35:25.989695",
       "keywords": [
         "language",
         "human",
@@ -199,14 +205,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.377045",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.168197",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0004",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 183.66,
       "end": 241.27,
@@ -219,7 +227,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:13.749122",
+      "created_at": "2026-07-03T10:35:25.993353",
       "keywords": [
         "research",
         "human",
@@ -265,14 +273,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.383107",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.173699",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0005",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 241.27,
       "end": 289.56,
@@ -283,7 +293,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.749247",
+      "created_at": "2026-07-03T10:35:25.995311",
       "keywords": [
         "language",
         "car",
@@ -327,14 +337,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.388103",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.178413",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0006",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 289.56,
       "end": 337.56,
@@ -345,7 +357,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:13.749379",
+      "created_at": "2026-07-03T10:35:25.997329",
       "keywords": [
         "human",
         "one",
@@ -385,14 +397,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.393987",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.183356",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0007",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 338.56,
       "end": 399.78,
@@ -405,7 +419,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:13.749577",
+      "created_at": "2026-07-03T10:35:25.999648",
       "keywords": [
         "medical",
         "services",
@@ -466,14 +480,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.400827",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.189940",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0008",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 399.78,
       "end": 455.01,
@@ -486,7 +502,7 @@
         30,
         31
       ],
-      "created_at": "2026-06-16T12:54:13.749740",
+      "created_at": "2026-07-03T10:35:26.001597",
       "keywords": [
         "learning",
         "touring",
@@ -531,14 +547,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.406163",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.194883",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0009",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 9,
       "start": 455.01,
       "end": 520.17,
@@ -551,7 +569,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.749932",
+      "created_at": "2026-07-03T10:35:26.003477",
       "keywords": [
         "artificial intelligence",
         "law",
@@ -610,14 +628,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.412325",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.201396",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0010",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 10,
       "start": 520.17,
       "end": 578.23,
@@ -630,7 +650,7 @@
         38,
         39
       ],
-      "created_at": "2026-06-16T12:54:13.750102",
+      "created_at": "2026-07-03T10:35:26.005363",
       "keywords": [
         "ethical",
         "point",
@@ -674,14 +694,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.418151",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.207172",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0011",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 11,
       "start": 578.23,
       "end": 652.23,
@@ -693,7 +715,7 @@
         41,
         42
       ],
-      "created_at": "2026-06-16T12:54:13.750273",
+      "created_at": "2026-07-03T10:35:26.007599",
       "keywords": [
         "paper",
         "question",
@@ -735,14 +757,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.424008",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.213090",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue_0012",
       "source_video": "0175_I3Pkdd_LYQw_David Harel - The Human or Machine Issue",
       "video_id": "I3Pkdd",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 12,
       "start": 652.23,
       "end": 679.39,
@@ -753,7 +777,7 @@
         43,
         44
       ],
-      "created_at": "2026-06-16T12:54:13.750356",
+      "created_at": "2026-07-03T10:35:26.009790",
       "keywords": [
         "human",
         "future",
@@ -791,11 +815,11 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.426912",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.216047",
+      "speaker": "David Harel",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:32.426920"
+  "classified_at": "2026-07-03T11:40:23.216058"
 }

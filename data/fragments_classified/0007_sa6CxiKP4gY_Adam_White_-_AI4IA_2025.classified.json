@@ -3,11 +3,11 @@
   "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
   "video_id": "sa6CxiKP4gY",
   "fragment_count": 16,
-  "created_at": "2026-06-16T12:54:12.650460",
+  "created_at": "2026-07-03T10:35:18.969415",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0001",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 1,
       "start": 0.34,
       "end": 39.18,
@@ -35,7 +37,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:12.645675",
+      "created_at": "2026-07-03T10:35:18.939235",
       "keywords": [
         "learning",
         "university",
@@ -91,14 +93,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.709501",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.512153",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0002",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 2,
       "start": 39.18,
       "end": 77.16,
@@ -119,7 +123,7 @@
         21,
         22
       ],
-      "created_at": "2026-06-16T12:54:12.646003",
+      "created_at": "2026-07-03T10:35:18.941266",
       "keywords": [
         "learning",
         "reinforce",
@@ -163,14 +167,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.714669",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.517985",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0003",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 3,
       "start": 77.16,
       "end": 121.39,
@@ -190,7 +196,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:12.646292",
+      "created_at": "2026-07-03T10:35:18.943306",
       "keywords": [
         "artificial intelligence",
         "learning",
@@ -234,14 +240,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.720149",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.523648",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0004",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 4,
       "start": 121.39,
       "end": 165.34,
@@ -259,7 +267,7 @@
         41,
         42
       ],
-      "created_at": "2026-06-16T12:54:12.646594",
+      "created_at": "2026-07-03T10:35:18.945211",
       "keywords": [
         "learning",
         "water",
@@ -323,14 +331,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.725256",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.529104",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0005",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 5,
       "start": 165.34,
       "end": 205.76,
@@ -351,7 +361,7 @@
         53,
         54
       ],
-      "created_at": "2026-06-16T12:54:12.646912",
+      "created_at": "2026-07-03T10:35:18.947121",
       "keywords": [
         "world",
         "get",
@@ -396,14 +406,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.730146",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.534385",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0006",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 6,
       "start": 205.76,
       "end": 241.58,
@@ -422,7 +434,7 @@
         63,
         64
       ],
-      "created_at": "2026-06-16T12:54:12.647200",
+      "created_at": "2026-07-03T10:35:18.949329",
       "keywords": [
         "learning",
         "learn",
@@ -466,14 +478,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.735092",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.539589",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0007",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 7,
       "start": 241.58,
       "end": 280.01,
@@ -490,7 +504,7 @@
         71,
         72
       ],
-      "created_at": "2026-06-16T12:54:12.647455",
+      "created_at": "2026-07-03T10:35:18.951660",
       "keywords": [
         "water",
         "agent",
@@ -535,14 +549,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.739844",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.545452",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0008",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 8,
       "start": 280.01,
       "end": 319.78,
@@ -563,7 +579,7 @@
         83,
         84
       ],
-      "created_at": "2026-06-16T12:54:12.647753",
+      "created_at": "2026-07-03T10:35:18.954004",
       "keywords": [
         "water",
         "all",
@@ -608,14 +624,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.744302",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.550478",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0009",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 9,
       "start": 319.78,
       "end": 355.38,
@@ -637,7 +655,7 @@
         96,
         97
       ],
-      "created_at": "2026-06-16T12:54:12.648072",
+      "created_at": "2026-07-03T10:35:18.956071",
       "keywords": [
         "water",
         "basically",
@@ -681,14 +699,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.749161",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.555773",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0010",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 10,
       "start": 355.38,
       "end": 391.88,
@@ -707,7 +727,7 @@
         106,
         107
       ],
-      "created_at": "2026-06-16T12:54:12.648358",
+      "created_at": "2026-07-03T10:35:18.957992",
       "keywords": [
         "water",
         "two",
@@ -748,14 +768,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.753729",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.561485",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0011",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 11,
       "start": 391.88,
       "end": 426.91,
@@ -774,7 +796,7 @@
         116,
         117
       ],
-      "created_at": "2026-06-16T12:54:12.648765",
+      "created_at": "2026-07-03T10:35:18.959906",
       "keywords": [
         "water",
         "filter",
@@ -819,14 +841,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.758392",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.566770",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0012",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 12,
       "start": 426.91,
       "end": 473.24,
@@ -848,7 +872,7 @@
         129,
         130
       ],
-      "created_at": "2026-06-16T12:54:12.649168",
+      "created_at": "2026-07-03T10:35:18.961974",
       "keywords": [
         "water",
         "rural",
@@ -935,14 +959,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.763751",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.572783",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0013",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 13,
       "start": 473.24,
       "end": 509.64,
@@ -962,7 +988,7 @@
         140,
         141
       ],
-      "created_at": "2026-06-16T12:54:12.649583",
+      "created_at": "2026-07-03T10:35:18.964005",
       "keywords": [
         "water",
         "jobs",
@@ -1016,14 +1042,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.768674",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.577930",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0014",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 14,
       "start": 509.64,
       "end": 550.36,
@@ -1041,7 +1069,7 @@
         149,
         150
       ],
-      "created_at": "2026-06-16T12:54:12.649899",
+      "created_at": "2026-07-03T10:35:18.965799",
       "keywords": [
         "water",
         "running",
@@ -1083,14 +1111,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.773655",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.582875",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0015",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 15,
       "start": 550.36,
       "end": 593.01,
@@ -1110,7 +1140,7 @@
         160,
         161
       ],
-      "created_at": "2026-06-16T12:54:12.650208",
+      "created_at": "2026-07-03T10:35:18.967622",
       "keywords": [
         "research",
         "think",
@@ -1151,14 +1181,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.778359",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.588001",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025_0016",
       "source_video": "0007_sa6CxiKP4gY_Adam_White_-_AI4IA_2025",
       "video_id": "sa6CxiKP4gY",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 16,
       "start": 593.01,
       "end": 608.86,
@@ -1173,7 +1205,7 @@
         166,
         167
       ],
-      "created_at": "2026-06-16T12:54:12.650393",
+      "created_at": "2026-07-03T10:35:18.969379",
       "keywords": [
         "learning",
         "little"
@@ -1211,11 +1243,11 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.780939",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.590857",
+      "speaker": "Adam White",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:15.780944"
+  "classified_at": "2026-07-03T11:40:06.590869"
 }

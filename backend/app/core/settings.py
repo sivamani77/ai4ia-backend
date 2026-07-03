@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from pydantic import model_validator
+from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings
 
 
@@ -46,6 +46,26 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------
     speaker_extraction_model: str = "openai/gpt-oss-20b"
     insight_model: str = "openai/gpt-oss-20b"
+    embedding_model: str = "nomic-embed-text:v1.5"
+    fast_llm_model: str = "llama3.1:8b"
+
+    # ------------------------------------------------------------------
+    # Storyline / export tuning
+    # ------------------------------------------------------------------
+    # Clip diversity caps — max times a single source video / speaker may
+    # appear in one generated storyline. Enforced independently in the
+    # storyline-generation stage and the video-export stage; must stay in
+    # sync, hence a single shared source here.
+    max_uses_per_source_video: int = Field(default=2, gt=0)
+    max_uses_per_speaker: int = Field(default=2, gt=0)
+
+    # Fragmenting rules — how transcript segments are grouped into fragments.
+    fragment_min_duration_seconds: float = Field(default=35, gt=0)
+    fragment_target_duration_seconds: float = Field(default=75, gt=0)
+    fragment_max_duration_seconds: float = Field(default=130, gt=0)
+    fragment_min_words: int = Field(default=35, gt=0)
+    fragment_target_words: int = Field(default=120, gt=0)
+    fragment_max_words: int = Field(default=230, gt=0)
 
     # ------------------------------------------------------------------
     # YouTube ingestion
@@ -120,6 +140,23 @@ class Settings(BaseSettings):
             self.ai4ia_local_jobs_dir = (data_dir / "jobs").resolve()
         else:
             self.ai4ia_local_jobs_dir = self.ai4ia_local_jobs_dir.resolve()
+
+        if not (
+            self.fragment_min_duration_seconds
+            <= self.fragment_target_duration_seconds
+            <= self.fragment_max_duration_seconds
+        ):
+            raise ValueError(
+                "fragment duration thresholds must satisfy "
+                "min <= target <= max "
+                f"(got {self.fragment_min_duration_seconds}, "
+                f"{self.fragment_target_duration_seconds}, {self.fragment_max_duration_seconds})"
+            )
+        if not (self.fragment_min_words <= self.fragment_target_words <= self.fragment_max_words):
+            raise ValueError(
+                "fragment word thresholds must satisfy min <= target <= max "
+                f"(got {self.fragment_min_words}, {self.fragment_target_words}, {self.fragment_max_words})"
+            )
 
         return self
 

@@ -3,11 +3,11 @@
   "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
   "video_id": "U31ADgIRLH4",
   "fragment_count": 9,
-  "created_at": "2026-06-16T12:54:12.728695",
+  "created_at": "2026-07-03T10:35:19.462280",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0001",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 0.27,
       "end": 53.94,
@@ -37,7 +39,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:12.726159",
+      "created_at": "2026-07-03T10:35:19.432703",
       "keywords": [
         "university",
         "school",
@@ -96,14 +98,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.824995",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.763093",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0002",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 53.94,
       "end": 114.4,
@@ -121,7 +125,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:12.726640",
+      "created_at": "2026-07-03T10:35:19.436679",
       "keywords": [
         "artificial intelligence",
         "human rights",
@@ -235,14 +239,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.830085",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.768243",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0003",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 114.4,
       "end": 171.22,
@@ -263,7 +269,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:12.726975",
+      "created_at": "2026-07-03T10:35:19.440233",
       "keywords": [
         "artificial intelligence",
         "education",
@@ -355,14 +361,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.835894",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.773765",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0004",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 171.22,
       "end": 225.31,
@@ -382,7 +390,7 @@
         43,
         44
       ],
-      "created_at": "2026-06-16T12:54:12.727238",
+      "created_at": "2026-07-03T10:35:19.443657",
       "keywords": [
         "markets",
         "business",
@@ -422,14 +430,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.840332",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.778498",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0005",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 225.31,
       "end": 280.83,
@@ -451,7 +461,7 @@
         56,
         57
       ],
-      "created_at": "2026-06-16T12:54:12.727539",
+      "created_at": "2026-07-03T10:35:19.447028",
       "keywords": [
         "her",
         "even",
@@ -490,14 +500,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.844938",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.783181",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0006",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 280.83,
       "end": 335.66,
@@ -516,7 +528,7 @@
         66,
         67
       ],
-      "created_at": "2026-06-16T12:54:12.727813",
+      "created_at": "2026-07-03T10:35:19.450821",
       "keywords": [
         "gender",
         "race",
@@ -610,14 +622,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.849661",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.788455",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0007",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 335.66,
       "end": 393.28,
@@ -638,7 +652,7 @@
         78,
         79
       ],
-      "created_at": "2026-06-16T12:54:12.728085",
+      "created_at": "2026-07-03T10:35:19.454489",
       "keywords": [
         "medical",
         "diagnosis",
@@ -750,14 +764,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.854582",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.794308",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0008",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 393.28,
       "end": 445.66,
@@ -777,7 +793,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:12.728386",
+      "created_at": "2026-07-03T10:35:19.458472",
       "keywords": [
         "ai literacy",
         "ethics",
@@ -879,14 +895,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.859604",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.799066",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025_0009",
       "source_video": "0027_U31ADgIRLH4_Chayan_Kanti_Ray_-_AI4IA_2025",
       "video_id": "U31ADgIRLH4",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 445.66,
       "end": 490.96,
@@ -907,7 +925,7 @@
         101,
         102
       ],
-      "created_at": "2026-06-16T12:54:12.728666",
+      "created_at": "2026-07-03T10:35:19.462242",
       "keywords": [
         "human",
         "reflect",
@@ -944,11 +962,11 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.867558",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.803246",
+      "speaker": "Chayan Kanti Ray",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:16.867571"
+  "classified_at": "2026-07-03T11:40:07.803258"
 }

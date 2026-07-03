@@ -3,11 +3,11 @@
   "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
   "video_id": "yZAAZZ",
   "fragment_count": 105,
-  "created_at": "2026-06-16T12:54:13.138667",
+  "created_at": "2026-07-03T10:35:21.977966",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0001",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 3.22,
       "end": 53.49,
@@ -35,7 +37,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.099608",
+      "created_at": "2026-07-03T10:35:21.742672",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -144,14 +146,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.341113",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.298379",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0002",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 54.21,
       "end": 102.85,
@@ -168,7 +172,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.099890",
+      "created_at": "2026-07-03T10:35:21.744665",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -245,14 +249,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.345857",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.303331",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0003",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 103.25,
       "end": 170.05,
@@ -273,7 +279,7 @@
         29,
         30
       ],
-      "created_at": "2026-06-16T12:54:13.100176",
+      "created_at": "2026-07-03T10:35:21.746716",
       "keywords": [
         "artificial intelligence",
         "recorded",
@@ -311,14 +317,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.350247",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.308062",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0004",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 171.01,
       "end": 249.41,
@@ -341,7 +349,7 @@
         43,
         44
       ],
-      "created_at": "2026-06-16T12:54:13.100554",
+      "created_at": "2026-07-03T10:35:21.748869",
       "keywords": [
         "news",
         "information",
@@ -434,14 +442,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.355005",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.313122",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0005",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 250.9,
       "end": 330.99,
@@ -467,7 +477,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:13.100913",
+      "created_at": "2026-07-03T10:35:21.751007",
       "keywords": [
         "threat",
         "humanity",
@@ -516,14 +526,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.359522",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.318264",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0006",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 332.61,
       "end": 409.2,
@@ -550,7 +562,7 @@
         78,
         79
       ],
-      "created_at": "2026-06-16T12:54:13.101287",
+      "created_at": "2026-07-03T10:35:21.753180",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -637,14 +649,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.364024",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.323371",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0007",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 409.98,
       "end": 481.09,
@@ -674,7 +688,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.101741",
+      "created_at": "2026-07-03T10:35:21.755413",
       "keywords": [
         "regional",
         "unesco",
@@ -788,14 +802,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.368783",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.328490",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0008",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 481.57,
       "end": 527.49,
@@ -818,7 +834,7 @@
         113,
         114
       ],
-      "created_at": "2026-06-16T12:54:13.102242",
+      "created_at": "2026-07-03T10:35:21.757484",
       "keywords": [
         "artificial intelligence",
         "responsible ai",
@@ -918,14 +934,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.373245",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.333543",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0009",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 527.49,
       "end": 574.03,
@@ -948,7 +966,7 @@
         127,
         128
       ],
-      "created_at": "2026-06-16T12:54:13.102736",
+      "created_at": "2026-07-03T10:35:21.759568",
       "keywords": [
         "responsible ai",
         "risk",
@@ -1041,14 +1059,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.377966",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.339400",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0010",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 574.03,
       "end": 624.43,
@@ -1071,7 +1091,7 @@
         141,
         142
       ],
-      "created_at": "2026-06-16T12:54:13.103283",
+      "created_at": "2026-07-03T10:35:21.761606",
       "keywords": [
         "privacy",
         "data protection",
@@ -1185,14 +1205,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.382708",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.344440",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0011",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 11,
       "start": 624.43,
       "end": 677.04,
@@ -1217,7 +1239,7 @@
         157,
         158
       ],
-      "created_at": "2026-06-16T12:54:13.103727",
+      "created_at": "2026-07-03T10:35:21.763681",
       "keywords": [
         "ethics",
         "policy",
@@ -1327,14 +1349,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.387683",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.349841",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0012",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 12,
       "start": 677.92,
       "end": 732.11,
@@ -1356,7 +1380,7 @@
         170,
         171
       ],
-      "created_at": "2026-06-16T12:54:13.104080",
+      "created_at": "2026-07-03T10:35:21.765680",
       "keywords": [
         "ethics",
         "university",
@@ -1465,14 +1489,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.392654",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.355262",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0013",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 13,
       "start": 733.52,
       "end": 775.92,
@@ -1494,7 +1520,7 @@
         183,
         184
       ],
-      "created_at": "2026-06-16T12:54:13.104533",
+      "created_at": "2026-07-03T10:35:21.767660",
       "keywords": [
         "university",
         "arts",
@@ -1600,14 +1626,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.397200",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.360264",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0014",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 14,
       "start": 775.92,
       "end": 828.1,
@@ -1629,7 +1657,7 @@
         196,
         197
       ],
-      "created_at": "2026-06-16T12:54:13.104963",
+      "created_at": "2026-07-03T10:35:21.769700",
       "keywords": [
         "artificial intelligence",
         "ethics",
@@ -1704,14 +1732,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.401458",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.364684",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0015",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 15,
       "start": 828.1,
       "end": 878.74,
@@ -1734,7 +1764,7 @@
         210,
         211
       ],
-      "created_at": "2026-06-16T12:54:13.105320",
+      "created_at": "2026-07-03T10:35:21.771688",
       "keywords": [
         "artificial intelligence",
         "responsible ai",
@@ -1786,14 +1816,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.405878",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.369303",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0016",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 16,
       "start": 878.74,
       "end": 944.66,
@@ -1817,7 +1849,7 @@
         225,
         226
       ],
-      "created_at": "2026-06-16T12:54:13.105801",
+      "created_at": "2026-07-03T10:35:21.773722",
       "keywords": [
         "artificial intelligence",
         "ethics",
@@ -1909,14 +1941,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.410562",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.374294",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0017",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 17,
       "start": 947.98,
       "end": 1018.21,
@@ -1944,7 +1978,7 @@
         244,
         245
       ],
-      "created_at": "2026-06-16T12:54:13.106259",
+      "created_at": "2026-07-03T10:35:21.776025",
       "keywords": [
         "principles",
         "industry",
@@ -1998,14 +2032,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.415281",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.379356",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0018",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 18,
       "start": 1018.21,
       "end": 1077.47,
@@ -2035,7 +2071,7 @@
         265,
         266
       ],
-      "created_at": "2026-06-16T12:54:13.106852",
+      "created_at": "2026-07-03T10:35:21.778256",
       "keywords": [
         "human rights",
         "privacy",
@@ -2145,14 +2181,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.419664",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.384103",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0019",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 19,
       "start": 1077.47,
       "end": 1143.95,
@@ -2181,7 +2219,7 @@
         285,
         286
       ],
-      "created_at": "2026-06-16T12:54:13.107390",
+      "created_at": "2026-07-03T10:35:21.780765",
       "keywords": [
         "ethics",
         "market",
@@ -2257,14 +2295,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.424025",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.388799",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0020",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 20,
       "start": 1145.31,
       "end": 1211.36,
@@ -2294,7 +2334,7 @@
         306,
         307
       ],
-      "created_at": "2026-06-16T12:54:13.107929",
+      "created_at": "2026-07-03T10:35:21.783165",
       "keywords": [
         "academic",
         "labor",
@@ -2361,14 +2401,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.428369",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.393631",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0021",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 21,
       "start": 1211.36,
       "end": 1289.49,
@@ -2398,7 +2440,7 @@
         327,
         328
       ],
-      "created_at": "2026-06-16T12:54:13.108577",
+      "created_at": "2026-07-03T10:35:21.785697",
       "keywords": [
         "labor",
         "application",
@@ -2441,14 +2483,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.432791",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.398772",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0022",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 22,
       "start": 1290.05,
       "end": 1348.26,
@@ -2474,7 +2518,7 @@
         344,
         345
       ],
-      "created_at": "2026-06-16T12:54:13.108955",
+      "created_at": "2026-07-03T10:35:21.788262",
       "keywords": [
         "responsible ai",
         "water",
@@ -2547,14 +2591,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.436914",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.403915",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0023",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 23,
       "start": 1349.86,
       "end": 1429.1,
@@ -2583,7 +2629,7 @@
         364,
         365
       ],
-      "created_at": "2026-06-16T12:54:13.109319",
+      "created_at": "2026-07-03T10:35:21.790909",
       "keywords": [
         "responsible ai",
         "principles",
@@ -2638,14 +2684,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.441382",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.408879",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0024",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 24,
       "start": 1429.66,
       "end": 1487.09,
@@ -2669,7 +2717,7 @@
         379,
         380
       ],
-      "created_at": "2026-06-16T12:54:13.109643",
+      "created_at": "2026-07-03T10:35:21.793241",
       "keywords": [
         "language",
         "really",
@@ -2712,14 +2760,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.445597",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.413505",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0025",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 25,
       "start": 1487.57,
       "end": 1548.48,
@@ -2739,7 +2789,7 @@
         390,
         391
       ],
-      "created_at": "2026-06-16T12:54:13.109948",
+      "created_at": "2026-07-03T10:35:21.795672",
       "keywords": [
         "economy",
         "language",
@@ -2803,14 +2853,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.450623",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.419456",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0026",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 26,
       "start": 1548.72,
       "end": 1605.12,
@@ -2832,7 +2884,7 @@
         403,
         404
       ],
-      "created_at": "2026-06-16T12:54:13.110236",
+      "created_at": "2026-07-03T10:35:21.797762",
       "keywords": [
         "surveillance",
         "system",
@@ -2875,14 +2927,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.567,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.455063",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.425085",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0027",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 27,
       "start": 1606.06,
       "end": 1659.36,
@@ -2900,7 +2954,7 @@
         412,
         413
       ],
-      "created_at": "2026-06-16T12:54:13.110475",
+      "created_at": "2026-07-03T10:35:21.799742",
       "keywords": [
         "rights",
         "whether",
@@ -2955,14 +3009,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.459391",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.430757",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0028",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 28,
       "start": 1660.5,
       "end": 1729.46,
@@ -2982,7 +3038,7 @@
         423,
         424
       ],
-      "created_at": "2026-06-16T12:54:13.110765",
+      "created_at": "2026-07-03T10:35:21.802061",
       "keywords": [
         "market",
         "inclusive",
@@ -3034,14 +3090,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.464385",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.436345",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0029",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 29,
       "start": 1730.1,
       "end": 1783.63,
@@ -3059,7 +3117,7 @@
         432,
         433
       ],
-      "created_at": "2026-06-16T12:54:13.110990",
+      "created_at": "2026-07-03T10:35:21.804576",
       "keywords": [
         "market",
         "inclusion",
@@ -3153,14 +3211,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.468866",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.441088",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0030",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 30,
       "start": 1784.43,
       "end": 1844.48,
@@ -3179,7 +3239,7 @@
         442,
         443
       ],
-      "created_at": "2026-06-16T12:54:13.111249",
+      "created_at": "2026-07-03T10:35:21.806951",
       "keywords": [
         "bias",
         "privacy",
@@ -3248,14 +3308,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.473024",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.446238",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0031",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 31,
       "start": 1845.6,
       "end": 1913.95,
@@ -3277,7 +3339,7 @@
         455,
         456
       ],
-      "created_at": "2026-06-16T12:54:13.111614",
+      "created_at": "2026-07-03T10:35:21.809543",
       "keywords": [
         "regulation",
         "media",
@@ -3382,14 +3444,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.477941",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.452102",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0032",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 32,
       "start": 1914.51,
       "end": 1978.98,
@@ -3415,7 +3479,7 @@
         472,
         473
       ],
-      "created_at": "2026-06-16T12:54:13.111994",
+      "created_at": "2026-07-03T10:35:21.813509",
       "keywords": [
         "business",
         "need",
@@ -3457,14 +3521,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.482451",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.457470",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0033",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 33,
       "start": 1979.78,
       "end": 2046.59,
@@ -3487,7 +3553,7 @@
         486,
         487
       ],
-      "created_at": "2026-06-16T12:54:13.112309",
+      "created_at": "2026-07-03T10:35:21.816210",
       "keywords": [
         "information",
         "conference",
@@ -3586,14 +3652,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.487143",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.463131",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0034",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 34,
       "start": 2047.07,
       "end": 2111.89,
@@ -3617,7 +3685,7 @@
         501,
         502
       ],
-      "created_at": "2026-06-16T12:54:13.112849",
+      "created_at": "2026-07-03T10:35:21.818470",
       "keywords": [
         "human rights",
         "ethics",
@@ -3721,14 +3789,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.491633",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.468041",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0035",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 35,
       "start": 2112.8,
       "end": 2170.35,
@@ -3748,7 +3818,7 @@
         512,
         513
       ],
-      "created_at": "2026-06-16T12:54:13.113290",
+      "created_at": "2026-07-03T10:35:21.821510",
       "keywords": [
         "human rights",
         "rights",
@@ -3823,14 +3893,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.495980",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.472926",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0036",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 36,
       "start": 2171.23,
       "end": 2234.98,
@@ -3856,7 +3928,7 @@
         529,
         530
       ],
-      "created_at": "2026-06-16T12:54:13.113906",
+      "created_at": "2026-07-03T10:35:21.824079",
       "keywords": [
         "human rights",
         "disinformation",
@@ -3954,14 +4026,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.500604",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.478114",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0037",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 37,
       "start": 2235.46,
       "end": 2293.26,
@@ -3983,7 +4057,7 @@
         542,
         543
       ],
-      "created_at": "2026-06-16T12:54:13.114251",
+      "created_at": "2026-07-03T10:35:21.826368",
       "keywords": [
         "human rights",
         "law",
@@ -4072,14 +4146,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.505522",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.483430",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0038",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 38,
       "start": 2295.26,
       "end": 2355.57,
@@ -4103,7 +4179,7 @@
         557,
         558
       ],
-      "created_at": "2026-06-16T12:54:13.114687",
+      "created_at": "2026-07-03T10:35:21.828529",
       "keywords": [
         "human rights",
         "ethics",
@@ -4212,14 +4288,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.509916",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.488316",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0039",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 39,
       "start": 2356.29,
       "end": 2412.59,
@@ -4240,7 +4318,7 @@
         569,
         570
       ],
-      "created_at": "2026-06-16T12:54:13.115004",
+      "created_at": "2026-07-03T10:35:21.830768",
       "keywords": [
         "okay",
         "want",
@@ -4280,14 +4358,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.514042",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.492876",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0040",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 40,
       "start": 2412.59,
       "end": 2458.75,
@@ -4304,7 +4384,7 @@
         577,
         578
       ],
-      "created_at": "2026-06-16T12:54:13.115251",
+      "created_at": "2026-07-03T10:35:21.832772",
       "keywords": [
         "ethics",
         "responsible ai",
@@ -4384,14 +4464,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.518446",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.498952",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0041",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 41,
       "start": 2459.39,
       "end": 2515.9,
@@ -4412,7 +4494,7 @@
         589,
         590
       ],
-      "created_at": "2026-06-16T12:54:13.115582",
+      "created_at": "2026-07-03T10:35:21.834824",
       "keywords": [
         "education",
         "privacy",
@@ -4488,14 +4570,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.523274",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.504209",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0042",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 42,
       "start": 2516.38,
       "end": 2573.82,
@@ -4518,7 +4602,7 @@
         603,
         604
       ],
-      "created_at": "2026-06-16T12:54:13.115985",
+      "created_at": "2026-07-03T10:35:21.837061",
       "keywords": [
         "legal",
         "responsibility",
@@ -4584,14 +4668,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.527712",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.509380",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0043",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 43,
       "start": 2574.46,
       "end": 2625.66,
@@ -4615,7 +4701,7 @@
         618,
         619
       ],
-      "created_at": "2026-06-16T12:54:13.116436",
+      "created_at": "2026-07-03T10:35:21.839312",
       "keywords": [
         "responsibility",
         "free",
@@ -4658,14 +4744,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.532257",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.515146",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0044",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 44,
       "start": 2626.54,
       "end": 2687.26,
@@ -4687,7 +4775,7 @@
         631,
         632
       ],
-      "created_at": "2026-06-16T12:54:13.116828",
+      "created_at": "2026-07-03T10:35:21.841923",
       "keywords": [
         "responsibility",
         "reason",
@@ -4733,14 +4821,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.537019",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.521088",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0045",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 45,
       "start": 2687.5,
       "end": 2733.66,
@@ -4758,7 +4848,7 @@
         640,
         641
       ],
-      "created_at": "2026-06-16T12:54:13.117240",
+      "created_at": "2026-07-03T10:35:21.843991",
       "keywords": [
         "ownership",
         "reasons",
@@ -4803,14 +4893,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.542187",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.526612",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0046",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 46,
       "start": 2734.22,
       "end": 2791.9,
@@ -4830,7 +4922,7 @@
         651,
         652
       ],
-      "created_at": "2026-06-16T12:54:13.117579",
+      "created_at": "2026-07-03T10:35:21.846030",
       "keywords": [
         "responsibility",
         "individual",
@@ -4872,14 +4964,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.547024",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.532126",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0047",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 47,
       "start": 2791.98,
       "end": 2847.17,
@@ -4899,7 +4993,7 @@
         662,
         663
       ],
-      "created_at": "2026-06-16T12:54:13.117879",
+      "created_at": "2026-07-03T10:35:21.848046",
       "keywords": [
         "authors",
         "responsibility",
@@ -4968,14 +5062,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.551886",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.537611",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0048",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 48,
       "start": 2847.89,
       "end": 2908.83,
@@ -4994,7 +5090,7 @@
         672,
         673
       ],
-      "created_at": "2026-06-16T12:54:13.118124",
+      "created_at": "2026-07-03T10:35:21.850095",
       "keywords": [
         "risk",
         "moral",
@@ -5051,14 +5147,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.556965",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.544115",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0049",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 49,
       "start": 2909.55,
       "end": 2963.36,
@@ -5075,7 +5173,7 @@
         680,
         681
       ],
-      "created_at": "2026-06-16T12:54:13.118437",
+      "created_at": "2026-07-03T10:35:21.852344",
       "keywords": [
         "principles",
         "values",
@@ -5144,14 +5242,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.561887",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.549535",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0050",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 50,
       "start": 2964.08,
       "end": 3013.04,
@@ -5174,7 +5274,7 @@
         694,
         695
       ],
-      "created_at": "2026-06-16T12:54:13.118939",
+      "created_at": "2026-07-03T10:35:21.855078",
       "keywords": [
         "risk",
         "responsibility",
@@ -5227,14 +5327,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.566504",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.554673",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0051",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 51,
       "start": 3014.78,
       "end": 3063.5,
@@ -5252,7 +5354,7 @@
         703,
         704
       ],
-      "created_at": "2026-06-16T12:54:13.119243",
+      "created_at": "2026-07-03T10:35:21.857231",
       "keywords": [
         "responsibility",
         "moral",
@@ -5308,14 +5410,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.571150",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.560013",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0052",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 52,
       "start": 3064.14,
       "end": 3118.98,
@@ -5336,7 +5440,7 @@
         715,
         716
       ],
-      "created_at": "2026-06-16T12:54:13.119609",
+      "created_at": "2026-07-03T10:35:21.859348",
       "keywords": [
         "affected",
         "decisions",
@@ -5371,14 +5475,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.283,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.575352",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.565396",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0053",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 53,
       "start": 3119.81,
       "end": 3165.84,
@@ -5397,7 +5503,7 @@
         725,
         726
       ],
-      "created_at": "2026-06-16T12:54:13.119995",
+      "created_at": "2026-07-03T10:35:21.861392",
       "keywords": [
         "responsible ai",
         "framework",
@@ -5472,14 +5578,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.579936",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.570417",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0054",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 54,
       "start": 3165.84,
       "end": 3204.72,
@@ -5496,7 +5604,7 @@
         733,
         734
       ],
-      "created_at": "2026-06-16T12:54:13.120430",
+      "created_at": "2026-07-03T10:35:21.863747",
       "keywords": [
         "ethical",
         "responsible ai",
@@ -5572,14 +5680,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.584207",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.575047",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0055",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 55,
       "start": 3205.2,
       "end": 3248.75,
@@ -5598,7 +5708,7 @@
         743,
         744
       ],
-      "created_at": "2026-06-16T12:54:13.120850",
+      "created_at": "2026-07-03T10:35:21.866064",
       "keywords": [
         "responsible ai",
         "framework",
@@ -5677,14 +5787,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.589093",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.580461",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0056",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 56,
       "start": 3248.75,
       "end": 3287.17,
@@ -5702,7 +5814,7 @@
         752,
         753
       ],
-      "created_at": "2026-06-16T12:54:13.121102",
+      "created_at": "2026-07-03T10:35:21.868154",
       "keywords": [
         "framework",
         "training",
@@ -5766,14 +5878,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.593819",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.585683",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0057",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 57,
       "start": 3287.17,
       "end": 3325.47,
@@ -5791,7 +5905,7 @@
         761,
         762
       ],
-      "created_at": "2026-06-16T12:54:13.121370",
+      "created_at": "2026-07-03T10:35:21.870266",
       "keywords": [
         "framework",
         "going",
@@ -5837,14 +5951,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.598663",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.590928",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0058",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 58,
       "start": 3326.86,
       "end": 3363.34,
@@ -5861,7 +5977,7 @@
         769,
         770
       ],
-      "created_at": "2026-06-16T12:54:13.121589",
+      "created_at": "2026-07-03T10:35:21.872236",
       "keywords": [
         "environment",
         "privacy",
@@ -5934,14 +6050,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.603050",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.595717",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0059",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 59,
       "start": 3364.22,
       "end": 3400.78,
@@ -5960,7 +6078,7 @@
         779,
         780
       ],
-      "created_at": "2026-06-16T12:54:13.121841",
+      "created_at": "2026-07-03T10:35:21.874244",
       "keywords": [
         "values",
         "organization",
@@ -6000,14 +6118,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.65,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.607509",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.600505",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0060",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 60,
       "start": 3400.78,
       "end": 3435.97,
@@ -6026,7 +6146,7 @@
         789,
         790
       ],
-      "created_at": "2026-06-16T12:54:13.122098",
+      "created_at": "2026-07-03T10:35:21.876400",
       "keywords": [
         "ethics",
         "environment",
@@ -6097,14 +6217,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.612034",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.605401",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0061",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 61,
       "start": 3435.97,
       "end": 3474.21,
@@ -6124,7 +6246,7 @@
         800,
         801
       ],
-      "created_at": "2026-06-16T12:54:13.122395",
+      "created_at": "2026-07-03T10:35:21.878507",
       "keywords": [
         "policy",
         "framework",
@@ -6190,14 +6312,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.616698",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.610395",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0062",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 62,
       "start": 3474.21,
       "end": 3509.97,
@@ -6220,7 +6344,7 @@
         814,
         815
       ],
-      "created_at": "2026-06-16T12:54:13.122727",
+      "created_at": "2026-07-03T10:35:21.880609",
       "keywords": [
         "policy",
         "responsible ai",
@@ -6296,14 +6420,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.621163",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.616478",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0063",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 63,
       "start": 3509.97,
       "end": 3548.11,
@@ -6324,7 +6450,7 @@
         826,
         827
       ],
-      "created_at": "2026-06-16T12:54:13.123078",
+      "created_at": "2026-07-03T10:35:21.882689",
       "keywords": [
         "ethics",
         "governance",
@@ -6423,14 +6549,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.625670",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.621743",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0064",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 64,
       "start": 3548.19,
       "end": 3589.34,
@@ -6453,7 +6581,7 @@
         840,
         841
       ],
-      "created_at": "2026-06-16T12:54:13.123539",
+      "created_at": "2026-07-03T10:35:21.884831",
       "keywords": [
         "governance",
         "content",
@@ -6526,14 +6654,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.630013",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.626505",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0065",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 65,
       "start": 3589.34,
       "end": 3625.26,
@@ -6554,7 +6684,7 @@
         852,
         853
       ],
-      "created_at": "2026-06-16T12:54:13.123839",
+      "created_at": "2026-07-03T10:35:21.886983",
       "keywords": [
         "ethical",
         "responsible ai",
@@ -6653,14 +6783,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.634452",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.632913",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0066",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 66,
       "start": 3625.26,
       "end": 3663.46,
@@ -6682,7 +6814,7 @@
         865,
         866
       ],
-      "created_at": "2026-06-16T12:54:13.124303",
+      "created_at": "2026-07-03T10:35:21.889233",
       "keywords": [
         "security",
         "all",
@@ -6728,14 +6860,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.638890",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.639766",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0067",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 67,
       "start": 3663.46,
       "end": 3699.54,
@@ -6758,7 +6892,7 @@
         879,
         880
       ],
-      "created_at": "2026-06-16T12:54:13.124699",
+      "created_at": "2026-07-03T10:35:21.891400",
       "keywords": [
         "ethics",
         "transparency",
@@ -6854,14 +6988,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.643058",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.644673",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0068",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 68,
       "start": 3699.54,
       "end": 3735.86,
@@ -6883,7 +7019,7 @@
         892,
         893
       ],
-      "created_at": "2026-06-16T12:54:13.125106",
+      "created_at": "2026-07-03T10:35:21.893582",
       "keywords": [
         "model",
         "things",
@@ -6923,14 +7059,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.583,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.647381",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.649580",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0069",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 69,
       "start": 3735.86,
       "end": 3778.3,
@@ -6954,7 +7092,7 @@
         907,
         908
       ],
-      "created_at": "2026-06-16T12:54:13.125530",
+      "created_at": "2026-07-03T10:35:21.895821",
       "keywords": [
         "artificial intelligence",
         "regulation",
@@ -7062,14 +7200,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.651710",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.654411",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0070",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 70,
       "start": 3778.3,
       "end": 3817.82,
@@ -7095,7 +7235,7 @@
         924,
         925
       ],
-      "created_at": "2026-06-16T12:54:13.126011",
+      "created_at": "2026-07-03T10:35:21.898129",
       "keywords": [
         "responsible ai",
         "content",
@@ -7174,14 +7314,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.655840",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.658837",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0071",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 71,
       "start": 3817.82,
       "end": 3866.94,
@@ -7207,7 +7349,7 @@
         941,
         942
       ],
-      "created_at": "2026-06-16T12:54:13.126382",
+      "created_at": "2026-07-03T10:35:21.900668",
       "keywords": [
         "ethical",
         "responsible ai",
@@ -7262,14 +7404,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.659979",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.663421",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0072",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 72,
       "start": 3866.94,
       "end": 3924.83,
@@ -7295,7 +7439,7 @@
         958,
         959
       ],
-      "created_at": "2026-06-16T12:54:13.126781",
+      "created_at": "2026-07-03T10:35:21.903254",
       "keywords": [
         "learning",
         "communities",
@@ -7351,14 +7495,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.664385",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.668118",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0073",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 73,
       "start": 3924.83,
       "end": 3977.87,
@@ -7383,7 +7529,7 @@
         974,
         975
       ],
-      "created_at": "2026-06-16T12:54:13.127471",
+      "created_at": "2026-07-03T10:35:21.905720",
       "keywords": [
         "communities",
         "values",
@@ -7435,14 +7581,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.668524",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.672732",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0074",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 74,
       "start": 3979.39,
       "end": 4044.85,
@@ -7469,7 +7617,7 @@
         992,
         993
       ],
-      "created_at": "2026-06-16T12:54:13.127943",
+      "created_at": "2026-07-03T10:35:21.908331",
       "keywords": [
         "environment",
         "ethical",
@@ -7555,14 +7703,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.672802",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.677269",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0075",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 75,
       "start": 4045.49,
       "end": 4105.23,
@@ -7593,7 +7743,7 @@
         1014,
         1015
       ],
-      "created_at": "2026-06-16T12:54:13.128401",
+      "created_at": "2026-07-03T10:35:21.910788",
       "keywords": [
         "ethics",
         "regulation",
@@ -7657,14 +7807,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.677087",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.682639",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0076",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 76,
       "start": 4106.27,
       "end": 4170.0,
@@ -7693,7 +7845,7 @@
         1034,
         1035
       ],
-      "created_at": "2026-06-16T12:54:13.128814",
+      "created_at": "2026-07-03T10:35:21.912994",
       "keywords": [
         "ethics",
         "education",
@@ -7787,14 +7939,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.681394",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.687393",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0077",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 77,
       "start": 4170.4,
       "end": 4225.15,
@@ -7813,7 +7967,7 @@
         1044,
         1045
       ],
-      "created_at": "2026-06-16T12:54:13.129074",
+      "created_at": "2026-07-03T10:35:21.915115",
       "keywords": [
         "ethical",
         "philosophy",
@@ -7864,14 +8018,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.686474",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.692432",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0078",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 78,
       "start": 4225.95,
       "end": 4297.87,
@@ -7897,7 +8053,7 @@
         1061,
         1062
       ],
-      "created_at": "2026-06-16T12:54:13.129431",
+      "created_at": "2026-07-03T10:35:21.917273",
       "keywords": [
         "ethical",
         "moral",
@@ -7958,14 +8114,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.691192",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.697457",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0079",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 79,
       "start": 4298.83,
       "end": 4356.58,
@@ -7989,7 +8147,7 @@
         1076,
         1077
       ],
-      "created_at": "2026-06-16T12:54:13.129948",
+      "created_at": "2026-07-03T10:35:21.920620",
       "keywords": [
         "ethical",
         "relevant",
@@ -8033,14 +8191,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.695647",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.702171",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0080",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 80,
       "start": 4358.1,
       "end": 4404.99,
@@ -8060,7 +8220,7 @@
         1087,
         1088
       ],
-      "created_at": "2026-06-16T12:54:13.130267",
+      "created_at": "2026-07-03T10:35:21.923232",
       "keywords": [
         "ethical",
         "values",
@@ -8106,14 +8266,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.699981",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.706887",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0081",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 81,
       "start": 4405.71,
       "end": 4446.43,
@@ -8131,7 +8293,7 @@
         1096,
         1097
       ],
-      "created_at": "2026-06-16T12:54:13.130598",
+      "created_at": "2026-07-03T10:35:21.925412",
       "keywords": [
         "policy",
         "regulation",
@@ -8199,14 +8361,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.704570",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.711880",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0082",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 82,
       "start": 4447.39,
       "end": 4484.83,
@@ -8224,7 +8388,7 @@
         1105,
         1106
       ],
-      "created_at": "2026-06-16T12:54:13.130857",
+      "created_at": "2026-07-03T10:35:21.927475",
       "keywords": [
         "innovation",
         "investment",
@@ -8280,14 +8444,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.567,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.708719",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.716468",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0083",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 83,
       "start": 4485.55,
       "end": 4522.19,
@@ -8304,7 +8470,7 @@
         1113,
         1114
       ],
-      "created_at": "2026-06-16T12:54:13.131192",
+      "created_at": "2026-07-03T10:35:21.929686",
       "keywords": [
         "ethics",
         "regulation",
@@ -8403,14 +8569,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.713401",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.722001",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0084",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 84,
       "start": 4522.19,
       "end": 4569.7,
@@ -8429,7 +8597,7 @@
         1123,
         1124
       ],
-      "created_at": "2026-06-16T12:54:13.131570",
+      "created_at": "2026-07-03T10:35:21.932006",
       "keywords": [
         "ethics",
         "regulation",
@@ -8504,14 +8672,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.717666",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.726424",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0085",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 85,
       "start": 4570.9,
       "end": 4622.94,
@@ -8529,7 +8699,7 @@
         1132,
         1133
       ],
-      "created_at": "2026-06-16T12:54:13.131887",
+      "created_at": "2026-07-03T10:35:21.934457",
       "keywords": [
         "regulation",
         "market",
@@ -8619,14 +8789,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.722539",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.731338",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0086",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 86,
       "start": 4625.12,
       "end": 4675.78,
@@ -8645,7 +8817,7 @@
         1142,
         1143
       ],
-      "created_at": "2026-06-16T12:54:13.132227",
+      "created_at": "2026-07-03T10:35:21.936898",
       "keywords": [
         "regulation",
         "legislation",
@@ -8701,14 +8873,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.728138",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.736839",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0087",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 87,
       "start": 4676.5,
       "end": 4733.09,
@@ -8726,7 +8900,7 @@
         1151,
         1152
       ],
-      "created_at": "2026-06-16T12:54:13.132498",
+      "created_at": "2026-07-03T10:35:21.939136",
       "keywords": [
         "answer",
         "it's",
@@ -8766,14 +8940,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.732612",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.741643",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0088",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 88,
       "start": 4733.81,
       "end": 4795.17,
@@ -8802,7 +8978,7 @@
         1171,
         1172
       ],
-      "created_at": "2026-06-16T12:54:13.133109",
+      "created_at": "2026-07-03T10:35:21.941527",
       "keywords": [
         "governance",
         "citizens",
@@ -8867,14 +9043,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.737246",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.746525",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0089",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 89,
       "start": 4795.81,
       "end": 4835.31,
@@ -8893,7 +9071,7 @@
         1181,
         1182
       ],
-      "created_at": "2026-06-16T12:54:13.133396",
+      "created_at": "2026-07-03T10:35:21.943592",
       "keywords": [
         "it's",
         "know",
@@ -8936,14 +9114,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.3,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.742897",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.751662",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0090",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 90,
       "start": 4835.31,
       "end": 4873.76,
@@ -8962,7 +9142,7 @@
         1191,
         1192
       ],
-      "created_at": "2026-06-16T12:54:13.133689",
+      "created_at": "2026-07-03T10:35:21.945751",
       "keywords": [
         "government",
         "going",
@@ -9016,14 +9196,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.583,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.747492",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.756618",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0091",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 91,
       "start": 4873.76,
       "end": 4926.51,
@@ -9043,7 +9225,7 @@
         1202,
         1203
       ],
-      "created_at": "2026-06-16T12:54:13.134014",
+      "created_at": "2026-07-03T10:35:21.947921",
       "keywords": [
         "legislation",
         "know",
@@ -9085,14 +9267,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.752037",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.762394",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0092",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 92,
       "start": 4927.15,
       "end": 4985.86,
@@ -9113,7 +9297,7 @@
         1214,
         1215
       ],
-      "created_at": "2026-06-16T12:54:13.134392",
+      "created_at": "2026-07-03T10:35:21.950047",
       "keywords": [
         "policy",
         "law",
@@ -9179,14 +9363,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.756243",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.767452",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0093",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 93,
       "start": 4986.98,
       "end": 5050.26,
@@ -9209,7 +9395,7 @@
         1228,
         1229
       ],
-      "created_at": "2026-06-16T12:54:13.134989",
+      "created_at": "2026-07-03T10:35:21.952182",
       "keywords": [
         "responsible ai",
         "struggle",
@@ -9251,14 +9437,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.760640",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.772555",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0094",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 94,
       "start": 5050.42,
       "end": 5105.87,
@@ -9279,7 +9467,7 @@
         1240,
         1241
       ],
-      "created_at": "2026-06-16T12:54:13.135288",
+      "created_at": "2026-07-03T10:35:21.954301",
       "keywords": [
         "regulation",
         "want",
@@ -9345,14 +9533,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.764971",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.778038",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0095",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 95,
       "start": 5105.95,
       "end": 5141.71,
@@ -9368,7 +9558,7 @@
         1247,
         1248
       ],
-      "created_at": "2026-06-16T12:54:13.135527",
+      "created_at": "2026-07-03T10:35:21.956349",
       "keywords": [
         "responsible ai",
         "court",
@@ -9424,14 +9614,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.769469",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.783868",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0096",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 96,
       "start": 5142.59,
       "end": 5186.22,
@@ -9449,7 +9641,7 @@
         1256,
         1257
       ],
-      "created_at": "2026-06-16T12:54:13.135818",
+      "created_at": "2026-07-03T10:35:21.958444",
       "keywords": [
         "market",
         "things",
@@ -9490,14 +9682,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.774031",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.789241",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0097",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 97,
       "start": 5186.22,
       "end": 5251.54,
@@ -9516,7 +9710,7 @@
         1266,
         1267
       ],
-      "created_at": "2026-06-16T12:54:13.136124",
+      "created_at": "2026-07-03T10:35:21.960519",
       "keywords": [
         "ethics",
         "standards",
@@ -9604,14 +9798,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.85,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.778288",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.794455",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0098",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 98,
       "start": 5252.34,
       "end": 5299.09,
@@ -9632,7 +9828,7 @@
         1278,
         1279
       ],
-      "created_at": "2026-06-16T12:54:13.136552",
+      "created_at": "2026-07-03T10:35:21.962688",
       "keywords": [
         "government",
         "moderator",
@@ -9695,14 +9891,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.782614",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.799952",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0099",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 99,
       "start": 5300.29,
       "end": 5354.08,
@@ -9722,7 +9920,7 @@
         1289,
         1290
       ],
-      "created_at": "2026-06-16T12:54:13.136854",
+      "created_at": "2026-07-03T10:35:21.964808",
       "keywords": [
         "ethics",
         "education",
@@ -9809,14 +10007,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.787344",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.805699",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0100",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 100,
       "start": 5354.48,
       "end": 5406.75,
@@ -9838,7 +10038,7 @@
         1302,
         1303
       ],
-      "created_at": "2026-06-16T12:54:13.137163",
+      "created_at": "2026-07-03T10:35:21.967078",
       "keywords": [
         "misinformation",
         "information",
@@ -9941,14 +10141,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.791534",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.810699",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0101",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 101,
       "start": 5407.71,
       "end": 5461.31,
@@ -9969,7 +10171,7 @@
         1314,
         1315
       ],
-      "created_at": "2026-06-16T12:54:13.137460",
+      "created_at": "2026-07-03T10:35:21.969317",
       "keywords": [
         "silence",
         "signal",
@@ -10008,14 +10210,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.795639",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.815548",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0102",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 102,
       "start": 5461.87,
       "end": 5522.83,
@@ -10037,7 +10241,7 @@
         1327,
         1328
       ],
-      "created_at": "2026-06-16T12:54:13.137762",
+      "created_at": "2026-07-03T10:35:21.971445",
       "keywords": [
         "control",
         "thoughts",
@@ -10078,14 +10282,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.800086",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.820774",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0103",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 103,
       "start": 5523.79,
       "end": 5580.93,
@@ -10103,7 +10309,7 @@
         1336,
         1337
       ],
-      "created_at": "2026-06-16T12:54:13.138024",
+      "created_at": "2026-07-03T10:35:21.973610",
       "keywords": [
         "moral",
         "responsibility",
@@ -10158,14 +10364,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.804560",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.827253",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0104",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 104,
       "start": 5581.01,
       "end": 5636.08,
@@ -10183,7 +10391,7 @@
         1345,
         1346
       ],
-      "created_at": "2026-06-16T12:54:13.138285",
+      "created_at": "2026-07-03T10:35:21.975708",
       "keywords": [
         "social",
         "kind",
@@ -10222,14 +10430,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.808857",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.832144",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0085_yZAAZZ_FjAk_Canada Regional Event_0105",
       "source_video": "0085_yZAAZZ_FjAk_Canada Regional Event",
       "video_id": "yZAAZZ",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 105,
       "start": 5637.04,
       "end": 5674.32,
@@ -10245,7 +10455,7 @@
         1352,
         1353
       ],
-      "created_at": "2026-06-16T12:54:13.138459",
+      "created_at": "2026-07-03T10:35:21.977747",
       "keywords": [
         "responsible ai",
         "conference",
@@ -10336,11 +10546,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.812281",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:13.835996",
+      "speaker": "Cordell Green",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:22.812286"
+  "classified_at": "2026-07-03T11:40:13.836030"
 }

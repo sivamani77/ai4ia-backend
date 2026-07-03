@@ -3,11 +3,11 @@
   "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
   "video_id": "UfD8",
   "fragment_count": 8,
-  "created_at": "2026-06-16T12:54:13.086821",
+  "created_at": "2026-07-03T10:35:21.698565",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0001",
       "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
       "video_id": "UfD8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 0.18,
       "end": 61.9,
@@ -37,7 +39,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:13.084074",
+      "created_at": "2026-07-03T10:35:21.695125",
       "keywords": [
         "information integrity",
         "information",
@@ -144,14 +146,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.217801",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:13.149417",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0002",
       "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
       "video_id": "UfD8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 61.9,
       "end": 114.29,
@@ -171,7 +175,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:13.084512",
+      "created_at": "2026-07-03T10:35:21.695610",
       "keywords": [
         "journalism",
         "information",
@@ -258,14 +262,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.222508",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:13.155379",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0003",
       "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
       "video_id": "UfD8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 114.29,
       "end": 180.53,
@@ -286,7 +292,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.084947",
+      "created_at": "2026-07-03T10:35:21.696104",
       "keywords": [
         "health",
         "information",
@@ -400,14 +406,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.227457",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:13.163137",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0004",
       "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
       "video_id": "UfD8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 180.53,
       "end": 236.1,
@@ -429,7 +437,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.085286",
+      "created_at": "2026-07-03T10:35:21.696604",
       "keywords": [
         "deepfakes",
         "news",
@@ -537,14 +545,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.232111",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:13.168403",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0005",
       "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
       "video_id": "UfD8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 236.1,
       "end": 298.53,
@@ -565,7 +575,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:13.085740",
+      "created_at": "2026-07-03T10:35:21.697084",
       "keywords": [
         "deepfakes",
         "environment",
@@ -671,14 +681,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.236976",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:13.174148",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0006",
       "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
       "video_id": "UfD8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 298.53,
       "end": 354.3,
@@ -700,7 +712,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:13.086095",
+      "created_at": "2026-07-03T10:35:21.697579",
       "keywords": [
         "information",
         "language",
@@ -772,14 +784,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.241656",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:13.179293",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0007",
       "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
       "video_id": "UfD8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 354.3,
       "end": 411.32,
@@ -800,7 +814,7 @@
         84,
         85
       ],
-      "created_at": "2026-06-16T12:54:13.086468",
+      "created_at": "2026-07-03T10:35:21.698077",
       "keywords": [
         "media",
         "information",
@@ -910,14 +924,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.246623",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:13.184979",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0008",
       "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
       "video_id": "UfD8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 411.32,
       "end": 466.08,
@@ -939,7 +955,7 @@
         97,
         98
       ],
-      "created_at": "2026-06-16T12:54:13.086787",
+      "created_at": "2026-07-03T10:35:21.698532",
       "keywords": [
         "access to information",
         "information accessibility",
@@ -1047,11 +1063,11 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:22.250857",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:13.189754",
+      "speaker": "Ropafadzo Makaza",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:22.250862"
+  "classified_at": "2026-07-03T11:40:13.189767"
 }

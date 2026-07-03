@@ -14,6 +14,12 @@ from tqdm import tqdm
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+# Local dev layout: backend/app/. Docker image layout (see Dockerfile): app/
+# directly under PROJECT_ROOT, with no backend/ directory at all.
+_BACKEND_DIR = PROJECT_ROOT / "backend"
+sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
+
+from app.core.settings import settings  # noqa: E402
 
 CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
 EMBEDDINGS_DIR = PROJECT_ROOT / "data" / "embeddings"
@@ -28,8 +34,8 @@ REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 
 # Company Ollama endpoint
-OLLAMA_BASE_URL = "http://ollama-mobius-sales.mobiusdtaas.ai"
-EMBED_MODEL = "nomic-embed-text:v1.5"
+OLLAMA_BASE_URL = settings.ollama_base_url
+EMBED_MODEL = settings.embedding_model
 
 # Preferred endpoint for modern Ollama.
 # Script will fallback to /api/embeddings if /api/embed fails.
@@ -117,6 +123,8 @@ def load_classified_fragments(source_dir: Path | None = None) -> list[dict[str, 
                 "source_transcript_version": fragment.get("source_transcript_version", ""),
                 "audio_quality_status": fragment.get("audio_quality_status", ""),
                 "transcript_quality_score": fragment.get("transcript_quality_score"),
+                "speaker": fragment.get("speaker"),
+                "speaker_attribution": fragment.get("speaker_attribution"),
                 "source_file": path.name,
             }
 
@@ -169,6 +177,8 @@ def load_fragments_jsonl(jsonl_path: Path) -> list[dict[str, Any]]:
                     "source_transcript_version": fragment.get("source_transcript_version", ""),
                     "audio_quality_status": fragment.get("audio_quality_status", ""),
                     "transcript_quality_score": fragment.get("transcript_quality_score"),
+                    "speaker": fragment.get("speaker"),
+                    "speaker_attribution": fragment.get("speaker_attribution"),
                     "source_file": jsonl_path.name,
                     "embedding_model": "",
                     "text_hash": stable_hash(fragment.get("text", "")),

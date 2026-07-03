@@ -3,11 +3,11 @@
   "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
   "video_id": "hgN30LSOz6Y",
   "fragment_count": 14,
-  "created_at": "2026-06-16T12:54:13.831479",
+  "created_at": "2026-07-03T10:35:26.555355",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0001",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 9.65,
       "end": 52.22,
@@ -33,7 +35,7 @@
         7,
         8
       ],
-      "created_at": "2026-06-16T12:54:13.828109",
+      "created_at": "2026-07-03T10:35:26.520568",
       "keywords": [
         "learning",
         "creative",
@@ -138,14 +140,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.569808",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.308768",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0002",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 52.22,
       "end": 96.88,
@@ -162,7 +166,7 @@
         15,
         16
       ],
-      "created_at": "2026-06-16T12:54:13.828337",
+      "created_at": "2026-07-03T10:35:26.522679",
       "keywords": [
         "ethics",
         "creativity",
@@ -263,14 +267,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.574914",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.314314",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0003",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 96.88,
       "end": 137.95,
@@ -287,7 +293,7 @@
         23,
         24
       ],
-      "created_at": "2026-06-16T12:54:13.828581",
+      "created_at": "2026-07-03T10:35:26.525375",
       "keywords": [
         "creative",
         "access",
@@ -327,14 +333,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.579887",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.319633",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0004",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 137.95,
       "end": 176.33,
@@ -351,7 +359,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:13.828829",
+      "created_at": "2026-07-03T10:35:26.529480",
       "keywords": [
         "creative",
         "music",
@@ -416,14 +424,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.584593",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.324549",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0005",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 176.33,
       "end": 219.13,
@@ -440,7 +450,7 @@
         39,
         40
       ],
-      "created_at": "2026-06-16T12:54:13.829093",
+      "created_at": "2026-07-03T10:35:26.532925",
       "keywords": [
         "creative",
         "arts",
@@ -506,14 +516,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.589555",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.330080",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0006",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 219.13,
       "end": 259.64,
@@ -530,7 +542,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.829318",
+      "created_at": "2026-07-03T10:35:26.535038",
       "keywords": [
         "media",
         "press",
@@ -595,14 +607,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.594927",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.335108",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0007",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 259.64,
       "end": 300.48,
@@ -620,7 +634,7 @@
         56,
         57
       ],
-      "created_at": "2026-06-16T12:54:13.829590",
+      "created_at": "2026-07-03T10:35:26.537062",
       "keywords": [
         "creative",
         "training",
@@ -709,14 +723,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.600437",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.340050",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0008",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 300.48,
       "end": 340.8,
@@ -734,7 +750,7 @@
         65,
         66
       ],
-      "created_at": "2026-06-16T12:54:13.829825",
+      "created_at": "2026-07-03T10:35:26.539257",
       "keywords": [
         "content",
         "inclusive",
@@ -816,14 +832,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.605395",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.344844",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0009",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 9,
       "start": 340.8,
       "end": 388.21,
@@ -843,7 +861,7 @@
         76,
         77
       ],
-      "created_at": "2026-06-16T12:54:13.830110",
+      "created_at": "2026-07-03T10:35:26.542433",
       "keywords": [
         "ethical",
         "standards",
@@ -945,14 +963,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.610697",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.349912",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0010",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 10,
       "start": 388.21,
       "end": 428.53,
@@ -971,7 +991,7 @@
         86,
         87
       ],
-      "created_at": "2026-06-16T12:54:13.830367",
+      "created_at": "2026-07-03T10:35:26.545423",
       "keywords": [
         "creative",
         "music",
@@ -1061,14 +1081,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.615847",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.354921",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0011",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 11,
       "start": 428.53,
       "end": 472.49,
@@ -1090,7 +1112,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.830677",
+      "created_at": "2026-07-03T10:35:26.548049",
       "keywords": [
         "creative",
         "legal",
@@ -1193,14 +1215,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.621040",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.360109",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0012",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 12,
       "start": 472.49,
       "end": 517.59,
@@ -1221,7 +1245,7 @@
         111,
         112
       ],
-      "created_at": "2026-06-16T12:54:13.830962",
+      "created_at": "2026-07-03T10:35:26.550258",
       "keywords": [
         "environment",
         "ethical",
@@ -1328,14 +1352,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.626815",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.365215",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0013",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 13,
       "start": 517.59,
       "end": 562.04,
@@ -1356,7 +1382,7 @@
         123,
         124
       ],
-      "created_at": "2026-06-16T12:54:13.831262",
+      "created_at": "2026-07-03T10:35:26.553364",
       "keywords": [
         "copyright",
         "ethical",
@@ -1472,14 +1498,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.632556",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.370132",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity_0014",
       "source_video": "0190_hgN30LSOz6Y_Jeff Greenberg - The Intersection of Art AI and Creativity",
       "video_id": "hgN30LSOz6Y",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 14,
       "start": 562.04,
       "end": 593.84,
@@ -1498,7 +1526,7 @@
         133,
         134
       ],
-      "created_at": "2026-06-16T12:54:13.831457",
+      "created_at": "2026-07-03T10:35:26.555316",
       "keywords": [
         "creative",
         "creativity",
@@ -1558,11 +1586,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:33.636520",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:24.373709",
+      "speaker": "Jeff Greenberg",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:33.636527"
+  "classified_at": "2026-07-03T11:40:24.373717"
 }

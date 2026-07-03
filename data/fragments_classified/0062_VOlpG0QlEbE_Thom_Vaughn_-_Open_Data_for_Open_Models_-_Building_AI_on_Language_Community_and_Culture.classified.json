@@ -3,11 +3,11 @@
   "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
   "video_id": "VOlpG0QlEbE",
   "fragment_count": 10,
-  "created_at": "2026-06-16T12:54:12.958669",
+  "created_at": "2026-07-03T10:35:20.745980",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0001",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 5.9,
       "end": 58.4,
@@ -36,7 +38,7 @@
         10,
         11
       ],
-      "created_at": "2026-06-16T12:54:12.956399",
+      "created_at": "2026-07-03T10:35:20.726966",
       "keywords": [
         "open data",
         "research",
@@ -102,14 +104,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.431855",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.154828",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0002",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 59.68,
       "end": 109.63,
@@ -128,7 +132,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:12.956666",
+      "created_at": "2026-07-03T10:35:20.729191",
       "keywords": [
         "web",
         "harmonic",
@@ -166,14 +170,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.436649",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.160355",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0003",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 110.27,
       "end": 167.97,
@@ -190,7 +196,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:12.956948",
+      "created_at": "2026-07-03T10:35:20.731199",
       "keywords": [
         "harmonic",
         "centrality",
@@ -237,14 +243,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.441470",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.165646",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0004",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 167.97,
       "end": 231.18,
@@ -260,7 +268,7 @@
         35,
         36
       ],
-      "created_at": "2026-06-16T12:54:12.957269",
+      "created_at": "2026-07-03T10:35:20.733164",
       "keywords": [
         "content",
         "training",
@@ -335,14 +343,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.446074",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.170601",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0005",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 231.18,
       "end": 289.92,
@@ -359,7 +369,7 @@
         43,
         44
       ],
-      "created_at": "2026-06-16T12:54:12.957540",
+      "created_at": "2026-07-03T10:35:20.735429",
       "keywords": [
         "research",
         "language",
@@ -415,14 +425,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.450554",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.175453",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0006",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 293.98,
       "end": 349.57,
@@ -439,7 +451,7 @@
         51,
         52
       ],
-      "created_at": "2026-06-16T12:54:12.957794",
+      "created_at": "2026-07-03T10:35:20.737696",
       "keywords": [
         "culture",
         "language",
@@ -547,14 +559,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.455375",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.180659",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0007",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 349.57,
       "end": 413.2,
@@ -571,7 +585,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:12.958030",
+      "created_at": "2026-07-03T10:35:20.739776",
       "keywords": [
         "open data",
         "transparency",
@@ -677,14 +691,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.460309",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.185916",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0008",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 413.2,
       "end": 473.68,
@@ -701,7 +717,7 @@
         67,
         68
       ],
-      "created_at": "2026-06-16T12:54:12.958275",
+      "created_at": "2026-07-03T10:35:20.741970",
       "keywords": [
         "copyright",
         "creative",
@@ -809,14 +825,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.465137",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.191223",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0009",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 474.48,
       "end": 539.94,
@@ -834,7 +852,7 @@
         76,
         77
       ],
-      "created_at": "2026-06-16T12:54:12.958546",
+      "created_at": "2026-07-03T10:35:20.744089",
       "keywords": [
         "open data",
         "governance",
@@ -953,14 +971,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.470550",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.196885",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture_0010",
       "source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture",
       "video_id": "VOlpG0QlEbE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 539.94,
       "end": 569.6,
@@ -973,7 +993,7 @@
         80,
         81
       ],
-      "created_at": "2026-06-16T12:54:12.958642",
+      "created_at": "2026-07-03T10:35:20.745948",
       "keywords": [
         "open data",
         "join"
@@ -1012,11 +1032,11 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.473075",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.199537",
+      "speaker": "Thom Vaughn",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:20.473081"
+  "classified_at": "2026-07-03T11:40:11.199545"
 }

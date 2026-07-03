@@ -3,11 +3,11 @@
   "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
   "video_id": "EMvJr4dbA18",
   "fragment_count": 20,
-  "created_at": "2026-06-16T12:54:12.751454",
+  "created_at": "2026-07-03T10:35:19.622033",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0001",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 3.41,
       "end": 69.54,
@@ -30,7 +32,7 @@
         4,
         5
       ],
-      "created_at": "2026-06-16T12:54:12.746040",
+      "created_at": "2026-07-03T10:35:19.583299",
       "keywords": [
         "artificial intelligence",
         "caribbean",
@@ -97,14 +99,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.200534",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.116894",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0002",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 69.54,
       "end": 123.55,
@@ -118,7 +122,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:12.746356",
+      "created_at": "2026-07-03T10:35:19.585232",
       "keywords": [
         "artificial intelligence",
         "artificial",
@@ -159,14 +163,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.205222",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.121614",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0003",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 123.55,
       "end": 194.55,
@@ -179,7 +185,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:12.746539",
+      "created_at": "2026-07-03T10:35:19.587092",
       "keywords": [
         "artificial intelligence",
         "learning",
@@ -241,14 +247,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.211164",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.126898",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0004",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 194.55,
       "end": 253.78,
@@ -262,7 +270,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:12.746731",
+      "created_at": "2026-07-03T10:35:19.588929",
       "keywords": [
         "recommendation",
         "we're",
@@ -301,14 +309,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.216403",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.131756",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0005",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 253.78,
       "end": 313.73,
@@ -324,7 +334,7 @@
         25,
         26
       ],
-      "created_at": "2026-06-16T12:54:12.747181",
+      "created_at": "2026-07-03T10:35:19.590721",
       "keywords": [
         "content",
         "knowledge",
@@ -390,14 +400,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.221705",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.136930",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0006",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 313.73,
       "end": 385.78,
@@ -412,7 +424,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:12.747435",
+      "created_at": "2026-07-03T10:35:19.592478",
       "keywords": [
         "artificial intelligence",
         "conference",
@@ -479,14 +491,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.227866",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.142164",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0007",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 385.78,
       "end": 446.26,
@@ -501,7 +515,7 @@
         37,
         38
       ],
-      "created_at": "2026-06-16T12:54:12.747694",
+      "created_at": "2026-07-03T10:35:19.594222",
       "keywords": [
         "artificial intelligence",
         "seen",
@@ -543,14 +557,16 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.232484",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.147002",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0008",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 446.26,
       "end": 519.66,
@@ -566,7 +582,7 @@
         44,
         45
       ],
-      "created_at": "2026-06-16T12:54:12.747938",
+      "created_at": "2026-07-03T10:35:19.596054",
       "keywords": [
         "global south",
         "caribbean",
@@ -625,14 +641,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.237845",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.152270",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0009",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 519.66,
       "end": 580.81,
@@ -649,7 +667,7 @@
         52,
         53
       ],
-      "created_at": "2026-06-16T12:54:12.748174",
+      "created_at": "2026-07-03T10:35:19.597889",
       "keywords": [
         "global south",
         "policy",
@@ -741,14 +759,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.243283",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.157435",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0010",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 580.81,
       "end": 637.34,
@@ -764,7 +784,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:12.748433",
+      "created_at": "2026-07-03T10:35:19.599758",
       "keywords": [
         "open data",
         "global south",
@@ -872,14 +892,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.248439",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.162545",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0011",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 11,
       "start": 637.34,
       "end": 712.23,
@@ -900,7 +922,7 @@
         71,
         72
       ],
-      "created_at": "2026-06-16T12:54:12.748843",
+      "created_at": "2026-07-03T10:35:19.601799",
       "keywords": [
         "global south",
         "policy",
@@ -1016,14 +1038,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.254759",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.169097",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0012",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 12,
       "start": 712.23,
       "end": 765.77,
@@ -1041,7 +1065,7 @@
         80,
         81
       ],
-      "created_at": "2026-06-16T12:54:12.749078",
+      "created_at": "2026-07-03T10:35:19.603659",
       "keywords": [
         "global south",
         "caribbean",
@@ -1146,14 +1170,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.259744",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.173960",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0013",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 13,
       "start": 765.77,
       "end": 814.38,
@@ -1173,7 +1199,7 @@
         91,
         92
       ],
-      "created_at": "2026-06-16T12:54:12.749371",
+      "created_at": "2026-07-03T10:35:19.605521",
       "keywords": [
         "caribbean",
         "climate",
@@ -1250,14 +1276,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.265117",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.178726",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0014",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 14,
       "start": 814.38,
       "end": 869.97,
@@ -1276,7 +1304,7 @@
         101,
         102
       ],
-      "created_at": "2026-06-16T12:54:12.749655",
+      "created_at": "2026-07-03T10:35:19.607322",
       "keywords": [
         "artificial intelligence",
         "policy",
@@ -1357,14 +1385,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.269777",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.183380",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0015",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 15,
       "start": 869.97,
       "end": 926.03,
@@ -1383,7 +1413,7 @@
         111,
         112
       ],
-      "created_at": "2026-06-16T12:54:12.749932",
+      "created_at": "2026-07-03T10:35:19.609134",
       "keywords": [
         "youth",
         "caribbean",
@@ -1478,14 +1508,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.274672",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.188200",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0016",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 16,
       "start": 926.03,
       "end": 988.05,
@@ -1504,7 +1536,7 @@
         121,
         122
       ],
-      "created_at": "2026-06-16T12:54:12.750200",
+      "created_at": "2026-07-03T10:35:19.610933",
       "keywords": [
         "governance",
         "policy",
@@ -1619,14 +1651,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.280823",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.193145",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0017",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 17,
       "start": 988.05,
       "end": 1041.26,
@@ -1644,7 +1678,7 @@
         130,
         131
       ],
-      "created_at": "2026-06-16T12:54:12.750485",
+      "created_at": "2026-07-03T10:35:19.612741",
       "keywords": [
         "policy",
         "legislation",
@@ -1741,14 +1775,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.286352",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.198020",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0018",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 18,
       "start": 1041.26,
       "end": 1092.82,
@@ -1765,7 +1801,7 @@
         138,
         139
       ],
-      "created_at": "2026-06-16T12:54:12.750722",
+      "created_at": "2026-07-03T10:35:19.614507",
       "keywords": [
         "youth",
         "strategy",
@@ -1858,14 +1894,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.290970",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.202492",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0019",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 19,
       "start": 1092.82,
       "end": 1142.98,
@@ -1884,7 +1922,7 @@
         148,
         149
       ],
-      "created_at": "2026-06-16T12:54:12.750994",
+      "created_at": "2026-07-03T10:35:19.616350",
       "keywords": [
         "policy",
         "caribbean",
@@ -1980,14 +2018,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.295910",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.207222",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0031_EMvJr4dbA18_Shermon_Osepa_-_0020",
       "source_video": "0031_EMvJr4dbA18_Shermon_Osepa_-",
       "video_id": "EMvJr4dbA18",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 20,
       "start": 1142.98,
       "end": 1213.85,
@@ -2009,7 +2049,7 @@
         161,
         162
       ],
-      "created_at": "2026-06-16T12:54:12.751425",
+      "created_at": "2026-07-03T10:35:19.621986",
       "keywords": [
         "inclusion",
         "caribbean",
@@ -2078,11 +2118,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.302087",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.212745",
+      "speaker": "Shermon Osepa",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:17.302096"
+  "classified_at": "2026-07-03T11:40:08.212756"
 }

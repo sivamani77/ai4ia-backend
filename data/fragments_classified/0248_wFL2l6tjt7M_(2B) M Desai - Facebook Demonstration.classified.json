@@ -3,11 +3,11 @@
   "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
   "video_id": "wFL2l6tjt7M",
   "fragment_count": 16,
-  "created_at": "2026-06-16T12:54:13.916604",
+  "created_at": "2026-07-03T10:35:26.980877",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0001",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 1,
       "start": 4.82,
       "end": 60.91,
@@ -32,7 +34,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.913111",
+      "created_at": "2026-07-03T10:35:26.950466",
       "keywords": [
         "access to information",
         "information accessibility",
@@ -147,14 +149,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.475158",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.245200",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0002",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 2,
       "start": 60.91,
       "end": 107.2,
@@ -168,7 +172,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:13.913345",
+      "created_at": "2026-07-03T10:35:26.953289",
       "keywords": [
         "accessibility",
         "law",
@@ -281,14 +285,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.484653",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.250529",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0003",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 3,
       "start": 107.2,
       "end": 159.2,
@@ -302,7 +308,7 @@
         16,
         17
       ],
-      "created_at": "2026-06-16T12:54:13.913541",
+      "created_at": "2026-07-03T10:35:26.955226",
       "keywords": [
         "artificial intelligence",
         "policy",
@@ -407,14 +413,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.494292",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.255992",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0004",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 4,
       "start": 159.2,
       "end": 213.2,
@@ -428,7 +436,7 @@
         21,
         22
       ],
-      "created_at": "2026-06-16T12:54:13.913838",
+      "created_at": "2026-07-03T10:35:26.957112",
       "keywords": [
         "artificial intelligence",
         "accessibility",
@@ -501,14 +509,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.502292",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.261296",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0005",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 5,
       "start": 213.2,
       "end": 275.58,
@@ -523,7 +533,7 @@
         27,
         28
       ],
-      "created_at": "2026-06-16T12:54:13.914192",
+      "created_at": "2026-07-03T10:35:26.960407",
       "keywords": [
         "artificial intelligence",
         "learning",
@@ -601,14 +611,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.509566",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.267233",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0006",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 6,
       "start": 275.58,
       "end": 333.71,
@@ -622,7 +634,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:13.914413",
+      "created_at": "2026-07-03T10:35:26.962815",
       "keywords": [
         "screen reader",
         "information",
@@ -715,14 +727,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.515922",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.273196",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0007",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 7,
       "start": 333.71,
       "end": 390.97,
@@ -740,7 +754,7 @@
         41,
         42
       ],
-      "created_at": "2026-06-16T12:54:13.914698",
+      "created_at": "2026-07-03T10:35:26.964714",
       "keywords": [
         "artificial intelligence",
         "screen reader",
@@ -808,14 +822,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.521696",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.279198",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0008",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 8,
       "start": 390.97,
       "end": 475.83,
@@ -830,7 +846,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.914907",
+      "created_at": "2026-07-03T10:35:26.966501",
       "keywords": [
         "information",
         "water",
@@ -899,14 +915,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.527581",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.285669",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0009",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 9,
       "start": 475.83,
       "end": 525.29,
@@ -920,7 +938,7 @@
         52,
         53
       ],
-      "created_at": "2026-06-16T12:54:13.915083",
+      "created_at": "2026-07-03T10:35:26.968233",
       "keywords": [
         "screen reader",
         "elements",
@@ -967,14 +985,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.533041",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.290883",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0010",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 10,
       "start": 525.29,
       "end": 578.92,
@@ -989,7 +1009,7 @@
         58,
         59
       ],
-      "created_at": "2026-06-16T12:54:13.915312",
+      "created_at": "2026-07-03T10:35:26.970036",
       "keywords": [
         "captioning",
         "add",
@@ -1029,14 +1049,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.539641",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.296723",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0011",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 11,
       "start": 578.92,
       "end": 625.92,
@@ -1049,7 +1071,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:13.915516",
+      "created_at": "2026-07-03T10:35:26.971813",
       "keywords": [
         "accessibility",
         "press",
@@ -1115,14 +1137,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.545476",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.302225",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0012",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 12,
       "start": 625.92,
       "end": 680.3,
@@ -1136,7 +1160,7 @@
         67,
         68
       ],
-      "created_at": "2026-06-16T12:54:13.915724",
+      "created_at": "2026-07-03T10:35:26.973605",
       "keywords": [
         "accessibility",
         "inclusive",
@@ -1183,14 +1207,16 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.551974",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.308125",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0013",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 13,
       "start": 680.3,
       "end": 728.65,
@@ -1204,7 +1230,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:13.915942",
+      "created_at": "2026-07-03T10:35:26.975389",
       "keywords": [
         "principles",
         "research",
@@ -1292,14 +1318,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.557982",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.313926",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0014",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 14,
       "start": 728.65,
       "end": 769.71,
@@ -1313,7 +1341,7 @@
         77,
         78
       ],
-      "created_at": "2026-06-16T12:54:13.916130",
+      "created_at": "2026-07-03T10:35:26.977221",
       "keywords": [
         "screen reader",
         "research",
@@ -1407,14 +1435,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.563891",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.321993",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0015",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 15,
       "start": 769.71,
       "end": 817.71,
@@ -1429,7 +1459,7 @@
         83,
         84
       ],
-      "created_at": "2026-06-16T12:54:13.916371",
+      "created_at": "2026-07-03T10:35:26.979013",
       "keywords": [
         "accessibility",
         "inclusion",
@@ -1508,14 +1538,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.569766",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.327227",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration_0016",
       "source_video": "0248_wFL2l6tjt7M_(2B) M Desai - Facebook Demonstration",
       "video_id": "wFL2l6tjt7M",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
       "fragment_index": 16,
       "start": 817.71,
       "end": 856.71,
@@ -1530,7 +1562,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:13.916557",
+      "created_at": "2026-07-03T10:35:26.980842",
       "keywords": [
         "inclusion",
         "disability",
@@ -1616,11 +1648,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:34.574900",
-      "video_year": 2021,
-      "video_upload_date": "20211017"
+      "classified_at": "2026-07-03T11:40:25.331939",
+      "speaker": "Monica Desai",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:34.574910"
+  "classified_at": "2026-07-03T11:40:25.331952"
 }

@@ -3,11 +3,11 @@
   "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
   "video_id": "5E0H3eHkBM8",
   "fragment_count": 9,
-  "created_at": "2026-06-16T12:54:12.664221",
+  "created_at": "2026-07-03T10:35:19.064763",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0001",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 1,
       "start": 0.91,
       "end": 70.06,
@@ -33,7 +35,7 @@
         7,
         8
       ],
-      "created_at": "2026-06-16T12:54:12.662674",
+      "created_at": "2026-07-03T10:35:19.049420",
       "keywords": [
         "information",
         "knowledge",
@@ -125,14 +127,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.991388",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.790923",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0002",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 2,
       "start": 70.06,
       "end": 139.06,
@@ -149,7 +153,7 @@
         15,
         16
       ],
-      "created_at": "2026-06-16T12:54:12.662932",
+      "created_at": "2026-07-03T10:35:19.051683",
       "keywords": [
         "artificial intelligence",
         "cognitive",
@@ -193,14 +197,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:15.997376",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.798758",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0003",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 3,
       "start": 139.06,
       "end": 204.22,
@@ -214,7 +220,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:12.663114",
+      "created_at": "2026-07-03T10:35:19.053740",
       "keywords": [
         "information",
         "truth",
@@ -293,14 +299,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.002783",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.804183",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0004",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 4,
       "start": 204.22,
       "end": 260.44,
@@ -315,7 +323,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:12.663335",
+      "created_at": "2026-07-03T10:35:19.055671",
       "keywords": [
         "environment",
         "media",
@@ -381,14 +389,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.007872",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.810725",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0005",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 5,
       "start": 260.44,
       "end": 317.21,
@@ -403,7 +413,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:12.663566",
+      "created_at": "2026-07-03T10:35:19.057495",
       "keywords": [
         "media",
         "information",
@@ -492,14 +502,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.012746",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.816204",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0006",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 6,
       "start": 317.21,
       "end": 409.73,
@@ -512,7 +524,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:12.663805",
+      "created_at": "2026-07-03T10:35:19.059409",
       "keywords": [
         "right not to know",
         "content",
@@ -622,14 +634,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.019050",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.823370",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0007",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 7,
       "start": 410.79,
       "end": 472.62,
@@ -641,7 +655,7 @@
         39,
         40
       ],
-      "created_at": "2026-06-16T12:54:12.663970",
+      "created_at": "2026-07-03T10:35:19.061215",
       "keywords": [
         "ai literacy",
         "literacy",
@@ -689,14 +703,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.023926",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.828933",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0008",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 8,
       "start": 472.62,
       "end": 535.78,
@@ -709,7 +725,7 @@
         43,
         44
       ],
-      "created_at": "2026-06-16T12:54:12.664139",
+      "created_at": "2026-07-03T10:35:19.063046",
       "keywords": [
         "right not to know",
         "right to know",
@@ -766,14 +782,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.029261",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.834312",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025_0009",
       "source_video": "0010_5E0H3eHkBM8_Tyler_Janes_-_AI4IA_2025",
       "video_id": "5E0H3eHkBM8",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 9,
       "start": 536.78,
       "end": 550.78,
@@ -785,7 +803,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:12.664206",
+      "created_at": "2026-07-03T10:35:19.064741",
       "keywords": [
         "running",
         "time",
@@ -820,11 +838,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.031500",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.836477",
+      "speaker": "Tyler Janes",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:16.031506"
+  "classified_at": "2026-07-03T11:40:06.836484"
 }

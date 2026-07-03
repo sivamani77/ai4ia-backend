@@ -3,11 +3,11 @@
   "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
   "video_id": "6T5ec0wYVSg",
   "fragment_count": 12,
-  "created_at": "2026-06-16T12:54:13.027270",
+  "created_at": "2026-07-03T10:35:21.206834",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0001",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 2.35,
       "end": 62.9,
@@ -36,7 +38,7 @@
         10,
         11
       ],
-      "created_at": "2026-06-16T12:54:13.024403",
+      "created_at": "2026-07-03T10:35:21.175458",
       "keywords": [
         "access to information",
         "journalism",
@@ -146,14 +148,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.252047",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.011437",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0002",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 62.9,
       "end": 118.2,
@@ -172,7 +176,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.024674",
+      "created_at": "2026-07-03T10:35:21.179179",
       "keywords": [
         "artificial intelligence",
         "competition",
@@ -235,14 +239,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.256835",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.016619",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0003",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 118.2,
       "end": 179.92,
@@ -262,7 +268,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:13.024951",
+      "created_at": "2026-07-03T10:35:21.183009",
       "keywords": [
         "news",
         "content",
@@ -337,14 +343,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.262054",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.022172",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0004",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 179.92,
       "end": 248.3,
@@ -362,7 +370,7 @@
         40,
         41
       ],
-      "created_at": "2026-06-16T12:54:13.025178",
+      "created_at": "2026-07-03T10:35:21.186427",
       "keywords": [
         "global south",
         "governance",
@@ -472,14 +480,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.267115",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.027150",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0005",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 248.3,
       "end": 309.23,
@@ -499,7 +509,7 @@
         51,
         52
       ],
-      "created_at": "2026-06-16T12:54:13.025474",
+      "created_at": "2026-07-03T10:35:21.189626",
       "keywords": [
         "governance",
         "accountability",
@@ -610,14 +620,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.272060",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.032369",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0006",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 309.23,
       "end": 368.88,
@@ -639,7 +651,7 @@
         64,
         65
       ],
-      "created_at": "2026-06-16T12:54:13.025793",
+      "created_at": "2026-07-03T10:35:21.193139",
       "keywords": [
         "journalism",
         "media",
@@ -740,14 +752,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.276840",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.037256",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0007",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 368.88,
       "end": 433.62,
@@ -767,7 +781,7 @@
         75,
         76
       ],
-      "created_at": "2026-06-16T12:54:13.026079",
+      "created_at": "2026-07-03T10:35:21.195781",
       "keywords": [
         "governance",
         "journalism",
@@ -859,14 +873,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.281788",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.042406",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0008",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 433.62,
       "end": 492.26,
@@ -887,7 +903,7 @@
         87,
         88
       ],
-      "created_at": "2026-06-16T12:54:13.026390",
+      "created_at": "2026-07-03T10:35:21.198001",
       "keywords": [
         "ethics",
         "policy",
@@ -987,14 +1003,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.286876",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.047844",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0009",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 492.26,
       "end": 553.81,
@@ -1013,7 +1031,7 @@
         97,
         98
       ],
-      "created_at": "2026-06-16T12:54:13.026678",
+      "created_at": "2026-07-03T10:35:21.200473",
       "keywords": [
         "local language",
         "language",
@@ -1125,14 +1143,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.292062",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.053122",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0010",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 553.81,
       "end": 615.14,
@@ -1151,7 +1171,7 @@
         107,
         108
       ],
-      "created_at": "2026-06-16T12:54:13.026942",
+      "created_at": "2026-07-03T10:35:21.202698",
       "keywords": [
         "governance",
         "policy",
@@ -1269,14 +1289,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.297008",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.059476",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0011",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 11,
       "start": 615.14,
       "end": 664.5,
@@ -1296,7 +1318,7 @@
         118,
         119
       ],
-      "created_at": "2026-06-16T12:54:13.027206",
+      "created_at": "2026-07-03T10:35:21.204862",
       "keywords": [
         "access to information",
         "information",
@@ -1410,14 +1432,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.301534",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.064254",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025_0012",
       "source_video": "0078_6T5ec0wYVSg_Michael Markovitz - AI4IA 2025",
       "video_id": "6T5ec0wYVSg",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 12,
       "start": 664.5,
       "end": 677.82,
@@ -1428,7 +1452,7 @@
         120,
         121
       ],
-      "created_at": "2026-06-16T12:54:13.027252",
+      "created_at": "2026-07-03T10:35:21.206790",
       "keywords": [
         "event"
       ],
@@ -1463,11 +1487,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:21.303089",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:12.065881",
+      "speaker": "Michael Markovitz",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:21.303094"
+  "classified_at": "2026-07-03T11:40:12.065888"
 }

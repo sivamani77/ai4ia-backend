@@ -3,11 +3,11 @@
   "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
   "video_id": "LfWtMRCA5kE",
   "fragment_count": 9,
-  "created_at": "2026-06-16T12:54:12.681100",
+  "created_at": "2026-07-03T10:35:19.175820",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0001",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 4.82,
       "end": 66.76,
@@ -39,7 +41,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:12.678826",
+      "created_at": "2026-07-03T10:35:19.159315",
       "keywords": [
         "artificial intelligence",
         "access to information",
@@ -156,14 +158,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.259040",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.119424",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0002",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 66.76,
       "end": 144.92,
@@ -184,7 +188,7 @@
         25,
         26
       ],
-      "created_at": "2026-06-16T12:54:12.679120",
+      "created_at": "2026-07-03T10:35:19.161334",
       "keywords": [
         "framework",
         "risk",
@@ -291,14 +295,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.264150",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.125072",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0003",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 144.92,
       "end": 223.27,
@@ -318,7 +324,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:12.679404",
+      "created_at": "2026-07-03T10:35:19.163287",
       "keywords": [
         "misinformation",
         "content",
@@ -427,14 +433,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.269181",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.130723",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0004",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 223.27,
       "end": 303.24,
@@ -456,7 +464,7 @@
         49,
         50
       ],
-      "created_at": "2026-06-16T12:54:12.679722",
+      "created_at": "2026-07-03T10:35:19.165283",
       "keywords": [
         "justice",
         "gender",
@@ -565,14 +573,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.273996",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.136072",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0005",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 303.24,
       "end": 385.54,
@@ -593,7 +603,7 @@
         61,
         62
       ],
-      "created_at": "2026-06-16T12:54:12.680014",
+      "created_at": "2026-07-03T10:35:19.167351",
       "keywords": [
         "health",
         "clinical",
@@ -705,14 +715,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.279048",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.141898",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0006",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 385.54,
       "end": 466.26,
@@ -732,7 +744,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:12.680278",
+      "created_at": "2026-07-03T10:35:19.169838",
       "keywords": [
         "misinformation",
         "justice",
@@ -841,14 +853,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.284196",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.149042",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0007",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 466.26,
       "end": 547.29,
@@ -869,7 +883,7 @@
         84,
         85
       ],
-      "created_at": "2026-06-16T12:54:12.680588",
+      "created_at": "2026-07-03T10:35:19.171886",
       "keywords": [
         "learning",
         "literacy",
@@ -980,14 +994,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.289215",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.156222",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0008",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 547.29,
       "end": 626.36,
@@ -1006,7 +1022,7 @@
         94,
         95
       ],
-      "created_at": "2026-06-16T12:54:12.680834",
+      "created_at": "2026-07-03T10:35:19.173831",
       "keywords": [
         "ethics",
         "privacy",
@@ -1117,14 +1133,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.293928",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.162159",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo_0009",
       "source_video": "0015_LfWtMRCA5kE_Jorge_Alberto_Hidalgo",
       "video_id": "LfWtMRCA5kE",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 626.36,
       "end": 692.16,
@@ -1142,7 +1160,7 @@
         103,
         104
       ],
-      "created_at": "2026-06-16T12:54:12.681082",
+      "created_at": "2026-07-03T10:35:19.175789",
       "keywords": [
         "disinformation",
         "regulation",
@@ -1254,11 +1272,11 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.298473",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.167122",
+      "speaker": "Jorge Alberto Hidalgo",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:16.298477"
+  "classified_at": "2026-07-03T11:40:07.167133"
 }

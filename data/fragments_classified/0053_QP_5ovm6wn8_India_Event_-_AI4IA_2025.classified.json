@@ -3,11 +3,11 @@
   "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
   "video_id": "QP",
   "fragment_count": 25,
-  "created_at": "2026-06-16T12:54:12.895178",
+  "created_at": "2026-07-03T10:35:20.270904",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0001",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 0.66,
       "end": 46.95,
@@ -30,7 +32,7 @@
         4,
         5
       ],
-      "created_at": "2026-06-16T12:54:12.887664",
+      "created_at": "2026-07-03T10:35:20.215141",
       "keywords": [
         "inclusive",
         "i'm",
@@ -79,14 +81,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.633,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.364124",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.068051"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0002",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 46.95,
       "end": 132.18,
@@ -102,7 +104,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:12.887899",
+      "created_at": "2026-07-03T10:35:20.217090",
       "keywords": [
         "artificial intelligence",
         "access to information",
@@ -214,14 +216,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.370679",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.074302"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0003",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 132.18,
       "end": 199.72,
@@ -236,7 +238,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:12.888098",
+      "created_at": "2026-07-03T10:35:20.219080",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -353,14 +355,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.375702",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.079373"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0004",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 199.72,
       "end": 281.93,
@@ -377,7 +379,7 @@
         25,
         26
       ],
-      "created_at": "2026-06-16T12:54:12.888344",
+      "created_at": "2026-07-03T10:35:20.221051",
       "keywords": [
         "artificial intelligence",
         "satellite event",
@@ -461,14 +463,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.381350",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.084768"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0005",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 281.93,
       "end": 361.15,
@@ -485,7 +487,7 @@
         33,
         34
       ],
-      "created_at": "2026-06-16T12:54:12.888611",
+      "created_at": "2026-07-03T10:35:20.223221",
       "keywords": [
         "artificial intelligence",
         "knowledge",
@@ -602,14 +604,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.387699",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.090514"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0006",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 361.15,
       "end": 640.81,
@@ -624,7 +626,7 @@
         39,
         40
       ],
-      "created_at": "2026-06-16T12:54:12.888755",
+      "created_at": "2026-07-03T10:35:20.225692",
       "keywords": [
         "music",
         "culture",
@@ -679,14 +681,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.392116",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.094443"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0007",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 640.81,
       "end": 794.92,
@@ -702,7 +704,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:12.888848",
+      "created_at": "2026-07-03T10:35:20.227999",
       "keywords": [
         "let"
       ],
@@ -736,14 +738,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.394336",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.096977"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0008",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 960.9,
       "end": 1023.99,
@@ -769,7 +771,7 @@
         66,
         67
       ],
-      "created_at": "2026-06-16T12:54:12.889222",
+      "created_at": "2026-07-03T10:35:20.232806",
       "keywords": [
         "artificial intelligence",
         "health",
@@ -863,14 +865,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.399798",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.102513"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0009",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 1023.99,
       "end": 1193.92,
@@ -890,7 +892,7 @@
         77,
         78
       ],
-      "created_at": "2026-06-16T12:54:12.889392",
+      "created_at": "2026-07-03T10:35:20.235266",
       "keywords": [
         "health",
         "welcome",
@@ -944,14 +946,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.402574",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.105483"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0010",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 1193.92,
       "end": 1541.56,
@@ -969,7 +971,7 @@
         86,
         87
       ],
-      "created_at": "2026-06-16T12:54:12.889543",
+      "created_at": "2026-07-03T10:35:20.237306",
       "keywords": [
         "artificial intelligence",
         "music",
@@ -1023,14 +1025,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.406639",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.108917"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0011",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 11,
       "start": 1541.56,
       "end": 1613.84,
@@ -1063,7 +1065,7 @@
         110,
         111
       ],
-      "created_at": "2026-06-16T12:54:12.890069",
+      "created_at": "2026-07-03T10:35:20.240381",
       "keywords": [
         "artificial intelligence",
         "school",
@@ -1153,14 +1155,14 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.412096",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.114037"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0012",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 12,
       "start": 1613.84,
       "end": 1673.14,
@@ -1193,7 +1195,7 @@
         134,
         135
       ],
-      "created_at": "2026-06-16T12:54:12.890534",
+      "created_at": "2026-07-03T10:35:20.242855",
       "keywords": [
         "school",
         "cleared",
@@ -1241,14 +1243,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.417363",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.118734"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0013",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 13,
       "start": 1673.14,
       "end": 1720.24,
@@ -1284,7 +1286,7 @@
         161,
         162
       ],
-      "created_at": "2026-06-16T12:54:12.891208",
+      "created_at": "2026-07-03T10:35:20.245110",
       "keywords": [
         "music",
         "take",
@@ -1335,14 +1337,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.422489",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.123591"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0014",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 14,
       "start": 1930.12,
       "end": 2024.15,
@@ -1362,7 +1364,7 @@
         178,
         179
       ],
-      "created_at": "2026-06-16T12:54:12.891373",
+      "created_at": "2026-07-03T10:35:20.248626",
       "keywords": [
         "lajja",
         "comments",
@@ -1397,14 +1399,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.424855",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.125656"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0015",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 15,
       "start": 2024.15,
       "end": 2100.67,
@@ -1430,7 +1432,7 @@
         195,
         196
       ],
-      "created_at": "2026-06-16T12:54:12.891742",
+      "created_at": "2026-07-03T10:35:20.250612",
       "keywords": [
         "all",
         "good",
@@ -1471,14 +1473,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.429592",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.130162"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0016",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 16,
       "start": 2100.67,
       "end": 2179.85,
@@ -1512,7 +1514,7 @@
         220,
         221
       ],
-      "created_at": "2026-06-16T12:54:12.892209",
+      "created_at": "2026-07-03T10:35:20.252930",
       "keywords": [
         "artificial intelligence",
         "learning",
@@ -1557,14 +1559,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.434242",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.135401"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0017",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 17,
       "start": 2179.85,
       "end": 2223.12,
@@ -1593,7 +1595,7 @@
         240,
         241
       ],
-      "created_at": "2026-06-16T12:54:12.892591",
+      "created_at": "2026-07-03T10:35:20.254930",
       "keywords": [
         "application",
         "classical",
@@ -1635,14 +1637,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.439054",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.140727"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0018",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 18,
       "start": 2223.12,
       "end": 2332.73,
@@ -1674,7 +1676,7 @@
         263,
         264
       ],
-      "created_at": "2026-06-16T12:54:12.893052",
+      "created_at": "2026-07-03T10:35:20.257087",
       "keywords": [
         "come",
         "level",
@@ -1715,14 +1717,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.317,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.443389",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.146368"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0019",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 19,
       "start": 2332.73,
       "end": 2451.43,
@@ -1752,7 +1754,7 @@
         284,
         285
       ],
-      "created_at": "2026-06-16T12:54:12.893422",
+      "created_at": "2026-07-03T10:35:20.259125",
       "keywords": [
         "going",
         "headphones",
@@ -1794,14 +1796,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.317,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.447180",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.150280"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0020",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 20,
       "start": 2451.43,
       "end": 2672.07,
@@ -1822,7 +1824,7 @@
         296,
         297
       ],
-      "created_at": "2026-06-16T12:54:12.893547",
+      "created_at": "2026-07-03T10:35:20.260930",
       "keywords": [
         "welcome",
         "show",
@@ -1859,14 +1861,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.449619",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.153153"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0021",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 21,
       "start": 2672.07,
       "end": 2729.95,
@@ -1889,7 +1891,7 @@
         310,
         311
       ],
-      "created_at": "2026-06-16T12:54:12.893847",
+      "created_at": "2026-07-03T10:35:20.262963",
       "keywords": [
         "audience",
         "both",
@@ -1933,14 +1935,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.454444",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.158790"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0022",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 22,
       "start": 2729.95,
       "end": 2811.33,
@@ -1975,7 +1977,7 @@
         336,
         337
       ],
-      "created_at": "2026-06-16T12:54:12.894318",
+      "created_at": "2026-07-03T10:35:20.265092",
       "keywords": [
         "priya",
         "winner",
@@ -2015,14 +2017,14 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.458954",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.163434"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0023",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 23,
       "start": 2811.33,
       "end": 2890.1,
@@ -2048,7 +2050,7 @@
         353,
         354
       ],
-      "created_at": "2026-06-16T12:54:12.894713",
+      "created_at": "2026-07-03T10:35:20.267130",
       "keywords": [
         "children",
         "performance",
@@ -2090,14 +2092,14 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.464211",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.168500"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0024",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 24,
       "start": 2890.1,
       "end": 2963.32,
@@ -2118,7 +2120,7 @@
         365,
         366
       ],
-      "created_at": "2026-06-16T12:54:12.895016",
+      "created_at": "2026-07-03T10:35:20.269062",
       "keywords": [
         "students",
         "children",
@@ -2183,14 +2185,14 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.470274",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.174123"
     },
     {
       "fragment_id": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025_0025",
       "source_video": "0053_QP_5ovm6wn8_India_Event_-_AI4IA_2025",
       "video_id": "QP",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 25,
       "start": 2963.32,
       "end": 2994.32,
@@ -2205,7 +2207,7 @@
         371,
         372
       ],
-      "created_at": "2026-06-16T12:54:12.895124",
+      "created_at": "2026-07-03T10:35:20.270842",
       "keywords": [
         "satellite",
         "all"
@@ -2243,11 +2245,9 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:19.473223",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.177049"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:19.473233"
+  "classified_at": "2026-07-03T11:40:10.177055"
 }

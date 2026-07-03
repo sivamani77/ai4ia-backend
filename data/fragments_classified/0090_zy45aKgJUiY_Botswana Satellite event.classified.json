@@ -3,11 +3,11 @@
   "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
   "video_id": "zy45aKgJUiY",
   "fragment_count": 178,
-  "created_at": "2026-06-16T12:54:13.271290",
+  "created_at": "2026-07-03T10:35:22.836536",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0001",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 1.3,
       "end": 78.0,
@@ -43,7 +45,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.212880",
+      "created_at": "2026-07-03T10:35:22.422371",
       "keywords": [
         "information",
         "conference",
@@ -119,14 +121,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.765919",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.972519",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0002",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 78.0,
       "end": 146.43,
@@ -153,7 +157,7 @@
         35,
         36
       ],
-      "created_at": "2026-06-16T12:54:13.213282",
+      "created_at": "2026-07-03T10:35:22.424671",
       "keywords": [
         "africa",
         "satellite",
@@ -245,14 +249,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.771088",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.978020",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0003",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 146.43,
       "end": 224.14,
@@ -278,7 +284,7 @@
         52,
         53
       ],
-      "created_at": "2026-06-16T12:54:13.213631",
+      "created_at": "2026-07-03T10:35:22.426871",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -375,14 +381,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.775610",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.982817",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0004",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 224.42,
       "end": 297.27,
@@ -409,7 +417,7 @@
         70,
         71
       ],
-      "created_at": "2026-06-16T12:54:13.214061",
+      "created_at": "2026-07-03T10:35:22.429159",
       "keywords": [
         "access to information",
         "information",
@@ -516,14 +524,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.780658",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.987944",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0005",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 297.27,
       "end": 374.24,
@@ -546,7 +556,7 @@
         84,
         85
       ],
-      "created_at": "2026-06-16T12:54:13.214346",
+      "created_at": "2026-07-03T10:35:22.431310",
       "keywords": [
         "regional",
         "africa",
@@ -612,14 +622,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.784780",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.991969",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0006",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 374.24,
       "end": 439.16,
@@ -643,7 +655,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.214660",
+      "created_at": "2026-07-03T10:35:22.433483",
       "keywords": [
         "conference",
         "welcome",
@@ -690,14 +702,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.789338",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:14.996238",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0007",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 789.52,
       "end": 866.67,
@@ -721,7 +735,7 @@
         118,
         119
       ],
-      "created_at": "2026-06-16T12:54:13.214983",
+      "created_at": "2026-07-03T10:35:22.437498",
       "keywords": [
         "media",
         "information",
@@ -805,14 +819,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.793881",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.000714",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0008",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 866.67,
       "end": 945.9,
@@ -835,7 +851,7 @@
         132,
         133
       ],
-      "created_at": "2026-06-16T12:54:13.215282",
+      "created_at": "2026-07-03T10:35:22.439658",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -947,14 +963,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.799566",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.021162",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0009",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 945.9,
       "end": 1019.99,
@@ -974,7 +992,7 @@
         143,
         144
       ],
-      "created_at": "2026-06-16T12:54:13.215591",
+      "created_at": "2026-07-03T10:35:22.441798",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -1084,14 +1102,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.805371",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.027108",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0010",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 1019.99,
       "end": 1112.28,
@@ -1106,7 +1126,7 @@
         149,
         150
       ],
-      "created_at": "2026-06-16T12:54:13.215713",
+      "created_at": "2026-07-03T10:35:22.443759",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -1186,14 +1206,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.808498",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.030601",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0011",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 11,
       "start": 1145.97,
       "end": 1222.49,
@@ -1205,7 +1227,7 @@
         1,
         2
       ],
-      "created_at": "2026-06-16T12:54:13.215765",
+      "created_at": "2026-07-03T10:35:22.445622",
       "keywords": [],
       "summary": "We are true and this really scale for our life, where we know that we shall grow and destruct by thinking of the dysfunctional and the need for the heart and the exorbitant, such",
       "theme_tags": [
@@ -1236,14 +1258,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.810357",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.032448",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0012",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 12,
       "start": 1222.49,
       "end": 1285.62,
@@ -1259,7 +1283,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:13.215982",
+      "created_at": "2026-07-03T10:35:22.447657",
       "keywords": [
         "know",
         "all",
@@ -1297,14 +1321,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.815642",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.037302",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0013",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 13,
       "start": 1285.62,
       "end": 1367.76,
@@ -1319,7 +1345,7 @@
         14,
         15
       ],
-      "created_at": "2026-06-16T12:54:13.216144",
+      "created_at": "2026-07-03T10:35:22.449637",
       "keywords": [
         "environment",
         "need",
@@ -1358,14 +1384,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.819762",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.041280",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0014",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 14,
       "start": 1367.76,
       "end": 1493.1,
@@ -1377,7 +1405,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.216212",
+      "created_at": "2026-07-03T10:35:22.451509",
       "keywords": [
         "caribbean",
         "working",
@@ -1416,14 +1444,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.822340",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.043549",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0015",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 15,
       "start": 1493.1,
       "end": 1594.12,
@@ -1436,7 +1466,7 @@
         21,
         22
       ],
-      "created_at": "2026-06-16T12:54:13.216301",
+      "created_at": "2026-07-03T10:35:22.453411",
       "keywords": [
         "investment",
         "girls"
@@ -1483,14 +1513,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.65,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.826354",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.046145",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0016",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 16,
       "start": 1594.12,
       "end": 1650.53,
@@ -1512,7 +1544,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.216607",
+      "created_at": "2026-07-03T10:35:22.455615",
       "keywords": [
         "i've",
         "out",
@@ -1550,14 +1582,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.833432",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.050389",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0017",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 17,
       "start": 1650.53,
       "end": 1728.44,
@@ -1578,7 +1612,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:13.216810",
+      "created_at": "2026-07-03T10:35:22.457658",
       "keywords": [
         "safety",
         "i'm",
@@ -1621,14 +1655,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.837182",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.053907",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0018",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 18,
       "start": 1728.44,
       "end": 1812.16,
@@ -1646,7 +1682,7 @@
         55,
         56
       ],
-      "created_at": "2026-06-16T12:54:13.216948",
+      "created_at": "2026-07-03T10:35:22.459628",
       "keywords": [
         "hearing",
         "i'm",
@@ -1687,14 +1723,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.840267",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.057260",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0019",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 19,
       "start": 1812.16,
       "end": 1876.8,
@@ -1712,7 +1750,7 @@
         64,
         65
       ],
-      "created_at": "2026-06-16T12:54:13.217203",
+      "created_at": "2026-07-03T10:35:22.461698",
       "keywords": [
         "research",
         "university",
@@ -1801,14 +1839,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.845856",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.062743",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0020",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 20,
       "start": 1876.8,
       "end": 2001.42,
@@ -1822,7 +1862,7 @@
         69,
         70
       ],
-      "created_at": "2026-06-16T12:54:13.217312",
+      "created_at": "2026-07-03T10:35:22.463634",
       "keywords": [
         "artificial intelligence",
         "policy",
@@ -1913,14 +1953,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.849761",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.066107",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0021",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 21,
       "start": 2001.42,
       "end": 2077.93,
@@ -1937,7 +1979,7 @@
         77,
         78
       ],
-      "created_at": "2026-06-16T12:54:13.217577",
+      "created_at": "2026-07-03T10:35:22.465682",
       "keywords": [
         "audience",
         "all",
@@ -1975,14 +2017,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.853013",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.069235",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0022",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 22,
       "start": 2077.93,
       "end": 2162.08,
@@ -2003,7 +2047,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:13.217928",
+      "created_at": "2026-07-03T10:35:22.467824",
       "keywords": [
         "artificial intelligence",
         "media",
@@ -2057,14 +2101,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.857805",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.073893",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0023",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 23,
       "start": 2162.16,
       "end": 2249.08,
@@ -2083,7 +2129,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.218129",
+      "created_at": "2026-07-03T10:35:22.469974",
       "keywords": [
         "artificial intelligence",
         "regulation",
@@ -2176,14 +2222,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.862118",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.078726",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0024",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 24,
       "start": 2249.08,
       "end": 2331.47,
@@ -2201,7 +2249,7 @@
         108,
         109
       ],
-      "created_at": "2026-06-16T12:54:13.218297",
+      "created_at": "2026-07-03T10:35:22.471986",
       "keywords": [
         "africa",
         "use",
@@ -2241,14 +2289,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.866048",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.082429",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0025",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 25,
       "start": 2331.47,
       "end": 2380.25,
@@ -2269,7 +2319,7 @@
         120,
         121
       ],
-      "created_at": "2026-06-16T12:54:13.218586",
+      "created_at": "2026-07-03T10:35:22.474135",
       "keywords": [
         "regulation",
         "africa",
@@ -2372,14 +2422,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.870809",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.087143",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0026",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 26,
       "start": 2380.25,
       "end": 2437.23,
@@ -2398,7 +2450,7 @@
         4,
         5
       ],
-      "created_at": "2026-06-16T12:54:13.218821",
+      "created_at": "2026-07-03T10:35:22.476229",
       "keywords": [
         "regulation",
         "disease",
@@ -2490,14 +2542,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.875781",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.092140",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0027",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 27,
       "start": 2437.23,
       "end": 2485.09,
@@ -2513,7 +2567,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:13.219028",
+      "created_at": "2026-07-03T10:35:22.478247",
       "keywords": [
         "research",
         "terms",
@@ -2557,14 +2611,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.882068",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.097294",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0028",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 28,
       "start": 2485.09,
       "end": 2529.23,
@@ -2581,7 +2637,7 @@
         19,
         20
       ],
-      "created_at": "2026-06-16T12:54:13.219250",
+      "created_at": "2026-07-03T10:35:22.480318",
       "keywords": [
         "regulation",
         "security",
@@ -2681,14 +2737,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.887276",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.102639",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0029",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 29,
       "start": 2530.03,
       "end": 2582.9,
@@ -2704,7 +2762,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:13.219445",
+      "created_at": "2026-07-03T10:35:22.482337",
       "keywords": [
         "framework",
         "data",
@@ -2747,14 +2805,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.892422",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.107454",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0030",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 30,
       "start": 2582.9,
       "end": 2661.98,
@@ -2769,7 +2829,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:13.219612",
+      "created_at": "2026-07-03T10:35:22.484252",
       "keywords": [
         "inclusive",
         "government",
@@ -2819,14 +2879,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.896395",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.111140",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0031",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 31,
       "start": 2663.5,
       "end": 2717.46,
@@ -2842,7 +2904,7 @@
         39,
         40
       ],
-      "created_at": "2026-06-16T12:54:13.219811",
+      "created_at": "2026-07-03T10:35:22.486205",
       "keywords": [
         "health",
         "farming",
@@ -2915,14 +2977,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.901908",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.115822",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0032",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 32,
       "start": 2717.46,
       "end": 2770.9,
@@ -2939,7 +3003,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.220034",
+      "created_at": "2026-07-03T10:35:22.488307",
       "keywords": [
         "innovation",
         "irrigation",
@@ -2991,14 +3055,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.907409",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.120965",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0033",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 33,
       "start": 2771.54,
       "end": 2832.16,
@@ -3015,7 +3081,7 @@
         55,
         56
       ],
-      "created_at": "2026-06-16T12:54:13.220249",
+      "created_at": "2026-07-03T10:35:22.490349",
       "keywords": [
         "ethical",
         "investment",
@@ -3081,14 +3147,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.912848",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.126060",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0034",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 34,
       "start": 2832.16,
       "end": 2884.32,
@@ -3105,7 +3173,7 @@
         63,
         64
       ],
-      "created_at": "2026-06-16T12:54:13.220470",
+      "created_at": "2026-07-03T10:35:22.492467",
       "keywords": [
         "ethical",
         "framework",
@@ -3191,14 +3259,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.919213",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.131000",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0035",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 35,
       "start": 2884.32,
       "end": 3101.84,
@@ -3212,7 +3282,7 @@
         68,
         69
       ],
-      "created_at": "2026-06-16T12:54:13.220588",
+      "created_at": "2026-07-03T10:35:22.494434",
       "keywords": [
         "industry",
         "done"
@@ -3248,14 +3318,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.65,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.923040",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.134447",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0036",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 36,
       "start": 3101.84,
       "end": 3177.98,
@@ -3270,7 +3342,7 @@
         74,
         75
       ],
-      "created_at": "2026-06-16T12:54:13.220740",
+      "created_at": "2026-07-03T10:35:22.496379",
       "keywords": [
         "important",
         "that's"
@@ -3304,14 +3376,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.926982",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.138082",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0037",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 37,
       "start": 3178.86,
       "end": 3241.02,
@@ -3329,7 +3403,7 @@
         83,
         84
       ],
-      "created_at": "2026-06-16T12:54:13.220971",
+      "created_at": "2026-07-03T10:35:22.498520",
       "keywords": [
         "transparency",
         "bias",
@@ -3435,14 +3509,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.932282",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.142839",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0038",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 38,
       "start": 3241.02,
       "end": 3317.81,
@@ -3458,7 +3534,7 @@
         90,
         91
       ],
-      "created_at": "2026-06-16T12:54:13.221154",
+      "created_at": "2026-07-03T10:35:22.501723",
       "keywords": [
         "environment",
         "one",
@@ -3500,14 +3576,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.936756",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.146785",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0039",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 39,
       "start": 3317.81,
       "end": 3393.23,
@@ -3526,7 +3604,7 @@
         100,
         101
       ],
-      "created_at": "2026-06-16T12:54:13.221372",
+      "created_at": "2026-07-03T10:35:22.505003",
       "keywords": [
         "africa",
         "journalists",
@@ -3580,14 +3658,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.941064",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.150607",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0040",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 40,
       "start": 3393.23,
       "end": 3442.59,
@@ -3610,7 +3690,7 @@
         114,
         115
       ],
-      "created_at": "2026-06-16T12:54:13.221692",
+      "created_at": "2026-07-03T10:35:22.508006",
       "keywords": [
         "journalism",
         "information",
@@ -3665,14 +3745,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.945651",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.155343",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0041",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 41,
       "start": 3442.59,
       "end": 3509.55,
@@ -3697,7 +3779,7 @@
         130,
         131
       ],
-      "created_at": "2026-06-16T12:54:13.222036",
+      "created_at": "2026-07-03T10:35:22.510696",
       "keywords": [
         "journalism",
         "media",
@@ -3797,14 +3879,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.951039",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.160068",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0042",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 42,
       "start": 3509.55,
       "end": 3569.26,
@@ -3829,7 +3913,7 @@
         146,
         147
       ],
-      "created_at": "2026-06-16T12:54:13.222372",
+      "created_at": "2026-07-03T10:35:22.513175",
       "keywords": [
         "artificial intelligence",
         "strategy",
@@ -3893,14 +3977,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.956519",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.164593",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0043",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 43,
       "start": 3569.26,
       "end": 3612.33,
@@ -3924,7 +4010,7 @@
         2,
         3
       ],
-      "created_at": "2026-06-16T12:54:13.222704",
+      "created_at": "2026-07-03T10:35:22.515436",
       "keywords": [
         "content",
         "humanity",
@@ -3971,14 +4057,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.961517",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.168996",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0044",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 44,
       "start": 3612.33,
       "end": 3664.76,
@@ -4005,7 +4093,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.223062",
+      "created_at": "2026-07-03T10:35:22.517729",
       "keywords": [
         "journalism",
         "humanity",
@@ -4059,14 +4147,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.967126",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.173765",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0045",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 45,
       "start": 3664.76,
       "end": 3715.32,
@@ -4092,7 +4182,7 @@
         37,
         38
       ],
-      "created_at": "2026-06-16T12:54:13.223452",
+      "created_at": "2026-07-03T10:35:22.519999",
       "keywords": [
         "journalism",
         "news",
@@ -4152,14 +4242,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.972878",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.179047",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0046",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 46,
       "start": 3715.32,
       "end": 3820.66,
@@ -4181,7 +4273,7 @@
         50,
         51
       ],
-      "created_at": "2026-06-16T12:54:13.223784",
+      "created_at": "2026-07-03T10:35:22.523039",
       "keywords": [
         "strategy",
         "model",
@@ -4235,14 +4327,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.977258",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.183463",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0047",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 47,
       "start": 3820.66,
       "end": 3884.69,
@@ -4264,7 +4358,7 @@
         63,
         64
       ],
-      "created_at": "2026-06-16T12:54:13.224107",
+      "created_at": "2026-07-03T10:35:22.525373",
       "keywords": [
         "language",
         "training",
@@ -4335,14 +4429,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.982202",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.188554",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0048",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 48,
       "start": 3884.69,
       "end": 3946.69,
@@ -4364,7 +4460,7 @@
         76,
         77
       ],
-      "created_at": "2026-06-16T12:54:13.224421",
+      "created_at": "2026-07-03T10:35:22.527704",
       "keywords": [
         "data sets",
         "government",
@@ -4426,14 +4522,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.988314",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.193729",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0049",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 49,
       "start": 3946.69,
       "end": 4000.69,
@@ -4455,7 +4553,7 @@
         89,
         90
       ],
-      "created_at": "2026-06-16T12:54:13.224766",
+      "created_at": "2026-07-03T10:35:22.529927",
       "keywords": [
         "digital divide",
         "education",
@@ -4531,14 +4629,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.993444",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.198784",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0050",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 50,
       "start": 4000.69,
       "end": 4056.78,
@@ -4560,7 +4660,7 @@
         102,
         103
       ],
-      "created_at": "2026-06-16T12:54:13.225207",
+      "created_at": "2026-07-03T10:35:22.532937",
       "keywords": [
         "digital divide",
         "infrastructure",
@@ -4620,14 +4720,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:23.999112",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.203999",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0051",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 51,
       "start": 4056.78,
       "end": 4116.07,
@@ -4647,7 +4749,7 @@
         113,
         114
       ],
-      "created_at": "2026-06-16T12:54:13.225513",
+      "created_at": "2026-07-03T10:35:22.535097",
       "keywords": [
         "governance",
         "regulation",
@@ -4750,14 +4852,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.004698",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.208892",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0052",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 52,
       "start": 4116.07,
       "end": 4178.9,
@@ -4778,7 +4882,7 @@
         125,
         126
       ],
-      "created_at": "2026-06-16T12:54:13.225828",
+      "created_at": "2026-07-03T10:35:22.537427",
       "keywords": [
         "policy",
         "regulation",
@@ -4874,14 +4978,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.010123",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.213765",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0053",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 53,
       "start": 4178.9,
       "end": 4240.06,
@@ -4902,7 +5008,7 @@
         137,
         138
       ],
-      "created_at": "2026-06-16T12:54:13.226139",
+      "created_at": "2026-07-03T10:35:22.540014",
       "keywords": [
         "policy",
         "regulation",
@@ -4968,14 +5074,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.016242",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.223535",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0054",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 54,
       "start": 4240.06,
       "end": 4315.6,
@@ -4991,7 +5099,7 @@
         144,
         145
       ],
-      "created_at": "2026-06-16T12:54:13.226266",
+      "created_at": "2026-07-03T10:35:22.542200",
       "keywords": [
         "policy",
         "needs"
@@ -5038,14 +5146,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.018974",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.226356",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0055",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 55,
       "start": 4315.6,
       "end": 4368.94,
@@ -5068,7 +5178,7 @@
         158,
         159
       ],
-      "created_at": "2026-06-16T12:54:13.226698",
+      "created_at": "2026-07-03T10:35:22.544476",
       "keywords": [
         "media",
         "sdps",
@@ -5114,14 +5224,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.026219",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.231114",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0056",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 56,
       "start": 4368.94,
       "end": 4423.45,
@@ -5146,7 +5258,7 @@
         174,
         175
       ],
-      "created_at": "2026-06-16T12:54:13.227067",
+      "created_at": "2026-07-03T10:35:22.546751",
       "keywords": [
         "it's",
         "going",
@@ -5181,14 +5293,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.033309",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.235485",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0057",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 57,
       "start": 4423.45,
       "end": 4476.87,
@@ -5219,7 +5333,7 @@
         196,
         197
       ],
-      "created_at": "2026-06-16T12:54:13.227558",
+      "created_at": "2026-07-03T10:35:22.549564",
       "keywords": [
         "media",
         "information",
@@ -5284,14 +5398,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.041233",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.240364",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0058",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 58,
       "start": 4476.87,
       "end": 4529.19,
@@ -5327,7 +5443,7 @@
         223,
         224
       ],
-      "created_at": "2026-06-16T12:54:13.228105",
+      "created_at": "2026-07-03T10:35:22.552086",
       "keywords": [
         "training",
         "broken",
@@ -5368,14 +5484,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.046698",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.244971",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0059",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 59,
       "start": 4529.19,
       "end": 4575.91,
@@ -5419,7 +5537,7 @@
         258,
         259
       ],
-      "created_at": "2026-06-16T12:54:13.228845",
+      "created_at": "2026-07-03T10:35:22.554860",
       "keywords": [
         "knowledge",
         "training",
@@ -5497,14 +5615,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.052558",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.249322",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0060",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 60,
       "start": 4575.91,
       "end": 4651.34,
@@ -5533,7 +5653,7 @@
         278,
         279
       ],
-      "created_at": "2026-06-16T12:54:13.229108",
+      "created_at": "2026-07-03T10:35:22.557042",
       "keywords": [
         "tools",
         "going"
@@ -5567,14 +5687,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.055291",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.251925",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0061",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 61,
       "start": 4651.34,
       "end": 4727.42,
@@ -5605,7 +5727,7 @@
         300,
         301
       ],
-      "created_at": "2026-06-16T12:54:13.229487",
+      "created_at": "2026-07-03T10:35:22.559218",
       "keywords": [
         "information",
         "learning",
@@ -5690,14 +5812,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.060406",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.256239",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0062",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 62,
       "start": 4727.42,
       "end": 4798.99,
@@ -5731,7 +5855,7 @@
         325,
         326
       ],
-      "created_at": "2026-06-16T12:54:13.230026",
+      "created_at": "2026-07-03T10:35:22.561490",
       "keywords": [
         "information",
         "generation",
@@ -5785,14 +5909,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.065961",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.260708",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0063",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 63,
       "start": 4798.99,
       "end": 4848.22,
@@ -5809,7 +5935,7 @@
         5,
         6
       ],
-      "created_at": "2026-06-16T12:54:13.230246",
+      "created_at": "2026-07-03T10:35:22.563462",
       "keywords": [
         "infrastructure",
         "think",
@@ -5854,14 +5980,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.071182",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.265508",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0064",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 64,
       "start": 4848.22,
       "end": 4924.97,
@@ -5875,7 +6003,7 @@
         10,
         11
       ],
-      "created_at": "2026-06-16T12:54:13.230381",
+      "created_at": "2026-07-03T10:35:22.565345",
       "keywords": [
         "information",
         "infrastructure",
@@ -5925,14 +6053,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.075568",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.268995",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0065",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 65,
       "start": 4924.97,
       "end": 5026.94,
@@ -5945,7 +6075,7 @@
         14,
         15
       ],
-      "created_at": "2026-06-16T12:54:13.230477",
+      "created_at": "2026-07-03T10:35:22.567171",
       "keywords": [
         "economy",
         "less"
@@ -5984,14 +6114,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.079617",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.271487",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0066",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 66,
       "start": 5026.94,
       "end": 5110.85,
@@ -6006,7 +6138,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.230610",
+      "created_at": "2026-07-03T10:35:22.569078",
       "keywords": [
         "tell",
         "going",
@@ -6042,14 +6174,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.083273",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.274268",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0067",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 67,
       "start": 5110.85,
       "end": 5192.62,
@@ -6066,7 +6200,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.230802",
+      "created_at": "2026-07-03T10:35:22.571067",
       "keywords": [
         "training",
         "it's",
@@ -6108,14 +6242,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.087714",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.277996",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0068",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 68,
       "start": 5192.62,
       "end": 5275.1,
@@ -6130,7 +6266,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.230914",
+      "created_at": "2026-07-03T10:35:22.573053",
       "keywords": [
         "training",
         "things",
@@ -6172,14 +6308,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.090857",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.280655",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0069",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 69,
       "start": 5275.1,
       "end": 5339.08,
@@ -6202,7 +6340,7 @@
         48,
         49
       ],
-      "created_at": "2026-06-16T12:54:13.231242",
+      "created_at": "2026-07-03T10:35:22.575202",
       "keywords": [
         "artificial intelligence",
         "journalism",
@@ -6259,14 +6397,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.095567",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.285246",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0070",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 70,
       "start": 5339.08,
       "end": 5447.92,
@@ -6289,7 +6429,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:13.231705",
+      "created_at": "2026-07-03T10:35:22.577420",
       "keywords": [
         "journalism",
         "information",
@@ -6374,14 +6514,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.100752",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.289649",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0071",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 71,
       "start": 5447.92,
       "end": 5602.9,
@@ -6400,7 +6542,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:13.231845",
+      "created_at": "2026-07-03T10:35:22.579427",
       "keywords": [
         "sphere",
         "especially",
@@ -6435,14 +6577,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.103904",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.292147",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0072",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 72,
       "start": 5602.9,
       "end": 5665.04,
@@ -6462,7 +6606,7 @@
         83,
         84
       ],
-      "created_at": "2026-06-16T12:54:13.232123",
+      "created_at": "2026-07-03T10:35:22.581511",
       "keywords": [
         "policy",
         "regulation",
@@ -6542,14 +6686,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.112625",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.296918",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0073",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 73,
       "start": 5665.04,
       "end": 5721.44,
@@ -6568,7 +6714,7 @@
         93,
         94
       ],
-      "created_at": "2026-06-16T12:54:13.232390",
+      "created_at": "2026-07-03T10:35:22.583681",
       "keywords": [
         "way",
         "we've",
@@ -6605,14 +6751,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.121361",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.301599",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0074",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 74,
       "start": 5721.44,
       "end": 5781.3,
@@ -6631,7 +6779,7 @@
         103,
         104
       ],
-      "created_at": "2026-06-16T12:54:13.232675",
+      "created_at": "2026-07-03T10:35:22.585754",
       "keywords": [
         "policy",
         "sustainability",
@@ -6706,14 +6854,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.131196",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.306861",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0075",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 75,
       "start": 5781.3,
       "end": 5828.46,
@@ -6731,7 +6881,7 @@
         112,
         113
       ],
-      "created_at": "2026-06-16T12:54:13.232927",
+      "created_at": "2026-07-03T10:35:22.587768",
       "keywords": [
         "government",
         "negative",
@@ -6785,14 +6935,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.140415",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.311779",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0076",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 76,
       "start": 5828.46,
       "end": 5879.2,
@@ -6810,7 +6962,7 @@
         121,
         122
       ],
-      "created_at": "2026-06-16T12:54:13.233173",
+      "created_at": "2026-07-03T10:35:22.589784",
       "keywords": [
         "policy",
         "trust",
@@ -6894,14 +7046,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.149242",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.316490",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0077",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 77,
       "start": 5879.2,
       "end": 5962.34,
@@ -6922,7 +7076,7 @@
         133,
         134
       ],
-      "created_at": "2026-06-16T12:54:13.233463",
+      "created_at": "2026-07-03T10:35:22.591877",
       "keywords": [
         "media",
         "freedom",
@@ -7006,14 +7160,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.159045",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.321478",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0078",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 78,
       "start": 5962.34,
       "end": 6030.32,
@@ -7031,7 +7187,7 @@
         4,
         5
       ],
-      "created_at": "2026-06-16T12:54:13.233731",
+      "created_at": "2026-07-03T10:35:22.594147",
       "keywords": [
         "media",
         "information",
@@ -7116,14 +7272,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.168773",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.326400",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0079",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 79,
       "start": 6030.32,
       "end": 6101.74,
@@ -7141,7 +7299,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:13.233990",
+      "created_at": "2026-07-03T10:35:22.596266",
       "keywords": [
         "media",
         "africa",
@@ -7223,14 +7381,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.178093",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.331416",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0080",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 80,
       "start": 6101.74,
       "end": 6177.73,
@@ -7249,7 +7409,7 @@
         23,
         24
       ],
-      "created_at": "2026-06-16T12:54:13.234237",
+      "created_at": "2026-07-03T10:35:22.598356",
       "keywords": [
         "transparency",
         "competition",
@@ -7331,14 +7491,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.186007",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.335583",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0081",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 81,
       "start": 6177.73,
       "end": 6260.46,
@@ -7354,7 +7516,7 @@
         30,
         31
       ],
-      "created_at": "2026-06-16T12:54:13.234376",
+      "created_at": "2026-07-03T10:35:22.600406",
       "keywords": [
         "terms",
         "things"
@@ -7390,14 +7552,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.191597",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.338275",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0082",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 82,
       "start": 6260.46,
       "end": 6338.61,
@@ -7414,7 +7578,7 @@
         38,
         39
       ],
-      "created_at": "2026-06-16T12:54:13.234499",
+      "created_at": "2026-07-03T10:35:22.602359",
       "keywords": [
         "information",
         "strategy",
@@ -7490,14 +7654,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.197081",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.340669",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0083",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 83,
       "start": 6338.61,
       "end": 6412.61,
@@ -7520,7 +7686,7 @@
         52,
         53
       ],
-      "created_at": "2026-06-16T12:54:13.234846",
+      "created_at": "2026-07-03T10:35:22.609434",
       "keywords": [
         "media",
         "information",
@@ -7597,14 +7763,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.205836",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.344979",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0084",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 84,
       "start": 6412.61,
       "end": 6476.48,
@@ -7633,7 +7801,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:13.235305",
+      "created_at": "2026-07-03T10:35:22.611920",
       "keywords": [
         "media",
         "information",
@@ -7689,14 +7857,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.215557",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.349634",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0085",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 85,
       "start": 6476.48,
       "end": 6539.18,
@@ -7726,7 +7896,7 @@
         93,
         94
       ],
-      "created_at": "2026-06-16T12:54:13.235775",
+      "created_at": "2026-07-03T10:35:22.614228",
       "keywords": [
         "information",
         "issues",
@@ -7770,14 +7940,16 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.225163",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.354138",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0086",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 86,
       "start": 6539.18,
       "end": 6590.33,
@@ -7813,7 +7985,7 @@
         120,
         121
       ],
-      "created_at": "2026-06-16T12:54:13.236346",
+      "created_at": "2026-07-03T10:35:22.616628",
       "keywords": [
         "information",
         "government",
@@ -7880,14 +8052,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.234464",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.358990",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0087",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 87,
       "start": 6590.33,
       "end": 6665.98,
@@ -7914,7 +8088,7 @@
         138,
         139
       ],
-      "created_at": "2026-06-16T12:54:13.236698",
+      "created_at": "2026-07-03T10:35:22.618870",
       "keywords": [
         "power",
         "canada",
@@ -7953,14 +8127,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.241748",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.362697",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0088",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 88,
       "start": 6665.98,
       "end": 6713.26,
@@ -8001,7 +8177,7 @@
         170,
         171
       ],
-      "created_at": "2026-06-16T12:54:13.237365",
+      "created_at": "2026-07-03T10:35:22.621655",
       "keywords": [
         "teachers",
         "indigenous",
@@ -8075,14 +8251,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.250978",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.367298",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0089",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 89,
       "start": 6713.26,
       "end": 6788.74,
@@ -8120,7 +8298,7 @@
         199,
         200
       ],
-      "created_at": "2026-06-16T12:54:13.237885",
+      "created_at": "2026-07-03T10:35:22.624184",
       "keywords": [
         "generation",
         "children",
@@ -8160,14 +8338,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.256993",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.370477",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0090",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 90,
       "start": 6788.74,
       "end": 6866.62,
@@ -8198,7 +8378,7 @@
         221,
         222
       ],
-      "created_at": "2026-06-16T12:54:13.238234",
+      "created_at": "2026-07-03T10:35:22.626907",
       "keywords": [
         "information",
         "learning",
@@ -8257,14 +8437,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.262987",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.373308",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0091",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 91,
       "start": 6866.62,
       "end": 6942.45,
@@ -8292,7 +8474,7 @@
         240,
         241
       ],
-      "created_at": "2026-06-16T12:54:13.238484",
+      "created_at": "2026-07-03T10:35:22.629301",
       "keywords": [
         "certainly"
       ],
@@ -8325,14 +8507,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.267988",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.375645",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0092",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 92,
       "start": 6942.45,
       "end": 7025.62,
@@ -8384,7 +8568,7 @@
         283,
         284
       ],
-      "created_at": "2026-06-16T12:54:13.239287",
+      "created_at": "2026-07-03T10:35:22.632509",
       "keywords": [
         "it's",
         "time",
@@ -8422,14 +8606,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.275865",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.379440",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0093",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 93,
       "start": 7025.62,
       "end": 7100.9,
@@ -8467,7 +8653,7 @@
         312,
         313
       ],
-      "created_at": "2026-06-16T12:54:13.239675",
+      "created_at": "2026-07-03T10:35:22.635193",
       "keywords": [
         "environment",
         "out"
@@ -8505,14 +8691,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.281660",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.382344",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0094",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 94,
       "start": 7100.9,
       "end": 7196.02,
@@ -8534,7 +8722,7 @@
         325,
         326
       ],
-      "created_at": "2026-06-16T12:54:13.239782",
+      "created_at": "2026-07-03T10:35:22.637457",
       "keywords": [
         "gay",
         "prince"
@@ -8568,14 +8756,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.285390",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.383995",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0095",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 95,
       "start": 7196.02,
       "end": 7233.37,
@@ -8599,7 +8789,7 @@
         12,
         13
       ],
-      "created_at": "2026-06-16T12:54:13.240148",
+      "created_at": "2026-07-03T10:35:22.639799",
       "keywords": [
         "kei",
         "book",
@@ -8641,14 +8831,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.293465",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.388335",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0096",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 96,
       "start": 7233.37,
       "end": 7272.92,
@@ -8676,7 +8868,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:13.240580",
+      "created_at": "2026-07-03T10:35:22.642152",
       "keywords": [
         "eat",
         "don't",
@@ -8715,14 +8907,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.303093",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.393185",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0097",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 97,
       "start": 7272.92,
       "end": 7350.58,
@@ -8744,7 +8938,7 @@
         44,
         45
       ],
-      "created_at": "2026-06-16T12:54:13.240868",
+      "created_at": "2026-07-03T10:35:22.644578",
       "keywords": [
         "room",
         "keep",
@@ -8785,14 +8979,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.310636",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.397205",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0098",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 98,
       "start": 7350.58,
       "end": 7412.94,
@@ -8817,7 +9013,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:13.241236",
+      "created_at": "2026-07-03T10:35:22.646947",
       "keywords": [
         "students",
         "school",
@@ -8876,14 +9072,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.318816",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.401561",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0099",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 99,
       "start": 7412.94,
       "end": 7489.17,
@@ -8900,7 +9098,7 @@
         68,
         69
       ],
-      "created_at": "2026-06-16T12:54:13.241387",
+      "created_at": "2026-07-03T10:35:22.648898",
       "keywords": [
         "education",
         "i'm",
@@ -8942,14 +9140,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.321712",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.404503",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0100",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 100,
       "start": 7489.17,
       "end": 7549.88,
@@ -8974,7 +9174,7 @@
         84,
         85
       ],
-      "created_at": "2026-06-16T12:54:13.241770",
+      "created_at": "2026-07-03T10:35:22.651092",
       "keywords": [
         "education",
         "diverse",
@@ -9042,14 +9242,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.326618",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.409328",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0101",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 101,
       "start": 7549.88,
       "end": 7609.24,
@@ -9074,7 +9276,7 @@
         100,
         101
       ],
-      "created_at": "2026-06-16T12:54:13.242142",
+      "created_at": "2026-07-03T10:35:22.653653",
       "keywords": [
         "education",
         "training",
@@ -9132,14 +9334,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.331867",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.414404",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0102",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 102,
       "start": 7609.24,
       "end": 7685.46,
@@ -9161,7 +9365,7 @@
         113,
         114
       ],
-      "created_at": "2026-06-16T12:54:13.242412",
+      "created_at": "2026-07-03T10:35:22.655996",
       "keywords": [
         "values",
         "it's",
@@ -9201,14 +9405,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.65,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.335808",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.418545",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0103",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 103,
       "start": 7685.46,
       "end": 7763.01,
@@ -9231,7 +9437,7 @@
         127,
         128
       ],
-      "created_at": "2026-06-16T12:54:13.242700",
+      "created_at": "2026-07-03T10:35:22.658224",
       "keywords": [
         "going",
         "many",
@@ -9267,14 +9473,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.339632",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.422516",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0104",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 104,
       "start": 7763.01,
       "end": 7862.82,
@@ -9295,7 +9503,7 @@
         139,
         140
       ],
-      "created_at": "2026-06-16T12:54:13.242905",
+      "created_at": "2026-07-03T10:35:22.660365",
       "keywords": [
         "regulation",
         "framework",
@@ -9367,14 +9575,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.342663",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.425638",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0105",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 105,
       "start": 7862.82,
       "end": 7920.79,
@@ -9400,7 +9610,7 @@
         156,
         157
       ],
-      "created_at": "2026-06-16T12:54:13.243287",
+      "created_at": "2026-07-03T10:35:22.662684",
       "keywords": [
         "policy",
         "two",
@@ -9453,14 +9663,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.347766",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.431648",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0106",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 106,
       "start": 7920.79,
       "end": 8000.74,
@@ -9477,7 +9689,7 @@
         164,
         165
       ],
-      "created_at": "2026-06-16T12:54:13.243432",
+      "created_at": "2026-07-03T10:35:22.664701",
       "keywords": [
         "co-creation"
       ],
@@ -9510,14 +9722,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.350774",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.434477",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0107",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 107,
       "start": 8000.74,
       "end": 8076.59,
@@ -9543,7 +9757,7 @@
         181,
         182
       ],
-      "created_at": "2026-06-16T12:54:13.243795",
+      "created_at": "2026-07-03T10:35:22.666922",
       "keywords": [
         "journalism",
         "pollution",
@@ -9605,14 +9819,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.355169",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.439152",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0108",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 108,
       "start": 8076.59,
       "end": 8154.68,
@@ -9635,7 +9851,7 @@
         195,
         196
       ],
-      "created_at": "2026-06-16T12:54:13.244034",
+      "created_at": "2026-07-03T10:35:22.668954",
       "keywords": [
         "artificial intelligence",
         "ethical",
@@ -9744,14 +9960,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.359102",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.443086",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0109",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 109,
       "start": 8154.68,
       "end": 8243.08,
@@ -9777,7 +9995,7 @@
         212,
         213
       ],
-      "created_at": "2026-06-16T12:54:13.244331",
+      "created_at": "2026-07-03T10:35:22.671090",
       "keywords": [
         "welcome",
         "out",
@@ -9815,14 +10033,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.363080",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.446068",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0110",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 110,
       "start": 8243.08,
       "end": 8318.23,
@@ -9847,7 +10067,7 @@
         228,
         229
       ],
-      "created_at": "2026-06-16T12:54:13.244496",
+      "created_at": "2026-07-03T10:35:22.673122",
       "keywords": [
         "welcome",
         "one"
@@ -9883,14 +10103,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.365648",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.448194",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0111",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 111,
       "start": 8318.23,
       "end": 8441.16,
@@ -9909,7 +10131,7 @@
         238,
         1
       ],
-      "created_at": "2026-06-16T12:54:13.244630",
+      "created_at": "2026-07-03T10:35:22.675124",
       "keywords": [
         "college",
         "name",
@@ -9944,14 +10166,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.368883",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.450429",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0112",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 112,
       "start": 8441.16,
       "end": 8562.34,
@@ -9963,7 +10187,7 @@
         3,
         4
       ],
-      "created_at": "2026-06-16T12:54:13.244686",
+      "created_at": "2026-07-03T10:35:22.677266",
       "keywords": [
         "education",
         "media",
@@ -10022,14 +10246,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.371469",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.452310",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0113",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 113,
       "start": 8562.34,
       "end": 8651.24,
@@ -10041,7 +10267,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.244739",
+      "created_at": "2026-07-03T10:35:22.679157",
       "keywords": [
         "advocate"
       ],
@@ -10074,14 +10300,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.373821",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.454201",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0114",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 114,
       "start": 8651.24,
       "end": 8700.19,
@@ -10101,7 +10329,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.245017",
+      "created_at": "2026-07-03T10:35:22.681252",
       "keywords": [
         "one",
         "work",
@@ -10140,14 +10368,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.379418",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.459126",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0115",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 115,
       "start": 8700.19,
       "end": 8746.53,
@@ -10165,7 +10395,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:13.245368",
+      "created_at": "2026-07-03T10:35:22.683293",
       "keywords": [
         "economy",
         "here",
@@ -10210,14 +10440,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.384058",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.463417",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0116",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 116,
       "start": 8746.53,
       "end": 8853.1,
@@ -10233,7 +10465,7 @@
         33,
         34
       ],
-      "created_at": "2026-06-16T12:54:13.245538",
+      "created_at": "2026-07-03T10:35:22.685239",
       "keywords": [
         "having",
         "other",
@@ -10269,14 +10501,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.388489",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.466649",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0117",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 117,
       "start": 8853.1,
       "end": 8941.81,
@@ -10294,7 +10528,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:13.245797",
+      "created_at": "2026-07-03T10:35:22.687295",
       "keywords": [
         "information",
         "language",
@@ -10368,14 +10602,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.397152",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.471606",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0118",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 118,
       "start": 8941.81,
       "end": 9021.34,
@@ -10390,7 +10626,7 @@
         48,
         49
       ],
-      "created_at": "2026-06-16T12:54:13.245933",
+      "created_at": "2026-07-03T10:35:22.689231",
       "keywords": [
         "muslims",
         "here",
@@ -10426,14 +10662,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.402519",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.474613",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0119",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 119,
       "start": 9021.34,
       "end": 9103.48,
@@ -10453,7 +10691,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:13.246164",
+      "created_at": "2026-07-03T10:35:22.691257",
       "keywords": [
         "farmers",
         "know",
@@ -10495,14 +10733,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.65,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.408622",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.478060",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0120",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 120,
       "start": 9103.48,
       "end": 9187.93,
@@ -10517,7 +10757,7 @@
         65,
         66
       ],
-      "created_at": "2026-06-16T12:54:13.246238",
+      "created_at": "2026-07-03T10:35:22.693280",
       "keywords": [
         "good",
         "we're"
@@ -10551,14 +10791,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.411677",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.479721",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0121",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 121,
       "start": 9187.93,
       "end": 9319.26,
@@ -10573,7 +10815,7 @@
         71,
         72
       ],
-      "created_at": "2026-06-16T12:54:13.246321",
+      "created_at": "2026-07-03T10:35:22.695245",
       "keywords": [
         "disability"
       ],
@@ -10610,14 +10852,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.415164",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.481719",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0122",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 122,
       "start": 9465.94,
       "end": 9617.1,
@@ -10631,7 +10875,7 @@
         82,
         1
       ],
-      "created_at": "2026-06-16T12:54:13.246464",
+      "created_at": "2026-07-03T10:35:22.699022",
       "keywords": [
         "media",
         "information",
@@ -10691,14 +10935,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.418670",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.483738",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0123",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 123,
       "start": 9761.42,
       "end": 9845.33,
@@ -10711,7 +10957,7 @@
         5,
         6
       ],
-      "created_at": "2026-06-16T12:54:13.246591",
+      "created_at": "2026-07-03T10:35:22.702749",
       "keywords": [
         "information",
         "that's",
@@ -10753,14 +10999,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.424138",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.486626",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0124",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 124,
       "start": 9845.33,
       "end": 9897.38,
@@ -10776,7 +11024,7 @@
         12,
         13
       ],
-      "created_at": "2026-06-16T12:54:13.246806",
+      "created_at": "2026-07-03T10:35:22.704767",
       "keywords": [
         "education",
         "technicals",
@@ -10819,14 +11067,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.435992",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.491304",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0125",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 125,
       "start": 9897.38,
       "end": 9966.14,
@@ -10843,7 +11093,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.247048",
+      "created_at": "2026-07-03T10:35:22.706868",
       "keywords": [
         "classroom",
         "need",
@@ -10889,14 +11139,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.446667",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.495989",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0126",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 126,
       "start": 9966.94,
       "end": 10027.06,
@@ -10913,7 +11165,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.247275",
+      "created_at": "2026-07-03T10:35:22.709142",
       "keywords": [
         "learning",
         "students",
@@ -10989,14 +11241,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.453218",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.500160",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0127",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 127,
       "start": 10027.06,
       "end": 10102.37,
@@ -11011,7 +11265,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.247419",
+      "created_at": "2026-07-03T10:35:22.711152",
       "keywords": [
         "learning",
         "panel",
@@ -11064,14 +11318,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.458542",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.503180",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0128",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 128,
       "start": 10102.37,
       "end": 10179.01,
@@ -11092,7 +11348,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:13.247718",
+      "created_at": "2026-07-03T10:35:22.713272",
       "keywords": [
         "information",
         "training",
@@ -11159,14 +11415,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.467064",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.507741",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0129",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 129,
       "start": 10179.01,
       "end": 10260.64,
@@ -11185,7 +11443,7 @@
         56,
         57
       ],
-      "created_at": "2026-06-16T12:54:13.247969",
+      "created_at": "2026-07-03T10:35:22.715327",
       "keywords": [
         "need",
         "challenges",
@@ -11225,14 +11483,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.474836",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.512090",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0130",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 130,
       "start": 10260.64,
       "end": 10315.46,
@@ -11259,7 +11519,7 @@
         74,
         75
       ],
-      "created_at": "2026-06-16T12:54:13.248377",
+      "created_at": "2026-07-03T10:35:22.717679",
       "keywords": [
         "government",
         "let's",
@@ -11312,14 +11572,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.482695",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.516839",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0131",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 131,
       "start": 10315.46,
       "end": 10391.58,
@@ -11345,7 +11607,7 @@
         91,
         92
       ],
-      "created_at": "2026-06-16T12:54:13.248754",
+      "created_at": "2026-07-03T10:35:22.719938",
       "keywords": [
         "regulation",
         "information",
@@ -11439,14 +11701,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.489665",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.521523",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0132",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 132,
       "start": 10391.58,
       "end": 10428.66,
@@ -11469,7 +11733,7 @@
         105,
         106
       ],
-      "created_at": "2026-06-16T12:54:13.249086",
+      "created_at": "2026-07-03T10:35:22.722101",
       "keywords": [
         "school",
         "move",
@@ -11512,14 +11776,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.494079",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.525742",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0133",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 133,
       "start": 10428.66,
       "end": 10464.1,
@@ -11544,7 +11810,7 @@
         121,
         122
       ],
-      "created_at": "2026-06-16T12:54:13.249455",
+      "created_at": "2026-07-03T10:35:22.724264",
       "keywords": [
         "inside",
         "it's",
@@ -11587,14 +11853,16 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.500063",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.530211",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0134",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 134,
       "start": 10464.1,
       "end": 10500.19,
@@ -11619,7 +11887,7 @@
         137,
         138
       ],
-      "created_at": "2026-06-16T12:54:13.249813",
+      "created_at": "2026-07-03T10:35:22.726482",
       "keywords": [
         "content",
         "did",
@@ -11660,14 +11928,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.65,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.504630",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.534630",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0135",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 135,
       "start": 10500.19,
       "end": 10539.36,
@@ -11694,7 +11964,7 @@
         155,
         156
       ],
-      "created_at": "2026-06-16T12:54:13.250204",
+      "created_at": "2026-07-03T10:35:22.729141",
       "keywords": [
         "students",
         "food",
@@ -11748,14 +12018,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.509498",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.538877",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0136",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 136,
       "start": 10539.36,
       "end": 10582.91,
@@ -11783,7 +12055,7 @@
         174,
         175
       ],
-      "created_at": "2026-06-16T12:54:13.250607",
+      "created_at": "2026-07-03T10:35:22.731757",
       "keywords": [
         "truth",
         "language",
@@ -11850,14 +12122,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.514712",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.543239",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0137",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 137,
       "start": 10582.91,
       "end": 10654.27,
@@ -11885,7 +12159,7 @@
         193,
         194
       ],
-      "created_at": "2026-06-16T12:54:13.251019",
+      "created_at": "2026-07-03T10:35:22.734015",
       "keywords": [
         "digital",
         "going",
@@ -11925,14 +12199,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.519406",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.548743",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0138",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 138,
       "start": 10654.27,
       "end": 10713.15,
@@ -11960,7 +12236,7 @@
         212,
         213
       ],
-      "created_at": "2026-06-16T12:54:13.251453",
+      "created_at": "2026-07-03T10:35:22.736273",
       "keywords": [
         "economy",
         "i'm",
@@ -12008,14 +12284,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.523771",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.553290",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0139",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 139,
       "start": 10713.15,
       "end": 10786.37,
@@ -12056,7 +12334,7 @@
         244,
         245
       ],
-      "created_at": "2026-06-16T12:54:13.252099",
+      "created_at": "2026-07-03T10:35:22.738774",
       "keywords": [
         "artificial intelligence",
         "local language",
@@ -12141,14 +12419,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.528343",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.558051",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0140",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 140,
       "start": 10786.37,
       "end": 10837.33,
@@ -12178,7 +12458,7 @@
         7,
         8
       ],
-      "created_at": "2026-06-16T12:54:13.252451",
+      "created_at": "2026-07-03T10:35:22.741322",
       "keywords": [
         "artificial intelligence",
         "economy",
@@ -12242,14 +12522,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.533086",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.563039",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0141",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 141,
       "start": 10837.33,
       "end": 10895.1,
@@ -12272,7 +12554,7 @@
         21,
         22
       ],
-      "created_at": "2026-06-16T12:54:13.252925",
+      "created_at": "2026-07-03T10:35:22.744004",
       "keywords": [
         "market",
         "economy",
@@ -12340,14 +12622,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.538673",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.568129",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0142",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 142,
       "start": 10895.1,
       "end": 10939.49,
@@ -12375,7 +12659,7 @@
         40,
         41
       ],
-      "created_at": "2026-06-16T12:54:13.253360",
+      "created_at": "2026-07-03T10:35:22.746503",
       "keywords": [
         "policy",
         "economy",
@@ -12461,14 +12745,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.544588",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.572950",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0143",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 143,
       "start": 10939.49,
       "end": 11005.57,
@@ -12499,7 +12785,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:13.253835",
+      "created_at": "2026-07-03T10:35:22.749507",
       "keywords": [
         "market",
         "session",
@@ -12545,14 +12831,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.549244",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.577668",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0144",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 144,
       "start": 11005.57,
       "end": 11070.67,
@@ -12595,7 +12883,7 @@
         96,
         97
       ],
-      "created_at": "2026-06-16T12:54:13.254570",
+      "created_at": "2026-07-03T10:35:22.752515",
       "keywords": [
         "education",
         "students",
@@ -12670,14 +12958,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.554129",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.582357",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0145",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 145,
       "start": 11070.67,
       "end": 11138.0,
@@ -12716,7 +13006,7 @@
         126,
         127
       ],
-      "created_at": "2026-06-16T12:54:13.255292",
+      "created_at": "2026-07-03T10:35:22.755134",
       "keywords": [
         "data",
         "liberation",
@@ -12758,14 +13048,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.558905",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.587080",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0146",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 146,
       "start": 11139.54,
       "end": 11214.54,
@@ -12807,7 +13099,7 @@
         159,
         160
       ],
-      "created_at": "2026-06-16T12:54:13.255970",
+      "created_at": "2026-07-03T10:35:22.757731",
       "keywords": [
         "media",
         "information",
@@ -12862,14 +13154,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.563238",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.591112",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0147",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 147,
       "start": 11214.54,
       "end": 11306.51,
@@ -12921,7 +13215,7 @@
         202,
         203
       ],
-      "created_at": "2026-06-16T12:54:13.256750",
+      "created_at": "2026-07-03T10:35:22.761463",
       "keywords": [
         "artificial intelligence",
         "education",
@@ -13030,14 +13324,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.567925",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.595275",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0148",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 148,
       "start": 11306.51,
       "end": 11403.12,
@@ -13068,7 +13364,7 @@
         224,
         225
       ],
-      "created_at": "2026-06-16T12:54:13.256939",
+      "created_at": "2026-07-03T10:35:22.763707",
       "keywords": [
         "media",
         "training",
@@ -13146,14 +13442,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.570170",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.597206",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0149",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 149,
       "start": 11403.12,
       "end": 11480.67,
@@ -13187,7 +13485,7 @@
         249,
         250
       ],
-      "created_at": "2026-06-16T12:54:13.257214",
+      "created_at": "2026-07-03T10:35:22.765899",
       "keywords": [
         "share",
         "once",
@@ -13224,14 +13522,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.3,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.572337",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.599440",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0150",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 150,
       "start": 11480.67,
       "end": 11559.7,
@@ -13269,7 +13569,7 @@
         278,
         279
       ],
-      "created_at": "2026-06-16T12:54:13.257531",
+      "created_at": "2026-07-03T10:35:22.768077",
       "keywords": [
         "share",
         "said",
@@ -13305,14 +13605,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.3,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.574885",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.601946",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0151",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 151,
       "start": 11559.7,
       "end": 11646.21,
@@ -13340,7 +13642,7 @@
         297,
         298
       ],
-      "created_at": "2026-06-16T12:54:13.257693",
+      "created_at": "2026-07-03T10:35:22.770128",
       "keywords": [
         "citizens"
       ],
@@ -13375,14 +13677,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.576783",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.603678",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0152",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 152,
       "start": 11646.21,
       "end": 11722.38,
@@ -13433,7 +13737,7 @@
         339,
         340
       ],
-      "created_at": "2026-06-16T12:54:13.258215",
+      "created_at": "2026-07-03T10:35:22.772535",
       "keywords": [
         "training",
         "information",
@@ -13493,14 +13797,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.867,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.580101",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.606434",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0153",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 153,
       "start": 11722.38,
       "end": 11797.98,
@@ -13539,7 +13845,7 @@
         369,
         370
       ],
-      "created_at": "2026-06-16T12:54:13.258490",
+      "created_at": "2026-07-03T10:35:22.774682",
       "keywords": [
         "information"
       ],
@@ -13576,14 +13882,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.583165",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.608407",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0154",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 154,
       "start": 11797.98,
       "end": 11873.9,
@@ -13671,7 +13979,7 @@
         448,
         449
       ],
-      "created_at": "2026-06-16T12:54:13.260096",
+      "created_at": "2026-07-03T10:35:22.777931",
       "keywords": [
         "media",
         "information",
@@ -13722,14 +14030,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.587807",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.612758",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0155",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 155,
       "start": 11873.9,
       "end": 11942.19,
@@ -13821,7 +14131,7 @@
         531,
         532
       ],
-      "created_at": "2026-06-16T12:54:13.261846",
+      "created_at": "2026-07-03T10:35:22.781377",
       "keywords": [
         "role",
         "tissue"
@@ -13855,14 +14165,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.592142",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.616929",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0156",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 156,
       "start": 11942.19,
       "end": 11997.25,
@@ -13960,7 +14272,7 @@
         620,
         621
       ],
-      "created_at": "2026-06-16T12:54:13.263500",
+      "created_at": "2026-07-03T10:35:22.784802",
       "keywords": [
         "test",
         "out",
@@ -13997,14 +14309,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.596382",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.621009",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0157",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 157,
       "start": 11997.25,
       "end": 12081.07,
@@ -14034,7 +14348,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:13.263877",
+      "created_at": "2026-07-03T10:35:22.787007",
       "keywords": [
         "unesco",
         "panel",
@@ -14081,14 +14395,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.601004",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.625152",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0158",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 158,
       "start": 12082.1,
       "end": 12153.63,
@@ -14112,7 +14428,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.264240",
+      "created_at": "2026-07-03T10:35:22.789261",
       "keywords": [
         "i'm",
         "musicians",
@@ -14151,14 +14467,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.605650",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.629408",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0159",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 159,
       "start": 12153.63,
       "end": 12213.29,
@@ -14186,7 +14504,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:13.264667",
+      "created_at": "2026-07-03T10:35:22.791746",
       "keywords": [
         "students",
         "hearing",
@@ -14252,14 +14570,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.610301",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.633733",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0160",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 160,
       "start": 12213.29,
       "end": 12252.37,
@@ -14285,7 +14605,7 @@
         64,
         65
       ],
-      "created_at": "2026-06-16T12:54:13.265046",
+      "created_at": "2026-07-03T10:35:22.794063",
       "keywords": [
         "shouldn't",
         "stage",
@@ -14326,14 +14646,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.615318",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.638156",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0161",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 161,
       "start": 12252.37,
       "end": 12298.31,
@@ -14361,7 +14683,7 @@
         83,
         84
       ],
-      "created_at": "2026-06-16T12:54:13.265453",
+      "created_at": "2026-07-03T10:35:22.796335",
       "keywords": [
         "infrastructure",
         "need",
@@ -14410,14 +14732,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.619678",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.642321",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0162",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 162,
       "start": 12298.31,
       "end": 12345.14,
@@ -14453,7 +14777,7 @@
         110,
         111
       ],
-      "created_at": "2026-06-16T12:54:13.265980",
+      "created_at": "2026-07-03T10:35:22.798694",
       "keywords": [
         "information",
         "let's",
@@ -14497,14 +14821,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.625607",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.646755",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0163",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 163,
       "start": 12345.14,
       "end": 12385.55,
@@ -14535,7 +14861,7 @@
         132,
         133
       ],
-      "created_at": "2026-06-16T12:54:13.266548",
+      "created_at": "2026-07-03T10:35:22.800947",
       "keywords": [
         "students",
         "kids",
@@ -14593,14 +14919,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.630103",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.650986",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0164",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 164,
       "start": 12385.55,
       "end": 12563.25,
@@ -14631,7 +14959,7 @@
         154,
         155
       ],
-      "created_at": "2026-06-16T12:54:13.266998",
+      "created_at": "2026-07-03T10:35:22.803196",
       "keywords": [
         "truth",
         "teachers",
@@ -14693,14 +15021,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.634004",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.654681",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0165",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 165,
       "start": 12563.25,
       "end": 12616.16,
@@ -14731,7 +15061,7 @@
         176,
         177
       ],
-      "created_at": "2026-06-16T12:54:13.267530",
+      "created_at": "2026-07-03T10:35:22.805509",
       "keywords": [
         "content",
         "information",
@@ -14792,14 +15122,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.639407",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.659580",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0166",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 166,
       "start": 12616.16,
       "end": 12668.28,
@@ -14824,7 +15156,7 @@
         192,
         193
       ],
-      "created_at": "2026-06-16T12:54:13.267901",
+      "created_at": "2026-07-03T10:35:22.807672",
       "keywords": [
         "training",
         "model",
@@ -14882,14 +15214,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.644008",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.663815",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0167",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 167,
       "start": 12668.28,
       "end": 12713.18,
@@ -14920,7 +15254,7 @@
         214,
         215
       ],
-      "created_at": "2026-06-16T12:54:13.268386",
+      "created_at": "2026-07-03T10:35:22.809940",
       "keywords": [
         "truth",
         "model",
@@ -14980,14 +15314,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.649119",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.668713",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0168",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 168,
       "start": 12713.18,
       "end": 12772.78,
@@ -15020,7 +15356,7 @@
         238,
         239
       ],
-      "created_at": "2026-06-16T12:54:13.268902",
+      "created_at": "2026-07-03T10:35:22.812254",
       "keywords": [
         "education",
         "truth",
@@ -15087,14 +15423,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.654765",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.673507",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0169",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 169,
       "start": 12772.78,
       "end": 12851.35,
@@ -15112,7 +15450,7 @@
         247,
         248
       ],
-      "created_at": "2026-06-16T12:54:13.269006",
+      "created_at": "2026-07-03T10:35:22.814155",
       "keywords": [
         "i'm"
       ],
@@ -15145,14 +15483,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.657230",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.675653",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0170",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 170,
       "start": 12851.35,
       "end": 12906.3,
@@ -15178,7 +15518,7 @@
         264,
         265
       ],
-      "created_at": "2026-06-16T12:54:13.269352",
+      "created_at": "2026-07-03T10:35:22.816287",
       "keywords": [
         "research",
         "indigenous",
@@ -15249,14 +15589,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.662062",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.680128",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0171",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 171,
       "start": 12906.3,
       "end": 13009.9,
@@ -15269,7 +15611,7 @@
         268,
         269
       ],
-      "created_at": "2026-06-16T12:54:13.269432",
+      "created_at": "2026-07-03T10:35:22.818163",
       "keywords": [
         "training",
         "it's",
@@ -15308,14 +15650,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.664362",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.682412",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0172",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 172,
       "start": 13009.9,
       "end": 13087.15,
@@ -15330,7 +15674,7 @@
         274,
         275
       ],
-      "created_at": "2026-06-16T12:54:13.269539",
+      "created_at": "2026-07-03T10:35:22.820074",
       "keywords": [
         "media",
         "unesco",
@@ -15390,14 +15734,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.667889",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.685142",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0173",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 173,
       "start": 13087.15,
       "end": 13163.42,
@@ -15416,7 +15762,7 @@
         284,
         285
       ],
-      "created_at": "2026-06-16T12:54:13.269725",
+      "created_at": "2026-07-03T10:35:22.822067",
       "keywords": [
         "education",
         "it's",
@@ -15456,14 +15802,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.671130",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.688845",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0174",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 174,
       "start": 13163.42,
       "end": 13239.08,
@@ -15481,7 +15829,7 @@
         4,
         5
       ],
-      "created_at": "2026-06-16T12:54:13.269956",
+      "created_at": "2026-07-03T10:35:22.824100",
       "keywords": [
         "media",
         "news",
@@ -15566,14 +15914,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.676199",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.693941",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0175",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 175,
       "start": 13239.08,
       "end": 13326.22,
@@ -15584,7 +15934,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.270003",
+      "created_at": "2026-07-03T10:35:22.826101",
       "keywords": [
         "media",
         "information",
@@ -15635,14 +15985,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.677877",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.695678",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0176",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 176,
       "start": 13326.22,
       "end": 13412.0,
@@ -15658,7 +16010,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:13.270218",
+      "created_at": "2026-07-03T10:35:22.828183",
       "keywords": [
         "policy",
         "journalism",
@@ -15768,14 +16120,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.682986",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.700209",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0177",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 177,
       "start": 13412.0,
       "end": 13498.78,
@@ -15791,7 +16145,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.270430",
+      "created_at": "2026-07-03T10:35:22.830222",
       "keywords": [
         "information",
         "farm",
@@ -15857,14 +16211,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.687674",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.704680",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0090_zy45aKgJUiY_Botswana Satellite event_0178",
       "source_video": "0090_zy45aKgJUiY_Botswana Satellite event",
       "video_id": "zy45aKgJUiY",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 178,
       "start": 13498.78,
       "end": 13707.63,
@@ -15910,7 +16266,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:13.271009",
+      "created_at": "2026-07-03T10:35:22.836211",
       "keywords": [
         "framework",
         "competition",
@@ -16026,11 +16382,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:24.702080",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:15.717818",
+      "speaker": "Kelly",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:24.702091"
+  "classified_at": "2026-07-03T11:40:15.717911"
 }

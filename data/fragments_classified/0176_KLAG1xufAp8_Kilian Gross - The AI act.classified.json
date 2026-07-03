@@ -3,11 +3,11 @@
   "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
   "video_id": "KLAG1xufAp8",
   "fragment_count": 14,
-  "created_at": "2026-06-16T12:54:13.756219",
+  "created_at": "2026-07-03T10:35:26.045384",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0001",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 0.62,
       "end": 44.5,
@@ -38,7 +40,7 @@
         12,
         13
       ],
-      "created_at": "2026-06-16T12:54:13.752129",
+      "created_at": "2026-07-03T10:35:26.016680",
       "keywords": [
         "policy",
         "conference",
@@ -107,14 +109,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.433714",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.223619",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0002",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 44.5,
       "end": 96.55,
@@ -134,7 +138,7 @@
         23,
         24
       ],
-      "created_at": "2026-06-16T12:54:13.752411",
+      "created_at": "2026-07-03T10:35:26.018736",
       "keywords": [
         "policy",
         "strategy",
@@ -219,14 +223,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.438478",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.229007",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0003",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 96.55,
       "end": 156.46,
@@ -248,7 +254,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:13.752714",
+      "created_at": "2026-07-03T10:35:26.020962",
       "keywords": [
         "education",
         "trust",
@@ -352,14 +358,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.443420",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.234142",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0004",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 156.46,
       "end": 212.54,
@@ -378,7 +386,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:13.752970",
+      "created_at": "2026-07-03T10:35:26.023035",
       "keywords": [
         "regulation",
         "health",
@@ -497,14 +505,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.448413",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.239373",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0005",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 212.54,
       "end": 260.97,
@@ -524,7 +534,7 @@
         57,
         58
       ],
-      "created_at": "2026-06-16T12:54:13.753241",
+      "created_at": "2026-07-03T10:35:26.025017",
       "keywords": [
         "risk",
         "safety",
@@ -618,14 +628,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.453144",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.244300",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0006",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 260.97,
       "end": 309.76,
@@ -646,7 +658,7 @@
         69,
         70
       ],
-      "created_at": "2026-06-16T12:54:13.753531",
+      "created_at": "2026-07-03T10:35:26.027238",
       "keywords": [
         "deepfakes",
         "transparency",
@@ -757,14 +769,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.457908",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.249134",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0007",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 309.76,
       "end": 361.89,
@@ -786,7 +800,7 @@
         82,
         83
       ],
-      "created_at": "2026-06-16T12:54:13.753834",
+      "created_at": "2026-07-03T10:35:26.029341",
       "keywords": [
         "governance",
         "oversight",
@@ -896,14 +910,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.463106",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.254738",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0008",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 361.89,
       "end": 414.96,
@@ -929,7 +945,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:13.754213",
+      "created_at": "2026-07-03T10:35:26.031460",
       "keywords": [
         "legal",
         "rights",
@@ -996,14 +1012,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.468155",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.260188",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0009",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 9,
       "start": 414.96,
       "end": 462.06,
@@ -1028,7 +1046,7 @@
         115,
         116
       ],
-      "created_at": "2026-06-16T12:54:13.754571",
+      "created_at": "2026-07-03T10:35:26.033514",
       "keywords": [
         "governance",
         "risk",
@@ -1094,14 +1112,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.472858",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.265358",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0010",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 10,
       "start": 462.06,
       "end": 507.13,
@@ -1126,7 +1146,7 @@
         131,
         132
       ],
-      "created_at": "2026-06-16T12:54:13.754920",
+      "created_at": "2026-07-03T10:35:26.035867",
       "keywords": [
         "regulation",
         "legal",
@@ -1210,14 +1230,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.477499",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.270302",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0011",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 11,
       "start": 507.13,
       "end": 553.81,
@@ -1242,7 +1264,7 @@
         147,
         148
       ],
-      "created_at": "2026-06-16T12:54:13.755292",
+      "created_at": "2026-07-03T10:35:26.038360",
       "keywords": [
         "protection",
         "international",
@@ -1281,14 +1303,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.482196",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.275296",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0012",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 12,
       "start": 553.81,
       "end": 599.26,
@@ -1314,7 +1338,7 @@
         164,
         165
       ],
-      "created_at": "2026-06-16T12:54:13.755719",
+      "created_at": "2026-07-03T10:35:26.040868",
       "keywords": [
         "regulation",
         "climate",
@@ -1413,14 +1437,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.487763",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.281147",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0013",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 13,
       "start": 599.3,
       "end": 651.38,
@@ -1446,7 +1472,7 @@
         181,
         182
       ],
-      "created_at": "2026-06-16T12:54:13.756082",
+      "created_at": "2026-07-03T10:35:26.043209",
       "keywords": [
         "legislation",
         "market",
@@ -1498,14 +1524,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.492417",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.286025",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0176_KLAG1xufAp8_Kilian Gross - The AI act_0014",
       "source_video": "0176_KLAG1xufAp8_Kilian Gross - The AI act",
       "video_id": "KLAG1xufAp8",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 14,
       "start": 651.38,
       "end": 671.48,
@@ -1521,7 +1549,7 @@
         188,
         189
       ],
-      "created_at": "2026-06-16T12:54:13.756195",
+      "created_at": "2026-07-03T10:35:26.045330",
       "keywords": [
         "conference",
         "act",
@@ -1560,11 +1588,11 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.494851",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.288400",
+      "speaker": "Kilian Gross",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:32.494858"
+  "classified_at": "2026-07-03T11:40:23.288410"
 }

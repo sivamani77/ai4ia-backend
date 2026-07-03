@@ -3,11 +3,11 @@
   "source_video": "0136_AL8la33n0dw_India Satellite Event",
   "video_id": "AL8la33n0dw",
   "fragment_count": 61,
-  "created_at": "2026-06-16T12:54:13.576394",
+  "created_at": "2026-07-03T10:35:24.802246",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0001",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 29.58,
       "end": 106.69,
@@ -32,7 +34,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.563031",
+      "created_at": "2026-07-03T10:35:24.684973",
       "keywords": [
         "access to information",
         "information",
@@ -99,14 +101,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.552278",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.256684",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0002",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 107.33,
       "end": 172.21,
@@ -124,7 +128,7 @@
         15,
         16
       ],
-      "created_at": "2026-06-16T12:54:13.563270",
+      "created_at": "2026-07-03T10:35:24.686963",
       "keywords": [
         "information",
         "regional",
@@ -226,14 +230,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.557345",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.262068",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0003",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 172.21,
       "end": 234.0,
@@ -251,7 +257,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:13.563501",
+      "created_at": "2026-07-03T10:35:24.689114",
       "keywords": [
         "access to information",
         "information",
@@ -364,14 +370,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.562211",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.267549",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0004",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 234.72,
       "end": 302.91,
@@ -388,7 +396,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:13.563716",
+      "created_at": "2026-07-03T10:35:24.691080",
       "keywords": [
         "access to information",
         "information accessibility",
@@ -476,14 +484,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.567201",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.272883",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0005",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 303.47,
       "end": 366.82,
@@ -501,7 +511,7 @@
         41,
         42
       ],
-      "created_at": "2026-06-16T12:54:13.563941",
+      "created_at": "2026-07-03T10:35:24.693038",
       "keywords": [
         "access to information",
         "law",
@@ -604,14 +614,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.572441",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.278079",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0006",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 367.46,
       "end": 447.49,
@@ -630,7 +642,7 @@
         51,
         52
       ],
-      "created_at": "2026-06-16T12:54:13.564183",
+      "created_at": "2026-07-03T10:35:24.694911",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -721,14 +733,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.577631",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.285620",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0007",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 447.49,
       "end": 528.1,
@@ -744,7 +758,7 @@
         58,
         59
       ],
-      "created_at": "2026-06-16T12:54:13.564370",
+      "created_at": "2026-07-03T10:35:24.697535",
       "keywords": [
         "values",
         "humanity",
@@ -794,14 +808,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.581984",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.294391",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0008",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 528.82,
       "end": 611.97,
@@ -818,7 +834,7 @@
         66,
         67
       ],
-      "created_at": "2026-06-16T12:54:13.564563",
+      "created_at": "2026-07-03T10:35:24.699419",
       "keywords": [
         "governance",
         "ethical",
@@ -911,14 +927,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.586427",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.303180",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0009",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 613.1,
       "end": 688.53,
@@ -935,7 +953,7 @@
         74,
         75
       ],
-      "created_at": "2026-06-16T12:54:13.564887",
+      "created_at": "2026-07-03T10:35:24.701326",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -1044,14 +1062,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.591016",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.309823",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0010",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 688.53,
       "end": 765.55,
@@ -1068,7 +1088,7 @@
         82,
         83
       ],
-      "created_at": "2026-06-16T12:54:13.565108",
+      "created_at": "2026-07-03T10:35:24.703232",
       "keywords": [
         "conference",
         "regional",
@@ -1170,14 +1190,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.595702",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.315980",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0011",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 11,
       "start": 768.61,
       "end": 832.67,
@@ -1194,7 +1216,7 @@
         90,
         91
       ],
-      "created_at": "2026-06-16T12:54:13.565336",
+      "created_at": "2026-07-03T10:35:24.705150",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -1316,14 +1338,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.601694",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.322027",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0012",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 12,
       "start": 832.67,
       "end": 898.51,
@@ -1340,7 +1364,7 @@
         98,
         99
       ],
-      "created_at": "2026-06-16T12:54:13.565560",
+      "created_at": "2026-07-03T10:35:24.707071",
       "keywords": [
         "artificial intelligence",
         "security",
@@ -1436,14 +1460,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.608771",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.329125",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0013",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 13,
       "start": 898.51,
       "end": 959.47,
@@ -1460,7 +1486,7 @@
         106,
         107
       ],
-      "created_at": "2026-06-16T12:54:13.565768",
+      "created_at": "2026-07-03T10:35:24.709066",
       "keywords": [
         "responsible ai",
         "research",
@@ -1532,14 +1558,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.614942",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.336463",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0014",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 14,
       "start": 959.47,
       "end": 1033.94,
@@ -1557,7 +1585,7 @@
         115,
         116
       ],
-      "created_at": "2026-06-16T12:54:13.566012",
+      "created_at": "2026-07-03T10:35:24.711051",
       "keywords": [
         "artificial intelligence",
         "academic",
@@ -1637,14 +1665,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.621723",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.342189",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0015",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 15,
       "start": 1033.94,
       "end": 1094.53,
@@ -1661,7 +1691,7 @@
         123,
         124
       ],
-      "created_at": "2026-06-16T12:54:13.566219",
+      "created_at": "2026-07-03T10:35:24.713218",
       "keywords": [
         "artificial intelligence",
         "accessibility",
@@ -1772,14 +1802,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.626990",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.348395",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0016",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 16,
       "start": 1094.53,
       "end": 1147.74,
@@ -1795,7 +1827,7 @@
         130,
         131
       ],
-      "created_at": "2026-06-16T12:54:13.566419",
+      "created_at": "2026-07-03T10:35:24.715142",
       "keywords": [
         "artificial intelligence",
         "warfare",
@@ -1857,14 +1889,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.632197",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.354177",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0017",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 17,
       "start": 1149.18,
       "end": 1200.7,
@@ -1881,7 +1915,7 @@
         138,
         139
       ],
-      "created_at": "2026-06-16T12:54:13.566638",
+      "created_at": "2026-07-03T10:35:24.717100",
       "keywords": [
         "artificial intelligence",
         "information",
@@ -1966,14 +2000,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.637483",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.361070",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0018",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 18,
       "start": 1200.0,
       "end": 1260.62,
@@ -1994,7 +2030,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:13.566939",
+      "created_at": "2026-07-03T10:35:24.719098",
       "keywords": [
         "warfare",
         "competition",
@@ -2082,14 +2118,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.643010",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.366781",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0019",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 19,
       "start": 1260.62,
       "end": 1306.38,
@@ -2108,7 +2146,7 @@
         21,
         22
       ],
-      "created_at": "2026-06-16T12:54:13.567174",
+      "created_at": "2026-07-03T10:35:24.721108",
       "keywords": [
         "competition",
         "opponent",
@@ -2149,14 +2187,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.647930",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.371667",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0020",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 20,
       "start": 1306.38,
       "end": 1358.39,
@@ -2177,7 +2217,7 @@
         33,
         34
       ],
-      "created_at": "2026-06-16T12:54:13.567466",
+      "created_at": "2026-07-03T10:35:24.723254",
       "keywords": [
         "signatures",
         "now",
@@ -2216,14 +2256,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.653481",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.376681",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0021",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 21,
       "start": 1358.39,
       "end": 1402.11,
@@ -2242,7 +2284,7 @@
         43,
         44
       ],
-      "created_at": "2026-06-16T12:54:13.567704",
+      "created_at": "2026-07-03T10:35:24.725173",
       "keywords": [
         "signals",
         "thermal",
@@ -2281,14 +2323,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.658370",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.381773",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0022",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 22,
       "start": 1402.11,
       "end": 1444.51,
@@ -2306,7 +2350,7 @@
         52,
         53
       ],
-      "created_at": "2026-06-16T12:54:13.567931",
+      "created_at": "2026-07-03T10:35:24.727016",
       "keywords": [
         "fighter",
         "object",
@@ -2347,14 +2391,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.663480",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.387983",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0023",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 23,
       "start": 1444.51,
       "end": 1493.66,
@@ -2374,7 +2420,7 @@
         63,
         64
       ],
-      "created_at": "2026-06-16T12:54:13.568202",
+      "created_at": "2026-07-03T10:35:24.728887",
       "keywords": [
         "one",
         "role",
@@ -2416,14 +2462,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.668668",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.393239",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0024",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 24,
       "start": 1493.66,
       "end": 1537.22,
@@ -2441,7 +2489,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:13.568422",
+      "created_at": "2026-07-03T10:35:24.730779",
       "keywords": [
         "ethical",
         "able",
@@ -2482,14 +2530,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.673268",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.398296",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0025",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 25,
       "start": 1537.22,
       "end": 1587.54,
@@ -2509,7 +2559,7 @@
         83,
         84
       ],
-      "created_at": "2026-06-16T12:54:13.568697",
+      "created_at": "2026-07-03T10:35:24.732772",
       "keywords": [
         "war",
         "autonomous",
@@ -2548,14 +2598,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.678538",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.405148",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0026",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 26,
       "start": 1587.54,
       "end": 1627.58,
@@ -2573,7 +2625,7 @@
         92,
         93
       ],
-      "created_at": "2026-06-16T12:54:13.568923",
+      "created_at": "2026-07-03T10:35:24.734611",
       "keywords": [
         "lot",
         "standing",
@@ -2609,14 +2661,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.683213",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.410807",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0027",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 27,
       "start": 1627.58,
       "end": 1696.64,
@@ -2634,7 +2688,7 @@
         101,
         102
       ],
-      "created_at": "2026-06-16T12:54:13.569162",
+      "created_at": "2026-07-03T10:35:24.736667",
       "keywords": [
         "unesco",
         "warfare",
@@ -2735,14 +2789,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.688964",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.416111",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0028",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 28,
       "start": 1696.64,
       "end": 1750.34,
@@ -2759,7 +2815,7 @@
         109,
         110
       ],
-      "created_at": "2026-06-16T12:54:13.569378",
+      "created_at": "2026-07-03T10:35:24.738623",
       "keywords": [
         "education",
         "research",
@@ -2864,14 +2920,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.694151",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.421427",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0029",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 29,
       "start": 1750.34,
       "end": 1812.43,
@@ -2889,7 +2947,7 @@
         118,
         119
       ],
-      "created_at": "2026-06-16T12:54:13.569613",
+      "created_at": "2026-07-03T10:35:24.740510",
       "keywords": [
         "research",
         "language",
@@ -2986,14 +3044,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.700485",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.427145",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0030",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 30,
       "start": 1812.43,
       "end": 1876.3,
@@ -3010,7 +3070,7 @@
         126,
         127
       ],
-      "created_at": "2026-06-16T12:54:13.569832",
+      "created_at": "2026-07-03T10:35:24.742380",
       "keywords": [
         "ethics",
         "unesco",
@@ -3114,14 +3174,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.706510",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.432722",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0031",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 31,
       "start": 1876.3,
       "end": 1921.18,
@@ -3137,7 +3199,7 @@
         133,
         134
       ],
-      "created_at": "2026-06-16T12:54:13.570024",
+      "created_at": "2026-07-03T10:35:24.744299",
       "keywords": [
         "ethics",
         "ethical",
@@ -3186,14 +3248,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.711261",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.437848",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0032",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 32,
       "start": 1921.18,
       "end": 1968.3,
@@ -3210,7 +3274,7 @@
         141,
         142
       ],
-      "created_at": "2026-06-16T12:54:13.570269",
+      "created_at": "2026-07-03T10:35:24.746226",
       "keywords": [
         "ethical",
         "remarks",
@@ -3265,14 +3329,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.717160",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.443543",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0033",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 33,
       "start": 1968.3,
       "end": 2015.34,
@@ -3289,7 +3355,7 @@
         149,
         150
       ],
-      "created_at": "2026-06-16T12:54:13.570506",
+      "created_at": "2026-07-03T10:35:24.748056",
       "keywords": [
         "ethical",
         "warfare",
@@ -3357,14 +3423,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.722500",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.448722",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0034",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 34,
       "start": 2015.9,
       "end": 2063.18,
@@ -3381,7 +3449,7 @@
         157,
         158
       ],
-      "created_at": "2026-06-16T12:54:13.570754",
+      "created_at": "2026-07-03T10:35:24.749891",
       "keywords": [
         "think",
         "making",
@@ -3422,14 +3490,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.728387",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.453786",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0035",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 35,
       "start": 2063.34,
       "end": 2112.3,
@@ -3446,7 +3516,7 @@
         165,
         166
       ],
-      "created_at": "2026-06-16T12:54:13.570992",
+      "created_at": "2026-07-03T10:35:24.751725",
       "keywords": [
         "moral",
         "agency",
@@ -3487,14 +3557,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.683,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.734308",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.459074",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0036",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 36,
       "start": 2112.94,
       "end": 2154.46,
@@ -3510,7 +3582,7 @@
         172,
         173
       ],
-      "created_at": "2026-06-16T12:54:13.571198",
+      "created_at": "2026-07-03T10:35:24.753621",
       "keywords": [
         "governance",
         "law",
@@ -3603,14 +3675,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.739995",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.464019",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0037",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 37,
       "start": 2154.46,
       "end": 2194.78,
@@ -3626,7 +3700,7 @@
         179,
         180
       ],
-      "created_at": "2026-06-16T12:54:13.571403",
+      "created_at": "2026-07-03T10:35:24.755460",
       "keywords": [
         "human rights",
         "law",
@@ -3719,14 +3793,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.744993",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.469053",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0038",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 38,
       "start": 2194.78,
       "end": 2237.58,
@@ -3742,7 +3818,7 @@
         186,
         187
       ],
-      "created_at": "2026-06-16T12:54:13.571634",
+      "created_at": "2026-07-03T10:35:24.757341",
       "keywords": [
         "see",
         "issue",
@@ -3779,14 +3855,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.750447",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.474355",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0039",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 39,
       "start": 2237.58,
       "end": 2274.78,
@@ -3802,7 +3880,7 @@
         193,
         194
       ],
-      "created_at": "2026-06-16T12:54:13.571841",
+      "created_at": "2026-07-03T10:35:24.759166",
       "keywords": [
         "think",
         "hard",
@@ -3844,14 +3922,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.755623",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.479164",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0040",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 40,
       "start": 2275.34,
       "end": 2322.38,
@@ -3868,7 +3948,7 @@
         201,
         202
       ],
-      "created_at": "2026-06-16T12:54:13.572162",
+      "created_at": "2026-07-03T10:35:24.761041",
       "keywords": [
         "governance",
         "risk",
@@ -3939,14 +4019,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.760805",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.485137",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0041",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 41,
       "start": 2322.38,
       "end": 2395.98,
@@ -3964,7 +4046,7 @@
         210,
         211
       ],
-      "created_at": "2026-06-16T12:54:13.572450",
+      "created_at": "2026-07-03T10:35:24.762923",
       "keywords": [
         "governance",
         "warfare",
@@ -4033,14 +4115,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.765961",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.490673",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0042",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 42,
       "start": 2395.98,
       "end": 2457.0,
@@ -4055,7 +4139,7 @@
         4,
         5
       ],
-      "created_at": "2026-06-16T12:54:13.572661",
+      "created_at": "2026-07-03T10:35:24.764759",
       "keywords": [
         "warfare",
         "see",
@@ -4099,14 +4183,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.771046",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.496221",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0043",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 43,
       "start": 2457.0,
       "end": 2509.03,
@@ -4119,7 +4205,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:13.572829",
+      "created_at": "2026-07-03T10:35:24.766513",
       "keywords": [
         "missile",
         "fighter",
@@ -4160,14 +4246,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.775756",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.501076",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0044",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 44,
       "start": 2509.03,
       "end": 2551.03,
@@ -4180,7 +4268,7 @@
         12,
         13
       ],
-      "created_at": "2026-06-16T12:54:13.573005",
+      "created_at": "2026-07-03T10:35:24.768255",
       "keywords": [
         "warfare",
         "drones",
@@ -4223,14 +4311,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.780389",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.506408",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0045",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 45,
       "start": 2551.03,
       "end": 2600.03,
@@ -4242,7 +4332,7 @@
         15,
         16
       ],
-      "created_at": "2026-06-16T12:54:13.573170",
+      "created_at": "2026-07-03T10:35:24.770079",
       "keywords": [
         "information",
         "water",
@@ -4319,14 +4409,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.785417",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.513503",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0046",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 46,
       "start": 2600.03,
       "end": 2672.06,
@@ -4340,7 +4432,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:13.573418",
+      "created_at": "2026-07-03T10:35:24.771894",
       "keywords": [
         "innovation",
         "technology",
@@ -4390,14 +4482,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.683,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.792799",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.520845",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0047",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 47,
       "start": 2672.06,
       "end": 2741.06,
@@ -4410,7 +4504,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:13.573635",
+      "created_at": "2026-07-03T10:35:24.773699",
       "keywords": [
         "warfare",
         "security",
@@ -4480,14 +4574,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.799709",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.527816",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0048",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 48,
       "start": 2741.06,
       "end": 2792.06,
@@ -4498,7 +4594,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:13.573775",
+      "created_at": "2026-07-03T10:35:24.775420",
       "keywords": [
         "power",
         "technology",
@@ -4537,14 +4633,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.805504",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.533171",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0049",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 49,
       "start": 2792.06,
       "end": 2850.06,
@@ -4555,7 +4653,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.573939",
+      "created_at": "2026-07-03T10:35:24.777164",
       "keywords": [
         "regional",
         "war",
@@ -4602,14 +4700,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.811193",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.539953",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0050",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 50,
       "start": 2851.06,
       "end": 2928.67,
@@ -4625,7 +4725,7 @@
         35,
         36
       ],
-      "created_at": "2026-06-16T12:54:13.574180",
+      "created_at": "2026-07-03T10:35:24.779100",
       "keywords": [
         "artificial intelligence",
         "learning",
@@ -4697,14 +4797,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.817550",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.546059",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0051",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 51,
       "start": 2928.67,
       "end": 3008.84,
@@ -4720,7 +4822,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:13.574423",
+      "created_at": "2026-07-03T10:35:24.781139",
       "keywords": [
         "ethics",
         "regulation",
@@ -4834,14 +4936,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.823217",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.551799",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0052",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 52,
       "start": 3008.84,
       "end": 3076.24,
@@ -4857,7 +4961,7 @@
         49,
         50
       ],
-      "created_at": "2026-06-16T12:54:13.574649",
+      "created_at": "2026-07-03T10:35:24.783192",
       "keywords": [
         "warfare",
         "govern",
@@ -4902,14 +5006,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.829425",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.557701",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0053",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 53,
       "start": 3077.24,
       "end": 3124.24,
@@ -4923,7 +5029,7 @@
         54,
         55
       ],
-      "created_at": "2026-06-16T12:54:13.574840",
+      "created_at": "2026-07-03T10:35:24.785724",
       "keywords": [
         "governance",
         "terms",
@@ -4976,14 +5082,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.834333",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.562938",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0054",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 54,
       "start": 3125.24,
       "end": 3168.24,
@@ -4997,7 +5105,7 @@
         59,
         60
       ],
-      "created_at": "2026-06-16T12:54:13.575021",
+      "created_at": "2026-07-03T10:35:24.787996",
       "keywords": [
         "regional",
         "think",
@@ -5043,14 +5151,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.838870",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.567938",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0055",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 55,
       "start": 3168.24,
       "end": 3214.4,
@@ -5065,7 +5175,7 @@
         65,
         66
       ],
-      "created_at": "2026-06-16T12:54:13.575219",
+      "created_at": "2026-07-03T10:35:24.790004",
       "keywords": [
         "law",
         "principles",
@@ -5136,14 +5246,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.843558",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.572914",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0056",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 56,
       "start": 3214.4,
       "end": 3264.4,
@@ -5159,7 +5271,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:13.575465",
+      "created_at": "2026-07-03T10:35:24.791944",
       "keywords": [
         "warfare",
         "right",
@@ -5210,14 +5322,16 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.849195",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.578774",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0057",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 57,
       "start": 3264.4,
       "end": 3306.4,
@@ -5230,7 +5344,7 @@
         76,
         77
       ],
-      "created_at": "2026-06-16T12:54:13.575642",
+      "created_at": "2026-07-03T10:35:24.793852",
       "keywords": [
         "governance",
         "competition",
@@ -5298,14 +5412,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.854685",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.584311",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0058",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 58,
       "start": 3306.4,
       "end": 3342.86,
@@ -5317,7 +5433,7 @@
         79,
         80
       ],
-      "created_at": "2026-06-16T12:54:13.575780",
+      "created_at": "2026-07-03T10:35:24.795694",
       "keywords": [
         "innovation",
         "right",
@@ -5356,14 +5472,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.583,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.859341",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.588858",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0059",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 59,
       "start": 3342.86,
       "end": 3432.01,
@@ -5377,7 +5495,7 @@
         84,
         85
       ],
-      "created_at": "2026-06-16T12:54:13.575999",
+      "created_at": "2026-07-03T10:35:24.797519",
       "keywords": [
         "audience",
         "innovation",
@@ -5435,14 +5553,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.865357",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.595182",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0060",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 60,
       "start": 3432.01,
       "end": 3489.07,
@@ -5453,7 +5573,7 @@
         86,
         87
       ],
-      "created_at": "2026-06-16T12:54:13.576134",
+      "created_at": "2026-07-03T10:35:24.800177",
       "keywords": [
         "environment",
         "surveillance",
@@ -5517,14 +5637,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.869957",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.600515",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0136_AL8la33n0dw_India Satellite Event_0061",
       "source_video": "0136_AL8la33n0dw_India Satellite Event",
       "video_id": "AL8la33n0dw",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 61,
       "start": 3489.07,
       "end": 3560.76,
@@ -5541,7 +5663,7 @@
         94,
         95
       ],
-      "created_at": "2026-06-16T12:54:13.576326",
+      "created_at": "2026-07-03T10:35:24.802154",
       "keywords": [
         "access to information",
         "information",
@@ -5597,11 +5719,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:29.873356",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:20.604774",
+      "speaker": "Ashita Singh",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:29.873361"
+  "classified_at": "2026-07-03T11:40:20.604801"
 }

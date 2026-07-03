@@ -79,6 +79,7 @@ def sanitize_metadata(row: dict) -> dict:
         "storyline_role":            _str(row.get("storyline_role")),
         "summary":                   _str(row.get("summary")),
         "speaker":                   _str(row.get("speaker") or row.get("speaker_name")),
+        "speaker_attribution":       _str(row.get("speaker_attribution")),
         "quote_strength":            _float(row.get("quote_strength")),
         "clarity_score":             _float(row.get("clarity_score")),
         "narration_support_score":   _float(row.get("narration_support_score")),

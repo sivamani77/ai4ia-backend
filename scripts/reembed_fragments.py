@@ -46,7 +46,7 @@ log = logging.getLogger("reembed")
 JSONL_PATH = PROJECT_ROOT / "data" / "embeddings_cleaned" / "classified_fragments_embeddings.jsonl"
 CHROMA_DIR = PROJECT_ROOT / "data" / "chroma"
 COLLECTION_NAME = "fragments"
-EMBEDDING_MODEL = "nomic-embed-text:v1.5"
+EMBEDDING_MODEL = None  # set from settings
 OLLAMA_BASE_URL = None  # set from settings
 BATCH_SIZE = 50
 
@@ -206,8 +206,10 @@ def main():
     args = parser.parse_args()
 
     # Load settings
+    global EMBEDDING_MODEL
     from app.core.settings import settings
     ollama_url = settings.ollama_base_url
+    EMBEDDING_MODEL = settings.embedding_model
     chroma_mode = settings.chroma_mode
     chroma_host = settings.chroma_host
     chroma_port = settings.chroma_port

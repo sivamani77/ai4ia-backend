@@ -3,11 +3,11 @@
   "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
   "video_id": "q21",
   "fragment_count": 8,
-  "created_at": "2026-06-16T12:54:12.764137",
+  "created_at": "2026-07-03T10:35:19.692032",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0001",
       "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
       "video_id": "q21",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 1.87,
       "end": 55.8,
@@ -34,7 +36,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:12.762487",
+      "created_at": "2026-07-03T10:35:19.678158",
       "keywords": [
         "artificial intelligence",
         "youth",
@@ -147,14 +149,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.412361",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.331594",
+      "speaker": "Tendai Zengeni",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0002",
       "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
       "video_id": "q21",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 55.8,
       "end": 108.3,
@@ -171,7 +175,7 @@
         16,
         17
       ],
-      "created_at": "2026-06-16T12:54:12.762729",
+      "created_at": "2026-07-03T10:35:19.680123",
       "keywords": [
         "youth",
         "conference",
@@ -266,14 +270,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.416997",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.336316",
+      "speaker": "Tendai Zengeni",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0003",
       "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
       "video_id": "q21",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 108.3,
       "end": 166.52,
@@ -290,7 +296,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:12.762964",
+      "created_at": "2026-07-03T10:35:19.682083",
       "keywords": [
         "youth",
         "creative",
@@ -377,14 +383,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.422152",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.341849",
+      "speaker": "Tendai Zengeni",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0004",
       "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
       "video_id": "q21",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 166.52,
       "end": 231.86,
@@ -401,7 +409,7 @@
         32,
         33
       ],
-      "created_at": "2026-06-16T12:54:12.763203",
+      "created_at": "2026-07-03T10:35:19.683973",
       "keywords": [
         "youth",
         "creativity",
@@ -489,14 +497,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.427107",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.347504",
+      "speaker": "Tendai Zengeni",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0005",
       "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
       "video_id": "q21",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 231.86,
       "end": 292.55,
@@ -513,7 +523,7 @@
         40,
         41
       ],
-      "created_at": "2026-06-16T12:54:12.763429",
+      "created_at": "2026-07-03T10:35:19.685904",
       "keywords": [
         "misinformation",
         "youth",
@@ -622,14 +632,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.431948",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.352648",
+      "speaker": "Tendai Zengeni",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0006",
       "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
       "video_id": "q21",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 292.55,
       "end": 352.53,
@@ -646,7 +658,7 @@
         48,
         49
       ],
-      "created_at": "2026-06-16T12:54:12.763704",
+      "created_at": "2026-07-03T10:35:19.688076",
       "keywords": [
         "youth",
         "ethics",
@@ -756,14 +768,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.437121",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.358141",
+      "speaker": "Tendai Zengeni",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0007",
       "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
       "video_id": "q21",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 352.53,
       "end": 413.78,
@@ -781,7 +795,7 @@
         57,
         58
       ],
-      "created_at": "2026-06-16T12:54:12.763938",
+      "created_at": "2026-07-03T10:35:19.690059",
       "keywords": [
         "governance",
         "policy",
@@ -892,14 +906,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.442195",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.363306",
+      "speaker": "Tendai Zengeni",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
       "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
       "video_id": "q21",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 413.78,
       "end": 467.42,
@@ -914,7 +930,7 @@
         63,
         64
       ],
-      "created_at": "2026-06-16T12:54:12.764122",
+      "created_at": "2026-07-03T10:35:19.692007",
       "keywords": [
         "youth",
         "policy",
@@ -1025,11 +1041,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.446905",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.367816",
+      "speaker": "Tendai Zengeni",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:17.446914"
+  "classified_at": "2026-07-03T11:40:08.367823"
 }

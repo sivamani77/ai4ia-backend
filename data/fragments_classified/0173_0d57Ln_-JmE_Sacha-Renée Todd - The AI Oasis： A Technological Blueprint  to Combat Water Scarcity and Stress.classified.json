@@ -3,11 +3,11 @@
   "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
   "video_id": "0d57Ln",
   "fragment_count": 12,
-  "created_at": "2026-06-16T12:54:13.743463",
+  "created_at": "2026-07-03T10:35:25.954471",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0001",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 0.21,
       "end": 59.0,
@@ -34,7 +36,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:13.740307",
+      "created_at": "2026-07-03T10:35:25.925541",
       "keywords": [
         "agriculture",
         "water",
@@ -97,14 +99,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.232583",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.050153",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0002",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 59.0,
       "end": 119.14,
@@ -122,7 +126,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.740561",
+      "created_at": "2026-07-03T10:35:25.928014",
       "keywords": [
         "accessibility",
         "climate",
@@ -223,14 +227,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.237858",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.055749",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0003",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 119.14,
       "end": 184.03,
@@ -249,7 +255,7 @@
         27,
         28
       ],
-      "created_at": "2026-06-16T12:54:13.740844",
+      "created_at": "2026-07-03T10:35:25.931260",
       "keywords": [
         "disease",
         "climate",
@@ -340,14 +346,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.244035",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.061468",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0004",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 184.03,
       "end": 245.02,
@@ -365,7 +373,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:13.741089",
+      "created_at": "2026-07-03T10:35:25.933489",
       "keywords": [
         "water",
         "cholera",
@@ -420,14 +428,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.249570",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.066688",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0005",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 245.02,
       "end": 305.46,
@@ -445,7 +455,7 @@
         45,
         46
       ],
-      "created_at": "2026-06-16T12:54:13.741339",
+      "created_at": "2026-07-03T10:35:25.935978",
       "keywords": [
         "health",
         "water",
@@ -528,14 +538,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.254636",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.072043",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0006",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 305.46,
       "end": 369.43,
@@ -554,7 +566,7 @@
         55,
         56
       ],
-      "created_at": "2026-06-16T12:54:13.741635",
+      "created_at": "2026-07-03T10:35:25.938410",
       "keywords": [
         "water",
         "rainfall",
@@ -617,14 +629,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.260212",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.077783",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0007",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 369.43,
       "end": 426.26,
@@ -643,7 +657,7 @@
         65,
         66
       ],
-      "created_at": "2026-06-16T12:54:13.741911",
+      "created_at": "2026-07-03T10:35:25.940498",
       "keywords": [
         "water",
         "early warning",
@@ -708,14 +722,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.266657",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.083054",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0008",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 426.26,
       "end": 490.01,
@@ -736,7 +752,7 @@
         77,
         78
       ],
-      "created_at": "2026-06-16T12:54:13.742217",
+      "created_at": "2026-07-03T10:35:25.942575",
       "keywords": [
         "agriculture",
         "sustainability",
@@ -806,14 +822,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.275896",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.088663",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0009",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 9,
       "start": 490.01,
       "end": 542.88,
@@ -832,7 +850,7 @@
         87,
         88
       ],
-      "created_at": "2026-06-16T12:54:13.742480",
+      "created_at": "2026-07-03T10:35:25.944759",
       "keywords": [
         "climate",
         "water",
@@ -900,14 +918,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.285113",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.093978",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0010",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 10,
       "start": 542.88,
       "end": 593.5,
@@ -926,7 +946,7 @@
         97,
         98
       ],
-      "created_at": "2026-06-16T12:54:13.742735",
+      "created_at": "2026-07-03T10:35:25.946877",
       "keywords": [
         "artificial intelligence",
         "water",
@@ -970,14 +990,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.294022",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.098915",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0011",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 11,
       "start": 593.5,
       "end": 667.23,
@@ -999,7 +1021,7 @@
         110,
         111
       ],
-      "created_at": "2026-06-16T12:54:13.743081",
+      "created_at": "2026-07-03T10:35:25.948901",
       "keywords": [
         "water",
         "rainfall",
@@ -1113,14 +1135,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.302693",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.104913",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress_0012",
       "source_video": "0173_0d57Ln_-JmE_Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and Stress",
       "video_id": "0d57Ln",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 12,
       "start": 667.23,
       "end": 728.49,
@@ -1141,7 +1165,7 @@
         122,
         123
       ],
-      "created_at": "2026-06-16T12:54:13.743444",
+      "created_at": "2026-07-03T10:35:25.954433",
       "keywords": [
         "artificial intelligence",
         "accessibility",
@@ -1248,11 +1272,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.309420",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.110171",
+      "speaker": "Sacha-Renée Todd",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:32.309431"
+  "classified_at": "2026-07-03T11:40:23.110182"
 }

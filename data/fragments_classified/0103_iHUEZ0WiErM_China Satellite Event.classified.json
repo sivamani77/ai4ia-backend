@@ -3,11 +3,11 @@
   "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
   "video_id": "iHUEZ0WiErM",
   "fragment_count": 14,
-  "created_at": "2026-06-16T12:54:13.395579",
+  "created_at": "2026-07-03T10:35:23.598310",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0001",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 1,
       "start": 443.98,
       "end": 534.08,
@@ -28,7 +30,7 @@
         2,
         3
       ],
-      "created_at": "2026-06-16T12:54:13.390968",
+      "created_at": "2026-07-03T10:35:23.584676",
       "keywords": [
         "welcome",
         "viewers",
@@ -65,14 +67,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.65,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.820262",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.513107",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0002",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 2,
       "start": 534.08,
       "end": 638.28,
@@ -96,7 +100,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.391290",
+      "created_at": "2026-07-03T10:35:23.585310",
       "keywords": [
         "students",
         "research",
@@ -204,14 +208,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.826790",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.519567",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0003",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 3,
       "start": 638.28,
       "end": 697.71,
@@ -227,7 +233,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:13.391515",
+      "created_at": "2026-07-03T10:35:23.585816",
       "keywords": [
         "human rights",
         "rights",
@@ -286,14 +292,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.832758",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.525982",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0004",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 4,
       "start": 697.71,
       "end": 743.96,
@@ -312,7 +320,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.391788",
+      "created_at": "2026-07-03T10:35:23.586295",
       "keywords": [
         "university",
         "culture",
@@ -416,14 +424,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.838111",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.531616",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0005",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 5,
       "start": 743.96,
       "end": 820.38,
@@ -451,7 +461,7 @@
         53,
         54
       ],
-      "created_at": "2026-06-16T12:54:13.392299",
+      "created_at": "2026-07-03T10:35:23.587073",
       "keywords": [
         "inclusive",
         "build",
@@ -496,14 +506,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.667,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.843984",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.537602",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0006",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 6,
       "start": 820.5,
       "end": 870.93,
@@ -532,7 +544,7 @@
         73,
         74
       ],
-      "created_at": "2026-06-16T12:54:13.392763",
+      "created_at": "2026-07-03T10:35:23.587822",
       "keywords": [
         "human rights",
         "education",
@@ -640,14 +652,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.850397",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.544478",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0007",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 7,
       "start": 870.93,
       "end": 934.39,
@@ -673,7 +687,7 @@
         90,
         91
       ],
-      "created_at": "2026-06-16T12:54:13.393207",
+      "created_at": "2026-07-03T10:35:23.588482",
       "keywords": [
         "truth",
         "cultural",
@@ -744,14 +758,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.857983",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.551196",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0008",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 8,
       "start": 934.39,
       "end": 980.85,
@@ -773,7 +789,7 @@
         103,
         104
       ],
-      "created_at": "2026-06-16T12:54:13.393562",
+      "created_at": "2026-07-03T10:35:23.589053",
       "keywords": [
         "education",
         "cultural",
@@ -834,14 +850,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.863434",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.556344",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0009",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 9,
       "start": 980.95,
       "end": 1043.77,
@@ -866,7 +884,7 @@
         119,
         120
       ],
-      "created_at": "2026-06-16T12:54:13.393949",
+      "created_at": "2026-07-03T10:35:23.589668",
       "keywords": [
         "education",
         "research",
@@ -969,14 +987,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.869544",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.562866",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0010",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 10,
       "start": 1043.77,
       "end": 1098.8,
@@ -1001,7 +1021,7 @@
         135,
         136
       ],
-      "created_at": "2026-06-16T12:54:13.394309",
+      "created_at": "2026-07-03T10:35:23.590219",
       "keywords": [
         "accessibility",
         "news",
@@ -1106,14 +1126,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.874722",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.568657",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0011",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 11,
       "start": 1098.8,
       "end": 1173.72,
@@ -1134,7 +1156,7 @@
         147,
         148
       ],
-      "created_at": "2026-06-16T12:54:13.394638",
+      "created_at": "2026-07-03T10:35:23.590836",
       "keywords": [
         "artificial intelligence",
         "access to information",
@@ -1251,14 +1273,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.882534",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.575329",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0012",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 12,
       "start": 1173.72,
       "end": 1232.06,
@@ -1278,7 +1302,7 @@
         158,
         159
       ],
-      "created_at": "2026-06-16T12:54:13.394901",
+      "created_at": "2026-07-03T10:35:23.591294",
       "keywords": [
         "accessibility",
         "education",
@@ -1396,14 +1420,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.887800",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.582570",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0013",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 13,
       "start": 1232.06,
       "end": 1290.23,
@@ -1423,7 +1449,7 @@
         169,
         170
       ],
-      "created_at": "2026-06-16T12:54:13.395186",
+      "created_at": "2026-07-03T10:35:23.591836",
       "keywords": [
         "accessibility",
         "disabilities",
@@ -1484,14 +1510,16 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.893179",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.588586",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0014",
       "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
       "video_id": "iHUEZ0WiErM",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
       "fragment_index": 14,
       "start": 1290.23,
       "end": 1364.36,
@@ -1511,7 +1539,7 @@
         180,
         181
       ],
-      "created_at": "2026-06-16T12:54:13.395556",
+      "created_at": "2026-07-03T10:35:23.598228",
       "keywords": [
         "content",
         "information",
@@ -1627,11 +1655,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:26.900220",
-      "video_year": 2024,
-      "video_upload_date": "20241125"
+      "classified_at": "2026-07-03T11:40:17.594559",
+      "speaker": "Dr. Zhu Zhai Zhang",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:26.900233"
+  "classified_at": "2026-07-03T11:40:17.594573"
 }

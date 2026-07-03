@@ -3,11 +3,11 @@
   "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
   "video_id": "e1PJUdUiMXk",
   "fragment_count": 20,
-  "created_at": "2026-06-16T12:54:13.653776",
+  "created_at": "2026-07-03T10:35:25.324936",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0001",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 0.75,
       "end": 57.88,
@@ -29,7 +31,7 @@
         3,
         4
       ],
-      "created_at": "2026-06-16T12:54:13.650355",
+      "created_at": "2026-07-03T10:35:25.283590",
       "keywords": [
         "ethics",
         "research",
@@ -138,14 +140,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.904766",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.705878",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0002",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 57.88,
       "end": 125.07,
@@ -157,7 +161,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:13.650523",
+      "created_at": "2026-07-03T10:35:25.286119",
       "keywords": [
         "governance",
         "justice",
@@ -267,14 +271,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.910181",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.711954",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0003",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 125.07,
       "end": 199.14,
@@ -288,7 +294,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:13.650731",
+      "created_at": "2026-07-03T10:35:25.288320",
       "keywords": [
         "policy",
         "research",
@@ -384,14 +390,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.915700",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.718075",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0004",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 200.14,
       "end": 259.33,
@@ -404,7 +412,7 @@
         15,
         16
       ],
-      "created_at": "2026-06-16T12:54:13.650933",
+      "created_at": "2026-07-03T10:35:25.290842",
       "keywords": [
         "justice",
         "communities",
@@ -470,14 +478,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.921471",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.724202",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0005",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 259.33,
       "end": 326.81,
@@ -489,7 +499,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:13.651083",
+      "created_at": "2026-07-03T10:35:25.293432",
       "keywords": [
         "research",
         "justice",
@@ -572,14 +582,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.926667",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.729569",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0006",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 326.81,
       "end": 397.13,
@@ -592,7 +604,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:13.651275",
+      "created_at": "2026-07-03T10:35:25.295827",
       "keywords": [
         "inclusive",
         "justice",
@@ -669,14 +681,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.932568",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.735748",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0007",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 397.13,
       "end": 451.13,
@@ -689,7 +703,7 @@
         26,
         27
       ],
-      "created_at": "2026-06-16T12:54:13.651454",
+      "created_at": "2026-07-03T10:35:25.298407",
       "keywords": [
         "justice",
         "court",
@@ -758,14 +772,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.938539",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.741072",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0008",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 451.13,
       "end": 517.13,
@@ -778,7 +794,7 @@
         30,
         31
       ],
-      "created_at": "2026-06-16T12:54:13.651630",
+      "created_at": "2026-07-03T10:35:25.300604",
       "keywords": [
         "equity",
         "justice",
@@ -884,14 +900,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.944565",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.746818",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0009",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 9,
       "start": 517.13,
       "end": 594.13,
@@ -904,7 +922,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:13.651825",
+      "created_at": "2026-07-03T10:35:25.302879",
       "keywords": [
         "global south",
         "policy",
@@ -1004,14 +1022,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.950947",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.753316",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0010",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 10,
       "start": 594.13,
       "end": 650.13,
@@ -1024,7 +1044,7 @@
         38,
         39
       ],
-      "created_at": "2026-06-16T12:54:13.651987",
+      "created_at": "2026-07-03T10:35:25.305136",
       "keywords": [
         "justice",
         "information",
@@ -1108,14 +1128,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.957167",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.758419",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0011",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 11,
       "start": 650.13,
       "end": 717.19,
@@ -1128,7 +1150,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:13.652150",
+      "created_at": "2026-07-03T10:35:25.307246",
       "keywords": [
         "equity",
         "justice",
@@ -1228,14 +1250,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.962407",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.763991",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0012",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 12,
       "start": 717.19,
       "end": 792.19,
@@ -1248,7 +1272,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:13.652345",
+      "created_at": "2026-07-03T10:35:25.309383",
       "keywords": [
         "equity",
         "justice",
@@ -1349,14 +1373,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.968482",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.770449",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0013",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 13,
       "start": 792.19,
       "end": 857.19,
@@ -1369,7 +1395,7 @@
         50,
         51
       ],
-      "created_at": "2026-06-16T12:54:13.652524",
+      "created_at": "2026-07-03T10:35:25.311357",
       "keywords": [
         "equity",
         "empowerment",
@@ -1417,14 +1443,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.973778",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.776169",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0014",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 14,
       "start": 857.19,
       "end": 924.19,
@@ -1436,7 +1464,7 @@
         53,
         54
       ],
-      "created_at": "2026-06-16T12:54:13.652699",
+      "created_at": "2026-07-03T10:35:25.313448",
       "keywords": [
         "equity",
         "justice",
@@ -1517,14 +1545,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.979842",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.782751",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0015",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 15,
       "start": 924.19,
       "end": 989.19,
@@ -1536,7 +1566,7 @@
         56,
         57
       ],
-      "created_at": "2026-06-16T12:54:13.652865",
+      "created_at": "2026-07-03T10:35:25.315261",
       "keywords": [
         "equity",
         "justice",
@@ -1649,14 +1679,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.985346",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.789094",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0016",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 16,
       "start": 989.19,
       "end": 1063.19,
@@ -1669,7 +1701,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:13.653075",
+      "created_at": "2026-07-03T10:35:25.317244",
       "keywords": [
         "justice",
         "transparency",
@@ -1774,14 +1806,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.967,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.991553",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.795695",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0017",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 17,
       "start": 1063.19,
       "end": 1145.19,
@@ -1795,7 +1829,7 @@
         65,
         66
       ],
-      "created_at": "2026-06-16T12:54:13.653278",
+      "created_at": "2026-07-03T10:35:25.319349",
       "keywords": [
         "justice",
         "marginalized",
@@ -1854,14 +1888,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:30.997085",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.801880",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0018",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 18,
       "start": 1145.19,
       "end": 1207.19,
@@ -1874,7 +1910,7 @@
         69,
         70
       ],
-      "created_at": "2026-06-16T12:54:13.653459",
+      "created_at": "2026-07-03T10:35:25.321207",
       "keywords": [
         "knowledge",
         "inclusion",
@@ -1963,14 +1999,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.002729",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.807902",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0019",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 19,
       "start": 1207.19,
       "end": 1278.19,
@@ -1982,7 +2020,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:13.653648",
+      "created_at": "2026-07-03T10:35:25.323016",
       "keywords": [
         "knowledge",
         "marginalized",
@@ -2046,14 +2084,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.009239",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.814983",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice_0020",
       "source_video": "0153_e1PJUdUiMXk_David Leslie - Advancing Data Justice Research and Practice",
       "video_id": "e1PJUdUiMXk",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 20,
       "start": 1278.19,
       "end": 1320.19,
@@ -2065,7 +2105,7 @@
         75,
         76
       ],
-      "created_at": "2026-06-16T12:54:13.653761",
+      "created_at": "2026-07-03T10:35:25.324889",
       "keywords": [
         "learning",
         "culture",
@@ -2142,11 +2182,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:31.012919",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:21.818977",
+      "speaker": "David Leslie",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:31.012925"
+  "classified_at": "2026-07-03T11:40:21.818989"
 }

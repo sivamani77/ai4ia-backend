@@ -3,11 +3,11 @@
   "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
   "video_id": "Na4L8xXcusY",
   "fragment_count": 11,
-  "created_at": "2026-06-16T12:54:12.703220",
+  "created_at": "2026-07-03T10:35:19.301274",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0001",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 3.63,
       "end": 64.35,
@@ -42,7 +44,7 @@
         16,
         17
       ],
-      "created_at": "2026-06-16T12:54:12.699483",
+      "created_at": "2026-07-03T10:35:19.276189",
       "keywords": [
         "creative",
         "creativity",
@@ -117,14 +119,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.520870",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.414392",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0002",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 64.35,
       "end": 121.46,
@@ -148,7 +152,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:12.699811",
+      "created_at": "2026-07-03T10:35:19.278563",
       "keywords": [
         "content",
         "artist",
@@ -188,14 +192,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.525488",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.419587",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0003",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 121.46,
       "end": 172.54,
@@ -219,7 +225,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:12.700134",
+      "created_at": "2026-07-03T10:35:19.281554",
       "keywords": [
         "any",
         "never",
@@ -256,14 +262,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.529845",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.424829",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0004",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 173.38,
       "end": 224.22,
@@ -290,7 +298,7 @@
         64,
         65
       ],
-      "created_at": "2026-06-16T12:54:12.700541",
+      "created_at": "2026-07-03T10:35:19.283854",
       "keywords": [
         "creative",
         "music",
@@ -377,14 +385,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.534291",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.430389",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0005",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 224.22,
       "end": 277.18,
@@ -410,7 +420,7 @@
         81,
         82
       ],
-      "created_at": "2026-06-16T12:54:12.700929",
+      "created_at": "2026-07-03T10:35:19.285982",
       "keywords": [
         "creative",
         "language",
@@ -470,14 +480,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.538847",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.436815",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0006",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 277.18,
       "end": 332.56,
@@ -505,7 +517,7 @@
         100,
         101
       ],
-      "created_at": "2026-06-16T12:54:12.701339",
+      "created_at": "2026-07-03T10:35:19.288069",
       "keywords": [
         "content",
         "conference",
@@ -593,14 +605,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.543469",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.444688",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0007",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 333.36,
       "end": 386.29,
@@ -628,7 +642,7 @@
         119,
         120
       ],
-      "created_at": "2026-06-16T12:54:12.701730",
+      "created_at": "2026-07-03T10:35:19.290093",
       "keywords": [
         "creative",
         "culture",
@@ -709,14 +723,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.547959",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.449926",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0008",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 387.2,
       "end": 443.63,
@@ -740,7 +756,7 @@
         134,
         135
       ],
-      "created_at": "2026-06-16T12:54:12.702077",
+      "created_at": "2026-07-03T10:35:19.292075",
       "keywords": [
         "creative",
         "creativity",
@@ -794,14 +810,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.552910",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.455175",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0009",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 444.27,
       "end": 495.82,
@@ -825,7 +843,7 @@
         149,
         150
       ],
-      "created_at": "2026-06-16T12:54:12.702420",
+      "created_at": "2026-07-03T10:35:19.294144",
       "keywords": [
         "creative",
         "culture",
@@ -883,14 +901,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.558584",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.460974",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0010",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 496.8,
       "end": 554.38,
@@ -914,7 +934,7 @@
         164,
         165
       ],
-      "created_at": "2026-06-16T12:54:12.702783",
+      "created_at": "2026-07-03T10:35:19.296121",
       "keywords": [
         "creative",
         "culture",
@@ -962,14 +982,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.563291",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.468367",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025_0011",
       "source_video": "0022_Na4L8xXcusY_Lloyd_Laing_-_UNESCO_AI4IA_2025",
       "video_id": "Na4L8xXcusY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 11,
       "start": 555.82,
       "end": 614.22,
@@ -992,7 +1014,7 @@
         178,
         179
       ],
-      "created_at": "2026-06-16T12:54:12.703195",
+      "created_at": "2026-07-03T10:35:19.301240",
       "keywords": [
         "creativity",
         "values",
@@ -1070,11 +1092,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.568364",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.473744",
+      "speaker": "Lloyd Laing",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:16.568370"
+  "classified_at": "2026-07-03T11:40:07.473756"
 }

@@ -3,11 +3,11 @@
   "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
   "video_id": "iV4oapjVTuY",
   "fragment_count": 23,
-  "created_at": "2026-06-16T12:54:12.744106",
+  "created_at": "2026-07-03T10:35:19.579167",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0001",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 6.03,
       "end": 59.24,
@@ -28,7 +30,7 @@
         2,
         3
       ],
-      "created_at": "2026-06-16T12:54:12.740464",
+      "created_at": "2026-07-03T10:35:19.538436",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -144,14 +146,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.068445",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.983915",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0002",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 59.24,
       "end": 105.24,
@@ -162,7 +166,7 @@
         4,
         5
       ],
-      "created_at": "2026-06-16T12:54:12.740646",
+      "created_at": "2026-07-03T10:35:19.540362",
       "keywords": [
         "open data",
         "information",
@@ -262,14 +266,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.073683",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.989728",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0003",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 105.24,
       "end": 154.24,
@@ -283,7 +289,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:12.740870",
+      "created_at": "2026-07-03T10:35:19.542295",
       "keywords": [
         "open data",
         "information",
@@ -375,14 +381,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.080973",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.996753",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0004",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 154.24,
       "end": 203.24,
@@ -395,7 +403,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:12.741031",
+      "created_at": "2026-07-03T10:35:19.544093",
       "keywords": [
         "open data",
         "information",
@@ -488,14 +496,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.085969",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.002261",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0005",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 203.24,
       "end": 261.24,
@@ -508,7 +518,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:12.741213",
+      "created_at": "2026-07-03T10:35:19.546010",
       "keywords": [
         "artificial intelligence",
         "open data",
@@ -570,14 +580,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.091224",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.007922",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0006",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 261.24,
       "end": 322.24,
@@ -591,7 +603,7 @@
         22,
         23
       ],
-      "created_at": "2026-06-16T12:54:12.741434",
+      "created_at": "2026-07-03T10:35:19.547906",
       "keywords": [
         "data",
         "access",
@@ -637,14 +649,16 @@
       "narration_support_score": 0.65,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.096756",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.013623",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0007",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 322.24,
       "end": 378.24,
@@ -656,7 +670,7 @@
         25,
         26
       ],
-      "created_at": "2026-06-16T12:54:12.741597",
+      "created_at": "2026-07-03T10:35:19.549677",
       "keywords": [
         "climate",
         "training",
@@ -736,14 +750,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.102281",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.018916",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0008",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 378.24,
       "end": 452.24,
@@ -755,7 +771,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:12.741787",
+      "created_at": "2026-07-03T10:35:19.551480",
       "keywords": [
         "content",
         "knowledge",
@@ -836,14 +852,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.108567",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.025360",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0009",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 452.24,
       "end": 514.24,
@@ -855,7 +873,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:12.741964",
+      "created_at": "2026-07-03T10:35:19.553384",
       "keywords": [
         "open data",
         "environment",
@@ -955,14 +973,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.113923",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.031282",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0010",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 514.24,
       "end": 578.33,
@@ -974,7 +994,7 @@
         34,
         35
       ],
-      "created_at": "2026-06-16T12:54:12.742146",
+      "created_at": "2026-07-03T10:35:19.555201",
       "keywords": [
         "open data",
         "data",
@@ -1021,14 +1041,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.119356",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.036996",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0011",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 11,
       "start": 578.33,
       "end": 627.33,
@@ -1039,7 +1061,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:12.742276",
+      "created_at": "2026-07-03T10:35:19.556966",
       "keywords": [
         "open data",
         "training",
@@ -1106,14 +1128,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.123888",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.041963",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0012",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 12,
       "start": 627.33,
       "end": 675.33,
@@ -1124,7 +1148,7 @@
         38,
         39
       ],
-      "created_at": "2026-06-16T12:54:12.742408",
+      "created_at": "2026-07-03T10:35:19.558918",
       "keywords": [
         "open data",
         "environment",
@@ -1201,14 +1225,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.129081",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.047665",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0013",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 13,
       "start": 675.33,
       "end": 725.33,
@@ -1219,7 +1245,7 @@
         40,
         41
       ],
-      "created_at": "2026-06-16T12:54:12.742534",
+      "created_at": "2026-07-03T10:35:19.560678",
       "keywords": [
         "open data",
         "language",
@@ -1292,14 +1318,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.133769",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.053149",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0014",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 14,
       "start": 725.33,
       "end": 776.33,
@@ -1310,7 +1338,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:12.742675",
+      "created_at": "2026-07-03T10:35:19.562447",
       "keywords": [
         "open data",
         "accessible",
@@ -1368,14 +1396,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.138703",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.058432",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0015",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 15,
       "start": 776.33,
       "end": 828.33,
@@ -1386,7 +1416,7 @@
         44,
         45
       ],
-      "created_at": "2026-06-16T12:54:12.742823",
+      "created_at": "2026-07-03T10:35:19.564218",
       "keywords": [
         "open data",
         "diverse",
@@ -1447,14 +1477,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.144980",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.063907",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0016",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 16,
       "start": 828.33,
       "end": 890.33,
@@ -1466,7 +1498,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:12.743003",
+      "created_at": "2026-07-03T10:35:19.566196",
       "keywords": [
         "open data",
         "framework",
@@ -1549,14 +1581,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.151991",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.070511",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0017",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 17,
       "start": 891.33,
       "end": 950.33,
@@ -1567,7 +1601,7 @@
         49,
         50
       ],
-      "created_at": "2026-06-16T12:54:12.743174",
+      "created_at": "2026-07-03T10:35:19.568211",
       "keywords": [
         "climate",
         "institutional",
@@ -1630,14 +1664,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.158249",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.076721",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0018",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 18,
       "start": 950.33,
       "end": 1025.36,
@@ -1649,7 +1685,7 @@
         52,
         53
       ],
-      "created_at": "2026-06-16T12:54:12.743409",
+      "created_at": "2026-07-03T10:35:19.570097",
       "keywords": [
         "information accessibility",
         "open data",
@@ -1742,14 +1778,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.165927",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.084102",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0019",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 19,
       "start": 1026.36,
       "end": 1075.46,
@@ -1760,7 +1798,7 @@
         54,
         55
       ],
-      "created_at": "2026-06-16T12:54:12.743539",
+      "created_at": "2026-07-03T10:35:19.571857",
       "keywords": [
         "open data",
         "environment",
@@ -1870,14 +1908,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.170545",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.089075",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0020",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 20,
       "start": 1075.46,
       "end": 1130.49,
@@ -1888,7 +1928,7 @@
         56,
         57
       ],
-      "created_at": "2026-06-16T12:54:12.743694",
+      "created_at": "2026-07-03T10:35:19.573630",
       "keywords": [
         "open data",
         "governance",
@@ -1992,14 +2032,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.175531",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.094435",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0021",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 21,
       "start": 1131.49,
       "end": 1179.49,
@@ -2010,7 +2052,7 @@
         58,
         59
       ],
-      "created_at": "2026-06-16T12:54:12.743819",
+      "created_at": "2026-07-03T10:35:19.575387",
       "keywords": [
         "open data",
         "competition",
@@ -2117,14 +2159,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.180098",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.099273",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0022",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 22,
       "start": 1179.49,
       "end": 1235.72,
@@ -2135,7 +2179,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:12.743958",
+      "created_at": "2026-07-03T10:35:19.577284",
       "keywords": [
         "open data",
         "accessibility",
@@ -2208,14 +2252,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.185483",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.104483",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility_0023",
       "source_video": "0030_iV4oapjVTuY_Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibility",
       "video_id": "iV4oapjVTuY",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 23,
       "start": 1235.72,
       "end": 1283.72,
@@ -2226,7 +2272,7 @@
         62,
         63
       ],
-      "created_at": "2026-06-16T12:54:12.744088",
+      "created_at": "2026-07-03T10:35:19.579139",
       "keywords": [
         "open data",
         "conference",
@@ -2282,11 +2328,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:17.191617",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:08.108865",
+      "speaker": "Stefaan G Verhulst",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:17.191630"
+  "classified_at": "2026-07-03T11:40:08.108877"
 }

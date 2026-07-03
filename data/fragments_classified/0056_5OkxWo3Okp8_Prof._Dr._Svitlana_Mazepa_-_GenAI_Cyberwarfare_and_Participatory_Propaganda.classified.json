@@ -3,11 +3,11 @@
   "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
   "video_id": "5OkxWo3Okp8",
   "fragment_count": 10,
-  "created_at": "2026-06-16T12:54:12.928438",
+  "created_at": "2026-07-03T10:35:20.550028",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0001",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 20.4,
       "end": 104.81,
@@ -33,7 +35,7 @@
         7,
         8
       ],
-      "created_at": "2026-06-16T12:54:12.926761",
+      "created_at": "2026-07-03T10:35:20.521444",
       "keywords": [
         "artificial intelligence",
         "information integrity",
@@ -144,14 +146,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.091806",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.784143",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0002",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 104.81,
       "end": 190.25,
@@ -172,7 +176,7 @@
         19,
         20
       ],
-      "created_at": "2026-06-16T12:54:12.927028",
+      "created_at": "2026-07-03T10:35:20.523725",
       "keywords": [
         "artificial intelligence",
         "propaganda",
@@ -279,14 +283,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.096563",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.789105",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0003",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 190.25,
       "end": 265.69,
@@ -304,7 +310,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:12.927259",
+      "created_at": "2026-07-03T10:35:20.525726",
       "keywords": [
         "disinformation",
         "regulation",
@@ -414,14 +420,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.101671",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.794173",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0004",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 265.69,
       "end": 346.15,
@@ -438,7 +446,7 @@
         36,
         37
       ],
-      "created_at": "2026-06-16T12:54:12.927464",
+      "created_at": "2026-07-03T10:35:20.528678",
       "keywords": [
         "artificial intelligence",
         "disinformation",
@@ -553,14 +561,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.106109",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.798974",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0005",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 346.15,
       "end": 418.08,
@@ -575,7 +585,7 @@
         42,
         43
       ],
-      "created_at": "2026-06-16T12:54:12.927681",
+      "created_at": "2026-07-03T10:35:20.532591",
       "keywords": [
         "artificial intelligence",
         "law",
@@ -680,14 +690,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.111213",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.804285",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0006",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 418.08,
       "end": 507.68,
@@ -700,7 +712,7 @@
         46,
         47
       ],
-      "created_at": "2026-06-16T12:54:12.927854",
+      "created_at": "2026-07-03T10:35:20.536286",
       "keywords": [
         "disinformation",
         "propaganda",
@@ -802,14 +814,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.116287",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.809520",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0007",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 507.68,
       "end": 585.59,
@@ -822,7 +836,7 @@
         50,
         51
       ],
-      "created_at": "2026-06-16T12:54:12.928002",
+      "created_at": "2026-07-03T10:35:20.539861",
       "keywords": [
         "artificial intelligence",
         "media",
@@ -910,14 +924,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.120646",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.814208",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0008",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 585.59,
       "end": 670.22,
@@ -930,7 +946,7 @@
         54,
         55
       ],
-      "created_at": "2026-06-16T12:54:12.928185",
+      "created_at": "2026-07-03T10:35:20.543519",
       "keywords": [
         "artificial intelligence",
         "propaganda",
@@ -1010,14 +1026,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.126181",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.820146",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0009",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 670.22,
       "end": 758.44,
@@ -1030,7 +1048,7 @@
         58,
         59
       ],
-      "created_at": "2026-06-16T12:54:12.928378",
+      "created_at": "2026-07-03T10:35:20.547323",
       "keywords": [
         "regulation",
         "health",
@@ -1148,14 +1166,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.131593",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.825676",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda_0010",
       "source_video": "0056_5OkxWo3Okp8_Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda",
       "video_id": "5OkxWo3Okp8",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 758.44,
       "end": 790.6,
@@ -1165,7 +1185,7 @@
       "source_segment_ids": [
         60
       ],
-      "created_at": "2026-06-16T12:54:12.928422",
+      "created_at": "2026-07-03T10:35:20.549988",
       "keywords": [],
       "summary": "So here, just a few questions and there are a lot of much more.",
       "theme_tags": [
@@ -1196,11 +1216,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.367,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.133380",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.827455",
+      "speaker": "Prof. Dr. Svitlana Mazepa",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:20.133385"
+  "classified_at": "2026-07-03T11:40:10.827462"
 }

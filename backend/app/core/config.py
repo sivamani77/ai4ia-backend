@@ -8,8 +8,8 @@ REDIS_URL = settings.redis_url
 SUPABASE_URL = settings.supabase_url
 SUPABASE_SERVICE_KEY = settings.supabase_service_key
 
-EMBEDDING_MODEL = "nomic-embed-text:v1.5"
-FAST_LLM_MODEL = "llama3.1:8b"
+EMBEDDING_MODEL = settings.embedding_model
+FAST_LLM_MODEL = settings.fast_llm_model
 SPEAKER_EXTRACTION_MODEL = settings.speaker_extraction_model
 
 VLLM_BASE_URL = settings.vllm_base_url

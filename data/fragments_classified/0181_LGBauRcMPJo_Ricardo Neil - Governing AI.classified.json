@@ -3,11 +3,11 @@
   "source_video": "0181_LGBauRcMPJo_Ricardo Neil - Governing AI",
   "video_id": "LGBauRcMPJo",
   "fragment_count": 3,
-  "created_at": "2026-06-16T12:54:13.779966",
+  "created_at": "2026-07-03T10:35:26.200557",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0181_LGBauRcMPJo_Ricardo Neil - Governing AI_0001",
       "source_video": "0181_LGBauRcMPJo_Ricardo Neil - Governing AI",
       "video_id": "LGBauRcMPJo",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 0.4,
       "end": 58.02,
@@ -35,7 +37,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.779363",
+      "created_at": "2026-07-03T10:35:26.192526",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -144,14 +146,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.819476",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.626579",
+      "speaker": "Ricardo Neil",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0181_LGBauRcMPJo_Ricardo Neil - Governing AI_0002",
       "source_video": "0181_LGBauRcMPJo_Ricardo Neil - Governing AI",
       "video_id": "LGBauRcMPJo",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 58.02,
       "end": 126.45,
@@ -168,7 +172,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:13.779598",
+      "created_at": "2026-07-03T10:35:26.194656",
       "keywords": [
         "artificial intelligence",
         "information",
@@ -258,14 +262,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.824793",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.631870",
+      "speaker": "Ricardo Neil",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0181_LGBauRcMPJo_Ricardo Neil - Governing AI_0003",
       "source_video": "0181_LGBauRcMPJo_Ricardo Neil - Governing AI",
       "video_id": "LGBauRcMPJo",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 126.45,
       "end": 208.96,
@@ -284,7 +290,7 @@
         27,
         28
       ],
-      "created_at": "2026-06-16T12:54:13.779953",
+      "created_at": "2026-07-03T10:35:26.200526",
       "keywords": [
         "information accessibility",
         "governance",
@@ -398,11 +404,11 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.830974",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.637704",
+      "speaker": "Ricardo Neil",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:32.830984"
+  "classified_at": "2026-07-03T11:40:23.637712"
 }

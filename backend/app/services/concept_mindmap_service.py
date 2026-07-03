@@ -1,11 +1,16 @@
 import json
+import logging
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
+from app.core.config import VLLM_MODEL
 from app.core.paths import STORYLINES_DIR
 from app.services import fragment_store
+from app.services.llm_service import generate_json
+
+logger = logging.getLogger("ai4ia.services.concept_mindmap")
 
 
 _GENERIC_CONCEPT_TERMS = {
@@ -63,8 +68,531 @@ _TERM_SYNONYMS = {
 }
 
 
-def generate_concept_mindmap(query: str, storyline_id: str | None = None) -> dict[str, Any]:
+def generate_concept_mindmap(
+    query: str,
+    storyline_id: str | None = None,
+    mode: str = "video",
+) -> dict[str, Any]:
+    """Build a mindmap for a generated documentary video.
+
+    mode="video" (default): NotebookLM-style — the map explains what the video
+    itself says (its ideas, arguments, evidence, and how the narrative unfolds),
+    with themes/chapters and speakers as supporting branches. Falls back to the
+    legacy theme-centric map if the LLM extraction fails.
+
+    mode="legacy": the original theme/section-centric heuristic map.
+    """
     payload, source_path = _resolve_storyline(query, storyline_id)
+    if mode != "legacy":
+        try:
+            return _generate_video_mindmap(query, payload, source_path)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning(
+                "Video-centric mindmap failed (%s); falling back to theme-centric map", exc
+            )
+    return _generate_theme_mindmap(query, payload, source_path)
+
+
+# ---------------------------------------------------------------------------
+# Video-centric (NotebookLM-style) mindmap
+# ---------------------------------------------------------------------------
+
+_VIDEO_MINDMAP_PROMPT = """You are building a NotebookLM-style mind map that explains a documentary video to someone who has not watched it.
+
+Below is the video's complete script in playback order: the narrator's voiceover and the speakers' on-screen quotes.
+
+Build the mind map around WHAT THE VIDEO ACTUALLY SAYS — its ideas, arguments, evidence, and message — not around production structure, chapters, or who appears in it. Never invent facts that are not in the script.
+
+Return ONLY valid JSON with exactly this shape:
+{{
+  "video_overview": "2-3 sentences explaining what this video is about and what it argues",
+  "key_takeaway": "the single most important message of the video, one sentence",
+  "main_ideas": [
+    {{
+      "title": "short noun phrase, 3-6 words",
+      "summary": "2-3 sentences on what the video says about this idea",
+      "why_it_matters": "1-2 sentences on why the video treats this as important",
+      "key_points": [
+        {{
+          "title": "short label, 3-8 words",
+          "explanation": "1-2 sentences grounded in the script",
+          "supporting_quote": "a quote copied verbatim from the script, or empty string",
+          "speaker": "name of the person quoted, or empty string"
+        }}
+      ]
+    }}
+  ],
+  "narrative_flow": ["3-5 short steps describing how the video's argument unfolds from opening to closing"],
+  "conclusion": "what the video leaves the viewer with, 1-2 sentences"
+}}
+
+Rules:
+- 4 to 7 main_ideas, ordered from most to least central, together covering everything important in the video.
+- 2 to 4 key_points per idea, each grounded in the script.
+- supporting_quote must be an exact substring of a quote in the script when one fits; otherwise use "".
+
+VIDEO TITLE: {title}
+LOGLINE: {logline}
+
+VIDEO SCRIPT (playback order):
+{script}
+"""
+
+_STOPWORDS = {
+    "the", "and", "for", "that", "this", "with", "from", "are", "was", "were",
+    "have", "has", "had", "not", "but", "can", "will", "into", "about", "their",
+    "them", "they", "these", "those", "when", "what", "how", "who", "why",
+    "more", "most", "than", "its", "our", "your", "his", "her", "she", "him",
+}
+
+
+def _generate_video_mindmap(query: str, payload: dict[str, Any], source_path: Path) -> dict[str, Any]:
+    story = payload.get("storyline") or payload
+    segments = _build_video_script(payload, story)
+    if not segments:
+        raise ValueError("Storyline contains no video script content")
+
+    all_sources = _collect_all_sources(payload)
+    script_text = _render_script(segments)
+
+    prompt = _VIDEO_MINDMAP_PROMPT.format(
+        title=clean_text(story.get("title")) or "Untitled Documentary",
+        logline=clean_text(story.get("logline")) or "",
+        script=script_text,
+    )
+    extraction = generate_json(prompt, model=VLLM_MODEL, temperature=0.2)
+    if not isinstance(extraction, dict) or not extraction.get("main_ideas"):
+        raise ValueError("LLM returned no main_ideas for video mindmap")
+
+    return _assemble_video_mindmap(query, payload, story, source_path, extraction, segments, all_sources)
+
+
+def _build_video_script(payload: dict[str, Any], story: dict[str, Any]) -> list[dict[str, str]]:
+    """Return the video's content in playback order: narration + speaker quotes."""
+    segments: list[dict[str, str]] = []
+    timeline = (
+        payload.get("final_timeline")
+        or story.get("final_timeline")
+        or (story.get("validated_narrative") or {}).get("final_timeline")
+        or []
+    )
+    for item in timeline:
+        kind = clean_text(item.get("segment_type") or item.get("type"))
+        if kind == "speaker_clip":
+            text = clean_text(item.get("quote_text"))
+            if text:
+                segments.append({"kind": "quote", "speaker": clean_text(item.get("speaker")), "text": text})
+        elif kind in {"narration_broll", "narration", "voiceover"}:
+            text = clean_text(item.get("voiceover_text") or item.get("text"))
+            if text:
+                segments.append({"kind": "narration", "speaker": "", "text": text})
+
+    if segments:
+        return segments
+
+    # Fallback: voiceover script + selected soundbites when no final timeline exists.
+    for entry in story.get("voiceover_script") or []:
+        text = clean_text(entry.get("text"))
+        if text:
+            segments.append({"kind": "narration", "speaker": "", "text": text})
+    for bite in story.get("selected_speaker_soundbites") or []:
+        text = clean_text(bite.get("quote_summary"))
+        if text:
+            frag = fragment_store.get(bite.get("fragment_id") or "") or {}
+            segments.append({"kind": "quote", "speaker": clean_text(frag.get("speaker")), "text": text})
+    return segments
+
+
+def _render_script(segments: list[dict[str, str]], max_chars: int = 9000) -> str:
+    lines = []
+    total = 0
+    for idx, seg in enumerate(segments, 1):
+        text = seg["text"][:700]
+        if seg["kind"] == "quote":
+            speaker = seg["speaker"] or "Speaker"
+            line = f'[{idx}] {speaker} (on camera): "{text}"'
+        else:
+            line = f"[{idx}] NARRATOR: {text}"
+        total += len(line)
+        if total > max_chars:
+            break
+        lines.append(line)
+    return "\n".join(lines)
+
+
+def _collect_all_sources(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    """Resolve every evidence fragment used by the storyline into source records."""
+    story = payload.get("storyline") or payload
+    by_fragment = {
+        item.get("fragment_id"): item
+        for item in (payload.get("selected_candidates") or []) + (payload.get("supporting_candidates") or [])
+        if item.get("fragment_id")
+    }
+    fragment_ids: list[str] = list(by_fragment.keys())
+    for section in story.get("sections") or []:
+        fragment_ids.extend(section.get("evidence_fragment_ids") or [])
+        for item in (section.get("speaker_soundbites") or []) + (section.get("archive_visual_fragments") or []):
+            if item.get("fragment_id"):
+                fragment_ids.append(item["fragment_id"])
+    pseudo_section = {"evidence_fragment_ids": fragment_ids}
+    return _resolve_section_sources(pseudo_section, by_fragment)
+
+
+def _content_tokens(text: str) -> set[str]:
+    return {tok for tok in _tokenize(text) if tok not in _STOPWORDS}
+
+
+def _match_sources(text: str, sources: list[dict[str, Any]], limit: int = 4) -> list[dict[str, Any]]:
+    """Ground a node's text against fragment sources by content-token overlap."""
+    target = _content_tokens(text)
+    if not target:
+        return []
+    scored = []
+    for source in sources:
+        haystack = _content_tokens(
+            _join_parts(source.get("summary"), source.get("text"), " ".join(source.get("keywords") or []))
+        )
+        overlap = len(target & haystack)
+        if overlap >= 2:
+            scored.append((overlap, source))
+    scored.sort(key=lambda pair: pair[0], reverse=True)
+    return [source for _, source in scored[:limit]]
+
+
+def _find_quote_source(quote: str, speaker: str, sources: list[dict[str, Any]]) -> dict[str, Any] | None:
+    quote_norm = clean_text(quote).lower()
+    speaker_norm = clean_text(speaker).lower()
+    for source in sources:
+        if quote_norm and quote_norm[:60] in clean_text(source.get("text")).lower():
+            return source
+    if speaker_norm:
+        for source in sources:
+            if speaker_norm == clean_text(source.get("speaker")).lower():
+                return source
+    return None
+
+
+def _assemble_video_mindmap(
+    query: str,
+    payload: dict[str, Any],
+    story: dict[str, Any],
+    source_path: Path,
+    extraction: dict[str, Any],
+    segments: list[dict[str, str]],
+    all_sources: list[dict[str, Any]],
+) -> dict[str, Any]:
+    nodes: list[dict[str, Any]] = []
+    edges: list[dict[str, Any]] = []
+    seen_edges: set[tuple[str, str, str]] = set()
+    counter = {"value": 0}
+
+    video_title = clean_text(story.get("title")) or clean_text(query) or "Documentary Video"
+    overview = clean_text(extraction.get("video_overview")) or clean_text(story.get("logline"))
+    key_takeaway = clean_text(extraction.get("key_takeaway"))
+
+    root_id = _next_id("video", counter)
+    nodes.append(
+        _make_node(
+            node_id=root_id,
+            parent_id=None,
+            title=video_title,
+            node_type="root_topic",
+            summary=overview,
+            details=_join_parts(key_takeaway, story.get("logline"), story.get("central_question")),
+            evidence=[],
+            sources=[],
+            speakers=[],
+            importance=100,
+            relationships=[],
+            quotes=[],
+            examples=[],
+            counterpoints=[],
+        )
+    )
+
+    # Quotes spoken in the video, grouped per speaker, for grounding.
+    script_quotes: list[dict[str, Any]] = [
+        {"text": seg["text"], "speaker": seg["speaker"], "fragment_id": None, "reason": ""}
+        for seg in segments
+        if seg["kind"] == "quote"
+    ]
+
+    # --- Main branches: the ideas the video explains ---------------------
+    idea_nodes: list[dict[str, Any]] = []
+    quote_speaker_to_ideas: dict[str, set[str]] = defaultdict(set)
+    main_ideas = [idea for idea in extraction.get("main_ideas") or [] if isinstance(idea, dict)]
+    for idx, idea in enumerate(main_ideas[:8]):
+        idea_title = clean_text(idea.get("title"))
+        if not idea_title:
+            continue
+        idea_summary = clean_text(idea.get("summary"))
+        idea_sources = _match_sources(_join_parts(idea_title, idea_summary), all_sources)
+        idea_id = _next_id("idea", counter)
+        idea_node = _make_node(
+            node_id=idea_id,
+            parent_id=root_id,
+            title=idea_title,
+            node_type="theme",
+            summary=idea_summary,
+            details=_join_parts(idea_summary, idea.get("why_it_matters")),
+            evidence=_build_evidence_entries(idea_sources),
+            sources=idea_sources,
+            speakers=_merge_people([], [{"name": s.get("speaker")} for s in idea_sources if s.get("speaker")]),
+            importance=max(60, 96 - idx * 6),
+            relationships=[root_id],
+            quotes=[],
+            examples=[],
+            counterpoints=[],
+        )
+        nodes.append(idea_node)
+        idea_nodes.append(idea_node)
+        _add_edge(edges, seen_edges, root_id, idea_id, "hierarchy")
+
+        for point in (idea.get("key_points") or [])[:4]:
+            if not isinstance(point, dict):
+                continue
+            point_title = clean_text(point.get("title"))
+            if not point_title:
+                continue
+            explanation = clean_text(point.get("explanation"))
+            quote_text = clean_text(point.get("supporting_quote"))
+            quote_speaker = clean_text(point.get("speaker"))
+            point_sources = _match_sources(_join_parts(point_title, explanation, quote_text), all_sources)
+            point_quotes = []
+            if quote_text:
+                quote_source = _find_quote_source(quote_text, quote_speaker, all_sources)
+                point_quotes.append(
+                    {
+                        "text": quote_text,
+                        "speaker": quote_speaker or clean_text((quote_source or {}).get("speaker")),
+                        "fragment_id": (quote_source or {}).get("fragment_id"),
+                        "reason": "Spoken in the video",
+                    }
+                )
+                if quote_source:
+                    point_sources = _merge_sources(point_sources, [quote_source])
+                if quote_speaker:
+                    quote_speaker_to_ideas[quote_speaker.lower()].add(idea_id)
+                idea_node["quotes"] = _merge_simple_objects(idea_node["quotes"], point_quotes, "text")
+
+            point_id = _next_id("point", counter)
+            nodes.append(
+                _make_node(
+                    node_id=point_id,
+                    parent_id=idea_id,
+                    title=point_title,
+                    node_type="concept",
+                    summary=explanation,
+                    details=_join_parts(explanation, quote_text and f'In the video: "{quote_text}"'),
+                    evidence=_build_evidence_entries(point_sources),
+                    sources=point_sources,
+                    speakers=_merge_people([], [{"name": quote_speaker}] if quote_speaker else []),
+                    importance=max(45, idea_node["importanceScore"] - 12),
+                    relationships=[idea_id],
+                    quotes=point_quotes,
+                    examples=[],
+                    counterpoints=[],
+                )
+            )
+            _add_edge(edges, seen_edges, idea_id, point_id, "hierarchy")
+
+    if not idea_nodes:
+        raise ValueError("LLM extraction produced no usable main ideas")
+
+    # Narrative order links between consecutive ideas.
+    for left, right in zip(idea_nodes, idea_nodes[1:]):
+        _add_edge(edges, seen_edges, left["id"], right["id"], "related")
+        left["relationships"] = _merge_unique(left["relationships"], [right["id"]])
+
+    # --- Supporting branch: how the video unfolds -------------------------
+    flow_steps = [clean_text(step) for step in extraction.get("narrative_flow") or [] if clean_text(step)]
+    if flow_steps:
+        flow_id = _next_id("flow", counter)
+        nodes.append(
+            _make_node(
+                node_id=flow_id,
+                parent_id=root_id,
+                title="How the Video Unfolds",
+                node_type="subtheme",
+                summary=flow_steps[0],
+                details=" → ".join(flow_steps),
+                evidence=[],
+                sources=[],
+                speakers=[],
+                importance=70,
+                relationships=[root_id],
+                quotes=[],
+                examples=flow_steps,
+                counterpoints=[],
+            )
+        )
+        _add_edge(edges, seen_edges, root_id, flow_id, "hierarchy")
+
+    # --- Supporting branch: voices heard in the video ---------------------
+    speakers_in_video: dict[str, dict[str, Any]] = {}
+    generic_speaker_labels = {"speaker", "panelist", "moderator", "narrator", "unknown"}
+    for quote in script_quotes:
+        name = clean_text(quote.get("speaker"))
+        if not name or name.lower() in generic_speaker_labels:
+            continue
+        rec = speakers_in_video.setdefault(name.lower(), {"name": name, "quotes": []})
+        rec["quotes"] = _merge_simple_objects(rec["quotes"], [quote], "text")
+    if speakers_in_video:
+        voices_id = _next_id("voices", counter)
+        nodes.append(
+            _make_node(
+                node_id=voices_id,
+                parent_id=root_id,
+                title="Voices in the Video",
+                node_type="subtheme",
+                summary=f"{len(speakers_in_video)} speakers appear on camera in this video.",
+                details="The people whose words carry the video's argument.",
+                evidence=[],
+                sources=[],
+                speakers=[{"name": rec["name"]} for rec in speakers_in_video.values()],
+                importance=65,
+                relationships=[root_id],
+                quotes=[],
+                examples=[],
+                counterpoints=[],
+            )
+        )
+        _add_edge(edges, seen_edges, root_id, voices_id, "hierarchy")
+        for key, rec in speakers_in_video.items():
+            speaker_sources = [s for s in all_sources if clean_text(s.get("speaker")).lower() == key]
+            speaker_id = _next_id("speaker", counter)
+            speaker_node = _make_node(
+                node_id=speaker_id,
+                parent_id=voices_id,
+                title=rec["name"],
+                node_type="speaker",
+                summary=f"{rec['name']} speaks on camera in this video.",
+                details=_join_parts(*[f'"{q["text"]}"' for q in rec["quotes"][:2]]),
+                evidence=_build_evidence_entries(speaker_sources),
+                sources=speaker_sources,
+                speakers=[{"name": rec["name"]}],
+                importance=55,
+                relationships=sorted(quote_speaker_to_ideas.get(key, set())),
+                quotes=rec["quotes"],
+                examples=[],
+                counterpoints=[],
+            )
+            nodes.append(speaker_node)
+            _add_edge(edges, seen_edges, voices_id, speaker_id, "hierarchy")
+            for idea_id in quote_speaker_to_ideas.get(key, set()):
+                _add_edge(edges, seen_edges, idea_id, speaker_id, "speaker")
+
+    # --- Supporting branch: themes & chapters the evidence comes from -----
+    theme_counts = Counter()
+    for source in all_sources:
+        for field in ("primary_theme", "primary_chapter"):
+            label = clean_text(source.get(field))
+            if label:
+                theme_counts[label] += 1
+    if theme_counts:
+        themes_id = _next_id("themes", counter)
+        nodes.append(
+            _make_node(
+                node_id=themes_id,
+                parent_id=root_id,
+                title="Themes & Chapters Covered",
+                node_type="subtheme",
+                summary="Where the video's evidence comes from in the AI4IA archive.",
+                details="The archive themes and chapters the video draws its clips and quotes from.",
+                evidence=[],
+                sources=[],
+                speakers=[],
+                importance=60,
+                relationships=[root_id],
+                quotes=[],
+                examples=[],
+                counterpoints=[],
+            )
+        )
+        _add_edge(edges, seen_edges, root_id, themes_id, "hierarchy")
+        for label, count in theme_counts.most_common(6):
+            theme_sources = [
+                s for s in all_sources
+                if label in (clean_text(s.get("primary_theme")), clean_text(s.get("primary_chapter")))
+            ][:4]
+            theme_id = _next_id("archivetheme", counter)
+            nodes.append(
+                _make_node(
+                    node_id=theme_id,
+                    parent_id=themes_id,
+                    title=label,
+                    node_type="concept",
+                    summary=f"{count} evidence fragment{'s' if count != 1 else ''} in the video come from {label}.",
+                    details=_join_parts(*[s.get("summary") for s in theme_sources[:2]]),
+                    evidence=_build_evidence_entries(theme_sources),
+                    sources=theme_sources,
+                    speakers=[],
+                    importance=min(75, 45 + count * 4),
+                    relationships=[themes_id],
+                    quotes=[],
+                    examples=[],
+                    counterpoints=[],
+                )
+            )
+            _add_edge(edges, seen_edges, themes_id, theme_id, "hierarchy")
+
+    # --- Conclusion --------------------------------------------------------
+    conclusion_text = clean_text(extraction.get("conclusion")) or clean_text(story.get("closing_meaning"))
+    if conclusion_text:
+        conclusion_id = _next_id("conclusion", counter)
+        nodes.append(
+            _make_node(
+                node_id=conclusion_id,
+                parent_id=root_id,
+                title="What the Video Leaves You With",
+                node_type="conclusion",
+                summary=conclusion_text,
+                details=_join_parts(conclusion_text, story.get("closing_meaning"), story.get("central_question")),
+                evidence=[],
+                sources=[],
+                speakers=[],
+                importance=88,
+                relationships=[root_id],
+                quotes=[],
+                examples=[],
+                counterpoints=[],
+            )
+        )
+        _add_edge(edges, seen_edges, root_id, conclusion_id, "hierarchy")
+
+    _backfill_related_node_ids(nodes)
+
+    statistics = {
+        "themes": len(idea_nodes),
+        "concepts": sum(1 for n in nodes if n["type"] == "concept"),
+        "quotes": sum(len(n.get("quotes") or []) for n in nodes),
+        "speakers": sum(1 for n in nodes if n["type"] == "speaker"),
+    }
+
+    return {
+        "topic": video_title,
+        "summary": overview or key_takeaway,
+        "mode": "video",
+        "mindmap": {
+            "nodes": nodes,
+            "edges": edges,
+        },
+        "statistics": statistics,
+        "storyline": {
+            "storyline_id": source_path.stem,
+            "path": str(source_path),
+            "title": story.get("title"),
+            "logline": story.get("logline"),
+            "user_prompt": payload.get("user_prompt"),
+        },
+    }
+
+
+# ---------------------------------------------------------------------------
+# Legacy theme/section-centric mindmap (fallback)
+# ---------------------------------------------------------------------------
+
+def _generate_theme_mindmap(query: str, payload: dict[str, Any], source_path: Path) -> dict[str, Any]:
     story = payload.get("storyline") or payload
 
     root_title = clean_text(query) or clean_text(story.get("title")) or "Documentary Topic"
@@ -264,6 +792,7 @@ def generate_concept_mindmap(query: str, storyline_id: str | None = None) -> dic
     return {
         "topic": root_title,
         "summary": root_summary or root_details,
+        "mode": "legacy",
         "mindmap": {
             "nodes": nodes,
             "edges": edges,

@@ -3,11 +3,11 @@
   "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
   "video_id": "pT",
   "fragment_count": 12,
-  "created_at": "2026-06-16T12:54:12.724456",
+  "created_at": "2026-07-03T10:35:19.426346",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0001",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 1.04,
       "end": 49.54,
@@ -35,7 +37,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:12.722092",
+      "created_at": "2026-07-03T10:35:19.405977",
       "keywords": [
         "deepfakes",
         "law",
@@ -149,14 +151,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.761287",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.688094",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0002",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 49.54,
       "end": 103.7,
@@ -175,7 +179,7 @@
         19,
         20
       ],
-      "created_at": "2026-06-16T12:54:12.722398",
+      "created_at": "2026-07-03T10:35:19.407863",
       "keywords": [
         "deepfakes",
         "law",
@@ -286,14 +290,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.766569",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.693781",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0003",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 103.7,
       "end": 151.18,
@@ -311,7 +317,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:12.722661",
+      "created_at": "2026-07-03T10:35:19.409665",
       "keywords": [
         "copyright",
         "deepfake",
@@ -394,14 +400,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.771206",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.699329",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0004",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 151.18,
       "end": 203.33,
@@ -419,7 +427,7 @@
         37,
         38
       ],
-      "created_at": "2026-06-16T12:54:12.722897",
+      "created_at": "2026-07-03T10:35:19.411457",
       "keywords": [
         "deepfakes",
         "copyright",
@@ -527,14 +535,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.776654",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.705316",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0005",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 203.33,
       "end": 257.07,
@@ -551,7 +561,7 @@
         45,
         46
       ],
-      "created_at": "2026-06-16T12:54:12.723122",
+      "created_at": "2026-07-03T10:35:19.413235",
       "keywords": [
         "deepfakes",
         "regulation",
@@ -657,14 +667,16 @@
       "narration_support_score": 0.8,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.782286",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.711094",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0006",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 257.07,
       "end": 315.07,
@@ -681,7 +693,7 @@
         53,
         54
       ],
-      "created_at": "2026-06-16T12:54:12.723356",
+      "created_at": "2026-07-03T10:35:19.415151",
       "keywords": [
         "deepfakes",
         "regulation",
@@ -799,14 +811,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.788029",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.716457",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0007",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 315.07,
       "end": 374.74,
@@ -823,7 +837,7 @@
         61,
         62
       ],
-      "created_at": "2026-06-16T12:54:12.723606",
+      "created_at": "2026-07-03T10:35:19.417496",
       "keywords": [
         "human rights",
         "deepfakes",
@@ -910,14 +924,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.793486",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.723647",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0008",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 374.74,
       "end": 428.89,
@@ -930,7 +946,7 @@
         65,
         66
       ],
-      "created_at": "2026-06-16T12:54:12.723772",
+      "created_at": "2026-07-03T10:35:19.419348",
       "keywords": [
         "deepfakes",
         "misinformation",
@@ -1039,14 +1055,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.798889",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.731734",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0009",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 428.89,
       "end": 492.85,
@@ -1058,7 +1076,7 @@
         68,
         69
       ],
-      "created_at": "2026-06-16T12:54:12.723988",
+      "created_at": "2026-07-03T10:35:19.421176",
       "keywords": [
         "human rights",
         "copyright",
@@ -1176,14 +1194,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.804861",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.738873",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0010",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 492.85,
       "end": 557.59,
@@ -1196,7 +1216,7 @@
         72,
         73
       ],
-      "created_at": "2026-06-16T12:54:12.724187",
+      "created_at": "2026-07-03T10:35:19.422920",
       "keywords": [
         "law",
         "risk",
@@ -1281,14 +1301,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.810276",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.744410",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0011",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 11,
       "start": 557.59,
       "end": 607.59,
@@ -1301,7 +1323,7 @@
         76,
         77
       ],
-      "created_at": "2026-06-16T12:54:12.724356",
+      "created_at": "2026-07-03T10:35:19.424686",
       "keywords": [
         "deepfakes",
         "copyright",
@@ -1406,14 +1428,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.815919",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.751076",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0012",
       "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
       "video_id": "pT",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 12,
       "start": 607.59,
       "end": 630.04,
@@ -1425,7 +1449,7 @@
         79,
         80
       ],
-      "created_at": "2026-06-16T12:54:12.724436",
+      "created_at": "2026-07-03T10:35:19.426319",
       "keywords": [
         "deepfakes",
         "law",
@@ -1518,11 +1542,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.818439",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:07.754277",
+      "speaker": "Anne-Sofie Kofoe Rasmussen",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:16.818444"
+  "classified_at": "2026-07-03T11:40:07.754298"
 }

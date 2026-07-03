@@ -3,11 +3,11 @@
   "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
   "video_id": "4smj9mLlrb4",
   "fragment_count": 9,
-  "created_at": "2026-06-16T12:54:13.747268",
+  "created_at": "2026-07-03T10:35:25.979474",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0001",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 0.18,
       "end": 74.66,
@@ -35,7 +37,7 @@
         9,
         10
       ],
-      "created_at": "2026-06-16T12:54:13.745097",
+      "created_at": "2026-07-03T10:35:25.959794",
       "keywords": [
         "artist",
         "got",
@@ -76,14 +78,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.317202",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.118087",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0002",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 74.66,
       "end": 132.67,
@@ -104,7 +108,7 @@
         21,
         22
       ],
-      "created_at": "2026-06-16T12:54:13.745379",
+      "created_at": "2026-07-03T10:35:25.961931",
       "keywords": [
         "culture",
         "people",
@@ -151,14 +155,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.322722",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.123080",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0003",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 133.53,
       "end": 201.07,
@@ -190,7 +196,7 @@
         44,
         45
       ],
-      "created_at": "2026-06-16T12:54:13.745779",
+      "created_at": "2026-07-03T10:35:25.964188",
       "keywords": [
         "information",
         "feel",
@@ -237,14 +243,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.328657",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.127668",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0004",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 201.07,
       "end": 279.74,
@@ -264,7 +272,7 @@
         55,
         56
       ],
-      "created_at": "2026-06-16T12:54:13.745979",
+      "created_at": "2026-07-03T10:35:25.966483",
       "keywords": [
         "information",
         "africa",
@@ -323,14 +331,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.332857",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.131186",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0005",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 281.0,
       "end": 370.46,
@@ -352,7 +362,7 @@
         68,
         69
       ],
-      "created_at": "2026-06-16T12:54:13.746210",
+      "created_at": "2026-07-03T10:35:25.969582",
       "keywords": [
         "information",
         "i'm",
@@ -396,14 +406,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.9,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.336997",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.134718",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0006",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 371.72,
       "end": 449.99,
@@ -426,7 +438,7 @@
         82,
         83
       ],
-      "created_at": "2026-06-16T12:54:13.746488",
+      "created_at": "2026-07-03T10:35:25.972879",
       "keywords": [
         "artificial intelligence",
         "information",
@@ -493,14 +505,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.341944",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.138829",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0007",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 451.76,
       "end": 535.82,
@@ -523,7 +537,7 @@
         96,
         97
       ],
-      "created_at": "2026-06-16T12:54:13.746782",
+      "created_at": "2026-07-03T10:35:25.975189",
       "keywords": [
         "information",
         "africa",
@@ -590,14 +604,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.346315",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.143393",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0008",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 536.5,
       "end": 627.1,
@@ -621,7 +637,7 @@
         111,
         112
       ],
-      "created_at": "2026-06-16T12:54:13.747144",
+      "created_at": "2026-07-03T10:35:25.977308",
       "keywords": [
         "knowledge",
         "learning",
@@ -697,14 +713,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.351883",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.147916",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0174_4smj9mLlrb4_David Aguacheiro - Curated information_0009",
       "source_video": "0174_4smj9mLlrb4_David Aguacheiro - Curated information",
       "video_id": "4smj9mLlrb4",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 9,
       "start": 629.41,
       "end": 671.38,
@@ -719,7 +737,7 @@
         117,
         118
       ],
-      "created_at": "2026-06-16T12:54:13.747250",
+      "created_at": "2026-07-03T10:35:25.979432",
       "keywords": [
         "artist",
         "it's"
@@ -755,11 +773,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.7,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.356099",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.150322",
+      "speaker": "David Aguacheiro",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:32.356121"
+  "classified_at": "2026-07-03T11:40:23.150330"
 }

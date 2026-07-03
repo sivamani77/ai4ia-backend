@@ -3,11 +3,11 @@
   "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
   "video_id": "UuQ4vKFOdvM",
   "fragment_count": 10,
-  "created_at": "2026-06-16T12:54:12.954401",
+  "created_at": "2026-07-03T10:35:20.721441",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0001",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 0.5,
       "end": 58.22,
@@ -37,7 +39,7 @@
         11,
         12
       ],
-      "created_at": "2026-06-16T12:54:12.950820",
+      "created_at": "2026-07-03T10:35:20.694665",
       "keywords": [
         "artificial intelligence",
         "information accessibility",
@@ -146,14 +148,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.381984",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.099755",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0002",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 58.22,
       "end": 116.57,
@@ -174,7 +178,7 @@
         23,
         24
       ],
-      "created_at": "2026-06-16T12:54:12.951100",
+      "created_at": "2026-07-03T10:35:20.696685",
       "keywords": [
         "accessibility",
         "law",
@@ -276,14 +280,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.386413",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.104712",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0003",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 116.57,
       "end": 169.17,
@@ -302,7 +308,7 @@
         33,
         34
       ],
-      "created_at": "2026-06-16T12:54:12.951362",
+      "created_at": "2026-07-03T10:35:20.698651",
       "keywords": [
         "risk",
         "liability",
@@ -352,14 +358,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.390953",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.109704",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0004",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 169.17,
       "end": 230.31,
@@ -382,7 +390,7 @@
         47,
         48
       ],
-      "created_at": "2026-06-16T12:54:12.951756",
+      "created_at": "2026-07-03T10:35:20.700784",
       "keywords": [
         "information accessibility",
         "governance",
@@ -485,14 +493,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.396054",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.116076",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0005",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 230.31,
       "end": 295.22,
@@ -514,7 +524,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:12.952146",
+      "created_at": "2026-07-03T10:35:20.703134",
       "keywords": [
         "education",
         "legal",
@@ -601,14 +611,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.401171",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.121831",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0006",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 295.22,
       "end": 357.43,
@@ -630,7 +642,7 @@
         73,
         74
       ],
-      "created_at": "2026-06-16T12:54:12.952487",
+      "created_at": "2026-07-03T10:35:20.705564",
       "keywords": [
         "law",
         "knowledge",
@@ -722,14 +734,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.406216",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.127263",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0007",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 357.43,
       "end": 416.78,
@@ -750,7 +764,7 @@
         85,
         86
       ],
-      "created_at": "2026-06-16T12:54:12.952864",
+      "created_at": "2026-07-03T10:35:20.708835",
       "keywords": [
         "strategy",
         "knowledge",
@@ -839,14 +853,16 @@
       "narration_support_score": 0.6,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.410861",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.132346",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0008",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 416.78,
       "end": 480.67,
@@ -867,7 +883,7 @@
         97,
         98
       ],
-      "created_at": "2026-06-16T12:54:12.953229",
+      "created_at": "2026-07-03T10:35:20.711173",
       "keywords": [
         "accessibility",
         "law",
@@ -951,14 +967,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.415788",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.137703",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0009",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 480.67,
       "end": 547.76,
@@ -980,7 +998,7 @@
         110,
         111
       ],
-      "created_at": "2026-06-16T12:54:12.953737",
+      "created_at": "2026-07-03T10:35:20.714614",
       "keywords": [
         "information accessibility",
         "accessibility",
@@ -1099,14 +1117,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.420935",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.143171",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible_0010",
       "source_video": "0061_UuQ4vKFOdvM_Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Accessible",
       "video_id": "UuQ4vKFOdvM",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 547.76,
       "end": 605.39,
@@ -1128,7 +1148,7 @@
         123,
         124
       ],
-      "created_at": "2026-06-16T12:54:12.954266",
+      "created_at": "2026-07-03T10:35:20.721396",
       "keywords": [
         "artificial intelligence",
         "law",
@@ -1236,11 +1256,11 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.425607",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:11.148280",
+      "speaker": "Ripple Nagpal",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:20.425612"
+  "classified_at": "2026-07-03T11:40:11.148288"
 }

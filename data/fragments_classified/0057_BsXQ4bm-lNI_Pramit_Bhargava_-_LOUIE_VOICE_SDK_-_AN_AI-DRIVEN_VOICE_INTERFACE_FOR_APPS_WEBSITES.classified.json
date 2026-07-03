@@ -3,11 +3,11 @@
   "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
   "video_id": "BsXQ4bm-lNI",
   "fragment_count": 11,
-  "created_at": "2026-06-16T12:54:12.933160",
+  "created_at": "2026-07-03T10:35:20.578305",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0001",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 1,
       "start": 9.71,
       "end": 77.41,
@@ -43,7 +45,7 @@
         17,
         18
       ],
-      "created_at": "2026-06-16T12:54:12.929979",
+      "created_at": "2026-07-03T10:35:20.555301",
       "keywords": [
         "trip",
         "pay",
@@ -85,14 +87,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.4,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.138989",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.835130",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0002",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 2,
       "start": 77.41,
       "end": 126.78,
@@ -115,7 +119,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:12.930311",
+      "created_at": "2026-07-03T10:35:20.557509",
       "keywords": [
         "voice",
         "commands",
@@ -154,14 +158,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.143394",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.840798",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0003",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 3,
       "start": 129.82,
       "end": 180.26,
@@ -189,7 +195,7 @@
         50,
         51
       ],
-      "created_at": "2026-06-16T12:54:12.930728",
+      "created_at": "2026-07-03T10:35:20.559971",
       "keywords": [
         "information",
         "financial",
@@ -235,14 +241,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.147944",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.845909",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0004",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 4,
       "start": 180.93,
       "end": 231.07,
@@ -268,7 +276,7 @@
         67,
         68
       ],
-      "created_at": "2026-06-16T12:54:12.931154",
+      "created_at": "2026-07-03T10:35:20.562408",
       "keywords": [
         "services",
         "able",
@@ -310,14 +318,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.617,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.152332",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.850520",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0005",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 5,
       "start": 232.21,
       "end": 273.66,
@@ -337,7 +347,7 @@
         78,
         79
       ],
-      "created_at": "2026-06-16T12:54:12.931475",
+      "created_at": "2026-07-03T10:35:20.564871",
       "keywords": [
         "voice interface",
         "model",
@@ -391,14 +401,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.156645",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.855040",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0006",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 6,
       "start": 273.66,
       "end": 317.31,
@@ -417,7 +429,7 @@
         88,
         89
       ],
-      "created_at": "2026-06-16T12:54:12.931732",
+      "created_at": "2026-07-03T10:35:20.567128",
       "keywords": [
         "actually",
         "screen",
@@ -461,14 +473,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.383,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.161149",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.859712",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0007",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 7,
       "start": 317.71,
       "end": 370.05,
@@ -488,7 +502,7 @@
         99,
         100
       ],
-      "created_at": "2026-06-16T12:54:12.932011",
+      "created_at": "2026-07-03T10:35:20.569386",
       "keywords": [
         "know",
         "user",
@@ -527,14 +541,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.333,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.165624",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.864328",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0008",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 8,
       "start": 370.45,
       "end": 412.38,
@@ -555,7 +571,7 @@
         111,
         112
       ],
-      "created_at": "2026-06-16T12:54:12.932356",
+      "created_at": "2026-07-03T10:35:20.571761",
       "keywords": [
         "voice interface",
         "language",
@@ -619,14 +635,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.170067",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.869048",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0009",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 9,
       "start": 412.38,
       "end": 461.42,
@@ -647,7 +665,7 @@
         123,
         124
       ],
-      "created_at": "2026-06-16T12:54:12.932720",
+      "created_at": "2026-07-03T10:35:20.574008",
       "keywords": [
         "environment",
         "security",
@@ -739,14 +757,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.174578",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.874604",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0010",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 10,
       "start": 461.42,
       "end": 505.57,
@@ -766,7 +786,7 @@
         134,
         135
       ],
-      "created_at": "2026-06-16T12:54:12.933035",
+      "created_at": "2026-07-03T10:35:20.576194",
       "keywords": [
         "environment",
         "responsibility",
@@ -822,14 +842,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.917,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.179052",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.879849",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES_0011",
       "source_video": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
       "video_id": "BsXQ4bm-lNI",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
       "fragment_index": 11,
       "start": 506.37,
       "end": 525.07,
@@ -842,7 +864,7 @@
         138,
         139
       ],
-      "created_at": "2026-06-16T12:54:12.933119",
+      "created_at": "2026-07-03T10:35:20.578228",
       "keywords": [
         "really"
       ],
@@ -876,11 +898,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.35,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:20.181374",
-      "video_year": 2025,
-      "video_upload_date": "20250929"
+      "classified_at": "2026-07-03T11:40:10.882152",
+      "speaker": "Pramit Bhargava",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:20.181380"
+  "classified_at": "2026-07-03T11:40:10.882161"
 }

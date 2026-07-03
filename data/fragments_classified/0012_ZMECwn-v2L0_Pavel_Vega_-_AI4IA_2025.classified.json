@@ -3,11 +3,11 @@
   "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
   "video_id": "ZMECwn-v2L0",
   "fragment_count": 8,
-  "created_at": "2026-06-16T12:54:12.668962",
+  "created_at": "2026-07-03T10:35:19.098048",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025_0001",
       "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
       "video_id": "ZMECwn-v2L0",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 1,
       "start": 0.27,
       "end": 90.01,
@@ -32,7 +34,7 @@
         6,
         7
       ],
-      "created_at": "2026-06-16T12:54:12.667907",
+      "created_at": "2026-07-03T10:35:19.085723",
       "keywords": [
         "artificial intelligence",
         "human rights",
@@ -91,14 +93,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.082273",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.903048",
+      "speaker": "Pavel Vega",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025_0002",
       "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
       "video_id": "ZMECwn-v2L0",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 2,
       "start": 90.01,
       "end": 164.58,
@@ -111,7 +115,7 @@
         10,
         11
       ],
-      "created_at": "2026-06-16T12:54:12.668076",
+      "created_at": "2026-07-03T10:35:19.087542",
       "keywords": [
         "phone",
         "life",
@@ -149,14 +153,16 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.086898",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.908267",
+      "speaker": "Pavel Vega",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025_0003",
       "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
       "video_id": "ZMECwn-v2L0",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 3,
       "start": 164.58,
       "end": 237.71,
@@ -168,7 +174,7 @@
         13,
         14
       ],
-      "created_at": "2026-06-16T12:54:12.668221",
+      "created_at": "2026-07-03T10:35:19.089306",
       "keywords": [
         "serve",
         "life",
@@ -209,14 +215,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.090942",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.913293",
+      "speaker": "Pavel Vega",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025_0004",
       "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
       "video_id": "ZMECwn-v2L0",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 4,
       "start": 237.71,
       "end": 307.51,
@@ -228,7 +236,7 @@
         16,
         17
       ],
-      "created_at": "2026-06-16T12:54:12.668380",
+      "created_at": "2026-07-03T10:35:19.091054",
       "keywords": [
         "information",
         "journalists",
@@ -284,14 +292,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.095163",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.918492",
+      "speaker": "Pavel Vega",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025_0005",
       "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
       "video_id": "ZMECwn-v2L0",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 5,
       "start": 307.51,
       "end": 387.38,
@@ -304,7 +314,7 @@
         20,
         21
       ],
-      "created_at": "2026-06-16T12:54:12.668532",
+      "created_at": "2026-07-03T10:35:19.092802",
       "keywords": [
         "ethics",
         "information",
@@ -365,14 +375,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.099006",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.923180",
+      "speaker": "Pavel Vega",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025_0006",
       "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
       "video_id": "ZMECwn-v2L0",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 6,
       "start": 387.38,
       "end": 462.49,
@@ -385,7 +397,7 @@
         24,
         25
       ],
-      "created_at": "2026-06-16T12:54:12.668687",
+      "created_at": "2026-07-03T10:35:19.094564",
       "keywords": [
         "artificial intelligence",
         "ethics",
@@ -464,14 +476,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.103216",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.928333",
+      "speaker": "Pavel Vega",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025_0007",
       "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
       "video_id": "ZMECwn-v2L0",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 7,
       "start": 462.49,
       "end": 541.7,
@@ -484,7 +498,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:12.668841",
+      "created_at": "2026-07-03T10:35:19.096307",
       "keywords": [
         "ethics",
         "information",
@@ -559,14 +573,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.107263",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.934700",
+      "speaker": "Pavel Vega",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025_0008",
       "source_video": "0012_ZMECwn-v2L0_Pavel_Vega_-_AI4IA_2025",
       "video_id": "ZMECwn-v2L0",
+      "video_year": 2025,
+      "video_upload_date": "20251002",
       "fragment_index": 8,
       "start": 541.7,
       "end": 606.56,
@@ -578,7 +594,7 @@
         31,
         32
       ],
-      "created_at": "2026-06-16T12:54:12.668950",
+      "created_at": "2026-07-03T10:35:19.098029",
       "keywords": [
         "conference",
         "any",
@@ -620,11 +636,11 @@
       "narration_support_score": 0.35,
       "classification_confidence": 0.933,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:16.110335",
-      "video_year": 2025,
-      "video_upload_date": "20251002"
+      "classified_at": "2026-07-03T11:40:06.938537",
+      "speaker": "Pavel Vega",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:16.110340"
+  "classified_at": "2026-07-03T11:40:06.938547"
 }

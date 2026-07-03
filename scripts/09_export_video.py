@@ -12,6 +12,12 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+# Local dev layout: backend/app/. Docker image layout (see Dockerfile): app/
+# directly under PROJECT_ROOT, with no backend/ directory at all.
+_BACKEND_DIR = PROJECT_ROOT / "backend"
+sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
+
+from app.core.settings import settings  # noqa: E402
 
 RAW_VIDEO_DIR = Path(os.environ.get("AI4IA_RAW_VIDEO_DIR", str(PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel")))
 GENERATED_ASSETS_DIR = Path(os.environ.get("AI4IA_LOCAL_ASSETS_DIR", str(PROJECT_ROOT / "data" / "generated_assets")))
@@ -48,12 +54,30 @@ MIN_SUBTITLE_ENTRY_DURATION = 1.2
 
 
 def _probe_nvenc() -> bool:
+    """True only if h264_nvenc is both compiled in AND can actually encode a
+    frame on this host (i.e. a working NVIDIA GPU/driver is present).
+    ffmpeg -encoders lists h264_nvenc whenever the build includes NVENC
+    support, regardless of whether a GPU/CUDA driver is available at
+    runtime — so a codec-list check alone is a false positive on CPU-only
+    hosts running a GPU-capable ffmpeg build.
+    """
     try:
         r = subprocess.run(
             ["ffmpeg", "-hide_banner", "-encoders"],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=5,
         )
-        return "h264_nvenc" in r.stdout
+        if "h264_nvenc" not in r.stdout:
+            return False
+
+        probe = subprocess.run(
+            [
+                "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
+                "-f", "lavfi", "-i", "color=black:s=64x64:d=0.1",
+                "-c:v", "h264_nvenc", "-frames:v", "1", "-f", "null", "-",
+            ],
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=10,
+        )
+        return probe.returncode == 0
     except Exception:
         return False
 
@@ -606,8 +630,8 @@ def get_video_stream_duration(source_path: Path) -> float:
     return dur
 
 
-MAX_USES_PER_SOURCE_VIDEO = 2
-MAX_USES_PER_SPEAKER = 2
+MAX_USES_PER_SOURCE_VIDEO = settings.max_uses_per_source_video
+MAX_USES_PER_SPEAKER = settings.max_uses_per_speaker
 ALLOW_REPEAT_FRAGMENT = False
 
 

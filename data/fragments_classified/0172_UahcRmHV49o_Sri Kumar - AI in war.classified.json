@@ -3,11 +3,11 @@
   "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
   "video_id": "UahcRmHV49o",
   "fragment_count": 8,
-  "created_at": "2026-06-16T12:54:13.738758",
+  "created_at": "2026-07-03T10:35:25.920144",
   "fragmenting_config": {
-    "min_duration_seconds": 35,
-    "target_duration_seconds": 75,
-    "max_duration_seconds": 130,
+    "min_duration_seconds": 35.0,
+    "target_duration_seconds": 75.0,
+    "max_duration_seconds": 130.0,
     "min_words": 35,
     "target_words": 120,
     "max_words": 230
@@ -17,6 +17,8 @@
       "fragment_id": "0172_UahcRmHV49o_Sri Kumar - AI in war_0001",
       "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
       "video_id": "UahcRmHV49o",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 1,
       "start": 0.0,
       "end": 47.16,
@@ -34,7 +36,7 @@
         8,
         9
       ],
-      "created_at": "2026-06-16T12:54:13.737026",
+      "created_at": "2026-07-03T10:35:25.904727",
       "keywords": [
         "artificial intelligence",
         "health",
@@ -89,14 +91,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.95,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.192563",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.007772",
+      "speaker": "Sri Kumar",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0172_UahcRmHV49o_Sri Kumar - AI in war_0002",
       "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
       "video_id": "UahcRmHV49o",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 2,
       "start": 47.16,
       "end": 91.92,
@@ -115,7 +119,7 @@
         18,
         19
       ],
-      "created_at": "2026-06-16T12:54:13.737286",
+      "created_at": "2026-07-03T10:35:25.906825",
       "keywords": [
         "press",
         "deception",
@@ -164,14 +168,16 @@
       "narration_support_score": 0.45,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.197435",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.013166",
+      "speaker": "Sri Kumar",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0172_UahcRmHV49o_Sri Kumar - AI in war_0003",
       "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
       "video_id": "UahcRmHV49o",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 3,
       "start": 91.92,
       "end": 135.68,
@@ -190,7 +196,7 @@
         28,
         29
       ],
-      "created_at": "2026-06-16T12:54:13.737522",
+      "created_at": "2026-07-03T10:35:25.908895",
       "keywords": [
         "race",
         "combat",
@@ -230,14 +236,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.201929",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.017734",
+      "speaker": "Sri Kumar",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0172_UahcRmHV49o_Sri Kumar - AI in war_0004",
       "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
       "video_id": "UahcRmHV49o",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 4,
       "start": 135.68,
       "end": 186.52,
@@ -257,7 +265,7 @@
         39,
         40
       ],
-      "created_at": "2026-06-16T12:54:13.737774",
+      "created_at": "2026-07-03T10:35:25.910933",
       "keywords": [
         "ai-based",
         "future",
@@ -296,14 +304,16 @@
       "narration_support_score": 0.55,
       "classification_confidence": 0.417,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.206874",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.022852",
+      "speaker": "Sri Kumar",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0172_UahcRmHV49o_Sri Kumar - AI in war_0005",
       "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
       "video_id": "UahcRmHV49o",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 5,
       "start": 186.52,
       "end": 235.63,
@@ -323,7 +333,7 @@
         50,
         51
       ],
-      "created_at": "2026-06-16T12:54:13.738033",
+      "created_at": "2026-07-03T10:35:25.912863",
       "keywords": [
         "health",
         "defense",
@@ -374,14 +384,16 @@
       "narration_support_score": 0.7,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.211782",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.028018",
+      "speaker": "Sri Kumar",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0172_UahcRmHV49o_Sri Kumar - AI in war_0006",
       "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
       "video_id": "UahcRmHV49o",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 6,
       "start": 235.63,
       "end": 284.07,
@@ -400,7 +412,7 @@
         60,
         61
       ],
-      "created_at": "2026-06-16T12:54:13.738280",
+      "created_at": "2026-07-03T10:35:25.914960",
       "keywords": [
         "medical",
         "early warning",
@@ -454,14 +466,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.216710",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.033132",
+      "speaker": "Sri Kumar",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0172_UahcRmHV49o_Sri Kumar - AI in war_0007",
       "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
       "video_id": "UahcRmHV49o",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 7,
       "start": 284.07,
       "end": 333.63,
@@ -480,7 +494,7 @@
         70,
         71
       ],
-      "created_at": "2026-06-16T12:54:13.738530",
+      "created_at": "2026-07-03T10:35:25.917878",
       "keywords": [
         "environment",
         "defense",
@@ -533,14 +547,16 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.221537",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.038183",
+      "speaker": "Sri Kumar",
+      "speaker_attribution": "video-level"
     },
     {
       "fragment_id": "0172_UahcRmHV49o_Sri Kumar - AI in war_0008",
       "source_video": "0172_UahcRmHV49o_Sri Kumar - AI in war",
       "video_id": "UahcRmHV49o",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
       "fragment_index": 8,
       "start": 333.63,
       "end": 373.51,
@@ -559,7 +575,7 @@
         80,
         81
       ],
-      "created_at": "2026-06-16T12:54:13.738743",
+      "created_at": "2026-07-03T10:35:25.920109",
       "keywords": [
         "safety",
         "training",
@@ -622,11 +638,11 @@
       "narration_support_score": 0.5,
       "classification_confidence": 0.983,
       "classification_method": "rule_based_mvp_v1",
-      "classified_at": "2026-06-16T12:54:32.225548",
-      "video_year": 2023,
-      "video_upload_date": "20231115"
+      "classified_at": "2026-07-03T11:40:23.042293",
+      "speaker": "Sri Kumar",
+      "speaker_attribution": "video-level"
     }
   ],
   "classification_method": "rule_based_mvp_v1",
-  "classified_at": "2026-06-16T12:54:32.225554"
+  "classified_at": "2026-07-03T11:40:23.042303"
 }
