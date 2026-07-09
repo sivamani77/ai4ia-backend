@@ -19,3 +19,9 @@ chromadb==1.5.9
 python-json-logger==4.1.0
 boto3==1.43.36
 faster-whisper==1.1.1
+argon2-cffi==25.1.0
+pyjwt==2.13.0
+email-validator==2.3.0
+python-dateutil==2.9.0.post0
+prometheus-client==0.25.0
+prometheus-fastapi-instrumentator==8.0.2

@@ -3,6 +3,8 @@ import asyncio
 import json
 import os
 import re
+import subprocess
+import sys
 from pathlib import Path
 from datetime import datetime
 from typing import Any
@@ -12,6 +14,19 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+# Local dev layout: backend/app/. Docker image layout (see Dockerfile): app/
+# directly under PROJECT_ROOT, with no backend/ directory at all.
+_BACKEND_DIR = PROJECT_ROOT / "backend"
+sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
+
+from app.pipeline.timeline_budget import (  # noqa: E402
+    build_duration_budget,
+    classify_timeline_segment_type,
+    normalize_candidate_time_bounds,
+    segment_effective_duration,
+    timeline_card_duration,
+    timeline_segment_count_for_duration,
+)
 
 STORYLINES_DIR = PROJECT_ROOT / "data" / "storylines"
 GENERATED_ASSETS_DIR = Path(os.environ.get("AI4IA_LOCAL_ASSETS_DIR", str(PROJECT_ROOT / "data" / "generated_assets")))
@@ -28,8 +43,6 @@ CARD_HEIGHT = 1080
 # Speaker clip render bounds
 PRE_ROLL_SECONDS: float = 0.25
 POST_ROLL_SECONDS: float = 0.35
-CLIP_MIN_DURATION: float = 7.0
-CLIP_HARD_MAX: float = 22.0
 CLIP_EXPAND_SECONDS: float = 3.0
 QUOTE_COMPLETE_THRESHOLD: float = 0.80  # quote_completeness_score >= this → complete
 
@@ -1097,7 +1110,10 @@ def generate_visual_assets_for_timeline(
     for item in final_timeline:
         item = dict(item)
         t = item.get("type") or item.get("segment_type") or ""
-        if t == "narration_broll" and item.get("visual_mode") == "generated_asset":
+        # A narration item without archive footage MUST have a generated visual,
+        # otherwise the renderer has nothing to put on screen for it.
+        needs_visual = item.get("visual_mode") == "generated_asset" or not item.get("source_video")
+        if t == "narration_broll" and needs_visual:
             sid = item.get("section_id") or "S_UNKNOWN"
             vtype = item.get("visual_asset_type") or "concept_card"
             vtitle = item.get("visual_title") or sid.replace("_", " ").title()
@@ -1114,6 +1130,7 @@ def generate_visual_assets_for_timeline(
                 item["visual_path"] = str(output_path)
                 item["render_visual_path"] = str(output_path)
                 item["asset_path"] = str(output_path)
+                item["visual_mode"] = "generated_asset"
                 log(f"  [visual] {sid} → {output_path.name} ({vtype})")
             except Exception as exc:
                 log(f"  [visual] WARNING: failed to render visual for {sid}: {exc}")
@@ -1171,6 +1188,50 @@ def voiceover_text_for_tts(voiceover_script: list[dict[str, str]]) -> str:
             parts.append(text)
 
     return "\n\n".join(parts).strip()
+
+
+def get_media_duration(path: Path) -> float:
+    """Probe a media file's duration in seconds via ffprobe. Returns 0.0 on failure."""
+    try:
+        result = subprocess.run(
+            [
+                "ffprobe", "-v", "error",
+                "-show_entries", "format=duration",
+                "-of", "csv=p=0",
+                str(path),
+            ],
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        return float(result.stdout.strip() or 0.0)
+    except (subprocess.SubprocessError, ValueError, OSError):
+        return 0.0
+
+
+def reconcile_narration_duration(item: dict[str, Any], audio_path: str | None) -> None:
+    """Set render_duration on a narration item from its real TTS audio length.
+
+    The segment must run long enough for the full voiceover (audio is never trimmed);
+    if the fragment window is longer than the audio, the window length wins.
+    """
+    frag_dur = float(item.get("duration") or 0.0)
+    if frag_dur <= 0.0:
+        start_v, end_v = item.get("start"), item.get("end")
+        try:
+            frag_dur = max(0.0, float(end_v) - float(start_v))
+        except (TypeError, ValueError):
+            frag_dur = 0.0
+
+    audio_dur = 0.0
+    if audio_path and Path(audio_path).exists():
+        audio_dur = get_media_duration(Path(audio_path))
+
+    render_duration = max(frag_dur, audio_dur + 0.4 if audio_dur > 0 else 0.0)
+    if render_duration > 0:
+        item["render_duration"] = round(render_duration, 3)
+        item["duration"] = item["render_duration"]
+        item["tts_audio_seconds"] = round(audio_dur, 3)
 
 
 async def generate_tts(
@@ -1257,58 +1318,6 @@ def dedupe_manifest_fragments(fragments: list[dict[str, Any]]) -> list[dict[str,
         seen.add(fragment_id)
         deduped.append(fragment)
     return deduped
-
-
-def timeline_segment_count_for_duration(target_duration_seconds: int) -> int:
-    if target_duration_seconds <= 60:
-        return 4
-    if target_duration_seconds <= 120:
-        return 6
-    return 8
-
-
-def timeline_card_duration(target_duration_seconds: int) -> int:
-    return 4 if target_duration_seconds <= 60 else 5
-
-
-def classify_timeline_segment_type(candidate: dict[str, Any]) -> str:
-    if candidate.get("speaker_clip_allowed") or candidate.get("speaker_soundbite_allowed"):
-        return "speaker_clip"
-    if candidate.get("speaker_visual_allowed"):
-        return "speaker_visual"
-    if candidate.get("use_as") == "archive_visual":
-        return "archive_visual"
-    if candidate.get("use_as") == "speaker_soundbite":
-        return "speaker_clip"
-    return "narration_broll"
-
-
-def normalize_candidate_time_bounds(candidate: dict[str, Any]) -> tuple[float | None, float | None, float | None]:
-    start = candidate.get("start", candidate.get("start_seconds"))
-    end = candidate.get("end", candidate.get("end_seconds"))
-    duration = candidate.get("duration")
-
-    try:
-        start_value = float(start) if start is not None else None
-    except (TypeError, ValueError):
-        start_value = None
-    try:
-        end_value = float(end) if end is not None else None
-    except (TypeError, ValueError):
-        end_value = None
-    try:
-        duration_value = float(duration) if duration is not None else None
-    except (TypeError, ValueError):
-        duration_value = None
-
-    if duration_value is None and start_value is not None and end_value is not None:
-        duration_value = max(0.0, end_value - start_value)
-    if end_value is None and start_value is not None and duration_value is not None:
-        end_value = start_value + duration_value
-    if start_value is None and end_value is not None and duration_value is not None:
-        start_value = max(0.0, end_value - duration_value)
-
-    return start_value, end_value, duration_value
 
 
 def build_export_timeline_from_candidates(
@@ -1612,7 +1621,24 @@ def compute_quote_render_bounds(
     Uses the full fragment window (start → end) + padding as the baseline.
     Attempts forward expansion using the source fragment boundary if the quote is incomplete.
     Only demotes if quote_completeness < 0.20 AND incomplete_sentence_penalty > 0.30.
+
+    Never shrinks the validated window: the render window may only pad or expand the
+    selected timeframe. Content trimming is 07b validation's job alone.
     """
+    # A window already set by 07b validation is a locked contract — pass it through.
+    locked_start = item.get("render_start")
+    locked_end = item.get("render_end")
+    if locked_start is not None and locked_end is not None and float(locked_end) > float(locked_start):
+        return {
+            "render_start": round(float(locked_start), 3),
+            "render_end": round(float(locked_end), 3),
+            "render_duration": round(float(locked_end) - float(locked_start), 3),
+            "quote_complete": bool(item.get("quote_complete", True)),
+            "quote_boundary_method": "locked_by_validation",
+            "quote_expanded": False,
+            "should_demote": False,
+        }
+
     start = float(item.get("start") or 0.0)
     end = float(item.get("end") or 0.0)
     moment_text = (item.get("moment_text") or cand.get("moment_text") or "").strip()
@@ -1651,14 +1677,9 @@ def compute_quote_render_bounds(
             else:
                 method = "at_fragment_boundary_no_expansion"
 
-    # Enforce duration bounds
+    # The full validated window always renders — no hard-max shrink, no artificial
+    # min-duration stretch into unvalidated footage.
     render_duration = render_end - render_start
-    if render_duration > CLIP_HARD_MAX:
-        render_end = render_start + CLIP_HARD_MAX
-        render_duration = CLIP_HARD_MAX
-    if render_duration < CLIP_MIN_DURATION:
-        render_end = render_start + CLIP_MIN_DURATION
-        render_duration = CLIP_MIN_DURATION
 
     # Demote only if quote is truly unusable (very low completeness + very high penalty)
     should_demote = (
@@ -1888,17 +1909,9 @@ def build_hybrid_export_timeline(
                     item["voiceover_text"] = vo_text
                     item["subtitle_kind"] = "voiceover"
                 vo_cycle_idx += 1
-            # Ensure duration is set from fragment window
-            frag_dur = float(item.get("duration") or 0.0)
-            start_v = item.get("start")
-            end_v = item.get("end")
-            if frag_dur <= 0.0 and start_v is not None and end_v is not None:
-                try:
-                    frag_dur = float(end_v) - float(start_v)
-                except (TypeError, ValueError):
-                    frag_dur = 0.0
-            item["duration"] = max(frag_dur, 0.0)
-            if item["duration"] == 0.0:
+            # Reconcile duration against the real TTS audio length (never trims audio)
+            reconcile_narration_duration(item, item.get("audio_path"))
+            if float(item.get("duration") or 0.0) == 0.0:
                 stat_zero_dur += 1
 
         result_by_idx[orig_idx] = item
@@ -1945,6 +1958,55 @@ def build_hybrid_export_timeline(
         )
 
     return result
+
+
+def preflight_audit_manifest(manifest: dict[str, Any], skip_tts: bool = False) -> list[str]:
+    """Verify every timeline item is renderable BEFORE handing off to Step 09.
+
+    Returns a list of failure strings; empty means the manifest is render-safe.
+    Checks: card PNGs exist, every content item has a positive duration, voiceover
+    audio files exist on disk, and narration items without archive footage carry a
+    generated visual PNG that exists.
+    """
+    failures: list[str] = []
+    cards = manifest.get("cards") or {}
+
+    for card_key in ("title_card", "closing_card"):
+        card_path = cards.get(card_key)
+        if not card_path or not Path(card_path).exists():
+            failures.append(f"{card_key}: PNG missing at {card_path!r}")
+
+    timeline = manifest.get("timeline") or manifest.get("export_timeline") or []
+    for idx, item in enumerate(timeline, start=1):
+        t = item.get("segment_type") or item.get("type") or ""
+        label = f"item {idx} ({t}, fragment={str(item.get('fragment_id') or '')[:40]!r})"
+
+        if t in ("title_card", "closing_card", "year_stamp"):
+            continue
+
+        if segment_effective_duration(item) <= 0.0:
+            failures.append(f"{label}: no measurable duration")
+
+        audio_mode = item.get("audio_mode") or ""
+        audio_path = item.get("audio_path") or item.get("voiceover_path")
+        if audio_mode in ("ai_voiceover", "external") and not skip_tts:
+            if not audio_path:
+                failures.append(f"{label}: audio_mode={audio_mode} but no audio_path")
+            elif not Path(audio_path).exists():
+                failures.append(f"{label}: voiceover audio missing at {audio_path!r}")
+
+        if t == "narration_broll" and not item.get("source_video"):
+            vis = item.get("render_visual_path") or item.get("visual_path") or item.get("asset_path")
+            if not vis:
+                failures.append(f"{label}: no archive footage and no generated visual")
+            elif not Path(vis).exists():
+                failures.append(f"{label}: generated visual missing at {vis!r}")
+
+        if t == "speaker_clip":
+            if not item.get("source_video") and not item.get("fragment_id"):
+                failures.append(f"{label}: speaker_clip without source_video/fragment_id")
+
+    return failures
 
 
 def main() -> None:
@@ -2250,7 +2312,16 @@ def main() -> None:
                 if not item.get("voiceover_text"):
                     item["voiceover_text"] = sv.get("text", "")
                 item["subtitle_kind"] = "voiceover"
+                reconcile_narration_duration(item, item["audio_path"])
                 nb_idx += 1
+            elif t == "speaker_clip" and not item.get("render_duration"):
+                # Locked validated window: render exactly what validation approved.
+                s_v, e_v = item.get("render_start", item.get("start")), item.get("render_end", item.get("end"))
+                try:
+                    if s_v is not None and e_v is not None and float(e_v) > float(s_v):
+                        item["render_duration"] = round(float(e_v) - float(s_v), 3)
+                except (TypeError, ValueError):
+                    pass
         enriched_story["export_timeline"] = final_tl
         log(f"Phase 4V: {nb_idx} narration_broll items received audio_path from section_voiceovers.")
 
@@ -2388,6 +2459,27 @@ def main() -> None:
     hybrid_tl = enriched_story.get("export_timeline") or []
     manifest["export_timeline"] = hybrid_tl
     manifest["timeline"] = hybrid_tl
+    manifest["duration_budget"] = build_duration_budget(
+        hybrid_tl,
+        manifest.get("target_duration_seconds"),
+        stage="08_generate_assets",
+    )
+
+    # Pre-flight audit: every timeline item must be renderable before Step 09 runs.
+    # NOTE: this guards RENDERABILITY (missing media, unusable segments), not
+    # duration. A below-target plan is content exhaustion — warn and ship the
+    # honest best-effort duration; never a fatal preflight failure. (Integrity
+    # shortfalls, i.e. rendered < planned, are still hard-failed in Step 09.)
+    preflight_failures = preflight_audit_manifest(manifest, skip_tts=args.skip_tts)
+    manifest["preflight_failures"] = preflight_failures
+
+    _budget = manifest["duration_budget"]
+    if _budget.get("meets_floor") is False:
+        log(
+            f"WARNING: planned timeline {_budget['planned_total_seconds']:.1f}s is below target "
+            f"{_budget['target_seconds']:.1f}s (shortfall {_budget['shortfall_seconds']:.1f}s) — "
+            f"relevant content exhausted, shipping honest best-effort duration, no filler."
+        )
 
     # Strict asset manifest validation before saving
     manifest_validation_issues = validate_asset_manifest_before_save(
@@ -2438,6 +2530,13 @@ def main() -> None:
     log(f"Metadata enrichment: {metadata_stats['enriched_fragment_refs']} refs enriched, {len(metadata_stats['missing_fragment_refs'])} missing")
     log(f"Section cards generated: {len(section_cards)}")
     log("Visible card text is now sanitized. Internal style/prompt text will not appear on cards.")
+
+    if preflight_failures:
+        log("")
+        log(f"PRE-FLIGHT AUDIT FAILED — {len(preflight_failures)} issue(s), manifest is NOT render-safe:")
+        for failure in preflight_failures:
+            log(f"  ✗ {failure}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

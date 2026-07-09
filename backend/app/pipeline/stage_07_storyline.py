@@ -9,7 +9,8 @@ from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, STORYLINES_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script, _newest_file_after
-from app.pipeline.s3_helpers import use_s3, upload, download, tmp_dir
+from app.pipeline.s3_helpers import use_s3, upload, download, key_exists, tmp_dir
+from app.pipeline.timeline_budget import SOURCE_DURATION_INDEX_S3_KEY
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
 
@@ -37,6 +38,25 @@ def _prepare_embeddings(job_id: str) -> dict[str, str]:
     return {"AI4IA_EMBEDDINGS_DIR": str(embeddings_tmp)}
 
 
+def _prepare_source_duration_index(job_id: str) -> dict[str, str]:
+    """Download the small source-video-duration sidecar so plan-time footage-length
+    checks (clamp_timeline_windows_to_source / fill_timeline_to_target) have real
+    numbers even though this stage never downloads the full video files.
+
+    Optional: the index may not exist yet (first deploy) — proceed without it,
+    the pipeline falls back to treating lengths as unknown, same as before.
+    """
+    if not use_s3():
+        return {}
+    if not key_exists(SOURCE_DURATION_INDEX_S3_KEY):
+        return {}
+    work = tmp_dir(f"07_{job_id}")
+    local = work / "source_video_durations.json"
+    if not local.exists():
+        download(SOURCE_DURATION_INDEX_S3_KEY, local)
+    return {"AI4IA_SOURCE_DURATION_INDEX": str(local)}
+
+
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
     update_stage(job_id, "07_storyline", "running", 5, "Starting storyline generation")
     append_event(job_id, "stage_started", "07_storyline", {"prompt": request.get("prompt", "")})
@@ -47,12 +67,20 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if use_s3():
         update_stage(job_id, "07_storyline", "running", 8, "Downloading embeddings from S3")
     env_overrides = _prepare_embeddings(job_id)
+    env_overrides.update(_prepare_source_duration_index(job_id))
+
+    target_duration = request.get("target_duration")
+    if not target_duration:
+        raise ValueError(
+            "target_duration is required — the pipeline treats it as the minimum "
+            "final video duration and will not assume a default."
+        )
 
     cmd = [
         PYTHON_BIN,
         str(SCRIPTS_DIR / "07_generate_storyline.py"),
         "--prompt", request["prompt"],
-        "--duration", str(request.get("target_duration", 150)),
+        "--duration", str(target_duration),
         "--style", request.get("style", "documentary"),
     ]
 

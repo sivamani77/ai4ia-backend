@@ -1,18 +1,15 @@
 from __future__ import annotations
 
-import re
+from dataclasses import dataclass
 
-from fastapi import HTTPException, Request, Security
-from fastapi.security import APIKeyHeader
+from fastapi import Depends, HTTPException, Security
+from fastapi.security import APIKeyHeader, HTTPAuthorizationCredentials, HTTPBearer
 
+from app.core.security import TokenExpiredError, TokenInvalidError, decode_access_token
 from app.core.settings import settings
 
 _api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
-
-_UUID4_RE = re.compile(
-    r"^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
-    re.IGNORECASE,
-)
+_bearer_scheme = HTTPBearer(auto_error=False)
 
 
 async def require_api_key(key: str = Security(_api_key_header)) -> None:
@@ -22,10 +19,35 @@ async def require_api_key(key: str = Security(_api_key_header)) -> None:
         raise HTTPException(status_code=403, detail="Invalid or missing API key")
 
 
-def extract_session_id(request: Request) -> str:
-    session_id = request.headers.get("X-Session-ID", "")
-    if not session_id:
-        return ""
-    if not _UUID4_RE.match(session_id):
-        raise HTTPException(status_code=400, detail="X-Session-ID must be a valid UUID4")
-    return session_id
+@dataclass(frozen=True)
+class CurrentUser:
+    id: str
+    persona: str
+
+
+def get_current_user(
+    credentials: HTTPAuthorizationCredentials | None = Security(_bearer_scheme),
+) -> CurrentUser:
+    """Required auth dependency — fails closed with 401 if the bearer token
+    is missing, malformed, expired, or invalid. user_id always comes from a
+    verified token, never from anything client-supplied."""
+    if credentials is None or not credentials.credentials:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+
+    try:
+        claims = decode_access_token(credentials.credentials)
+    except TokenExpiredError:
+        raise HTTPException(status_code=401, detail={"code": "token_expired", "message": "Access token expired"})
+    except TokenInvalidError:
+        raise HTTPException(status_code=401, detail="Invalid access token")
+
+    return CurrentUser(id=claims["sub"], persona=claims.get("persona", ""))
+
+
+def require_role(*allowed_personas: str):
+    def _dependency(user: CurrentUser = Depends(get_current_user)) -> CurrentUser:
+        if user.persona not in allowed_personas:
+            raise HTTPException(status_code=403, detail="You do not have permission to perform this action")
+        return user
+
+    return _dependency

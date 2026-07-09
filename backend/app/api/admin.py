@@ -14,6 +14,74 @@ router = APIRouter(prefix="/admin", tags=["Admin"])
 
 
 # ---------------------------------------------------------------------------
+# Export archive — every completed job's final video/subtitles/assets,
+# across ALL users (including jobs orphaned under a pre-auth session UUID).
+# Admin-only: gated by require_role("admin") at the router include in main.py.
+# ---------------------------------------------------------------------------
+
+@router.get("/exports/archive")
+def list_export_archive(
+    limit: int = Query(50, ge=1, le=200),
+    offset: int = Query(0, ge=0),
+    status: str = Query("completed", description="Filter by job status, or 'all'"),
+):
+    """List every job's final exported assets (video, srt/vtt, manifest,
+    thumbnail) for the admin export-archive screen. Includes jobs whose
+    user_id is a legacy anonymous session UUID — those are only reachable
+    through this admin view, never through the per-account /video-jobs
+    endpoints."""
+    from app.services.job_store import list_jobs
+    from app.api.video_media import _get_registry, _media_list_entry
+
+    all_jobs = list_jobs()
+    if status != "all":
+        all_jobs = [j for j in all_jobs if j.get("status") == status]
+    all_jobs.sort(key=lambda j: j.get("completed_at") or j.get("created_at") or "", reverse=True)
+
+    total = len(all_jobs)
+    page = all_jobs[offset: offset + limit]
+
+    entries = []
+    for job in page:
+        job_id = job.get("job_id") or job.get("id")
+        prompt = job.get("prompt") or (job.get("payload") or {}).get("prompt")
+
+        try:
+            reg = _get_registry(job_id)
+            objects = {
+                oid: _media_list_entry(job_id, oid, obj)
+                for oid, obj in reg.get("objects", {}).items()
+            }
+        except HTTPException:
+            objects = {}
+
+        entries.append({
+            "job_id": job_id,
+            "user_id": job.get("user_id"),
+            "status": job.get("status"),
+            "prompt": prompt,
+            "created_at": job.get("created_at"),
+            "completed_at": job.get("completed_at"),
+            "video": objects.get("video"),
+            "srt": objects.get("srt"),
+            "vtt": objects.get("vtt"),
+            "manifest": objects.get("manifest"),
+            "thumbnail": objects.get("thumbnail"),
+            "other_assets": [
+                v for k, v in objects.items()
+                if k not in ("video", "srt", "vtt", "manifest", "thumbnail")
+            ],
+        })
+
+    return {
+        "jobs": entries,
+        "total": total,
+        "limit": limit,
+        "offset": offset,
+    }
+
+
+# ---------------------------------------------------------------------------
 # S3 helpers (lazy — only imported when storage backend is s3)
 # ---------------------------------------------------------------------------
 

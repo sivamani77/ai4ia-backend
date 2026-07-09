@@ -19,6 +19,42 @@ class Settings(BaseSettings):
     allowed_origins: list[str] = ["*"]  # CORS allowed origins
 
     # ------------------------------------------------------------------
+    # User authentication (JWT access + rotating refresh tokens)
+    # ------------------------------------------------------------------
+    jwt_signing_key: str = ""
+    jwt_algorithm: str = "HS256"
+    jwt_issuer: str = "ai4ia-backend"
+    access_token_ttl_seconds: int = 15 * 60          # 15 minutes
+    refresh_token_ttl_seconds: int = 30 * 24 * 60 * 60  # 30 days
+    refresh_cookie_name: str = "refresh_token"
+    refresh_cookie_domain: str = ""   # blank = host-only cookie
+    refresh_cookie_secure: bool = True
+
+    # Argon2id password hashing cost parameters
+    argon2_time_cost: int = 3
+    argon2_memory_cost_kib: int = 64 * 1024   # 64 MiB
+    argon2_parallelism: int = 2
+
+    # OTP (email verification codes for signup + password reset)
+    otp_ttl_minutes: int = 10
+    otp_max_attempts: int = 5
+    otp_resend_cooldown_seconds: int = 60
+
+    # Login brute-force lockout
+    login_max_failed_attempts: int = 5
+    login_lockout_seconds: int = 15 * 60  # 15 minutes
+
+    # ------------------------------------------------------------------
+    # Mail (SMTP) — OTP delivery
+    # ------------------------------------------------------------------
+    mail_smtp_host: str = ""
+    mail_smtp_port: int = 587
+    mail_smtp_user: str = ""
+    mail_smtp_password: str = ""
+    mail_from_address: str = ""
+    mail_from_name: str = "AI4IA (No Reply)"
+
+    # ------------------------------------------------------------------
     # Ollama
     # ------------------------------------------------------------------
     ollama_base_url: str = "http://ollama-mobius-sales.mobiusdtaas.ai"
@@ -29,17 +65,40 @@ class Settings(BaseSettings):
     redis_url: str = "redis://localhost:6379/0"
 
     # ------------------------------------------------------------------
-    # Supabase
+    # Supabase — pipeline/jobs project (jobs, events, storylines, etc.)
     # ------------------------------------------------------------------
     supabase_url: str = ""
     supabase_service_key: str = ""
 
     # ------------------------------------------------------------------
-    # vLLM (strong model — gpt-oss-20b via OpenAI-compatible API)
+    # Supabase — auth project (app_users, otp_codes, refresh_tokens,
+    # auth_audit). This is a SEPARATE Supabase project from the one above —
+    # app_users already existed there before the backend owned auth, and the
+    # frontend's anon/publishable key for it must never be used server-side.
+    # The backend needs that project's service-role key to hash/verify
+    # passwords and manage tokens.
+    # ------------------------------------------------------------------
+    auth_supabase_url: str = ""
+    auth_supabase_service_key: str = ""
+
+    # ------------------------------------------------------------------
+    # vLLM (unused by the video pipeline as of the gpt-oss:120b/Ollama
+    # switch below; kept for rollback and because other features'
+    # `*_model` settings still reference the same "openai/gpt-oss-20b"
+    # identifier as a default value, independent of vLLM being reachable)
     # ------------------------------------------------------------------
     vllm_base_url: str = "http://vllm-gpt-oss.mobiusdtaas.ai"
     vllm_model: str = "openai/gpt-oss-20b"
     vllm_chat_endpoint: str = "/v1/chat/completions"
+
+    # ------------------------------------------------------------------
+    # Video-pipeline strong model (storyline generation + LLM editorial
+    # validation in scripts/07_generate_storyline.py and
+    # scripts/07b_validate_storyline_with_llm.py) — served by the same
+    # Ollama host as embeddings, via /api/generate. Scoped to the video
+    # pipeline only; other features keep their own model settings below.
+    # ------------------------------------------------------------------
+    storyline_strong_model: str = "gpt-oss:120b"
 
     # ------------------------------------------------------------------
     # LLM models
@@ -48,6 +107,22 @@ class Settings(BaseSettings):
     insight_model: str = "openai/gpt-oss-20b"
     embedding_model: str = "nomic-embed-text:v1.5"
     fast_llm_model: str = "llama3.1:8b"
+
+    # ------------------------------------------------------------------
+    # Response translation
+    # ------------------------------------------------------------------
+    translation_enabled: bool = False
+    # Provider: "vllm" now; "deepl" / "libretranslate" adapters can be added
+    # behind the same interface later.
+    translation_provider: str = "vllm"
+    # Languages clients may request (ISO 639-1). English is the source
+    # language, so requesting it is a no-op.
+    translation_supported_languages: list[str] = [
+        "fr", "de", "es", "pt", "it", "nl", "hi", "ja", "zh",
+    ]
+    translation_cache_ttl_seconds: int = 60 * 60 * 24 * 30  # 30 days
+    # Responses larger than this are returned untranslated (fail-open).
+    translation_max_body_bytes: int = 200_000
 
     # ------------------------------------------------------------------
     # Storyline / export tuning
@@ -174,8 +249,16 @@ class Settings(BaseSettings):
             warnings.append("SUPABASE_URL is not set")
         if not self.supabase_service_key:
             warnings.append("SUPABASE_SERVICE_KEY is not set")
+        if not self.auth_supabase_url:
+            warnings.append("AUTH_SUPABASE_URL is not set — user auth (app_users) unavailable")
+        if not self.auth_supabase_service_key:
+            warnings.append("AUTH_SUPABASE_SERVICE_KEY is not set — user auth (app_users) unavailable")
         if not self.api_key:
             warnings.append("API_KEY is not set — running in open dev mode, no auth enforced")
+        if not self.jwt_signing_key:
+            warnings.append("JWT_SIGNING_KEY is not set — user auth tokens cannot be issued")
+        if not self.mail_smtp_host or not self.mail_smtp_user or not self.mail_smtp_password:
+            warnings.append("MAIL_SMTP_* is not fully configured — OTP emails cannot be sent")
         return warnings
 
     model_config = {

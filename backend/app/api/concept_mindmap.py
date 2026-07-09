@@ -11,9 +11,9 @@ class ConceptMindmapRequest(BaseModel):
     query: str = Field(..., min_length=5, max_length=300)
     storyline_id: str | None = Field(None, max_length=100)
     mode: str = Field(
-        "video",
+        "legacy",
         pattern="^(video|legacy)$",
-        description="'video' = NotebookLM-style map of what the video says; 'legacy' = theme/section-centric map",
+        description="'legacy' = theme/chapter/speaker/content-centric map (default, no LLM); 'video' = NotebookLM-style map of what the video says",
     )
 
 

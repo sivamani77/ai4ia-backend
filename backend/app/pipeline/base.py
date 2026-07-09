@@ -74,12 +74,19 @@ def run_script(
     stage_name: str,
     cmd: list[str],
     extra_env: dict[str, str] | None = None,
+    timeout: int | None = None,
 ) -> tuple[int, str, str]:
-    """Run a subprocess and emit stdout/stderr to Supabase events. Returns (exit_code, stdout, stderr)."""
+    """Run a subprocess and emit stdout/stderr to Supabase events. Returns (exit_code, stdout, stderr).
+
+    `timeout` overrides the per-stage default when provided — used by stage 09,
+    whose render+transcribe time scales with the requested video duration and
+    the host's encoder (GPU nvenc vs CPU libx264).
+    """
     from app.services.job_store import append_event, load_job, save_job
 
     env = {**os.environ, **(extra_env or {})} if extra_env else None
-    timeout = _STAGE_TIMEOUTS.get(stage_name, _STAGE_TIMEOUTS["_default"])
+    if timeout is None:
+        timeout = _STAGE_TIMEOUTS.get(stage_name, _STAGE_TIMEOUTS["_default"])
 
     try:
         process = subprocess.Popen(

@@ -18,6 +18,7 @@ _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
 from app.core.settings import settings  # noqa: E402
+from app.pipeline.timeline_budget import build_duration_budget  # noqa: E402
 
 RAW_VIDEO_DIR = Path(os.environ.get("AI4IA_RAW_VIDEO_DIR", str(PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel")))
 GENERATED_ASSETS_DIR = Path(os.environ.get("AI4IA_LOCAL_ASSETS_DIR", str(PROJECT_ROOT / "data" / "generated_assets")))
@@ -34,6 +35,16 @@ TEMP_DIR = Path("/tmp/ai4ia_pipeline/video_export")
 OUTPUT_WIDTH = 1920
 OUTPUT_HEIGHT = 1080
 FPS = 30
+
+
+class ExportIntegrityError(RuntimeError):
+    """A timeline segment cannot be rendered as planned.
+
+    Raised instead of silently skipping content: a skipped segment shortens the
+    final video below the validated plan, which is a contract violation. The fix
+    belongs upstream (re-run Step 08, restore the missing media), never in
+    dropping content at render time.
+    """
 
 TITLE_CARD_MIN_DURATION = 3.5
 STATIC_CARD_DURATION = 2.5
@@ -171,25 +182,37 @@ def get_media_duration(path: Path) -> float:
         raise RuntimeError(f"ffprobe returned non-numeric duration for {path}: {output!r}")
 
 
+_VIDEO_ID_PREFIX_RE = re.compile(r"^(\d{4}_[A-Za-z0-9_-]{6,})")
+
+
+def _video_id_prefix(name: str) -> str | None:
+    """Stable '0254_RXXzSGoo0KQ' id prefix — see stage_09_export._video_id_prefix
+    for why title text (source_video/fragment_id suffix) can drift from the real
+    filename (LLM round-trips normalize fullwidth Unicode punctuation in titles)
+    while this id prefix never does."""
+    m = _VIDEO_ID_PREFIX_RE.match(name)
+    return m.group(1) if m else None
+
+
 def find_source_video(source_video: str | None, fragment_id: str | None = None) -> Path | None:
-    if source_video:
-        exact = RAW_VIDEO_DIR / f"{source_video}.mp4"
+    candidates = [c for c in (source_video, fragment_id and re.sub(r"_\d{4}$", "", fragment_id)) if c]
+
+    for name in candidates:
+        exact = RAW_VIDEO_DIR / f"{name}.mp4"
         if exact.exists():
             return exact
-
-        matches = sorted(RAW_VIDEO_DIR.glob(f"{source_video}*.mp4"))
+        matches = sorted(RAW_VIDEO_DIR.glob(f"{name}*.mp4"))
         if matches:
             return matches[0]
 
-    if fragment_id:
-        inferred = re.sub(r"_\d{4}$", "", fragment_id)
-        exact = RAW_VIDEO_DIR / f"{inferred}.mp4"
-        if exact.exists():
-            return exact
-
-        matches = sorted(RAW_VIDEO_DIR.glob(f"{inferred}*.mp4"))
-        if matches:
-            return matches[0]
+    # Fallback: match on the stable numeric/video-id prefix alone, which
+    # survives title text that was normalized somewhere upstream.
+    for name in candidates:
+        prefix = _video_id_prefix(name)
+        if not prefix:
+            continue
+        for path in RAW_VIDEO_DIR.glob(f"{prefix}*.mp4"):
+            return path
 
     return None
 
@@ -1519,10 +1542,11 @@ def _build_canonical_rendering_timeline(
             else:
                 card_path = item.get("path", "")
 
-            if not card_path:
-                log(f"  [canonical] Card item {idx} ({seg_type}) has no path — skipping.")
-                skipped_count += 1
-                continue
+            if not card_path or not Path(card_path).exists():
+                raise ExportIntegrityError(
+                    f"Card item {idx} ({seg_type}): card PNG missing at {card_path!r}. "
+                    f"Re-run Step 08 to regenerate cards."
+                )
 
             item["type"] = "card"
             item["path"] = card_path
@@ -1573,11 +1597,18 @@ def _build_canonical_rendering_timeline(
                             _wc = len(_bridge_text.split()) if _bridge_text else 0
                             _bridge_dur = max(2.5, _wc / 2.5)
                             _bridge_audio = None
+                        # Bridges have no archive footage — render over the title card
+                        # so they are always renderable (never silently dropped).
+                        _bridge_visual = None
+                        if title_card_path and Path(title_card_path).exists():
+                            _bridge_visual = title_card_path
                         _bridge_seg: dict[str, Any] = {
                             "type": "archive_clip",
                             "segment_type": "narration_broll",
                             "audio_mode": "external",
                             "audio_path": str(_bridge_audio) if _bridge_audio else None,
+                            "render_visual_path": _bridge_visual,
+                            "visual_path": _bridge_visual,
                             "muted": True,
                             "subtitle_text": _bridge_text,
                             "voiceover_text": _bridge_text,
@@ -1623,12 +1654,25 @@ def _build_canonical_rendering_timeline(
                     item["segment_type"] = "narration_broll"
                     item["audio_mode"] = "ai_voiceover"
                     probed_audio_dur = get_media_duration(audio_path)
-                    if probed_audio_dur <= 0.0:
-                        log(f"  [canonical] WARNING: voiceover {audio_path.name} probed as 0s — using fragment duration")
-                    narration_duration = max(probed_audio_dur, 0.0) + 0.4
-                    frag_dur = float(item.get("duration") or 0.0)
-                    item["duration"] = max(frag_dur, narration_duration)
-                    item["render_duration"] = item["duration"]
+                    preset_render_dur = float(item.get("render_duration") or 0.0)
+                    if preset_render_dur > 0.0:
+                        # Step 08 already reconciled this duration against the TTS audio —
+                        # trust it, but the audio must actually fit the declared window.
+                        if probed_audio_dur > preset_render_dur + 1.0:
+                            raise ExportIntegrityError(
+                                f"Narration item {idx}: voiceover {audio_path.name} is "
+                                f"{probed_audio_dur:.1f}s but manifest declares "
+                                f"{preset_render_dur:.1f}s — manifest is stale, re-run Step 08."
+                            )
+                        item["duration"] = preset_render_dur
+                    else:
+                        # Legacy manifest without reconciled durations (pre-Phase-4 Step 08).
+                        if probed_audio_dur <= 0.0:
+                            log(f"  [canonical] WARNING: voiceover {audio_path.name} probed as 0s — using fragment duration")
+                        narration_duration = max(probed_audio_dur, 0.0) + 0.4
+                        frag_dur = float(item.get("duration") or 0.0)
+                        item["duration"] = max(frag_dur, narration_duration)
+                        item["render_duration"] = item["duration"]
                     # Propagate subtitle text from section_voiceovers if not already set
                     if not item.get("subtitle_text") or not item.get("voiceover_text"):
                         for sv in (manifest.get("voice", {}).get("section_voiceovers") or []):
@@ -1651,8 +1695,10 @@ def _build_canonical_rendering_timeline(
             fragment_item_index += 1
             rendering.append(item)
         else:
-            log(f"  [canonical] Unrecognised item {idx} (type={item_type!r}, seg={seg_type!r}) — skipping.")
-            skipped_count += 1
+            raise ExportIntegrityError(
+                f"Unrecognised timeline item {idx} (type={item_type!r}, seg={seg_type!r}) — "
+                f"cannot render it and refusing to drop it. Fix the manifest timeline."
+            )
 
     log(f"Canonical timeline summary:")
     log(f"  total items   : {len(canonical)}")
@@ -1693,8 +1739,14 @@ def _render_one_segment(
         min_duration = float(item.get("duration") or STATIC_CARD_DURATION)
 
         if not image_path.exists():
-            log(f"  [render] Missing card image, skipping: {image_path}")
-            return idx, None, None
+            if seg_type == "year_stamp":
+                # Cosmetic transition card — safe to drop, but say so loudly.
+                log(f"  [render] WARNING: year_stamp card image missing, dropping cosmetic segment: {image_path}")
+                return idx, None, None
+            raise ExportIntegrityError(
+                f"Segment {idx} ({seg_type or 'card'}): card image missing at {image_path}. "
+                f"Re-run Step 08 to regenerate cards."
+            )
 
         make_card_video_with_optional_voiceover(
             image_path=image_path,
@@ -1721,8 +1773,11 @@ def _render_one_segment(
         )
         _is_narration = seg_type == "narration_broll" or item_type == "narration_broll" or item_audio_mode == "ai_voiceover"
         if not source_path and not (_is_narration and _has_generated_visual):
-            log(f"  [render] Source video not found for fragment {fragment_id!r} (source_video={source_video!r}). Skipping.")
-            return idx, None, None
+            raise ExportIntegrityError(
+                f"Segment {idx} ({seg_type}): source video not found for fragment {fragment_id!r} "
+                f"(source_video={source_video!r}) and no generated visual to render instead. "
+                f"Restore the source video or re-run Step 08."
+            )
 
         if item_type not in ("narration_broll", "speaker_clip"):
             item["type"] = "archive_clip"
@@ -1820,7 +1875,9 @@ def _render_one_segment(
                     f"narration_broll item {idx} ({fragment_id!r}) has zero target_duration — "
                     f"audio_path={item.get('audio_path')!r}. Aborting export."
                 )
-            target_duration = max(tts_duration, target_sec_per_segment)
+            # Render exactly the reconciled duration from the manifest — the renderer
+            # neither stretches segments toward the target nor trims them.
+            target_duration = tts_duration
             _vis_path_str = (
                 item.get("render_visual_path")
                 or item.get("visual_path")
@@ -1829,7 +1886,7 @@ def _render_one_segment(
             if _vis_path_str:
                 _vis_p = Path(_vis_path_str)
                 if _vis_p.exists():
-                    card_min_dur = max(target_duration, target_sec_per_segment)
+                    card_min_dur = target_duration
                     log(f"  [render] narration_broll item {idx}: generated visual {_vis_p.name} + ai_voiceover (min_dur={card_min_dur:.1f}s)")
                     make_card_video_with_optional_voiceover(
                         image_path=_vis_p,
@@ -1856,8 +1913,11 @@ def _render_one_segment(
                         "visual_mode": "generated_asset",
                     }
             if not source_path:
-                log(f"  [render] narration_broll item {idx}: no generated visual and no source video. Skipping.")
-                return idx, None, None
+                raise ExportIntegrityError(
+                    f"Segment {idx} (narration_broll, fragment={fragment_id!r}): no generated "
+                    f"visual and no source video — nothing to put on screen. Re-run Step 08 "
+                    f"(it now generates a visual for every footage-less narration item)."
+                )
             if video_stream_dur > 0 and start >= (video_stream_dur - 0.5):
                 fallback_start = max(0.0, video_stream_dur - target_duration - 1.0)
                 fallback_start = max(0.0, fallback_start)
@@ -1891,6 +1951,21 @@ def _render_one_segment(
                 end = start + DEFAULT_CLIP_DURATION
             ffmpeg_audio_mode = "source"
 
+        # Guard against a video stream that ends before the requested window
+        # (e.g. a source recording whose audio track outlasts its video track —
+        # `-ss` past the video's end silently produces a zero-frame, N/A-duration
+        # file). Shift the window back onto real footage rather than failing.
+        clip_span = max(end - start, 1.0)
+        if video_stream_dur > 0 and start >= (video_stream_dur - 0.5):
+            fallback_start = max(0.0, video_stream_dur - clip_span - 1.0)
+            log(
+                f"  [render] segment {idx} ({seg_type or item_type}): source video ends at "
+                f"{video_stream_dur:.1f}s (requested ts={start:.1f}s). "
+                f"Shifting window to ts={fallback_start:.1f}s."
+            )
+            end = fallback_start + clip_span
+            start = fallback_start
+
         render_archive_clip(
             source_path=source_path,
             output_path=segment_path,
@@ -1904,8 +1979,10 @@ def _render_one_segment(
         )
 
     else:
-        log(f"  [render] Unknown timeline item type: {item_type!r} — skipping.")
-        return idx, None, None
+        raise ExportIntegrityError(
+            f"Segment {idx}: unknown timeline item type {item_type!r} — cannot render it "
+            f"and refusing to drop it. Fix the manifest timeline."
+        )
 
     duration = get_media_duration(segment_path)
     if duration == 0.0:
@@ -2041,6 +2118,42 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
     )
     if _manifest_target_dur:
         log(f"  target_dur={_manifest_target_dur}s → min_sec_per_segment={_target_sec_per_segment:.1f}s ({_content_item_count} content items)")
+
+    # Pre-render integrity pass: resolve every segment's media BEFORE spending any
+    # ffmpeg time, so a broken manifest fails in seconds with the full list of
+    # problems instead of failing (or silently shrinking) mid-render.
+    _integrity_failures: list[str] = []
+    for _pf_idx, _pf_item in enumerate(timeline, start=1):
+        _pf_type = _pf_item.get("segment_type") or _pf_item.get("type") or ""
+        _pf_label = f"segment {_pf_idx} ({_pf_type}, fragment={str(_pf_item.get('fragment_id') or '')[:40]!r})"
+
+        if _pf_item.get("type") == "card":
+            _pf_card = _pf_item.get("path", "")
+            if (not _pf_card or not Path(_pf_card).exists()) and _pf_type != "year_stamp":
+                _integrity_failures.append(f"{_pf_label}: card image missing at {_pf_card!r}")
+            continue
+
+        _pf_visual = (
+            _pf_item.get("render_visual_path") or _pf_item.get("visual_path") or _pf_item.get("asset_path")
+        )
+        _pf_visual_ok = bool(_pf_visual) and Path(_pf_visual).exists()
+        _pf_source = find_source_video(_pf_item.get("source_video"), _pf_item.get("fragment_id"))
+        if not _pf_source and not _pf_visual_ok:
+            _integrity_failures.append(
+                f"{_pf_label}: source video not found (source_video={_pf_item.get('source_video')!r}) "
+                f"and no generated visual"
+            )
+
+        _pf_audio = _pf_item.get("audio_path")
+        if _pf_audio and not Path(_pf_audio).exists():
+            _integrity_failures.append(f"{_pf_label}: voiceover audio missing at {_pf_audio!r}")
+
+    if _integrity_failures:
+        raise ExportIntegrityError(
+            f"Pre-render integrity check failed with {len(_integrity_failures)} issue(s):\n  - "
+            + "\n  - ".join(_integrity_failures)
+        )
+    log(f"Pre-render integrity check passed: all {len(timeline)} segments have resolvable media.")
 
     segment_paths, segment_infos, current_time = _render_timeline_items(timeline, work_dir, _target_sec_per_segment)
 
@@ -2229,6 +2342,11 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
         },
         "rhythm": rhythm,
         "quality_checks": quality_checks,
+        "duration_budget": build_duration_budget(
+            timeline,
+            _manifest_target_dur or None,
+            stage="09_export_video",
+        ),
         "validation_warnings": validation_warnings,
         "generated_visual_segments": sum(1 for s in segment_infos if s.get("visual_mode") == "generated_asset"),
         "muted_archive_narration_segments": sum(
@@ -2325,16 +2443,45 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
         log(f"  duration_delta:        {dur_delta:.2f}s")
         if dur_delta > 1.0:
             log(f"WARNING: duration_delta ({dur_delta:.2f}s) exceeds 1 second — possible A/V sync issue.")
+        _target = float(_manifest_target_dur) if _manifest_target_dur else 0.0
+        _planned = float((export_manifest.get("duration_budget") or {}).get("planned_total_seconds") or 0.0)
         export_manifest["duration_check"] = {
             "format_duration": fmt_dur,
             "video_stream_duration": vid_dur,
             "audio_stream_duration": aud_dur,
             "duration_delta": dur_delta,
+            "target_duration_seconds": _target or None,
+            "planned_total_seconds": _planned or None,
+            "meets_target_floor": (fmt_dur >= _target) if _target else None,
         }
+        # Integrity against DROPPED content is enforced structurally elsewhere:
+        # _render_one_segment raises on any skip or zero-duration segment, and
+        # the segment-count check (rendered vs planned items) is the reliable
+        # drop signal. We deliberately do NOT hard-fail on rendered-vs-summed-
+        # duration: on a long multi-segment video, fades, ffmpeg -shortest, and
+        # chronological-relay bridge recomputation make the real total legitimately
+        # a bit under the naive sum of declared item durations — that drift is not
+        # a defect. Duration below target is only ever a content-exhaustion warning.
+        if _target and fmt_dur < _target:
+            log(
+                f"WARNING: rendered {fmt_dur:.1f}s is below the {_target:.1f}s requested — "
+                f"relevant content exhausted (planned {_planned:.1f}s). Shipping honest "
+                f"best-effort duration; no filler added."
+            )
+        elif _planned and fmt_dur < _planned - max(5.0, _planned * 0.15):
+            # Informational only: unusually large drift from the plan, but the
+            # video still meets target. Worth noting, not worth failing.
+            log(
+                f"NOTE: rendered {fmt_dur:.1f}s is {_planned - fmt_dur:.1f}s under the "
+                f"summed plan {_planned:.1f}s (fades/-shortest/relay-bridge drift); "
+                f"target {_target:.1f}s still met."
+            )
         export_manifest_path.write_text(
             json.dumps(export_manifest, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
+    except ExportIntegrityError:
+        raise
     except Exception as exc:
         log(f"Post-export duration check failed: {exc}")
 

@@ -98,6 +98,15 @@ class TestStage07Storyline:
              patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
              patch("app.pipeline.stage_07_storyline.append_event", MagicMock()):
             with pytest.raises(RuntimeError, match="07_generate_storyline"):
+                run("vjob_test", {"prompt": "AI film", "target_duration": 120}, ctx)
+
+    def test_raises_when_target_duration_missing(self, tmp_path):
+        from app.pipeline.stage_07_storyline import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_07_storyline.append_event", MagicMock()):
+            with pytest.raises(ValueError, match="target_duration is required"):
                 run("vjob_test", {"prompt": "AI film"}, ctx)
 
     def test_raises_when_no_output_file(self, tmp_path):
@@ -109,7 +118,7 @@ class TestStage07Storyline:
              patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
              patch("app.pipeline.stage_07_storyline.append_event", MagicMock()):
             with pytest.raises(RuntimeError, match="No storyline JSON"):
-                run("vjob_test", {"prompt": "AI film"}, ctx)
+                run("vjob_test", {"prompt": "AI film", "target_duration": 120}, ctx)
 
 
 # ---------------------------------------------------------------------------

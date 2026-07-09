@@ -24,6 +24,9 @@ class EventRepository:
         self._client = get_supabase_client()
         self._table = self._client.table(self.table_name)
 
+    def delete_by_job(self, job_id: str) -> None:
+        self._table.delete().eq("job_id", job_id).execute()
+
     def add_event(self, data: Mapping[str, Any]) -> EventRecord:
         payload = self._normalize_input(data)
         job_id = payload.get("job_id")

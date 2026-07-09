@@ -17,6 +17,7 @@ Step 08 uses `final_timeline` directly when present.
 
 import argparse
 import json
+import os
 import re
 import sys
 import time
@@ -35,6 +36,13 @@ _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
 from app.core.settings import settings  # noqa: E402
+from app.pipeline.timeline_budget import (  # noqa: E402
+    DURATION_FILL_MARGIN,
+    _candidate_is_speaker_eligible,
+    build_duration_budget,
+    fill_timeline_to_target,
+    timeline_total_seconds,
+)
 
 STORYLINES_DIR = PROJECT_ROOT / "data" / "storylines"
 
@@ -43,7 +51,7 @@ GENERATE_ENDPOINT = "/api/generate"
 VLLM_BASE_URL = settings.vllm_base_url
 VLLM_MODEL = settings.vllm_model
 CHAT_ENDPOINT = settings.vllm_chat_endpoint
-#STRONG_LLM_MODEL = "gpt-oss:120b"
+STRONG_LLM_MODEL = settings.storyline_strong_model
 FAST_LLM_MODEL = settings.fast_llm_model
 
 REQUEST_TIMEOUT_SECONDS = 300
@@ -338,25 +346,49 @@ def log(msg: str) -> None:
     print(msg, flush=True)
 
 
+def _to_ollama_generate_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Translate an OpenAI-chat-shaped payload (model/messages/temperature/
+    max_completion_tokens) into Ollama's /api/generate shape (model/prompt/
+    options.temperature/options.num_ctx). All call sites in this module use a
+    single user-role message, so the prompt is just that message's content.
+
+    Deliberately does NOT set the top-level "format": "json" flag: verified live
+    against this Ollama host that gpt-oss:120b returns an EMPTY response when
+    that flag is set (confirmed via direct /api/generate call — "response": ""
+    with done_reason="stop" even on a trivial prompt with ample context budget),
+    while the identical prompt without the flag returns clean JSON immediately.
+    This looks like an Ollama/gpt-oss "harmony" channel-format incompatibility,
+    not a prompt issue. Every caller here already parses the free-form response
+    with extract_json_object/extract_json_array, so plain prompting works fine —
+    prefer that over a "format" flag that silently breaks this model."""
+    messages = payload.get("messages") or []
+    prompt = "\n\n".join(
+        str(m.get("content") or "") for m in messages if m.get("content")
+    )
+    return {
+        "model": payload.get("model"),
+        "prompt": prompt,
+        "stream": False,
+        "options": {
+            "temperature": payload.get("temperature", 0.3),
+            "num_ctx": payload.get("max_completion_tokens", 4096),
+        },
+    }
+
+
 def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SECONDS) -> str:
-    """POST to Ollama generate endpoint, return response text. Raises on failure."""
+    """POST to the Ollama generate endpoint, return response text. Raises on failure."""
     import requests
-    # url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
-    # last_error: Exception | None = None
-    # for attempt in range(1, MAX_RETRIES + 1):
-    #     try:
-    #         resp = requests.post(url, json=payload, timeout=timeout)
-    #         resp.raise_for_status()
-    #         return resp.json().get("response", "")
-    url = VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
+    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    ollama_payload = _to_ollama_generate_payload(payload)
     last_error: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             _t0 = time.time()
-            resp = requests.post(url, json=payload, timeout=timeout)
+            resp = requests.post(url, json=ollama_payload, timeout=timeout)
             resp.raise_for_status()
-            _content = resp.json()["choices"][0]["message"]["content"]
-            log(f"  [llm-timing] model={payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            _content = resp.json().get("response", "")
+            log(f"  [llm-timing] model={ollama_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
             return _content
 
         except Exception as exc:
@@ -672,14 +704,8 @@ Return JSON with these exact fields:
 """
 
     try:
-        # raw = post_with_retries({
-        #     "model": FAST_LLM_MODEL,
-        #     "prompt": prompt,
-        #     "stream": False,
-        #     "options": {"temperature": 0.2, "num_ctx": 8000},
-        # })
         raw = post_with_retries({
-            "model": VLLM_MODEL,
+            "model": STRONG_LLM_MODEL,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.3,
             "max_completion_tokens": 4096,
@@ -759,6 +785,14 @@ RULES:
 - Maximum 5 speaker clips, 3-5 narration_broll segments.
 - Reject redundant or weak clips that duplicate other clips.
 - End with a closing synthesis statement on the USER PROMPT topic.
+- CRITICAL: every "fragment_id" value you write must be copied EXACTLY,
+  character-for-character, from the "fragment_id" field of one of the
+  APPROVED CANDIDATE CLIPS listed below. Never invent, abbreviate,
+  paraphrase, or truncate a fragment_id, and never make one up (e.g.
+  "hook_001") — those are not real clips and will be discarded. If a
+  timeline_items/final_timeline entry has no real approved clip behind it
+  (e.g. a narration_broll bridge with no matching footage), OMIT the
+  "fragment_id" field from that entry entirely rather than guessing.
 
 OUTPUT: Respond with ONLY a valid JSON object. No markdown, no commentary outside the JSON.
 """
@@ -865,17 +899,15 @@ Return JSON with this exact structure:
 """
 
     try:
-        # raw = post_with_retries({
-        #     "model": STRONG_LLM_MODEL,
-        #     "prompt": prompt,
-        #     "stream": False,
-        #     "options": {"temperature": 0.3, "num_ctx": 12000},
-        # })
         raw = post_with_retries({
-            "model": VLLM_MODEL,
+            "model": STRONG_LLM_MODEL,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.3,
-            "max_completion_tokens": 4096,
+            # This model emits its reasoning trace before the actual answer, and for
+            # a full-narrative assembly (multiple sections + a full final_timeline)
+            # that trace alone can exhaust a small context window, leaving the real
+            # JSON answer empty/truncated. Raised so there's room for both.
+            "max_completion_tokens": 12000,
             "stream": False,
         })
         result = extract_json_object(raw)
@@ -921,36 +953,42 @@ def build_fallback_final_timeline(
     sc_idx = 0
     sections_used: set[str] = set()
 
-    for s in narrative_sections:
+    for section_idx, s in enumerate(narrative_sections):
         sid = s["section_id"]
-        # Assign a narration_broll to this section if available
+        # EVERY section gets an AI narration bridge — this is the documentary's
+        # connective voice. It renders over an archive fragment when one is
+        # available, otherwise over a generated visual (Step 08 makes one for
+        # footage-less narration). This guarantees narration is never missing,
+        # even when the approved pool happens to be all speaker clips.
         broll_cand = brolls[vo_idx] if vo_idx < len(brolls) else None
+        narration_text = sl_narration[section_idx] if section_idx < len(sl_narration) else ""
+        narration_item: dict[str, Any] = {
+            "type": "narration_broll",
+            "segment_type": "narration_broll",
+            "audio_mode": "ai_voiceover",
+            "section_id": sid,
+            "voiceover_text": narration_text,
+            "subtitle_text": narration_text,
+            "subtitle_kind": "voiceover",
+            "visual_direction": s.get("card_text", ""),
+        }
         if broll_cand:
             fragment_id = broll_cand.get("fragment_id")
-            # find source_video from original candidates
             source_video = broll_cand.get("source_video") or (
                 "_".join(str(fragment_id).rsplit("_", 1)[:-1]) if fragment_id else None
             )
-            # Use script-07 narration if available (topic-correct, proportionally sized).
-            # Leave empty if exhausted — generate_voiceovers_for_timeline will fill via LLM.
-            # NEVER use sec["purpose"] — it contains instruction text that causes leakage gates to fire.
-            narration_text = sl_narration[vo_idx] if vo_idx < len(sl_narration) else ""
-            final_timeline.append({
-                "type": "narration_broll",
-                "segment_type": "narration_broll",
-                "audio_mode": "ai_voiceover",
-                "section_id": sid,
-                "fragment_id": fragment_id,
-                "source_video": source_video,
-                "start": float(broll_cand.get("quote_start") or broll_cand.get("start") or 0),
-                "end": float(broll_cand.get("quote_end") or broll_cand.get("end") or 10),
-                "voiceover_text": narration_text,
-                "subtitle_text": narration_text,
-                "subtitle_kind": "voiceover",
-                "visual_direction": s.get("card_text", ""),
-            })
+            narration_item["fragment_id"] = fragment_id
+            narration_item["source_video"] = source_video
+            narration_item["start"] = float(broll_cand.get("quote_start") or broll_cand.get("start") or 0)
+            narration_item["end"] = float(broll_cand.get("quote_end") or broll_cand.get("end") or 10)
             vo_idx += 1
-            sections_used.add(sid)
+        else:
+            # No archive fragment for this section's bridge — footage-less
+            # narration over a generated visual (Step 08 renders the visual).
+            narration_item["fragment_id"] = None
+            narration_item["source_video"] = None
+        final_timeline.append(narration_item)
+        sections_used.add(sid)
 
         # Assign a speaker_clip to this section if available
         sc_cand = speaker_clips[sc_idx] if sc_idx < len(speaker_clips) else None
@@ -1003,6 +1041,49 @@ def build_fallback_final_timeline(
 # Post-process LLM final_timeline to fill in required fields
 # ---------------------------------------------------------------------------
 
+_TITLED_NAME_RE = re.compile(r"\b(?:Dr|Prof|Professor|Mr|Ms|Mrs)\.?\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)?)")
+_UNSOURCED_STAT_RE = re.compile(r"\b\d+(?:\.\d+)?\s*(?:%|(?:percent|million|billion|trillion)\b)", re.IGNORECASE)
+
+
+def _build_grounding_material(validated_candidates: list[dict[str, Any]]) -> tuple[str, set[str]]:
+    """Source transcripts blob + allowed speaker names, for grounding narration."""
+    texts: list[str] = []
+    allowed_names: set[str] = set()
+    for c in validated_candidates or []:
+        for key in ("moment_text", "quote_text", "text"):
+            value = c.get(key)
+            if value and str(value).strip():
+                texts.append(str(value).strip())
+                break
+        for key in ("speaker", "speaker_attribution"):
+            name = c.get(key)
+            if name and str(name).strip():
+                allowed_names.add(str(name).strip().lower())
+    return "\n".join(texts), allowed_names
+
+
+def _narration_grounding_issues(text: str, source_blob: str, allowed_names: set[str]) -> list[str]:
+    """Precise hallucination checks: titled people and statistics must come from
+    the selected fragments' transcripts. Returns issues (empty = grounded)."""
+    issues: list[str] = []
+    if not text:
+        return issues
+    sources_lower = source_blob.lower()
+
+    for match in _TITLED_NAME_RE.finditer(text):
+        name = match.group(1)
+        name_lower = name.lower()
+        if name_lower not in sources_lower and not any(name_lower in n for n in allowed_names):
+            issues.append(f"invented person: {match.group(0)!r}")
+
+    for match in _UNSOURCED_STAT_RE.finditer(text):
+        stat = match.group(0)
+        if stat.lower() not in sources_lower:
+            issues.append(f"unsourced statistic: {stat!r}")
+
+    return issues
+
+
 def generate_voiceovers_for_timeline(
     final_timeline: list[dict[str, Any]],
     narrative_sections: list[dict[str, Any]],
@@ -1015,7 +1096,11 @@ def generate_voiceovers_for_timeline(
 
     Priority:
     1. Use existing narration from script-07 storyline.sections (topic-correct, duration-proportioned)
-    2. Fall back to LLM with a topic-aware prompt only for items still missing text
+    2. Fall back to LLM with a topic-aware, transcript-grounded prompt for items still missing text
+
+    All narration is checked against the selected fragments' transcripts: text that
+    invents named people or unsourced statistics is rejected (falls back to the safe
+    section defaults) rather than shipped.
     """
     # Calculate target word count per section proportional to target_duration
     n_sections = max(1, len(narrative_sections))
@@ -1024,14 +1109,22 @@ def generate_voiceovers_for_timeline(
     target_words = max(40, int(per_section_s * 2.5))
     min_sentences = max(3, round(target_words / 15))
 
+    # Grounding material: narration may only claim what the selected fragments say
+    source_blob, allowed_names = _build_grounding_material(validated_candidates)
+
     # Build ordered narration list from script-07 sections
     sl_narrations: list[str] = []
     if storyline_data:
         sl_secs = (storyline_data.get("storyline") or {}).get("sections") or []
         for sec in sl_secs:
-            narration = sec.get("narration") or sec.get("voiceover_text") or ""
-            if narration.strip():
-                sl_narrations.append(narration.strip())
+            narration = (sec.get("narration") or sec.get("voiceover_text") or "").strip()
+            if not narration:
+                continue
+            grounding_issues = _narration_grounding_issues(narration, source_blob, allowed_names)
+            if grounding_issues:
+                log(f"  [grounding] rejected section narration: {grounding_issues}")
+                continue
+            sl_narrations.append(narration)
 
     # Step 1: fill/replace narration from script-07 storyline.sections by position.
     # sl_narrations are topic-correct and duration-proportioned. Always prefer them over
@@ -1080,6 +1173,15 @@ def generate_voiceovers_for_timeline(
         for sid, text in approved_texts.items()
     ) or "  (none)"
 
+    # The ONLY source material the narrator may draw claims from
+    transcript_excerpts = []
+    for c in (validated_candidates or [])[:12]:
+        excerpt = (c.get("moment_text") or c.get("quote_text") or c.get("text") or "").strip()
+        if excerpt:
+            speaker = c.get("speaker") or c.get("speaker_attribution") or "unknown speaker"
+            transcript_excerpts.append(f'  [{speaker}]: "{excerpt[:400]}"')
+    transcripts_context = "\n".join(transcript_excerpts) or "  (none available)"
+
     vo_items_json = json.dumps([
         {"section_id": item.get("section_id"), "position": i}
         for i, item in enumerate(needs_vo)
@@ -1097,14 +1199,22 @@ DOCUMENTARY STRUCTURE:
 EVIDENCE ALREADY USED (upcoming speaker quotes that follow each narration):
 {evidence_context}
 
+SOURCE TRANSCRIPTS (the ONLY material you may draw claims from):
+{transcripts_context}
+
 Write specific, evidence-driven voiceover narration for each of these segments.
 Each voiceover MUST:
-- Be {min_sentences}-{min_sentences + 2} sentences (~{target_words} words) — NOT shorter
+- Be about {min_sentences} sentences and NO MORE than {target_words} words (this is a hard ceiling — the video length is driven by real footage, not narration)
 - Be directly about the topic: "{user_prompt}"
 - Be specific to the section's purpose
-- Reference real evidence or facts relevant to the topic
 - Prepare the viewer for the speaker quote that follows (when applicable)
 - NEVER write about a different topic (e.g. do NOT write about deepfakes if the prompt is about AI inclusion)
+
+GROUNDING RULES (violations will be rejected automatically):
+- Every factual claim must come from the SOURCE TRANSCRIPTS above — do NOT add facts from your own knowledge
+- NEVER invent named people, organisations, statistics, percentages, or study results that do not appear in the source transcripts
+- Only mention speakers who appear in the source transcripts
+- If the transcripts don't support a specific claim, write thematic connective narration instead (introduce questions and themes, not facts)
 
 SEGMENTS NEEDING VOICEOVER:
 {vo_items_json}
@@ -1120,14 +1230,8 @@ Return ONLY a JSON array with one entry per segment:
 """
 
     try:
-        # raw = post_with_retries({
-        #     "model": STRONG_LLM_MODEL,
-        #     "prompt": prompt,
-        #     "stream": False,
-        #     "options": {"temperature": 0.4, "num_ctx": 6000},
-        # })
         raw = post_with_retries({
-            "model": VLLM_MODEL,
+            "model": STRONG_LLM_MODEL,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.3,
             "max_completion_tokens": 4096,
@@ -1161,9 +1265,13 @@ Return ONLY a JSON array with one entry per segment:
                             break
                 if text:
                     text = _clean_voiceover_text(text, sid)
-                    item["voiceover_text"] = text
-                    item["subtitle_text"] = text
-                    log(f"  [vo-llm] {sid}: {text[:80]!r}")
+                    grounding_issues = _narration_grounding_issues(text, source_blob, allowed_names)
+                    if grounding_issues:
+                        log(f"  [grounding] rejected LLM narration for {sid}: {grounding_issues}")
+                    else:
+                        item["voiceover_text"] = text
+                        item["subtitle_text"] = text
+                        log(f"  [vo-llm] {sid}: {text[:80]!r}")
                 nb_idx += 1
     except Exception as exc:
         log(f"  [llm] Voiceover generation failed: {exc}")
@@ -1250,6 +1358,29 @@ def enrich_final_timeline(
         cand = candidate_map.get(str(fid), {}) if fid else {}
         orig = orig_by_fid.get(str(fid), {}) if fid else {}
         validated = validated_map.get(str(fid), {}) if fid else {}
+
+        # Guard against LLM-hallucinated fragment_ids: the narrative-assembly
+        # model occasionally invents a fragment_id/source_video that doesn't
+        # correspond to any real candidate (observed pattern: placeholder
+        # strings like 'narration_S2_CONTEXT' or 'speaker_S1_HOOK', echoing
+        # the type_section naming shown in its own prompt example, when no
+        # real fragment was available for that slot). Deriving a source_video
+        # from such a fid via string-splitting produces an unresolvable S3
+        # key and fails export. A fid is trustworthy only if it matches a
+        # real, known candidate (selected_candidates / original export
+        # timeline / validated pool) — if it matches none of them, treat this
+        # item exactly like one that never had a fragment: a speaker_clip
+        # with no real footage behind it is dropped (no fabricated content,
+        # per policy); a narration_broll degrades to footage-less (Step 08
+        # already renders those over a generated visual).
+        if fid and not cand and not orig and not validated:
+            log(f"  [guard] discarding hallucinated fragment_id {str(fid)[:60]!r} (not a known candidate)")
+            t = item.get("type") or item.get("segment_type") or ""
+            if t == "speaker_clip":
+                continue
+            item["fragment_id"] = None
+            item["source_video"] = None
+            fid = None
 
         # Merge source_video from candidate if missing
         if not item.get("source_video"):
@@ -1423,15 +1554,30 @@ def _fill_missing_sections(
     validated_candidates: list[dict[str, Any]],
     original_timeline: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Ensure every narrative section has at least one item. Insert narration_broll for missing ones."""
+    """Ensure every narrative section has at least one item.
+
+    Donor priority: an approved speaker_clip candidate first (preserves real
+    speaker audio the LLM already vetted — this is content the narrative
+    assembly call should have placed but didn't), then an approved
+    narration_broll/visual_support candidate, then any leftover fragment from
+    the original timeline as a last resort. The inserted item's type always
+    matches what the donor was actually validated as; it is never hardcoded to
+    narration_broll, or a validated speaker clip would be silently downgraded.
+    """
     present_sids = {item.get("section_id") for item in final_timeline if item.get("section_id")}
     missing = [s for s in narrative_sections if s["section_id"] not in present_sids]
     if not missing:
         return final_timeline
 
-    # Pool of all original fragments sorted by their score
     used_fids = {item.get("fragment_id") for item in final_timeline if item.get("fragment_id")}
-    pool = [
+
+    approved = [
+        c for c in validated_candidates
+        if c.get("approved") and c.get("fragment_id") not in used_fids
+    ]
+    speaker_pool = [c for c in approved if c.get("decision") == "speaker_clip"]
+    broll_pool = [c for c in approved if c.get("decision") != "speaker_clip"]
+    fallback_pool = [
         item for item in original_timeline
         if item.get("fragment_id") and item.get("fragment_id") not in used_fids
     ]
@@ -1443,33 +1589,70 @@ def _fill_missing_sections(
             insert_before = idx
             break
 
+    def _take_speaker_donor() -> dict[str, Any] | None:
+        return speaker_pool.pop(0) if speaker_pool else None
+
+    def _take_broll_donor() -> dict[str, Any] | None:
+        if broll_pool:
+            return broll_pool.pop(0)
+        return fallback_pool.pop(0) if fallback_pool else None
+
     inserts = []
-    pool_idx = 0
     for sec in missing:
         sid = sec["section_id"]
-        donor = pool[pool_idx] if pool_idx < len(pool) else None
-        pool_idx += 1
+        donor = _take_speaker_donor()
+        is_speaker = donor is not None
+        if donor is None:
+            donor = _take_broll_donor()
+
         frag_id = donor.get("fragment_id") if donor else None
+        if frag_id:
+            used_fids.add(frag_id)
         source_video = donor.get("source_video") if donor else None
         if frag_id and not source_video:
             source_video = "_".join(str(frag_id).rsplit("_", 1)[:-1])
-        new_item: dict[str, Any] = {
-            "type": "narration_broll",
-            "segment_type": "narration_broll",
-            "audio_mode": "ai_voiceover",
-            "section_id": sid,
-            "fragment_id": frag_id,
-            "source_video": source_video,
-            "start": float(donor.get("start") or 0) if donor else 0.0,
-            "end": float(donor.get("end") or 12) if donor else 12.0,
-            "voiceover_text": "",
-            "subtitle_text": "",
-            "subtitle_kind": "voiceover",
-            "visual_direction": sec.get("card_text", ""),
-            "_auto_filled": True,
-        }
+
+        if is_speaker:
+            qs = float(donor.get("quote_start") or donor.get("start") or 0)
+            qe = float(donor.get("quote_end") or donor.get("end") or qs + 10)
+            new_item: dict[str, Any] = {
+                "type": "speaker_clip",
+                "segment_type": "speaker_clip",
+                "audio_mode": "source_audio",
+                "section_id": sid,
+                "fragment_id": frag_id,
+                "source_video": source_video,
+                "speaker": donor.get("speaker_label") or donor.get("speaker") or "",
+                "start": qs,
+                "end": qe,
+                "render_start": qs,
+                "render_end": qe,
+                "render_duration": round(qe - qs, 3),
+                "quote_text": donor.get("quote_text") or donor.get("text") or "",
+                "subtitle_text": donor.get("subtitle_text") or donor.get("quote_text") or "",
+                "quote_complete": donor.get("quote_complete", False),
+                "muted": False,
+                "_auto_filled": True,
+            }
+            log(f"  [fill] Added missing section {sid} as speaker_clip (fragment={str(frag_id)[:40]!r})")
+        else:
+            new_item = {
+                "type": "narration_broll",
+                "segment_type": "narration_broll",
+                "audio_mode": "ai_voiceover",
+                "section_id": sid,
+                "fragment_id": frag_id,
+                "source_video": source_video,
+                "start": float(donor.get("start") or 0) if donor else 0.0,
+                "end": float(donor.get("end") or 12) if donor else 12.0,
+                "voiceover_text": "",
+                "subtitle_text": "",
+                "subtitle_kind": "voiceover",
+                "visual_direction": sec.get("card_text", ""),
+                "_auto_filled": True,
+            }
+            log(f"  [fill] Added missing section {sid} as narration_broll (fragment={str(frag_id)[:40]!r})")
         inserts.append(new_item)
-        log(f"  [fill] Added missing section {sid} as narration_broll (fragment={str(frag_id)[:40]!r})")
 
     result = final_timeline[:insert_before] + inserts + final_timeline[insert_before:]
     return result
@@ -1584,7 +1767,11 @@ def _build_repair_prompt(
         "5. Every narration_broll must include a non-empty visual_asset_prompt string.\n"
         "6. Keep the documentary order from the REQUIRED NARRATIVE SECTIONS.\n"
         "7. The final video must meaningfully answer the original prompt.\n"
-        "8. PRESERVE existing voiceover_text if it is long and correct — only rewrite the offending items.\n\n"
+        "8. PRESERVE existing voiceover_text if it is long and correct — only rewrite the offending items.\n"
+        "9. CRITICAL: every \"fragment_id\" value must be copied EXACTLY, character-for-character,\n"
+        "   from a fragment_id already present in CURRENT TIMELINE above. Never invent, abbreviate,\n"
+        "   or make up a fragment_id (e.g. \"hook_001\") — fabricated ones will be discarded. If an\n"
+        "   item has no real clip behind it, OMIT the \"fragment_id\" field entirely.\n\n"
         "Return a repaired final_timeline as a JSON array. Include only the array (no extra keys).\n"
         "Example structure:\n"
         '[\n'
@@ -1610,17 +1797,11 @@ def _llm_repair_timeline(
         current_timeline, quality_gates, narrative_sections, user_prompt, iteration, target_duration
     )
     try:
-        # raw = post_with_retries({
-        #     "model": STRONG_LLM_MODEL,
-        #     "prompt": prompt,
-        #     "stream": False,
-        #     "options": {"temperature": 0.3, "num_ctx": 10000},
-        # })
         raw = post_with_retries({
-            "model": VLLM_MODEL,
+            "model": STRONG_LLM_MODEL,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.3,
-            "max_completion_tokens": 4096,
+            "max_completion_tokens": 10000,
             "stream": False,
         })
 
@@ -1747,9 +1928,95 @@ def check_quality_gates(
 
     return warnings, gates
 
+def frame_duration_fill_as_perspectives_section(enriched_timeline: list[dict[str, Any]]) -> int:
+    """Group every clip added by duration_fill into an explicit, labeled
+    "Additional Perspectives" closing section instead of leaving them as
+    anonymous tail items.
+
+    Per product decision: when the requested duration isn't met by the core
+    narrative, surface ALL remaining eligible speaker voices on this topic as
+    a clearly-framed compilation. Reuses the already-generated title card (no
+    new asset needed) as a chapter divider; each clip stays a real
+    speaker_clip with source audio — this only tags/labels, it never adds or
+    removes content. Mutates `enriched_timeline` in place. Returns the number
+    of clips framed (0 if no duration-fill additions exist).
+    """
+    fill_added = [i for i in enriched_timeline if i.get("added_by_duration_fill")]
+    if not fill_added:
+        return 0
+    first_added_idx = enriched_timeline.index(fill_added[0])
+    divider = {
+        "type": "title_card",
+        "segment_type": "title_card",
+        "section_id": "S_PERSPECTIVES",
+        "subtitle_text": "Additional Perspectives on This Topic",
+        "label": "additional_perspectives_divider",
+    }
+    enriched_timeline.insert(first_added_idx, divider)
+    for item in fill_added:
+        item["section_id"] = "S_PERSPECTIVES"
+    return len(fill_added)
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
+def _llm_vet_topup_items(items: list[dict[str, Any]], user_prompt: str) -> set[str]:
+    """One bounded LLM call vetting duration top-up segments for topical relevance.
+
+    Returns the fragment_ids to REJECT. On any LLM failure returns an empty set —
+    the items stay in the timeline flagged as lower-confidence rather than being
+    dropped (dropping would silently violate the duration floor).
+    """
+    if not items:
+        return set()
+
+    items_json = json.dumps(
+        [
+            {
+                "fragment_id": str(i.get("fragment_id") or ""),
+                "speaker": i.get("speaker") or "",
+                "excerpt": (i.get("moment_text") or i.get("subtitle_text") or "")[:300],
+            }
+            for i in items
+        ],
+        ensure_ascii=False,
+        indent=2,
+    )
+
+    prompt = f"""You are validating archive clips for a documentary about: "{user_prompt}"
+
+These clips were added to reach the requested video duration. For EACH clip decide
+whether its excerpt is topically relevant enough to include (related themes are
+acceptable; only reject clearly off-topic content).
+
+CLIPS:
+{items_json}
+
+Return ONLY a JSON array, one entry per clip:
+[{{"fragment_id": "...", "approved": true}}]
+"""
+    try:
+        raw = post_with_retries({
+            "model": STRONG_LLM_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.1,
+            "max_completion_tokens": 2048,
+            "stream": False,
+        })
+        verdicts = extract_json_array(raw) or []
+        rejected: set[str] = set()
+        for verdict in verdicts:
+            if isinstance(verdict, dict) and verdict.get("approved") is False:
+                fid = str(verdict.get("fragment_id") or "")
+                if fid:
+                    rejected.add(fid)
+        return rejected
+    except Exception as exc:
+        log(f"  [topup] vet call failed ({exc}) — keeping top-up items flagged.")
+        return set()
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="LLM editorial validation layer for AI4IA storylines.")
@@ -2091,6 +2358,96 @@ def main() -> None:
     assembled.setdefault("warnings", [])
     assembled["warnings"].extend(warnings)
 
+    # ------------------------------------------------------------------
+    # Duration floor: validation may have trimmed or rejected clips — repay
+    # the shortfall with the next ranked real candidates before locking.
+    # ------------------------------------------------------------------
+    duration_fill_report: dict[str, Any] | None = None
+    if target_duration:
+        floor = float(target_duration) * DURATION_FILL_MARGIN
+        current_total = timeline_total_seconds(enriched_timeline)
+        if current_total < floor:
+            used_fids = {str(i.get("fragment_id")) for i in enriched_timeline if i.get("fragment_id")}
+            approved_pool = [
+                c for c in (validated_candidates or [])
+                if c.get("approved") and str(c.get("fragment_id") or "") not in used_fids
+            ]
+            # Widen the pool beyond the LLM-approved/supporting/context sets: also
+            # pull speaker-eligible fragments that Step 07 rejected purely on
+            # relevance rank/cap grounds (not disqualified). "All eligible
+            # speakers" for this topic means the full known pool, not just the
+            # subset that survived earlier trimming.
+            rejected_speaker_pool = [
+                c for c in (data.get("rejected_candidates") or [])
+                if _candidate_is_speaker_eligible(c)
+                and str(c.get("fragment_id") or "") not in used_fids
+            ]
+            extended_pool = (
+                (data.get("supporting_candidates") or [])
+                + (data.get("context_candidates") or [])
+                + rejected_speaker_pool
+            )
+            log(
+                f"\nDuration top-up: validated timeline is {current_total:.1f}s "
+                f"(floor {floor:.1f}s) — pulling additional ranked candidates."
+            )
+            for _topup_round in range(3):
+                duration_fill_report = fill_timeline_to_target(
+                    enriched_timeline,
+                    {"selected": approved_pool, "supporting": extended_pool},
+                    target_duration,
+                )
+                unvetted = [
+                    i for i in enriched_timeline
+                    if i.get("added_by_duration_fill") and i.get("needs_validation")
+                ]
+                if args.skip_llm or not unvetted:
+                    break
+                rejected_fids = _llm_vet_topup_items(unvetted, user_prompt)
+                if not rejected_fids:
+                    break
+                log(f"  [topup] LLM rejected {len(rejected_fids)} off-topic top-up item(s) — refilling.")
+                enriched_timeline[:] = [
+                    i for i in enriched_timeline
+                    if str(i.get("fragment_id") or "") not in rejected_fids
+                ]
+                extended_pool = [
+                    c for c in extended_pool
+                    if str(c.get("fragment_id") or "") not in rejected_fids
+                ]
+            for item in enriched_timeline:
+                if item.get("added_by_duration_fill"):
+                    item["needs_validation"] = False
+            if duration_fill_report:
+                log(
+                    f"Duration top-up: {duration_fill_report['status']} — "
+                    f"{duration_fill_report['total_before_seconds']:.1f}s → "
+                    f"{duration_fill_report['total_after_seconds']:.1f}s"
+                )
+
+            n_framed = frame_duration_fill_as_perspectives_section(enriched_timeline)
+            if n_framed:
+                log(
+                    f"Duration top-up: framed {n_framed} added speaker clip(s) as an "
+                    f"'Additional Perspectives' closing section."
+                )
+            assembled["final_timeline"] = enriched_timeline
+
+    # Lock every validated clip window: downstream stages (08/09) render these
+    # verbatim and may only extend narration for TTS, never shrink anything.
+    for item in enriched_timeline:
+        if not item.get("fragment_id"):
+            continue
+        item["window_locked"] = True
+        seg_t = item.get("type") or item.get("segment_type") or ""
+        if seg_t == "speaker_clip" and not item.get("render_start"):
+            if item.get("start") is not None and item.get("end") is not None:
+                item["render_start"] = float(item["start"])
+                item["render_end"] = float(item["end"])
+                item["render_duration"] = round(item["render_end"] - item["render_start"], 3)
+
+    validated_total_seconds = timeline_total_seconds(enriched_timeline)
+
     # Print timeline summary
     log("\n=== Validated Final Timeline ===")
     sc_count = quality_gates["speaker_clip_count"]
@@ -2126,8 +2483,7 @@ def main() -> None:
     output_data = dict(data)
     output_data["llm_validated"] = True
     output_data["validation_run_at"] = datetime.utcnow().isoformat()
-    # output_data["validated_with"] = STRONG_LLM_MODEL if not args.skip_llm else "fallback"
-    output_data["validated_with"] = VLLM_MODEL if not args.skip_llm else "fallback"
+    output_data["validated_with"] = STRONG_LLM_MODEL if not args.skip_llm else "fallback"
     output_data["repair_iterations"] = repair_iter
     output_data["final_timeline"] = enriched_timeline
     output_data["editorial_quality_gates"] = quality_gates
@@ -2144,10 +2500,31 @@ def main() -> None:
     # Also merge into storyline sub-object so Step 08 can find it either way
     output_data["storyline"]["final_timeline"] = enriched_timeline
     output_data["storyline"]["validated_narrative"] = output_data["validated_narrative"]
+    output_data["duration_budget"] = build_duration_budget(
+        enriched_timeline,
+        target_duration,
+        stage="07b_validate_storyline",
+    )
+    output_data["validated_total_seconds"] = validated_total_seconds
+    if duration_fill_report:
+        output_data["duration_fill_report"] = duration_fill_report
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(output_data, indent=2, ensure_ascii=False), encoding="utf-8")
     log(f"\nValidated storyline written: {output_path}")
+
+    # Below-floor after an honest top-up means the relevant speaker pool is
+    # exhausted — ship the best-effort duration with a warning, never fail the
+    # job or pad with filler. (Integrity shortfalls — dropped/missing content —
+    # are still hard-failed downstream in stage 09; this is purely the
+    # "not enough relevant material exists" case.)
+    if target_duration and validated_total_seconds < float(target_duration):
+        log(
+            f"WARNING: validated timeline is {validated_total_seconds:.1f}s vs {target_duration}s "
+            f"requested (shortfall {float(target_duration) - validated_total_seconds:.1f}s). "
+            f"Relevant content exhausted — delivering honest best-effort duration, no filler."
+        )
+
     log("Step 07b complete.")
 
 

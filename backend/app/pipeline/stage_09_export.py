@@ -124,22 +124,80 @@ def _get_needed_source_videos(mdata: dict) -> set[str]:
     return needed
 
 
+def _export_timeout_for(target_seconds: float) -> int:
+    """Timeout budget for stage 09 (render + concat + Whisper transcribe).
+
+    Scales with the requested duration because render time does — and it is far
+    slower on a CPU-only host (libx264) than a GPU one (nvenc). ~6x the target
+    covers worst-case CPU encoding of the (possibly overshooting) video plus the
+    concat re-encode plus Whisper; a GPU host finishes well inside this ceiling.
+    Floored at 1800s so short requests still allow for Whisper on a slow host.
+    """
+    return max(1800, int(600 + target_seconds * 6))
+
+
+_VIDEO_ID_PREFIX_RE = re.compile(r"^(\d{4}_[A-Za-z0-9_-]{6,})")
+
+
+def _video_id_prefix(name: str) -> str | None:
+    """Extract the stable '0254_RXXzSGoo0KQ' id prefix from a source_video or
+    fragment_id string. This prefix comes straight from the yt-dlp playlist
+    index + video id and is never touched by any downstream text processing —
+    unlike the human-readable title suffix, which LLM round-trips (storyline
+    generation, narrative assembly) can silently rewrite: fullwidth Unicode
+    punctuation in real titles (：？) gets normalized to ASCII (:?) when an LLM
+    echoes a fragment_id/title back in its JSON response, which breaks any
+    match against the untouched S3 filename. Matching on the id prefix alone
+    sidesteps that entire class of drift.
+    """
+    m = _VIDEO_ID_PREFIX_RE.match(name)
+    return m.group(1) if m else None
+
+
 def _download_source_videos(mdata: dict, raw_video_dir: Path) -> None:
-    """Download only the source videos actually referenced in the manifest."""
+    """Download only the source videos actually referenced in the manifest.
+
+    Verifies each download actually landed on disk and raises immediately with
+    the specific source_video name if not — rather than leaving a silent gap
+    for 09_export_video.py's pre-render integrity check to discover far later
+    with a less actionable "source video not found" message.
+    """
     needed = _get_needed_source_videos(mdata)
     if not needed:
         return
 
     all_keys = list_keys(_S3_RAW_VIDEO_PREFIX)
+    mp4_keys = [k for k in all_keys if k.endswith(".mp4")]
+    unresolved: list[str] = []
     for source_video in needed:
-        # Match by stem (source_video may or may not include .mp4)
         stem = source_video.replace(".mp4", "")
-        matched = [k for k in all_keys if stem in k and k.endswith(".mp4")]
-        if matched:
-            key = matched[0]
-            local = raw_video_dir / Path(key).name
-            if not local.exists():
-                download(key, local)
+
+        # 1) Exact/substring match on the full title (fast path — works whenever
+        #    the title text wasn't altered anywhere upstream).
+        matched = [k for k in mp4_keys if stem in k]
+
+        # 2) Fallback: match on the stable numeric/video-id prefix alone, which
+        #    survives Unicode punctuation normalization in the title.
+        if not matched:
+            prefix = _video_id_prefix(stem)
+            if prefix:
+                matched = [k for k in mp4_keys if _video_id_prefix(Path(k).name) == prefix]
+
+        if not matched:
+            unresolved.append(f"{source_video!r}: no matching .mp4 key under {_S3_RAW_VIDEO_PREFIX}")
+            continue
+        key = matched[0]
+        local = raw_video_dir / Path(key).name
+        if not local.exists():
+            download(key, local)
+        if not local.exists() or local.stat().st_size == 0:
+            unresolved.append(f"{source_video!r}: download from s3://{key} did not produce a usable file at {local}")
+
+    if unresolved:
+        raise RuntimeError(
+            f"Failed to resolve {len(unresolved)} source video(s) needed for export:\n  - "
+            + "\n  - ".join(unresolved)
+        )
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -185,7 +243,10 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     update_stage(job_id, "09_export", "running", 15, "Rendering video segments")
     append_event(job_id, "export", "09_export", {"progress": 15, "message": "Rendering video segments"})
 
-    code, stdout, stderr = run_script(job_id, "09_export", cmd, extra_env=env_overrides or None)
+    export_timeout = _export_timeout_for(float(request.get("target_duration") or 0))
+    code, stdout, stderr = run_script(
+        job_id, "09_export", cmd, extra_env=env_overrides or None, timeout=export_timeout,
+    )
 
     if code != 0:
         raise RuntimeError(f"09_export_video.py exited {code}: {stderr[-4000:]}")

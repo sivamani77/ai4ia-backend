@@ -253,11 +253,20 @@ class S3StorageService(StorageService):
 
     def __init__(self) -> None:
         import boto3
+        from botocore.config import Config
 
         kwargs: dict[str, Any] = {
             "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
             "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
             "region_name": _OBJECT_STORAGE_REGION or None,
+            # Raw source videos run to ~1GB; boto3's default 60s read timeout
+            # and minimal retries are too tight for that over a shared network
+            # link and can abort mid-download without a clear error.
+            "config": Config(
+                connect_timeout=30,
+                read_timeout=300,
+                retries={"max_attempts": 5, "mode": "adaptive"},
+            ),
         }
         if _OBJECT_STORAGE_ENDPOINT:
             kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT

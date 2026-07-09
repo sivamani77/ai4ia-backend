@@ -123,8 +123,7 @@ def cancel_job(job_id: str) -> bool:
     repo = get_job_repo()
     repo.update_job(
         job_id,
-        {"status": "cancelled", "metadata": {**job, "status": "cancelled"}},
-        merge_existing=False,
+        {"status": "cancelled", "metadata": {"status": "cancelled"}},
     )
     return True
 

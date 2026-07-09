@@ -54,6 +54,9 @@ class DecisionRecordRepository:
             raise
         return self._from_row(response.data[0]) if response.data else None
 
+    def delete_by_user(self, user_id: str) -> None:
+        self._table.delete().eq("user_id", user_id).execute()
+
     def get_by_job(self, job_id: str) -> DecisionRecord | None:
         self._log("select_by_job", job_id)
         try:

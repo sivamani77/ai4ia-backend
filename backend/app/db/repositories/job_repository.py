@@ -2,12 +2,37 @@ from __future__ import annotations
 
 import json
 import logging
-from typing import Any, Mapping, TypedDict
+import time
+from typing import Any, Callable, Mapping, TypedDict, TypeVar
 
-from app.db.supabase import get_supabase_client
+from app.db.supabase import get_supabase_client, reset_supabase_client
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.jobs")
+
+_T = TypeVar("_T")
+
+
+def _is_transient_connection_error(exc: Exception) -> bool:
+    """A dropped/reset connection that a fresh client would recover from —
+    e.g. Supabase closing an idle HTTP/2 keepalive after a long-running job
+    ('RemoteProtocolError: Server disconnected'). Distinct from real query
+    errors (4xx/5xx with a body), which should not be retried."""
+    name = type(exc).__name__.lower()
+    if "remoteprotocol" in name or "connecterror" in name or "connecttimeout" in name:
+        return True
+    msg = str(exc).lower()
+    return any(
+        marker in msg
+        for marker in (
+            "server disconnected",
+            "connection reset",
+            "broken pipe",
+            "connection aborted",
+            "eof occurred",
+            "connection refused",
+        )
+    )
 
 
 class JobRecord(TypedDict, total=False):
@@ -50,21 +75,41 @@ class JobRepository:
         self._client = get_supabase_client()
         self._table = self._client.table(self.table_name)
 
+    def _with_retry(self, op_name: str, record_id: Any, fn: Callable[[], _T], *, attempts: int = 3) -> _T:
+        """Run a Supabase op, transparently recovering from a dropped connection
+        by resetting the cached client and retrying. Non-connection errors are
+        raised immediately. `fn` must read self._table at call time so it picks
+        up the rebuilt client after a reset."""
+        last_exc: Exception | None = None
+        for attempt in range(1, attempts + 1):
+            try:
+                return fn()
+            except Exception as exc:  # noqa: BLE001
+                last_exc = exc
+                if not _is_transient_connection_error(exc) or attempt == attempts:
+                    logger.exception(
+                        "Supabase jobs operation failed: table=%s operation=%s id=%s",
+                        self.table_name, op_name, record_id,
+                    )
+                    raise
+                logger.warning(
+                    "Supabase transient error on %s (id=%s, attempt %d/%d): %s — resetting client",
+                    op_name, record_id, attempt, attempts, exc,
+                )
+                reset_supabase_client()
+                self._client = get_supabase_client()
+                self._table = self._client.table(self.table_name)
+                time.sleep(0.5 * attempt)
+        raise last_exc  # unreachable, keeps type-checkers happy
+
     def create_job(self, data: Mapping[str, Any]) -> JobRecord:
         payload = self._normalize_input(data)
         record_id = payload.get("id")
         self._log("insert", record_id)
 
-        try:
-            response = self._table.insert(payload).execute()
-        except Exception:
-            logger.exception(
-                "Supabase jobs operation failed: table=%s operation=%s id=%s",
-                self.table_name,
-                "insert",
-                record_id,
-            )
-            raise
+        response = self._with_retry(
+            "insert", record_id, lambda: self._table.insert(payload).execute()
+        )
 
         created = self._extract_optional_single(response.data)
         if created is not None:
@@ -74,21 +119,11 @@ class JobRepository:
     def get_job(self, record_id: str) -> JobRecord | None:
         self._log("select_one", record_id)
 
-        try:
-            response = (
-                self._table.select("*")
-                .eq("id", record_id)
-                .limit(1)
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase jobs operation failed: table=%s operation=%s id=%s",
-                self.table_name,
-                "select_one",
-                record_id,
-            )
-            raise
+        response = self._with_retry(
+            "select_one",
+            record_id,
+            lambda: self._table.select("*").eq("id", record_id).limit(1).execute(),
+        )
 
         return self._extract_optional_single(response.data)
 
@@ -96,16 +131,11 @@ class JobRepository:
         payload = self._normalize_input(data)
         self._log("upsert", payload.get("id"))
 
-        try:
-            self._table.upsert(payload, on_conflict="id").execute()
-        except Exception:
-            logger.exception(
-                "Supabase jobs operation failed: table=%s operation=%s id=%s",
-                self.table_name,
-                "upsert",
-                payload.get("id"),
-            )
-            raise
+        self._with_retry(
+            "upsert",
+            payload.get("id"),
+            lambda: self._table.upsert(payload, on_conflict="id").execute(),
+        )
 
     def update_job(
         self,
@@ -114,8 +144,22 @@ class JobRepository:
         *,
         merge_existing: bool = True,
     ) -> None:
-        source = self._merge_existing_for_update(record_id, data) if merge_existing else data
-        payload = self._normalize_input(source, require_id=False)
+        """Update only the fields present in `data`.
+
+        When `merge_existing` is True (default), this is done atomically via
+        the `update_job_partial` Postgres function (db/migrations/0004_*.sql)
+        — a single UPDATE statement that only touches the columns/metadata
+        keys actually present in `data`, so concurrent writers touching
+        different fields can't clobber each other (no read-modify-write
+        race). When False, `data` is written as a full-row overwrite via the
+        REST update endpoint — only use this for a full snapshot you know is
+        current.
+        """
+        if merge_existing:
+            self._update_job_atomic(record_id, data)
+            return
+
+        payload = self._normalize_input(data, require_id=False)
         payload.pop("id", None)
         self._log("update", record_id)
 
@@ -130,41 +174,39 @@ class JobRepository:
             )
             raise
 
-    def _merge_existing_for_update(
-        self,
-        record_id: str,
-        updates: Mapping[str, Any],
-    ) -> dict[str, Any]:
-        existing = self.get_job(record_id)
-        if existing is None:
-            return dict(updates)
+    def _update_job_atomic(self, record_id: str, data: Mapping[str, Any]) -> None:
+        normalized = self._normalize_value(dict(data))
+        normalized.pop("id", None)
 
-        merged: dict[str, Any] = dict(existing.get("metadata") or {})
-        merged.update(
-            {
-                "id": existing.get("id"),
-                "status": existing.get("status"),
-                "source_type": existing.get("source_type"),
-                "source_value": existing.get("source_value"),
-                "progress": existing.get("progress"),
-                "created_at": existing.get("created_at"),
-                "started_at": existing.get("started_at"),
-                "completed_at": existing.get("completed_at"),
-                "error": existing.get("error"),
-                "job_type": existing.get("job_type"),
-                "worker_id": existing.get("worker_id"),
-                "retry_count": existing.get("retry_count"),
-            }
+        metadata_patch: dict[str, Any] = {}
+        explicit_metadata = normalized.pop("metadata", None)
+        if isinstance(explicit_metadata, Mapping):
+            metadata_patch.update(explicit_metadata)
+
+        columns: dict[str, Any] = {}
+        for key, value in normalized.items():
+            if key in self._schema_columns:
+                columns[key] = value
+            else:
+                # Any non-schema key (e.g. legacy job_id/type/progress_percent,
+                # or a caller-defined field) is folded into metadata, same as
+                # _build_metadata does for create_job/upsert_job.
+                metadata_patch[key] = value
+
+        self._log("update_partial", record_id)
+
+        self._with_retry(
+            "update_partial",
+            record_id,
+            lambda: self._client.rpc(
+                "update_job_partial",
+                {
+                    "p_id": record_id,
+                    "p_columns": columns or None,
+                    "p_metadata_patch": metadata_patch or None,
+                },
+            ).execute(),
         )
-
-        normalized_updates = self._normalize_value(dict(updates))
-        update_metadata = normalized_updates.pop("metadata", None)
-        if isinstance(update_metadata, Mapping):
-            merged.update(update_metadata)
-
-        merged.update(normalized_updates)
-        merged["id"] = record_id
-        return merged
 
     def list_jobs(self) -> list[JobRecord]:
         self._log("select_many")
@@ -183,6 +225,10 @@ class JobRepository:
             )
             raise
 
+        return [self._normalize_output(row) for row in response.data or []]
+
+    def list_by_user(self, user_id: str) -> list[JobRecord]:
+        response = self._table.select("*").eq("user_id", user_id).execute()
         return [self._normalize_output(row) for row in response.data or []]
 
     def delete_job(self, record_id: str) -> bool:

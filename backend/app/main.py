@@ -7,20 +7,20 @@ from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from prometheus_fastapi_instrumentator import Instrumentator
 from pythonjsonlogger.json import JsonFormatter
 
-from app.core.auth import require_api_key
+from app.core.auth import require_api_key, require_role
 from app.core.config import API_PREFIX, VLLM_BASE_URL
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
+from app.core import metrics as _metrics
 
+from app.api.auth import router as auth_router
 from app.api.dashboard import router as dashboard_router
-from app.api.jobs import router as jobs_router
-from app.api.storylines import router as storylines_router
-from app.api.assets import router as assets_router
-from app.api.exports import router as exports_router
 from app.api.archive import router as archive_router
 from app.api.admin import router as admin_router
+from app.api.admin_users import router as admin_users_router
 from app.api.insights import router as insights_router
 from app.api.compare import router as compare_router
 from app.api.video_jobs import router as video_jobs_router
@@ -104,8 +104,37 @@ def _reap_orphaned_jobs() -> None:
                 "error": "Server restarted while job was in progress",
             })
             logger.info("Reaped orphaned job id=%s status=%s", jid, job.get("status"))
+        if orphaned:
+            _metrics.jobs_orphan_reaped_total.inc(len(orphaned))
     except Exception:
         logger.exception("Failed to reap orphaned jobs on startup")
+
+
+_DEPENDENCY_CHECK_INTERVAL_SECONDS = 30
+
+
+async def _dependency_metrics_loop() -> None:
+    """Periodically refresh dependency_up/dependency_check_duration_seconds
+    so they reflect current state even if nobody polls /api/health — reuses
+    the same check functions /api/health calls, just on a timer instead of
+    per-request."""
+    while True:
+        for name, check_fn in (
+            ("supabase", _check_supabase),
+            ("chroma", _check_chroma),
+            ("vllm", _check_vllm),
+        ):
+            start = time.perf_counter()
+            try:
+                result = await asyncio.to_thread(check_fn)
+                ok = bool(result.get("ok"))
+            except Exception:
+                logger.exception("Dependency metrics check failed for %s", name)
+                ok = False
+            elapsed = time.perf_counter() - start
+            _metrics.dependency_up.labels(dependency=name).set(1 if ok else 0)
+            _metrics.dependency_check_duration_seconds.labels(dependency=name).observe(elapsed)
+        await asyncio.sleep(_DEPENDENCY_CHECK_INTERVAL_SECONDS)
 
 
 @asynccontextmanager
@@ -118,7 +147,15 @@ async def lifespan(app: FastAPI):
     await asyncio.to_thread(_reap_orphaned_jobs)
     await asyncio.to_thread(_reap_orphaned_ingest_jobs)
 
+    dependency_metrics_task = asyncio.create_task(_dependency_metrics_loop())
+
     yield
+
+    dependency_metrics_task.cancel()
+    try:
+        await dependency_metrics_task
+    except asyncio.CancelledError:
+        pass
 
 
 app = FastAPI(
@@ -126,6 +163,12 @@ app = FastAPI(
     version="0.1.0",
     description="Backend API wrapper for AI4IA Demo Video Studio pipeline.",
     lifespan=lifespan,
+)
+
+# RED metrics (request rate/error/duration by method+path+status) served at
+# /metrics for Prometheus scraping — unauthenticated, same as /api/health.
+Instrumentator(excluded_handlers=["/metrics", f"{API_PREFIX}/health"]).instrument(app).expose(
+    app, endpoint="/metrics", include_in_schema=False
 )
 
 
@@ -169,10 +212,63 @@ async def request_logging_middleware(request: Request, call_next):
     return response
 
 
+# Translates prose fields in JSON responses when the request carries
+# ?lang=/&region= or Accept-Language (no-op unless TRANSLATION_ENABLED).
+from app.middleware.translation import TranslationMiddleware  # noqa: E402
+
+app.add_middleware(TranslationMiddleware)
+
+
+def _openapi_with_translation_params():
+    """Advertise the middleware-level lang/region query params on every
+    operation so they are usable from Swagger UI (/docs)."""
+    if app.openapi_schema:
+        return app.openapi_schema
+    from fastapi.openapi.utils import get_openapi
+    from app.middleware.translation import EXCLUDED_PATH_SUBSTRINGS
+
+    schema = get_openapi(
+        title=app.title, version=app.version,
+        description=app.description, routes=app.routes,
+    )
+    lang_param = {
+        "name": "lang",
+        "in": "query",
+        "required": False,
+        "description": "Translate prose fields of the response "
+                       f"(supported: {', '.join(settings.translation_supported_languages)}). "
+                       "Requires TRANSLATION_ENABLED on the server.",
+        "schema": {"type": "string", "enum": list(settings.translation_supported_languages)},
+    }
+    region_param = {
+        "name": "region",
+        "in": "query",
+        "required": False,
+        "description": "Optional ISO region refining the dialect, e.g. lang=pt&region=BR.",
+        "schema": {"type": "string"},
+    }
+    for path, operations in schema.get("paths", {}).items():
+        if any(part in path for part in EXCLUDED_PATH_SUBSTRINGS):
+            continue
+        for op in operations.values():
+            if isinstance(op, dict):
+                op.setdefault("parameters", []).extend([lang_param, region_param])
+    app.openapi_schema = schema
+    return schema
+
+
+app.openapi = _openapi_with_translation_params
+
+# allow_credentials=True is required for the refresh-token cookie
+# (POST /api/auth/refresh, /login, /logout) to be sent/received by the
+# browser. Browsers reject credentialed requests against a wildcard origin,
+# so ALLOWED_ORIGINS must be a real, explicit origin list in any environment
+# that uses cookie-based auth — "*" will silently break login for the
+# frontend, not open up access.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_origins,
-    allow_credentials=False,
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -244,14 +340,16 @@ async def health():
 
 
 _auth_dep = [Depends(require_api_key)]
+_admin_dep = [Depends(require_api_key), Depends(require_role("admin"))]
+
+# No _auth_dep here: signup/login/etc. must be reachable without an API key
+# or an existing session — that's the whole point of the auth endpoints.
+app.include_router(auth_router, prefix=API_PREFIX)
 
 app.include_router(dashboard_router, prefix=API_PREFIX, dependencies=_auth_dep)
-app.include_router(jobs_router, prefix=API_PREFIX, dependencies=_auth_dep)
-app.include_router(storylines_router, prefix=API_PREFIX, dependencies=_auth_dep)
-app.include_router(assets_router, prefix=API_PREFIX, dependencies=_auth_dep)
-app.include_router(exports_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(archive_router, prefix=API_PREFIX, dependencies=_auth_dep)
-app.include_router(admin_router, prefix=API_PREFIX, dependencies=_auth_dep)
+app.include_router(admin_router, prefix=API_PREFIX, dependencies=_admin_dep)
+app.include_router(admin_users_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(insights_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(compare_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(video_jobs_router, prefix=API_PREFIX, dependencies=_auth_dep)

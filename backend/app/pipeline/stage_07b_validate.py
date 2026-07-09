@@ -10,7 +10,8 @@ from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script
-from app.pipeline.s3_helpers import use_s3, download, download_prefix, tmp_dir, cleanup_tmp_dir
+from app.pipeline.s3_helpers import use_s3, download, download_prefix, key_exists, tmp_dir, cleanup_tmp_dir
+from app.pipeline.timeline_budget import SOURCE_DURATION_INDEX_S3_KEY
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
 
@@ -52,6 +53,21 @@ def _prepare_inputs(storyline_path: str, job_id: str) -> tuple[Path, Path, Path,
     return storyline_local, transcripts_dir, fallback_dir, validated_local
 
 
+def _prepare_source_duration_index(job_id: str) -> dict[str, str]:
+    """Download the small source-video-duration sidecar (see stage_07_storyline
+    for why this stage needs it without downloading full video files). Optional —
+    the duration top-up loop just treats lengths as unknown if it's missing."""
+    if not use_s3():
+        return {}
+    if not key_exists(SOURCE_DURATION_INDEX_S3_KEY):
+        return {}
+    work = tmp_dir(f"07b_{job_id}")
+    local = work / "source_video_durations.json"
+    if not local.exists():
+        download(SOURCE_DURATION_INDEX_S3_KEY, local)
+    return {"AI4IA_SOURCE_DURATION_INDEX": str(local)}
+
+
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
     storyline_path = context.storyline_path
     update_stage(job_id, "07b_validate_storyline", "running", 5, "Starting LLM editorial validation")
@@ -62,6 +78,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
 
     sp, transcripts_dir, fallback_dir, validated_path = _prepare_inputs(storyline_path, job_id)
     max_iter = int(request.get("max_validation_iterations", 3))
+    env_overrides = _prepare_source_duration_index(job_id)
 
     cmd = [
         PYTHON_BIN,
@@ -74,7 +91,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     ]
 
     update_stage(job_id, "07b_validate_storyline", "running", 15, "Validating fragments with LLM")
-    code, stdout, stderr = run_script(job_id, "07b_validate_storyline", cmd)
+    code, stdout, stderr = run_script(job_id, "07b_validate_storyline", cmd, extra_env=env_overrides or None)
 
     if code != 0:
         raise RuntimeError(f"07b_validate_storyline_with_llm.py exited {code}: {stderr[-1000:]}")

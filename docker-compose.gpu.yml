@@ -1,6 +1,6 @@
 services:
   api:
-    image: aswinmobiusdtaas/ai4ia-pipeline:v2.8
+    image: aswinmobiusdtaas/ai4ia-pipeline:v3.9
     env_file: .env
     ports:
       - "8000:8000"
@@ -14,10 +14,14 @@ services:
         condition: service_healthy
     restart: unless-stopped
     healthcheck:
-      disable: true
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
 
   worker:
-    image: aswinmobiusdtaas/ai4ia-pipeline:v2.9-gpu
+    image: aswinmobiusdtaas/ai4ia-pipeline:v3.9-gpu
     command: celery -A app.worker.celery_app worker -Q video_jobs,ingest_jobs -c 2 --loglevel=info
     env_file: .env
     volumes:
@@ -31,6 +35,12 @@ services:
       - chromadb
       - redis
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "celery -A app.worker.celery_app inspect ping -d celery@$$HOSTNAME --timeout 10 | grep -q OK"]
+      interval: 30s
+      timeout: 15s
+      retries: 3
+      start_period: 30s
     deploy:
       resources:
         reservations:
@@ -67,7 +77,11 @@ services:
       - CHROMA_SERVER_AUTHN_PROVIDER=
       - CHROMA_SEGMENT_CACHE_POLICY=ALL
     healthcheck:
-      disable: true
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/api/v2/heartbeat', timeout=5)\""]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
 
 volumes:
   redis_data:

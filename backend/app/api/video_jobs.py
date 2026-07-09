@@ -27,7 +27,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
-from app.core.auth import extract_session_id
+from app.core.auth import CurrentUser, get_current_user
+from app.core import metrics as _metrics
 
 from app.schemas.pipeline import JobResponse
 
@@ -53,14 +54,15 @@ router = APIRouter(prefix="/video-jobs", tags=["video-jobs"])
 
 class VideoJobRequest(BaseModel):
     prompt: str = Field(..., min_length=3, max_length=2000, description="Documentary prompt")
-    target_duration: int = Field(150, ge=30, le=600)
+    # Required: the pipeline treats this as a minimum duration (floor) — the final
+    # video may run somewhat longer, never shorter. No silent default.
+    target_duration: int = Field(..., ge=30, le=600)
     style: str = Field("documentary", max_length=50)
     validation_mode: str = Field("iterative_llm", max_length=50)
     visual_mode: str = Field("generated_assets", max_length=50)
     subtitle_mode: str = Field("external", max_length=50)
     max_validation_iterations: int = Field(3, ge=1, le=5)
     burn_subtitles: bool = Field(False)
-    user_id: str = Field("", max_length=128, description="Session/user identifier from the client")
 
 
 # ---------------------------------------------------------------------------
@@ -167,13 +169,12 @@ def _require_job(job_id: str) -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 @router.post("", status_code=202)
-def create_job(request: VideoJobRequest, user_id: str = Depends(extract_session_id)):
-    # Prefer user_id from request body (proxy-safe) over X-Session-ID header
-    effective_user_id = request.user_id or user_id
+def create_job(request: VideoJobRequest, current_user: CurrentUser = Depends(get_current_user)):
+    effective_user_id = current_user.id
 
     # Rate limit: max 5 submission attempts per user per 60 s
-    rate_key = effective_user_id or "anonymous"
-    if not _create_limiter.allow(rate_key):
+    if not _create_limiter.allow(effective_user_id):
+        _metrics.rate_limit_rejections_total.labels(limiter="job_creation").inc()
         raise HTTPException(
             status_code=429,
             detail="Too many requests. Please wait before submitting another job.",
@@ -219,6 +220,7 @@ def create_job(request: VideoJobRequest, user_id: str = Depends(extract_session_
     all_jobs = list_jobs()
     queued = [j for j in all_jobs if j.get("status") == "queued"]
     queue_position = len(queued)  # this job is already in the list
+    _metrics.job_queue_position.observe(queue_position)
 
     return {
         "job_id": job_id,
@@ -230,13 +232,11 @@ def create_job(request: VideoJobRequest, user_id: str = Depends(extract_session_
 
 @router.get("", response_model=None)
 def list_video_jobs(
-    user_id: str = Depends(extract_session_id),
+    current_user: CurrentUser = Depends(get_current_user),
     limit: int = Query(50, ge=1, le=100),
     offset: int = Query(0, ge=0),
 ):
-    jobs = list_jobs()
-    if user_id:
-        jobs = [j for j in jobs if j.get("user_id") == user_id]
+    jobs = [j for j in list_jobs() if j.get("user_id") == current_user.id]
     total = len(jobs)
     page = jobs[offset: offset + limit]
     return {
@@ -248,16 +248,16 @@ def list_video_jobs(
 
 
 @router.get("/{job_id}", response_model=None)
-def get_video_job(job_id: str, user_id: str = Depends(extract_session_id)):
+def get_video_job(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, user_id)
+    _assert_owns(job, current_user.id)
     return _job_response(job).model_dump()
 
 
 @router.delete("/{job_id}", status_code=202)
-def cancel_video_job(job_id: str, user_id: str = Depends(extract_session_id)):
+def cancel_video_job(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, user_id)
+    _assert_owns(job, current_user.id)
 
     terminal = {"completed", "failed", "cancelled"}
     if job.get("status") in terminal:
@@ -337,9 +337,9 @@ async def _sse_generator(job_id: str, last_event_id: int = 0):
 
 
 @router.get("/{job_id}/events")
-async def stream_job_events(job_id: str, last_event_id: int = 0, user_id: str = Depends(extract_session_id)):
+async def stream_job_events(job_id: str, last_event_id: int = 0, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, user_id)
+    _assert_owns(job, current_user.id)
     return StreamingResponse(
         _sse_generator(job_id, last_event_id),
         media_type="text/event-stream",
@@ -355,9 +355,9 @@ async def stream_job_events(job_id: str, last_event_id: int = 0, user_id: str = 
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/storyline")
-def get_job_storyline(job_id: str, user_id: str = Depends(extract_session_id)):
+def get_job_storyline(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, user_id)
+    _assert_owns(job, current_user.id)
     paths = job.get("paths", {})
     vsp = paths.get("validated_storyline_path")
     isp = paths.get("storyline_path")
@@ -431,9 +431,9 @@ def get_job_storyline(job_id: str, user_id: str = Depends(extract_session_id)):
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/validation-report")
-def get_job_validation_report(job_id: str, user_id: str = Depends(extract_session_id)):
+def get_job_validation_report(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, user_id)
+    _assert_owns(job, current_user.id)
     paths = job.get("paths", {})
     vsp = paths.get("validated_storyline_path")
 
@@ -499,7 +499,7 @@ def get_job_validation_report(job_id: str, user_id: str = Depends(extract_sessio
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/provenance")
-def get_job_provenance(job_id: str, user_id: str = Depends(extract_session_id)):
+def get_job_provenance(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     """Full two-layer provenance for a job.
 
     Layer 1 — decision_record: high-level osi-1.0 record (agents, models, outcome).
@@ -510,7 +510,7 @@ def get_job_provenance(job_id: str, user_id: str = Depends(extract_session_id)):
     The old endpoints are preserved for backwards compatibility.
     """
     job = _require_job(job_id)
-    _assert_owns(job, user_id)
+    _assert_owns(job, current_user.id)
     paths = job.get("paths", {})
 
     # Load storyline data (prefer validated). Try S3 key always if present —
@@ -765,9 +765,9 @@ def get_job_provenance(job_id: str, user_id: str = Depends(extract_session_id)):
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/assets")
-def get_job_assets(job_id: str, user_id: str = Depends(extract_session_id)):
+def get_job_assets(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, user_id)
+    _assert_owns(job, current_user.id)
     paths = job.get("paths", {})
     amp = paths.get("asset_manifest_path")
 
@@ -867,9 +867,9 @@ def get_job_assets(job_id: str, user_id: str = Depends(extract_session_id)):
 # ---------------------------------------------------------------------------
 
 @router.get("/{job_id}/result")
-def get_job_result(job_id: str, user_id: str = Depends(extract_session_id)):
+def get_job_result(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, user_id)
+    _assert_owns(job, current_user.id)
     if job.get("status") not in ("completed", "failed"):
         return {
             "job_id": job_id,

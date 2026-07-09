@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
-from app.core.auth import extract_session_id
+from app.core.auth import CurrentUser, get_current_user
 from app.core.config import INSIGHT_DEFAULT_LIMIT
 from app.services import insight_service
 
@@ -15,9 +15,9 @@ class GenerateInsightRequest(BaseModel):
 
 
 @router.post("/generate")
-def api_generate_insight(req: GenerateInsightRequest, user_id: str = Depends(extract_session_id)):
+def api_generate_insight(req: GenerateInsightRequest, current_user: CurrentUser = Depends(get_current_user)):
     try:
-        return insight_service.generate_insight(req.query, req.filters, req.limit, user_id=user_id)
+        return insight_service.generate_insight(req.query, req.filters, req.limit, user_id=current_user.id)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
@@ -47,7 +47,7 @@ def api_insight_sources(insight_id: str):
 
 
 @router.get("/{insight_id}/provenance")
-def api_insight_provenance(insight_id: str, user_id: str = Depends(extract_session_id)):
+def api_insight_provenance(insight_id: str, current_user: CurrentUser = Depends(get_current_user)):
     """Full two-layer provenance for an insight generation run.
 
     Layer 1 — decision_record: osi-1.0 record (agents, models, evidence coverage).

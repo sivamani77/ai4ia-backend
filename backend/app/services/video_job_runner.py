@@ -17,7 +17,9 @@ from typing import Any
 
 logger = logging.getLogger("ai4ia.services.video_job_runner")
 
+from app.core import metrics as _metrics
 from app.core.config import VLLM_MODEL
+from app.core.security import parse_timestamp
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext
 from app.services.job_store import (
@@ -27,6 +29,12 @@ from app.services.job_store import (
     load_events,
     list_jobs,
 )
+
+# Process-local stage start times for job_stage_duration_seconds — not
+# persisted on the job (would leak internal bookkeeping into the
+# user-facing JobResponse); mirrors the process-local _redis_cache pattern
+# below.
+_stage_start_times: dict[tuple[str, str], float] = {}
 
 # ---------------------------------------------------------------------------
 # Stage weights (must sum to 100)
@@ -97,6 +105,16 @@ def update_stage(
 ) -> None:
     job = load_job(job_id)
     job.setdefault("stage_status", {})
+
+    _metrics.job_stage_transitions_total.labels(stage=stage, status=status).inc()
+    stage_key = (job_id, stage)
+    if status == "running":
+        _stage_start_times.setdefault(stage_key, time.monotonic())
+    elif status in ("completed", "failed"):
+        started = _stage_start_times.pop(stage_key, None)
+        if started is not None:
+            _metrics.job_stage_duration_seconds.labels(stage=stage).observe(time.monotonic() - started)
+
     job["stage_status"][stage] = {
         "status": status,
         "progress_percent": progress,
@@ -137,6 +155,7 @@ def _fail_job(job_id: str, stage: str, error_type: str, message: str, details: s
         "error_type": error_type,
         "message": message,
     })
+    _metrics.job_completions_total.labels(status="failed").inc()
 
 
 def _cancel_job(job_id: str, message: str = "") -> None:
@@ -147,6 +166,7 @@ def _cancel_job(job_id: str, message: str = "") -> None:
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
     append_event(job_id, "cancelled", job.get("current_stage", "unknown"), {"message": message})
+    _metrics.job_completions_total.labels(status="cancelled").inc()
 
     pid = job.get("active_pid")
     if pid:
@@ -182,6 +202,14 @@ def _complete_job(job_id: str) -> None:
     job["completed_at"] = _utc_now()
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
+    _metrics.job_completions_total.labels(status="completed").inc()
+    created_at = job.get("created_at")
+    if created_at:
+        try:
+            duration = (parse_timestamp(job["completed_at"]) - parse_timestamp(created_at)).total_seconds()
+            _metrics.job_duration_seconds.observe(duration)
+        except (ValueError, TypeError):
+            logger.warning("Could not compute job_duration_seconds for job_id=%s", job_id)
 
 
 # ---------------------------------------------------------------------------
@@ -195,7 +223,7 @@ def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
         "job_id": job_id,
         "status": "queued",
         "prompt": request.get("prompt", ""),
-        "target_duration": request.get("target_duration", 150),
+        "target_duration": request["target_duration"],
         "user_id": user_id,
         "current_stage": "queued",
         "progress_percent": 0,
@@ -222,6 +250,7 @@ def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
     }
     save_job(job_id, job)
     append_event(job_id, "created", "queued", {"prompt": request.get("prompt", "")})
+    _metrics.jobs_created_total.inc()
     return job_id
 
 
@@ -282,37 +311,55 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
 
         _complete_job(job_id)
         log.info("Pipeline completed")
-        _emit_job_decision_record(job_id, outcome="video_generated")
 
-        # load_job here re-establishes the Supabase connection if it dropped during
-        # the long pipeline run (HTTP/2 keepalive timeout). build_media_registry and
-        # S3 upload must come AFTER this reconnect to avoid FileNotFoundError.
-        job = load_job(job_id)
+        # ------------------------------------------------------------------
+        # Post-completion housekeeping (decision record, media registry, S3
+        # upload, completion event). The job is ALREADY marked completed and
+        # that is durable — so NOTHING in this block may re-raise into the
+        # outer handler and flip a finished job to "failed". A transient
+        # Supabase disconnect here (the HTTP/2 keepalive dropped during the
+        # long render) previously did exactly that AND skipped the S3 upload.
+        # Each step is isolated; failures are logged, not fatal.
+        # ------------------------------------------------------------------
+        try:
+            _emit_job_decision_record(job_id, outcome="video_generated")
+        except Exception:
+            log.warning("decision record failed for job %s (non-fatal)", job_id, exc_info=True)
+
+        # Reconnect after the long run; retry-enabled load_job rides through a
+        # dropped keepalive connection instead of raising.
+        job = None
+        try:
+            job = load_job(job_id)
+        except Exception:
+            log.warning("post-complete load_job failed for job %s (non-fatal)", job_id, exc_info=True)
 
         try:
             from app.services.media_registry import build_media_registry
             build_media_registry(job_id)
         except Exception:
-            pass  # non-fatal; job is still complete
+            log.warning("media registry build failed for job %s (non-fatal)", job_id, exc_info=True)
 
         try:
             from app.services.storage_service import STORAGE_BACKEND, upload_job_outputs_to_s3
             if STORAGE_BACKEND == "s3":
                 upload_job_outputs_to_s3(job_id)
-                # Clean up all stage tmp dirs now that everything is in S3
                 from app.pipeline.s3_helpers import cleanup_tmp_dir
                 for stage_prefix in (f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
                     cleanup_tmp_dir(stage_prefix)
         except Exception:
             log.warning("S3 upload failed for job %s — outputs remain on local disk", job_id, exc_info=True)
 
-        vp = job["paths"].get("video_path", "")
-        rel = Path(vp).name if vp else ""
-        append_event(job_id, "completed", "completed", {
-            "video_stream_url": f"/api/video-jobs/{job_id}/video/stream",
-            "video_url": f"/exports/{rel}" if rel else None,
-            "duration": None,
-        })
+        try:
+            vp = (job or {}).get("paths", {}).get("video_path", "") if job else ""
+            rel = Path(vp).name if vp else ""
+            append_event(job_id, "completed", "completed", {
+                "video_stream_url": f"/api/video-jobs/{job_id}/video/stream",
+                "video_url": f"/exports/{rel}" if rel else None,
+                "duration": None,
+            })
+        except Exception:
+            log.warning("completion event emit failed for job %s (non-fatal)", job_id, exc_info=True)
 
     except Exception as exc:
         import traceback
@@ -462,6 +509,7 @@ def _redis_reachable() -> bool:
         result = False
 
     _redis_cache = (result, time.monotonic())
+    _metrics.redis_reachable.set(1 if result else 0)
     return result
 
 

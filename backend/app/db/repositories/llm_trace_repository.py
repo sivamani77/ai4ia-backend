@@ -45,6 +45,12 @@ class LLMTraceRepository:
             raise
         return self._from_row(response.data[0]) if response.data else payload  # type: ignore[return-value]
 
+    def delete_by_job(self, job_id: str) -> None:
+        self._table.delete().eq("job_id", job_id).execute()
+
+    def delete_by_user(self, user_id: str) -> None:
+        self._table.delete().eq("user_id", user_id).execute()
+
     def list_by_job(self, job_id: str) -> list[LLMTraceRecord]:
         self._log("select_by_job", job_id)
         try:

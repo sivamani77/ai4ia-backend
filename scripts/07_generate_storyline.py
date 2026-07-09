@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -19,6 +20,16 @@ _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
 from app.core.settings import settings  # noqa: E402
+from app.pipeline.timeline_budget import (  # noqa: E402
+    build_duration_budget,
+    clamp_timeline_windows_to_source,
+    classify_timeline_segment_type,
+    fill_timeline_to_target,
+    normalize_candidate_time_bounds,
+    timeline_card_duration,
+    timeline_segment_count_for_duration,
+    timeline_total_seconds,
+)
 
 # Allow the stage runner to override the embeddings directory via env var.
 # In S3 deployment mode the stage runner downloads the embeddings from S3
@@ -104,7 +115,7 @@ CHAT_ENDPOINT = settings.vllm_chat_endpoint
 
 EMBED_MODEL = settings.embedding_model
 FAST_LLM_MODEL = settings.fast_llm_model
-#STRONG_LLM_MODEL = "gpt-oss:120b"
+STRONG_LLM_MODEL = settings.storyline_strong_model
 
 EMBED_ENDPOINT = "/api/embed"
 GENERATE_ENDPOINT = "/api/generate"
@@ -147,13 +158,13 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
 
 
 def warm_up_ollama() -> None:
-    """Ping VLL gpt-oss-20b and pre-load the embedding model so the first real call
-    doesn't hit a cold-load timeout. Best-effort: failures here are non-fatal."""
+    """Ping Ollama so the first real call (strong model / embeddings) doesn't hit
+    a cold-load timeout. Best-effort: failures here are non-fatal."""
     try:
-        requests.get(f"{VLLM_BASE_URL}/health", timeout=15)
-        log("vLLM health check passed.")
+        requests.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=15)
+        log("Ollama health check passed.")
     except Exception as exc:
-        log(f"vLLM health check failed (continuing): {exc}")
+        log(f"Ollama health check failed (continuing): {exc}")
 
 
 
@@ -1373,7 +1384,9 @@ def get_selected_candidate_cap(target_duration_seconds: int, video_mode: str, ev
         return 16
     if target_duration_seconds <= 180:
         return 24
-    return 30
+    # Long targets need a deep candidate pool so the duration-fill ladder has
+    # real content to draw from (~1 candidate per 12s of target).
+    return max(30, target_duration_seconds // 12)
 
 
 def sort_final_video_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -1438,65 +1451,96 @@ def dedupe_by_fragment_id(candidates: list[dict[str, Any]]) -> list[dict[str, An
     return deduped
 
 
-def timeline_segment_count_for_duration(target_duration_seconds: int) -> int:
-    if target_duration_seconds <= 60:
+def estimate_section_count(target_duration_seconds: int) -> int:
+    """Estimate how many narrative sections the documentary will have.
+
+    The actual section structure is decided downstream by the director/LLM,
+    but selection needs an estimate up front to size the speaker reservation.
+    Mirrors the ~3-6 section role sequences used by build_director_plan.
+    """
+    if target_duration_seconds <= 90:
+        return 3
+    if target_duration_seconds <= 180:
         return 4
-    if target_duration_seconds <= 120:
-        return 6
     if target_duration_seconds <= 300:
-        return 8
-    if target_duration_seconds <= 600:
-        return 12
-    return 15
+        return 5
+    return 6
 
 
-def timeline_card_duration(target_duration_seconds: int) -> int:
-    return 4 if target_duration_seconds <= 60 else 5
+def speakers_per_section_for_duration(target_duration_seconds: int) -> int:
+    """Adaptive speaker density: short videos get 1 real speaker voice per
+    section (narration-driven, tighter); longer videos allow up to 2 per
+    section (more speaker evidence, richer)."""
+    return 1 if target_duration_seconds <= 180 else 2
 
 
-def classify_timeline_segment_type(candidate: dict[str, Any]) -> str:
-    if candidate.get("speaker_clip_allowed") or candidate.get("speaker_soundbite_allowed"):
-        return "speaker_clip"
-    if candidate.get("speaker_visual_allowed"):
-        return "speaker_visual"
-    if candidate.get("use_as") == "archive_visual":
-        return "archive_visual"
-    if candidate.get("use_as") == "speaker_soundbite":
-        return "speaker_clip"
-    return "narration_broll"
+def is_speaker_eligible(candidate: dict[str, Any]) -> bool:
+    return bool(
+        candidate.get("speaker_soundbite_allowed")
+        or candidate.get("speaker_clip_allowed")
+    )
 
 
-def normalize_candidate_time_bounds(candidate: dict[str, Any]) -> tuple[float | None, float | None, float | None]:
-    start = candidate.get("start")
-    end = candidate.get("end")
-    duration = candidate.get("duration")
+def select_documentary_candidates(
+    selected: list[dict[str, Any]],
+    target_duration_seconds: int,
+    cap: int,
+    requested_speaker: str | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Speaker-first selection.
 
-    if start is None:
-        start = candidate.get("start_seconds")
-    if end is None:
-        end = candidate.get("end_seconds")
+    Real speaker voices are structurally required for a documentary, so we
+    reserve slots for the best speaker-eligible candidates BEFORE the general
+    relevance cap runs — otherwise a narration-only clip that scores marginally
+    higher on topic relevance crowds out a genuine speaker soundbite, which is
+    exactly how earlier runs collapsed to 1-2 usable speakers despite a rich
+    pool.
 
-    try:
-        start_value = float(start) if start is not None else None
-    except (TypeError, ValueError):
-        start_value = None
-    try:
-        end_value = float(end) if end is not None else None
-    except (TypeError, ValueError):
-        end_value = None
-    try:
-        duration_value = float(duration) if duration is not None else None
-    except (TypeError, ValueError):
-        duration_value = None
+    Returns (selected, diagnostics).
+    """
+    ranked = sort_final_video_candidates(selected)
 
-    if duration_value is None and start_value is not None and end_value is not None:
-        duration_value = max(0.0, end_value - start_value)
-    if end_value is None and start_value is not None and duration_value is not None:
-        end_value = start_value + duration_value
-    if start_value is None and end_value is not None and duration_value is not None:
-        start_value = max(0.0, end_value - duration_value)
+    # Enforce diversity ONCE across the whole pool (≤2 per source, ≤2 per
+    # speaker) so the same talk/person can't dominate — whether it lands in the
+    # reserved speaker tier or the fill tier.
+    diverse = apply_diversity_cap(
+        ranked,
+        max_per_source=2,
+        max_per_speaker=2,
+        requested_speaker=requested_speaker,
+    )
 
-    return start_value, end_value, duration_value
+    n_sections = estimate_section_count(target_duration_seconds)
+    per_section = speakers_per_section_for_duration(target_duration_seconds)
+    # Reserve generously (up to 2x the structural need) so the duration
+    # allocation in Phase B has speaker overflow to enrich sections with —
+    # never below the cap, though.
+    speaker_target = min(cap, n_sections * per_section * 2)
+
+    speaker_pool = [c for c in diverse if is_speaker_eligible(c)]
+    reserved_speakers = speaker_pool[:speaker_target]
+    reserved_ids = {str(c.get("fragment_id")) for c in reserved_speakers}
+
+    remaining = [c for c in diverse if str(c.get("fragment_id")) not in reserved_ids]
+    fill_slots = max(0, cap - len(reserved_speakers))
+    filler = remaining[:fill_slots]
+
+    combined = sort_final_video_candidates(reserved_speakers + filler)
+
+    diagnostics = {
+        "speaker_eligible_in_pool": len(speaker_pool),
+        "speaker_slots_reserved": len(reserved_speakers),
+        "speaker_target": speaker_target,
+        "estimated_sections": n_sections,
+        "speakers_per_section": per_section,
+        "fill_slots_used": len(filler),
+        "final_selected": len(combined),
+    }
+    return combined, diagnostics
+
+
+# Duration floor helpers (probe-clamp + fill-to-target) live in the shared
+# app.pipeline.timeline_budget module — imported at the top of this file.
 
 
 def build_export_timeline_from_candidates(
@@ -2807,47 +2851,25 @@ TEMPORAL ARC RULES (chronological_relay mode):
         }
     }
 
-    # prompt = system_instruction.strip() + "\n\nINPUT:\n" + json.dumps(user_instruction, ensure_ascii=False, indent=2)
+    prompt = system_instruction.strip() + "\n\nINPUT:\n" + json.dumps(user_instruction, ensure_ascii=False, indent=2)
 
-    # url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
-
-    # payload = {
-    #     "model": STRONG_LLM_MODEL,
-    #     "prompt": prompt,
-    #     "stream": False,
-    #     "options": {
-    #         "temperature": 0.4,
-    #         "top_p": 0.9,
-    #         "num_ctx": 32000
-    #     }
-    # }
-    
-    #log(f"Calling storyline model: {STRONG_LLM_MODEL}")
-    # data = post_with_retries(url, payload, timeout=600)
-
-    # response_text = data.get("response", "")
-
-    
-    ##vll-gpt-oss-20b payload for storyline generation
-    url = VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
+    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
 
     payload = {
-        "model": VLLM_MODEL,
-        "messages": [
-            {"role": "system", "content": system_instruction.strip()},
-            {"role": "user", "content": "INPUT:\n" + json.dumps(user_instruction, ensure_ascii=False, indent=2)},
-        ],
-        "temperature": 0.4,
-        "top_p": 0.9,
-        "max_completion_tokens": 8192,
-        "response_format": {"type": "json_object"},
+        "model": STRONG_LLM_MODEL,
+        "prompt": prompt,
         "stream": False,
+        "options": {
+            "temperature": 0.4,
+            "top_p": 0.9,
+            "num_ctx": 32000
+        }
     }
 
-    log(f"Calling storyline model: {VLLM_MODEL}")
+    log(f"Calling storyline model: {STRONG_LLM_MODEL}")
     data = post_with_retries(url, payload, timeout=600)
 
-    response_text = data["choices"][0]["message"]["content"]
+    response_text = data.get("response", "")
 
     parsed = extract_json_object(response_text)
 
@@ -2901,37 +2923,24 @@ TEXT:
 {raw_text}
 """
 
-    # url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
 
-    # payload = {
-    #     "model": FAST_LLM_MODEL,
-    #     "prompt": repair_prompt,
-    #     "stream": False,
-    #     "options": {
-    #         "temperature": 0.1,
-    #         "num_ctx": 12000
-    #     }
-    # }
-
-    # data = post_with_retries(url, payload, timeout=300)
-    # return extract_json_object(data.get("response", ""))
-    
-    url = VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
-
+    prompt = (
+        "You are a JSON repair assistant. Output only valid JSON with no markdown or explanation.\n\n"
+        + raw_text
+    )
     payload = {
-        "model": VLLM_MODEL,
-        "messages": [
-            {"role": "system", "content": "You are a JSON repair assistant. Output only valid JSON with no markdown or explanation."},
-            {"role": "user", "content": raw_text},
-        ],
-        "temperature": 0.1,
-        "max_completion_tokens": 4096,
-        "response_format": {"type": "json_object"},
+        "model": STRONG_LLM_MODEL,
+        "prompt": prompt,
         "stream": False,
+        "options": {
+            "temperature": 0.1,
+            "num_ctx": 12000
+        }
     }
 
     data = post_with_retries(url, payload, timeout=300)
-    return extract_json_object(data["choices"][0]["message"]["content"])
+    return extract_json_object(data.get("response", ""))
 
 
 
@@ -2948,8 +2957,7 @@ def expand_short_narrations(
     _per_s = round(max(1, target_duration_seconds - 10) / _n)
     min_words = max(30, round(_per_s * 2.5))
 
-    # url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
-    url = VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
+    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
     expanded = 0
 
     for sec in sections:
@@ -2972,31 +2980,20 @@ def expand_short_narrations(
             f"Expanded narration ({min_words}+ words):"
         )
 
-        # payload = {
-        #     "model": FAST_LLM_MODEL,
-        #     "prompt": expand_prompt,
-        #     "stream": False,
-        #     "options": {"temperature": 0.3, "num_ctx": 4000},
-        # }
-
-        # try:
-        #     data = post_with_retries(url, payload, timeout=120)
-        #     expanded_text = (data.get("response") or "").strip()
-        
+        full_prompt = (
+            "You are a documentary narration writer. Write only the expanded narration "
+            "text with no labels, quotes, or explanation.\n\n" + expand_prompt
+        )
         payload = {
-            "model": VLLM_MODEL,
-            "messages": [
-                {"role": "system", "content": "You are a documentary narration writer. Write only the expanded narration text with no labels, quotes, or explanation."},
-                {"role": "user", "content": expand_prompt},
-            ],
-            "temperature": 0.3,
-            "max_completion_tokens": 2048,
+            "model": STRONG_LLM_MODEL,
+            "prompt": full_prompt,
             "stream": False,
+            "options": {"temperature": 0.3, "num_ctx": 4000},
         }
-        
+
         try:
             data = post_with_retries(url, payload, timeout=120)
-            expanded_text = (data["choices"][0]["message"]["content"] or "").strip()
+            expanded_text = (data.get("response") or "").strip()
             if expanded_text and len(expanded_text.split()) >= min_words:
                 sec["narration"] = expanded_text
                 sec["viewer_narration"] = expanded_text
@@ -5070,7 +5067,7 @@ def save_storyline(
         "should_export_video": storyline.get("should_export_video", True),
         "models": {
             "embedding_model": EMBED_MODEL,
-            "strong_llm_model": VLLM_MODEL,
+            "strong_llm_model": STRONG_LLM_MODEL,
             "fast_llm_model": FAST_LLM_MODEL,
         },
         "source_files": {
@@ -5123,11 +5120,50 @@ def save_storyline(
         "debug_retrieved_candidates": build_candidate_pack(retrieved[:25]),
         "storyline": storyline,
     }
+    # Duration floor: clamp planned windows to real footage, then fill with more
+    # ranked real content until the plan reaches the target (floor semantics).
+    export_tl = storyline.get("export_timeline") or []
+    fill_report: dict[str, Any] | None = None
+    if export_tl and duration:
+        clamp_notes = clamp_timeline_windows_to_source(export_tl)
+        for note in clamp_notes:
+            log(f"  [clamp] {note}")
+        fill_report = fill_timeline_to_target(
+            export_tl,
+            {"selected": selected, "supporting": supporting, "context": context},
+            duration,
+        )
+        storyline["export_timeline"] = export_tl
+        payload["export_timeline"] = export_tl
+        payload["window_clamp_notes"] = clamp_notes
+        payload["duration_fill_report"] = fill_report
+        log(
+            f"Duration fill: {fill_report['status']} — "
+            f"{fill_report['total_before_seconds']:.1f}s → {fill_report['total_after_seconds']:.1f}s "
+            f"(floor {fill_report['floor_seconds']:.1f}s, +{len(fill_report['segments_added'])} segments)"
+        )
+
+    payload["duration_budget"] = build_duration_budget(
+        storyline.get("export_timeline") or [],
+        duration,
+        stage="07_generate_storyline",
+    )
 
     output_path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+
+    # Content-exhaustion is NOT a failure: when the genuinely relevant speaker
+    # pool can't fill the requested duration, we ship the honest best-effort
+    # length with a warning rather than padding with filler or failing the job.
+    if fill_report and fill_report["status"] == "content_exhausted":
+        log(
+            f"WARNING: relevant content exhausted — {fill_report['total_after_seconds']:.1f}s of "
+            f"genuinely relevant material for a {duration}s target "
+            f"(shortfall {fill_report['shortfall_seconds']:.1f}s). "
+            f"Delivering the honest best-effort duration; no filler added."
+        )
 
     return output_path
 
@@ -5380,13 +5416,15 @@ def main() -> None:
     video_mode = pre_plan["video_mode"]
     evidence_strength = pre_plan["evidence_strength"]
 
-    # Apply duration-aware cap with sort + diversity filter
+    # Speaker-first, duration-aware selection. Reserves slots for real speaker
+    # voices before the general relevance cap so they are never crowded out by
+    # marginally-higher-scoring narration-only clips.
     cap = get_selected_candidate_cap(args.duration, video_mode, evidence_strength)
-    selected = sort_final_video_candidates(selected)
-    selected = apply_diversity_cap(
+    pre_cap_count = len(selected)
+    selected, speaker_selection_diag = select_documentary_candidates(
         selected,
-        max_per_source=2,
-        max_per_speaker=2,
+        target_duration_seconds=args.duration,
+        cap=cap,
         requested_speaker=prompt_intent.get("requested_speaker"),
     )
     if evidence_strength == "low":
@@ -5395,9 +5433,14 @@ def main() -> None:
         cap_reason = f"video_mode={video_mode}"
     else:
         cap_reason = f"target_duration_seconds={args.duration}"
-    pre_cap_count = len(selected)
-    selected = selected[:cap]
     buckets["selected_candidates"] = selected
+    log(
+        f"Speaker-first selection: {speaker_selection_diag['speaker_eligible_in_pool']} eligible in pool → "
+        f"{speaker_selection_diag['speaker_slots_reserved']} reserved "
+        f"(target {speaker_selection_diag['speaker_target']}, "
+        f"{speaker_selection_diag['speakers_per_section']}/section × ~{speaker_selection_diag['estimated_sections']} sections), "
+        f"{speaker_selection_diag['fill_slots_used']} fill slots"
+    )
 
     candidate_bucket_summary = {
         "selected": len(selected),
@@ -5407,6 +5450,7 @@ def main() -> None:
         "selected_cap": cap,
         "pre_cap_count": pre_cap_count,
         "cap_reason": cap_reason,
+        "speaker_selection": speaker_selection_diag,
     }
     log(f"Cap applied: {pre_cap_count} → {len(selected)} (cap={cap}, reason={cap_reason})")
 

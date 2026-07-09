@@ -21,6 +21,7 @@ Usage:
 """
 import argparse
 import subprocess
+import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -108,6 +109,12 @@ def main() -> int:
         now = _archive_count()
         print(f"\nDone. {mp4s} mp4 files on disk; "
               f"{now} entries in archive ({now - already} new this run).", flush=True)
+
+        if now > already:
+            print("\nUpdating source-video duration index for the new videos...", flush=True)
+            index_script = Path(__file__).resolve().parent / "build_source_duration_index.py"
+            subprocess.run([sys.executable, str(index_script)])
+
     return 0
 
 

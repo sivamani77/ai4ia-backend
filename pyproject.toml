@@ -21,6 +21,12 @@ dependencies = [
     "redis",
     "chromadb",
     "python-json-logger",
+    "argon2-cffi",
+    "pyjwt",
+    "email-validator",
+    "python-dateutil",
+    "prometheus-client",
+    "prometheus-fastapi-instrumentator",
 ]
 
 [project.optional-dependencies]

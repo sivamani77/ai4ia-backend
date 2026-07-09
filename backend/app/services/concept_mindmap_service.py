@@ -71,19 +71,20 @@ _TERM_SYNONYMS = {
 def generate_concept_mindmap(
     query: str,
     storyline_id: str | None = None,
-    mode: str = "video",
+    mode: str = "legacy",
 ) -> dict[str, Any]:
     """Build a mindmap for a generated documentary video.
 
-    mode="video" (default): NotebookLM-style — the map explains what the video
-    itself says (its ideas, arguments, evidence, and how the narrative unfolds),
-    with themes/chapters and speakers as supporting branches. Falls back to the
-    legacy theme-centric map if the LLM extraction fails.
+    mode="legacy" (default): the original theme/chapter/speaker/content-centric
+    heuristic map — no LLM involved.
 
-    mode="legacy": the original theme/section-centric heuristic map.
+    mode="video": NotebookLM-style — the map explains what the video itself says
+    (its ideas, arguments, evidence, and how the narrative unfolds), with
+    themes/chapters and speakers as supporting branches. Falls back to the
+    legacy theme-centric map if the LLM extraction fails.
     """
     payload, source_path = _resolve_storyline(query, storyline_id)
-    if mode != "legacy":
+    if mode == "video":
         try:
             return _generate_video_mindmap(query, payload, source_path)
         except Exception as exc:  # noqa: BLE001
