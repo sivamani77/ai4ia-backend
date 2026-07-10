@@ -1,0 +1,3493 @@
+{
+  "created_at": "2026-07-10T06:01:51.218509",
+  "user_prompt": "AI inclusion, youth empowerment, and access to information in the digital age",
+  "prompt_profile": {
+    "raw_prompt": "AI inclusion, youth empowerment, and access to information in the digital age",
+    "intent_type": "topic_video",
+    "requested_speaker": null,
+    "speaker_required": false,
+    "topic_terms": [
+      "access",
+      "age",
+      "digital",
+      "empowerment",
+      "inclusion",
+      "youth"
+    ],
+    "expanded_terms": [
+      "woman",
+      "female",
+      "girls",
+      "gender",
+      "agency",
+      "participation",
+      "leadership"
+    ],
+    "negative_terms": [],
+    "generic_terms_removed": [
+      "inclusion",
+      "equity",
+      "access",
+      "diversity"
+    ],
+    "theme_hint": "AI & Information Access / Media / Journalism",
+    "chapter_hint": null,
+    "scope": "specific_topic",
+    "evidence_requirement": "direct_topic_evidence",
+    "strictness": "high",
+    "target_duration_seconds": 30
+  },
+  "prompt_intent": {
+    "raw_prompt": "AI inclusion, youth empowerment, and access to information in the digital age",
+    "intent_type": "topic_video",
+    "requested_speaker": null,
+    "speaker_required": false,
+    "topic_terms": [
+      "access",
+      "age",
+      "digital",
+      "empowerment",
+      "inclusion",
+      "youth"
+    ],
+    "expanded_terms": [
+      "woman",
+      "female",
+      "girls",
+      "gender",
+      "agency",
+      "participation",
+      "leadership"
+    ],
+    "negative_terms": [],
+    "generic_terms_removed": [
+      "inclusion",
+      "equity",
+      "access",
+      "diversity"
+    ],
+    "theme_hint": "AI & Information Access / Media / Journalism",
+    "chapter_hint": null,
+    "scope": "specific_topic",
+    "evidence_requirement": "direct_topic_evidence",
+    "strictness": "high",
+    "target_duration_seconds": 30
+  },
+  "target_duration_seconds": 30,
+  "style": "documentary",
+  "corpus_version": "original_v1",
+  "embeddings_dir": "/tmp/ai4ia_pipeline/07_vjob_20260710_055930_34269ee3/embeddings",
+  "corpus_diagnostics": {
+    "total_embedding_records": 3875,
+    "records_after_filtering": 3875,
+    "source_version_counts_before": {
+      "unknown": 3875
+    },
+    "source_version_counts_after": {
+      "unknown": 3875
+    },
+    "audio_status_counts_before": {
+      "unknown": 3875
+    },
+    "audio_status_counts_after": {
+      "unknown": 3875
+    },
+    "cleaned_v2_records": 0,
+    "original_v1_records": 0,
+    "manual_review_records": 0,
+    "min_transcript_quality": 0.0,
+    "exclude_manual_review": false,
+    "corpus_version": "original_v1",
+    "embeddings_dir": "/tmp/ai4ia_pipeline/07_vjob_20260710_055930_34269ee3/embeddings",
+    "embedding_dimension": 768
+  },
+  "generation_mode": "llm",
+  "llm_parse_error": null,
+  "fallback_reason": null,
+  "should_export_video": true,
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "gpt-oss:120b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/tmp/ai4ia_pipeline/07_vjob_20260710_055930_34269ee3/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/tmp/ai4ia_pipeline/07_vjob_20260710_055930_34269ee3/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 108,
+    "selected_candidate_count": 10,
+    "supporting_candidate_count": 10,
+    "context_candidate_count": 0,
+    "rejected_candidate_count": 0,
+    "top_semantic_score": 0.839613
+  },
+  "retrieval_diagnostics": {
+    "semantic_count": 90,
+    "keyword_count": 30,
+    "chapter_count": 30,
+    "speaker_count": 0,
+    "merged_count": 108,
+    "selected_count": 10,
+    "supporting_count": 10,
+    "context_count": 0,
+    "rejected_count": 0,
+    "speaker_required": false
+  },
+  "candidate_bucket_summary": {
+    "selected": 10,
+    "supporting": 10,
+    "context": 0,
+    "rejected": 0,
+    "selected_cap": 10,
+    "pre_cap_count": 35,
+    "cap_reason": "target_duration_seconds=30",
+    "speaker_selection": {
+      "speaker_eligible_in_pool": 8,
+      "speaker_slots_reserved": 6,
+      "speaker_target": 6,
+      "estimated_sections": 3,
+      "speakers_per_section": 1,
+      "fill_slots_used": 4,
+      "final_selected": 10
+    }
+  },
+  "candidate_contract": {
+    "selected_candidates": "final-video-safe evidence only",
+    "supporting_candidates": "narration support only — not for speaker soundbites",
+    "context_candidates": "background/context only — not for final video",
+    "rejected_candidates": "not for final video"
+  },
+  "planning_summary": {
+    "video_mode": "chronological_relay",
+    "evidence_strength": "high",
+    "exact_clip_count": 10,
+    "related_clip_count": 0,
+    "strong_related_count": 0,
+    "usable_speaker_clip_count": 6,
+    "usable_speaker_visual_count": 0,
+    "supporting_candidate_count": 10,
+    "context_candidate_count": 0,
+    "rejected_clip_count": 0,
+    "fallback_risk": "low",
+    "planning_notes": [
+      "Speaker diversity is limited, so narration carries more of the connective explanation."
+    ]
+  },
+  "validation_issues": [],
+  "timeline_repair": {
+    "required": true,
+    "reason": "llm_timeline_missing_phase4o_moment_fields",
+    "raw_timeline_items": 13,
+    "rebuilt_timeline_items": 8
+  },
+  "evidence_package": {
+    "prompt_profile": {
+      "raw_prompt": "AI inclusion, youth empowerment, and access to information in the digital age",
+      "intent_type": "topic_video",
+      "requested_speaker": null,
+      "speaker_required": false,
+      "topic_terms": [
+        "access",
+        "age",
+        "digital",
+        "empowerment",
+        "inclusion",
+        "youth"
+      ],
+      "expanded_terms": [
+        "woman",
+        "female",
+        "girls",
+        "gender",
+        "agency",
+        "participation",
+        "leadership"
+      ],
+      "negative_terms": [],
+      "generic_terms_removed": [
+        "inclusion",
+        "equity",
+        "access",
+        "diversity"
+      ],
+      "theme_hint": "AI & Information Access / Media / Journalism",
+      "chapter_hint": null,
+      "scope": "specific_topic",
+      "evidence_requirement": "direct_topic_evidence",
+      "strictness": "high",
+      "target_duration_seconds": 30
+    },
+    "selected_evidence": [
+      {
+        "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+        "source_video": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+        "video_id": "QwTD-48qQVQ",
+        "start": 56.16,
+        "end": 117.54,
+        "duration": 61.38,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "continued contribution to the International Day for Universal Access to Information that we are celebrating in the 28th of September.",
+        "keywords": [
+          "access to information",
+          "information",
+          "conference",
+          "unesco",
+          "ethical",
+          "inclusive"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['access', 'age', 'digital'], expanded terms ['girls'], theme match AI & Information Access / Media / Journalism.",
+        "text": "continued contribution to the International Day for Universal Access to Information that we are celebrating in the 28th of September. This year, the main theme is ensuring access to environmental...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+        "source_video": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy",
+        "video_id": "bwDlgox764s",
+        "start": 3.15,
+        "end": 71.94,
+        "duration": 68.79,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "Hello everyone, I'm very happy to join you today for this conference on artificial intelligence for information accessibility.",
+        "keywords": [
+          "artificial intelligence",
+          "information accessibility",
+          "accessibility",
+          "information",
+          "conference",
+          "inclusion"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'], expanded terms ['gender'], theme match AI & Information Access / Media / Journalism.",
+        "text": "Hello everyone, I'm very happy to join you today for this conference on artificial intelligence for information accessibility. And I want to take the opportunity of this short talk to specifically...",
+        "video_year": 2024,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity_0001",
+        "source_video": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity",
+        "video_id": "csTL3DUyoXg",
+        "start": 3.54,
+        "end": 56.66,
+        "duration": 53.12,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "I'm Megan Roberts, Digital Development Manager in the United Nations Development Programs, Digital AI and Innovation Health.",
+        "keywords": [
+          "artificial intelligence",
+          "information accessibility",
+          "accessibility",
+          "health",
+          "information",
+          "conference"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual"
+        ],
+        "quote_strength": 0.27,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['access', 'digital'], expanded terms ['agency'], theme match AI & Information Access / Media / Journalism.",
+        "text": "Good morning, good afternoon, and good evening. I'm Megan Roberts, Digital Development Manager in the United Nations Development Programs, Digital AI and Innovation Health. I'm so pleased to be here...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 63.2,
+        "end": 131.37,
+        "duration": 68.17,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "Access to information is not simply about connectivity or technology.",
+        "keywords": [
+          "access to information",
+          "youth",
+          "education",
+          "information",
+          "knowledge",
+          "inclusive"
+        ],
+        "clip_usage_candidates": [
+          "narration_support"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['access', 'digital', 'empowerment'], theme match AI & Information Access / Media / Journalism.",
+        "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+        "video_id": "",
+        "start": 816.98,
+        "end": 863.09,
+        "duration": 46.11,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems.",
+        "keywords": [
+          "education",
+          "knowledge",
+          "empowerment",
+          "informed",
+          "role",
+          "lives"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.67,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['access', 'digital', 'empowerment'], theme match AI & Information Access / Media / Journalism.",
+        "text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to...",
+        "video_year": 2024,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0002",
+        "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+        "video_id": "VQAGXagFka4",
+        "start": 69.17,
+        "end": 139.16,
+        "duration": 69.99,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "not merely from a regulatory point of view, but as a moral imperative.",
+        "keywords": [
+          "artificial intelligence",
+          "access to information",
+          "information accessibility",
+          "regulation",
+          "accessibility",
+          "information"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.54,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'], theme match AI & Information Access / Media / Journalism.",
+        "text": "not merely from a regulatory point of view, but as a moral imperative. The approach at the European Union recognizes that information accessibility is not just about technical capability, it's about...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference_0004",
+        "source_video": "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference",
+        "video_id": "aijoknB-L0s",
+        "start": 175.16,
+        "end": 231.08,
+        "duration": 55.92,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "I never forget that it's the AI revolution moves on.",
+        "keywords": [
+          "artificial intelligence",
+          "access to information",
+          "global south",
+          "youth",
+          "public access",
+          "information"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "evidence_clip",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.56,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['access', 'age', 'youth'], theme match AI & Information Access / Media / Journalism.",
+        "text": "I never forget that it's the AI revolution moves on. It gives a lot of gifts. Moreover, in the age of AI and blockchain and open source movements, actually celebrating the revolutionary nature of AI,...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0044",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 2932.22,
+        "end": 2976.4,
+        "duration": 44.18,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "Apagnyang, how can we take advantage of AI and accessing information for the different age groups that we've got?",
+        "keywords": [
+          "information",
+          "communities",
+          "we've",
+          "got",
+          "know",
+          "going"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support"
+        ],
+        "quote_strength": 0.5,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['access', 'age'], theme match AI & Information Access / Media / Journalism.",
+        "text": "Dr. Apagnyang, how can we take advantage of AI and accessing information for the different age groups that we've got? I know we've got these young guys there. What's up with these old Madalas? We've...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0009",
+        "source_video": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility",
+        "video_id": "kcilIjVX5vc",
+        "start": 432.75,
+        "end": 483.33,
+        "duration": 50.58,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+        "summary": "with the systems of the idea, we have much more access to data, we have evolved to global levels, the companies of software, technology, the quality...",
+        "keywords": [
+          "inclusion",
+          "gender",
+          "diversity",
+          "disability",
+          "unesco",
+          "culture"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "evidence_clip"
+        ],
+        "quote_strength": 0.52,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['access', 'inclusion'], expanded terms ['gender'].",
+        "text": "with the systems of the idea, we have much more access to data, we have evolved to global levels, the companies of software, technology, the quality as simply in those solutions, and they are really...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0004",
+        "source_video": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？",
+        "video_id": "YARuy59msOk",
+        "start": 159.71,
+        "end": 207.0,
+        "duration": 47.29,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+        "summary": "Without this crucial step of actually implementing datasets that showcase a wide variety of individuals, communities, and cultures and challenging...",
+        "keywords": [
+          "inclusion",
+          "communities",
+          "datasets",
+          "accessible",
+          "harm",
+          "using"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "evidence_clip",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.56,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['access', 'inclusion'].",
+        "text": "Without this crucial step of actually implementing datasets that showcase a wide variety of individuals, communities, and cultures and challenging personally held biases, the possibility of using...",
+        "video_year": 2024,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      }
+    ],
+    "supporting_context": [
+      {
+        "fragment_id": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility_0004",
+        "source_video": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility",
+        "video_id": "Jln1P9BtA5M",
+        "start": 168.52,
+        "end": 228.12,
+        "duration": 59.6,
+        "primary_theme": "AI in Education & Creative Industries",
+        "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+        "summary": "I would like to offer three points on how AI can promote inclusiveness and support the development of accessibility.",
+        "keywords": [
+          "media literacy",
+          "accessibility",
+          "education",
+          "learning",
+          "literacy",
+          "students"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "evidence_clip",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.48,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['digital'].",
+        "text": "Bright Cinema Initiative. I would like to offer three points on how AI can promote inclusiveness and support the development of accessibility. First, empower through education by strengthening the...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0003",
+        "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+        "video_id": "qmnmNym0-h0",
+        "start": 105.56,
+        "end": 155.94,
+        "duration": 50.38,
+        "primary_theme": "AI in Education & Creative Industries",
+        "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+        "summary": "Teach Access and MSU as organizations both have an interest in helping students become critical users of new technologies, making sure we are...",
+        "keywords": [
+          "accessibility",
+          "students",
+          "academic",
+          "disability",
+          "security",
+          "safety"
+        ],
+        "clip_usage_candidates": [
+          "narration_support"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['access'].",
+        "text": "Teach Access and MSU as organizations both have an interest in helping students become critical users of new technologies, making sure we are creating with an accessible first mindset. We were...",
+        "video_year": 2023,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0001",
+        "source_video": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility",
+        "video_id": "kcilIjVX5vc",
+        "start": 0.0,
+        "end": 53.52,
+        "duration": 53.52,
+        "primary_theme": "AI, Law & Human Rights",
+        "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+        "summary": "Very good days, thank you very much for the opportunity to participate in this event.",
+        "keywords": [
+          "artificial intelligence",
+          "human rights",
+          "regulation",
+          "accessibility",
+          "rights",
+          "framework"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual"
+        ],
+        "quote_strength": 0.27,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['inclusion'].",
+        "text": "Very good days, thank you very much for the opportunity to participate in this event. My goal is to transmit from a perspective of the impact and relevance and that has the artificial intelligence...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0021",
+        "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+        "video_id": "hzFwSfMpEhE",
+        "start": 1120.35,
+        "end": 1165.18,
+        "duration": 44.83,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "When I don't say no right away, I'm processing.",
+        "keywords": [
+          "young people",
+          "come",
+          "people",
+          "processing",
+          "technology",
+          "older"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite"
+        ],
+        "quote_strength": 0.5,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+        "text": "we're processing it. When I don't say no right away, I'm processing. Which have to know that, have to understand that and come back to me the next day. Would you like to continue the conversation?...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0030",
+        "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+        "video_id": "hzFwSfMpEhE",
+        "start": 1618.5,
+        "end": 1683.9,
+        "duration": 65.4,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "So the first slide, if we could, the next slide.",
+        "keywords": [
+          "health",
+          "aging",
+          "services",
+          "years",
+          "older",
+          "slide"
+        ],
+        "clip_usage_candidates": [
+          "archive_visual"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+        "text": "So the first slide, if we could, the next slide. So the world is aging, and that is true of each of our countries, but also internationally as well. So according to the World Health Organization...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0012",
+        "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+        "video_id": "hzFwSfMpEhE",
+        "start": 709.34,
+        "end": 760.49,
+        "duration": 51.15,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "Now, if I had not prepared for this, I would have told them I was doing nothing with the project.",
+        "keywords": [
+          "health",
+          "aging",
+          "going",
+          "impact",
+          "individual",
+          "people"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support"
+        ],
+        "quote_strength": 0.5,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+        "text": "Now, if I had not prepared for this, I would have told them I was doing nothing with the project. But it then became easier. By 2030, one in four are going to be over 60. And population in aging, the...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0017",
+        "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+        "video_id": "hzFwSfMpEhE",
+        "start": 946.51,
+        "end": 990.53,
+        "duration": 44.02,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "so it actually came with a name, not just a high there I'd like to talk to.",
+        "keywords": [
+          "aging",
+          "phone",
+          "know",
+          "talk",
+          "favor",
+          "i'll"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite"
+        ],
+        "quote_strength": 0.56,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+        "text": "so it actually came with a name, not just a high there I'd like to talk to. So of course I answered, certainly what is the favor? That was the end of my phone for a week. So it's important to know...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0029",
+        "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+        "video_id": "hzFwSfMpEhE",
+        "start": 1566.34,
+        "end": 1618.5,
+        "duration": 52.16,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "And I will look forward to your questions because there we may be able to target some of the important issues that she raised, and that I will...",
+        "keywords": [
+          "aging",
+          "look",
+          "well",
+          "discussion",
+          "start",
+          "going"
+        ],
+        "clip_usage_candidates": [
+          "evidence_clip"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+        "text": "And I will look forward to your questions because there we may be able to target some of the important issues that she raised, and that I will emphasize in some others that I will bring out for...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0001",
+        "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+        "video_id": "cWs6Ntf9elk",
+        "start": 0.21,
+        "end": 67.59,
+        "duration": 67.38,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "Good morning, and thank you for the invitation to present at this extremely important conference with official intelligence access with old playing...",
+        "keywords": [
+          "aging",
+          "conference",
+          "persons",
+          "old",
+          "older",
+          "playing"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual"
+        ],
+        "quote_strength": 0.35,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['access', 'age', 'inclusion'].",
+        "text": "Good morning, and thank you for the invitation to present at this extremely important conference with official intelligence access with old playing playing and with regard to the old, the old is new...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0035",
+        "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+        "video_id": "hzFwSfMpEhE",
+        "start": 1924.17,
+        "end": 1985.74,
+        "duration": 61.57,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "Astro can provide a video and tell you who is at your door or answer questions.",
+        "keywords": [
+          "aging",
+          "one",
+          "around",
+          "glasses",
+          "well",
+          "may"
+        ],
+        "clip_usage_candidates": [
+          "archive_visual"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+        "text": "Astro can provide a video and tell you who is at your door or answer questions. He can follow you around with a glass of something to drink, your eye glasses, your reading glasses, etc. So that's the...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      }
+    ],
+    "evidence_gaps": [],
+    "must_not_claim": []
+  },
+  "export_timeline": [
+    {
+      "type": "title_card",
+      "title": "Connected Futures: AI, Youth, and the Quest for Information Equality",
+      "duration": 4.0
+    },
+    {
+      "type": "year_stamp",
+      "year": 2024,
+      "duration": 2.5,
+      "audio_mode": "silent",
+      "muted": true,
+      "section_role": "temporal_transition"
+    },
+    {
+      "type": "archive_visual",
+      "segment_type": "archive_visual",
+      "audio_mode": "silent",
+      "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+      "source_video": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
+      "speaker": null,
+      "speaker_attribution": null,
+      "start": 24.612,
+      "end": 30.116,
+      "duration": 5.503,
+      "use_as": "narration_support",
+      "relevance_role": "exact",
+      "selection_reason": "Matched direct terms ['access', 'digital', 'inclusion'], expanded terms ['gender'], theme match AI & Information Access / Media / Journalism.",
+      "speaker_clip_allowed": false,
+      "speaker_visual_allowed": false,
+      "subclip_adjusted": false,
+      "moment_text": "AI economy which I think is really relevant and connected",
+      "moment_summary": "AI economy which I think is really relevant and connected",
+      "moment_selection_reason": "general-score(0.09); archive_visual(is_meaningful=False,score=0.09,completeness=0.41,reasons=['too_few_meaningful_words: 7', 'no_topic_terms_found'])",
+      "section_role": "hook",
+      "muted": true,
+      "subtitle_text": "",
+      "subtitle_kind": "none",
+      "speech_quality": {
+        "speech_ratio": 0.679,
+        "mean_volume": -21.8,
+        "silence_ratio": 0.321,
+        "is_usable_speech": true,
+        "estimated_words": 10,
+        "duration": 5.504
+      },
+      "moment_scores": {
+        "moment_prompt_score": 0.0,
+        "quote_completeness_score": 0.413,
+        "speech_quality_score": 0.632,
+        "section_fit_score": 0.0,
+        "documentary_value_score": 0.1,
+        "intro_penalty": 0.0,
+        "silence_penalty": 0.0,
+        "side_topic_penalty": 0.0,
+        "incomplete_sentence_penalty": 0.1,
+        "final_moment_score": 0.0924
+      }
+    },
+    {
+      "type": "archive_visual",
+      "segment_type": "archive_visual",
+      "audio_mode": "silent",
+      "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+      "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
+      "speaker": null,
+      "speaker_attribution": null,
+      "start": 837.107,
+      "end": 842.963,
+      "duration": 5.855,
+      "use_as": "speaker_soundbite",
+      "relevance_role": "exact",
+      "selection_reason": "Matched direct terms ['access', 'digital', 'empowerment'], theme match AI & Information Access / Media / Journalism.",
+      "speaker_clip_allowed": true,
+      "speaker_visual_allowed": false,
+      "subclip_adjusted": false,
+      "moment_text": "as much power as we give them by actively shaping these narratives and encouraging critical engagement.",
+      "moment_summary": "as much power as we give them by actively shaping these narratives and encouraging critical engagement.",
+      "moment_selection_reason": "general-score(0.19); archive_visual(is_meaningful=True,score=0.19,completeness=0.62,reasons=['starts_lowercase_mid_sentence', 'final_moment_score_too_low: 0.193'])",
+      "section_role": "human_context",
+      "muted": true,
+      "subtitle_text": "",
+      "subtitle_kind": "none",
+      "speech_quality": {
+        "speech_ratio": 0.891,
+        "mean_volume": -19.3,
+        "silence_ratio": 0.109,
+        "is_usable_speech": true,
+        "estimated_words": 16,
+        "duration": 5.856
+      },
+      "moment_scores": {
+        "moment_prompt_score": 0.2,
+        "quote_completeness_score": 0.6175,
+        "speech_quality_score": 0.782,
+        "section_fit_score": 0.0,
+        "documentary_value_score": 0.28,
+        "intro_penalty": 0.0,
+        "silence_penalty": 0.0,
+        "side_topic_penalty": 0.0,
+        "incomplete_sentence_penalty": 0.15,
+        "final_moment_score": 0.1928
+      }
+    },
+    {
+      "type": "year_stamp",
+      "year": 2025,
+      "duration": 2.5,
+      "audio_mode": "silent",
+      "muted": true,
+      "section_role": "temporal_transition"
+    },
+    {
+      "type": "archive_visual",
+      "segment_type": "archive_visual",
+      "audio_mode": "silent",
+      "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+      "source_video": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
+      "speaker": null,
+      "speaker_attribution": null,
+      "start": 59.88,
+      "end": 65.46,
+      "duration": 5.58,
+      "use_as": "narration_support",
+      "relevance_role": "exact",
+      "selection_reason": "Matched direct terms ['access', 'age', 'digital'], expanded terms ['girls'], theme match AI & Information Access / Media / Journalism.",
+      "speaker_clip_allowed": false,
+      "speaker_visual_allowed": false,
+      "subclip_adjusted": false,
+      "moment_text": "Access to Information that we are celebrating in the 28th of September.",
+      "moment_summary": "Access to Information that we are celebrating in the 28th of September.",
+      "moment_selection_reason": "complete-quote; archive_visual(is_meaningful=False,score=0.39,completeness=1.00,reasons=['too_few_meaningful_words: 5'])",
+      "section_role": "context",
+      "muted": true,
+      "subtitle_text": "",
+      "subtitle_kind": "none",
+      "speech_quality": {
+        "speech_ratio": 0.71,
+        "mean_volume": -21.5,
+        "silence_ratio": 0.29,
+        "is_usable_speech": true,
+        "estimated_words": 11,
+        "duration": 5.58
+      },
+      "moment_scores": {
+        "moment_prompt_score": 0.2,
+        "quote_completeness_score": 1.0,
+        "speech_quality_score": 0.632,
+        "section_fit_score": 0.0,
+        "documentary_value_score": 0.24,
+        "intro_penalty": 0.0,
+        "silence_penalty": 0.0,
+        "side_topic_penalty": 0.0,
+        "incomplete_sentence_penalty": 0.0,
+        "final_moment_score": 0.3908
+      }
+    },
+    {
+      "type": "speaker_clip",
+      "segment_type": "speaker_clip",
+      "audio_mode": "source_audio",
+      "fragment_id": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity_0001",
+      "source_video": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
+      "speaker": null,
+      "speaker_attribution": null,
+      "start": 29.665,
+      "end": 35.325,
+      "duration": 5.66,
+      "use_as": "narration_support",
+      "relevance_role": "exact",
+      "selection_reason": "Matched direct terms ['access', 'digital'], expanded terms ['agency'], theme match AI & Information Access / Media / Journalism.",
+      "speaker_clip_allowed": false,
+      "speaker_visual_allowed": false,
+      "subclip_adjusted": false,
+      "moment_text": "UNDP is working to ensure that AI increases information accessibility around the world.",
+      "moment_summary": "UNDP is working to ensure that AI increases information accessibility around the world.",
+      "moment_selection_reason": "complete-quote",
+      "section_role": "tension",
+      "muted": false,
+      "subtitle_text": "UNDP is working to ensure that AI increases information accessibility around the world.",
+      "subtitle_kind": "speaker",
+      "speech_quality": {
+        "speech_ratio": 0.695,
+        "mean_volume": -21.7,
+        "silence_ratio": 0.305,
+        "is_usable_speech": true,
+        "estimated_words": 12,
+        "duration": 5.66
+      },
+      "moment_scores": {
+        "moment_prompt_score": 0.2,
+        "quote_completeness_score": 1.0,
+        "speech_quality_score": 0.542,
+        "section_fit_score": 0.0,
+        "documentary_value_score": 0.25,
+        "intro_penalty": 0.0,
+        "silence_penalty": 0.0,
+        "side_topic_penalty": 0.0,
+        "incomplete_sentence_penalty": 0.0,
+        "final_moment_score": 0.3788
+      }
+    },
+    {
+      "type": "closing_card",
+      "title": "Connected Futures: AI, Youth, and the Quest for Information Equality",
+      "duration": 4.0
+    }
+  ],
+  "selected_candidates": [
+    {
+      "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+      "source_video": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+      "video_id": "QwTD-48qQVQ",
+      "start": 56.16,
+      "end": 117.54,
+      "duration": 61.38,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "continued contribution to the International Day for Universal Access to Information that we are celebrating in the 28th of September.",
+      "keywords": [
+        "access to information",
+        "information",
+        "conference",
+        "unesco",
+        "ethical",
+        "inclusive"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'age', 'digital'], expanded terms ['girls'], theme match AI & Information Access / Media / Journalism.",
+      "text": "continued contribution to the International Day for Universal Access to Information that we are celebrating in the 28th of September. This year, the main theme is ensuring access to environmental...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+      "source_video": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy",
+      "video_id": "bwDlgox764s",
+      "start": 3.15,
+      "end": 71.94,
+      "duration": 68.79,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Hello everyone, I'm very happy to join you today for this conference on artificial intelligence for information accessibility.",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "accessibility",
+        "information",
+        "conference",
+        "inclusion"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'], expanded terms ['gender'], theme match AI & Information Access / Media / Journalism.",
+      "text": "Hello everyone, I'm very happy to join you today for this conference on artificial intelligence for information accessibility. And I want to take the opportunity of this short talk to specifically...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity_0001",
+      "source_video": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity",
+      "video_id": "csTL3DUyoXg",
+      "start": 3.54,
+      "end": 56.66,
+      "duration": 53.12,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "I'm Megan Roberts, Digital Development Manager in the United Nations Development Programs, Digital AI and Innovation Health.",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "accessibility",
+        "health",
+        "information",
+        "conference"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital'], expanded terms ['agency'], theme match AI & Information Access / Media / Journalism.",
+      "text": "Good morning, good afternoon, and good evening. I'm Megan Roberts, Digital Development Manager in the United Nations Development Programs, Digital AI and Innovation Health. I'm so pleased to be here...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 63.2,
+      "end": 131.37,
+      "duration": 68.17,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Access to information is not simply about connectivity or technology.",
+      "keywords": [
+        "access to information",
+        "youth",
+        "education",
+        "information",
+        "knowledge",
+        "inclusive"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'empowerment'], theme match AI & Information Access / Media / Journalism.",
+      "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+      "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+      "video_id": "",
+      "start": 816.98,
+      "end": 863.09,
+      "duration": 46.11,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems.",
+      "keywords": [
+        "education",
+        "knowledge",
+        "empowerment",
+        "informed",
+        "role",
+        "lives"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.67,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'empowerment'], theme match AI & Information Access / Media / Journalism.",
+      "text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0002",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "start": 69.17,
+      "end": 139.16,
+      "duration": 69.99,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "not merely from a regulatory point of view, but as a moral imperative.",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "information accessibility",
+        "regulation",
+        "accessibility",
+        "information"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'], theme match AI & Information Access / Media / Journalism.",
+      "text": "not merely from a regulatory point of view, but as a moral imperative. The approach at the European Union recognizes that information accessibility is not just about technical capability, it's about...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference_0004",
+      "source_video": "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference",
+      "video_id": "aijoknB-L0s",
+      "start": 175.16,
+      "end": 231.08,
+      "duration": 55.92,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "I never forget that it's the AI revolution moves on.",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "global south",
+        "youth",
+        "public access",
+        "information"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['access', 'age', 'youth'], theme match AI & Information Access / Media / Journalism.",
+      "text": "I never forget that it's the AI revolution moves on. It gives a lot of gifts. Moreover, in the age of AI and blockchain and open source movements, actually celebrating the revolutionary nature of AI,...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0044",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 2932.22,
+      "end": 2976.4,
+      "duration": 44.18,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Apagnyang, how can we take advantage of AI and accessing information for the different age groups that we've got?",
+      "keywords": [
+        "information",
+        "communities",
+        "we've",
+        "got",
+        "know",
+        "going"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['access', 'age'], theme match AI & Information Access / Media / Journalism.",
+      "text": "Dr. Apagnyang, how can we take advantage of AI and accessing information for the different age groups that we've got? I know we've got these young guys there. What's up with these old Madalas? We've...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0009",
+      "source_video": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility",
+      "video_id": "kcilIjVX5vc",
+      "start": 432.75,
+      "end": 483.33,
+      "duration": 50.58,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "with the systems of the idea, we have much more access to data, we have evolved to global levels, the companies of software, technology, the quality...",
+      "keywords": [
+        "inclusion",
+        "gender",
+        "diversity",
+        "disability",
+        "unesco",
+        "culture"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.52,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['access', 'inclusion'], expanded terms ['gender'].",
+      "text": "with the systems of the idea, we have much more access to data, we have evolved to global levels, the companies of software, technology, the quality as simply in those solutions, and they are really...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0004",
+      "source_video": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？",
+      "video_id": "YARuy59msOk",
+      "start": 159.71,
+      "end": 207.0,
+      "duration": 47.29,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "Without this crucial step of actually implementing datasets that showcase a wide variety of individuals, communities, and cultures and challenging...",
+      "keywords": [
+        "inclusion",
+        "communities",
+        "datasets",
+        "accessible",
+        "harm",
+        "using"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['access', 'inclusion'].",
+      "text": "Without this crucial step of actually implementing datasets that showcase a wide variety of individuals, communities, and cultures and challenging personally held biases, the possibility of using...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    }
+  ],
+  "supporting_candidates": [
+    {
+      "fragment_id": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility_0004",
+      "source_video": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility",
+      "video_id": "Jln1P9BtA5M",
+      "start": 168.52,
+      "end": 228.12,
+      "duration": 59.6,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "I would like to offer three points on how AI can promote inclusiveness and support the development of accessibility.",
+      "keywords": [
+        "media literacy",
+        "accessibility",
+        "education",
+        "learning",
+        "literacy",
+        "students"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['digital'].",
+      "text": "Bright Cinema Initiative. I would like to offer three points on how AI can promote inclusiveness and support the development of accessibility. First, empower through education by strengthening the...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education_0003",
+      "source_video": "0158_qmnmNym0-h0_Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education",
+      "video_id": "qmnmNym0-h0",
+      "start": 105.56,
+      "end": 155.94,
+      "duration": 50.38,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "Teach Access and MSU as organizations both have an interest in helping students become critical users of new technologies, making sure we are...",
+      "keywords": [
+        "accessibility",
+        "students",
+        "academic",
+        "disability",
+        "security",
+        "safety"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access'].",
+      "text": "Teach Access and MSU as organizations both have an interest in helping students become critical users of new technologies, making sure we are creating with an accessible first mindset. We were...",
+      "video_year": 2023,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0001",
+      "source_video": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility",
+      "video_id": "kcilIjVX5vc",
+      "start": 0.0,
+      "end": 53.52,
+      "duration": 53.52,
+      "primary_theme": "AI, Law & Human Rights",
+      "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+      "summary": "Very good days, thank you very much for the opportunity to participate in this event.",
+      "keywords": [
+        "artificial intelligence",
+        "human rights",
+        "regulation",
+        "accessibility",
+        "rights",
+        "framework"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['inclusion'].",
+      "text": "Very good days, thank you very much for the opportunity to participate in this event. My goal is to transmit from a perspective of the impact and relevance and that has the artificial intelligence...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0021",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 1120.35,
+      "end": 1165.18,
+      "duration": 44.83,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "When I don't say no right away, I'm processing.",
+      "keywords": [
+        "young people",
+        "come",
+        "people",
+        "processing",
+        "technology",
+        "older"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+      "text": "we're processing it. When I don't say no right away, I'm processing. Which have to know that, have to understand that and come back to me the next day. Would you like to continue the conversation?...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0030",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 1618.5,
+      "end": 1683.9,
+      "duration": 65.4,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "So the first slide, if we could, the next slide.",
+      "keywords": [
+        "health",
+        "aging",
+        "services",
+        "years",
+        "older",
+        "slide"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+      "text": "So the first slide, if we could, the next slide. So the world is aging, and that is true of each of our countries, but also internationally as well. So according to the World Health Organization...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0012",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 709.34,
+      "end": 760.49,
+      "duration": 51.15,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Now, if I had not prepared for this, I would have told them I was doing nothing with the project.",
+      "keywords": [
+        "health",
+        "aging",
+        "going",
+        "impact",
+        "individual",
+        "people"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+      "text": "Now, if I had not prepared for this, I would have told them I was doing nothing with the project. But it then became easier. By 2030, one in four are going to be over 60. And population in aging, the...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0017",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 946.51,
+      "end": 990.53,
+      "duration": 44.02,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "so it actually came with a name, not just a high there I'd like to talk to.",
+      "keywords": [
+        "aging",
+        "phone",
+        "know",
+        "talk",
+        "favor",
+        "i'll"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+      "text": "so it actually came with a name, not just a high there I'd like to talk to. So of course I answered, certainly what is the favor? That was the end of my phone for a week. So it's important to know...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0029",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 1566.34,
+      "end": 1618.5,
+      "duration": 52.16,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "And I will look forward to your questions because there we may be able to target some of the important issues that she raised, and that I will...",
+      "keywords": [
+        "aging",
+        "look",
+        "well",
+        "discussion",
+        "start",
+        "going"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+      "text": "And I will look forward to your questions because there we may be able to target some of the important issues that she raised, and that I will emphasize in some others that I will bring out for...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence_0001",
+      "source_video": "0021_cWs6Ntf9elk_Denise_Eldemire-Shearer_-_Artificial_Intelligence",
+      "video_id": "cWs6Ntf9elk",
+      "start": 0.21,
+      "end": 67.59,
+      "duration": 67.38,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Good morning, and thank you for the invitation to present at this extremely important conference with official intelligence access with old playing...",
+      "keywords": [
+        "aging",
+        "conference",
+        "persons",
+        "old",
+        "older",
+        "playing"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.35,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'age', 'inclusion'].",
+      "text": "Good morning, and thank you for the invitation to present at this extremely important conference with official intelligence access with old playing playing and with regard to the old, the old is new...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0035",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 1924.17,
+      "end": 1985.74,
+      "duration": 61.57,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Astro can provide a video and tell you who is at your door or answer questions.",
+      "keywords": [
+        "aging",
+        "one",
+        "around",
+        "glasses",
+        "well",
+        "may"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+      "text": "Astro can provide a video and tell you who is at your door or answer questions. He can follow you around with a glass of something to drink, your eye glasses, your reading glasses, etc. So that's the...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    }
+  ],
+  "context_candidates": [],
+  "rejected_candidates": [],
+  "debug_retrieved_candidates": [
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 63.2,
+      "end": 131.37,
+      "duration": 68.17,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Access to information is not simply about connectivity or technology.",
+      "keywords": [
+        "access to information",
+        "youth",
+        "education",
+        "information",
+        "knowledge",
+        "inclusive"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'empowerment'], theme match AI & Information Access / Media / Journalism.",
+      "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0013",
+      "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+      "video_id": "",
+      "start": 663.5,
+      "end": 714.98,
+      "duration": 51.48,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "We want to understand that providing access to digital communication tools is important especially today in our info sphere.",
+      "keywords": [
+        "access to information",
+        "accessibility",
+        "education",
+        "news",
+        "information",
+        "knowledge"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital'], theme match AI & Information Access / Media / Journalism.",
+      "text": "We want to understand that providing access to digital communication tools is important especially today in our info sphere. However, it is not enough without proper education increased access to...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0011",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "start": 1098.8,
+      "end": 1173.72,
+      "duration": 74.92,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Ladies and gentlemen, first and foremost, I would like to extend my warmest congratulations to CUC on the occasion of its 70th anniversary.",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "information accessibility",
+        "ethics",
+        "accessibility",
+        "information"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'age', 'digital'], theme match AI & Information Access / Media / Journalism.",
+      "text": "Ladies and gentlemen, first and foremost, I would like to extend my warmest congratulations to CUC on the occasion of its 70th anniversary. Your unweaving commitment to fostering digital inclusion...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility_0004",
+      "source_video": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility",
+      "video_id": "Jln1P9BtA5M",
+      "start": 168.52,
+      "end": 228.12,
+      "duration": 59.6,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "I would like to offer three points on how AI can promote inclusiveness and support the development of accessibility.",
+      "keywords": [
+        "media literacy",
+        "accessibility",
+        "education",
+        "learning",
+        "literacy",
+        "students"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['digital'].",
+      "text": "Bright Cinema Initiative. I would like to offer three points on how AI can promote inclusiveness and support the development of accessibility. First, empower through education by strengthening the...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0005",
+      "source_video": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+      "video_id": "QwTD-48qQVQ",
+      "start": 240.82,
+      "end": 300.96,
+      "duration": 60.14,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "accessibility for the new edition of the IFAP issue brief published on global challenges for information accessibility.",
+      "keywords": [
+        "information accessibility",
+        "information integrity",
+        "accessibility",
+        "information",
+        "transparency",
+        "ifap"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'], theme match AI & Information Access / Media / Journalism.",
+      "text": "accessibility for the new edition of the IFAP issue brief published on global challenges for information accessibility. This issue brief contributes to the discussions as it emphasize key principles...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0006",
+      "source_video": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+      "video_id": "QwTD-48qQVQ",
+      "start": 300.96,
+      "end": 376.4,
+      "duration": 75.44,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "digital divide and address the ethical challenges of emerging technologies.",
+      "keywords": [
+        "digital divide",
+        "human rights",
+        "governance",
+        "accessibility",
+        "inclusion",
+        "diversity"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['digital', 'inclusion'].",
+      "text": "digital divide and address the ethical challenges of emerging technologies. By on IFAP UNESCO's broad efforts to promote the digital inclusion adopt comprehensive approach, for example the internet...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0139_64i4w2jgUWg_Xianhong Hu - Steering AI for Knowledge Societies_0007",
+      "source_video": "0139_64i4w2jgUWg_Xianhong Hu - Steering AI for Knowledge Societies",
+      "video_id": "64i4w2jgUWg",
+      "start": 409.81,
+      "end": 473.58,
+      "duration": 63.77,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "to the internet, leading to further divide exclusion in AI usage.",
+      "keywords": [
+        "inclusion",
+        "disabilities",
+        "marginalized",
+        "literacy",
+        "culture",
+        "language"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'], expanded terms ['girls', 'gender'].",
+      "text": "to the internet, leading to further divide exclusion in AI usage. Those already connected are faced with the challenge of meaningful connectivity, which means to allow users to have a safe sex-fying...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0012",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "start": 1173.72,
+      "end": 1232.06,
+      "duration": 58.34,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 11: Disabilities, Assistive Tech & Accessibility",
+      "summary": "UNESCO's commitment to promoting accessibility and inclusion is exemplified by our work in China.",
+      "keywords": [
+        "accessibility",
+        "education",
+        "inclusion",
+        "inclusive",
+        "disability",
+        "disabilities"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'], expanded terms ['participation'].",
+      "text": "to the benefits of technologies. UNESCO's commitment to promoting accessibility and inclusion is exemplified by our work in China. Through initiatives like the UN Joint Program on Disability in...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0006",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 325.24,
+      "end": 393.34,
+      "duration": 68.1,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "of us with these new digital technologies, I now respect the youth.",
+      "keywords": [
+        "youth",
+        "governance",
+        "policy",
+        "inclusive",
+        "africa",
+        "ethical"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'].",
+      "text": "of us with these new digital technologies, I now respect the youth. Let's today's discussion, self-execord to action, for policy makers to embrace inclusive governance of AI, for academia and...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event_0066",
+      "source_video": "0101_laS77v9F_Io_New York⧸Carnegie Satellite Event",
+      "video_id": "laS77v9F",
+      "start": 3584.06,
+      "end": 3645.26,
+      "duration": 61.2,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "So let us all put our shoulders to the wheel and start to address critical needs such as digital media and information literacy.",
+      "keywords": [
+        "artificial intelligence",
+        "information accessibility",
+        "accessibility",
+        "media",
+        "information",
+        "conference"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.85,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital'], theme match AI & Information Access / Media / Journalism.",
+      "text": "is also about enlightened access. So let us all put our shoulders to the wheel and start to address critical needs such as digital media and information literacy. Thank you so much for are invaluable...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0038",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 2120.62,
+      "end": 2196.5,
+      "duration": 75.88,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "Virtual assistance can engage in conversation, play games, help maintain and build cognitive skills, and ease loneliness for older individuals.",
+      "keywords": [
+        "accessibility",
+        "aging",
+        "learning",
+        "literacy",
+        "training",
+        "digital literacy"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'age', 'digital'].",
+      "text": "Virtual assistance can engage in conversation, play games, help maintain and build cognitive skills, and ease loneliness for older individuals. Next slide. So we've been talking a bit about the...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0038_m8n_eJwYJtw_Ana_Barbara_Gomes_Pereira_-_Brazil_and_governance_0003",
+      "source_video": "0038_m8n_eJwYJtw_Ana_Barbara_Gomes_Pereira_-_Brazil_and_governance",
+      "video_id": "m8n",
+      "start": 138.54,
+      "end": 226.71,
+      "duration": 88.17,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+      "summary": "And the first is security and technology, where we cause the importance of digital tools for privacy, data protections, the right to encryption, and...",
+      "keywords": [
+        "governance",
+        "environment",
+        "inclusive",
+        "gender",
+        "responsibility",
+        "digital literacy"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital'], expanded terms ['gender', 'participation'].",
+      "text": "And the first is security and technology, where we cause the importance of digital tools for privacy, data protections, the right to encryption, and how to face gender violence online. Other things....",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0002",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 136.17,
+      "end": 193.42,
+      "duration": 57.25,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Under the theme from Airways to algorithms, bridging generational gaps involving senior citizens in the digital age.",
+      "keywords": [
+        "information accessibility",
+        "accessibility",
+        "education",
+        "caribbean",
+        "senior citizens",
+        "information"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['age', 'digital', 'inclusion'].",
+      "text": "Under the theme from Airways to algorithms, bridging generational gaps involving senior citizens in the digital age. I am your moderator for today and the Broadcasting Commission's communications and...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+      "source_video": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+      "video_id": "QwTD-48qQVQ",
+      "start": 56.16,
+      "end": 117.54,
+      "duration": 61.38,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "continued contribution to the International Day for Universal Access to Information that we are celebrating in the 28th of September.",
+      "keywords": [
+        "access to information",
+        "information",
+        "conference",
+        "unesco",
+        "ethical",
+        "inclusive"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'age', 'digital'], expanded terms ['girls'], theme match AI & Information Access / Media / Journalism.",
+      "text": "continued contribution to the International Day for Universal Access to Information that we are celebrating in the 28th of September. This year, the main theme is ensuring access to environmental...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0005",
+      "source_video": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI",
+      "video_id": "wT3zdfIIeUw",
+      "start": 183.86,
+      "end": 229.66,
+      "duration": 45.8,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "empowering students and young people with the information to use platforms.",
+      "keywords": [
+        "artificial intelligence",
+        "young people",
+        "information",
+        "students",
+        "teachers",
+        "children"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['inclusion', 'youth'].",
+      "text": "empowering students and young people with the information to use platforms. That is a great place to start. But what about the individuals that young people and children take their guidance from the...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0001",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "start": 0.53,
+      "end": 69.17,
+      "duration": 68.64,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Distinguished colleagues, UNESCO partners, champions of universal information access.",
+      "keywords": [
+        "artificial intelligence",
+        "access to information",
+        "information accessibility",
+        "human rights",
+        "governance",
+        "policy"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'age', 'digital'], theme match AI & Information Access / Media / Journalism.",
+      "text": "Distinguished colleagues, UNESCO partners, champions of universal information access. As we gather to celebrate the international day of for universal access to information, we face a key moment in...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？_0004",
+      "source_video": "0110_YARuy59msOk_Celine Caruso Dixon - Can We Use AI for Inclusion Work？",
+      "video_id": "YARuy59msOk",
+      "start": 159.71,
+      "end": 207.0,
+      "duration": 47.29,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 9: AI Equity in the Global South & Developing Nations",
+      "summary": "Without this crucial step of actually implementing datasets that showcase a wide variety of individuals, communities, and cultures and challenging...",
+      "keywords": [
+        "inclusion",
+        "communities",
+        "datasets",
+        "accessible",
+        "harm",
+        "using"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['access', 'inclusion'].",
+      "text": "Without this crucial step of actually implementing datasets that showcase a wide variety of individuals, communities, and cultures and challenging personally held biases, the possibility of using...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility_0002",
+      "source_video": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility",
+      "video_id": "Jln1P9BtA5M",
+      "start": 58.32,
+      "end": 117.12,
+      "duration": 58.8,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "The growing opacity of algorithmic systems coupled with the pro-life ration of misinformation further challenges the ability of ordinary users to...",
+      "keywords": [
+        "information accessibility",
+        "misinformation",
+        "accessibility",
+        "information",
+        "elderly",
+        "disabilities"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'age', 'empowerment'], theme match AI & Information Access / Media / Journalism.",
+      "text": "complexity and information overload. The growing opacity of algorithmic systems coupled with the pro-life ration of misinformation further challenges the ability of ordinary users to discern and...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0003",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 131.37,
+      "end": 195.89,
+      "duration": 64.52,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "I want to highlight the significance of youth participation, the involvement of students and young professionals in this event is essential.",
+      "keywords": [
+        "youth",
+        "inclusive",
+        "young people",
+        "students",
+        "creativity",
+        "ethical"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['inclusion', 'youth'], expanded terms ['participation'].",
+      "text": "I want to highlight the significance of youth participation, the involvement of students and young professionals in this event is essential. It is their creativity and innovation and sense of...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0044_RuzVGjU8erE_Lwandle_Simelane_-_AI4IA_2025_0004",
+      "source_video": "0044_RuzVGjU8erE_Lwandle_Simelane_-_AI4IA_2025",
+      "video_id": "RuzVGjU8erE",
+      "start": 188.44,
+      "end": 252.55,
+      "duration": 64.11,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "Equally important is the inclusion of women, rural communities and persons with disabilities.",
+      "keywords": [
+        "artificial intelligence",
+        "ethics",
+        "fairness",
+        "bias",
+        "inclusion",
+        "disabilities"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['digital', 'inclusion'], expanded terms ['gender'].",
+      "text": "Equally important is the inclusion of women, rural communities and persons with disabilities. These groups must not remain on the margins of digital development. If they are invisible in the AI data,...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0003",
+      "source_video": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility",
+      "video_id": "VQAGXagFka4",
+      "start": 139.16,
+      "end": 209.96,
+      "duration": 70.8,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "The same principles must guide the approach to AI and information accessibility.",
+      "keywords": [
+        "information accessibility",
+        "governance",
+        "policy",
+        "accessibility",
+        "principles",
+        "economic"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'].",
+      "text": "The same principles must guide the approach to AI and information accessibility. The challenge before us is not a technological challenge, it's fundamentally a political and economic one. AI systems...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility_0003",
+      "source_video": "0075_Jln1P9BtA5M_Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility",
+      "video_id": "Jln1P9BtA5M",
+      "start": 117.12,
+      "end": 168.52,
+      "duration": 51.4,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "help bridge the digital divide for visually impaired individuals and other minority groups in the mobile internet era and contribute to building a...",
+      "keywords": [
+        "digital divide",
+        "inclusion",
+        "inclusive",
+        "content",
+        "information",
+        "literacy"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'].",
+      "text": "help bridge the digital divide for visually impaired individuals and other minority groups in the mobile internet era and contribute to building a more inclusive society in 2017. We launched the...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information_0003",
+      "source_video": "0142_4h5HbeOFkIk_Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information",
+      "video_id": "4h5HbeOFkIk",
+      "start": 121.99,
+      "end": 167.66,
+      "duration": 45.67,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "But it's true power lies in how it actually provides such good access to information and creativity to everybody.",
+      "keywords": [
+        "access to information",
+        "information",
+        "creativity",
+        "all",
+        "over",
+        "world"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['access'], theme match AI & Information Access / Media / Journalism.",
+      "text": "AI is an enabler. But it's true power lies in how it actually provides such good access to information and creativity to everybody. So, in the last nine years, we have now had 13 businesses in the...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0103_iHUEZ0WiErM_China Satellite Event_0014",
+      "source_video": "0103_iHUEZ0WiErM_China Satellite Event",
+      "video_id": "iHUEZ0WiErM",
+      "start": 1290.23,
+      "end": 1364.36,
+      "duration": 74.13,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "Furthermore, AI can play crucial role in making content more accessible by automating the translation of text, generating subtitles for videos and by...",
+      "keywords": [
+        "content",
+        "information",
+        "unesco",
+        "equity",
+        "inclusion",
+        "inclusive"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['access', 'digital', 'inclusion'], theme match AI & Information Access / Media / Journalism.",
+      "text": "Furthermore, AI can play crucial role in making content more accessible by automating the translation of text, generating subtitles for videos and by converting speech to text. However, the benefits...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0005",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 235.42,
+      "end": 301.24,
+      "duration": 65.82,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "It lowers the barriers to entry, allowing more young people to become creators, builders, and entrepreneurs.",
+      "keywords": [
+        "misinformation",
+        "youth",
+        "young people",
+        "ethical",
+        "bias",
+        "young innovators"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['inclusion', 'youth'].",
+      "text": "with new sounds rooted in beer rhythms. AI does not kill creativity. It democratizes it. It lowers the barriers to entry, allowing more young people to become creators, builders, and entrepreneurs....",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    }
+  ],
+  "storyline": {
+    "title": "Connected Futures: AI, Youth, and the Quest for Information Equality",
+    "logline": "From early conference calls in 2024 to bold policy visions in 2026, the film traces how AI can empower young people, bridge gender gaps, and democratize access to knowledge worldwide.",
+    "style": "documentary",
+    "target_duration_seconds": 30,
+    "estimated_duration_seconds": 48,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "chronological_relay",
+      "evidence_strength": "high",
+      "exact_clip_count": 10,
+      "related_clip_count": 0,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 6,
+      "usable_speaker_visual_count": 0,
+      "rejected_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 9,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI Equity, Inclusion & Social Justice"
+      ],
+      "chapter_coverage": [
+        "Ch 10: Gender, Race & Diversity in AI",
+        "Ch 5: Open Data & Information Accessibility",
+        "Ch 9: AI Equity in the Global South & Developing Nations"
+      ],
+      "average_similarity": 0.704246,
+      "average_quote_strength": 0.461,
+      "recommended_structure": [
+        {
+          "role": "temporal_context",
+          "section_type": "narration",
+          "narration_guidance": "Establish the historical or multi-year arc — describe how the topic has evolved across conference years.",
+          "evidence_expectation": "clips or narration grounded in the earliest year represented in the candidate pool",
+          "year_slot": 2025,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": []
+        },
+        {
+          "role": "human_problem",
+          "section_type": "speaker_soundbite",
+          "narration_guidance": "A speaker articulates the core human challenge or gap that drives the relay of ideas across time.",
+          "evidence_expectation": "exact-match soundbite from any year that names the problem clearly",
+          "year_slot": 2024,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": [
+            {
+              "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+              "start": 3.15,
+              "end": 71.94,
+              "video_year": 2024,
+              "speaker_name": "",
+              "text": "Hello everyone, I'm very happy to join you today for this conference on artificial intelligence for information accessibility. And I want to take the opportunity of this short talk to specifically add",
+              "usage": "evidence_visual"
+            },
+            {
+              "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+              "start": 816.98,
+              "end": 863.09,
+              "video_year": 2024,
+              "speaker_name": "",
+              "text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to mak",
+              "usage": "evidence_visual"
+            }
+          ]
+        },
+        {
+          "role": "risk_escalation",
+          "section_type": "speaker_soundbite",
+          "narration_guidance": "A voice from a later year escalates the stakes — what has worsened, spread, or gone unaddressed.",
+          "evidence_expectation": "strong-related or exact clip from a more recent year than the human_problem clip",
+          "year_slot": 2025,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": [
+            {
+              "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+              "start": 56.16,
+              "end": 117.54,
+              "video_year": 2025,
+              "speaker_name": "",
+              "text": "continued contribution to the International Day for Universal Access to Information that we are celebrating in the 28th of September. This year, the main theme is ensuring access to environmental info",
+              "usage": "evidence_visual"
+            },
+            {
+              "fragment_id": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity_0001",
+              "start": 3.54,
+              "end": 56.66,
+              "video_year": 2025,
+              "speaker_name": "",
+              "text": "Good morning, good afternoon, and good evening. I'm Megan Roberts, Digital Development Manager in the United Nations Development Programs, Digital AI and Innovation Health. I'm so pleased to be here t",
+              "usage": "evidence_visual"
+            }
+          ]
+        },
+        {
+          "role": "solution_direction",
+          "section_type": "speaker_soundbite",
+          "narration_guidance": "A speaker proposes or describes a concrete direction, policy, or intervention pointing toward resolution.",
+          "evidence_expectation": "exact or strong-related clip with forward-looking or prescriptive language",
+          "year_slot": 2026,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": [
+            {
+              "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+              "start": 63.2,
+              "end": 131.37,
+              "video_year": 2026,
+              "speaker_name": "",
+              "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only if",
+              "usage": "evidence_visual"
+            },
+            {
+              "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0044",
+              "start": 2932.22,
+              "end": 2976.4,
+              "video_year": 2026,
+              "speaker_name": "",
+              "text": "Dr. Apagnyang, how can we take advantage of AI and accessing information for the different age groups that we've got? I know we've got these young guys there. What's up with these old Madalas? We've g",
+              "usage": "evidence_visual"
+            }
+          ]
+        },
+        {
+          "role": "synthesis",
+          "section_type": "narration",
+          "narration_guidance": "Narrator closes the relay — summarising what the sequence of voices reveals about progress, persistence of the problem, or urgency for action.",
+          "evidence_expectation": "narration only; may reference multiple clips from the relay by year",
+          "year_slot": 2025,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": []
+        }
+      ],
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ],
+      "requested_speaker": null
+    },
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 12,
+        "director_role": "opening_context",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "Introduce the 2025 conference theme of universal information access, using archival footage of the IFAP Secretary.",
+        "narration": "In 2025 the International Day for Universal Access to Information became the rallying point for a new generation of AI advocates, who argued that digital tools must serve every citizen, regardless of geography, gender, or socioeconomic status, and that true inclusion begins with open, reliable data streams that empower communities worldwide.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+            "usage": "background_visual",
+            "start": 56.16,
+            "end": 70.0,
+            "reason": "Shows the speaker announcing the 2025 theme, reinforcing the narration about universal access."
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Animated title with the film’s name and subtitle",
+            "on_screen_text": "Connected Futures"
+          }
+        ],
+        "internet_assets_needed": [
+          {
+            "asset_type": "b_roll",
+            "description": "Global montage of youth using smartphones, tablets, and community radio stations",
+            "search_keywords": [
+              "youth digital access",
+              "global internet connectivity"
+            ]
+          }
+        ],
+        "evidence_fragment_ids": [
+          "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002"
+        ],
+        "claim_type": "direct_evidence",
+        "evidence_terms": [
+          "access",
+          "age",
+          "digital",
+          "girls"
+        ],
+        "year_slot": null
+      },
+      {
+        "section_id": "S2",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 12,
+        "director_role": "exact_evidence_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "Present the core problem: unequal access and the need for empowerment, using a 2024 soundbite.",
+        "narration": "In 2024 a leading researcher warned that without deliberate design, AI systems risk deepening existing inequities, leaving young women and marginalized groups without the knowledge and agency needed to shape their own digital futures, and that empowerment must be built into every algorithmic decision.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+            "usage": "context_visual",
+            "start": 3.15,
+            "end": 20.0,
+            "reason": "Sets the stage of a conference focused on gender inclusion and information accessibility."
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+            "start": 816.98,
+            "end": 845.0,
+            "quote_summary": "We must empower individuals with knowledge and choice even when we cannot involve everyone in designing fair systems.",
+            "reason": "Directly names the human problem of empowerment and knowledge gaps."
+          }
+        ],
+        "generated_assets_needed": [
+          {
+            "asset_type": "data_card",
+            "description": "Infographic showing global disparities in AI literacy by gender and age",
+            "on_screen_text": "AI Literacy Gap 2024"
+          }
+        ],
+        "internet_assets_needed": [
+          {
+            "asset_type": "image",
+            "description": "Statistical map of internet penetration by region",
+            "search_keywords": [
+              "global internet penetration map 2024"
+            ]
+          }
+        ],
+        "evidence_fragment_ids": [
+          "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+          "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016"
+        ],
+        "claim_type": "direct_evidence",
+        "evidence_terms": [
+          "access",
+          "digital",
+          "inclusion",
+          "gender",
+          "empowerment"
+        ],
+        "year_slot": null
+      },
+      {
+        "section_id": "S3",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 12,
+        "director_role": "available_evidence_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "Combine risk escalation and solution: show how 2025‑2026 voices call for policy and concrete AI tools for youth empowerment.",
+        "narration": "By 2026 experts argued that AI must be framed as a moral imperative, not merely a technical upgrade, urging governments and NGOs to fund open‑source datasets that reflect diverse cultures, while pilots in schools demonstrated that AI‑driven tutoring can boost digital confidence among teenagers across the Global South.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0002",
+            "usage": "evidence_visual",
+            "start": 69.17,
+            "end": 95.0,
+            "reason": "Speaker stresses the moral imperative of AI for information accessibility."
+          },
+          {
+            "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+            "usage": "background_visual",
+            "start": 63.2,
+            "end": 85.0,
+            "reason": "Highlights that access is about empowerment, not just connectivity."
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference_0004",
+            "start": 175.16,
+            "end": 205.0,
+            "quote_summary": "The AI revolution offers gifts, but we must ensure it reaches youth and underserved communities.",
+            "reason": "Provides forward‑looking optimism and calls for inclusive rollout."
+          }
+        ],
+        "generated_assets_needed": [
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "Animated flow of data from AI models to diverse youth avatars",
+            "on_screen_text": "AI for All"
+          }
+        ],
+        "internet_assets_needed": [
+          {
+            "asset_type": "b_roll",
+            "description": "Footage of classroom AI tutoring pilots in Kenya and Brazil",
+            "search_keywords": [
+              "AI education pilot Africa",
+              "AI tutoring classroom video"
+            ]
+          }
+        ],
+        "evidence_fragment_ids": [
+          "0066_VQAGXagFka4_Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility_0002",
+          "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+          "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference_0004"
+        ],
+        "claim_type": "direct_evidence",
+        "evidence_terms": [
+          "access",
+          "digital",
+          "empowerment",
+          "youth",
+          "inclusion",
+          "age"
+        ],
+        "year_slot": null
+      },
+      {
+        "section_id": "S4",
+        "section_type": "final_synthesis",
+        "target_duration_seconds": 12,
+        "director_role": "synthesis_narration",
+        "evidence_role": "synthesis",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "Close with a powerful summary that ties 2025‑2026 insights together and calls for continued action.",
+        "narration": "In 2025 the collective voice of policymakers, technologists, and young activists painted a clear picture: AI can democratize information, but only when inclusive datasets, ethical frameworks, and targeted youth programs are embedded from the start, ensuring that every generation inherits a digital world where knowledge truly knows no borders.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0009",
+            "usage": "context_visual",
+            "start": 432.75,
+            "end": 460.0,
+            "reason": "Reinforces the theme of global data access and inclusion."
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "transition_card",
+            "description": "Fade‑to‑black with the tagline “Empower. Include. Inform.”",
+            "on_screen_text": "Empower. Include. Inform."
+          }
+        ],
+        "internet_assets_needed": [
+          {
+            "asset_type": "image",
+            "description": "World map highlighting regions where AI‑driven information projects have launched",
+            "search_keywords": [
+              "AI information access projects map"
+            ]
+          }
+        ],
+        "evidence_fragment_ids": [
+          "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0009"
+        ],
+        "claim_type": "direct_evidence",
+        "evidence_terms": [
+          "access",
+          "inclusion",
+          "gender"
+        ],
+        "year_slot": null
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "In 2025 the International Day for Universal Access to Information became the rallying point for a new generation of AI advocates, who argued that digital tools must serve every citizen, regardless of geography, gender, or socioeconomic status, and that true inclusion begins with open, reliable data streams that empower communities worldwide.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "In 2024 a leading researcher warned that without deliberate design, AI systems risk deepening existing inequities, leaving young women and marginalized groups without the knowledge and agency needed to shape their own digital futures, and that empowerment must be built into every algorithmic decision.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "By 2026 experts argued that AI must be framed as a moral imperative, not merely a technical upgrade, urging governments and NGOs to fund open‑source datasets that reflect diverse cultures, while pilots in schools demonstrated that AI‑driven tutoring can boost digital confidence among teenagers across the Global South.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "In 2025 the collective voice of policymakers, technologists, and young activists painted a clear picture: AI can democratize information, but only when inclusive datasets, ethical frameworks, and targeted youth programs are embedded from the start, ensuring that every generation inherits a digital world where knowledge truly knows no borders.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+        "start": 816.98,
+        "end": 845.0,
+        "quote_summary": "We must empower individuals with knowledge and choice even when we cannot involve everyone in designing fair systems.",
+        "use_in_section": "S2"
+      },
+      {
+        "fragment_id": "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference_0004",
+        "source_video": "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference",
+        "start": 175.16,
+        "end": 205.0,
+        "quote_summary": "The AI revolution offers gifts, but we must ensure it reaches youth and underserved communities.",
+        "use_in_section": "S3"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+        "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+        "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "0066_VQAGXagFka4_Anamaria_Corca - Artificial_Intelligence_for_Information_Accessibility_0002",
+        "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+        "0019_aijoknB-L0s_Dr_Tabani_Moyo_-_AI4AI_Conference_0004",
+        "0063_kcilIjVX5vc_Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility_0009"
+      ],
+      "generated_assets": [
+        "Title card with animated logo",
+        "Data card showing AI literacy gap by gender and age (2024)",
+        "Abstract AI visual of data flowing to diverse youth avatars",
+        "Transition card with tagline “Empower. Include. Inform.”"
+      ],
+      "internet_assets": [
+        "B‑roll of global youth using smartphones and community radio",
+        "Image of global internet penetration map 2024",
+        "Footage of classroom AI tutoring pilots in Kenya and Brazil",
+        "World map highlighting AI information access projects"
+      ],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "type": "title_card",
+        "title": "Connected Futures: AI, Youth, and the Quest for Information Equality",
+        "duration": 4.0
+      },
+      {
+        "type": "year_stamp",
+        "year": 2024,
+        "duration": 2.5,
+        "audio_mode": "silent",
+        "muted": true,
+        "section_role": "temporal_transition"
+      },
+      {
+        "type": "archive_visual",
+        "segment_type": "archive_visual",
+        "audio_mode": "silent",
+        "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+        "source_video": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy",
+        "video_year": 2024,
+        "video_upload_date": "20241125",
+        "speaker": null,
+        "speaker_attribution": null,
+        "start": 24.612,
+        "end": 30.116,
+        "duration": 5.503,
+        "use_as": "narration_support",
+        "relevance_role": "exact",
+        "selection_reason": "Matched direct terms ['access', 'digital', 'inclusion'], expanded terms ['gender'], theme match AI & Information Access / Media / Journalism.",
+        "speaker_clip_allowed": false,
+        "speaker_visual_allowed": false,
+        "subclip_adjusted": false,
+        "moment_text": "AI economy which I think is really relevant and connected",
+        "moment_summary": "AI economy which I think is really relevant and connected",
+        "moment_selection_reason": "general-score(0.09); archive_visual(is_meaningful=False,score=0.09,completeness=0.41,reasons=['too_few_meaningful_words: 7', 'no_topic_terms_found'])",
+        "section_role": "hook",
+        "muted": true,
+        "subtitle_text": "",
+        "subtitle_kind": "none",
+        "speech_quality": {
+          "speech_ratio": 0.679,
+          "mean_volume": -21.8,
+          "silence_ratio": 0.321,
+          "is_usable_speech": true,
+          "estimated_words": 10,
+          "duration": 5.504
+        },
+        "moment_scores": {
+          "moment_prompt_score": 0.0,
+          "quote_completeness_score": 0.413,
+          "speech_quality_score": 0.632,
+          "section_fit_score": 0.0,
+          "documentary_value_score": 0.1,
+          "intro_penalty": 0.0,
+          "silence_penalty": 0.0,
+          "side_topic_penalty": 0.0,
+          "incomplete_sentence_penalty": 0.1,
+          "final_moment_score": 0.0924
+        }
+      },
+      {
+        "type": "archive_visual",
+        "segment_type": "archive_visual",
+        "audio_mode": "silent",
+        "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+        "video_year": 2024,
+        "video_upload_date": "20241125",
+        "speaker": null,
+        "speaker_attribution": null,
+        "start": 837.107,
+        "end": 842.963,
+        "duration": 5.855,
+        "use_as": "speaker_soundbite",
+        "relevance_role": "exact",
+        "selection_reason": "Matched direct terms ['access', 'digital', 'empowerment'], theme match AI & Information Access / Media / Journalism.",
+        "speaker_clip_allowed": true,
+        "speaker_visual_allowed": false,
+        "subclip_adjusted": false,
+        "moment_text": "as much power as we give them by actively shaping these narratives and encouraging critical engagement.",
+        "moment_summary": "as much power as we give them by actively shaping these narratives and encouraging critical engagement.",
+        "moment_selection_reason": "general-score(0.19); archive_visual(is_meaningful=True,score=0.19,completeness=0.62,reasons=['starts_lowercase_mid_sentence', 'final_moment_score_too_low: 0.193'])",
+        "section_role": "human_context",
+        "muted": true,
+        "subtitle_text": "",
+        "subtitle_kind": "none",
+        "speech_quality": {
+          "speech_ratio": 0.891,
+          "mean_volume": -19.3,
+          "silence_ratio": 0.109,
+          "is_usable_speech": true,
+          "estimated_words": 16,
+          "duration": 5.856
+        },
+        "moment_scores": {
+          "moment_prompt_score": 0.2,
+          "quote_completeness_score": 0.6175,
+          "speech_quality_score": 0.782,
+          "section_fit_score": 0.0,
+          "documentary_value_score": 0.28,
+          "intro_penalty": 0.0,
+          "silence_penalty": 0.0,
+          "side_topic_penalty": 0.0,
+          "incomplete_sentence_penalty": 0.15,
+          "final_moment_score": 0.1928
+        }
+      },
+      {
+        "type": "year_stamp",
+        "year": 2025,
+        "duration": 2.5,
+        "audio_mode": "silent",
+        "muted": true,
+        "section_role": "temporal_transition"
+      },
+      {
+        "type": "archive_visual",
+        "segment_type": "archive_visual",
+        "audio_mode": "silent",
+        "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+        "source_video": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference",
+        "video_year": 2025,
+        "video_upload_date": "20250929",
+        "speaker": null,
+        "speaker_attribution": null,
+        "start": 59.88,
+        "end": 65.46,
+        "duration": 5.58,
+        "use_as": "narration_support",
+        "relevance_role": "exact",
+        "selection_reason": "Matched direct terms ['access', 'age', 'digital'], expanded terms ['girls'], theme match AI & Information Access / Media / Journalism.",
+        "speaker_clip_allowed": false,
+        "speaker_visual_allowed": false,
+        "subclip_adjusted": false,
+        "moment_text": "Access to Information that we are celebrating in the 28th of September.",
+        "moment_summary": "Access to Information that we are celebrating in the 28th of September.",
+        "moment_selection_reason": "complete-quote; archive_visual(is_meaningful=False,score=0.39,completeness=1.00,reasons=['too_few_meaningful_words: 5'])",
+        "section_role": "context",
+        "muted": true,
+        "subtitle_text": "",
+        "subtitle_kind": "none",
+        "speech_quality": {
+          "speech_ratio": 0.71,
+          "mean_volume": -21.5,
+          "silence_ratio": 0.29,
+          "is_usable_speech": true,
+          "estimated_words": 11,
+          "duration": 5.58
+        },
+        "moment_scores": {
+          "moment_prompt_score": 0.2,
+          "quote_completeness_score": 1.0,
+          "speech_quality_score": 0.632,
+          "section_fit_score": 0.0,
+          "documentary_value_score": 0.24,
+          "intro_penalty": 0.0,
+          "silence_penalty": 0.0,
+          "side_topic_penalty": 0.0,
+          "incomplete_sentence_penalty": 0.0,
+          "final_moment_score": 0.3908
+        }
+      },
+      {
+        "type": "speaker_clip",
+        "segment_type": "speaker_clip",
+        "audio_mode": "source_audio",
+        "fragment_id": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity_0001",
+        "source_video": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity",
+        "video_year": 2025,
+        "video_upload_date": "20250929",
+        "speaker": null,
+        "speaker_attribution": null,
+        "start": 29.665,
+        "end": 35.325,
+        "duration": 5.66,
+        "use_as": "narration_support",
+        "relevance_role": "exact",
+        "selection_reason": "Matched direct terms ['access', 'digital'], expanded terms ['agency'], theme match AI & Information Access / Media / Journalism.",
+        "speaker_clip_allowed": false,
+        "speaker_visual_allowed": false,
+        "subclip_adjusted": false,
+        "moment_text": "UNDP is working to ensure that AI increases information accessibility around the world.",
+        "moment_summary": "UNDP is working to ensure that AI increases information accessibility around the world.",
+        "moment_selection_reason": "complete-quote",
+        "section_role": "tension",
+        "muted": false,
+        "subtitle_text": "UNDP is working to ensure that AI increases information accessibility around the world.",
+        "subtitle_kind": "speaker",
+        "speech_quality": {
+          "speech_ratio": 0.695,
+          "mean_volume": -21.7,
+          "silence_ratio": 0.305,
+          "is_usable_speech": true,
+          "estimated_words": 12,
+          "duration": 5.66
+        },
+        "moment_scores": {
+          "moment_prompt_score": 0.2,
+          "quote_completeness_score": 1.0,
+          "speech_quality_score": 0.542,
+          "section_fit_score": 0.0,
+          "documentary_value_score": 0.25,
+          "intro_penalty": 0.0,
+          "silence_penalty": 0.0,
+          "side_topic_penalty": 0.0,
+          "incomplete_sentence_penalty": 0.0,
+          "final_moment_score": 0.3788
+        }
+      },
+      {
+        "type": "closing_card",
+        "title": "Connected Futures: AI, Youth, and the Quest for Information Equality",
+        "duration": 4.0
+      }
+    ],
+    "editor_notes": [
+      "Maintain a steady, calm narration pace (~2.5 w/s) to match the 30‑word requirement per section.",
+      "Color‑grade all archive footage with a warm, natural palette to evoke National Geographic’s cinematic feel.",
+      "Layer subtle ambient music that rises slightly during the solution section and resolves gently at the end.",
+      "Add lower‑third subtitles for each speaker soundbite, ensuring accessibility."
+    ],
+    "generation_mode": "llm",
+    "planning_summary": {
+      "video_mode": "chronological_relay",
+      "evidence_strength": "high",
+      "exact_clip_count": 10,
+      "related_clip_count": 0,
+      "strong_related_count": 0,
+      "usable_speaker_clip_count": 6,
+      "rejected_clip_count": 0,
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    },
+    "timeline_repair": {
+      "required": true,
+      "reason": "llm_timeline_missing_phase4o_moment_fields",
+      "raw_timeline_items": 13,
+      "rebuilt_timeline_items": 8
+    }
+  },
+  "window_clamp_notes": [],
+  "duration_fill_report": {
+    "status": "already_sufficient",
+    "target_seconds": 30.0,
+    "floor_seconds": 30.6,
+    "total_before_seconds": 35.598,
+    "total_after_seconds": 35.598,
+    "segments_added": [],
+    "shortfall_seconds": 0.0
+  },
+  "duration_budget": {
+    "stage": "07_generate_storyline",
+    "target_seconds": 30.0,
+    "planned_total_seconds": 35.598,
+    "segment_count": 8,
+    "unmeasured_segment_count": 0,
+    "segments": [
+      {
+        "index": 1,
+        "type": "title_card",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 4.0
+      },
+      {
+        "index": 2,
+        "type": "year_stamp",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 2.5
+      },
+      {
+        "index": 3,
+        "type": "archive_visual",
+        "section_id": null,
+        "fragment_id": "0107_bwDlgox764s_Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy_0001",
+        "seconds": 5.503
+      },
+      {
+        "index": 4,
+        "type": "archive_visual",
+        "section_id": null,
+        "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "seconds": 5.855
+      },
+      {
+        "index": 5,
+        "type": "year_stamp",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 2.5
+      },
+      {
+        "index": 6,
+        "type": "archive_visual",
+        "section_id": null,
+        "fragment_id": "0079_QwTD-48qQVQ_Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conference_0002",
+        "seconds": 5.58
+      },
+      {
+        "index": 7,
+        "type": "speaker_clip",
+        "section_id": null,
+        "fragment_id": "0047_csTL3DUyoXg_Megan_Roberts_-_Bending_the_Arc_of_AI_Equity_0001",
+        "seconds": 5.66
+      },
+      {
+        "index": 8,
+        "type": "closing_card",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 4.0
+      }
+    ],
+    "meets_floor": true,
+    "shortfall_seconds": 0.0,
+    "overshoot_seconds": 5.598,
+    "overshoot_warning": false
+  }
+}

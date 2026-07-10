@@ -1,0 +1,3692 @@
+{
+  "created_at": "2026-07-10T07:36:24.392475",
+  "user_prompt": "youth empowerment and the influence on the youth by AI",
+  "prompt_profile": {
+    "raw_prompt": "youth empowerment and the influence on the youth by AI",
+    "intent_type": "topic_video",
+    "requested_speaker": null,
+    "speaker_required": false,
+    "topic_terms": [
+      "empowerment",
+      "influence",
+      "youth"
+    ],
+    "expanded_terms": [
+      "woman",
+      "female",
+      "girls",
+      "gender",
+      "agency",
+      "participation",
+      "leadership"
+    ],
+    "negative_terms": [],
+    "generic_terms_removed": [
+      "inclusion",
+      "equity",
+      "access",
+      "diversity"
+    ],
+    "theme_hint": null,
+    "chapter_hint": null,
+    "scope": "specific_topic",
+    "evidence_requirement": "direct_topic_evidence",
+    "strictness": "high",
+    "target_duration_seconds": 30
+  },
+  "prompt_intent": {
+    "raw_prompt": "youth empowerment and the influence on the youth by AI",
+    "intent_type": "topic_video",
+    "requested_speaker": null,
+    "speaker_required": false,
+    "topic_terms": [
+      "empowerment",
+      "influence",
+      "youth"
+    ],
+    "expanded_terms": [
+      "woman",
+      "female",
+      "girls",
+      "gender",
+      "agency",
+      "participation",
+      "leadership"
+    ],
+    "negative_terms": [],
+    "generic_terms_removed": [
+      "inclusion",
+      "equity",
+      "access",
+      "diversity"
+    ],
+    "theme_hint": null,
+    "chapter_hint": null,
+    "scope": "specific_topic",
+    "evidence_requirement": "direct_topic_evidence",
+    "strictness": "high",
+    "target_duration_seconds": 30
+  },
+  "target_duration_seconds": 30,
+  "style": "documentary",
+  "corpus_version": "original_v1",
+  "embeddings_dir": "/tmp/ai4ia_pipeline/07_vjob_20260710_073500_61f8abb0/embeddings",
+  "corpus_diagnostics": {
+    "total_embedding_records": 3875,
+    "records_after_filtering": 3875,
+    "source_version_counts_before": {
+      "unknown": 3875
+    },
+    "source_version_counts_after": {
+      "unknown": 3875
+    },
+    "audio_status_counts_before": {
+      "unknown": 3875
+    },
+    "audio_status_counts_after": {
+      "unknown": 3875
+    },
+    "cleaned_v2_records": 0,
+    "original_v1_records": 0,
+    "manual_review_records": 0,
+    "min_transcript_quality": 0.0,
+    "exclude_manual_review": false,
+    "corpus_version": "original_v1",
+    "embeddings_dir": "/tmp/ai4ia_pipeline/07_vjob_20260710_073500_61f8abb0/embeddings",
+    "embedding_dimension": 768
+  },
+  "generation_mode": "llm",
+  "llm_parse_error": null,
+  "fallback_reason": null,
+  "should_export_video": true,
+  "models": {
+    "embedding_model": "nomic-embed-text:v1.5",
+    "strong_llm_model": "gpt-oss:120b",
+    "fast_llm_model": "llama3.1:8b"
+  },
+  "source_files": {
+    "embedding_matrix": "/tmp/ai4ia_pipeline/07_vjob_20260710_073500_61f8abb0/embeddings/fragment_embedding_matrix.npy",
+    "embedding_records": "/tmp/ai4ia_pipeline/07_vjob_20260710_073500_61f8abb0/embeddings/classified_fragments_embeddings.jsonl"
+  },
+  "retrieval_summary": {
+    "retrieved_count": 105,
+    "selected_candidate_count": 10,
+    "supporting_candidate_count": 62,
+    "context_candidate_count": 19,
+    "rejected_candidate_count": 0,
+    "top_semantic_score": 0.734603
+  },
+  "retrieval_diagnostics": {
+    "semantic_count": 90,
+    "keyword_count": 30,
+    "chapter_count": 0,
+    "speaker_count": 0,
+    "merged_count": 105,
+    "selected_count": 10,
+    "supporting_count": 62,
+    "context_count": 19,
+    "rejected_count": 0,
+    "speaker_required": false
+  },
+  "candidate_bucket_summary": {
+    "selected": 10,
+    "supporting": 62,
+    "context": 19,
+    "rejected": 0,
+    "selected_cap": 10,
+    "pre_cap_count": 24,
+    "cap_reason": "target_duration_seconds=30",
+    "speaker_selection": {
+      "speaker_eligible_in_pool": 3,
+      "speaker_slots_reserved": 3,
+      "speaker_target": 6,
+      "estimated_sections": 3,
+      "speakers_per_section": 1,
+      "fill_slots_used": 7,
+      "final_selected": 10
+    }
+  },
+  "candidate_contract": {
+    "selected_candidates": "final-video-safe evidence only",
+    "supporting_candidates": "narration support only — not for speaker soundbites",
+    "context_candidates": "background/context only — not for final video",
+    "rejected_candidates": "not for final video"
+  },
+  "planning_summary": {
+    "video_mode": "chronological_relay",
+    "evidence_strength": "high",
+    "exact_clip_count": 4,
+    "related_clip_count": 6,
+    "strong_related_count": 6,
+    "usable_speaker_clip_count": 3,
+    "usable_speaker_visual_count": 0,
+    "supporting_candidate_count": 62,
+    "context_candidate_count": 19,
+    "rejected_clip_count": 0,
+    "fallback_risk": "low",
+    "planning_notes": [
+      "Speaker diversity is limited, so narration carries more of the connective explanation."
+    ]
+  },
+  "validation_issues": [],
+  "timeline_repair": {
+    "required": true,
+    "reason": "llm_timeline_missing_phase4o_moment_fields",
+    "raw_timeline_items": 12,
+    "rebuilt_timeline_items": 10
+  },
+  "evidence_package": {
+    "prompt_profile": {
+      "raw_prompt": "youth empowerment and the influence on the youth by AI",
+      "intent_type": "topic_video",
+      "requested_speaker": null,
+      "speaker_required": false,
+      "topic_terms": [
+        "empowerment",
+        "influence",
+        "youth"
+      ],
+      "expanded_terms": [
+        "woman",
+        "female",
+        "girls",
+        "gender",
+        "agency",
+        "participation",
+        "leadership"
+      ],
+      "negative_terms": [],
+      "generic_terms_removed": [
+        "inclusion",
+        "equity",
+        "access",
+        "diversity"
+      ],
+      "theme_hint": null,
+      "chapter_hint": null,
+      "scope": "specific_topic",
+      "evidence_requirement": "direct_topic_evidence",
+      "strictness": "high",
+      "target_duration_seconds": 30
+    },
+    "selected_evidence": [
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0021",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 1468.5,
+        "end": 1547.52,
+        "duration": 79.02,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+        "summary": "Using local languages and examples that make sense in our daily life, the monities, therefore, must be part of designing these systems that solve...",
+        "keywords": [
+          "youth",
+          "governance",
+          "inclusion",
+          "elderly",
+          "gender",
+          "disability"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "evidence_clip",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.54,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['empowerment', 'youth'], expanded terms ['gender'].",
+        "text": "Using local languages and examples that make sense in our daily life, the monities, therefore, must be part of designing these systems that solve their real problems. In our real problems, in...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+        "video_id": "",
+        "start": 816.98,
+        "end": 863.09,
+        "duration": 46.11,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems.",
+        "keywords": [
+          "education",
+          "knowledge",
+          "empowerment",
+          "informed",
+          "role",
+          "lives"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.67,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['empowerment', 'influence'].",
+        "text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to...",
+        "video_year": 2024,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0012",
+        "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+        "video_id": "cL04heQOsKo",
+        "start": 658.74,
+        "end": 718.7,
+        "duration": 59.96,
+        "primary_theme": "AI Ethics, Governance & Policy",
+        "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+        "summary": "We're going to need compute partnerships with different cloud providers or even for us to have our own hardware here in Jamaica, so buying GPUs for...",
+        "keywords": [
+          "youth",
+          "ethics",
+          "policy",
+          "empowerment",
+          "research",
+          "training"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "evidence_clip"
+        ],
+        "quote_strength": 0.5,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": true,
+        "speaker_soundbite_allowed": true,
+        "relevance_reason": "Matched direct terms ['empowerment', 'youth'].",
+        "text": "We're going to need compute partnerships with different cloud providers or even for us to have our own hardware here in Jamaica, so buying GPUs for example. And lastly, we can't forget this one...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 63.2,
+        "end": 131.37,
+        "duration": 68.17,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "Access to information is not simply about connectivity or technology.",
+        "keywords": [
+          "access to information",
+          "youth",
+          "education",
+          "information",
+          "knowledge",
+          "inclusive"
+        ],
+        "clip_usage_candidates": [
+          "narration_support"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "exact",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['empowerment', 'youth'].",
+        "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0007",
+        "source_video": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South",
+        "video_id": "pps7x1QyHII",
+        "start": 386.5,
+        "end": 463.74,
+        "duration": 77.24,
+        "primary_theme": "AI Ethics, Governance & Policy",
+        "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+        "summary": "One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to...",
+        "keywords": [
+          "governance",
+          "policy",
+          "environment",
+          "accountability",
+          "responsible ai",
+          "risk"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "evidence_clip",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.27,
+        "clarity_score": 0.95,
+        "relevance_role": "strong_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['empowerment'], expanded terms ['gender', 'participation'].",
+        "text": "One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to understand the intersection of impacts of existing and...",
+        "video_year": 2023,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers_0003",
+        "source_video": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers",
+        "video_id": "wSKcjA2uFfw",
+        "start": 130.15,
+        "end": 201.2,
+        "duration": 71.05,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+        "summary": "An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how...",
+        "keywords": [
+          "ai literacy",
+          "equity",
+          "inclusion",
+          "inclusive",
+          "gender",
+          "empowerment"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "evidence_clip"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "strong_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['empowerment'], expanded terms ['gender', 'participation'].",
+        "text": "An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how AI can make hiring practices fairer and digital...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+        "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+        "video_id": "q21",
+        "start": 413.78,
+        "end": 467.42,
+        "duration": 53.64,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils.",
+        "keywords": [
+          "youth",
+          "policy",
+          "education",
+          "young people",
+          "ethical",
+          "creativity"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.39,
+        "clarity_score": 0.95,
+        "relevance_role": "strong_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'], expanded terms ['agency'].",
+        "text": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils. Building a future that is not only smart, but also just and uniting African. In...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0008",
+        "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+        "video_id": "eg6Ol4iIM7I",
+        "start": 420.94,
+        "end": 467.98,
+        "duration": 47.04,
+        "primary_theme": "AI Ethics, Governance & Policy",
+        "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+        "summary": "Building a future that is not only smart, but also just and uniting African.",
+        "keywords": [
+          "youth",
+          "policy",
+          "education",
+          "ethical",
+          "creativity",
+          "innovation"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.39,
+        "clarity_score": 0.95,
+        "relevance_role": "strong_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'], expanded terms ['agency'].",
+        "text": "perils. Building a future that is not only smart, but also just and uniting African. In conclusion, the relationship between AI and the youth isn't a passive one. It's a dynamic dance. Yes, there are...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+        "source_video": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh",
+        "video_id": "zJLv8sreIiQ",
+        "start": 387.57,
+        "end": 428.65,
+        "duration": 41.08,
+        "primary_theme": "AI Ethics, Governance & Policy",
+        "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+        "summary": "run several programs like the AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation of more...",
+        "keywords": [
+          "responsible ai",
+          "empowerment",
+          "government",
+          "workforce",
+          "industry",
+          "india"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "evidence_clip",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.42,
+        "clarity_score": 0.95,
+        "relevance_role": "strong_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['empowerment'], expanded terms ['participation'].",
+        "text": "run several programs like the AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation of more than 80,000 people from almost 81 countries across...",
+        "video_year": 2021,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      },
+      {
+        "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0002",
+        "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
+        "video_id": "Txl1nmb84VA",
+        "start": 53.94,
+        "end": 114.15,
+        "duration": 60.21,
+        "primary_theme": "Disinformation, Deepfakes & AI Safety",
+        "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+        "summary": "At its core, our work is about online safety within the broader context of internet governance and increasingly AI governance.",
+        "keywords": [
+          "information integrity",
+          "youth",
+          "governance",
+          "security",
+          "safety",
+          "economic"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual"
+        ],
+        "quote_strength": 0.48,
+        "clarity_score": 0.95,
+        "relevance_role": "strong_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'], expanded terms ['gender'].",
+        "text": "At its core, our work is about online safety within the broader context of internet governance and increasingly AI governance. In today's shifting geopolitical landscape, this mission is more urgent...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": true
+      }
+    ],
+    "supporting_context": [
+      {
+        "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0002",
+        "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+        "video_id": "eg6Ol4iIM7I",
+        "start": 59.96,
+        "end": 113.5,
+        "duration": 53.54,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+        "summary": "today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it.",
+        "keywords": [
+          "youth",
+          "conference",
+          "unesco",
+          "young people",
+          "risk",
+          "employment"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.33,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it. Many thanks to the conveners of the conference who are UNESCO, and thank you for...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0030",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 2102.77,
+        "end": 2178.2,
+        "duration": 75.43,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "Bafazo Malkaza, we do appreciate that in the great work that you are doing as far as making sure that you push and drive our various students there.",
+        "keywords": [
+          "youth",
+          "students",
+          "values",
+          "far",
+          "think",
+          "look"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.35,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "Thank you so much, Mr. Bafazo Malkaza, we do appreciate that in the great work that you are doing as far as making sure that you push and drive our various students there. Thank you for that...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025_0005",
+        "source_video": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025",
+        "video_id": "HxBvfY5Qb9I",
+        "start": 199.87,
+        "end": 223.48,
+        "duration": 23.61,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "It gives us the power to create real change, and just make the world a whole better place.",
+        "keywords": [
+          "environment",
+          "young people",
+          "create",
+          "better"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.27,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "It gives us the power to create real change, and just make the world a whole better place. My journey with AI has taught me that technology isn't just for big companies or scientists. It's for young...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0057",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 3604.46,
+        "end": 3652.6,
+        "duration": 48.14,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+        "summary": "I quoted this from the youth intervention, someone who mentioned knowledge is finding what matters when it matters.",
+        "keywords": [
+          "youth",
+          "information",
+          "knowledge",
+          "matters",
+          "know",
+          "let's"
+        ],
+        "clip_usage_candidates": [
+          "context_visual"
+        ],
+        "quote_strength": 0.27,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "I quoted this from the youth intervention, someone who mentioned knowledge is finding what matters when it matters. So here if you cannot find what matters when it matters, there's an information...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0002",
+        "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+        "video_id": "q21",
+        "start": 55.8,
+        "end": 108.3,
+        "duration": 52.5,
+        "primary_theme": "AI & Information Access / Media / Journalism",
+        "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+        "summary": "We are standing at a pivotal moment and our discussion today is about ensuring our young people are equipped, not just to survive this AI-driven...",
+        "keywords": [
+          "youth",
+          "conference",
+          "unesco",
+          "young people",
+          "creativity",
+          "employment"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.33,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "We are standing at a pivotal moment and our discussion today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it. Many thanks to the conveners...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0020",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 1405.23,
+        "end": 1468.5,
+        "duration": 63.27,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "Somebody who has to stand in the street to get a daily wage job, be picked up by a truck that is passing by which needs a labour, doesn't have the...",
+        "keywords": [
+          "ai literacy",
+          "young people",
+          "elderly",
+          "literacy",
+          "labour",
+          "speaker"
+        ],
+        "clip_usage_candidates": [
+          "narration_support",
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.48,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "Somebody who has to stand in the street to get a daily wage job, be picked up by a truck that is passing by which needs a labour, doesn't have the luxury of surfing internet. So that's why I'm hoping...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0072",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 4367.34,
+        "end": 4414.58,
+        "duration": 47.24,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "driven solutions that impact and change our environment?",
+        "keywords": [
+          "youth",
+          "environment",
+          "environmental",
+          "information",
+          "creative",
+          "know"
+        ],
+        "clip_usage_candidates": [
+          "context_visual",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.41,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "driven solutions that impact and change our environment? Because we know the CHGDP, but we need something that's much more creative and that speaks to us about the day-to-day lives, but what would...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0001",
+        "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+        "video_id": "eg6Ol4iIM7I",
+        "start": 1.87,
+        "end": 59.96,
+        "duration": 58.09,
+        "primary_theme": "AI Ethics, Governance & Policy",
+        "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+        "summary": "My topic is AI and the youth, shaping the next generation.",
+        "keywords": [
+          "artificial intelligence",
+          "youth",
+          "ethics",
+          "ethical",
+          "africa",
+          "research"
+        ],
+        "clip_usage_candidates": [
+          "evidence_clip"
+        ],
+        "quote_strength": 0.48,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "Greetings, colleagues. My topic is AI and the youth, shaping the next generation. My name is Dr. Tandai Zengany and I'm a lecturer at Africa University Zimbabwe, as well as a member of the UNESCO...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0061",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "video_id": "SvVu6k02Hes",
+        "start": 3815.79,
+        "end": 3865.19,
+        "duration": 49.4,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+        "summary": "So why is it important for the young people to take part in policy development and also development of AI so that we can remove this bias?",
+        "keywords": [
+          "youth",
+          "policy",
+          "young people",
+          "bias",
+          "school",
+          "heritage"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "narration_support",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.5,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "So why is it important for the young people to take part in policy development and also development of AI so that we can remove this bias? When your voice is heard, when your perspective is also...",
+        "video_year": 2026,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      },
+      {
+        "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0005",
+        "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+        "video_id": "cL04heQOsKo",
+        "start": 237.5,
+        "end": 305.89,
+        "duration": 68.39,
+        "primary_theme": "AI Equity, Inclusion & Social Justice",
+        "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+        "summary": "It may come a point where these AI tools become very strong, very powerful and we want to think about how we as a nation should have control over...",
+        "keywords": [
+          "youth",
+          "employment",
+          "tools",
+          "data",
+          "want",
+          "may"
+        ],
+        "clip_usage_candidates": [
+          "speaker_soundbite",
+          "evidence_clip",
+          "synthesis_candidate"
+        ],
+        "quote_strength": 0.56,
+        "clarity_score": 0.95,
+        "relevance_role": "weak_related",
+        "speaker": null,
+        "speaker_attribution": null,
+        "speaker_clip_allowed": false,
+        "speaker_soundbite_allowed": false,
+        "relevance_reason": "Matched direct terms ['youth'].",
+        "text": "It may come a point where these AI tools become very strong, very powerful and we want to think about how we as a nation should have control over these tools going forward. We want to think about our...",
+        "video_year": 2025,
+        "audio_quality_status": null,
+        "final_video_allowed": false
+      }
+    ],
+    "evidence_gaps": [],
+    "must_not_claim": []
+  },
+  "export_timeline": [
+    {
+      "type": "title_card",
+      "title": "Empowering the Next Generation: AI and Youth",
+      "duration": 4.0
+    },
+    {
+      "type": "year_stamp",
+      "year": 2021,
+      "duration": 2.5,
+      "audio_mode": "silent",
+      "muted": true,
+      "section_role": "temporal_transition"
+    },
+    {
+      "type": "speaker_clip",
+      "segment_type": "speaker_clip",
+      "audio_mode": "source_audio",
+      "fragment_id": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+      "source_video": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh",
+      "video_year": 2021,
+      "video_upload_date": "20211017",
+      "speaker": null,
+      "speaker_attribution": null,
+      "start": 389.296,
+      "end": 395.165,
+      "duration": 5.869,
+      "use_as": "archive_visual",
+      "relevance_role": "strong_related",
+      "selection_reason": "Matched direct terms ['empowerment'], expanded terms ['participation'].",
+      "speaker_clip_allowed": false,
+      "speaker_visual_allowed": false,
+      "subclip_adjusted": false,
+      "moment_text": "AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation",
+      "moment_summary": "AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation",
+      "moment_selection_reason": "topic-dense(0.40)",
+      "section_role": "hook",
+      "muted": false,
+      "subtitle_text": "AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation",
+      "subtitle_kind": "speaker",
+      "speech_quality": {
+        "speech_ratio": 0.816,
+        "mean_volume": -20.2,
+        "silence_ratio": 0.184,
+        "is_usable_speech": true,
+        "estimated_words": 17,
+        "duration": 5.869
+      },
+      "moment_scores": {
+        "moment_prompt_score": 0.4,
+        "quote_completeness_score": 0.413,
+        "speech_quality_score": 0.632,
+        "section_fit_score": 0.0,
+        "documentary_value_score": 0.41,
+        "intro_penalty": 0.0,
+        "silence_penalty": 0.0,
+        "side_topic_penalty": 0.0,
+        "incomplete_sentence_penalty": 0.1,
+        "final_moment_score": 0.2589
+      }
+    },
+    {
+      "type": "year_stamp",
+      "year": 2023,
+      "duration": 2.5,
+      "audio_mode": "silent",
+      "muted": true,
+      "section_role": "temporal_transition"
+    },
+    {
+      "type": "archive_visual",
+      "segment_type": "archive_visual",
+      "audio_mode": "silent",
+      "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0007",
+      "source_video": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South",
+      "video_year": 2023,
+      "video_upload_date": "20231115",
+      "speaker": null,
+      "speaker_attribution": null,
+      "start": 386.5,
+      "end": 392.338,
+      "duration": 5.838,
+      "use_as": "archive_visual",
+      "relevance_role": "strong_related",
+      "selection_reason": "Matched direct terms ['empowerment'], expanded terms ['gender', 'participation'].",
+      "speaker_clip_allowed": false,
+      "speaker_visual_allowed": false,
+      "subclip_adjusted": false,
+      "moment_text": "One way this can be done is by training local researchers with paper-predictives",
+      "moment_summary": "One way this can be done is by training local researchers with paper-predictives",
+      "moment_selection_reason": "general-score(0.08); archive_visual(is_meaningful=True,score=0.08,completeness=0.39,reasons=['no_topic_terms_found', 'ends_without_terminal_punctuation'])",
+      "section_role": "human_context",
+      "muted": true,
+      "subtitle_text": "",
+      "subtitle_kind": "none",
+      "speech_quality": {
+        "speech_ratio": 0.716,
+        "mean_volume": -21.4,
+        "silence_ratio": 0.284,
+        "is_usable_speech": true,
+        "estimated_words": 13,
+        "duration": 5.838
+      },
+      "moment_scores": {
+        "moment_prompt_score": 0.0,
+        "quote_completeness_score": 0.3905,
+        "speech_quality_score": 0.542,
+        "section_fit_score": 0.0,
+        "documentary_value_score": 0.13,
+        "intro_penalty": 0.0,
+        "silence_penalty": 0.0,
+        "side_topic_penalty": 0.0,
+        "incomplete_sentence_penalty": 0.1,
+        "final_moment_score": 0.0789
+      }
+    },
+    {
+      "type": "year_stamp",
+      "year": 2024,
+      "duration": 2.5,
+      "audio_mode": "silent",
+      "muted": true,
+      "section_role": "temporal_transition"
+    },
+    {
+      "type": "archive_visual",
+      "segment_type": "archive_visual",
+      "audio_mode": "silent",
+      "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+      "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+      "video_year": 2024,
+      "video_upload_date": "20241125",
+      "speaker": null,
+      "speaker_attribution": null,
+      "start": 816.98,
+      "end": 822.835,
+      "duration": 5.855,
+      "use_as": "speaker_soundbite",
+      "relevance_role": "exact",
+      "selection_reason": "Matched direct terms ['empowerment', 'influence'].",
+      "speaker_clip_allowed": true,
+      "speaker_visual_allowed": false,
+      "subclip_adjusted": false,
+      "moment_text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of",
+      "moment_summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of",
+      "moment_selection_reason": "general-score(0.13); archive_visual(is_meaningful=True,score=0.13,completeness=0.45,reasons=['no_topic_terms_found', 'ends_without_terminal_punctuation'])",
+      "section_role": "context",
+      "muted": true,
+      "subtitle_text": "",
+      "subtitle_kind": "none",
+      "speech_quality": {
+        "speech_ratio": 0.891,
+        "mean_volume": -19.3,
+        "silence_ratio": 0.109,
+        "is_usable_speech": true,
+        "estimated_words": 15,
+        "duration": 5.855
+      },
+      "moment_scores": {
+        "moment_prompt_score": 0.0,
+        "quote_completeness_score": 0.4505,
+        "speech_quality_score": 0.782,
+        "section_fit_score": 0.0,
+        "documentary_value_score": 0.16,
+        "intro_penalty": 0.0,
+        "silence_penalty": 0.0,
+        "side_topic_penalty": 0.0,
+        "incomplete_sentence_penalty": 0.1,
+        "final_moment_score": 0.1314
+      }
+    },
+    {
+      "type": "year_stamp",
+      "year": 2025,
+      "duration": 2.5,
+      "audio_mode": "silent",
+      "muted": true,
+      "section_role": "temporal_transition"
+    },
+    {
+      "type": "speaker_clip",
+      "segment_type": "speaker_clip",
+      "audio_mode": "source_audio",
+      "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0012",
+      "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+      "video_year": 2025,
+      "video_upload_date": "20250929",
+      "speaker": null,
+      "speaker_attribution": null,
+      "start": 690.454,
+      "end": 696.401,
+      "duration": 5.946,
+      "use_as": "speaker_soundbite",
+      "relevance_role": "exact",
+      "selection_reason": "Matched direct terms ['empowerment', 'youth'].",
+      "speaker_clip_allowed": true,
+      "speaker_visual_allowed": false,
+      "subclip_adjusted": false,
+      "moment_text": "We're talking skills training on youth empowerment. Now, we hear a lot",
+      "moment_summary": "We're talking skills training on youth empowerment. Now, we hear a lot",
+      "moment_selection_reason": "topic-dense(0.40)",
+      "section_role": "tension",
+      "muted": false,
+      "subtitle_text": "We're talking skills training on youth empowerment. Now, we hear a lot",
+      "subtitle_kind": "speaker",
+      "speech_quality": {
+        "speech_ratio": 0.744,
+        "mean_volume": -21.1,
+        "silence_ratio": 0.256,
+        "is_usable_speech": true,
+        "estimated_words": 12,
+        "duration": 5.947
+      },
+      "moment_scores": {
+        "moment_prompt_score": 0.4,
+        "quote_completeness_score": 0.425,
+        "speech_quality_score": 0.68,
+        "section_fit_score": 0.0,
+        "documentary_value_score": 0.36,
+        "intro_penalty": 0.0,
+        "silence_penalty": 0.0,
+        "side_topic_penalty": 0.0,
+        "incomplete_sentence_penalty": 0.1,
+        "final_moment_score": 0.261
+      }
+    },
+    {
+      "type": "closing_card",
+      "title": "Empowering the Next Generation: AI and Youth",
+      "duration": 4.0
+    }
+  ],
+  "selected_candidates": [
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0021",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 1468.5,
+      "end": 1547.52,
+      "duration": 79.02,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "Using local languages and examples that make sense in our daily life, the monities, therefore, must be part of designing these systems that solve...",
+      "keywords": [
+        "youth",
+        "governance",
+        "inclusion",
+        "elderly",
+        "gender",
+        "disability"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.54,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['empowerment', 'youth'], expanded terms ['gender'].",
+      "text": "Using local languages and examples that make sense in our daily life, the monities, therefore, must be part of designing these systems that solve their real problems. In our real problems, in...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+      "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+      "video_id": "",
+      "start": 816.98,
+      "end": 863.09,
+      "duration": 46.11,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems.",
+      "keywords": [
+        "education",
+        "knowledge",
+        "empowerment",
+        "informed",
+        "role",
+        "lives"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.67,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['empowerment', 'influence'].",
+      "text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0012",
+      "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+      "video_id": "cL04heQOsKo",
+      "start": 658.74,
+      "end": 718.7,
+      "duration": 59.96,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "We're going to need compute partnerships with different cloud providers or even for us to have our own hardware here in Jamaica, so buying GPUs for...",
+      "keywords": [
+        "youth",
+        "ethics",
+        "policy",
+        "empowerment",
+        "research",
+        "training"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['empowerment', 'youth'].",
+      "text": "We're going to need compute partnerships with different cloud providers or even for us to have our own hardware here in Jamaica, so buying GPUs for example. And lastly, we can't forget this one...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 63.2,
+      "end": 131.37,
+      "duration": 68.17,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "Access to information is not simply about connectivity or technology.",
+      "keywords": [
+        "access to information",
+        "youth",
+        "education",
+        "information",
+        "knowledge",
+        "inclusive"
+      ],
+      "clip_usage_candidates": [
+        "narration_support"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['empowerment', 'youth'].",
+      "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0007",
+      "source_video": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South",
+      "video_id": "pps7x1QyHII",
+      "start": 386.5,
+      "end": 463.74,
+      "duration": 77.24,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to...",
+      "keywords": [
+        "governance",
+        "policy",
+        "environment",
+        "accountability",
+        "responsible ai",
+        "risk"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['empowerment'], expanded terms ['gender', 'participation'].",
+      "text": "One way this can be done is by training local researchers with paper-predictives to collect and fade value from sophisticated primary data, to understand the intersection of impacts of existing and...",
+      "video_year": 2023,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers_0003",
+      "source_video": "0017_wSKcjA2uFfw_Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers",
+      "video_id": "wSKcjA2uFfw",
+      "start": 130.15,
+      "end": 201.2,
+      "duration": 71.05,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 10: Gender, Race & Diversity in AI",
+      "summary": "An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how...",
+      "keywords": [
+        "ai literacy",
+        "equity",
+        "inclusion",
+        "inclusive",
+        "gender",
+        "empowerment"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['empowerment'], expanded terms ['gender', 'participation'].",
+      "text": "An example is our project on inclusive hiring and digital skills development, which counted systemic unemployment and exclusion by demonstrating how AI can make hiring practices fairer and digital...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 413.78,
+      "end": 467.42,
+      "duration": 53.64,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils.",
+      "keywords": [
+        "youth",
+        "policy",
+        "education",
+        "young people",
+        "ethical",
+        "creativity"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.39,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'], expanded terms ['agency'].",
+      "text": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils. Building a future that is not only smart, but also just and uniting African. In...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0008",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 420.94,
+      "end": 467.98,
+      "duration": 47.04,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "Building a future that is not only smart, but also just and uniting African.",
+      "keywords": [
+        "youth",
+        "policy",
+        "education",
+        "ethical",
+        "creativity",
+        "innovation"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.39,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'], expanded terms ['agency'].",
+      "text": "perils. Building a future that is not only smart, but also just and uniting African. In conclusion, the relationship between AI and the youth isn't a passive one. It's a dynamic dance. Yes, there are...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+      "source_video": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh",
+      "video_id": "zJLv8sreIiQ",
+      "start": 387.57,
+      "end": 428.65,
+      "duration": 41.08,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "run several programs like the AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation of more...",
+      "keywords": [
+        "responsible ai",
+        "empowerment",
+        "government",
+        "workforce",
+        "industry",
+        "india"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['empowerment'], expanded terms ['participation'].",
+      "text": "run several programs like the AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation of more than 80,000 people from almost 81 countries across...",
+      "video_year": 2021,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025_0002",
+      "source_video": "0068_Txl1nmb84VA_Paul_Ash_-_AI4IA_2025",
+      "video_id": "Txl1nmb84VA",
+      "start": 53.94,
+      "end": 114.15,
+      "duration": 60.21,
+      "primary_theme": "Disinformation, Deepfakes & AI Safety",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "At its core, our work is about online safety within the broader context of internet governance and increasingly AI governance.",
+      "keywords": [
+        "information integrity",
+        "youth",
+        "governance",
+        "security",
+        "safety",
+        "economic"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'], expanded terms ['gender'].",
+      "text": "At its core, our work is about online safety within the broader context of internet governance and increasingly AI governance. In today's shifting geopolitical landscape, this mission is more urgent...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    }
+  ],
+  "supporting_candidates": [
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0002",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 59.96,
+      "end": 113.5,
+      "duration": 53.54,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it.",
+      "keywords": [
+        "youth",
+        "conference",
+        "unesco",
+        "young people",
+        "risk",
+        "employment"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.33,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it. Many thanks to the conveners of the conference who are UNESCO, and thank you for...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0030",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 2102.77,
+      "end": 2178.2,
+      "duration": 75.43,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Bafazo Malkaza, we do appreciate that in the great work that you are doing as far as making sure that you push and drive our various students there.",
+      "keywords": [
+        "youth",
+        "students",
+        "values",
+        "far",
+        "think",
+        "look"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.35,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "Thank you so much, Mr. Bafazo Malkaza, we do appreciate that in the great work that you are doing as far as making sure that you push and drive our various students there. Thank you for that...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025_0005",
+      "source_video": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025",
+      "video_id": "HxBvfY5Qb9I",
+      "start": 199.87,
+      "end": 223.48,
+      "duration": 23.61,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "It gives us the power to create real change, and just make the world a whole better place.",
+      "keywords": [
+        "environment",
+        "young people",
+        "create",
+        "better"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "It gives us the power to create real change, and just make the world a whole better place. My journey with AI has taught me that technology isn't just for big companies or scientists. It's for young...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0057",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 3604.46,
+      "end": 3652.6,
+      "duration": 48.14,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "I quoted this from the youth intervention, someone who mentioned knowledge is finding what matters when it matters.",
+      "keywords": [
+        "youth",
+        "information",
+        "knowledge",
+        "matters",
+        "know",
+        "let's"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "I quoted this from the youth intervention, someone who mentioned knowledge is finding what matters when it matters. So here if you cannot find what matters when it matters, there's an information...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0002",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 55.8,
+      "end": 108.3,
+      "duration": 52.5,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "We are standing at a pivotal moment and our discussion today is about ensuring our young people are equipped, not just to survive this AI-driven...",
+      "keywords": [
+        "youth",
+        "conference",
+        "unesco",
+        "young people",
+        "creativity",
+        "employment"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.33,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "We are standing at a pivotal moment and our discussion today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it. Many thanks to the conveners...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0020",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 1405.23,
+      "end": 1468.5,
+      "duration": 63.27,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Somebody who has to stand in the street to get a daily wage job, be picked up by a truck that is passing by which needs a labour, doesn't have the...",
+      "keywords": [
+        "ai literacy",
+        "young people",
+        "elderly",
+        "literacy",
+        "labour",
+        "speaker"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "Somebody who has to stand in the street to get a daily wage job, be picked up by a truck that is passing by which needs a labour, doesn't have the luxury of surfing internet. So that's why I'm hoping...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0072",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 4367.34,
+      "end": 4414.58,
+      "duration": 47.24,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "driven solutions that impact and change our environment?",
+      "keywords": [
+        "youth",
+        "environment",
+        "environmental",
+        "information",
+        "creative",
+        "know"
+      ],
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.41,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "driven solutions that impact and change our environment? Because we know the CHGDP, but we need something that's much more creative and that speaks to us about the day-to-day lives, but what would...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0001",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 1.87,
+      "end": 59.96,
+      "duration": 58.09,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "My topic is AI and the youth, shaping the next generation.",
+      "keywords": [
+        "artificial intelligence",
+        "youth",
+        "ethics",
+        "ethical",
+        "africa",
+        "research"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "Greetings, colleagues. My topic is AI and the youth, shaping the next generation. My name is Dr. Tandai Zengany and I'm a lecturer at Africa University Zimbabwe, as well as a member of the UNESCO...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0061",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 3815.79,
+      "end": 3865.19,
+      "duration": 49.4,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "So why is it important for the young people to take part in policy development and also development of AI so that we can remove this bias?",
+      "keywords": [
+        "youth",
+        "policy",
+        "young people",
+        "bias",
+        "school",
+        "heritage"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "So why is it important for the young people to take part in policy development and also development of AI so that we can remove this bias? When your voice is heard, when your perspective is also...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0005",
+      "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+      "video_id": "cL04heQOsKo",
+      "start": 237.5,
+      "end": 305.89,
+      "duration": 68.39,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "It may come a point where these AI tools become very strong, very powerful and we want to think about how we as a nation should have control over...",
+      "keywords": [
+        "youth",
+        "employment",
+        "tools",
+        "data",
+        "want",
+        "may"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "It may come a point where these AI tools become very strong, very powerful and we want to think about how we as a nation should have control over these tools going forward. We want to think about our...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    }
+  ],
+  "context_candidates": [
+    {
+      "fragment_id": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation_0058",
+      "source_video": "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation",
+      "video_id": "ikdcwVcRSPo",
+      "start": 3413.18,
+      "end": 3457.87,
+      "duration": 44.69,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 7: Government Information & Public Services",
+      "summary": "to have the problem solving skills that are important to be able to use generative AI in the enterprise or eating their home.",
+      "keywords": [
+        "education",
+        "research",
+        "training",
+        "aging",
+        "public sector",
+        "communities"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.72,
+      "clarity_score": 0.95,
+      "relevance_role": "contextual",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Broad semantic similarity only. Matched semantic similarity 0.675.",
+      "text": "to have the problem solving skills that are important to be able to use generative AI in the enterprise or eating their home. Finally, I'd like to say, you know, going forward, what do we need to do...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0099_jQW465WMHZY_Gabriel Okafor  - AI to the Rescue： Uprooting Challenges in Traditional Lecture Delivery_0003",
+      "source_video": "0099_jQW465WMHZY_Gabriel Okafor  - AI to the Rescue： Uprooting Challenges in Traditional Lecture Delivery",
+      "video_id": "jQW465WMHZY",
+      "start": 152.56,
+      "end": 228.75,
+      "duration": 76.19,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "So, during conflicts and orders, hence AI has come as a game changer in this very area for humanity.",
+      "keywords": [
+        "education",
+        "learning",
+        "students",
+        "research",
+        "humanity",
+        "system"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "contextual",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Broad semantic similarity only. Matched semantic similarity 0.667.",
+      "text": "So, during conflicts and orders, hence AI has come as a game changer in this very area for humanity. So, AI is probably revolutionizing education, making it much more personalized, efficient, and...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0007",
+      "source_video": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI",
+      "video_id": "wT3zdfIIeUw",
+      "start": 277.43,
+      "end": 328.3,
+      "duration": 50.87,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "and disinformation is rampant in the Caribbean and Jamaica where I'm from across the world.",
+      "keywords": [
+        "disinformation",
+        "information",
+        "caribbean",
+        "young people",
+        "equitable",
+        "diverse"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "contextual",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Broad semantic similarity only. Matched semantic similarity 0.667.",
+      "text": "and disinformation is rampant in the Caribbean and Jamaica where I'm from across the world. And our young people are impressionable at this age. They are developing ideas and ideologies about...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0106",
+      "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+      "video_id": "hzFwSfMpEhE",
+      "start": 5638.35,
+      "end": 5679.51,
+      "duration": 41.16,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+      "summary": "But I realized that a lot of us are we are using the technology.",
+      "keywords": [
+        "media",
+        "content",
+        "using",
+        "any",
+        "influencers",
+        "know"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.9,
+      "relevance_role": "contextual",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Broad semantic similarity only. Matched semantic similarity 0.666.",
+      "text": "I didn't know. It's moving. But I realized that a lot of us are we are using the technology. So it's not a question if we're using it. But a lot of us are using it to as not just using it, but I...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0254_RXXzSGoo0KQ_(6N)： C Nelson - XYNOGENY？ How We Share Decision-Making_0001",
+      "source_video": "0254_RXXzSGoo0KQ_(6N)： C Nelson - XYNOGENY？ How We Share Decision-Making",
+      "video_id": "RXXzSGoo0KQ",
+      "start": 3.54,
+      "end": 58.53,
+      "duration": 54.99,
+      "primary_theme": "AI in Health, Science & Environment",
+      "primary_chapter": "Ch 14: AI for Environment, Climate & Sustainability",
+      "summary": "You wear, beware, I am fearless, and therefore I am powerful to the monster to its maker.",
+      "keywords": [
+        "sustainability",
+        "xymagy",
+        "now",
+        "future"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.85,
+      "relevance_role": "contextual",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Broad semantic similarity only. Matched semantic similarity 0.665.",
+      "text": "You wear, beware, I am fearless, and therefore I am powerful to the monster to its maker. Xymagy, how are we sure decision making in the age of AI? I'm Dr. Karen Nelson, futurist and sustainability...",
+      "video_year": 2021,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    }
+  ],
+  "rejected_candidates": [],
+  "debug_retrieved_candidates": [
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0008",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 413.78,
+      "end": 467.42,
+      "duration": 53.64,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils.",
+      "keywords": [
+        "youth",
+        "policy",
+        "education",
+        "young people",
+        "ethical",
+        "creativity"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.39,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'], expanded terms ['agency'].",
+      "text": "Young people who are excited by AI's potential, but are also equipped and empowered to guard against its perils. Building a future that is not only smart, but also just and uniting African. In...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0002",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 59.96,
+      "end": 113.5,
+      "duration": 53.54,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it.",
+      "keywords": [
+        "youth",
+        "conference",
+        "unesco",
+        "young people",
+        "risk",
+        "employment"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.33,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it. Many thanks to the conveners of the conference who are UNESCO, and thank you for...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0030",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 2102.77,
+      "end": 2178.2,
+      "duration": 75.43,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Bafazo Malkaza, we do appreciate that in the great work that you are doing as far as making sure that you push and drive our various students there.",
+      "keywords": [
+        "youth",
+        "students",
+        "values",
+        "far",
+        "think",
+        "look"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.35,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "Thank you so much, Mr. Bafazo Malkaza, we do appreciate that in the great work that you are doing as far as making sure that you push and drive our various students there. Thank you for that...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025_0005",
+      "source_video": "0018_HxBvfY5Qb9I_Al_Arik_Yusuph_-_AI4IA_2025",
+      "video_id": "HxBvfY5Qb9I",
+      "start": 199.87,
+      "end": 223.48,
+      "duration": 23.61,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "It gives us the power to create real change, and just make the world a whole better place.",
+      "keywords": [
+        "environment",
+        "young people",
+        "create",
+        "better"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "It gives us the power to create real change, and just make the world a whole better place. My journey with AI has taught me that technology isn't just for big companies or scientists. It's for young...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0057",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 3604.46,
+      "end": 3652.6,
+      "duration": 48.14,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "I quoted this from the youth intervention, someone who mentioned knowledge is finding what matters when it matters.",
+      "keywords": [
+        "youth",
+        "information",
+        "knowledge",
+        "matters",
+        "know",
+        "let's"
+      ],
+      "clip_usage_candidates": [
+        "context_visual"
+      ],
+      "quote_strength": 0.27,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "I quoted this from the youth intervention, someone who mentioned knowledge is finding what matters when it matters. So here if you cannot find what matters when it matters, there's an information...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0012",
+      "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+      "video_id": "cL04heQOsKo",
+      "start": 658.74,
+      "end": 718.7,
+      "duration": 59.96,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "We're going to need compute partnerships with different cloud providers or even for us to have our own hardware here in Jamaica, so buying GPUs for...",
+      "keywords": [
+        "youth",
+        "ethics",
+        "policy",
+        "empowerment",
+        "research",
+        "training"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "evidence_clip"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['empowerment', 'youth'].",
+      "text": "We're going to need compute partnerships with different cloud providers or even for us to have our own hardware here in Jamaica, so buying GPUs for example. And lastly, we can't forget this one...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+      "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+      "video_id": "",
+      "start": 816.98,
+      "end": 863.09,
+      "duration": 46.11,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+      "summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems.",
+      "keywords": [
+        "education",
+        "knowledge",
+        "empowerment",
+        "informed",
+        "role",
+        "lives"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.67,
+      "clarity_score": 0.95,
+      "relevance_role": "exact",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": true,
+      "speaker_soundbite_allowed": true,
+      "relevance_reason": "Matched direct terms ['empowerment', 'influence'].",
+      "text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0002",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 55.8,
+      "end": 108.3,
+      "duration": 52.5,
+      "primary_theme": "AI & Information Access / Media / Journalism",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "We are standing at a pivotal moment and our discussion today is about ensuring our young people are equipped, not just to survive this AI-driven...",
+      "keywords": [
+        "youth",
+        "conference",
+        "unesco",
+        "young people",
+        "creativity",
+        "employment"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.33,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "We are standing at a pivotal moment and our discussion today is about ensuring our young people are equipped, not just to survive this AI-driven future, but to shape it. Many thanks to the conveners...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0020",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 1405.23,
+      "end": 1468.5,
+      "duration": 63.27,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Somebody who has to stand in the street to get a daily wage job, be picked up by a truck that is passing by which needs a labour, doesn't have the...",
+      "keywords": [
+        "ai literacy",
+        "young people",
+        "elderly",
+        "literacy",
+        "labour",
+        "speaker"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "Somebody who has to stand in the street to get a daily wage job, be picked up by a truck that is passing by which needs a labour, doesn't have the luxury of surfing internet. So that's why I'm hoping...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0072",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 4367.34,
+      "end": 4414.58,
+      "duration": 47.24,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "driven solutions that impact and change our environment?",
+      "keywords": [
+        "youth",
+        "environment",
+        "environmental",
+        "information",
+        "creative",
+        "know"
+      ],
+      "clip_usage_candidates": [
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.41,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "driven solutions that impact and change our environment? Because we know the CHGDP, but we need something that's much more creative and that speaks to us about the day-to-day lives, but what would...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0003",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 131.37,
+      "end": 195.89,
+      "duration": 64.52,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "I want to highlight the significance of youth participation, the involvement of students and young professionals in this event is essential.",
+      "keywords": [
+        "youth",
+        "inclusive",
+        "young people",
+        "students",
+        "creativity",
+        "ethical"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'], expanded terms ['participation'].",
+      "text": "I want to highlight the significance of youth participation, the involvement of students and young professionals in this event is essential. It is their creativity and innovation and sense of...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0001",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 1.87,
+      "end": 59.96,
+      "duration": 58.09,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "My topic is AI and the youth, shaping the next generation.",
+      "keywords": [
+        "artificial intelligence",
+        "youth",
+        "ethics",
+        "ethical",
+        "africa",
+        "research"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "Greetings, colleagues. My topic is AI and the youth, shaping the next generation. My name is Dr. Tandai Zengany and I'm a lecturer at Africa University Zimbabwe, as well as a member of the UNESCO...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0061",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 3815.79,
+      "end": 3865.19,
+      "duration": 49.4,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "So why is it important for the young people to take part in policy development and also development of AI so that we can remove this bias?",
+      "keywords": [
+        "youth",
+        "policy",
+        "young people",
+        "bias",
+        "school",
+        "heritage"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "So why is it important for the young people to take part in policy development and also development of AI so that we can remove this bias? When your voice is heard, when your perspective is also...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0008",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 420.94,
+      "end": 467.98,
+      "duration": 47.04,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "Building a future that is not only smart, but also just and uniting African.",
+      "keywords": [
+        "youth",
+        "policy",
+        "education",
+        "ethical",
+        "creativity",
+        "innovation"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.39,
+      "clarity_score": 0.95,
+      "relevance_role": "strong_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'], expanded terms ['agency'].",
+      "text": "perils. Building a future that is not only smart, but also just and uniting African. In conclusion, the relationship between AI and the youth isn't a passive one. It's a dynamic dance. Yes, there are...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": true
+    },
+    {
+      "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0005",
+      "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+      "video_id": "cL04heQOsKo",
+      "start": 237.5,
+      "end": 305.89,
+      "duration": 68.39,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+      "summary": "It may come a point where these AI tools become very strong, very powerful and we want to think about how we as a nation should have control over...",
+      "keywords": [
+        "youth",
+        "employment",
+        "tools",
+        "data",
+        "want",
+        "may"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "It may come a point where these AI tools become very strong, very powerful and we want to think about how we as a nation should have control over these tools going forward. We want to think about our...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0004",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 172.76,
+      "end": 235.42,
+      "duration": 62.66,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "It is not going to replace the marketer, but a marketer will use AI for data analysis and customer insight generation will replace the one who...",
+      "keywords": [
+        "youth",
+        "creativity",
+        "prompt engineering",
+        "generation",
+        "employment",
+        "skills"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "augmentation. It is not going to replace the marketer, but a marketer will use AI for data analysis and customer insight generation will replace the one who doesn't. The future of employment is human...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact_0005",
+      "source_video": "0050_eg6Ol4iIM7I_Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Impact",
+      "video_id": "eg6Ol4iIM7I",
+      "start": 235.42,
+      "end": 301.24,
+      "duration": 65.82,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "It lowers the barriers to entry, allowing more young people to become creators, builders, and entrepreneurs.",
+      "keywords": [
+        "misinformation",
+        "youth",
+        "young people",
+        "ethical",
+        "bias",
+        "young innovators"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "with new sounds rooted in beer rhythms. AI does not kill creativity. It democratizes it. It lowers the barriers to entry, allowing more young people to become creators, builders, and entrepreneurs....",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0001",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 1.87,
+      "end": 55.8,
+      "duration": 53.93,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "My topic is AI and the youth shaping the next generation.",
+      "keywords": [
+        "artificial intelligence",
+        "youth",
+        "ethics",
+        "ethical",
+        "africa",
+        "research"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.48,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "Greetings, colleagues. My topic is AI and the youth shaping the next generation. My name is Dr. Tandai Zengany and I'm a lecturer at Africa University in Zimbabwe, as well as a member of the UNESCO...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0194_Sa96z9ElooQ_Paul Thompson - How Autonomous Reasoning Agents are Paving the Way for Ethical AI Governance_0006",
+      "source_video": "0194_Sa96z9ElooQ_Paul Thompson - How Autonomous Reasoning Agents are Paving the Way for Ethical AI Governance",
+      "video_id": "Sa96z9ElooQ",
+      "start": 298.93,
+      "end": 353.06,
+      "duration": 54.13,
+      "primary_theme": "AI Ethics, Governance & Policy",
+      "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+      "summary": "decisions that resonate with our values and our complexities?",
+      "keywords": [
+        "youth",
+        "policy",
+        "values",
+        "aias",
+        "suggest",
+        "development"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.5,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "decisions that resonate with our values and our complexities? We'll explore this. But let's go a little deeper. Because what we want to do is to bring AI from the sky and make it more practical in...",
+      "video_year": 2023,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI_0005",
+      "source_video": "0092_wT3zdfIIeUw_Christina Williams - Technology on our Terms： How to Empower Future Generations for A Future of AI",
+      "video_id": "wT3zdfIIeUw",
+      "start": 183.86,
+      "end": 229.66,
+      "duration": 45.8,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "empowering students and young people with the information to use platforms.",
+      "keywords": [
+        "artificial intelligence",
+        "young people",
+        "information",
+        "students",
+        "teachers",
+        "children"
+      ],
+      "clip_usage_candidates": [
+        "archive_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "empowering students and young people with the information to use platforms. That is a great place to start. But what about the individuals that young people and children take their guidance from the...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0006",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 325.24,
+      "end": 393.34,
+      "duration": 68.1,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 8: Regional & Satellite Conference Events",
+      "summary": "of us with these new digital technologies, I now respect the youth.",
+      "keywords": [
+        "youth",
+        "governance",
+        "policy",
+        "inclusive",
+        "africa",
+        "ethical"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "context_visual"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "of us with these new digital technologies, I now respect the youth. Let's today's discussion, self-execord to action, for policy makers to embrace inclusive governance of AI, for academia and...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0005",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 231.86,
+      "end": 292.55,
+      "duration": 60.69,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "Or a musician in Harari using AI to experiment with new sounds rooted in beer rhythms.",
+      "keywords": [
+        "misinformation",
+        "youth",
+        "young people",
+        "ethical",
+        "bias",
+        "young innovators"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite"
+      ],
+      "quote_strength": 0.56,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "Or a musician in Harari using AI to experiment with new sounds rooted in beer rhythms. AI does not kill creativity. It democratizes it. It lowers the barriers to entry, allowing more young people to...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth_0004",
+      "source_video": "0033_q21_av_xFRI_Tendai_Zengeni_-_AI_and_the_Youth",
+      "video_id": "q21",
+      "start": 166.52,
+      "end": 231.86,
+      "duration": 65.34,
+      "primary_theme": "AI in Education & Creative Industries",
+      "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+      "summary": "When we talk of employment, AI is a powerful tool for job creation and augmentation.",
+      "keywords": [
+        "youth",
+        "creativity",
+        "prompt engineering",
+        "employment",
+        "generation",
+        "skills"
+      ],
+      "clip_usage_candidates": [
+        "narration_support",
+        "evidence_clip",
+        "synthesis_candidate"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "When we talk of employment, AI is a powerful tool for job creation and augmentation. It is not going to replace the marketer, but a marketer will use AI for data analysis and customer insight...",
+      "video_year": 2025,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0111",
+      "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+      "video_id": "SvVu6k02Hes",
+      "start": 6453.56,
+      "end": 6492.84,
+      "duration": 39.28,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "We understand even India is losing most of its people to some other countries.",
+      "keywords": [
+        "young people",
+        "knowledge",
+        "communities",
+        "people",
+        "let's",
+        "young"
+      ],
+      "clip_usage_candidates": [
+        "speaker_soundbite",
+        "narration_support"
+      ],
+      "quote_strength": 0.7,
+      "clarity_score": 0.8,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "We understand even India is losing most of its people to some other countries. So how do we combat such an issue? We cannot develop our power in seven days or two and four hours. So I believe that...",
+      "video_year": 2026,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    },
+    {
+      "fragment_id": "0116_Nhrakadfx6M_Siddharth Peter de Souza  - Data silences： the practice of managing what we measure_0012",
+      "source_video": "0116_Nhrakadfx6M_Siddharth Peter de Souza  - Data silences： the practice of managing what we measure",
+      "video_id": "Nhrakadfx6M",
+      "start": 588.35,
+      "end": 633.46,
+      "duration": 45.11,
+      "primary_theme": "AI Equity, Inclusion & Social Justice",
+      "primary_chapter": "Ch 12: Youth, Aging & Generational Perspectives",
+      "summary": "And you will see from this image that there is a clear way in which they've written this headline in order to make it less passive and to make it...",
+      "keywords": [
+        "youth",
+        "numbers",
+        "way",
+        "make"
+      ],
+      "clip_usage_candidates": [
+        "evidence_clip"
+      ],
+      "quote_strength": 0.42,
+      "clarity_score": 0.95,
+      "relevance_role": "weak_related",
+      "speaker": null,
+      "speaker_attribution": null,
+      "speaker_clip_allowed": false,
+      "speaker_soundbite_allowed": false,
+      "relevance_reason": "Matched direct terms ['youth'].",
+      "text": "of this. And you will see from this image that there is a clear way in which they've written this headline in order to make it less passive and to make it more active. And we think about data...",
+      "video_year": 2024,
+      "audio_quality_status": null,
+      "final_video_allowed": false
+    }
+  ],
+  "storyline": {
+    "title": "Empowering the Next Generation: AI and Youth",
+    "logline": "From early attempts to massive participation, through rising risks of misinformation, to co‑creating inclusive AI in local languages, this short documentary traces how artificial intelligence is reshaping youth empowerment worldwide.",
+    "style": "documentary",
+    "target_duration_seconds": 30,
+    "estimated_duration_seconds": 30,
+    "director_plan": {
+      "enabled": true,
+      "video_mode": "chronological_relay",
+      "evidence_strength": "high",
+      "exact_clip_count": 4,
+      "related_clip_count": 6,
+      "strong_related_count": 6,
+      "usable_speaker_clip_count": 3,
+      "usable_speaker_visual_count": 0,
+      "rejected_clip_count": 0,
+      "unique_speaker_count": 0,
+      "unique_source_video_count": 9,
+      "theme_coverage": [
+        "AI & Information Access / Media / Journalism",
+        "AI Equity, Inclusion & Social Justice",
+        "AI Ethics, Governance & Policy",
+        "Disinformation, Deepfakes & AI Safety"
+      ],
+      "chapter_coverage": [
+        "Ch 10: Gender, Race & Diversity in AI",
+        "Ch 12: Youth, Aging & Generational Perspectives",
+        "Ch 1: Foundations of AI Ethics & Philosophy",
+        "Ch 4: AI Economics, Competition & Markets",
+        "Ch 5: Open Data & Information Accessibility",
+        "Ch 6: AI in Journalism & the Media Landscape"
+      ],
+      "average_similarity": 0.672665,
+      "average_quote_strength": 0.453056,
+      "recommended_structure": [
+        {
+          "role": "temporal_context",
+          "section_type": "narration",
+          "narration_guidance": "Establish the historical or multi-year arc — describe how the topic has evolved across conference years.",
+          "evidence_expectation": "clips or narration grounded in the earliest year represented in the candidate pool",
+          "year_slot": 2024,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": []
+        },
+        {
+          "role": "human_problem",
+          "section_type": "speaker_soundbite",
+          "narration_guidance": "A speaker articulates the core human challenge or gap that drives the relay of ideas across time.",
+          "evidence_expectation": "exact-match soundbite from any year that names the problem clearly",
+          "year_slot": 2021,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": [
+            {
+              "fragment_id": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+              "start": 387.57,
+              "end": 428.65,
+              "video_year": 2021,
+              "speaker_name": "",
+              "text": "run several programs like the AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation of more than 80,000 people from almost 81 countries across th",
+              "usage": "evidence_visual"
+            }
+          ]
+        },
+        {
+          "role": "risk_escalation",
+          "section_type": "speaker_soundbite",
+          "narration_guidance": "A voice from a later year escalates the stakes — what has worsened, spread, or gone unaddressed.",
+          "evidence_expectation": "strong-related or exact clip from a more recent year than the human_problem clip",
+          "year_slot": 2024,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": [
+            {
+              "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+              "start": 816.98,
+              "end": 863.09,
+              "video_year": 2024,
+              "speaker_name": "",
+              "text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to mak",
+              "usage": "evidence_visual"
+            }
+          ]
+        },
+        {
+          "role": "solution_direction",
+          "section_type": "speaker_soundbite",
+          "narration_guidance": "A speaker proposes or describes a concrete direction, policy, or intervention pointing toward resolution.",
+          "evidence_expectation": "exact or strong-related clip with forward-looking or prescriptive language",
+          "year_slot": 2026,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": [
+            {
+              "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0021",
+              "start": 1468.5,
+              "end": 1547.52,
+              "video_year": 2026,
+              "speaker_name": "",
+              "text": "Using local languages and examples that make sense in our daily life, the monities, therefore, must be part of designing these systems that solve their real problems. In our real problems, in Zimbabwe",
+              "usage": "evidence_visual"
+            },
+            {
+              "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+              "start": 63.2,
+              "end": 131.37,
+              "video_year": 2026,
+              "speaker_name": "",
+              "text": "goals as DJs. Access to information is not simply about connectivity or technology. It is about empowerment, accountability and opportunity. AI has the potential to accelerate these goals, but only if",
+              "usage": "evidence_visual"
+            }
+          ]
+        },
+        {
+          "role": "synthesis",
+          "section_type": "narration",
+          "narration_guidance": "Narrator closes the relay — summarising what the sequence of voices reveals about progress, persistence of the problem, or urgency for action.",
+          "evidence_expectation": "narration only; may reference multiple clips from the relay by year",
+          "year_slot": 2024,
+          "speaker_soundbites": [],
+          "archive_visual_fragments": []
+        }
+      ],
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ],
+      "requested_speaker": null
+    },
+    "narrative_arc": [
+      "opening_hook",
+      "context",
+      "problem_or_tension",
+      "human_perspective",
+      "expert_evidence",
+      "solution_direction",
+      "final_synthesis"
+    ],
+    "sections": [
+      {
+        "section_id": "S1",
+        "section_type": "opening_hook",
+        "target_duration_seconds": 5,
+        "director_role": "opening_context",
+        "evidence_role": "low",
+        "evidence_confidence": "medium",
+        "fallback_allowed": true,
+        "planning_note": "Set the stage with a vivid 2024 snapshot; use generated AI abstract visual and internet B‑roll of youth coding labs.",
+        "narration": "In 2024, the global surge of AI tools sparked a new wave of youth curiosity, as classrooms and community hubs began integrating machine‑learning demos, prompting educators to ask how digital empowerment could reshape future leadership across continents.",
+        "archive_visual_fragments": [],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "title_card",
+            "description": "Animated title with AI‑inspired typography",
+            "on_screen_text": "Empowering the Next Generation"
+          },
+          {
+            "asset_type": "abstract_ai_visual",
+            "description": "Dynamic abstract representation of neural networks intertwining with silhouettes of young people",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": [
+          {
+            "asset_type": "b_roll",
+            "description": "Footage of diverse teenagers working on laptops, robotics kits, and VR headsets in a classroom setting",
+            "search_keywords": [
+              "youth coding workshop",
+              "AI classroom 2024"
+            ]
+          }
+        ],
+        "evidence_fragment_ids": [],
+        "claim_type": "synthesis",
+        "evidence_terms": [],
+        "year_slot": null
+      },
+      {
+        "section_id": "S2",
+        "section_type": "problem_or_tension",
+        "target_duration_seconds": 5,
+        "director_role": "exact_evidence_clip",
+        "evidence_role": "related",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "Highlight the 2021 participation gap using the Mr A Singh keynote visual; supplement with internet B‑roll of empty conference rooms.",
+        "narration": "In 2021, despite mounting enthusiasm, young people still faced a stark gap: limited access to decision‑making platforms and few tailored AI curricula, leaving a generation under‑represented in shaping technologies that would soon define their livelihoods.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+            "usage": "background_visual",
+            "start": 387.57,
+            "end": 428.65,
+            "reason": "Shows massive summit attendance but underscores that youth voices were not central to agenda."
+          }
+        ],
+        "speaker_soundbites": [],
+        "generated_assets_needed": [
+          {
+            "asset_type": "data_card",
+            "description": "Simple infographic showing 2021 youth participation statistics vs. overall attendance",
+            "on_screen_text": "Youth: <5% of speakers"
+          }
+        ],
+        "internet_assets_needed": [
+          {
+            "asset_type": "b_roll",
+            "description": "Empty seats in a conference hall, symbolizing under‑representation",
+            "search_keywords": [
+              "empty conference hall",
+              "low attendance youth"
+            ]
+          }
+        ],
+        "evidence_fragment_ids": [
+          "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010"
+        ],
+        "claim_type": "direct_evidence",
+        "evidence_terms": [
+          "empowerment",
+          "participation"
+        ],
+        "year_slot": null
+      },
+      {
+        "section_id": "S3",
+        "section_type": "expert_evidence",
+        "target_duration_seconds": 5,
+        "director_role": "related_theme_clip",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "Use the 2024 Warsame & Ekotto clip to voice the rising risk of fragmented truth; overlay with AI‑generated misinformation graphics.",
+        "narration": "In 2024, experts warned that the unchecked spread of personalized AI narratives amplified misinformation, fragmenting shared reality and deepening the digital divide, especially for youth lacking critical media literacy to discern truth from algorithmic bias.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+            "usage": "evidence_visual",
+            "start": 816.98,
+            "end": 863.09,
+            "reason": "Directly addresses empowerment through knowledge while highlighting the risk of biased AI narratives."
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+            "start": 816.98,
+            "end": 863.09,
+            "quote_summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems…",
+            "reason": "Provides a concise, authoritative statement on the knowledge gap and its consequences."
+          }
+        ],
+        "generated_assets_needed": [
+          {
+            "asset_type": "transition_card",
+            "description": "Glitch‑style transition illustrating fragmented information streams",
+            "on_screen_text": ""
+          }
+        ],
+        "internet_assets_needed": [
+          {
+            "asset_type": "b_roll",
+            "description": "Screenshots of AI‑generated deepfake videos and social media feeds",
+            "search_keywords": [
+              "AI deepfake news",
+              "misinformation AI 2024"
+            ]
+          }
+        ],
+        "evidence_fragment_ids": [
+          "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016"
+        ],
+        "claim_type": "direct_evidence",
+        "evidence_terms": [
+          "empowerment",
+          "influence"
+        ],
+        "year_slot": null
+      },
+      {
+        "section_id": "S4",
+        "section_type": "solution_direction",
+        "target_duration_seconds": 15,
+        "director_role": "synthesis_narration",
+        "evidence_role": "exact",
+        "evidence_confidence": "high",
+        "fallback_allowed": false,
+        "planning_note": "Combine the 2026 Zimbabwe speaker soundbite with background visual of AI access; finish with a hopeful synthesis narration.",
+        "narration": "In 2026, leaders proposed co‑creating AI solutions in local languages, embedding youth voices in design workshops, and building community‑run data hubs, a strategy that promises to turn empowerment into measurable opportunities while safeguarding inclusive, bias‑aware systems.",
+        "archive_visual_fragments": [
+          {
+            "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0021",
+            "usage": "evidence_visual",
+            "start": 1468.5,
+            "end": 1547.52,
+            "reason": "Exact quote about using local languages and community involvement."
+          },
+          {
+            "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002",
+            "usage": "background_visual",
+            "start": 63.2,
+            "end": 131.37,
+            "reason": "Reinforces the link between information access and empowerment."
+          }
+        ],
+        "speaker_soundbites": [
+          {
+            "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0021",
+            "start": 1468.5,
+            "end": 1547.52,
+            "quote_summary": "Using local languages and examples that make sense in our daily life, the communities must be part of designing these systems that solve their real problems.",
+            "reason": "Provides concrete, forward‑looking recommendation."
+          }
+        ],
+        "generated_assets_needed": [
+          {
+            "asset_type": "map_card",
+            "description": "World map highlighting pilot communities where local‑language AI is being deployed",
+            "on_screen_text": "Local‑Language AI Pilots 2026"
+          }
+        ],
+        "internet_assets_needed": [
+          {
+            "asset_type": "b_roll",
+            "description": "Footage of youth participating in community AI workshops in rural settings",
+            "search_keywords": [
+              "community AI workshop Africa",
+              "youth AI training 2026"
+            ]
+          }
+        ],
+        "evidence_fragment_ids": [
+          "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0021",
+          "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002"
+        ],
+        "claim_type": "direct_evidence",
+        "evidence_terms": [
+          "empowerment",
+          "youth",
+          "gender"
+        ],
+        "year_slot": null
+      }
+    ],
+    "voiceover_script": [
+      {
+        "section_id": "S1",
+        "text": "In 2024, the global surge of AI tools sparked a new wave of youth curiosity, as classrooms and community hubs began integrating machine‑learning demos, prompting educators to ask how digital empowerment could reshape future leadership across continents.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S2",
+        "text": "In 2021, despite mounting enthusiasm, young people still faced a stark gap: limited access to decision‑making platforms and few tailored AI curricula, leaving a generation under‑represented in shaping technologies that would soon define their livelihoods.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S3",
+        "text": "In 2024, experts warned that the unchecked spread of personalized AI narratives amplified misinformation, fragmenting shared reality and deepening the digital divide, especially for youth lacking critical media literacy to discern truth from algorithmic bias.",
+        "tone": "calm documentary narrator"
+      },
+      {
+        "section_id": "S4",
+        "text": "In 2026, leaders proposed co‑creating AI solutions in local languages, embedding youth voices in design workshops, and building community‑run data hubs, a strategy that promises to turn empowerment into measurable opportunities while safeguarding inclusive, bias‑aware systems.",
+        "tone": "calm documentary narrator"
+      }
+    ],
+    "selected_speaker_soundbites": [
+      {
+        "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+        "start": 816.98,
+        "end": 863.09,
+        "quote_summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of fair systems. We can and we should equip everyone with the understanding and knowledge needed to...",
+        "use_in_section": "S3"
+      },
+      {
+        "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0021",
+        "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+        "start": 1468.5,
+        "end": 1547.52,
+        "quote_summary": "Using local languages and examples that make sense in our daily life, the communities must be part of designing these systems that solve their real problems.",
+        "use_in_section": "S4"
+      }
+    ],
+    "asset_plan": {
+      "real_archive_assets": [
+        "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+        "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0021",
+        "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0002"
+      ],
+      "generated_assets": [
+        "Animated title card with AI‑inspired typography",
+        "Abstract neural‑network visual intertwining with youth silhouettes",
+        "Data card showing 2021 youth participation vs. total attendance",
+        "Glitch‑style transition illustrating fragmented information streams",
+        "World map highlighting local‑language AI pilot communities"
+      ],
+      "internet_assets": [
+        "B‑roll of diverse teenagers coding, robotics, and VR in classrooms",
+        "B‑roll of empty conference hall seats symbolising under‑representation",
+        "Screenshots of AI‑generated deepfake videos and social media feeds",
+        "Footage of youth participating in community AI workshops in rural settings"
+      ],
+      "voiceover_required": true,
+      "subtitles_required": true,
+      "background_music_required": true
+    },
+    "export_timeline": [
+      {
+        "type": "title_card",
+        "title": "Empowering the Next Generation: AI and Youth",
+        "duration": 4.0
+      },
+      {
+        "type": "year_stamp",
+        "year": 2021,
+        "duration": 2.5,
+        "audio_mode": "silent",
+        "muted": true,
+        "section_role": "temporal_transition"
+      },
+      {
+        "type": "speaker_clip",
+        "segment_type": "speaker_clip",
+        "audio_mode": "source_audio",
+        "fragment_id": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+        "source_video": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh",
+        "video_year": 2021,
+        "video_upload_date": "20211017",
+        "speaker": null,
+        "speaker_attribution": null,
+        "start": 389.296,
+        "end": 395.165,
+        "duration": 5.869,
+        "use_as": "archive_visual",
+        "relevance_role": "strong_related",
+        "selection_reason": "Matched direct terms ['empowerment'], expanded terms ['participation'].",
+        "speaker_clip_allowed": false,
+        "speaker_visual_allowed": false,
+        "subclip_adjusted": false,
+        "moment_text": "AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation",
+        "moment_summary": "AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation",
+        "moment_selection_reason": "topic-dense(0.40)",
+        "section_role": "hook",
+        "muted": false,
+        "subtitle_text": "AI with Chacha, we organize the responsible AI for social empowerment summit last year, we saw participation",
+        "subtitle_kind": "speaker",
+        "speech_quality": {
+          "speech_ratio": 0.816,
+          "mean_volume": -20.2,
+          "silence_ratio": 0.184,
+          "is_usable_speech": true,
+          "estimated_words": 17,
+          "duration": 5.869
+        },
+        "moment_scores": {
+          "moment_prompt_score": 0.4,
+          "quote_completeness_score": 0.413,
+          "speech_quality_score": 0.632,
+          "section_fit_score": 0.0,
+          "documentary_value_score": 0.41,
+          "intro_penalty": 0.0,
+          "silence_penalty": 0.0,
+          "side_topic_penalty": 0.0,
+          "incomplete_sentence_penalty": 0.1,
+          "final_moment_score": 0.2589
+        }
+      },
+      {
+        "type": "year_stamp",
+        "year": 2023,
+        "duration": 2.5,
+        "audio_mode": "silent",
+        "muted": true,
+        "section_role": "temporal_transition"
+      },
+      {
+        "type": "archive_visual",
+        "segment_type": "archive_visual",
+        "audio_mode": "silent",
+        "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0007",
+        "source_video": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South",
+        "video_year": 2023,
+        "video_upload_date": "20231115",
+        "speaker": null,
+        "speaker_attribution": null,
+        "start": 386.5,
+        "end": 392.338,
+        "duration": 5.838,
+        "use_as": "archive_visual",
+        "relevance_role": "strong_related",
+        "selection_reason": "Matched direct terms ['empowerment'], expanded terms ['gender', 'participation'].",
+        "speaker_clip_allowed": false,
+        "speaker_visual_allowed": false,
+        "subclip_adjusted": false,
+        "moment_text": "One way this can be done is by training local researchers with paper-predictives",
+        "moment_summary": "One way this can be done is by training local researchers with paper-predictives",
+        "moment_selection_reason": "general-score(0.08); archive_visual(is_meaningful=True,score=0.08,completeness=0.39,reasons=['no_topic_terms_found', 'ends_without_terminal_punctuation'])",
+        "section_role": "human_context",
+        "muted": true,
+        "subtitle_text": "",
+        "subtitle_kind": "none",
+        "speech_quality": {
+          "speech_ratio": 0.716,
+          "mean_volume": -21.4,
+          "silence_ratio": 0.284,
+          "is_usable_speech": true,
+          "estimated_words": 13,
+          "duration": 5.838
+        },
+        "moment_scores": {
+          "moment_prompt_score": 0.0,
+          "quote_completeness_score": 0.3905,
+          "speech_quality_score": 0.542,
+          "section_fit_score": 0.0,
+          "documentary_value_score": 0.13,
+          "intro_penalty": 0.0,
+          "silence_penalty": 0.0,
+          "side_topic_penalty": 0.0,
+          "incomplete_sentence_penalty": 0.1,
+          "final_moment_score": 0.0789
+        }
+      },
+      {
+        "type": "year_stamp",
+        "year": 2024,
+        "duration": 2.5,
+        "audio_mode": "silent",
+        "muted": true,
+        "section_role": "temporal_transition"
+      },
+      {
+        "type": "archive_visual",
+        "segment_type": "archive_visual",
+        "audio_mode": "silent",
+        "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "source_video": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth",
+        "video_year": 2024,
+        "video_upload_date": "20241125",
+        "speaker": null,
+        "speaker_attribution": null,
+        "start": 816.98,
+        "end": 822.835,
+        "duration": 5.855,
+        "use_as": "speaker_soundbite",
+        "relevance_role": "exact",
+        "selection_reason": "Matched direct terms ['empowerment', 'influence'].",
+        "speaker_clip_allowed": true,
+        "speaker_visual_allowed": false,
+        "subclip_adjusted": false,
+        "moment_text": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of",
+        "moment_summary": "To empower individuals with knowledge and choice while we cannot involve everybody in the design of",
+        "moment_selection_reason": "general-score(0.13); archive_visual(is_meaningful=True,score=0.13,completeness=0.45,reasons=['no_topic_terms_found', 'ends_without_terminal_punctuation'])",
+        "section_role": "context",
+        "muted": true,
+        "subtitle_text": "",
+        "subtitle_kind": "none",
+        "speech_quality": {
+          "speech_ratio": 0.891,
+          "mean_volume": -19.3,
+          "silence_ratio": 0.109,
+          "is_usable_speech": true,
+          "estimated_words": 15,
+          "duration": 5.855
+        },
+        "moment_scores": {
+          "moment_prompt_score": 0.0,
+          "quote_completeness_score": 0.4505,
+          "speech_quality_score": 0.782,
+          "section_fit_score": 0.0,
+          "documentary_value_score": 0.16,
+          "intro_penalty": 0.0,
+          "silence_penalty": 0.0,
+          "side_topic_penalty": 0.0,
+          "incomplete_sentence_penalty": 0.1,
+          "final_moment_score": 0.1314
+        }
+      },
+      {
+        "type": "year_stamp",
+        "year": 2025,
+        "duration": 2.5,
+        "audio_mode": "silent",
+        "muted": true,
+        "section_role": "temporal_transition"
+      },
+      {
+        "type": "speaker_clip",
+        "segment_type": "speaker_clip",
+        "audio_mode": "source_audio",
+        "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0012",
+        "source_video": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward",
+        "video_year": 2025,
+        "video_upload_date": "20250929",
+        "speaker": null,
+        "speaker_attribution": null,
+        "start": 690.454,
+        "end": 696.401,
+        "duration": 5.946,
+        "use_as": "speaker_soundbite",
+        "relevance_role": "exact",
+        "selection_reason": "Matched direct terms ['empowerment', 'youth'].",
+        "speaker_clip_allowed": true,
+        "speaker_visual_allowed": false,
+        "subclip_adjusted": false,
+        "moment_text": "We're talking skills training on youth empowerment. Now, we hear a lot",
+        "moment_summary": "We're talking skills training on youth empowerment. Now, we hear a lot",
+        "moment_selection_reason": "topic-dense(0.40)",
+        "section_role": "tension",
+        "muted": false,
+        "subtitle_text": "We're talking skills training on youth empowerment. Now, we hear a lot",
+        "subtitle_kind": "speaker",
+        "speech_quality": {
+          "speech_ratio": 0.744,
+          "mean_volume": -21.1,
+          "silence_ratio": 0.256,
+          "is_usable_speech": true,
+          "estimated_words": 12,
+          "duration": 5.947
+        },
+        "moment_scores": {
+          "moment_prompt_score": 0.4,
+          "quote_completeness_score": 0.425,
+          "speech_quality_score": 0.68,
+          "section_fit_score": 0.0,
+          "documentary_value_score": 0.36,
+          "intro_penalty": 0.0,
+          "silence_penalty": 0.0,
+          "side_topic_penalty": 0.0,
+          "incomplete_sentence_penalty": 0.1,
+          "final_moment_score": 0.261
+        }
+      },
+      {
+        "type": "closing_card",
+        "title": "Empowering the Next Generation: AI and Youth",
+        "duration": 4.0
+      }
+    ],
+    "editor_notes": [
+      "Maintain a consistent warm, hopeful tone despite the risk segment; use color grading that shifts from cooler blues (risk) to brighter greens (solution).",
+      "Add lower‑third subtitles for each speaker soundbite with speaker attribution as \"Speaker\" (no name available).",
+      "Background music should be subtle, evolving from ambient strings in S1‑S2 to a slightly more urgent rhythm in S3, resolving into an uplifting crescendo in S4."
+    ],
+    "generation_mode": "llm",
+    "planning_summary": {
+      "video_mode": "chronological_relay",
+      "evidence_strength": "high",
+      "exact_clip_count": 4,
+      "related_clip_count": 6,
+      "strong_related_count": 6,
+      "usable_speaker_clip_count": 3,
+      "rejected_clip_count": 0,
+      "fallback_risk": "low",
+      "planning_notes": [
+        "Speaker diversity is limited, so narration carries more of the connective explanation."
+      ]
+    },
+    "timeline_repair": {
+      "required": true,
+      "reason": "llm_timeline_missing_phase4o_moment_fields",
+      "raw_timeline_items": 12,
+      "rebuilt_timeline_items": 10
+    }
+  },
+  "window_clamp_notes": [],
+  "duration_fill_report": {
+    "status": "already_sufficient",
+    "target_seconds": 30.0,
+    "floor_seconds": 30.6,
+    "total_before_seconds": 41.508,
+    "total_after_seconds": 41.508,
+    "segments_added": [],
+    "shortfall_seconds": 0.0
+  },
+  "duration_budget": {
+    "stage": "07_generate_storyline",
+    "target_seconds": 30.0,
+    "planned_total_seconds": 41.508,
+    "segment_count": 10,
+    "unmeasured_segment_count": 0,
+    "segments": [
+      {
+        "index": 1,
+        "type": "title_card",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 4.0
+      },
+      {
+        "index": 2,
+        "type": "year_stamp",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 2.5
+      },
+      {
+        "index": 3,
+        "type": "speaker_clip",
+        "section_id": null,
+        "fragment_id": "0244_zJLv8sreIiQ_Keynote 2： Mr A Singh_0010",
+        "seconds": 5.869
+      },
+      {
+        "index": 4,
+        "type": "year_stamp",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 2.5
+      },
+      {
+        "index": 5,
+        "type": "archive_visual",
+        "section_id": null,
+        "fragment_id": "0150_pps7x1QyHII_Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global South_0007",
+        "seconds": 5.838
+      },
+      {
+        "index": 6,
+        "type": "year_stamp",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 2.5
+      },
+      {
+        "index": 7,
+        "type": "archive_visual",
+        "section_id": null,
+        "fragment_id": "0109__c244n-7nd0_H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Shared Truth_0016",
+        "seconds": 5.855
+      },
+      {
+        "index": 8,
+        "type": "year_stamp",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 2.5
+      },
+      {
+        "index": 9,
+        "type": "speaker_clip",
+        "section_id": null,
+        "fragment_id": "0055_cL04heQOsKo_Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward_0012",
+        "seconds": 5.946
+      },
+      {
+        "index": 10,
+        "type": "closing_card",
+        "section_id": null,
+        "fragment_id": null,
+        "seconds": 4.0
+      }
+    ],
+    "meets_floor": true,
+    "shortfall_seconds": 0.0,
+    "overshoot_seconds": 11.508,
+    "overshoot_warning": true
+  }
+}

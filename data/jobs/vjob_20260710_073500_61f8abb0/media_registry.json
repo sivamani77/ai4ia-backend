@@ -1,0 +1,42 @@
+{
+  "job_id": "vjob_20260710_073500_61f8abb0",
+  "storage_backend": "s3",
+  "objects": {
+    "video": {
+      "object_id": "video",
+      "kind": "video",
+      "object_key": "exports/vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.mp4",
+      "storage_backend": "s3",
+      "content_type": "video/mp4",
+      "filename": "vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.mp4",
+      "job_id": "vjob_20260710_073500_61f8abb0"
+    },
+    "manifest": {
+      "object_id": "manifest",
+      "kind": "manifest",
+      "object_key": "exports/vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment_export_manifest.json",
+      "storage_backend": "s3",
+      "content_type": "application/json",
+      "filename": "vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment_export_manifest.json",
+      "job_id": "vjob_20260710_073500_61f8abb0"
+    },
+    "srt": {
+      "object_id": "srt",
+      "kind": "subtitle",
+      "object_key": "exports/vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.srt",
+      "storage_backend": "s3",
+      "content_type": "application/x-subrip",
+      "filename": "vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.srt",
+      "job_id": "vjob_20260710_073500_61f8abb0"
+    },
+    "vtt": {
+      "object_id": "vtt",
+      "kind": "subtitle",
+      "object_key": "exports/vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.vtt",
+      "storage_backend": "s3",
+      "content_type": "text/vtt",
+      "filename": "vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.vtt",
+      "job_id": "vjob_20260710_073500_61f8abb0"
+    }
+  }
+}

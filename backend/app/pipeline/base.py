@@ -69,6 +69,21 @@ def _kill_process_group(pid: int) -> None:
     t.start()
 
 
+_LOG_FLUSH_INTERVAL = 2.0  # seconds between live log flushes to Supabase
+
+
+def _stream_pump(pipe, stream_name: str, job_id: str, stage_name: str,
+                  full_lines: list[str], pending: list[str], lock, append_event) -> None:
+    """Read a subprocess pipe line-by-line, buffering for the periodic flush."""
+    try:
+        for line in iter(pipe.readline, ""):
+            full_lines.append(line)
+            with lock:
+                pending.append(line.rstrip("\n"))
+    finally:
+        pipe.close()
+
+
 def run_script(
     job_id: str,
     stage_name: str,
@@ -81,7 +96,16 @@ def run_script(
     `timeout` overrides the per-stage default when provided — used by stage 09,
     whose render+transcribe time scales with the requested video duration and
     the host's encoder (GPU nvenc vs CPU libx264).
+
+    Output is streamed live: reader threads pump stdout/stderr into buffers as
+    the subprocess produces them, and a background thread flushes those
+    buffers to Supabase as "script_log" events every few seconds, so pollers
+    (e.g. load_events_after) see progress while the stage is still running —
+    not just after it exits.
     """
+    import threading
+    import time
+
     from app.services.job_store import append_event, load_job, save_job
 
     env = {**os.environ, **(extra_env or {})} if extra_env else None
@@ -107,11 +131,50 @@ def run_script(
         except Exception:
             pass
 
+        stdout_lines: list[str] = []
+        stderr_lines: list[str] = []
+        pending: list[str] = []
+        lock = threading.Lock()
+        stop_flush = threading.Event()
+
+        def _flush() -> None:
+            with lock:
+                if not pending:
+                    return
+                batch = "\n".join(pending)
+                pending.clear()
+            append_event(job_id, "script_log", stage_name, {"lines": batch})
+
+        def _flush_loop() -> None:
+            while not stop_flush.wait(_LOG_FLUSH_INTERVAL):
+                _flush()
+
+        readers = [
+            threading.Thread(
+                target=_stream_pump,
+                args=(process.stdout, "stdout", job_id, stage_name, stdout_lines, pending, lock, append_event),
+                daemon=True,
+            ),
+            threading.Thread(
+                target=_stream_pump,
+                args=(process.stderr, "stderr", job_id, stage_name, stderr_lines, pending, lock, append_event),
+                daemon=True,
+            ),
+        ]
+        for t in readers:
+            t.start()
+        flusher = threading.Thread(target=_flush_loop, daemon=True)
+        flusher.start()
+
         try:
-            stdout, stderr = process.communicate(timeout=timeout)
+            process.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
             _kill_process_group(process.pid)
-            process.communicate()  # drain pipes to avoid deadlock
+            process.wait()  # reap after kill
+            for t in readers:
+                t.join(timeout=5)
+            stop_flush.set()
+            _flush()
             msg = f"Stage {stage_name} timed out after {timeout}s"
             append_event(job_id, "script_error", stage_name, {"error": msg})
             return -1, "", msg
@@ -124,8 +187,13 @@ def run_script(
             except Exception:
                 pass
 
-        stdout = stdout or ""
-        stderr = stderr or ""
+        for t in readers:
+            t.join(timeout=5)
+        stop_flush.set()
+        _flush()
+
+        stdout = "".join(stdout_lines)
+        stderr = "".join(stderr_lines)
         append_event(job_id, "script_output", stage_name, {
             "exit_code": process.returncode,
             "stdout": stdout[-4000:],

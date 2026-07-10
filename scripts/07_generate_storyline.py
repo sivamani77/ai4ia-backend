@@ -4,6 +4,7 @@ import os
 import re
 import subprocess
 import sys
+import threading
 import time
 from pathlib import Path
 from datetime import datetime
@@ -133,7 +134,8 @@ MAX_SPEAKER_OCCURRENCES = settings.max_uses_per_speaker
 
 
 def log(message: str) -> None:
-    print(message, flush=True)
+    ts = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+    print(f"[{ts}] {message}", flush=True)
 
 
 def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SECONDS) -> dict[str, Any]:
@@ -158,13 +160,30 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
 
 
 def warm_up_ollama() -> None:
-    """Ping Ollama so the first real call (strong model / embeddings) doesn't hit
-    a cold-load timeout. Best-effort: failures here are non-fatal."""
+    """Force-load STRONG_LLM_MODEL into Ollama before the real storyline call.
+
+    A GET /api/tags only checks the server is reachable — it does NOT load a
+    model into memory. gpt-oss:120b is large enough that its cold load time
+    (reading weights off disk) can be minutes, and without this warm-up that
+    load happens inside generate_llm_storyline()'s timed call. Sending a
+    trivial /api/generate here pays that cost up front instead. Best-effort:
+    failures here are non-fatal, the real call will just eat the cold-load cost.
+    """
     try:
-        requests.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=15)
-        log("Ollama health check passed.")
+        _t0 = time.time()
+        requests.post(
+            OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT,
+            json={
+                "model": STRONG_LLM_MODEL,
+                "prompt": "hi",
+                "stream": False,
+                "options": {"num_predict": 1},
+            },
+            timeout=600,
+        )
+        log(f"Ollama warm-up: {STRONG_LLM_MODEL} loaded in {time.time() - _t0:.1f}s")
     except Exception as exc:
-        log(f"Ollama health check failed (continuing): {exc}")
+        log(f"Ollama warm-up failed (continuing, real call will pay cold-load cost): {exc}")
 
 
 
@@ -5386,7 +5405,12 @@ def main() -> None:
         exclude_manual_review=args.exclude_manual_review,
     )
 
-    warm_up_ollama()
+    # Warm up in the background — it overlaps with the CPU/embedding work below
+    # (corpus scoring, candidate retrieval) instead of blocking ahead of it, so
+    # the ~minutes-long model cold-load isn't wasted serial time on the critical path.
+    _warm_up_thread = threading.Thread(target=warm_up_ollama, daemon=True)
+    _warm_up_thread.start()
+
     known_speakers = load_known_speakers()
     log(f"Loaded {len(known_speakers)} known speakers.")
     all_records = _FILTERED_RECORDS if _FILTERED_RECORDS is not None else load_embedding_records()
@@ -5493,6 +5517,10 @@ def main() -> None:
     fallback_reason = None
 
     if not args.fallback_only:
+        if _warm_up_thread.is_alive():
+            log("Waiting for Ollama warm-up to finish before the storyline call...")
+        _warm_up_thread.join(timeout=590)
+
         try:
             storyline = generate_llm_storyline(
                 user_prompt=args.prompt,

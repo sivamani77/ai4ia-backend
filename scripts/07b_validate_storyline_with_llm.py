@@ -16,6 +16,7 @@ Step 08 uses `final_timeline` directly when present.
 """
 
 import argparse
+import asyncio
 import json
 import os
 import re
@@ -24,6 +25,8 @@ import time
 from pathlib import Path
 from datetime import datetime
 from typing import Any
+
+import httpx
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -343,7 +346,8 @@ GENERIC_NARRATIVE_SECTIONS = [
 # ---------------------------------------------------------------------------
 
 def log(msg: str) -> None:
-    print(msg, flush=True)
+    ts = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+    print(f"[{ts}] {msg}", flush=True)
 
 
 def _to_ollama_generate_payload(payload: dict[str, Any]) -> dict[str, Any]:
@@ -396,6 +400,32 @@ def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SE
             log(f"  [llm] Attempt {attempt}/{MAX_RETRIES} failed: {exc}")
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_SLEEP_SECONDS * (2 ** (attempt - 1)))
+    raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")
+
+
+async def post_with_retries_async(
+    payload: dict[str, Any],
+    client: httpx.AsyncClient,
+    timeout: int = REQUEST_TIMEOUT_SECONDS,
+) -> str:
+    """Async twin of post_with_retries — same retry/backoff behavior, non-blocking I/O."""
+    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    ollama_payload = _to_ollama_generate_payload(payload)
+    last_error: Exception | None = None
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            _t0 = time.time()
+            resp = await client.post(url, json=ollama_payload, timeout=timeout)
+            resp.raise_for_status()
+            _content = resp.json().get("response", "")
+            log(f"  [llm-timing] model={ollama_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            return _content
+
+        except Exception as exc:
+            last_error = exc
+            log(f"  [llm] Attempt {attempt}/{MAX_RETRIES} failed: {exc}")
+            if attempt < MAX_RETRIES:
+                await asyncio.sleep(RETRY_SLEEP_SECONDS * (2 ** (attempt - 1)))
     raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")
 
 
@@ -639,13 +669,14 @@ def _quote_starts_cleanly(text: str) -> bool:
     return t[0].isupper()
 
 
-def validate_candidate_with_llm(
+def _build_validation_prompt(
     candidate: dict[str, Any],
     context_window: list[dict[str, Any]],
     narrative_sections: list[dict[str, Any]],
     user_prompt: str,
     target_duration: int,
-) -> dict[str, Any] | None:
+) -> tuple[str, str]:
+    """Build the per-fragment validation prompt. Returns (prompt, fragment_id)."""
     frag_id = candidate.get("fragment_id", "?")
     frag_start = float(candidate.get("start") or 0)
     frag_end = float(candidate.get("end") or frag_start + 10)
@@ -702,7 +733,30 @@ Return JSON with these exact fields:
   "confidence": 0.85
 }}
 """
+    return prompt, frag_id
 
+
+def _parse_validation_result(raw: str, frag_id: str) -> dict[str, Any] | None:
+    result = extract_json_object(raw)
+    if not result:
+        log(f"  [llm] No JSON from validation for {frag_id[:50]}")
+        return None
+    result["fragment_id"] = frag_id
+    if "approved" not in result:
+        result["approved"] = result.get("decision") not in ("reject",)
+    return result
+
+
+def validate_candidate_with_llm(
+    candidate: dict[str, Any],
+    context_window: list[dict[str, Any]],
+    narrative_sections: list[dict[str, Any]],
+    user_prompt: str,
+    target_duration: int,
+) -> dict[str, Any] | None:
+    prompt, frag_id = _build_validation_prompt(
+        candidate, context_window, narrative_sections, user_prompt, target_duration
+    )
     try:
         raw = post_with_retries({
             "model": STRONG_LLM_MODEL,
@@ -711,17 +765,37 @@ Return JSON with these exact fields:
             "max_completion_tokens": 4096,
             "stream": False,
         })
-        result = extract_json_object(raw)
-        if not result:
-            log(f"  [llm] No JSON from validation for {frag_id[:50]}")
-            return None
-        result["fragment_id"] = frag_id
-        if "approved" not in result:
-            result["approved"] = result.get("decision") not in ("reject",)
-        return result
+        return _parse_validation_result(raw, frag_id)
     except Exception as exc:
         log(f"  [llm] Validation failed for {frag_id[:50]}: {exc}")
         return None
+
+
+async def validate_candidate_with_llm_async(
+    candidate: dict[str, Any],
+    context_window: list[dict[str, Any]],
+    narrative_sections: list[dict[str, Any]],
+    user_prompt: str,
+    target_duration: int,
+    client: httpx.AsyncClient,
+    semaphore: asyncio.Semaphore,
+) -> dict[str, Any] | None:
+    prompt, frag_id = _build_validation_prompt(
+        candidate, context_window, narrative_sections, user_prompt, target_duration
+    )
+    async with semaphore:
+        try:
+            raw = await post_with_retries_async({
+                "model": STRONG_LLM_MODEL,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": 0.3,
+                "max_completion_tokens": 4096,
+                "stream": False,
+            }, client)
+            return _parse_validation_result(raw, frag_id)
+        except Exception as exc:
+            log(f"  [llm] Validation failed for {frag_id[:50]}: {exc}")
+            return None
 
 
 def fallback_validation(candidate: dict[str, Any]) -> dict[str, Any]:
@@ -785,6 +859,14 @@ RULES:
 - Maximum 5 speaker clips, 3-5 narration_broll segments.
 - Reject redundant or weak clips that duplicate other clips.
 - End with a closing synthesis statement on the USER PROMPT topic.
+- Every narration_broll item's "voiceover_text" is REQUIRED and must be non-empty —
+  this is the only narration pass that will run; there is no separate follow-up call
+  to fill gaps, so leaving voiceover_text blank or thin is not recoverable later.
+- GROUNDING (violations are auto-rejected downstream): every factual claim in a
+  voiceover_text must come from the quote_text/reason fields of the APPROVED
+  CANDIDATE CLIPS below — never invent named people, organisations, statistics,
+  percentages, or study results that are not present there. If the evidence doesn't
+  support a specific claim, write thematic connective narration instead.
 - CRITICAL: every "fragment_id" value you write must be copied EXACTLY,
   character-for-character, from the "fragment_id" field of one of the
   APPROVED CANDIDATE CLIPS listed below. Never invent, abbreviate,
@@ -830,10 +912,19 @@ def assemble_narrative_with_llm(
         for s in narrative_sections
     ], indent=2)
 
+    # Same word-budget formula generate_voiceovers_for_timeline uses, so a
+    # voiceover written here doesn't get flagged as "too short" and overwritten later.
+    n_sections = max(1, len(narrative_sections))
+    content_budget_s = max(1, target_duration - 10)
+    per_section_s = round(content_budget_s / n_sections)
+    target_words = max(40, int(per_section_s * 2.5))
+    min_sentences = max(3, round(target_words / 15))
+
     prompt = f"""{NARRATIVE_ASSEMBLY_SYSTEM}
 
 USER PROMPT: "{user_prompt}"
 TARGET DURATION: {target_duration} seconds
+TARGET WORDS PER NARRATION_BROLL SEGMENT: ~{target_words} words (about {min_sentences}-{min_sentences + 2} sentences) — do not undershoot this, thin narration gets replaced downstream.
 
 NARRATIVE SECTIONS:
 {sections_json}
@@ -1094,20 +1185,25 @@ def generate_voiceovers_for_timeline(
 ) -> list[dict[str, Any]]:
     """Fill voiceover_text for all narration_broll items that lack it.
 
-    Priority:
-    1. Use existing narration from script-07 storyline.sections (topic-correct, duration-proportioned)
-    2. Fall back to LLM with a topic-aware, transcript-grounded prompt for items still missing text
+    Source: existing narration from script-07 storyline.sections (topic-correct,
+    duration-proportioned, already generated — no network call needed).
+
+    Assembly (assemble_narrative_with_llm) is now responsible for writing
+    voiceover_text for every narration_broll item directly, so this function no
+    longer makes its own LLM round trip. Any item still empty after the script-07
+    fill below is left blank and picked up by the topic-default substitution the
+    caller (main()) already runs after this — not re-queried here, to avoid a
+    second sequential LLM call per job.
 
     All narration is checked against the selected fragments' transcripts: text that
     invents named people or unsourced statistics is rejected (falls back to the safe
-    section defaults) rather than shipped.
+    section defaults downstream) rather than shipped.
     """
     # Calculate target word count per section proportional to target_duration
     n_sections = max(1, len(narrative_sections))
     content_budget_s = max(1, target_duration - 10)
     per_section_s = round(content_budget_s / n_sections)
     target_words = max(40, int(per_section_s * 2.5))
-    min_sentences = max(3, round(target_words / 15))
 
     # Grounding material: narration may only claim what the selected fragments say
     source_blob, allowed_names = _build_grounding_material(validated_candidates)
@@ -1146,135 +1242,18 @@ def generate_voiceovers_for_timeline(
                 log(f"  [vo-sl07] {item.get('section_id')}: {text[:80]!r}")
         nb_pos += 1
 
-    # Step 2: collect any still-missing voiceovers for LLM fallback
-    section_map = {s["section_id"]: s for s in narrative_sections}
-    approved_texts: dict[str, str] = {}
-    for c in validated_candidates:
-        if c.get("approved") and c.get("quote_text"):
-            sid = c.get("section_id") or ""
-            if sid and sid not in approved_texts:
-                approved_texts[sid] = (c.get("quote_text") or "")[:200]
-
-    needs_vo: list[dict[str, Any]] = []
-    for item in final_timeline:
-        t = item.get("type") or item.get("segment_type") or ""
-        if t == "narration_broll" and not (item.get("voiceover_text") or "").strip():
-            needs_vo.append(item)
-
-    if not needs_vo:
-        return final_timeline
-
-    sections_context = "\n".join(
-        f"  {s['section_id']}: {s['title']} — {s['purpose'][:100]}"
-        for s in narrative_sections
+    # Step 2 (formerly a second LLM call) removed: assemble_narrative_with_llm now
+    # writes voiceover_text for every narration_broll item itself. Anything still
+    # empty here means both script-07 reuse and the assembly LLM missed it — leave
+    # it blank and let the topic-default substitution in main() fill it, rather
+    # than pay for another sequential LLM round trip.
+    still_missing = sum(
+        1 for item in final_timeline
+        if (item.get("type") or item.get("segment_type") or "") == "narration_broll"
+        and not (item.get("voiceover_text") or "").strip()
     )
-    evidence_context = "\n".join(
-        f"  {sid}: \"{text[:120]}\""
-        for sid, text in approved_texts.items()
-    ) or "  (none)"
-
-    # The ONLY source material the narrator may draw claims from
-    transcript_excerpts = []
-    for c in (validated_candidates or [])[:12]:
-        excerpt = (c.get("moment_text") or c.get("quote_text") or c.get("text") or "").strip()
-        if excerpt:
-            speaker = c.get("speaker") or c.get("speaker_attribution") or "unknown speaker"
-            transcript_excerpts.append(f'  [{speaker}]: "{excerpt[:400]}"')
-    transcripts_context = "\n".join(transcript_excerpts) or "  (none available)"
-
-    vo_items_json = json.dumps([
-        {"section_id": item.get("section_id"), "position": i}
-        for i, item in enumerate(needs_vo)
-    ], indent=2)
-
-    prompt = f"""You are a documentary narrator writing voiceover scripts for a short documentary.
-
-TOPIC (from user): "{user_prompt}"
-TARGET VIDEO DURATION: {target_duration} seconds
-TARGET WORDS PER SECTION: ~{target_words} words (approximately {min_sentences}-{min_sentences + 2} sentences)
-
-DOCUMENTARY STRUCTURE:
-{sections_context}
-
-EVIDENCE ALREADY USED (upcoming speaker quotes that follow each narration):
-{evidence_context}
-
-SOURCE TRANSCRIPTS (the ONLY material you may draw claims from):
-{transcripts_context}
-
-Write specific, evidence-driven voiceover narration for each of these segments.
-Each voiceover MUST:
-- Be about {min_sentences} sentences and NO MORE than {target_words} words (this is a hard ceiling — the video length is driven by real footage, not narration)
-- Be directly about the topic: "{user_prompt}"
-- Be specific to the section's purpose
-- Prepare the viewer for the speaker quote that follows (when applicable)
-- NEVER write about a different topic (e.g. do NOT write about deepfakes if the prompt is about AI inclusion)
-
-GROUNDING RULES (violations will be rejected automatically):
-- Every factual claim must come from the SOURCE TRANSCRIPTS above — do NOT add facts from your own knowledge
-- NEVER invent named people, organisations, statistics, percentages, or study results that do not appear in the source transcripts
-- Only mention speakers who appear in the source transcripts
-- If the transcripts don't support a specific claim, write thematic connective narration instead (introduce questions and themes, not facts)
-
-SEGMENTS NEEDING VOICEOVER:
-{vo_items_json}
-
-Return ONLY a JSON array with one entry per segment:
-[
-  {{
-    "section_id": "S1_HOOK",
-    "position": 0,
-    "voiceover_text": "specific {min_sentences}-sentence narration here about the actual topic"
-  }}
-]
-"""
-
-    try:
-        raw = post_with_retries({
-            "model": STRONG_LLM_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.3,
-            "max_completion_tokens": 4096,
-            "stream": False,
-        })
-
-        vo_list = extract_json_array(raw)
-        if not vo_list:
-            log("  [llm] No JSON array from voiceover generation.")
-            return final_timeline
-
-        vo_lookup: dict[tuple, str] = {}
-        for vo in vo_list:
-            if isinstance(vo, dict):
-                sid = vo.get("section_id") or ""
-                pos = vo.get("position", -1)
-                text = vo.get("voiceover_text") or ""
-                if text:
-                    vo_lookup[(sid, pos)] = text
-
-        nb_idx = 0
-        for item in final_timeline:
-            t = item.get("type") or item.get("segment_type") or ""
-            if t == "narration_broll" and not (item.get("voiceover_text") or "").strip():
-                sid = item.get("section_id") or ""
-                text = vo_lookup.get((sid, nb_idx), "")
-                if not text:
-                    for (s, p), v in vo_lookup.items():
-                        if s == sid:
-                            text = v
-                            break
-                if text:
-                    text = _clean_voiceover_text(text, sid)
-                    grounding_issues = _narration_grounding_issues(text, source_blob, allowed_names)
-                    if grounding_issues:
-                        log(f"  [grounding] rejected LLM narration for {sid}: {grounding_issues}")
-                    else:
-                        item["voiceover_text"] = text
-                        item["subtitle_text"] = text
-                        log(f"  [vo-llm] {sid}: {text[:80]!r}")
-                nb_idx += 1
-    except Exception as exc:
-        log(f"  [llm] Voiceover generation failed: {exc}")
+    if still_missing:
+        log(f"  [vo] {still_missing} narration_broll item(s) still empty after script-07 fill — will use topic defaults.")
 
     return final_timeline
 
@@ -2082,27 +2061,27 @@ def main() -> None:
     log(f"Narrative structure: {[s['section_id'] for s in narrative_sections]}")
     log(f"Fragment items to validate: {len(fragment_items)}")
 
-    # Validate each fragment (parallel — each LLM call is independent)
-    def _validate_one_fragment(
-        i: int,
-        item: dict[str, Any],
-    ) -> tuple[int, dict[str, Any], bool]:
-        """Returns (i, result, used_fallback)."""
+    # Validate each fragment (concurrent — each LLM call is independent).
+    # Transcript/context lookup is local disk I/O and stays synchronous; only
+    # the LLM round trip is awaited, so the semaphore purely throttles Ollama load.
+    def _prepare_fragment(i: int, item: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
         fid = str(item.get("fragment_id") or "")
         source_video = item.get("source_video") or ""
         start = float(item.get("start") or 0)
         end = float(item.get("end") or start + 10)
 
-        log(f"\n[{i+1}/{len(fragment_items)}] Validating: {fid[:60]!r}")
+        log(f"\n[{i+1}/{len(fragment_items)}] Preparing: {fid[:60]!r}")
         log(f"  source_video: {source_video[:60]!r}  window: {start:.1f}→{end:.1f}s")
 
         cand_data = candidate_map.get(fid, {})
         merged = {**cand_data, **item}
         merged["fragment_id"] = fid
+        merged["source_video"] = source_video
+        merged["start"] = start
+        merged["end"] = end
 
         transcript_path = find_transcript_file(source_video, transcripts_dir, fallback_dir)
         context_window: list[dict[str, Any]] = []
-
         if transcript_path:
             log(f"  transcript: {transcript_path.name}")
             segs = load_transcript_segments(transcript_path)
@@ -2110,49 +2089,70 @@ def main() -> None:
             log(f"  context window: {len(context_window)} segments ({len(context_window)} around {start:.1f}–{end:.1f}s)")
         else:
             log(f"  transcript: NOT FOUND for {source_video[:50]!r}")
+        return merged, context_window
 
+    def _finalize_result(
+        i: int,
+        merged: dict[str, Any],
+        result: dict[str, Any] | None,
+    ) -> tuple[int, dict[str, Any], bool]:
         used_fallback = False
-        if args.skip_llm:
+        if result is None:
+            used_fallback = True
+            log(f"  WARNING: LLM validation failed — using score-based fallback.")
             result = fallback_validation(merged)
+            result["_fallback_reason"] = "llm_failed"
             log(f"  fallback decision: {result['decision']} | approved={result['approved']}")
         else:
-            result = validate_candidate_with_llm(
-                candidate=merged,
-                context_window=context_window,
-                narrative_sections=narrative_sections,
-                user_prompt=user_prompt,
-                target_duration=target_duration,
-            )
-            if result is None:
-                used_fallback = True
-                log(f"  WARNING: LLM validation failed — using score-based fallback.")
-                result = fallback_validation(merged)
-                result["_fallback_reason"] = "llm_failed"
-
             log(f"  LLM decision: {result.get('decision')} | approved={result.get('approved')} | section={result.get('section_id')} | confidence={result.get('confidence', 0):.2f}")
             if not result.get("approved"):
                 log(f"  reason: {result.get('reason', '')}")
 
-        result["source_video"] = source_video
-        result["start"] = start
-        result["end"] = end
+        result["source_video"] = merged["source_video"]
+        result["start"] = merged["start"]
+        result["end"] = merged["end"]
         result["text"] = merged.get("text") or merged.get("moment_text") or ""
         return i, result, used_fallback
 
-    from concurrent.futures import ThreadPoolExecutor, as_completed
-
-    # Cap at 3 workers to avoid overwhelming Ollama with concurrent requests.
-    max_workers = min(3, max(1, len(fragment_items)))
+    # Concurrency cap: local Ollama can serialize past this — 6 chosen as a
+    # doubling of the prior thread-based cap of 3; tune down if Ollama logs
+    # queuing/timeouts under load.
+    max_concurrency = min(6, max(1, len(fragment_items)))
     raw_results: dict[int, tuple[dict[str, Any], bool]] = {}
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        futures = {
-            executor.submit(_validate_one_fragment, i, item): i
-            for i, item in enumerate(fragment_items)
-        }
-        for future in as_completed(futures):
-            i, result, used_fallback = future.result()
-            raw_results[i] = (result, used_fallback)
+    if args.skip_llm:
+        for i, item in enumerate(fragment_items):
+            merged, _ = _prepare_fragment(i, item)
+            result = fallback_validation(merged)
+            log(f"  fallback decision: {result['decision']} | approved={result['approved']}")
+            result["source_video"] = merged["source_video"]
+            result["start"] = merged["start"]
+            result["end"] = merged["end"]
+            result["text"] = merged.get("text") or merged.get("moment_text") or ""
+            raw_results[i] = (result, False)
+    else:
+        async def _validate_all_async() -> None:
+            semaphore = asyncio.Semaphore(max_concurrency)
+            async with httpx.AsyncClient() as client:
+                async def _run_one(i: int, item: dict[str, Any]) -> None:
+                    merged, context_window = _prepare_fragment(i, item)
+                    result = await validate_candidate_with_llm_async(
+                        candidate=merged,
+                        context_window=context_window,
+                        narrative_sections=narrative_sections,
+                        user_prompt=user_prompt,
+                        target_duration=target_duration,
+                        client=client,
+                        semaphore=semaphore,
+                    )
+                    idx, final_result, used_fallback = _finalize_result(i, merged, result)
+                    raw_results[idx] = (final_result, used_fallback)
+
+                await asyncio.gather(*(
+                    _run_one(i, item) for i, item in enumerate(fragment_items)
+                ))
+
+        asyncio.run(_validate_all_async())
 
     validated_candidates: list[dict[str, Any]] = []
     llm_fallback_count = 0

@@ -2,9 +2,9 @@ import argparse
 import json
 import os
 import re
-import shutil
 import subprocess
 import sys
+import time
 from math import ceil
 from pathlib import Path
 from datetime import datetime
@@ -112,12 +112,15 @@ def _vcodec_flags(threads: int | None = 2) -> list[str]:
 
 
 def log(message: str) -> None:
-    print(message, flush=True)
+    ts = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+    print(f"[{ts}] {message}", flush=True)
 
 
 def run_cmd(cmd: list[str]) -> None:
     log("Running: " + " ".join(cmd))
+    _t0 = time.time()
     result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+    _elapsed = time.time() - _t0
 
     if result.returncode != 0:
         if result.stdout.strip():
@@ -126,6 +129,8 @@ def run_cmd(cmd: list[str]) -> None:
             log(result.stderr.rstrip())
         detail = (result.stderr.strip() or result.stdout.strip() or "no output")[-3000:]
         raise RuntimeError(f"Command failed: {' '.join(cmd)}\n{detail}")
+
+    log(f"  [cmd-timing] {cmd[0]} finished in {_elapsed:.1f}s")
 
 
 def run_cmd_capture(cmd: list[str]) -> str:
@@ -598,15 +603,34 @@ def render_archive_clip(
     run_cmd(cmd)
 
 
-def concat_segments(segment_paths: list[Path], output_path: Path) -> None:
+def concat_segments(segment_paths: list[Path], output_path: Path, subtitle_path: Path | None = None) -> None:
+    """Concat all rendered segments into one file, re-encoding once.
+
+    Re-encode on concat to fix timestamp discontinuities from mixed segments.
+    -c copy causes freeze/drift when segments have differing pts/dts origins —
+    this was tested and reverted before, keep the re-encode.
+
+    subtitle_path is optional: when given, the burn-in subtitles filter is
+    folded into this same encode pass instead of running a second full-length
+    ffmpeg pass over the output afterward (burn_subtitles() used to do that;
+    subtitle timing is already known at this point since it comes from
+    segment_infos computed before concat, so there's no ordering reason to
+    keep it as a separate pass).
+    """
     concat_file = output_path.parent / "concat_list.txt"
 
     with concat_file.open("w", encoding="utf-8") as f:
         for path in segment_paths:
             f.write(f"file '{path.resolve()}'\n")
 
-    # Re-encode on concat to fix timestamp discontinuities from mixed segments.
-    # -c copy causes freeze/drift when segments have differing pts/dts origins.
+    vf_chain = "fps=30,setpts=N/(30*TB),format=yuv420p"
+    if subtitle_path is not None:
+        subtitle_filter_path = str(subtitle_path.resolve()).replace(":", "\\:")
+        vf_chain += (
+            f",subtitles='{subtitle_filter_path}':"
+            "force_style='Fontsize=16,Outline=1,Shadow=1,MarginV=32,Alignment=2'"
+        )
+
     cmd = [
         "ffmpeg",
         "-y",
@@ -614,7 +638,7 @@ def concat_segments(segment_paths: list[Path], output_path: Path) -> None:
         "-f", "concat",
         "-safe", "0",
         "-i", str(concat_file),
-        "-vf", "fps=30,setpts=N/(30*TB),format=yuv420p",
+        "-vf", vf_chain,
         "-af", "aresample=async=1:first_pts=0",
         *_vcodec_flags(threads=0),
         "-r", "30",
@@ -1437,22 +1461,6 @@ def write_vtt(entries: list[dict[str, Any]], path: Path) -> None:
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
-def burn_subtitles(input_video: Path, subtitle_path: Path, output_path: Path) -> None:
-    subtitle_filter_path = str(subtitle_path.resolve()).replace(":", "\\:")
-
-    cmd = [
-        "ffmpeg",
-        "-y",
-        "-i", str(input_video),
-        "-vf", f"subtitles='{subtitle_filter_path}':force_style='Fontsize=16,Outline=1,Shadow=1,MarginV=32,Alignment=2'",
-        *_vcodec_flags(threads=None),
-        "-c:a", "copy",
-        str(output_path),
-    ]
-
-    run_cmd(cmd)
-
-
 def generate_final_audio_subtitles(output_path: Path) -> None:
     if not FINAL_SUBTITLE_SCRIPT.exists():
         raise FileNotFoundError(f"Final subtitle script not found: {FINAL_SUBTITLE_SCRIPT}")
@@ -2015,17 +2023,25 @@ def _render_timeline_items(
     """
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
+    def _render_one_segment_timed(idx, item, work_dir, target_sec_per_segment):
+        _t0 = time.time()
+        result = _render_one_segment(idx, item, work_dir, target_sec_per_segment)
+        log(f"  [segment-timing] segment {idx} ({item.get('segment_type') or item.get('type')}) rendered in {time.time() - _t0:.1f}s")
+        return result
+
     MAX_WORKERS = min(4, max(1, len(timeline)))
     raw_results: dict[int, tuple[Path | None, dict[str, Any] | None]] = {}
 
+    _render_all_t0 = time.time()
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         futures = {
-            executor.submit(_render_one_segment, idx, item, work_dir, target_sec_per_segment): idx
+            executor.submit(_render_one_segment_timed, idx, item, work_dir, target_sec_per_segment): idx
             for idx, item in enumerate(timeline, start=1)
         }
         for future in as_completed(futures):
             idx, path, info = future.result()  # re-raises any RuntimeError from render
             raw_results[idx] = (path, info)
+    log(f"  [render] all {len(timeline)} segments rendered (wall-clock, {MAX_WORKERS} workers) in {time.time() - _render_all_t0:.1f}s")
 
     segment_paths: list[Path] = []
     segment_infos: list[dict[str, Any]] = []
@@ -2053,6 +2069,7 @@ def _render_timeline_items(
 
 
 def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) -> Path:
+    _export_t0 = time.time()
     manifest = load_manifest(manifest_path)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -2153,9 +2170,10 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
             f"Pre-render integrity check failed with {len(_integrity_failures)} issue(s):\n  - "
             + "\n  - ".join(_integrity_failures)
         )
-    log(f"Pre-render integrity check passed: all {len(timeline)} segments have resolvable media.")
+    log(f"Pre-render integrity check passed: all {len(timeline)} segments have resolvable media. (elapsed so far: {time.time() - _export_t0:.1f}s)")
 
     segment_paths, segment_infos, current_time = _render_timeline_items(timeline, work_dir, _target_sec_per_segment)
+    log(f"  [phase-timing] segment rendering phase done (elapsed so far: {time.time() - _export_t0:.1f}s)")
 
     # Post-render validation
     rendered_archive_visuals = sum(1 for s in segment_infos if s.get("segment_type") == "archive_visual")
@@ -2244,13 +2262,12 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
     write_srt(subtitle_entries, srt_output_path)
     write_vtt(subtitle_entries, vtt_output_path)
 
-    base_concat_path = work_dir / "base_concat.mp4"
-    concat_segments(segment_paths, base_concat_path)
-
-    if burn_subs:
-        burn_subtitles(base_concat_path, srt_output_path, output_path)
-    else:
-        shutil.copyfile(base_concat_path, output_path)
+    concat_segments(
+        segment_paths,
+        output_path,
+        subtitle_path=srt_output_path if burn_subs else None,
+    )
+    log(f"  [phase-timing] concat phase done (elapsed so far: {time.time() - _export_t0:.1f}s)")
 
     # Fix 6: A/V ending balance — if video stream is shorter than audio, pad last frame
     try:
@@ -2499,6 +2516,7 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
     log("Export complete")
     log(f"Output video: {output_path}")
     log(f"Export manifest: {export_manifest_path}")
+    log(f"  [phase-timing] total export_video() wall-clock: {time.time() - _export_t0:.1f}s")
 
     return output_path
 

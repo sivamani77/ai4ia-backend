@@ -5,6 +5,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 from datetime import datetime
 from typing import Any
@@ -204,7 +205,8 @@ SECTION_HEADLINES = {
 
 
 def log(message: str) -> None:
-    print(message, flush=True)
+    ts = datetime.now().strftime("%H:%M:%S.%f")[:-3]
+    print(f"[{ts}] {message}", flush=True)
 
 
 def slugify(text: str, max_len: int = 80) -> str:
@@ -2232,50 +2234,60 @@ def main() -> None:
             log("No voice-over text found. Skipping TTS.")
             tts_status = "no_text"
         else:
-            log(f"Generating reference full voice-over with edge-tts voice: {args.voice}")
-            asyncio.run(
-                generate_tts(
-                    text=full_voiceover_text,
-                    output_path=voiceover_audio_path,
-                    voice=args.voice,
-                    rate=args.rate,
-                    volume=args.volume,
-                )
-            )
-
+            section_jobs = []
             for item in voiceover_script:
                 section_id = item.get("section_id")
                 section_type = item.get("section_type", "section")
                 text = item.get("text", "").strip()
-
                 if not section_id or not text:
                     continue
-
                 section_audio_path = section_audio_dir / f"{section_id}_{slugify(section_type)}_voiceover.mp3"
+                section_jobs.append({
+                    "section_id": section_id,
+                    "section_type": section_type,
+                    "text": text,
+                    "audio_path": section_audio_path,
+                })
 
-                log(f"Generating section voice-over: {section_id}")
-                asyncio.run(
-                    generate_tts(
-                        text=text,
-                        output_path=section_audio_path,
-                        voice=args.voice,
-                        rate=args.rate,
-                        volume=args.volume,
-                    )
+            log(f"Generating {1 + len(section_jobs)} voice-over(s) concurrently with edge-tts voice: {args.voice}")
+
+            async def _tts_with_log(label: str, text: str, output_path: Path) -> None:
+                t0 = time.time()
+                await generate_tts(
+                    text=text,
+                    output_path=output_path,
+                    voice=args.voice,
+                    rate=args.rate,
+                    volume=args.volume,
+                )
+                log(f"  [tts] {label} done in {time.time() - t0:.1f}s")
+
+            async def _generate_all_tts() -> None:
+                await asyncio.gather(
+                    _tts_with_log("reference", full_voiceover_text, voiceover_audio_path),
+                    *(
+                        _tts_with_log(job["section_id"], job["text"], job["audio_path"])
+                        for job in section_jobs
+                    ),
                 )
 
-                section_voiceovers.append(
-                    {
-                        "section_id": section_id,
-                        "section_type": section_type,
-                        "text": text,
-                        "audio_path": str(section_audio_path),
-                        "provider": "edge-tts",
-                        "voice": args.voice,
-                        "rate": args.rate,
-                        "volume": args.volume,
-                    }
-                )
+            _t0 = time.time()
+            asyncio.run(_generate_all_tts())
+            log(f"All TTS calls finished in {time.time() - _t0:.1f}s wall-clock (was sequential before).")
+
+            section_voiceovers = [
+                {
+                    "section_id": job["section_id"],
+                    "section_type": job["section_type"],
+                    "text": job["text"],
+                    "audio_path": str(job["audio_path"]),
+                    "provider": "edge-tts",
+                    "voice": args.voice,
+                    "rate": args.rate,
+                    "volume": args.volume,
+                }
+                for job in section_jobs
+            ]
 
             tts_status = "generated"
             log(f"Reference full voice-over generated: {voiceover_audio_path}")

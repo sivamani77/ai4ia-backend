@@ -1,0 +1,408 @@
+2026-07-10 13:05:00,794 | INFO | ai4ia.services.job_store | - | - | Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=queued
+[2026-07-10 13:05:01,072: INFO/MainProcess] Task ai4ia.run_video_job[5809f4df-555c-4ed0-9da4-c2adf02eca70] received
+[2026-07-10 13:05:01,076: INFO/ForkPoolWorker-1] [vjob_20260710_073500_61f8abb0] Celery worker starting pipeline
+[2026-07-10 13:05:01,140: INFO/ForkPoolWorker-1] Initialized Supabase client
+[2026-07-10 13:05:01,347: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:05:01,349: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:05:01,536: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:05:01,539: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:05:01,539: INFO/ForkPoolWorker-1] Pipeline started
+[2026-07-10 13:05:01,539: INFO/ForkPoolWorker-1] Stage starting
+[2026-07-10 13:05:01,710: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:05:01,711: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+2026-07-10 13:05:01,753 | INFO | ai4ia.api | - | - | [b62fdd4f] END POST /api/video-jobs 202 2.04s
+INFO:     127.0.0.1:56842 - "POST /api/video-jobs HTTP/1.1" 202 Accepted
+[2026-07-10 13:05:01,917: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:05:01,918: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:05:02,124: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:05:02,323: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:05:02,324: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:05:02,493: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:05:02,494: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:05:02,665: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:05:02,841: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:05:02,842: INFO/ForkPoolWorker-1] Stage completed
+[2026-07-10 13:05:03,008: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:05:03,009: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:05:03,009: INFO/ForkPoolWorker-1] Stage starting
+[2026-07-10 13:05:03,182: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:05:03,182: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:05:03,374: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:05:03,375: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:05:03,600: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:05:03,768: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:05:03,929: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:05:03,930: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:05:04,115: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:05:04,117: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:05:04,423: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:05:13,797: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:05:13,799: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:05:13,973: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:05:13,974: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:05:14,152: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:05:14,398: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:05:14,399: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:05:14,616: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:05:14,616: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:05:16,789: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:05:18,977: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:24,762: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:06:24,764: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:06:24,959: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:06:24,961: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:06:25,127: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:25,376: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:25,532: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:06:25,533: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:06:25,784: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:06:25,785: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:06:25,991: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:26,401: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:06:26,401: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:06:26,402: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:06:26,404: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:06:26,406: ERROR/ForkPoolWorker-1] llm_traces insert failed id=lt_56dab70d288047bca22eaf79fc321bed
+Traceback (most recent call last):
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 187, in handle_request
+    raise exc
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 150, in handle_request
+    status, headers = self._receive_response(
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 294, in _receive_response
+    event = self._receive_stream_event(request, stream_id)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 336, in _receive_stream_event
+    self._receive_events(request, stream_id)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 364, in _receive_events
+    events = self._read_incoming_data(request)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 438, in _read_incoming_data
+    raise self._read_exception  # pragma: nocover
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 187, in handle_request
+    raise exc
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 150, in handle_request
+    status, headers = self._receive_response(
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 294, in _receive_response
+    event = self._receive_stream_event(request, stream_id)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 336, in _receive_stream_event
+    self._receive_events(request, stream_id)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 364, in _receive_events
+    events = self._read_incoming_data(request)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 455, in _read_incoming_data
+    raise exc
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpcore/_sync/http2.py", line 443, in _read_incoming_data
+    raise RemoteProtocolError("Server disconnected")
+httpcore.RemoteProtocolError: Server disconnected
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/backend/app/db/repositories/llm_trace_repository.py", line 42, in create
+    response = self._table.insert(payload).execute()
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/postgrest/_sync/request_builder.py", line 90, in execute
+    r = send_with_retry(self.request)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/postgrest/_sync/request_builder.py", line 51, in send_with_retry
+    resp = req.send(headers)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/postgrest/base_request_builder.py", line 90, in send
+    return self.session.request(
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/home/gaian/.pyenv/versions/3.10.12/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/gaian/Downloads/ai4ia/ai4ia-backend/.venv/lib/python3.10/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected
+[2026-07-10 13:06:26,407: WARNING/ForkPoolWorker-1] Supabase transient error on upsert (id=vjob_20260710_073500_61f8abb0, attempt 1/3): Server disconnected — resetting client
+[2026-07-10 13:06:26,427: INFO/ForkPoolWorker-1] Initialized Supabase client
+[2026-07-10 13:06:27,177: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:06:27,177: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:06:27,349: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:06:27,350: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:06:27,633: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:06:27,635: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:06:27,834: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:28,040: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:28,220: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:28,222: INFO/ForkPoolWorker-1] Stage completed
+[2026-07-10 13:06:28,448: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:06:28,449: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:06:28,449: INFO/ForkPoolWorker-1] Stage starting
+[2026-07-10 13:06:28,652: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:06:28,653: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:06:28,823: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:06:28,824: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:06:28,996: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:29,168: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:06:29,371: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:06:29,372: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:06:29,543: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:06:29,545: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:06:29,779: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:09:14,397: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:09:14,399: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:09:14,705: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:09:14,707: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:09:14,966: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:09:15,215: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:09:15,216: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:09:15,385: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:09:15,387: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:09:17,570: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:09:33,853: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:09:38,035: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:09:44,236: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:09:50,427: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:31,042: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:31,044: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:31,236: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:10:31,237: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:10:31,416: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:31,606: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:31,913: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:31,914: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:32,118: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:10:32,118: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:10:32,323: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:32,325: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:32,529: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:10:32,530: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:10:32,691: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:32,693: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:32,937: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:10:32,938: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:10:33,143: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:33,305: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:33,554: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:33,758: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:33,924: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:33,950: INFO/ForkPoolWorker-1] Stage completed
+[2026-07-10 13:10:34,111: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:34,113: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:34,114: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:34,119: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:34,120: INFO/ForkPoolWorker-1] Stage starting
+[2026-07-10 13:10:34,287: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:34,290: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:34,296: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/llm_call_traces "HTTP/2 201 Created"
+[2026-07-10 13:10:34,460: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:10:34,461: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:10:34,620: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:34,782: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:34,969: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:34,970: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:35,152: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:10:35,154: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:10:35,320: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:35,705: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:35,706: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:36,419: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:10:36,420: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:10:36,625: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:36,831: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:10:36,832: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:10:37,040: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:10:37,041: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:10:39,220: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:41,438: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:43,689: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:45,858: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:48,094: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:52,256: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:54,417: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:10:56,580: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:04,780: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:06,939: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:09,102: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:13,284: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:15,455: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:17,698: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:20,249: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:11:20,251: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:11:20,453: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:11:20,455: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:11:20,618: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:20,861: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:21,025: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:11:21,026: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:11:21,271: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:11:21,273: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:11:21,476: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:25,096: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:11:25,098: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:11:25,278: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:11:25,279: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:11:25,469: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:25,675: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:25,881: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:26,084: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:26,245: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:26,422: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:26,597: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:11:26,598: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:11:26,801: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:11:26,803: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:11:27,008: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:27,211: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:27,216: INFO/ForkPoolWorker-1] Stage completed
+[2026-07-10 13:11:27,384: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:11:27,386: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:11:27,386: INFO/ForkPoolWorker-1] Stage starting
+[2026-07-10 13:11:27,620: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:11:27,622: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:11:28,178: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:11:28,180: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:11:28,358: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:28,532: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:11:28,748: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:11:28,750: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:11:28,951: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:11:28,953: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:11:29,116: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:18:55,832: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:18:55,834: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:18:56,139: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:18:56,140: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:18:56,346: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:18:56,527: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:18:56,753: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:18:56,754: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:18:57,368: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:18:57,370: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:18:59,625: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:03,924: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:06,183: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:12,447: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:16,629: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:18,807: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:20,986: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:23,173: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:25,416: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:31,678: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:35,872: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:42,150: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:44,329: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:19:46,519: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:20,727: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:47,480: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:47,486: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:47,720: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:47,721: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:47,942: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:48,139: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:48,371: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:48,373: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:48,583: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:48,585: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:48,769: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:50,512: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:50,514: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:50,681: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:50,682: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:50,853: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:50,855: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:51,019: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:51,020: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:51,237: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:51,400: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:51,575: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:51,576: INFO/ForkPoolWorker-1] Stage completed
+[2026-07-10 13:20:51,740: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:51,740: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:51,741: INFO/ForkPoolWorker-1] Stage starting
+[2026-07-10 13:20:51,918: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:51,920: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:52,091: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:52,093: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:52,364: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:52,532: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:52,735: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:52,738: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:52,972: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:52,974: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:53,133: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:53,135: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:53,346: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:53,348: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:53,543: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:53,797: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:54,006: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:54,008: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:54,313: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:54,315: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:54,555: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:54,757: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:54,758: INFO/ForkPoolWorker-1] Stage completed
+[2026-07-10 13:20:54,945: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:54,946: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:54,946: INFO/ForkPoolWorker-1] Stage starting
+[2026-07-10 13:20:55,108: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:55,111: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:55,274: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:55,275: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:55,442: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:55,744: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:55,920: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:55,922: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:56,155: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:56,157: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=running
+[2026-07-10 13:20:56,360: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:56,562: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:56,562: INFO/ForkPoolWorker-1] Stage skipped
+[2026-07-10 13:20:56,767: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:56,768: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:56,934: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:56,935: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:57,178: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:57,180: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=completed
+[2026-07-10 13:20:57,180: INFO/ForkPoolWorker-1] Pipeline completed
+[2026-07-10 13:20:57,362: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:57,365: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:57,375: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:57,386: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:57,543: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:57,544: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:57,722: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/agent_decision_records?on_conflict=id "HTTP/2 201 Created"
+[2026-07-10 13:20:57,755: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?on_conflict=id "HTTP/2 200 OK"
+[2026-07-10 13:20:57,757: INFO/ForkPoolWorker-1] Job persisted to Supabase id=vjob_20260710_073500_61f8abb0 status=completed
+[2026-07-10 13:20:57,996: INFO/ForkPoolWorker-1] HTTP Request: GET https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/jobs?select=%2A&id=eq.vjob_20260710_073500_61f8abb0&limit=1 "HTTP/2 200 OK"
+[2026-07-10 13:20:58,000: INFO/ForkPoolWorker-1] Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+[2026-07-10 13:20:58,065: INFO/ForkPoolWorker-1] [vjob_20260710_073500_61f8abb0] recovered missing registry entry video from S3 key exports/vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.mp4
+[2026-07-10 13:20:58,084: INFO/ForkPoolWorker-1] [vjob_20260710_073500_61f8abb0] recovered missing registry entry manifest from S3 key exports/vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment_export_manifest.json
+[2026-07-10 13:20:58,105: INFO/ForkPoolWorker-1] [vjob_20260710_073500_61f8abb0] recovered missing registry entry srt from S3 key exports/vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.srt
+[2026-07-10 13:20:58,124: INFO/ForkPoolWorker-1] [vjob_20260710_073500_61f8abb0] recovered missing registry entry vtt from S3 key exports/vjob_20260710_073500_61f8abb0_ai_youth_and_empowerment.vtt
+[2026-07-10 13:20:58,175: INFO/ForkPoolWorker-1] [vjob_20260710_073500_61f8abb0] media registry uploaded to s3://ai4ia-data/jobs/vjob_20260710_073500_61f8abb0/media_registry.json
+[2026-07-10 13:20:58,640: INFO/ForkPoolWorker-1] HTTP Request: POST https://rzcaziwizcektrlrdujr.supabase.co/rest/v1/job_events "HTTP/2 201 Created"
+[2026-07-10 13:20:58,642: INFO/ForkPoolWorker-1] [vjob_20260710_073500_61f8abb0] Pipeline completed successfully
+[2026-07-10 13:20:58,645: INFO/ForkPoolWorker-1] Task ai4ia.run_video_job[5809f4df-555c-4ed0-9da4-c2adf02eca70] succeeded in 957.571781947001s: {'job_id': 'vjob_20260710_073500_61f8abb0', 'status': 'completed'}
+2026-07-10 13:24:02,797 | INFO | ai4ia.api | - | - | [0f9c5378] START GET /api/video-jobs/vjob_20260710_073500_61f8abb0/result
+2026-07-10 13:24:03,034 | INFO | ai4ia.services.job_store | - | - | Job loaded from Supabase id=vjob_20260710_073500_61f8abb0
+2026-07-10 13:24:03,660 | INFO | ai4ia.api | - | - | [0f9c5378] END GET /api/video-jobs/vjob_20260710_073500_61f8abb0/result 200 0.86s
+INFO:     127.0.0.1:42308 - "GET /api/video-jobs/vjob_20260710_073500_61f8abb0/result HTTP/1.1" 200 OK
