@@ -26,7 +26,6 @@ EXPORTS_DIR = Path(os.environ.get("AI4IA_EXPORTS_DIR", str(PROJECT_ROOT / "data"
 TEMP_DIR = PROJECT_ROOT / "temp" / "video_export"
 
 LATEST_MANIFEST_PATH = GENERATED_ASSETS_DIR / "latest_asset_manifest.json"
-FINAL_SUBTITLE_SCRIPT = PROJECT_ROOT / "scripts" / "11_generate_final_subtitles.py"
 
 EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
 Path("/tmp/ai4ia_pipeline/video_export").mkdir(parents=True, exist_ok=True)
@@ -135,20 +134,6 @@ def run_cmd_capture(cmd: list[str]) -> str:
         raise RuntimeError(result.stderr)
 
     return result.stdout.strip()
-
-
-def run_cmd_logged(cmd: list[str]) -> None:
-    log("Running: " + " ".join(cmd))
-    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
-    if result.stdout.strip():
-        log(result.stdout.rstrip())
-    if result.stderr.strip():
-        log(result.stderr.rstrip())
-
-    if result.returncode != 0:
-        detail = (result.stderr.strip() or result.stdout.strip() or "no output")[-2000:]
-        raise RuntimeError(f"Command failed: {' '.join(cmd)}\n{detail}")
 
 
 def slugify(text: str, max_len: int = 80) -> str:
@@ -1453,22 +1438,6 @@ def burn_subtitles(input_video: Path, subtitle_path: Path, output_path: Path) ->
     run_cmd(cmd)
 
 
-def generate_final_audio_subtitles(output_path: Path) -> None:
-    if not FINAL_SUBTITLE_SCRIPT.exists():
-        raise FileNotFoundError(f"Final subtitle script not found: {FINAL_SUBTITLE_SCRIPT}")
-
-    cmd = [
-        sys.executable,
-        str(FINAL_SUBTITLE_SCRIPT),
-        "--video",
-        str(output_path),
-        "--model",
-        "small",
-        "--update-manifest",
-    ]
-    run_cmd_logged(cmd)
-
-
 def _build_canonical_rendering_timeline(
     manifest: dict[str, Any],
     video_mode: str | None = None,
@@ -2411,8 +2380,6 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
         encoding="utf-8",
     )
     log(f"Timeline metadata sidecar: {_tl_meta_path}")
-
-    generate_final_audio_subtitles(output_path)
 
     # Post-export ffprobe duration check
     fmt_dur: float = 0.0
