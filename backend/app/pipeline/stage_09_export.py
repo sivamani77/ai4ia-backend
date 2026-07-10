@@ -45,6 +45,20 @@ def _get_needed_asset_relpaths(mdata: dict) -> set[str]:
     return {m.group(2) for m in _ASSET_RELPATH_RE.finditer(manifest_str) if m.group(2)}
 
 
+def _rewrite_manifest_asset_paths(manifest_local: Path) -> None:
+    """Normalize every generated_assets/ path in the manifest to point at
+    GENERATED_ASSETS_DIR, in place. Whatever prefix stage 08 originally wrote
+    (a per-job /tmp dir in S3 mode, since deleted) is replaced — only the
+    relative part (audio/cards/visuals/...) is kept."""
+    manifest_str = manifest_local.read_text(encoding="utf-8")
+    rewritten = _ASSET_RELPATH_RE.sub(
+        lambda m: f'"{GENERATED_ASSETS_DIR / m.group(2)}"',
+        manifest_str,
+    )
+    if rewritten != manifest_str:
+        manifest_local.write_text(rewritten, encoding="utf-8")
+
+
 def _prepare_assets_for_export(manifest_path: str, job_id: str) -> Path:
     """
     Ensure everything the export script needs is present locally, downloading
@@ -55,11 +69,17 @@ def _prepare_assets_for_export(manifest_path: str, job_id: str) -> Path:
     rather than a per-job /tmp dir that got downloaded from scratch and
     discarded on every run — so a job that reuses footage or assets from an
     earlier job (very common: the same source talks feed many videos) skips
-    the network for those files entirely. Manifest paths already point at
-    GENERATED_ASSETS_DIR (stage 08 writes them there), so once a file is
-    cached no path-rewriting is needed either, and 09_export_video.py's own
-    RAW_VIDEO_DIR/EXPORTS_DIR defaults already resolve correctly with no env
-    override needed.
+    the network for those files entirely.
+
+    Manifest paths still need rewriting: stage 08 in S3 mode writes assets
+    under a per-job /tmp dir (via AI4IA_LOCAL_ASSETS_DIR) and deletes that
+    dir right after uploading, so the manifest's embedded paths point at a
+    directory that no longer exists by the time stage 09 runs. Every
+    generated_assets/ path gets normalized to GENERATED_ASSETS_DIR — the
+    same place _download_referenced_assets_cached just ensured the files
+    are — before the rewritten manifest is handed to 09_export_video.py.
+    RAW_VIDEO_DIR/EXPORTS_DIR need no such rewrite: 09_export_video.py
+    resolves those from its own defaults, not from manifest fields.
 
     Returns manifest_local.
     """
@@ -79,6 +99,7 @@ def _prepare_assets_for_export(manifest_path: str, job_id: str) -> Path:
 
     _download_referenced_assets_cached(mdata)
     _download_source_videos_cached(mdata)
+    _rewrite_manifest_asset_paths(manifest_local)
 
     logger.info(
         "[%s] asset prep done in %.1fs (cache-first: assets+source videos reused where already local)",
@@ -90,7 +111,16 @@ def _prepare_assets_for_export(manifest_path: str, job_id: str) -> Path:
 
 def _download_referenced_assets_cached(mdata: dict) -> None:
     """Download only the specific audio/card/visual files this manifest
-    references, skipping any already present in the persistent local cache."""
+    references, skipping any already present in the persistent local cache.
+
+    Unlike the old full-bucket mirror (which only ever iterated keys that
+    genuinely existed, from a real S3 listing), keys here are derived from
+    paths embedded in the manifest — a stale or never-uploaded reference is
+    possible (e.g. a generation step that failed for one item). A 404 here
+    must not crash the whole stage: 09_export_video.py's own pre-render
+    integrity check already gives a clear, actionable error for a truly
+    missing/required asset, so just log and move on.
+    """
     needed_rel = _get_needed_asset_relpaths(mdata)
     missing = [rel for rel in needed_rel if not (GENERATED_ASSETS_DIR / rel).exists()]
     if not missing:
@@ -99,7 +129,10 @@ def _download_referenced_assets_cached(mdata: dict) -> None:
     from concurrent.futures import ThreadPoolExecutor
 
     def _dl(rel: str) -> None:
-        download(f"{_S3_ASSETS_PREFIX}/{rel}", GENERATED_ASSETS_DIR / rel)
+        try:
+            download(f"{_S3_ASSETS_PREFIX}/{rel}", GENERATED_ASSETS_DIR / rel)
+        except Exception as exc:
+            logger.warning("Could not download referenced asset %r from S3 (will surface later if actually required): %s", rel, exc)
 
     with ThreadPoolExecutor(max_workers=8) as executor:
         list(executor.map(_dl, missing))
@@ -229,7 +262,11 @@ def _download_source_videos_cached(mdata: dict) -> None:
         key = matched[0]
         local = RAW_VIDEO_DIR / Path(key).name
         if not local.exists():
-            download(key, local)
+            try:
+                download(key, local)
+            except Exception as exc:
+                unresolved.append(f"{source_video!r}: download from s3://{key} failed: {exc}")
+                return
         if not local.exists() or local.stat().st_size == 0:
             unresolved.append(f"{source_video!r}: download from s3://{key} did not produce a usable file at {local}")
 
