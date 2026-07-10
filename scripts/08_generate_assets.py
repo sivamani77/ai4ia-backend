@@ -30,6 +30,8 @@ from app.pipeline.timeline_budget import (  # noqa: E402
     timeline_segment_count_for_duration,
 )
 
+CINEMATIC_BACKGROUND_ASSET = PROJECT_ROOT / "config" / "cinematic_background.png"
+
 STORYLINES_DIR = PROJECT_ROOT / "data" / "storylines"
 GENERATED_ASSETS_DIR = Path(os.environ.get("AI4IA_LOCAL_ASSETS_DIR", str(PROJECT_ROOT / "data" / "generated_assets")))
 FRAGMENTS_CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
@@ -681,9 +683,25 @@ def draw_wrapped_text(
 
 def create_cinematic_background() -> Image.Image:
     """
-    Creates a dark cinematic background with gradients, soft light and subtle geometric depth.
-    No external image assets required.
+    Returns the dark cinematic background (gradients, soft light, subtle
+    geometric depth) used as the base layer for every card and narration
+    visual. The image has no per-call inputs and is identical every time, so
+    it's rendered once and cached to disk (config/cinematic_background.png)
+    instead of being recomputed on every one of the several calls per job.
+    Delete the cached file to force a fresh render (e.g. after changing the
+    gradient/vignette code below).
     """
+    if CINEMATIC_BACKGROUND_ASSET.exists():
+        return Image.open(CINEMATIC_BACKGROUND_ASSET).convert("RGB")
+
+    image = _render_cinematic_background()
+    CINEMATIC_BACKGROUND_ASSET.parent.mkdir(parents=True, exist_ok=True)
+    image.save(CINEMATIC_BACKGROUND_ASSET)
+    return image
+
+
+def _render_cinematic_background() -> Image.Image:
+    """Pure render of the cinematic background — see create_cinematic_background()."""
 
     x = np.arange(CARD_WIDTH, dtype=np.float64)
     y = np.arange(CARD_HEIGHT, dtype=np.float64)
