@@ -10,6 +10,7 @@ from datetime import datetime
 from typing import Any
 
 import edge_tts
+import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
@@ -682,30 +683,26 @@ def create_cinematic_background() -> Image.Image:
     No external image assets required.
     """
 
-    image = Image.new("RGB", (CARD_WIDTH, CARD_HEIGHT), BACKGROUND_COLOR)
-    pixels = image.load()
+    x = np.arange(CARD_WIDTH, dtype=np.float64)
+    y = np.arange(CARD_HEIGHT, dtype=np.float64)
+    nx, ny = np.meshgrid(x / CARD_WIDTH, y / CARD_HEIGHT)
 
-    for y in range(CARD_HEIGHT):
-        for x in range(CARD_WIDTH):
-            nx = x / CARD_WIDTH
-            ny = y / CARD_HEIGHT
+    # Base cool gradient (int-truncated per channel, matching the original per-pixel computation).
+    r = (6 + nx * 14 + ny * 8).astype(np.int64)
+    g = (10 + nx * 22 + ny * 12).astype(np.int64)
+    b = (18 + nx * 48 + ny * 22).astype(np.int64)
 
-            # Base cool gradient.
-            r = int(6 + nx * 14 + ny * 8)
-            g = int(10 + nx * 22 + ny * 12)
-            b = int(18 + nx * 48 + ny * 22)
+    # Soft vignette.
+    dx = nx - 0.55
+    dy = ny - 0.45
+    dist = np.sqrt(dx * dx + dy * dy)
+    vignette = np.maximum(0.35, 1.0 - dist * 1.15)
 
-            # Soft vignette.
-            dx = nx - 0.55
-            dy = ny - 0.45
-            dist = (dx * dx + dy * dy) ** 0.5
-            vignette = max(0.35, 1.0 - dist * 1.15)
-
-            pixels[x, y] = (
-                int(r * vignette),
-                int(g * vignette),
-                int(b * vignette),
-            )
+    rgb = np.stack(
+        [(r * vignette).astype(np.int64), (g * vignette).astype(np.int64), (b * vignette).astype(np.int64)],
+        axis=-1,
+    ).astype(np.uint8)
+    image = Image.fromarray(rgb, mode="RGB")
 
     overlay = Image.new("RGBA", (CARD_WIDTH, CARD_HEIGHT), (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
@@ -2115,7 +2112,6 @@ def main() -> None:
 
     voiceover_script_path = asset_root / "voiceover_script.txt"
     voiceover_text_path = asset_root / "voiceover_full_text.txt"
-    voiceover_audio_path = audio_dir / "voiceover_full_reference.mp3"
 
     write_voiceover_script_txt(
         output_path=voiceover_script_path,
@@ -2232,17 +2228,7 @@ def main() -> None:
             log("No voice-over text found. Skipping TTS.")
             tts_status = "no_text"
         else:
-            log(f"Generating reference full voice-over with edge-tts voice: {args.voice}")
-            asyncio.run(
-                generate_tts(
-                    text=full_voiceover_text,
-                    output_path=voiceover_audio_path,
-                    voice=args.voice,
-                    rate=args.rate,
-                    volume=args.volume,
-                )
-            )
-
+            section_jobs = []
             for item in voiceover_script:
                 section_id = item.get("section_id")
                 section_type = item.get("section_type", "section")
@@ -2252,18 +2238,27 @@ def main() -> None:
                     continue
 
                 section_audio_path = section_audio_dir / f"{section_id}_{slugify(section_type)}_voiceover.mp3"
+                section_jobs.append((section_id, section_type, text, section_audio_path))
 
-                log(f"Generating section voice-over: {section_id}")
-                asyncio.run(
-                    generate_tts(
-                        text=text,
-                        output_path=section_audio_path,
-                        voice=args.voice,
-                        rate=args.rate,
-                        volume=args.volume,
+            log(f"Generating {len(section_jobs)} section voice-over(s) concurrently with edge-tts voice: {args.voice}")
+
+            async def _generate_all() -> None:
+                await asyncio.gather(
+                    *(
+                        generate_tts(
+                            text=text,
+                            output_path=section_audio_path,
+                            voice=args.voice,
+                            rate=args.rate,
+                            volume=args.volume,
+                        )
+                        for _, _, text, section_audio_path in section_jobs
                     )
                 )
 
+            asyncio.run(_generate_all())
+
+            for section_id, section_type, text, section_audio_path in section_jobs:
                 section_voiceovers.append(
                     {
                         "section_id": section_id,
@@ -2278,7 +2273,6 @@ def main() -> None:
                 )
 
             tts_status = "generated"
-            log(f"Reference full voice-over generated: {voiceover_audio_path}")
             log(f"Section voice-overs generated: {len(section_voiceovers)}")
 
     fragment_lookup = load_classified_fragment_lookup()
@@ -2393,10 +2387,9 @@ def main() -> None:
             "status": tts_status,
             "script_path": str(voiceover_script_path),
             "full_text_path": str(voiceover_text_path),
-            "reference_audio_path": str(voiceover_audio_path) if tts_status == "generated" else None,
             "audio_path": None,
             "section_voiceovers": section_voiceovers,
-            "important_note": "Use section_voiceovers for final export. Do not mix reference_audio_path globally over speaker clips."
+            "important_note": "Use section_voiceovers for final export."
         },
         "cards": {
             "title_card": str(title_card_path),

@@ -209,8 +209,8 @@ class TestEmbeddingIndexSearch:
         frags = {f"frag_{i}": make_fragment(f"frag_{i}") for i in range(3)}
 
         with patch("app.services.embedding_index.embed_query", return_value=[0.1] * 768), \
-             patch("app.services.embedding_index.fragment_store.get",
-                   side_effect=lambda fid: frags.get(fid)):
+             patch("app.services.embedding_index.fragment_store.get_many",
+                   side_effect=lambda fids: {fid: frags[fid] for fid in fids if fid in frags}):
             results = idx.search("AI ethics", top_k=3)
 
         assert isinstance(results, list)
@@ -221,8 +221,8 @@ class TestEmbeddingIndexSearch:
         frags = {f"frag_{i}": make_fragment(f"frag_{i}") for i in range(3)}
 
         with patch("app.services.embedding_index.embed_query", return_value=[0.1] * 768), \
-             patch("app.services.embedding_index.fragment_store.get",
-                   side_effect=lambda fid: frags.get(fid)):
+             patch("app.services.embedding_index.fragment_store.get_many",
+                   side_effect=lambda fids: {fid: frags[fid] for fid in fids if fid in frags}):
             results = idx.search("AI ethics", top_k=3)
 
         for r in results:
@@ -234,8 +234,8 @@ class TestEmbeddingIndexSearch:
         frags = {f"frag_{i}": make_fragment(f"frag_{i}") for i in range(3)}
 
         with patch("app.services.embedding_index.embed_query", return_value=[0.1] * 768), \
-             patch("app.services.embedding_index.fragment_store.get",
-                   side_effect=lambda fid: frags.get(fid)):
+             patch("app.services.embedding_index.fragment_store.get_many",
+                   side_effect=lambda fids: {fid: frags[fid] for fid in fids if fid in frags}):
             results = idx.search("AI ethics", top_k=3)
 
         # distances were [0.1, 0.2, 0.3] → similarities are [0.9, 0.8, 0.7]
@@ -256,8 +256,8 @@ class TestEmbeddingIndexSearch:
         frags = {f"frag_{i}": make_fragment(f"frag_{i}") for i in range(3)}
 
         with patch("app.services.embedding_index.embed_query", return_value=[0.1] * 768), \
-             patch("app.services.embedding_index.fragment_store.get",
-                   side_effect=lambda fid: frags.get(fid)):
+             patch("app.services.embedding_index.fragment_store.get_many",
+                   side_effect=lambda fids: {fid: frags[fid] for fid in fids if fid in frags}):
             results = idx.search("AI ethics", top_k=2)
 
         assert len(results) <= 2
@@ -269,8 +269,8 @@ class TestEmbeddingIndexSearch:
                  "frag_2": make_fragment("frag_2")}
 
         with patch("app.services.embedding_index.embed_query", return_value=[0.1] * 768), \
-             patch("app.services.embedding_index.fragment_store.get",
-                   side_effect=lambda fid: frags.get(fid)):
+             patch("app.services.embedding_index.fragment_store.get_many",
+                   side_effect=lambda fids: {fid: frags[fid] for fid in fids if fid in frags}):
             results = idx.search("test", top_k=3)
 
         for r in results:
@@ -280,7 +280,7 @@ class TestEmbeddingIndexSearch:
         idx, _ = self._make_loaded_index()
 
         with patch("app.services.embedding_index.embed_query", return_value=[0.1] * 768), \
-             patch("app.services.embedding_index.fragment_store.get", return_value=None):
+             patch("app.services.embedding_index.fragment_store.get_many", return_value={}):
             results = idx.search("test", top_k=3)
 
         # Falls back to Chroma metadata → fragment_id still present

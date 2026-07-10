@@ -28,6 +28,12 @@ def get(fragment_id: str) -> dict | None:
     return dict(row) if row else None
 
 
+def get_many(fragment_ids: list[str]) -> dict[str, dict]:
+    """Batched lookup — one Supabase round trip for all ids, keyed by fragment_id."""
+    rows = FragmentRepository().get_many(fragment_ids)
+    return {row["fragment_id"]: dict(row) for row in rows}
+
+
 def by_facet(facet: str, value: str) -> list[dict]:
     kwargs: dict[str, Any] = {}
     if facet == "theme":

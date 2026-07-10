@@ -8,7 +8,7 @@ from typing import Any
 
 from app.core.paths import EXPORTS_DIR, SCRIPTS_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script
-from app.pipeline.s3_helpers import use_s3, download, upload, list_keys, tmp_dir, cleanup_tmp_dir
+from app.pipeline.s3_helpers import use_s3, download, upload, list_keys, tmp_dir, cleanup_tmp_dir, shared_cache_dir
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
 
@@ -46,9 +46,10 @@ def _prepare_assets_for_export(manifest_path: str, job_id: str) -> tuple[Path, P
     # Rewrite manifest paths to point to /tmp local copies
     manifest_local = _rewrite_manifest_paths(mdata, manifest_local, work)
 
-    # Download source videos needed for the timeline
-    raw_video_dir = work / "raw" / "youtube" / "ai4ia_channel"
-    raw_video_dir.mkdir(parents=True, exist_ok=True)
+    # Download source videos needed for the timeline into a cache dir shared
+    # across jobs (not this job's own /tmp), so a talk already fetched for a
+    # prior export is reused as-is instead of being downloaded in full again.
+    raw_video_dir = shared_cache_dir("raw_youtube_ai4ia_channel")
     _download_source_videos(mdata, raw_video_dir)
 
     exports_dir = work / "exports"

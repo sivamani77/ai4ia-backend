@@ -422,18 +422,50 @@ def main() -> None:
 
     failed = []
 
-    # Clear previous JSONL before writing.
+    # Reuse embeddings from a previous run when the embedding text is unchanged,
+    # keyed by embedding_text_hash, so re-runs don't re-embed everything from scratch.
+    cache_by_hash: dict[str, dict[str, Any]] = {}
     if jsonl_path.exists():
+        with jsonl_path.open("r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    old_record = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                text_hash = old_record.get("embedding_text_hash")
+                if text_hash and old_record.get("embedding_model") == EMBED_MODEL and old_record.get("embedding"):
+                    cache_by_hash[text_hash] = old_record
         jsonl_path.unlink()
 
-    for batch_start in tqdm(range(0, len(fragments), BATCH_SIZE), desc="Embedding batches"):
-        batch = fragments[batch_start: batch_start + BATCH_SIZE]
-        texts = [item["embedding_text"] for item in batch]
+    to_embed = [f for f in fragments if f["embedding_text_hash"] not in cache_by_hash]
+    log(f"Reusing {len(fragments) - len(to_embed)} cached embedding(s); embedding {len(to_embed)} fragment(s)")
 
-        try:
-            embeddings = embed_texts(texts)
+    with jsonl_path.open("a", encoding="utf-8") as f:
+        for fragment in fragments:
+            cached = cache_by_hash.get(fragment["embedding_text_hash"])
+            if cached is not None:
+                record = dict(fragment)
+                record["embedding_model"] = cached["embedding_model"]
+                record["embedding_dimension"] = cached["embedding_dimension"]
+                record["embedding_created_at"] = cached["embedding_created_at"]
+                record["text_hash"] = stable_hash(fragment.get("text", ""))
+                record["embedding"] = cached["embedding"]
 
-            with jsonl_path.open("a", encoding="utf-8") as f:
+                f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+                embedded_records.append(record)
+                embedding_matrix.append(record["embedding"])
+
+        for batch_start in tqdm(range(0, len(to_embed), BATCH_SIZE), desc="Embedding batches"):
+            batch = to_embed[batch_start: batch_start + BATCH_SIZE]
+            texts = [item["embedding_text"] for item in batch]
+
+            try:
+                embeddings = embed_texts(texts)
+
                 for fragment, embedding in zip(batch, embeddings):
                     normalized_embedding = normalize_vector(embedding)
 
@@ -449,17 +481,17 @@ def main() -> None:
                     embedded_records.append(record)
                     embedding_matrix.append(normalized_embedding)
 
-        except Exception as exc:
-            log(f"FAILED batch {batch_start} - {batch_start + len(batch) - 1}: {exc}")
+            except Exception as exc:
+                log(f"FAILED batch {batch_start} - {batch_start + len(batch) - 1}: {exc}")
 
-            for fragment in batch:
-                failed.append(
-                    {
-                        "fragment_id": fragment.get("fragment_id"),
-                        "source_video": fragment.get("source_video"),
-                        "error": str(exc),
-                    }
-                )
+                for fragment in batch:
+                    failed.append(
+                        {
+                            "fragment_id": fragment.get("fragment_id"),
+                            "source_video": fragment.get("source_video"),
+                            "error": str(exc),
+                        }
+                    )
 
     if embedding_matrix:
         matrix = np.array(embedding_matrix, dtype=np.float32)

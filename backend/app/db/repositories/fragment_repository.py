@@ -54,6 +54,18 @@ class FragmentRepository:
             raise
         return self._from_row(response.data[0]) if response.data else None
 
+    def get_many(self, fragment_ids: list[str]) -> list[FragmentRecord]:
+        """Batched lookup — one round trip instead of one `get()` call per id."""
+        if not fragment_ids:
+            return []
+        self._log("select_many")
+        try:
+            response = self._table.select("*").in_("fragment_id", fragment_ids).execute()
+        except Exception:
+            logger.exception("fragments select_many failed count=%d", len(fragment_ids))
+            raise
+        return [self._from_row(row) for row in response.data or []]
+
     def list_all(self, limit: int = 10000) -> list[FragmentRecord]:
         """Fetch all rows, paginating in 1000-row pages to bypass Supabase default cap."""
         self._log("select_all")

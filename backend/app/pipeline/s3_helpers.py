@@ -104,6 +104,18 @@ def tmp_dir(name: str) -> Path:
     return p
 
 
+def shared_cache_dir(name: str) -> Path:
+    """Return a /tmp subdirectory shared across jobs (not cleaned up per-job).
+
+    Used for large read-only inputs (e.g. raw source videos) that many jobs
+    reference in common, so a talk downloaded once for job A is reused as-is
+    by job B instead of being re-fetched from S3 in full every time.
+    """
+    p = Path(f"/tmp/ai4ia_pipeline/_shared/{name}")
+    p.mkdir(parents=True, exist_ok=True)
+    return p
+
+
 def cleanup_tmp_dir(name: str) -> None:
     """Delete a tmp_dir after its contents have been uploaded to S3."""
     import shutil

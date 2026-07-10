@@ -159,14 +159,17 @@ class EmbeddingIndex:
 
         raw = self._collection.query(**query_kwargs)
 
+        ids = raw["ids"][0]
+        dists = raw["distances"][0]
+        metas = raw["metadatas"][0]
+
+        # One batched Supabase round trip for all candidate ids instead of one per row.
+        frags_by_id = fragment_store.get_many(ids)
+
         results: list[dict] = []
-        for rid, dist, meta in zip(
-            raw["ids"][0],
-            raw["distances"][0],
-            raw["metadatas"][0],
-        ):
+        for rid, dist, meta in zip(ids, dists, metas):
             # Prefer the full Supabase row; fall back to Chroma metadata
-            frag = fragment_store.get(rid) or {"fragment_id": rid, **meta}
+            frag = frags_by_id.get(rid) or {"fragment_id": rid, **meta}
             out = dict(frag)
             out.pop("embedding", None)
             out["similarity"] = round(1.0 - float(dist), 4)  # cosine dist → similarity

@@ -54,19 +54,22 @@ _FILTERED_MATRIX: Any = None
 _CORPUS_DIAGNOSTICS: dict[str, Any] = {}
 
 # ChromaDB-loaded corpus (populated by _load_corpus_from_chroma when CHROMA_MODE is set)
-_CHROMA_MATRIX: Any = None
 _CHROMA_RECORDS: list | None = None
+_CHROMA_COLLECTION: Any = None
+# Quality/audio-status where-clause built by activate_corpus(), reused by every
+# live semantic ANN query so retrieval stays scoped to the same allowed set.
+_ACTIVE_CHROMA_WHERE: dict | None = None
 
 
 def _chroma_mode() -> bool:
     return os.environ.get("CHROMA_MODE", "").strip().lower() == "http"
 
 
-def _load_corpus_from_chroma() -> tuple[Any, list[dict[str, Any]]]:
-    """Load embedding matrix and metadata records directly from ChromaDB."""
-    global _CHROMA_MATRIX, _CHROMA_RECORDS
-    if _CHROMA_MATRIX is not None and _CHROMA_RECORDS is not None:
-        return _CHROMA_MATRIX, _CHROMA_RECORDS
+def _get_chroma_collection():
+    """Return a cached ChromaDB collection handle (one HTTP client per job)."""
+    global _CHROMA_COLLECTION
+    if _CHROMA_COLLECTION is not None:
+        return _CHROMA_COLLECTION
 
     import chromadb
 
@@ -75,34 +78,109 @@ def _load_corpus_from_chroma() -> tuple[Any, list[dict[str, Any]]]:
     collection_name = os.environ.get("CHROMA_COLLECTION", "fragments")
 
     client = chromadb.HttpClient(host=host, port=port)
-    collection = client.get_collection(collection_name)
+    _CHROMA_COLLECTION = client.get_collection(collection_name)
+    return _CHROMA_COLLECTION
+
+
+def _chroma_quality_where(exclude_manual_review: bool, min_transcript_quality: float) -> dict | None:
+    """Build a Chroma `where` clause mirroring activate_corpus()'s Python-side
+    quality filter, so a live semantic ANN query stays scoped to the same
+    allowed fragments instead of only being filtered after the fact."""
+    clauses: list[dict] = []
+    if exclude_manual_review:
+        clauses.append({"audio_quality_status": {"$ne": "manual_review"}})
+    if min_transcript_quality and min_transcript_quality > 0:
+        clauses.append({"transcript_quality_score": {"$gte": float(min_transcript_quality)}})
+    if not clauses:
+        return None
+    return {"$and": clauses} if len(clauses) > 1 else clauses[0]
+
+
+def _load_corpus_from_chroma() -> list[dict[str, Any]]:
+    """Load fragment metadata (NOT embedding vectors) from ChromaDB.
+
+    Semantic ranking is done via a live ANN query against Chroma's own index
+    (see _semantic_rank_via_chroma) instead of pulling every fragment's
+    embedding vector over HTTP and brute-forcing similarity locally — this
+    used to transfer and rescan the entire corpus on every single user
+    request. Full metadata (no vectors) is still needed here for the
+    keyword/theme/chapter/speaker retrieval channels, which scan by text and
+    exact-match fields rather than by embedding similarity.
+    """
+    global _CHROMA_RECORDS
+    if _CHROMA_RECORDS is not None:
+        return _CHROMA_RECORDS
+
+    collection = _get_chroma_collection()
     total = collection.count()
     if total == 0:
         raise RuntimeError("ChromaDB collection is empty — run ingestion first")
 
-    log(f"Loading {total} fragments from ChromaDB {host}:{port} collection={collection_name}")
+    log(f"Loading {total} fragment records (metadata only) from ChromaDB")
 
     batch_size = 500
-    all_embeddings = []
     all_records = []
     offset = 0
     while offset < total:
         result = collection.get(
             limit=batch_size,
             offset=offset,
-            include=["embeddings", "metadatas"],
+            include=["metadatas"],
         )
-        for fid, emb, meta in zip(result["ids"], result["embeddings"], result["metadatas"]):
-            all_embeddings.append(emb)
+        for fid, meta in zip(result["ids"], result["metadatas"]):
             row = dict(meta or {})
             row["fragment_id"] = fid
             all_records.append(row)
         offset += batch_size
 
-    _CHROMA_MATRIX = np.array(all_embeddings, dtype="float32")
     _CHROMA_RECORDS = all_records
-    log(f"ChromaDB corpus loaded: {len(all_records)} records, matrix shape={_CHROMA_MATRIX.shape}")
-    return _CHROMA_MATRIX, _CHROMA_RECORDS
+    log(f"ChromaDB corpus metadata loaded: {len(all_records)} records")
+    return all_records
+
+
+def _semantic_rank_via_chroma(
+    prompt: str,
+    top_k: int,
+    where: dict | None = None,
+    allowed_ids: set[str] | None = None,
+) -> list[dict[str, Any]]:
+    """Return the top_k fragments most semantically similar to prompt, using
+    ChromaDB's own ANN index — replaces a full-corpus brute-force scan.
+
+    Over-fetches when allowed_ids is given so post-filtering to the same
+    quality-gated set activate_corpus() computed still leaves top_k results.
+    """
+    collection = _get_chroma_collection()
+    query_vector = embed_query(prompt)
+
+    n_results = top_k * 5 if allowed_ids is not None else top_k
+    n_results = max(1, min(n_results, collection.count()))
+
+    query_kwargs: dict[str, Any] = {
+        "query_embeddings": [query_vector.tolist()],
+        "n_results": n_results,
+        "include": ["metadatas", "distances"],
+    }
+    if where:
+        query_kwargs["where"] = where
+
+    raw = collection.query(**query_kwargs)
+
+    ranked: list[dict[str, Any]] = []
+    for fid, dist, meta in zip(raw["ids"][0], raw["distances"][0], raw["metadatas"][0]):
+        if allowed_ids is not None and fid not in allowed_ids:
+            continue
+        record = dict(meta or {})
+        record["fragment_id"] = fid
+        record["semantic_score"] = round(1.0 - float(dist), 6)
+        ranked.append(record)
+        if len(ranked) >= top_k:
+            break
+
+    for rank, record in enumerate(ranked, start=1):
+        record["retrieval_rank"] = rank
+
+    return ranked
 
 
 STRICT_NO_GENERIC_FALLBACK = True
@@ -2142,14 +2220,28 @@ def bucket_candidates(
     }
 
 
-def score_all_records(prompt: str) -> list[dict[str, Any]]:
+def score_all_records(prompt: str, semantic_k: int = None) -> list[dict[str, Any]]:
     global _FILTERED_RECORDS, _FILTERED_MATRIX
+
+    if semantic_k is None:
+        semantic_k = DEFAULT_TOP_K
+
+    if _chroma_mode():
+        # Full corpus metadata (already quality-filtered by activate_corpus())
+        # is used for the keyword/theme/speaker channels; semantic ranking is
+        # a live ANN query instead of a local brute-force scan.
+        records = _FILTERED_RECORDS if _FILTERED_RECORDS is not None else _load_corpus_from_chroma()
+        allowed_ids = {r["fragment_id"] for r in records}
+        top_semantic = _semantic_rank_via_chroma(
+            prompt, semantic_k, where=_ACTIVE_CHROMA_WHERE, allowed_ids=allowed_ids
+        )
+        semantic_ids = {r["fragment_id"] for r in top_semantic}
+        rest = [r for r in records if r.get("fragment_id") not in semantic_ids]
+        return top_semantic + rest
 
     if _FILTERED_RECORDS is not None and _FILTERED_MATRIX is not None:
         records = _FILTERED_RECORDS
         matrix = _FILTERED_MATRIX
-    elif _chroma_mode():
-        matrix, records = _load_corpus_from_chroma()
     else:
         if not _ACTIVE_MATRIX_PATH.exists():
             raise FileNotFoundError(f"Missing embedding matrix: {_ACTIVE_MATRIX_PATH}")
@@ -2378,7 +2470,7 @@ def retrieve_candidates(
     intent: dict[str, Any],
     top_k: int,
 ) -> list[dict[str, Any]]:
-    scored = score_all_records(prompt)
+    scored = score_all_records(prompt, semantic_k=max(top_k, DEFAULT_TOP_K))
     hybrid = hybrid_retrieve_candidates(intent, scored, scored, top_k=top_k)
     return hybrid[: max(top_k, len(hybrid))]
 
@@ -5202,6 +5294,7 @@ def activate_corpus(
     """
     global _ACTIVE_EMBEDDINGS_DIR, _ACTIVE_MATRIX_PATH, _ACTIVE_JSONL_PATH
     global _ACTIVE_CORPUS_VERSION, _FILTERED_RECORDS, _FILTERED_MATRIX, _CORPUS_DIAGNOSTICS
+    global _ACTIVE_CHROMA_WHERE
 
     active_dir = Path(embeddings_dir)
     _ACTIVE_EMBEDDINGS_DIR = active_dir
@@ -5212,8 +5305,14 @@ def activate_corpus(
     log(f"Embedding dir: {active_dir}")
     log(f"Corpus version: {corpus_version}")
 
-    if _chroma_mode():
-        matrix, all_records = _load_corpus_from_chroma()
+    use_chroma = _chroma_mode()
+
+    if use_chroma:
+        # Metadata only — no embedding vectors. Semantic ranking happens via
+        # a live ANN query (score_all_records), not a local brute-force scan,
+        # so there is no local matrix to build here.
+        all_records = _load_corpus_from_chroma()
+        matrix = None
     else:
         if not _ACTIVE_MATRIX_PATH.exists():
             raise FileNotFoundError(f"Missing embedding matrix: {_ACTIVE_MATRIX_PATH}")
@@ -5222,10 +5321,10 @@ def activate_corpus(
         all_records = load_embedding_records()
         matrix = np.load(_ACTIVE_MATRIX_PATH)
 
-    if matrix.shape[0] != len(all_records):
-        raise RuntimeError(
-            f"Matrix/metadata mismatch: matrix rows={matrix.shape[0]}, records={len(all_records)}"
-        )
+        if matrix.shape[0] != len(all_records):
+            raise RuntimeError(
+                f"Matrix/metadata mismatch: matrix rows={matrix.shape[0]}, records={len(all_records)}"
+            )
 
     log(f"Embedding records loaded: {len(all_records)}")
 
@@ -5238,7 +5337,7 @@ def activate_corpus(
         a = rec.get("audio_quality_status") or "unknown"
         audio_counts_before[a] = audio_counts_before.get(a, 0) + 1
 
-    embedding_dim = int(matrix.shape[1]) if matrix.ndim == 2 else 0
+    embedding_dim = int(matrix.shape[1]) if (matrix is not None and matrix.ndim == 2) else 0
 
     # Determine which source_transcript_version values are allowed
     # "mixed_cleaned_v2" means use all records regardless of version label
@@ -5270,19 +5369,27 @@ def activate_corpus(
             continue
 
         filtered_records.append(record)
-        filtered_vectors.append(matrix[idx])
+        if not use_chroma:
+            filtered_vectors.append(matrix[idx])
 
     records_after = len(filtered_records)
     log(f"Records after filtering: {records_after}")
 
-    if filtered_vectors:
+    if use_chroma:
+        # No local matrix in Chroma mode — semantic ranking is a live ANN
+        # query scoped by _ACTIVE_CHROMA_WHERE below, not a local brute force.
+        _FILTERED_MATRIX = None
+        _ACTIVE_CHROMA_WHERE = _chroma_quality_where(exclude_manual_review, min_transcript_quality)
+    elif filtered_vectors:
         _FILTERED_MATRIX = np.stack(filtered_vectors, axis=0)
+        _ACTIVE_CHROMA_WHERE = None
     else:
         _FILTERED_MATRIX = np.empty((0, embedding_dim), dtype=matrix.dtype)
+        _ACTIVE_CHROMA_WHERE = None
 
     _FILTERED_RECORDS = filtered_records
 
-    log(f"Embedding matrix shape: {_FILTERED_MATRIX.shape}")
+    log(f"Embedding matrix shape: {_FILTERED_MATRIX.shape if _FILTERED_MATRIX is not None else 'n/a (chroma ANN mode)'}")
 
     # Count version and audio_status distributions after filtering
     version_counts_after: dict[str, int] = {}

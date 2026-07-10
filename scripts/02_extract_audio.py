@@ -1,6 +1,8 @@
 import csv
 import json
+import os
 import subprocess
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 
@@ -183,11 +185,9 @@ def main() -> None:
         print("No MP4 files found. Check data/raw/youtube/ai4ia_channel")
         return
 
-    rows = []
-
-    for video_path in videos:
-        row = extract_audio(video_path)
-        rows.append(row)
+    max_workers = min(len(videos), os.cpu_count() or 4)
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        rows = list(executor.map(extract_audio, videos))
 
     write_report(rows)
 
