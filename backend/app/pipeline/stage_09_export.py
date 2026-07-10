@@ -2,15 +2,19 @@ from __future__ import annotations
 import sys
 
 import json
+import logging
 import re
+import time
 from pathlib import Path
 from typing import Any
 
-from app.core.paths import EXPORTS_DIR, SCRIPTS_DIR, PROJECT_ROOT
+from app.core.paths import EXPORTS_DIR, SCRIPTS_DIR, RAW_VIDEO_DIR, GENERATED_ASSETS_DIR
 from app.pipeline.base import PipelineContext, StageResult, run_script
-from app.pipeline.s3_helpers import use_s3, download, upload, list_keys, tmp_dir, cleanup_tmp_dir
+from app.pipeline.s3_helpers import use_s3, download, upload, list_keys
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
+
+logger = logging.getLogger("ai4ia.pipeline.stage_09_export")
 
 PYTHON_BIN = sys.executable
 
@@ -18,85 +22,87 @@ _S3_RAW_VIDEO_PREFIX = "raw/youtube/ai4ia_channel/"
 _S3_ASSETS_PREFIX = "generated_assets"
 _S3_EXPORTS_PREFIX = "exports"
 
+# Cross-job caches. RAW_VIDEO_DIR / GENERATED_ASSETS_DIR are the SAME persistent
+# local directories used in non-S3 mode — downloading into them here (instead of
+# a per-job /tmp dir that gets thrown away after every run) means a job that
+# reuses source footage or generated assets from an earlier job skips the
+# network entirely. Only the raw-video S3 key listing is cached in-process
+# (short TTL) since the archive rarely changes and re-listing the whole prefix
+# on every job was a full bucket scan for no reason.
+_RAW_VIDEO_KEY_CACHE: dict[str, Any] = {"keys": None, "fetched_at": 0.0}
+_RAW_VIDEO_KEY_TTL_SECONDS = 600
 
-def _prepare_assets_for_export(manifest_path: str, job_id: str) -> tuple[Path, Path, Path]:
+
+_ASSET_RELPATH_RE = re.compile(r'"([^"]*)/generated_assets/([^"]*)"')
+
+
+def _get_needed_asset_relpaths(mdata: dict) -> set[str]:
+    """Every path the manifest references under a generated_assets/ directory,
+    reduced to the relative part (audio/cards/visuals) — this is exactly the
+    set of files this job's export actually needs, as opposed to every asset
+    any job has ever produced."""
+    manifest_str = json.dumps(mdata)
+    return {m.group(2) for m in _ASSET_RELPATH_RE.finditer(manifest_str) if m.group(2)}
+
+
+def _prepare_assets_for_export(manifest_path: str, job_id: str) -> Path:
     """
-    Download everything needed for the export script to run locally.
-    Returns (manifest_local, raw_video_dir, exports_dir).
+    Ensure everything the export script needs is present locally, downloading
+    only what's actually missing.
+
+    Assets and source videos are cached in the SAME persistent local
+    directories used in non-S3 mode (GENERATED_ASSETS_DIR, RAW_VIDEO_DIR)
+    rather than a per-job /tmp dir that got downloaded from scratch and
+    discarded on every run — so a job that reuses footage or assets from an
+    earlier job (very common: the same source talks feed many videos) skips
+    the network for those files entirely. Manifest paths already point at
+    GENERATED_ASSETS_DIR (stage 08 writes them there), so once a file is
+    cached no path-rewriting is needed either, and 09_export_video.py's own
+    RAW_VIDEO_DIR/EXPORTS_DIR defaults already resolve correctly with no env
+    override needed.
+
+    Returns manifest_local.
     """
     if not use_s3():
-        return Path(manifest_path), PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel", EXPORTS_DIR
+        return Path(manifest_path)
 
-    work = tmp_dir(f"09_{job_id}")
-    manifest_local = work / "generated_assets" / "latest_asset_manifest.json"
+    _t0 = time.time()
+    manifest_local = GENERATED_ASSETS_DIR / f"{job_id}_manifest.json"
 
-    # Download job-scoped manifest from S3 (avoids concurrent-job collision)
-    if not manifest_local.exists():
-        download(f"{_S3_ASSETS_PREFIX}/{job_id}_manifest.json", manifest_local)
+    # Job-scoped manifest is unique per job — always fetch fresh, never cached.
+    download(f"{_S3_ASSETS_PREFIX}/{job_id}_manifest.json", manifest_local)
 
-    # Parse manifest to find which assets are needed
     try:
         mdata = json.loads(manifest_local.read_text(encoding="utf-8"))
     except Exception:
         mdata = {}
 
-    # Download all generated assets referenced in manifest (audio, cards, visuals)
-    _download_referenced_assets(mdata, work)
+    _download_referenced_assets_cached(mdata)
+    _download_source_videos_cached(mdata)
 
-    # Rewrite manifest paths to point to /tmp local copies
-    manifest_local = _rewrite_manifest_paths(mdata, manifest_local, work)
-
-    # Download source videos needed for the timeline
-    raw_video_dir = work / "raw" / "youtube" / "ai4ia_channel"
-    raw_video_dir.mkdir(parents=True, exist_ok=True)
-    _download_source_videos(mdata, raw_video_dir)
-
-    exports_dir = work / "exports"
-    exports_dir.mkdir(parents=True, exist_ok=True)
-
-    return manifest_local, raw_video_dir, exports_dir
-
-
-def _download_referenced_assets(mdata: dict, work: Path) -> None:
-    """Download all audio/card/visual files referenced in the manifest."""
-    from app.pipeline.s3_helpers import _s3, _bucket
-    s3 = _s3()
-    bucket = _bucket()
-    paginator = s3.get_paginator("list_objects_v2")
-    for page in paginator.paginate(Bucket=bucket, Prefix=_S3_ASSETS_PREFIX + "/"):
-        for obj in page.get("Contents", []):
-            key = obj["Key"]
-            rel = key[len(_S3_ASSETS_PREFIX):].lstrip("/")
-            local = work / "generated_assets" / rel
-            if not local.exists():
-                local.parent.mkdir(parents=True, exist_ok=True)
-                s3.download_file(bucket, key, str(local))
-
-
-def _rewrite_manifest_paths(mdata: dict, manifest_local: Path, work: Path) -> Path:
-    """
-    Rewrite all absolute paths in manifest that point to any generated_assets directory
-    (whether from /app/data or a prior stage's /tmp) to point to this stage's /tmp equivalents.
-    """
-    new_assets_prefix = str(work / "generated_assets")
-    manifest_str = json.dumps(mdata)
-
-    # Replace any JSON string value containing .../generated_assets/...
-    # Uses a quoted-string-aware pattern to avoid crossing field boundaries.
-    manifest_str = re.sub(
-        r'"([^"]*)/generated_assets/([^"]*)"',
-        lambda m: f'"{new_assets_prefix}/{m.group(2)}"',
-        manifest_str,
+    logger.info(
+        "[%s] asset prep done in %.1fs (cache-first: assets+source videos reused where already local)",
+        job_id, time.time() - _t0,
     )
-    # Also handle storylines paths
-    manifest_str = re.sub(
-        r'"([^"]*)/storylines/([^"]*)"',
-        lambda m: f'"{work / "storylines"}/{m.group(2)}"',
-        manifest_str,
-    )
-    updated = json.loads(manifest_str)
-    manifest_local.write_text(json.dumps(updated), encoding="utf-8")
+
     return manifest_local
+
+
+def _download_referenced_assets_cached(mdata: dict) -> None:
+    """Download only the specific audio/card/visual files this manifest
+    references, skipping any already present in the persistent local cache."""
+    needed_rel = _get_needed_asset_relpaths(mdata)
+    missing = [rel for rel in needed_rel if not (GENERATED_ASSETS_DIR / rel).exists()]
+    if not missing:
+        return
+
+    from concurrent.futures import ThreadPoolExecutor
+
+    def _dl(rel: str) -> None:
+        download(f"{_S3_ASSETS_PREFIX}/{rel}", GENERATED_ASSETS_DIR / rel)
+
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        list(executor.map(_dl, missing))
 
 
 def _get_needed_source_videos(mdata: dict) -> set[str]:
@@ -154,8 +160,41 @@ def _video_id_prefix(name: str) -> str | None:
     return m.group(1) if m else None
 
 
-def _download_source_videos(mdata: dict, raw_video_dir: Path) -> None:
-    """Download only the source videos actually referenced in the manifest.
+def _cached_raw_video_keys() -> list[str]:
+    """S3 key listing for the raw-video prefix, cached in-process with a TTL.
+
+    The archive of source talks only grows via ingestion runs, not per video
+    job, so re-listing the entire prefix (paginated bucket scan) on every
+    single export was pure waste — this makes repeat jobs within the TTL
+    window skip the LIST call entirely.
+    """
+    now = time.time()
+    if (
+        _RAW_VIDEO_KEY_CACHE["keys"] is None
+        or now - _RAW_VIDEO_KEY_CACHE["fetched_at"] > _RAW_VIDEO_KEY_TTL_SECONDS
+    ):
+        _RAW_VIDEO_KEY_CACHE["keys"] = [
+            k for k in list_keys(_S3_RAW_VIDEO_PREFIX) if k.endswith(".mp4")
+        ]
+        _RAW_VIDEO_KEY_CACHE["fetched_at"] = now
+    return _RAW_VIDEO_KEY_CACHE["keys"]
+
+
+def _source_video_cached_locally(source_video: str) -> bool:
+    stem = source_video.replace(".mp4", "")
+    if (RAW_VIDEO_DIR / f"{stem}.mp4").exists():
+        return True
+    if any(RAW_VIDEO_DIR.glob(f"{stem}*.mp4")):
+        return True
+    prefix = _video_id_prefix(stem)
+    if prefix and any(RAW_VIDEO_DIR.glob(f"{prefix}*.mp4")):
+        return True
+    return False
+
+
+def _download_source_videos_cached(mdata: dict) -> None:
+    """Download only the source videos this manifest needs AND that aren't
+    already sitting in the persistent local cache from an earlier job.
 
     Verifies each download actually landed on disk and raises immediately with
     the specific source_video name if not — rather than leaving a silent gap
@@ -163,13 +202,14 @@ def _download_source_videos(mdata: dict, raw_video_dir: Path) -> None:
     with a less actionable "source video not found" message.
     """
     needed = _get_needed_source_videos(mdata)
-    if not needed:
+    missing_needed = [sv for sv in needed if not _source_video_cached_locally(sv)]
+    if not missing_needed:
         return
 
-    all_keys = list_keys(_S3_RAW_VIDEO_PREFIX)
-    mp4_keys = [k for k in all_keys if k.endswith(".mp4")]
+    mp4_keys = _cached_raw_video_keys()
     unresolved: list[str] = []
-    for source_video in needed:
+
+    def _resolve_and_download(source_video: str) -> None:
         stem = source_video.replace(".mp4", "")
 
         # 1) Exact/substring match on the full title (fast path — works whenever
@@ -185,13 +225,18 @@ def _download_source_videos(mdata: dict, raw_video_dir: Path) -> None:
 
         if not matched:
             unresolved.append(f"{source_video!r}: no matching .mp4 key under {_S3_RAW_VIDEO_PREFIX}")
-            continue
+            return
         key = matched[0]
-        local = raw_video_dir / Path(key).name
+        local = RAW_VIDEO_DIR / Path(key).name
         if not local.exists():
             download(key, local)
         if not local.exists() or local.stat().st_size == 0:
             unresolved.append(f"{source_video!r}: download from s3://{key} did not produce a usable file at {local}")
+
+    from concurrent.futures import ThreadPoolExecutor
+
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        list(executor.map(_resolve_and_download, missing_needed))
 
     if unresolved:
         raise RuntimeError(
@@ -208,7 +253,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if use_s3():
         update_stage(job_id, "09_export", "running", 8, "Downloading assets and source videos from S3")
 
-    manifest_local, raw_video_dir, exports_dir = _prepare_assets_for_export(manifest_path, job_id)
+    manifest_local = _prepare_assets_for_export(manifest_path, job_id)
 
     # Determine output video path
     try:
@@ -221,9 +266,9 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     except Exception:
         safe_title = ""
 
-    exports_dir.mkdir(parents=True, exist_ok=True)
+    EXPORTS_DIR.mkdir(parents=True, exist_ok=True)
     video_filename = f"{job_id}_{safe_title}.mp4" if safe_title else f"{job_id}.mp4"
-    video_path = exports_dir / video_filename
+    video_path = EXPORTS_DIR / video_filename
 
     cmd = [
         PYTHON_BIN,
@@ -234,18 +279,14 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if request.get("burn_subtitles"):
         cmd.append("--burn-subtitles")
 
-    # Pass tmp paths to the script via env vars (safe: no os.environ mutation)
-    env_overrides: dict[str, str] = {}
-    if use_s3():
-        env_overrides["AI4IA_RAW_VIDEO_DIR"] = str(raw_video_dir)
-        env_overrides["AI4IA_EXPORTS_DIR"] = str(exports_dir)
-
     update_stage(job_id, "09_export", "running", 15, "Rendering video segments")
     append_event(job_id, "export", "09_export", {"progress": 15, "message": "Rendering video segments"})
 
+    # No env override needed here: assets/videos are already in
+    # RAW_VIDEO_DIR/EXPORTS_DIR, the same paths 09_export_video.py defaults to.
     export_timeout = _export_timeout_for(float(request.get("target_duration") or 0))
     code, stdout, stderr = run_script(
-        job_id, "09_export", cmd, extra_env=env_overrides or None, timeout=export_timeout,
+        job_id, "09_export", cmd, timeout=export_timeout,
     )
 
     if code != 0:
@@ -254,10 +295,10 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if not video_path.exists():
         raise RuntimeError(f"Expected export video not found: {video_path}")
 
-    export_manifest_path = exports_dir / f"{video_path.stem}_export_manifest.json"
-    timeline_metadata_path = exports_dir / f"{video_path.stem}_timeline_metadata.json"
-    srt_path = exports_dir / f"{video_path.stem}.srt"
-    vtt_path = exports_dir / f"{video_path.stem}.vtt"
+    export_manifest_path = EXPORTS_DIR / f"{video_path.stem}_export_manifest.json"
+    timeline_metadata_path = EXPORTS_DIR / f"{video_path.stem}_timeline_metadata.json"
+    srt_path = EXPORTS_DIR / f"{video_path.stem}.srt"
+    vtt_path = EXPORTS_DIR / f"{video_path.stem}.vtt"
 
     # Upload all export outputs to S3
     if use_s3():

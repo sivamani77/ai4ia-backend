@@ -10,6 +10,7 @@ dependencies = [
     "pydantic-settings",
     "python-dotenv",
     "requests",
+    "httpx",
     "numpy",
     "tqdm",
     "pillow",

@@ -34,7 +34,7 @@ import os
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 # Use the full classified JSONL (data/embeddings/) which has quote_strength,
 # clarity_score, clip_usage_candidates — required for speaker clip selection.
-JSONL_PATH = PROJECT_ROOT / "data" / "embeddings" / "classified_fragments_embeddings.jsonl"
+JSONL_PATH = PROJECT_ROOT / "data" / "embeddings_cleaned" / "classified_fragments_embeddings.jsonl"
 CHROMA_DIR = PROJECT_ROOT / "data" / "chroma"
 COLLECTION_NAME = os.environ.get("CHROMA_COLLECTION", "fragments")
 CHROMA_HOST = os.environ.get("CHROMA_HOST", "localhost")

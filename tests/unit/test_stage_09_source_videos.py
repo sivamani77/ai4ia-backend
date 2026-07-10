@@ -44,12 +44,31 @@ class TestGetNeededSourceVideos:
 
 
 class TestDownloadSourceVideos:
-    def test_no_needed_videos_is_a_noop(self, tmp_path):
+    """`_download_source_videos` was renamed `_download_source_videos_cached`
+    and now takes only `mdata` — the destination is the persistent
+    `RAW_VIDEO_DIR` (cached across jobs) rather than a caller-supplied dir, and
+    the S3 key listing goes through `_cached_raw_video_keys()` (in-process TTL
+    cache) instead of calling `list_keys` directly. Each test points
+    `RAW_VIDEO_DIR` at `tmp_path` and resets the key-listing cache so tests
+    don't leak state into each other via the module-level TTL cache.
+    """
+
+    @pytest.fixture(autouse=True)
+    def _reset_key_cache(self):
+        stage_09._RAW_VIDEO_KEY_CACHE["keys"] = None
+        stage_09._RAW_VIDEO_KEY_CACHE["fetched_at"] = 0.0
+        yield
+        stage_09._RAW_VIDEO_KEY_CACHE["keys"] = None
+        stage_09._RAW_VIDEO_KEY_CACHE["fetched_at"] = 0.0
+
+    def test_no_needed_videos_is_a_noop(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         with patch.object(stage_09, "list_keys") as mock_list:
-            stage_09._download_source_videos({}, tmp_path)
+            stage_09._download_source_videos_cached({})
             mock_list.assert_not_called()
 
     def test_successful_download_verified(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         mdata = {"export_timeline": [{"source_video": "0100_video"}]}
         monkeypatch.setattr(stage_09, "list_keys", lambda prefix: ["raw/youtube/ai4ia_channel/0100_video.mp4"])
 
@@ -59,10 +78,11 @@ class TestDownloadSourceVideos:
             return local
 
         monkeypatch.setattr(stage_09, "download", fake_download)
-        stage_09._download_source_videos(mdata, tmp_path)
+        stage_09._download_source_videos_cached(mdata)
         assert (tmp_path / "0100_video.mp4").exists()
 
     def test_already_present_file_is_not_redownloaded(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         local = tmp_path / "0100_video.mp4"
         local.write_bytes(b"already here")
         mdata = {"export_timeline": [{"source_video": "0100_video"}]}
@@ -70,26 +90,29 @@ class TestDownloadSourceVideos:
 
         calls = []
         monkeypatch.setattr(stage_09, "download", lambda key, local: calls.append(key))
-        stage_09._download_source_videos(mdata, tmp_path)
+        stage_09._download_source_videos_cached(mdata)
         assert calls == []
 
     def test_no_matching_s3_key_raises_with_source_video_name(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         mdata = {"export_timeline": [{"source_video": "0100_missing_video"}]}
         monkeypatch.setattr(stage_09, "list_keys", lambda prefix: ["raw/youtube/ai4ia_channel/other_video.mp4"])
         with pytest.raises(RuntimeError, match="0100_missing_video"):
-            stage_09._download_source_videos(mdata, tmp_path)
+            stage_09._download_source_videos_cached(mdata)
 
     def test_download_that_produces_no_file_raises(self, tmp_path, monkeypatch):
         """Regression: previously a download() that silently failed to produce
         a usable local file left no trace until 09's pre-render check, much
         later, with a less actionable error."""
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         mdata = {"export_timeline": [{"source_video": "0100_video"}]}
         monkeypatch.setattr(stage_09, "list_keys", lambda prefix: ["raw/youtube/ai4ia_channel/0100_video.mp4"])
         monkeypatch.setattr(stage_09, "download", lambda key, local: local)  # no-op: never writes the file
         with pytest.raises(RuntimeError, match="0100_video"):
-            stage_09._download_source_videos(mdata, tmp_path)
+            stage_09._download_source_videos_cached(mdata)
 
     def test_download_that_produces_empty_file_raises(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         mdata = {"export_timeline": [{"source_video": "0100_video"}]}
         monkeypatch.setattr(stage_09, "list_keys", lambda prefix: ["raw/youtube/ai4ia_channel/0100_video.mp4"])
 
@@ -100,13 +123,14 @@ class TestDownloadSourceVideos:
 
         monkeypatch.setattr(stage_09, "download", fake_download)
         with pytest.raises(RuntimeError, match="did not produce a usable file"):
-            stage_09._download_source_videos(mdata, tmp_path)
+            stage_09._download_source_videos_cached(mdata)
 
     def test_multiple_failures_all_named_in_one_error(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         mdata = {"export_timeline": [{"source_video": "video_a"}, {"source_video": "video_b"}]}
         monkeypatch.setattr(stage_09, "list_keys", lambda prefix: [])
         with pytest.raises(RuntimeError) as exc_info:
-            stage_09._download_source_videos(mdata, tmp_path)
+            stage_09._download_source_videos_cached(mdata)
         assert "video_a" in str(exc_info.value)
         assert "video_b" in str(exc_info.value)
 
@@ -114,6 +138,7 @@ class TestDownloadSourceVideos:
         """Regression check: source_video strings containing a fullwidth colon
         (：, U+FF1A, common in these video titles) must still substring-match
         the S3 key correctly."""
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         title = "0100_ikdcwVcRSPo_Jamaica Satellite Event - Generative AI： Impact on Misinformation & Disinformation"
         mdata = {"export_timeline": [{"source_video": title}]}
         monkeypatch.setattr(stage_09, "list_keys", lambda prefix: [f"raw/youtube/ai4ia_channel/{title}.mp4"])
@@ -124,7 +149,7 @@ class TestDownloadSourceVideos:
             return local
 
         monkeypatch.setattr(stage_09, "download", fake_download)
-        stage_09._download_source_videos(mdata, tmp_path)
+        stage_09._download_source_videos_cached(mdata)
         assert (tmp_path / f"{title}.mp4").exists()
 
     def test_id_prefix_fallback_when_title_punctuation_was_normalized(self, tmp_path, monkeypatch):
@@ -135,6 +160,7 @@ class TestDownloadSourceVideos:
         silently normalized the title text. The exact-substring match fails, but
         the stable '0254_RXXzSGoo0KQ' id prefix is untouched and must resolve it.
         """
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         requested = "0254_RXXzSGoo0KQ_(6N)_: C Nelson - XYNOGENY? How We Share Decision-Making"
         real_filename = "0254_RXXzSGoo0KQ_(6N)： C Nelson - XYNOGENY？ How We Share Decision-Making.mp4"
         mdata = {"export_timeline": [{"source_video": requested}]}
@@ -146,7 +172,7 @@ class TestDownloadSourceVideos:
             return local
 
         monkeypatch.setattr(stage_09, "download", fake_download)
-        stage_09._download_source_videos(mdata, tmp_path)  # must not raise
+        stage_09._download_source_videos_cached(mdata)  # must not raise
         assert (tmp_path / real_filename).exists()
 
     def test_video_id_prefix_extraction(self, stage_09_mod=stage_09):
@@ -154,10 +180,11 @@ class TestDownloadSourceVideos:
         assert stage_09._video_id_prefix("not_a_valid_prefix") is None
 
     def test_no_matching_prefix_still_raises(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(stage_09, "RAW_VIDEO_DIR", tmp_path)
         mdata = {"export_timeline": [{"source_video": "0999_totallyMissing_Some Title"}]}
         monkeypatch.setattr(stage_09, "list_keys", lambda prefix: ["raw/youtube/ai4ia_channel/0254_other_video.mp4"])
         with pytest.raises(RuntimeError, match="0999_totallyMissing"):
-            stage_09._download_source_videos(mdata, tmp_path)
+            stage_09._download_source_videos_cached(mdata)
 
 
 class TestExportTimeout:
