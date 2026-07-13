@@ -4,6 +4,7 @@ import sys
 import json
 import logging
 import re
+import threading
 import time
 from pathlib import Path
 from typing import Any
@@ -285,6 +286,40 @@ def _download_source_videos_cached(mdata: dict) -> None:
         )
 
 
+_HLS_EXTINF_RE = re.compile(r"^#EXTINF:", re.MULTILINE)
+_HLS_WATCH_INTERVAL_SECONDS = 2.0
+
+
+def _watch_hls_segments(job_id: str, hls_dir: Path, stop_event) -> None:
+    """Poll the HLS playlist stage_09's subprocess is writing to and emit a
+    structured job event each time the segment count grows.
+
+    09_export_video.py runs as a separate subprocess (via run_script, which
+    blocks until it exits) — it has no way to call append_event itself
+    without pulling in Supabase/job_store dependencies into a script that's
+    designed to run standalone with zero DB/queue dependencies. Instead,
+    this runs as a background thread in the same backend process as this
+    stage module, watching the shared hls_dir on disk while run_script()
+    blocks — the only structured (non-log-line) signal a frontend gets that
+    a new segment is ready to play.
+    """
+    last_count = 0
+    playlist_path = hls_dir / "master.m3u8"
+    while not stop_event.is_set():
+        try:
+            if playlist_path.exists():
+                count = len(_HLS_EXTINF_RE.findall(playlist_path.read_text(encoding="utf-8")))
+                if count > last_count:
+                    last_count = count
+                    append_event(job_id, "hls_segment_ready", "09_export", {
+                        "segment_count": count,
+                        "hls_playlist_url": f"/api/video-jobs/{job_id}/video/hls/master.m3u8",
+                    })
+        except Exception:
+            pass
+        stop_event.wait(_HLS_WATCH_INTERVAL_SECONDS)
+
+
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
     manifest_path = context.asset_manifest_path
     update_stage(job_id, "09_export", "running", 5, "Starting final video export")
@@ -329,9 +364,24 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     # No env override needed here: assets/videos are already in
     # RAW_VIDEO_DIR/EXPORTS_DIR, the same paths 09_export_video.py defaults to.
     export_timeout = _export_timeout_for(float(request.get("target_duration") or 0))
-    code, stdout, stderr = run_script(
-        job_id, "09_export", cmd, timeout=export_timeout,
-    )
+
+    watcher_thread = None
+    stop_watcher = None
+    if settings.ai4ia_enable_hls_streaming:
+        stop_watcher = threading.Event()
+        watcher_thread = threading.Thread(
+            target=_watch_hls_segments, args=(job_id, hls_dir, stop_watcher), daemon=True,
+        )
+        watcher_thread.start()
+
+    try:
+        code, stdout, stderr = run_script(
+            job_id, "09_export", cmd, timeout=export_timeout,
+        )
+    finally:
+        if watcher_thread is not None:
+            stop_watcher.set()
+            watcher_thread.join(timeout=5)
 
     if code != 0:
         raise RuntimeError(f"09_export_video.py exited {code}: {stderr[-4000:]}")
