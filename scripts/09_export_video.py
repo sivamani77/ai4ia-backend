@@ -1994,6 +1994,109 @@ def _execute_plan(plan: SegmentPlan) -> None:
         raise RuntimeError(f"_execute_plan: unhandled plan kind {plan.kind!r}")
 
 
+class HLSStreamWriter:
+    """Progressively mux rendered segments into an HLS stream (playlist +
+    .ts chunks) so a client can start playback before the whole export
+    finishes, instead of waiting for concat_segments() to produce one
+    final mp4.
+
+    Segments are already h264/aac mp4 (see _execute_plan) so turning one
+    into a .ts chunk is a cheap remux (-c copy), not a re-encode.
+
+    add_segment() must be called in ascending timeline order — the caller
+    (_render_timeline_items) buffers out-of-order completions (segments
+    render in parallel and can finish in any order) and drains them in
+    order.
+    """
+
+    def __init__(self, output_dir: Path):
+        self.output_dir = output_dir
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self._entries: list[tuple[str, float]] = []
+        self._subtitle_entries: list[dict[str, Any]] = []
+        self._next_seg_num = 0
+        self._closed = False
+
+    def add_segment(
+        self,
+        mp4_path: Path,
+        duration: float,
+        timeline_item: dict[str, Any],
+        start_time: float,
+        end_time: float,
+    ) -> None:
+        if self._closed:
+            return
+        seg_name = f"seg_{self._next_seg_num:04d}.ts"
+        seg_path = self.output_dir / seg_name
+        try:
+            subprocess.run(
+                [
+                    "ffmpeg", "-y", "-loglevel", "error",
+                    "-i", str(mp4_path),
+                    "-c", "copy", "-bsf:a", "aac_adtstoasc",
+                    "-f", "mpegts", str(seg_path),
+                ],
+                check=True,
+            )
+        except subprocess.CalledProcessError as exc:
+            log(f"  [hls] WARNING: failed to remux segment {self._next_seg_num} to .ts, skipping in stream: {exc}")
+            return
+
+        self._next_seg_num += 1
+        self._entries.append((seg_name, duration))
+
+        if segment_has_spoken_audio(timeline_item):
+            text = get_segment_subtitle_text(timeline_item)
+            if text:
+                self._subtitle_entries.extend(
+                    make_subtitle_entries_for_segment(
+                        text=text, segment_start=start_time, segment_end=end_time,
+                    )
+                )
+
+        self._write_playlist()
+        self._write_subs()
+        log(f"  [hls] {seg_name} ready (stream position {end_time:.1f}s) — playlist updated")
+
+    def _write_playlist(self) -> None:
+        target_dur = max([2] + [int(d) + 1 for _, d in self._entries])
+        lines = [
+            "#EXTM3U",
+            "#EXT-X-VERSION:3",
+            f"#EXT-X-TARGETDURATION:{target_dur}",
+            "#EXT-X-MEDIA-SEQUENCE:0",
+            "#EXT-X-PLAYLIST-TYPE:EVENT",
+        ]
+        for name, dur in self._entries:
+            lines.append(f"#EXTINF:{dur:.3f},")
+            lines.append(name)
+        if self._closed:
+            lines.append("#EXT-X-ENDLIST")
+        tmp = self.output_dir / "master.m3u8.tmp"
+        tmp.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        tmp.replace(self.output_dir / "master.m3u8")
+
+    def _write_subs(self) -> None:
+        if not self._subtitle_entries:
+            return
+        lines = ["WEBVTT", ""]
+        for entry in self._subtitle_entries:
+            lines.append(f"{format_vtt_timestamp(float(entry['start']))} --> {format_vtt_timestamp(float(entry['end']))}")
+            lines.append(entry["text"])
+            lines.append("")
+        tmp = self.output_dir / "subs.vtt.tmp"
+        tmp.write_text("\n".join(lines), encoding="utf-8")
+        tmp.replace(self.output_dir / "subs.vtt")
+
+    def finalize(self, success: bool) -> None:
+        self._closed = True
+        self._write_playlist()
+        marker = "_success" if success else "_failed"
+        (self.output_dir / marker).write_text("", encoding="utf-8")
+        log(f"  [hls] stream finalized (success={success}, segments={len(self._entries)})")
+
+
 def _render_one_segment(
     idx: int,
     item: dict[str, Any],
@@ -2035,10 +2138,16 @@ def _render_timeline_items(
     timeline: list[dict[str, Any]],
     work_dir: Path,
     target_sec_per_segment: float = 0.0,
+    hls_writer: "HLSStreamWriter | None" = None,
 ) -> tuple[list[Path], list[dict[str, Any]], float]:
     """
     Render all timeline segments in parallel (up to 4 concurrent ffmpeg processes),
     then assemble results in original order with sequential timestamps.
+
+    When hls_writer is given, segments are also fed to it in strict timeline
+    order as they become available (segments can *finish* rendering out of
+    order even though they must be *streamed* in order) — this is what lets a
+    client start watching before the whole export is done.
     """
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -2051,6 +2160,11 @@ def _render_timeline_items(
     MAX_WORKERS = min(4, max(1, len(timeline)))
     raw_results: dict[int, tuple[Path | None, dict[str, Any] | None]] = {}
 
+    # HLS sequencing state: segments must be handed to hls_writer in ascending
+    # idx order even though as_completed() yields them in completion order.
+    _hls_next_idx = 1
+    _hls_cumulative_time = 0.0
+
     _render_all_t0 = time.time()
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
         futures = {
@@ -2060,6 +2174,16 @@ def _render_timeline_items(
         for future in as_completed(futures):
             idx, path, info = future.result()  # re-raises any RuntimeError from render
             raw_results[idx] = (path, info)
+
+            if hls_writer is not None:
+                while _hls_next_idx in raw_results:
+                    _p, _info = raw_results[_hls_next_idx]
+                    if _p is not None and _info is not None:
+                        _start = _hls_cumulative_time
+                        _end = _start + _info["duration"]
+                        hls_writer.add_segment(_p, _info["duration"], _info["timeline_item"], _start, _end)
+                        _hls_cumulative_time = _end
+                    _hls_next_idx += 1
     log(f"  [render] all {len(timeline)} segments rendered (wall-clock, {MAX_WORKERS} workers) in {time.time() - _render_all_t0:.1f}s")
 
     segment_paths: list[Path] = []
@@ -2087,7 +2211,7 @@ def _render_timeline_items(
     return segment_paths, segment_infos, current_time
 
 
-def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) -> Path:
+def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, hls_dir: Path | None = None) -> Path:
     _export_t0 = time.time()
     manifest = load_manifest(manifest_path)
 
@@ -2201,7 +2325,17 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
         )
     log(f"Pre-render integrity check passed: all {len(timeline)} segments have resolvable media. (elapsed so far: {time.time() - _export_t0:.1f}s)")
 
-    segment_paths, segment_infos, current_time = _render_timeline_items(timeline, work_dir, _target_sec_per_segment)
+    hls_writer = HLSStreamWriter(hls_dir) if hls_dir is not None else None
+    if hls_writer is not None:
+        log(f"  [hls] streaming enabled — writing playlist/segments to {hls_dir}")
+    try:
+        segment_paths, segment_infos, current_time = _render_timeline_items(
+            timeline, work_dir, _target_sec_per_segment, hls_writer=hls_writer,
+        )
+    except Exception:
+        if hls_writer is not None:
+            hls_writer.finalize(success=False)
+        raise
     log(f"  [phase-timing] segment rendering phase done (elapsed so far: {time.time() - _export_t0:.1f}s)")
 
     # Post-render validation
@@ -2285,7 +2419,12 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool) 
             log(f"  - {_b}")
 
     if not segment_paths:
+        if hls_writer is not None:
+            hls_writer.finalize(success=False)
         raise RuntimeError("No video segments created.")
+
+    if hls_writer is not None:
+        hls_writer.finalize(success=True)
 
     if output_name:
         p = Path(output_name)
@@ -2581,6 +2720,12 @@ def main() -> None:
         action="store_true",
         help="Backward-compatible alias: do not burn subtitles into the final video. External SRT/VTT files are still generated."
     )
+    parser.add_argument(
+        "--hls-dir",
+        default=None,
+        help="If given, progressively write an HLS playlist + .ts segments to this directory "
+             "as each segment renders, so a client can start streaming before export finishes."
+    )
 
     args = parser.parse_args()
 
@@ -2593,6 +2738,7 @@ def main() -> None:
         manifest_path=manifest_path,
         output_name=args.output,
         burn_subs=args.burn_subtitles and not args.no_subtitles,
+        hls_dir=Path(args.hls_dir).resolve() if args.hls_dir else None,
     )
 
     log(f"Done: {output_path}")

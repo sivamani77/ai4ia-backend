@@ -113,8 +113,17 @@ class Settings(BaseSettings):
     # scripts/07b_validate_storyline_with_llm.py) — served by the same
     # Ollama host as embeddings, via /api/generate. Scoped to the video
     # pipeline only; other features keep their own model settings below.
+    #
+    # storyline_llm_backend switches these two scripts between Ollama
+    # (default, unchanged) and a dedicated vLLM gpt-oss-120b deployment
+    # (OpenAI-compatible /v1/chat/completions) — separate host/model from
+    # the vllm_* settings above, which serve the smaller 20b model for
+    # other features and are untouched by this flag.
     # ------------------------------------------------------------------
     storyline_strong_model: str = "gpt-oss:120b"
+    storyline_llm_backend: str = "ollama"  # "ollama" | "vllm"
+    storyline_vllm_base_url: str = "http://vllm-gpt-120.mobiusdtaas.ai"
+    storyline_vllm_model: str = "openai/gpt-oss-120b"
 
     # ------------------------------------------------------------------
     # LLM models
@@ -224,6 +233,10 @@ class Settings(BaseSettings):
     # Storage backend
     # ------------------------------------------------------------------
     ai4ia_storage_backend: str = "local"
+
+    # Progressive HLS streaming during export (stage 09) — off by default,
+    # enable once the frontend player is ready to consume a growing playlist.
+    ai4ia_enable_hls_streaming: bool = False
 
     # Object storage (placeholders — not yet implemented)
     ai4ia_object_storage_bucket: str = ""
