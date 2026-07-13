@@ -291,8 +291,9 @@ _HLS_WATCH_INTERVAL_SECONDS = 2.0
 
 
 def _watch_hls_segments(job_id: str, hls_dir: Path, stop_event) -> None:
-    """Poll the HLS playlist stage_09's subprocess is writing to and emit a
-    structured job event each time the segment count grows.
+    """Poll the HLS playlist stage_09's subprocess is writing to, mirror new
+    files to S3 when the API server doesn't share a disk with this worker,
+    and emit a structured job event each time the segment count grows.
 
     09_export_video.py runs as a separate subprocess (via run_script, which
     blocks until it exits) — it has no way to call append_event itself
@@ -302,13 +303,34 @@ def _watch_hls_segments(job_id: str, hls_dir: Path, stop_event) -> None:
     stage module, watching the shared hls_dir on disk while run_script()
     blocks — the only structured (non-log-line) signal a frontend gets that
     a new segment is ready to play.
+
+    S3 mirroring matters whenever the Celery worker and the API process are
+    separate hosts/containers (the common case) — local-disk serving alone
+    only works when they share a filesystem. Segments are uploaded once
+    each (immutable once written); the playlist and subs.vtt are re-uploaded
+    every time they change since they're rewritten in place.
     """
     last_count = 0
+    uploaded_segments: set[str] = set()
     playlist_path = hls_dir / "master.m3u8"
+    subs_path = hls_dir / "subs.vtt"
+    mirror_to_s3 = use_s3()
+
     while not stop_event.is_set():
         try:
             if playlist_path.exists():
-                count = len(_HLS_EXTINF_RE.findall(playlist_path.read_text(encoding="utf-8")))
+                playlist_text = playlist_path.read_text(encoding="utf-8")
+                count = len(_HLS_EXTINF_RE.findall(playlist_text))
+
+                if mirror_to_s3:
+                    for seg_path in hls_dir.glob("seg_*.ts"):
+                        if seg_path.name not in uploaded_segments:
+                            upload(seg_path, f"{_S3_HLS_PREFIX}/{job_id}/{seg_path.name}")
+                            uploaded_segments.add(seg_path.name)
+                    upload(playlist_path, f"{_S3_HLS_PREFIX}/{job_id}/master.m3u8")
+                    if subs_path.exists():
+                        upload(subs_path, f"{_S3_HLS_PREFIX}/{job_id}/subs.vtt")
+
                 if count > last_count:
                     last_count = count
                     append_event(job_id, "hls_segment_ready", "09_export", {

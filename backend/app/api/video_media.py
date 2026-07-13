@@ -380,9 +380,21 @@ async def video_signed_url(job_id: str, current_user: CurrentUser = Depends(get_
 # ---------------------------------------------------------------------------
 # Progressive HLS streaming (stage 09 writes here live, while still running —
 # see backend/app/pipeline/stage_09_export.py and the HLSStreamWriter class in
-# scripts/09_export_video.py). Served straight off local/EBS disk: this is
-# read directly during the render, not via the media registry (which is only
-# built once the job completes).
+# scripts/09_export_video.py).
+#
+# Two serving modes, matching how the worker writes the files:
+#   - local/EBS (STORAGE_BACKEND != "s3"): read straight off disk, same as
+#     the worker wrote it — only valid when the API process and the Celery
+#     worker share a filesystem.
+#   - S3 (STORAGE_BACKEND == "s3"): the worker mirrors each new segment and
+#     the playlist/subs to S3 as they're written (see
+#     stage_09_export.py::_watch_hls_segments) specifically so this works
+#     when the API and worker are separate hosts/containers with no shared
+#     disk — the common case, and the reason local-only serving silently
+#     returned nothing in that deployment.
+#
+# Read directly during the render either way — not via the media registry,
+# which is only built once the job completes.
 # ---------------------------------------------------------------------------
 
 _HLS_SEGMENT_NAME_RE = re.compile(r"^(seg_\d{4}\.ts|subs\.vtt)$")
@@ -392,9 +404,44 @@ def _hls_dir(job_id: str) -> Path:
     return EXPORTS_DIR / "hls" / job_id
 
 
+def _hls_s3_client():
+    from app.services.storage_service import (
+        _OBJECT_STORAGE_BUCKET,
+        _OBJECT_STORAGE_REGION,
+        _OBJECT_STORAGE_ACCESS_KEY,
+        _OBJECT_STORAGE_SECRET_KEY,
+        _OBJECT_STORAGE_ENDPOINT,
+    )
+    import boto3
+    kwargs: dict[str, Any] = {
+        "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
+        "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
+        "region_name": _OBJECT_STORAGE_REGION or None,
+    }
+    if _OBJECT_STORAGE_ENDPOINT:
+        kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+    return boto3.client("s3", **kwargs), _OBJECT_STORAGE_BUCKET
+
+
+def _hls_s3_get(job_id: str, filename: str) -> bytes:
+    """Fetch an HLS file from S3. Raises HTTPException(404) if missing."""
+    from botocore.exceptions import ClientError
+    s3, bucket = _hls_s3_client()
+    key = f"hls/{job_id}/{filename}"
+    try:
+        obj = s3.get_object(Bucket=bucket, Key=key)
+        return obj["Body"].read()
+    except ClientError:
+        raise HTTPException(status_code=404, detail="Not found")
+
+
 @router.get("/{job_id}/video/hls/master.m3u8", operation_id="video_jobs_hls_playlist")
 async def hls_playlist(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     _require_owned_job(job_id, current_user.id)
+    if STORAGE_BACKEND == "s3":
+        body = _hls_s3_get(job_id, "master.m3u8")
+        return Response(content=body, media_type="application/vnd.apple.mpegurl",
+                         headers={"Cache-Control": "no-store"})
     playlist_path = _hls_dir(job_id) / "master.m3u8"
     if not playlist_path.exists():
         raise HTTPException(status_code=404, detail="Stream not started yet — no segments rendered.")
@@ -410,10 +457,13 @@ async def hls_segment(job_id: str, filename: str, current_user: CurrentUser = De
     _require_owned_job(job_id, current_user.id)
     if not _HLS_SEGMENT_NAME_RE.match(filename):
         raise HTTPException(status_code=404, detail="Not found")
+    media_type = "video/mp2t" if filename.endswith(".ts") else "text/vtt"
+    if STORAGE_BACKEND == "s3":
+        body = _hls_s3_get(job_id, filename)
+        return Response(content=body, media_type=media_type, headers={"Cache-Control": "no-store"})
     file_path = _hls_dir(job_id) / filename
     if not file_path.exists():
         raise HTTPException(status_code=404, detail="Not found")
-    media_type = "video/mp2t" if filename.endswith(".ts") else "text/vtt"
     return FileResponse(path=str(file_path), media_type=media_type, headers={"Cache-Control": "no-store"})
 
 
