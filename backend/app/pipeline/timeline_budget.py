@@ -289,6 +289,28 @@ def clamp_timeline_windows_to_source(timeline: list[dict[str, Any]]) -> list[str
                 f"clamped {str(fragment_id)[:50]!r}: end {end:.1f}s → {item['end']:.1f}s "
                 f"(video stream is {stream_dur:.1f}s)"
             )
+        # Speaker clips carry a separate PADDED render window (render_start/render_end,
+        # set by Step 08's post-roll padding + quote expansion). That padding runs AFTER
+        # the plan-time clamp above, so it can push render_end past real footage even when
+        # start/end were in-bounds — clamp it here too so the renderer never gets a window
+        # with no picture. render_start is only clamped if it somehow lands past the video.
+        r_start = item.get("render_start")
+        r_end = item.get("render_end")
+        if r_start is not None and r_end is not None:
+            try:
+                rs = float(r_start)
+                re_ = float(r_end)
+            except (TypeError, ValueError):
+                rs = re_ = None
+            if rs is not None and re_ is not None and re_ > stream_dur:
+                new_end = round(stream_dur - 0.1, 3)
+                if new_end > rs:
+                    item["render_end"] = new_end
+                    item["render_duration"] = round(new_end - rs, 3)
+                    notes.append(
+                        f"clamped {str(fragment_id)[:50]!r}: render_end {re_:.1f}s → {new_end:.1f}s "
+                        f"(video stream is {stream_dur:.1f}s)"
+                    )
         kept.append(item)
     timeline[:] = kept
     return notes

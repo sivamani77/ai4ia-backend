@@ -23,12 +23,14 @@ sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJ
 
 from app.pipeline.timeline_budget import (  # noqa: E402
     build_duration_budget,
+    clamp_timeline_windows_to_source,
     classify_timeline_segment_type,
     normalize_candidate_time_bounds,
     segment_effective_duration,
     timeline_card_duration,
     timeline_segment_count_for_duration,
 )
+from app.pipeline.media_probe import media_duration_or_zero as get_media_duration  # noqa: E402
 
 CINEMATIC_BACKGROUND_ASSET = PROJECT_ROOT / "config" / "cinematic_background.png"
 
@@ -219,11 +221,35 @@ def slugify(text: str, max_len: int = 80) -> str:
     return text[:max_len] or "asset"
 
 
+def _is_validated_storyline_payload(payload: dict[str, Any]) -> bool:
+    story = payload.get("storyline") or {}
+    final_timeline = (
+        payload.get("final_timeline")
+        or story.get("final_timeline")
+        or (payload.get("validated_narrative") or {}).get("final_timeline")
+        or (story.get("validated_narrative") or {}).get("final_timeline")
+    )
+    return bool(final_timeline) and payload.get("llm_validated", False)
+
+
 def latest_storyline_path() -> Path:
-    paths = sorted(STORYLINES_DIR.glob("storyline_*.json"))
+    paths = sorted(STORYLINES_DIR.glob("storyline_*.json"), reverse=True)
     if not paths:
         raise FileNotFoundError(f"No storyline files found in {STORYLINES_DIR}")
-    return paths[-1]
+
+    for path in paths:
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        if _is_validated_storyline_payload(payload):
+            return path
+
+    raise RuntimeError(
+        f"Newest storyline is {paths[0].name}, but no validated storyline exists in "
+        f"{STORYLINES_DIR}. Run 07b_validate_storyline_with_llm.py first, or pass "
+        f"--storyline explicitly to use an unvalidated file."
+    )
 
 
 def load_storyline(path: Path) -> dict[str, Any]:
@@ -1207,44 +1233,35 @@ def voiceover_text_for_tts(voiceover_script: list[dict[str, str]]) -> str:
     return "\n\n".join(parts).strip()
 
 
-def get_media_duration(path: Path) -> float:
-    """Probe a media file's duration in seconds via ffprobe. Returns 0.0 on failure."""
-    try:
-        result = subprocess.run(
-            [
-                "ffprobe", "-v", "error",
-                "-show_entries", "format=duration",
-                "-of", "csv=p=0",
-                str(path),
-            ],
-            capture_output=True,
-            text=True,
-            timeout=30,
-        )
-        return float(result.stdout.strip() or 0.0)
-    except (subprocess.SubprocessError, ValueError, OSError):
-        return 0.0
-
-
 def reconcile_narration_duration(item: dict[str, Any], audio_path: str | None) -> None:
     """Set render_duration on a narration item from its real TTS audio length.
 
-    The segment must run long enough for the full voiceover (audio is never trimmed);
-    if the fragment window is longer than the audio, the window length wins.
+    A narration_broll segment is a voiceover over a STILL visual — it has no
+    footage, so its length is the voiceover length (plus a short tail), full stop.
+    It must NOT be stretched to any source-video start/end window: narration items
+    sometimes carry a stray start/end inherited from a speaker slot, and honouring
+    that window pads the segment with dead silence (e.g. a 5.9s voiceover forced to
+    a 58s window = 52s of silence over a frozen image). The window only wins when
+    there is no usable audio at all, as a last-resort fallback duration.
     """
-    frag_dur = float(item.get("duration") or 0.0)
-    if frag_dur <= 0.0:
-        start_v, end_v = item.get("start"), item.get("end")
-        try:
-            frag_dur = max(0.0, float(end_v) - float(start_v))
-        except (TypeError, ValueError):
-            frag_dur = 0.0
-
     audio_dur = 0.0
     if audio_path and Path(audio_path).exists():
         audio_dur = get_media_duration(Path(audio_path))
 
-    render_duration = max(frag_dur, audio_dur + 0.4 if audio_dur > 0 else 0.0)
+    if audio_dur > 0:
+        render_duration = audio_dur + 0.4
+    else:
+        # No usable voiceover — fall back to the fragment window so the segment
+        # still has a non-zero duration rather than collapsing to nothing.
+        frag_dur = float(item.get("duration") or 0.0)
+        if frag_dur <= 0.0:
+            start_v, end_v = item.get("start"), item.get("end")
+            try:
+                frag_dur = max(0.0, float(end_v) - float(start_v))
+            except (TypeError, ValueError):
+                frag_dur = 0.0
+        render_duration = frag_dur
+
     if render_duration > 0:
         item["render_duration"] = round(render_duration, 3)
         item["duration"] = item["render_duration"]
@@ -2394,6 +2411,7 @@ def main() -> None:
         "visible_series_label": VISIBLE_SERIES_LABEL,
         "target_duration_seconds": story.get("target_duration_seconds"),
         "estimated_duration_seconds": story.get("estimated_duration_seconds"),
+        "prompt_intent": prompt_profile,
         "storyline": enriched_story,
         "director_plan": enriched_story.get("director_plan"),
         "planning_summary": enriched_story.get("planning_summary"),
@@ -2477,6 +2495,17 @@ def main() -> None:
     hybrid_tl = enriched_story.get("export_timeline") or []
     manifest["export_timeline"] = hybrid_tl
     manifest["timeline"] = hybrid_tl
+
+    # Re-clamp windows to real footage AFTER build_hybrid_export_timeline's post-roll
+    # padding + quote expansion. Step 07 already clamped the raw start/end, but that ran
+    # before this padding pushed render_end outward and before any 07b/08 fragment
+    # reshuffle — so re-run it here, the last point windows change before Step 09 renders.
+    # Mutates hybrid_tl (same list object as manifest["timeline"]/["export_timeline"]).
+    step08_clamp_notes = clamp_timeline_windows_to_source(hybrid_tl)
+    for _note in step08_clamp_notes:
+        log(f"  [clamp-08] {_note}")
+    manifest["window_clamp_notes_step08"] = step08_clamp_notes
+
     manifest["duration_budget"] = build_duration_budget(
         hybrid_tl,
         manifest.get("target_duration_seconds"),
