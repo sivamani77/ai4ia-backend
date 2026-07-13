@@ -57,6 +57,16 @@ CHAT_ENDPOINT = settings.vllm_chat_endpoint
 STRONG_LLM_MODEL = settings.storyline_strong_model
 FAST_LLM_MODEL = settings.fast_llm_model
 
+# Backend for STRONG_LLM_MODEL calls in this module: "ollama" (default,
+# /api/generate) or "vllm" (dedicated gpt-oss-120b deployment, OpenAI-
+# compatible /v1/chat/completions — see storyline_vllm_* settings). Every
+# call site already builds an OpenAI-chat-shaped payload (model/messages/
+# temperature/max_completion_tokens), so switching backend needs no
+# call-site changes — only post_with_retries/post_with_retries_async below.
+STORYLINE_LLM_BACKEND = settings.storyline_llm_backend
+STORYLINE_VLLM_BASE_URL = settings.storyline_vllm_base_url
+STORYLINE_VLLM_MODEL = settings.storyline_vllm_model
+
 REQUEST_TIMEOUT_SECONDS = 300
 MAX_RETRIES = 3
 RETRY_SLEEP_SECONDS = 5
@@ -380,20 +390,60 @@ def _to_ollama_generate_payload(payload: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _to_vllm_chat_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Payload here is already OpenAI-chat-shaped — just swap in the
+    vLLM-side model name (Ollama and vLLM name the same model differently,
+    e.g. "gpt-oss:120b" vs "openai/gpt-oss-120b") and ensure a token cap is
+    set (vLLM has no equivalent of Ollama's num_ctx-implied unlimited
+    generation).
+
+    reasoning_effort="low": gpt-oss is a "harmony"/reasoning model — it
+    writes chain-of-thought to a separate reasoning_content field before the
+    real answer goes into content. Verified live against the vLLM endpoint:
+    at low token budgets the reasoning alone can consume the whole budget,
+    leaving content=null with finish_reason="length". "low" roughly halves
+    reasoning-token spend (measured ~23 vs ~55 completion tokens on a trivial
+    prompt), making truncation far less likely on real prompts.
+    """
+    return {
+        **payload,
+        "model": STORYLINE_VLLM_MODEL,
+        "max_completion_tokens": payload.get("max_completion_tokens", 8192),
+        "stream": False,
+        "reasoning_effort": "low",
+    }
+
+
 def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SECONDS) -> str:
-    """POST to the Ollama generate endpoint, return response text. Raises on failure."""
+    """POST to the strong LLM backend (Ollama or vLLM, see STORYLINE_LLM_BACKEND),
+    return response text. Raises on failure."""
     import requests
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
-    ollama_payload = _to_ollama_generate_payload(payload)
+
+    use_vllm = STORYLINE_LLM_BACKEND == "vllm"
+    if use_vllm:
+        url = STORYLINE_VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
+        req_payload = _to_vllm_chat_payload(payload)
+    else:
+        url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+        req_payload = _to_ollama_generate_payload(payload)
+
     last_error: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             _t0 = time.time()
-            resp = requests.post(url, json=ollama_payload, timeout=timeout)
+            resp = requests.post(url, json=req_payload, timeout=timeout)
             resp.raise_for_status()
-            _content = resp.json().get("response", "")
-            log(f"  [llm-timing] model={ollama_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
-            return _content
+            data = resp.json()
+            if use_vllm:
+                _choice = data["choices"][0]
+                _content = _choice["message"].get("content") or ""
+                if not _content:
+                    log(f"  [llm] WARNING: vLLM returned empty content (finish_reason={_choice.get('finish_reason')!r}) "
+                        f"— likely truncated in the reasoning channel before the answer; will be treated as a parse failure upstream")
+            else:
+                _content = data.get("response", "")
+            log(f"  [llm-timing] model={req_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            return _content or ""
 
         except Exception as exc:
             last_error = exc
@@ -409,17 +459,31 @@ async def post_with_retries_async(
     timeout: int = REQUEST_TIMEOUT_SECONDS,
 ) -> str:
     """Async twin of post_with_retries — same retry/backoff behavior, non-blocking I/O."""
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
-    ollama_payload = _to_ollama_generate_payload(payload)
+    use_vllm = STORYLINE_LLM_BACKEND == "vllm"
+    if use_vllm:
+        url = STORYLINE_VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
+        req_payload = _to_vllm_chat_payload(payload)
+    else:
+        url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+        req_payload = _to_ollama_generate_payload(payload)
+
     last_error: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             _t0 = time.time()
-            resp = await client.post(url, json=ollama_payload, timeout=timeout)
+            resp = await client.post(url, json=req_payload, timeout=timeout)
             resp.raise_for_status()
-            _content = resp.json().get("response", "")
-            log(f"  [llm-timing] model={ollama_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
-            return _content
+            data = resp.json()
+            if use_vllm:
+                _choice = data["choices"][0]
+                _content = _choice["message"].get("content") or ""
+                if not _content:
+                    log(f"  [llm] WARNING: vLLM returned empty content (finish_reason={_choice.get('finish_reason')!r}) "
+                        f"— likely truncated in the reasoning channel before the answer; will be treated as a parse failure upstream")
+            else:
+                _content = data.get("response", "")
+            log(f"  [llm-timing] model={req_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            return _content or ""
 
         except Exception as exc:
             last_error = exc
@@ -2483,7 +2547,8 @@ def main() -> None:
     output_data = dict(data)
     output_data["llm_validated"] = True
     output_data["validation_run_at"] = datetime.utcnow().isoformat()
-    output_data["validated_with"] = STRONG_LLM_MODEL if not args.skip_llm else "fallback"
+    _effective_strong_model = STORYLINE_VLLM_MODEL if STORYLINE_LLM_BACKEND == "vllm" else STRONG_LLM_MODEL
+    output_data["validated_with"] = _effective_strong_model if not args.skip_llm else "fallback"
     output_data["repair_iterations"] = repair_iter
     output_data["final_timeline"] = enriched_timeline
     output_data["editorial_quality_gates"] = quality_gates

@@ -196,6 +196,13 @@ EMBED_MODEL = settings.embedding_model
 FAST_LLM_MODEL = settings.fast_llm_model
 STRONG_LLM_MODEL = settings.storyline_strong_model
 
+# Backend for STRONG_LLM_MODEL calls: "ollama" (default, /api/generate) or
+# "vllm" (dedicated gpt-oss-120b deployment, OpenAI-compatible
+# /v1/chat/completions) — see call_strong_llm() below.
+STORYLINE_LLM_BACKEND = settings.storyline_llm_backend
+STORYLINE_VLLM_BASE_URL = settings.storyline_vllm_base_url
+STORYLINE_VLLM_MODEL = settings.storyline_vllm_model
+
 EMBED_ENDPOINT = "/api/embed"
 GENERATE_ENDPOINT = "/api/generate"
 
@@ -237,6 +244,70 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
     raise RuntimeError(f"Request failed after retries: {last_error}")
 
 
+def call_strong_llm(
+    prompt: str,
+    timeout: int,
+    temperature: float = 0.4,
+    top_p: float | None = None,
+    max_tokens: int = 8192,
+) -> str:
+    """Call STRONG_LLM_MODEL via whichever backend is configured
+    (STORYLINE_LLM_BACKEND), returning the raw response text.
+
+    Single point of translation between the two request/response shapes so
+    every call site below just deals with a prompt string, regardless of
+    backend — matches the pattern already used in
+    scripts/07b_validate_storyline_with_llm.py.
+
+    max_tokens caps the vLLM response only (Ollama's /api/generate has no
+    equivalent cap here — it already runs until natural completion). Callers
+    generating a large JSON timeline need a much higher value than the
+    default: verified live that the full storyline JSON response needs more
+    than 8192 tokens and gets cut off mid-object at that cap
+    (finish_reason="length").
+    """
+    if STORYLINE_LLM_BACKEND == "vllm":
+        url = STORYLINE_VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
+        payload = {
+            "model": STORYLINE_VLLM_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": temperature,
+            "max_completion_tokens": max_tokens,
+            "stream": False,
+            # gpt-oss is a "harmony"/reasoning model: it writes its chain-of-
+            # thought to a separate reasoning_content field before the real
+            # answer goes into content. Verified live against this endpoint:
+            # at low max_tokens the reasoning alone can eat the whole budget,
+            # leaving content=null with finish_reason="length". reasoning_effort
+            # "low" cuts reasoning-token spend roughly in half (measured ~23 vs
+            # ~55 completion tokens on a trivial prompt) and makes truncation
+            # far less likely on our much larger real prompts.
+            "reasoning_effort": "low",
+        }
+        data = post_with_retries(url, payload, timeout=timeout)
+        message = data["choices"][0]["message"]
+        content = (message.get("content") or "").strip()
+        if not content:
+            raise RuntimeError(
+                f"vLLM returned no content (finish_reason={data['choices'][0].get('finish_reason')!r}) "
+                f"— likely truncated before the answer channel; consider raising max_completion_tokens"
+            )
+        return content
+
+    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
+    options: dict[str, Any] = {"temperature": temperature, "num_ctx": 32000}
+    if top_p is not None:
+        options["top_p"] = top_p
+    payload = {
+        "model": STRONG_LLM_MODEL,
+        "prompt": prompt,
+        "stream": False,
+        "options": options,
+    }
+    data = post_with_retries(url, payload, timeout=timeout)
+    return (data.get("response") or "").strip()
+
+
 def warm_up_ollama() -> None:
     """Force-load STRONG_LLM_MODEL into Ollama before the real storyline call.
 
@@ -246,7 +317,12 @@ def warm_up_ollama() -> None:
     load happens inside generate_llm_storyline()'s timed call. Sending a
     trivial /api/generate here pays that cost up front instead. Best-effort:
     failures here are non-fatal, the real call will just eat the cold-load cost.
+
+    No-op on the vLLM backend: vLLM serves the model as an already-resident
+    process, there is no per-request cold-load to hide.
     """
+    if STORYLINE_LLM_BACKEND == "vllm":
+        return
     try:
         _t0 = time.time()
         requests.post(
@@ -2965,23 +3041,8 @@ TEMPORAL ARC RULES (chronological_relay mode):
 
     prompt = system_instruction.strip() + "\n\nINPUT:\n" + json.dumps(user_instruction, ensure_ascii=False, indent=2)
 
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
-
-    payload = {
-        "model": STRONG_LLM_MODEL,
-        "prompt": prompt,
-        "stream": False,
-        "options": {
-            "temperature": 0.4,
-            "top_p": 0.9,
-            "num_ctx": 32000
-        }
-    }
-
-    log(f"Calling storyline model: {STRONG_LLM_MODEL}")
-    data = post_with_retries(url, payload, timeout=600)
-
-    response_text = data.get("response", "")
+    log(f"Calling storyline model: {STRONG_LLM_MODEL if STORYLINE_LLM_BACKEND != 'vllm' else STORYLINE_VLLM_MODEL} (backend={STORYLINE_LLM_BACKEND})")
+    response_text = call_strong_llm(prompt, timeout=600, temperature=0.4, top_p=0.9, max_tokens=24000)
 
     parsed = extract_json_object(response_text)
 
@@ -3035,24 +3096,12 @@ TEXT:
 {raw_text}
 """
 
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
-
     prompt = (
         "You are a JSON repair assistant. Output only valid JSON with no markdown or explanation.\n\n"
         + raw_text
     )
-    payload = {
-        "model": STRONG_LLM_MODEL,
-        "prompt": prompt,
-        "stream": False,
-        "options": {
-            "temperature": 0.1,
-            "num_ctx": 12000
-        }
-    }
-
-    data = post_with_retries(url, payload, timeout=300)
-    return extract_json_object(data.get("response", ""))
+    response_text = call_strong_llm(prompt, timeout=300, temperature=0.1)
+    return extract_json_object(response_text)
 
 
 
@@ -3069,7 +3118,6 @@ def expand_short_narrations(
     _per_s = round(max(1, target_duration_seconds - 10) / _n)
     min_words = max(30, round(_per_s * 2.5))
 
-    url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
     expanded = 0
 
     for sec in sections:
@@ -3096,16 +3144,8 @@ def expand_short_narrations(
             "You are a documentary narration writer. Write only the expanded narration "
             "text with no labels, quotes, or explanation.\n\n" + expand_prompt
         )
-        payload = {
-            "model": STRONG_LLM_MODEL,
-            "prompt": full_prompt,
-            "stream": False,
-            "options": {"temperature": 0.3, "num_ctx": 4000},
-        }
-
         try:
-            data = post_with_retries(url, payload, timeout=120)
-            expanded_text = (data.get("response") or "").strip()
+            expanded_text = call_strong_llm(full_prompt, timeout=120, temperature=0.3)
             if expanded_text and len(expanded_text.split()) >= min_words:
                 sec["narration"] = expanded_text
                 sec["viewer_narration"] = expanded_text
@@ -5179,7 +5219,7 @@ def save_storyline(
         "should_export_video": storyline.get("should_export_video", True),
         "models": {
             "embedding_model": EMBED_MODEL,
-            "strong_llm_model": STRONG_LLM_MODEL,
+            "strong_llm_model": STORYLINE_VLLM_MODEL if STORYLINE_LLM_BACKEND == "vllm" else STRONG_LLM_MODEL,
             "fast_llm_model": FAST_LLM_MODEL,
         },
         "source_files": {
