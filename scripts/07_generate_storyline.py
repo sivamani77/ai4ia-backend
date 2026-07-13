@@ -2765,6 +2765,7 @@ def build_candidate_pack(candidates: list[dict[str, Any]]) -> list[dict[str, Any
             "speaker_attribution": item.get("speaker_attribution"),
             "speaker_clip_allowed": item.get("speaker_clip_allowed", False),
             "speaker_soundbite_allowed": item.get("speaker_soundbite_allowed", False),
+            "speaker_visual_allowed": item.get("speaker_visual_allowed", False),
             "relevance_reason": item.get("relevance_reason", ""),
             "text": truncate_text(item.get("text", ""), 200),
             "video_year": item.get("video_year"),
