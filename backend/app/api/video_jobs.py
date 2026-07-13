@@ -71,7 +71,7 @@ class VideoJobRequest(BaseModel):
 
 _MAX_RUNNING_PER_USER = 1   # only 1 active render per user at a time
 _MAX_QUEUED_PER_USER  = 3   # up to 3 more waiting behind it
-_MAX_GLOBAL_QUEUED    = 20  # hard cap on total active+queued jobs
+_MAX_GLOBAL_QUEUED    = 50  # hard cap on total active+queued jobs
 
 
 # ---------------------------------------------------------------------------
@@ -275,8 +275,10 @@ def cancel_video_job(job_id: str, current_user: CurrentUser = Depends(get_curren
         except Exception:
             pass  # non-fatal; PID kill and status write are the primary mechanism
 
-    # Write "cancelled" status and emit SSE event
-    _cancel_job(job_id, "Job cancelled by user")
+    # Write "cancelled" status and emit SSE event. This DB flag is the
+    # cross-container cancellation signal the worker polls in run_script; the
+    # worker performs the actual subprocess kill (kill_pid there, not here).
+    _cancel_job(job_id, "Job cancelled by user", kill_pid=False)
 
     return {"job_id": job_id, "status": "cancelled"}
 

@@ -158,7 +158,7 @@ def _fail_job(job_id: str, stage: str, error_type: str, message: str, details: s
     _metrics.job_completions_total.labels(status="failed").inc()
 
 
-def _cancel_job(job_id: str, message: str = "") -> None:
+def _cancel_job(job_id: str, message: str = "", *, kill_pid: bool = True) -> None:
     job = load_job(job_id)
     job["status"] = "cancelled"
     job["completed_at"] = _utc_now()
@@ -168,13 +168,19 @@ def _cancel_job(job_id: str, message: str = "") -> None:
     append_event(job_id, "cancelled", job.get("current_stage", "unknown"), {"message": message})
     _metrics.job_completions_total.labels(status="cancelled").inc()
 
-    pid = job.get("active_pid")
-    if pid:
-        try:
-            from app.pipeline.base import _kill_process_group
-            _kill_process_group(pid)
-        except Exception:
-            pass
+    # PID kill is only valid in the WORKER process (where the subprocess and its
+    # active_pid actually live). The API's DELETE handler runs in a different
+    # container/namespace, so a PID from the worker is meaningless — and could
+    # even hit a recycled PID. The API therefore passes kill_pid=False and relies
+    # on the worker's in-stage cancellation poll (run_script) to do the kill.
+    if kill_pid:
+        pid = job.get("active_pid")
+        if pid:
+            try:
+                from app.pipeline.base import _kill_process_group
+                _kill_process_group(pid)
+            except Exception:
+                pass
 
 
 def _is_cancelling(job_id: str) -> bool:
@@ -272,6 +278,20 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
 
     log = _job_logger(job_id)
 
+    # Terminal-state guard. Celery uses acks_late + reject_on_worker_lost, so a
+    # task in flight during a worker restart is REDELIVERED and this function
+    # runs again. If the job was already cancelled (or finished) in the meantime,
+    # re-running would restart the whole render — the "cancelled job keeps
+    # processing" loop. Bail out immediately so redelivery is a harmless no-op.
+    try:
+        existing = load_job(job_id)
+    except Exception:
+        existing = None
+    if existing and existing.get("status") in {"cancelled", "completed", "failed"}:
+        log.info("Skipping run for %s — already terminal (status=%s)",
+                 job_id, existing.get("status"))
+        return
+
     try:
         job = load_job(job_id)
         job["status"] = "running"
@@ -292,11 +312,21 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             stage_11_subtitles,
         ]
 
+        from app.pipeline.base import JobCancelledException
+
         for stage_mod in stages:
             stage_name = getattr(stage_mod, "STAGE_NAME", stage_mod.__name__.split(".")[-1])
             stage_log = _job_logger(job_id, stage_name)
             stage_log.info("Stage starting")
-            result = stage_mod.run(job_id, request, ctx)
+            try:
+                result = stage_mod.run(job_id, request, ctx)
+            except JobCancelledException:
+                # Cancelled mid-stage: the subprocess was already killed inside
+                # run_script. Finalize as cancelled (not failed) and stop.
+                stage_log.info("Cancellation detected during stage %s", stage_name)
+                _cancel_job(job_id, "cancelled during stage")
+                _cleanup_job_tmp_dirs(job_id)
+                return
             if result.status == "failed":
                 stage_log.error("Stage failed: %s", result.message)
                 _fail_job(job_id, result.stage, "pipeline_error", result.message)

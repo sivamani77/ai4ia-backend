@@ -30,6 +30,21 @@ class StageResult:
     data: dict[str, Any] = field(default_factory=dict)
 
 
+class JobCancelledException(Exception):
+    """Raised inside a worker when a job is cancelled mid-stage.
+
+    run_script polls the job's status while a stage subprocess runs; when the
+    status flips to "cancelled" (written by the API's DELETE handler), it kills
+    the subprocess group and raises this so the pipeline runner can stop cleanly
+    without marking the job "failed".
+    """
+
+    def __init__(self, job_id: str, stage_name: str) -> None:
+        self.job_id = job_id
+        self.stage_name = stage_name
+        super().__init__(f"Job {job_id} cancelled during stage {stage_name}")
+
+
 # ---------------------------------------------------------------------------
 # Script runner
 # ---------------------------------------------------------------------------
@@ -67,6 +82,20 @@ def _kill_process_group(pid: int) -> None:
     t = threading.Timer(5.0, _force_kill)
     t.daemon = True
     t.start()
+
+
+def _job_is_cancelling(job_id: str) -> bool:
+    """True if the job's persisted status has been flipped to 'cancelled'.
+
+    This is the cross-container cancellation signal: the API's DELETE handler
+    writes status='cancelled' to the shared store; the worker (here) polls it
+    while a stage subprocess runs and kills the subprocess when it sees it.
+    """
+    try:
+        from app.services.job_store import load_job
+        return load_job(job_id).get("status") == "cancelled"
+    except Exception:
+        return False
 
 
 _LOG_FLUSH_INTERVAL = 2.0  # seconds between live log flushes to Supabase
@@ -166,18 +195,44 @@ def run_script(
         flusher = threading.Thread(target=_flush_loop, daemon=True)
         flusher.start()
 
+        # Poll for completion in short slices instead of one long blocking wait,
+        # so a mid-stage cancellation (status flipped to "cancelled" by the API)
+        # is detected and the subprocess group killed promptly — from WITHIN the
+        # worker, where process.pid is valid.
+        cancelled = False
+        deadline = time.monotonic() + timeout
+        # Wake every few seconds to check the deadline; only hit the store
+        # (load_job) for the cancel check every ~10s to keep DB load low.
+        _WAIT_SLICE = 3.0
+        _CANCEL_CHECK_INTERVAL = 9.0
+        next_cancel_check = time.monotonic() + _CANCEL_CHECK_INTERVAL
         try:
-            process.wait(timeout=timeout)
-        except subprocess.TimeoutExpired:
-            _kill_process_group(process.pid)
-            process.wait()  # reap after kill
-            for t in readers:
-                t.join(timeout=5)
-            stop_flush.set()
-            _flush()
-            msg = f"Stage {stage_name} timed out after {timeout}s"
-            append_event(job_id, "script_error", stage_name, {"error": msg})
-            return -1, "", msg
+            while True:
+                try:
+                    process.wait(timeout=_WAIT_SLICE)
+                    break  # process exited on its own
+                except subprocess.TimeoutExpired:
+                    pass  # still running — fall through to the checks below
+
+                if time.monotonic() >= deadline:
+                    _kill_process_group(process.pid)
+                    process.wait()  # reap after kill
+                    for t in readers:
+                        t.join(timeout=5)
+                    stop_flush.set()
+                    _flush()
+                    msg = f"Stage {stage_name} timed out after {timeout}s"
+                    append_event(job_id, "script_error", stage_name, {"error": msg})
+                    return -1, "", msg
+
+                now = time.monotonic()
+                if now >= next_cancel_check:
+                    next_cancel_check = now + _CANCEL_CHECK_INTERVAL
+                    if _job_is_cancelling(job_id):
+                        _kill_process_group(process.pid)
+                        process.wait()  # reap after kill
+                        cancelled = True
+                        break
         finally:
             # Clear PID once the process is no longer running
             try:
@@ -192,6 +247,11 @@ def run_script(
         stop_flush.set()
         _flush()
 
+        if cancelled:
+            append_event(job_id, "script_cancelled", stage_name,
+                         {"message": f"Stage {stage_name} cancelled by user"})
+            raise JobCancelledException(job_id, stage_name)
+
         stdout = "".join(stdout_lines)
         stderr = "".join(stderr_lines)
         append_event(job_id, "script_output", stage_name, {
@@ -200,6 +260,8 @@ def run_script(
             "stderr": stderr[-4000:],
         })
         return process.returncode, stdout, stderr
+    except JobCancelledException:
+        raise  # cancellation must propagate to the pipeline runner, not be swallowed
     except Exception as exc:
         append_event(job_id, "script_error", stage_name, {"error": str(exc)})
         return -1, "", str(exc)
