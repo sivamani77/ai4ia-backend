@@ -23,7 +23,10 @@ from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse, Response, StreamingResponse
 
+import re
+
 from app.core.auth import CurrentUser, get_current_user
+from app.core.paths import EXPORTS_DIR
 from app.services.storage_service import (
     LocalStorageService,
     StorageObject,
@@ -372,6 +375,46 @@ async def video_signed_url(job_id: str, current_user: CurrentUser = Depends(get_
         "expires_in": None,
         "storage_backend": "local",
     }
+
+
+# ---------------------------------------------------------------------------
+# Progressive HLS streaming (stage 09 writes here live, while still running —
+# see backend/app/pipeline/stage_09_export.py and the HLSStreamWriter class in
+# scripts/09_export_video.py). Served straight off local/EBS disk: this is
+# read directly during the render, not via the media registry (which is only
+# built once the job completes).
+# ---------------------------------------------------------------------------
+
+_HLS_SEGMENT_NAME_RE = re.compile(r"^(seg_\d{4}\.ts|subs\.vtt)$")
+
+
+def _hls_dir(job_id: str) -> Path:
+    return EXPORTS_DIR / "hls" / job_id
+
+
+@router.get("/{job_id}/video/hls/master.m3u8", operation_id="video_jobs_hls_playlist")
+async def hls_playlist(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
+    _require_owned_job(job_id, current_user.id)
+    playlist_path = _hls_dir(job_id) / "master.m3u8"
+    if not playlist_path.exists():
+        raise HTTPException(status_code=404, detail="Stream not started yet — no segments rendered.")
+    return FileResponse(
+        path=str(playlist_path),
+        media_type="application/vnd.apple.mpegurl",
+        headers={"Cache-Control": "no-store"},
+    )
+
+
+@router.get("/{job_id}/video/hls/{filename}", operation_id="video_jobs_hls_segment")
+async def hls_segment(job_id: str, filename: str, current_user: CurrentUser = Depends(get_current_user)):
+    _require_owned_job(job_id, current_user.id)
+    if not _HLS_SEGMENT_NAME_RE.match(filename):
+        raise HTTPException(status_code=404, detail="Not found")
+    file_path = _hls_dir(job_id) / filename
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Not found")
+    media_type = "video/mp2t" if filename.endswith(".ts") else "text/vtt"
+    return FileResponse(path=str(file_path), media_type=media_type, headers={"Cache-Control": "no-store"})
 
 
 # ---------------------------------------------------------------------------

@@ -176,6 +176,10 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------
     ai4ia_storage_backend: str = "local"
 
+    # Progressive HLS streaming during export (stage 09) — off by default,
+    # enable once the frontend player is ready to consume a growing playlist.
+    ai4ia_enable_hls_streaming: bool = False
+
     # Object storage (placeholders — not yet implemented)
     ai4ia_object_storage_bucket: str = ""
     ai4ia_object_storage_endpoint: str = ""

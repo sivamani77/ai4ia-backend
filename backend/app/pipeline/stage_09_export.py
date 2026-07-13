@@ -9,10 +9,13 @@ from pathlib import Path
 from typing import Any
 
 from app.core.paths import EXPORTS_DIR, SCRIPTS_DIR, RAW_VIDEO_DIR, GENERATED_ASSETS_DIR
+from app.core.settings import settings
 from app.pipeline.base import PipelineContext, StageResult, run_script
 from app.pipeline.s3_helpers import use_s3, download, upload, list_keys
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
+
+_S3_HLS_PREFIX = "hls"
 
 logger = logging.getLogger("ai4ia.pipeline.stage_09_export")
 
@@ -316,6 +319,10 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if request.get("burn_subtitles"):
         cmd.append("--burn-subtitles")
 
+    hls_dir = EXPORTS_DIR / "hls" / job_id
+    if settings.ai4ia_enable_hls_streaming:
+        cmd += ["--hls-dir", str(hls_dir)]
+
     update_stage(job_id, "09_export", "running", 15, "Rendering video segments")
     append_event(job_id, "export", "09_export", {"progress": 15, "message": "Rendering video segments"})
 
@@ -355,6 +362,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         qc, gen_vis, muted_arc, sub_cov = {}, 0, 0, {}
 
     job = load_job(job_id)
+    if settings.ai4ia_enable_hls_streaming and (hls_dir / "master.m3u8").exists():
+        job["paths"]["hls_playlist_path"] = str(hls_dir / "master.m3u8")
     job["paths"]["video_path"] = str(video_path)
     job["paths"]["export_manifest_path"] = str(export_manifest_path) if export_manifest_path.exists() else None
     job["paths"]["timeline_metadata_path"] = str(timeline_metadata_path) if timeline_metadata_path.exists() else None
