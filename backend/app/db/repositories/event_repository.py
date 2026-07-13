@@ -3,7 +3,9 @@ from __future__ import annotations
 import logging
 from typing import Any, Mapping, TypedDict
 
-from app.db.supabase import get_supabase_client
+import psycopg2.extras
+
+from app.db.postgres import pg_execute, pg_fetch_one, pg_fetch_all
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.events")
@@ -20,89 +22,59 @@ class EventRecord(TypedDict, total=False):
 class EventRepository:
     table_name = "job_events"
 
-    def __init__(self) -> None:
-        self._client = get_supabase_client()
-        self._table = self._client.table(self.table_name)
-
     def delete_by_job(self, job_id: str) -> None:
-        self._table.delete().eq("job_id", job_id).execute()
+        pg_execute("delete from job_events where job_id = %s", (job_id,))
 
     def add_event(self, data: Mapping[str, Any]) -> EventRecord:
         payload = self._normalize_input(data)
         job_id = payload.get("job_id")
         self._log("insert", job_id)
 
-        try:
-            response = self._table.insert(payload).execute()
-        except Exception:
-            logger.exception(
-                "Supabase event operation failed: table=%s operation=%s job_id=%s",
-                self.table_name,
-                "insert",
-                job_id,
-            )
-            raise
-
-        if not response.data:
+        row = pg_fetch_one(
+            """
+            insert into job_events (job_id, event_type, payload)
+            values (%(job_id)s, %(event_type)s, %(payload)s)
+            returning *
+            """,
+            {
+                "job_id": payload.get("job_id"),
+                "event_type": payload.get("event_type"),
+                "payload": psycopg2.extras.Json(payload.get("payload") or {}),
+            },
+        )
+        if row is None:
             raise RuntimeError(
-                f"Supabase returned no rows for job_events insert operation (job_id={job_id})"
+                f"Postgres returned no row for job_events insert operation (job_id={job_id})"
             )
-        return self._normalize_output(response.data[0])
+        return self._normalize_output(row)
 
     def get_events(self, job_id: str) -> list[dict[str, Any]]:
         self._log("select_many", job_id)
-
-        try:
-            response = (
-                self._table.select("*")
-                .eq("job_id", job_id)
-                .order("created_at", desc=False)
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase event operation failed: table=%s operation=%s job_id=%s",
-                self.table_name,
-                "select_many",
-                job_id,
-            )
-            raise
-
-        return [self._normalize_output(row) for row in response.data or []]
+        rows = pg_fetch_all(
+            "select * from job_events where job_id = %s order by created_at asc",
+            (job_id,),
+        )
+        return [self._normalize_output(row) for row in rows]
 
     def get_events_after(self, job_id: str, after_id: int | None = 0) -> list[dict[str, Any]]:
         """Return events for job_id with id > after_id, ordered by id ascending.
 
         If after_id is 0 or None, returns all events (same as get_events()).
-        The id column is an auto-increment integer, so .gt() gives a stable cursor.
+        The id column is an auto-increment integer, so > gives a stable cursor.
         """
         if not after_id:
             return self.get_events(job_id)
 
         self._log("select_after", job_id)
-
-        try:
-            response = (
-                self._table.select("*")
-                .eq("job_id", job_id)
-                .gt("id", after_id)
-                .order("id", desc=False)
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase event operation failed: table=%s operation=%s job_id=%s",
-                self.table_name,
-                "select_after",
-                job_id,
-            )
-            raise
-
-        return [self._normalize_output(row) for row in response.data or []]
+        rows = pg_fetch_all(
+            "select * from job_events where job_id = %s and id > %s order by id asc",
+            (job_id, after_id),
+        )
+        return [self._normalize_output(row) for row in rows]
 
     def _log(self, operation: str, job_id: str | None = None) -> None:
         logger.debug(
-            "Supabase repository operation: table=%s operation=%s job_id=%s",
+            "Postgres repository operation: table=%s operation=%s job_id=%s",
             self.table_name,
             operation,
             job_id,

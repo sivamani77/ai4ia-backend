@@ -274,6 +274,13 @@ class PipelineContext:
     request: dict[str, Any]
     storyline_path: str | None = None
     validated_storyline_path: str | None = None
+    # In-memory copy of the parsed validated-storyline JSON. stage_07b_validate
+    # deletes its own /tmp working dir (cleanup_tmp_dir) before returning in S3
+    # mode, so anything that needs the content AFTER the stage returns (e.g.
+    # the storyline cache write) can't re-read validated_storyline_path from
+    # disk — it'll be gone. Set this instead, from the same in-memory dict the
+    # stage already parsed before cleanup.
+    validated_storyline_data: dict[str, Any] | None = None
     asset_manifest_path: str | None = None
     export_manifest_path: str | None = None
     video_path: str | None = None

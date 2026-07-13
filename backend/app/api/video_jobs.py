@@ -63,6 +63,9 @@ class VideoJobRequest(BaseModel):
     subtitle_mode: str = Field("external", max_length=50)
     max_validation_iterations: int = Field(3, ge=1, le=5)
     burn_subtitles: bool = Field(False)
+    # Bypass the storyline cache lookup for this request (still writes a
+    # fresh result back to cache afterward, refreshing the cached entry).
+    force_refresh: bool = Field(False)
 
 
 # ---------------------------------------------------------------------------

@@ -32,5 +32,24 @@ services:
       timeout: 5s
       retries: 5
 
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=ai4ia
+      - POSTGRES_USER=ai4ia
+      - POSTGRES_PASSWORD=ai4ia_local_dev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ai4ia -d ai4ia"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 volumes:
   redis_data:
+  postgres_data:
