@@ -106,6 +106,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         upload(validated_path, s3_key)
 
     # Parse result
+    vdata = None
     try:
         vdata = json.loads(validated_path.read_text(encoding="utf-8"))
         tl = vdata.get("final_timeline") or []
@@ -124,6 +125,12 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         nb_count = sum(1 for x in tl if x.get("type") == "narration_broll")
     except Exception:
         gates, warnings_list, approved, repair_iters, sections_covered, nb_count = {}, [], 0, 1, [], 0
+
+    # Stash the parsed content in-memory: in S3 mode, cleanup_tmp_dir below
+    # deletes validated_path from disk before this function returns, so
+    # anything needing the content afterward (the storyline cache write)
+    # must read it from here, not re-read the (by-then-gone) file.
+    context.validated_storyline_data = vdata
 
     job = load_job(job_id)
     job["paths"]["validated_storyline_path"] = str(validated_path)

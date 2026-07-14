@@ -51,6 +51,21 @@ job_queue_position = Histogram(
 )
 
 # ---------------------------------------------------------------------------
+# Storyline cache (app/services/storyline_cache.py)
+# ---------------------------------------------------------------------------
+
+storyline_cache_hits_total = Counter(
+    "storyline_cache_hits_total",
+    "Storyline cache hits, skipping 07_storyline + 07b_validate_storyline",
+    ["layer"],  # l1 | l2
+)
+
+storyline_cache_misses_total = Counter(
+    "storyline_cache_misses_total",
+    "Storyline cache misses — full LLM generation ran",
+)
+
+# ---------------------------------------------------------------------------
 # Dependencies
 # ---------------------------------------------------------------------------
 

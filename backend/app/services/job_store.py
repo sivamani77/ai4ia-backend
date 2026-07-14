@@ -50,7 +50,7 @@ def save_job(job_id: str, data: dict[str, Any]) -> None:
     repo = get_job_repo()
     row = _to_supabase_job(job_id, data)
     repo.upsert_job(row)
-    logger.info("Job persisted to Supabase id=%s status=%s", job_id, data.get("status", "unknown"))
+    logger.info("Job persisted id=%s status=%s", job_id, data.get("status", "unknown"))
 
 
 def load_job(job_id: str) -> dict[str, Any]:
@@ -68,7 +68,7 @@ def load_job(job_id: str) -> dict[str, Any]:
     metadata["progress_percent"] = row.get("progress", 0)
     metadata["user_id"] = metadata.get("user_id") or row.get("user_id", "")
 
-    logger.info("Job loaded from Supabase id=%s", job_id)
+    logger.info("Job loaded id=%s", job_id)
 
     return metadata
 
@@ -109,8 +109,8 @@ def cancel_job(job_id: str) -> bool:
     Returns True if the job was in a cancellable state (queued or running),
     False if not found or already in a terminal state.
 
-    Writes "cancelled" directly — the Supabase jobs_status_check constraint
-    does not allow the intermediate "cancelling" value.
+    Writes "cancelled" directly — the jobs table's status check constraint
+    (db/init/001_schema.sql) does not allow an intermediate "cancelling" value.
     """
     try:
         job = load_job(job_id)

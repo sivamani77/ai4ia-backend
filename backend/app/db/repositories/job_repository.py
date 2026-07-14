@@ -2,37 +2,14 @@ from __future__ import annotations
 
 import json
 import logging
-import time
-from typing import Any, Callable, Mapping, TypedDict, TypeVar
+from typing import Any, Mapping, TypedDict
 
-from app.db.supabase import get_supabase_client, reset_supabase_client
+import psycopg2.extras
+
+from app.db.postgres import pg_execute, pg_fetch_one, pg_fetch_all
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.jobs")
-
-_T = TypeVar("_T")
-
-
-def _is_transient_connection_error(exc: Exception) -> bool:
-    """A dropped/reset connection that a fresh client would recover from —
-    e.g. Supabase closing an idle HTTP/2 keepalive after a long-running job
-    ('RemoteProtocolError: Server disconnected'). Distinct from real query
-    errors (4xx/5xx with a body), which should not be retried."""
-    name = type(exc).__name__.lower()
-    if "remoteprotocol" in name or "connecterror" in name or "connecttimeout" in name:
-        return True
-    msg = str(exc).lower()
-    return any(
-        marker in msg
-        for marker in (
-            "server disconnected",
-            "connection reset",
-            "broken pipe",
-            "connection aborted",
-            "eof occurred",
-            "connection refused",
-        )
-    )
 
 
 class JobRecord(TypedDict, total=False):
@@ -71,70 +48,59 @@ class JobRepository:
         "retry_count",
     }
 
-    def __init__(self) -> None:
-        self._client = get_supabase_client()
-        self._table = self._client.table(self.table_name)
-
-    def _with_retry(self, op_name: str, record_id: Any, fn: Callable[[], _T], *, attempts: int = 3) -> _T:
-        """Run a Supabase op, transparently recovering from a dropped connection
-        by resetting the cached client and retrying. Non-connection errors are
-        raised immediately. `fn` must read self._table at call time so it picks
-        up the rebuilt client after a reset."""
-        last_exc: Exception | None = None
-        for attempt in range(1, attempts + 1):
-            try:
-                return fn()
-            except Exception as exc:  # noqa: BLE001
-                last_exc = exc
-                if not _is_transient_connection_error(exc) or attempt == attempts:
-                    logger.exception(
-                        "Supabase jobs operation failed: table=%s operation=%s id=%s",
-                        self.table_name, op_name, record_id,
-                    )
-                    raise
-                logger.warning(
-                    "Supabase transient error on %s (id=%s, attempt %d/%d): %s — resetting client",
-                    op_name, record_id, attempt, attempts, exc,
-                )
-                reset_supabase_client()
-                self._client = get_supabase_client()
-                self._table = self._client.table(self.table_name)
-                time.sleep(0.5 * attempt)
-        raise last_exc  # unreachable, keeps type-checkers happy
-
     def create_job(self, data: Mapping[str, Any]) -> JobRecord:
         payload = self._normalize_input(data)
         record_id = payload.get("id")
         self._log("insert", record_id)
 
-        response = self._with_retry(
-            "insert", record_id, lambda: self._table.insert(payload).execute()
+        row = pg_fetch_one(
+            """
+            insert into jobs (id, status, source_type, source_value, progress, user_id,
+                              created_at, started_at, completed_at, error, metadata,
+                              job_type, worker_id, retry_count)
+            values (%(id)s, %(status)s, %(source_type)s, %(source_value)s, %(progress)s, %(user_id)s,
+                    coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s,
+                    %(error)s, %(metadata)s, %(job_type)s, %(worker_id)s, %(retry_count)s)
+            returning *
+            """,
+            self._to_row_params(payload),
         )
-
-        created = self._extract_optional_single(response.data)
-        if created is not None:
-            return created
+        if row is not None:
+            return self._normalize_output(row)
         return self.get_job(str(record_id))
 
     def get_job(self, record_id: str) -> JobRecord | None:
         self._log("select_one", record_id)
-
-        response = self._with_retry(
-            "select_one",
-            record_id,
-            lambda: self._table.select("*").eq("id", record_id).limit(1).execute(),
-        )
-
-        return self._extract_optional_single(response.data)
+        row = pg_fetch_one("select * from jobs where id = %s limit 1", (record_id,))
+        return self._normalize_output(row) if row is not None else None
 
     def upsert_job(self, data: Mapping[str, Any]) -> None:
         payload = self._normalize_input(data)
         self._log("upsert", payload.get("id"))
 
-        self._with_retry(
-            "upsert",
-            payload.get("id"),
-            lambda: self._table.upsert(payload, on_conflict="id").execute(),
+        pg_execute(
+            """
+            insert into jobs (id, status, source_type, source_value, progress, user_id,
+                              created_at, started_at, completed_at, error, metadata,
+                              job_type, worker_id, retry_count)
+            values (%(id)s, %(status)s, %(source_type)s, %(source_value)s, %(progress)s, %(user_id)s,
+                    coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s,
+                    %(error)s, %(metadata)s, %(job_type)s, %(worker_id)s, %(retry_count)s)
+            on conflict (id) do update set
+                status = excluded.status,
+                source_type = excluded.source_type,
+                source_value = excluded.source_value,
+                progress = excluded.progress,
+                user_id = excluded.user_id,
+                started_at = excluded.started_at,
+                completed_at = excluded.completed_at,
+                error = excluded.error,
+                metadata = excluded.metadata,
+                job_type = excluded.job_type,
+                worker_id = excluded.worker_id,
+                retry_count = excluded.retry_count
+            """,
+            self._to_row_params(payload),
         )
 
     def update_job(
@@ -147,13 +113,12 @@ class JobRepository:
         """Update only the fields present in `data`.
 
         When `merge_existing` is True (default), this is done atomically via
-        the `update_job_partial` Postgres function (db/migrations/0004_*.sql)
+        the `update_job_partial` Postgres function (db/init/001_schema.sql)
         — a single UPDATE statement that only touches the columns/metadata
         keys actually present in `data`, so concurrent writers touching
         different fields can't clobber each other (no read-modify-write
-        race). When False, `data` is written as a full-row overwrite via the
-        REST update endpoint — only use this for a full snapshot you know is
-        current.
+        race). When False, `data` is written as a full-row overwrite —
+        only use this for a full snapshot you know is current.
         """
         if merge_existing:
             self._update_job_atomic(record_id, data)
@@ -163,16 +128,17 @@ class JobRepository:
         payload.pop("id", None)
         self._log("update", record_id)
 
-        try:
-            self._table.update(payload).eq("id", record_id).execute()
-        except Exception:
-            logger.exception(
-                "Supabase jobs operation failed: table=%s operation=%s id=%s",
-                self.table_name,
-                "update",
-                record_id,
-            )
-            raise
+        pg_execute(
+            """
+            update jobs set
+                status = %(status)s, source_type = %(source_type)s, source_value = %(source_value)s,
+                progress = %(progress)s, user_id = %(user_id)s, started_at = %(started_at)s,
+                completed_at = %(completed_at)s, error = %(error)s, metadata = %(metadata)s,
+                job_type = %(job_type)s, worker_id = %(worker_id)s, retry_count = %(retry_count)s
+            where id = %(id)s
+            """,
+            {**self._to_row_params(payload), "id": record_id},
+        )
 
     def _update_job_atomic(self, record_id: str, data: Mapping[str, Any]) -> None:
         normalized = self._normalize_value(dict(data))
@@ -195,73 +161,46 @@ class JobRepository:
 
         self._log("update_partial", record_id)
 
-        self._with_retry(
-            "update_partial",
-            record_id,
-            lambda: self._client.rpc(
-                "update_job_partial",
-                {
-                    "p_id": record_id,
-                    "p_columns": columns or None,
-                    "p_metadata_patch": metadata_patch or None,
-                },
-            ).execute(),
+        pg_execute(
+            "select update_job_partial(%s, %s, %s)",
+            (
+                record_id,
+                psycopg2.extras.Json(columns) if columns else None,
+                psycopg2.extras.Json(metadata_patch) if metadata_patch else None,
+            ),
         )
 
     def list_jobs(self) -> list[JobRecord]:
         self._log("select_many")
-
-        try:
-            response = (
-                self._table.select("*")
-                .order("created_at", desc=True)
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase jobs operation failed: table=%s operation=%s",
-                self.table_name,
-                "select_many",
-            )
-            raise
-
-        return [self._normalize_output(row) for row in response.data or []]
+        rows = pg_fetch_all("select * from jobs order by created_at desc")
+        return [self._normalize_output(row) for row in rows]
 
     def list_by_user(self, user_id: str) -> list[JobRecord]:
-        response = self._table.select("*").eq("user_id", user_id).execute()
-        return [self._normalize_output(row) for row in response.data or []]
+        rows = pg_fetch_all("select * from jobs where user_id = %s", (user_id,))
+        return [self._normalize_output(row) for row in rows]
 
     def delete_job(self, record_id: str) -> bool:
         self._log("delete", record_id)
-
-        try:
-            self._table.delete().eq("id", record_id).execute()
-        except Exception:
-            logger.exception(
-                "Supabase jobs operation failed: table=%s operation=%s id=%s",
-                self.table_name,
-                "delete",
-                record_id,
-            )
-            raise
-
+        pg_execute("delete from jobs where id = %s", (record_id,))
         return True
-
-    def _extract_optional_single(
-        self,
-        rows: list[dict[str, Any]] | None,
-    ) -> JobRecord | None:
-        if not rows:
-            return None
-        return self._normalize_output(rows[0])
 
     def _log(self, operation: str, record_id: str | None = None) -> None:
         logger.debug(
-            "Supabase repository operation: table=%s operation=%s id=%s",
+            "Postgres repository operation: table=%s operation=%s id=%s",
             self.table_name,
             operation,
             record_id,
         )
+
+    def _to_row_params(self, payload: Mapping[str, Any]) -> dict[str, Any]:
+        """Wrap jsonb-bound fields with psycopg2.extras.Json so they
+        serialize correctly; leave everything else as-is."""
+        params = dict(payload)
+        params.setdefault("id", None)
+        for jsonb_field in ("metadata", "error"):
+            if jsonb_field in params and params[jsonb_field] is not None:
+                params[jsonb_field] = psycopg2.extras.Json(params[jsonb_field])
+        return params
 
     def _normalize_input(
         self,

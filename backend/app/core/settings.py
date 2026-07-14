@@ -65,7 +65,23 @@ class Settings(BaseSettings):
     redis_url: str = "redis://localhost:6379/0"
 
     # ------------------------------------------------------------------
-    # Supabase — pipeline/jobs project (jobs, events, storylines, etc.)
+    # Postgres — direct connection for the video-job pipeline tables
+    # (jobs, job_events, agent_decision_records, llm_call_traces). Replaces
+    # the Supabase REST client for these four tables: the REST/PostgREST
+    # layer was the source of the "RemoteProtocolError: Server disconnected"
+    # errors seen during long-running jobs, not the underlying database — a
+    # pooled, persistent direct connection doesn't have that failure mode.
+    # docker-compose.infra.yml's postgres service matches this default for
+    # local testing.
+    # ------------------------------------------------------------------
+    database_url: str = "postgresql://ai4ia:ai4ia_local_dev@localhost:5432/ai4ia"
+
+    # ------------------------------------------------------------------
+    # Supabase — auth project only (app_users, otp_codes, refresh_tokens,
+    # auth_audit). The pipeline/jobs project above has been replaced by
+    # direct Postgres for the four tables listed above; supabase_url/
+    # supabase_service_key are kept only in case any other pipeline table
+    # (storylines, insights, fragments) still reads from that project.
     # ------------------------------------------------------------------
     supabase_url: str = ""
     supabase_service_key: str = ""
@@ -150,6 +166,39 @@ class Settings(BaseSettings):
     fragment_min_words: int = Field(default=35, gt=0)
     fragment_target_words: int = Field(default=120, gt=0)
     fragment_max_words: int = Field(default=230, gt=0)
+
+    # ------------------------------------------------------------------
+    # Storyline cache (app/services/storyline_cache.py) — skips stages
+    # 07_storyline + 07b_validate_storyline entirely on a hit, since 07b's
+    # output is what 08/09 actually consume.
+    # ------------------------------------------------------------------
+    # L1: exact match on (normalized prompt, target_duration, style,
+    # validation_mode, visual_mode, max_validation_iterations, corpus_version).
+    # Safe to leave on — zero false-positive risk.
+    storyline_cache_enabled: bool = True
+    storyline_cache_ttl_seconds: int = 60 * 60 * 24 * 30  # 30 days
+    # Bump this after re-ingesting new source videos — it's part of the L1/L2
+    # cache key, so every cached entry is implicitly invalidated by a version
+    # change without needing a manual purge.
+    storyline_cache_corpus_version: str = "v1"
+    # L2: semantic/paraphrase match via embedding similarity + an LLM
+    # confirmation gate on candidate hits. Off by default — a false-positive
+    # hit here serves the wrong topic's video, not just a slow one, so this
+    # should only be enabled once there's real traffic data to tune the
+    # threshold against.
+    storyline_cache_l2_enabled: bool = False
+    # Calibrated against nomic-embed-text:v1.5 with the "classification: "
+    # prefix (see storyline_cache._embed_text): true paraphrases scored
+    # 0.87-0.91, clearly unrelated prompts scored 0.62-0.65, but a
+    # same-theme-different-topic prompt ALSO scored ~0.87 — cosine
+    # similarity alone cannot safely distinguish those two cases. This
+    # threshold is set low enough to admit both as LLM-confirmation
+    # candidates; _llm_confirms_same_topic is what actually decides,
+    # not this number. Do not treat this as a precision knob on its own.
+    storyline_cache_l2_similarity_threshold: float = Field(default=0.80, ge=0.0, le=1.0)
+    # Cap on how many L2 candidate embeddings to keep/scan (linear scan is
+    # fine at this scale; this just bounds memory/latency as the cache grows).
+    storyline_cache_l2_max_candidates: int = Field(default=2000, gt=0)
 
     # ------------------------------------------------------------------
     # YouTube ingestion

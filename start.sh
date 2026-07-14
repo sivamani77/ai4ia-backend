@@ -17,7 +17,7 @@ set -euo pipefail
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$PROJECT_ROOT/backend"
 
-source "$PROJECT_ROOT/venv/bin/activate"
+source "$PROJECT_ROOT/.venv/bin/activate"
 
 export OLLAMA_BASE_URL="${OLLAMA_BASE_URL:-http://ollama-mobius-sales.mobiusdtaas.ai}"
 export REDIS_URL="${REDIS_URL:-redis://localhost:6379/0}"

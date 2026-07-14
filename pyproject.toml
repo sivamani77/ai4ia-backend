@@ -11,6 +11,7 @@ dependencies = [
     "python-dotenv",
     "requests",
     "httpx",
+    "psycopg2-binary",
     "numpy",
     "tqdm",
     "pillow",

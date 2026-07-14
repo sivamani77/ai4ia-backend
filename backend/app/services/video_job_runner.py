@@ -264,6 +264,59 @@ def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
 # Pipeline orchestration
 # ---------------------------------------------------------------------------
 
+def _apply_cached_storyline(
+    job_id: str,
+    ctx: "PipelineContext",
+    cached_storyline: dict[str, Any],
+) -> None:
+    """Materialize a storyline-cache hit as if 07_storyline + 07b_validate_storyline
+    had just run: write a real validated-storyline file (08_assets reads it from
+    disk, same as a normal run), point the context at it, and mark both stages
+    completed so progress/events stay coherent for anyone polling job status."""
+    from app.core.paths import STORYLINES_DIR
+    from app.pipeline.s3_helpers import use_s3, upload
+
+    STORYLINES_DIR.mkdir(parents=True, exist_ok=True)
+    validated_path = STORYLINES_DIR / f"storyline_cache_{job_id}_validated.json"
+    validated_path.write_text(json.dumps(cached_storyline), encoding="utf-8")
+
+    if use_s3():
+        upload(validated_path, f"raw/storylines/{validated_path.name}")
+
+    ctx.storyline_path = str(validated_path)
+    ctx.validated_storyline_path = str(validated_path)
+
+    job = load_job(job_id)
+    job["paths"]["storyline_path"] = str(validated_path)
+    job["paths"]["validated_storyline_path"] = str(validated_path)
+    job["updated_at"] = _utc_now()
+    save_job(job_id, job)
+
+    for stage_name in ("07_storyline", "07b_validate_storyline"):
+        update_stage(job_id, stage_name, "completed", 100, "Served from storyline cache")
+        append_event(job_id, "stage_completed", stage_name, {"cache_hit": True})
+
+
+def _maybe_cache_storyline_result(job_id: str, request: dict[str, Any], ctx: "PipelineContext") -> None:
+    """After a freshly-run (non-cached) 07b_validate_storyline, write the
+    result to the storyline cache — but only if it passed its quality gates.
+    No point serving a known-weak result fast to the next identical query.
+    Best-effort: any failure here is logged, never fails the pipeline."""
+    from app.services import storyline_cache as _storyline_cache
+
+    try:
+        # Read from the in-memory copy, not ctx.validated_storyline_path —
+        # in S3 mode that file is already deleted by the time this runs
+        # (stage_07b_validate.py's cleanup_tmp_dir happens before it returns).
+        vdata = ctx.validated_storyline_data
+        if not vdata:
+            return
+        quality_ok = bool((vdata.get("editorial_quality_gates") or {}).get("final_timeline_approved", False))
+        _storyline_cache.store_storyline(request, vdata, quality_ok=quality_ok)
+    except Exception:
+        logger.warning("storyline cache: failed to store result for job %s (non-fatal)", job_id, exc_info=True)
+
+
 def run_video_job(job_id: str, request: dict[str, Any]) -> None:
     """Run the full pipeline via stage modules."""
     from app.pipeline import (
@@ -275,6 +328,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         stage_10_validate,
         stage_11_subtitles,
     )
+    from app.services import storyline_cache as _storyline_cache
 
     log = _job_logger(job_id)
 
@@ -314,6 +368,12 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
 
         from app.pipeline.base import JobCancelledException
 
+        if not request.get("force_refresh"):
+            cached_storyline = _storyline_cache.get_cached_storyline(request)
+            if cached_storyline is not None:
+                _apply_cached_storyline(job_id, ctx, cached_storyline)
+                stages = [stage_08_assets, stage_09_export, stage_10_validate, stage_11_subtitles]
+
         for stage_mod in stages:
             stage_name = getattr(stage_mod, "STAGE_NAME", stage_mod.__name__.split(".")[-1])
             stage_log = _job_logger(job_id, stage_name)
@@ -333,6 +393,17 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
                 _cleanup_job_tmp_dirs(job_id)
                 return
             stage_log.info("Stage %s", result.status)
+
+            # Bug: `stage_name` here is derived from the module's __name__
+            # (e.g. "stage_07b_validate"), never "07b_validate_storyline" —
+            # no stage module sets STAGE_NAME, so a string match against
+            # stage_name never fires. result.stage is the actual semantic
+            # name each stage module returns (e.g. StageResult(stage=
+            # "07b_validate_storyline", ...) in stage_07b_validate.py) —
+            # compare against that instead.
+            if result.stage == "07b_validate_storyline":
+                _maybe_cache_storyline_result(job_id, request, ctx)
+
             if _is_cancelling(job_id):
                 log.info("Cancellation detected after stage %s", stage_name)
                 _cancel_job(job_id, "cancelled between stages")
