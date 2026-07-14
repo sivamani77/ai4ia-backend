@@ -29,14 +29,20 @@ def _prepare_storyline(validated_path: str, job_id: str) -> Path:
     return local
 
 
-def _manifest_path(job_id: str) -> Path:
-    """Job-scoped manifest path — never shared between concurrent jobs."""
+def _assets_dir(job_id: str) -> Path:
+    """Job-scoped generated-assets directory — never shared between concurrent
+    jobs. Must always be passed to 08_generate_assets.py via AI4IA_LOCAL_ASSETS_DIR
+    (see run() below) — this function only computing the path is not enough,
+    the subprocess needs to actually be told to write there."""
     if use_s3():
-        return tmp_dir(f"08_{job_id}") / "generated_assets" / "latest_asset_manifest.json"
-    # Local mode: write to a per-job directory so concurrent jobs don't overwrite each other
+        return tmp_dir(f"08_{job_id}") / "generated_assets"
     job_assets = DATA_DIR / "jobs" / job_id / "generated_assets"
     job_assets.mkdir(parents=True, exist_ok=True)
-    return job_assets / "latest_asset_manifest.json"
+    return job_assets
+
+
+def _manifest_path(job_id: str) -> Path:
+    return _assets_dir(job_id) / "latest_asset_manifest.json"
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -49,12 +55,14 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
 
     storyline_local = _prepare_storyline(validated_path, job_id)
 
-    # In S3 mode, override GENERATED_ASSETS_DIR so the script writes into /tmp
-    env_overrides: dict[str, str] = {}
-    if use_s3():
-        assets_tmp = tmp_dir(f"08_{job_id}") / "generated_assets"
-        assets_tmp.mkdir(parents=True, exist_ok=True)
-        env_overrides["AI4IA_LOCAL_ASSETS_DIR"] = str(assets_tmp)
+    # Always override GENERATED_ASSETS_DIR to a job-scoped directory — in S3
+    # mode that's a /tmp dir uploaded and discarded after; in local mode it's
+    # DATA_DIR/jobs/{job_id}/generated_assets. Without this override the
+    # script falls back to its own shared default (data/generated_assets),
+    # which _manifest_path() below never looks at, and two concurrent jobs
+    # would also collide on that shared dir's fixed-name manifest file.
+    assets_dir = _assets_dir(job_id)
+    env_overrides: dict[str, str] = {"AI4IA_LOCAL_ASSETS_DIR": str(assets_dir)}
 
     cmd = [
         PYTHON_BIN,
@@ -68,24 +76,18 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if code != 0:
         raise RuntimeError(f"08_generate_assets.py exited {code}: {stderr[-1000:]}")
 
-    # Find the manifest — script writes it to GENERATED_ASSETS_DIR
-    if use_s3():
-        assets_tmp = tmp_dir(f"08_{job_id}") / "generated_assets"
-        # Find latest_asset_manifest.json recursively
-        manifests = list(assets_tmp.rglob("latest_asset_manifest.json"))
-        if not manifests:
-            raise RuntimeError(f"Asset manifest not found under {assets_tmp}")
-        manifest_path = manifests[0]
+    # Find the manifest — script writes it into assets_dir (AI4IA_LOCAL_ASSETS_DIR above)
+    manifests = list(assets_dir.rglob("latest_asset_manifest.json"))
+    if not manifests:
+        raise RuntimeError(f"Asset manifest not found under {assets_dir}")
+    manifest_path = manifests[0]
 
+    if use_s3():
         update_stage(job_id, "08_assets", "running", 85, "Uploading generated assets to S3")
         # Upload all generated assets (audio, cards, visual PNGs, manifest)
-        upload_dir(assets_tmp, _S3_ASSETS_PREFIX)
+        upload_dir(assets_dir, _S3_ASSETS_PREFIX)
         # Upload manifest under a job-scoped key so concurrent jobs don't collide
         upload(manifest_path, f"{_S3_ASSETS_PREFIX}/{job_id}_manifest.json")
-    else:
-        manifest_path = _manifest_path(job_id)
-        if not manifest_path.exists():
-            raise RuntimeError(f"Asset manifest not found at {manifest_path}")
 
     # Parse manifest for details
     try:

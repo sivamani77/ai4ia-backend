@@ -82,6 +82,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         "--prompt", request["prompt"],
         "--duration", str(target_duration),
         "--style", request.get("style", "documentary"),
+        "--job-id", job_id,
     ]
 
     update_stage(job_id, "07_storyline", "running", 20, "Running storyline generation script")
@@ -91,7 +92,17 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         raise RuntimeError(f"07_generate_storyline.py exited {code}: {stderr[-1000:]}")
 
     update_stage(job_id, "07_storyline", "running", 85, "Locating generated storyline")
-    storyline_path = _newest_file_after(STORYLINES_DIR, ts_before, "storyline_*.json")
+    # Job-scoped lookup first — the script names its output storyline_{job_id}_*.json
+    # when given --job-id (always true here). This is what actually prevents two
+    # concurrent jobs' stage-07 subprocesses from picking up each other's file;
+    # _newest_file_after (pure "newest mtime in the shared directory") is kept
+    # only as a fallback for old storyline files that predate job_id scoping.
+    job_scoped_matches = sorted(
+        STORYLINES_DIR.glob(f"storyline_{job_id}_*.json"),
+        key=lambda p: p.stat().st_mtime,
+    )
+    storyline_path = job_scoped_matches[-1] if job_scoped_matches else \
+        _newest_file_after(STORYLINES_DIR, ts_before, "storyline_*.json")
     if storyline_path is None:
         raise RuntimeError("No storyline JSON found after 07_generate_storyline.py ran")
 

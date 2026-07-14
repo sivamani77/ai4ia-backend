@@ -5194,9 +5194,17 @@ def save_storyline(
     retrieval_diagnostics: dict[str, Any],
     candidate_bucket_summary: dict[str, Any] | None = None,
     corpus_diagnostics: dict[str, Any] | None = None,
+    job_id: str | None = None,
 ) -> Path:
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_path = STORYLINES_DIR / f"storyline_{timestamp}.json"
+    # job_id-scoped filename when available (always true when launched by the
+    # backend pipeline) — without it, two jobs' storyline files can collide on
+    # this same-second timestamp, and the caller's "newest file in the
+    # directory" lookup (backend/app/pipeline/base.py::_newest_file_after)
+    # would then pick up the WRONG job's storyline under concurrency > 1.
+    # Falls back to the old timestamp-only name for manual/no-job-id CLI runs.
+    filename = f"storyline_{job_id}_{timestamp}.json" if job_id else f"storyline_{timestamp}.json"
+    output_path = STORYLINES_DIR / filename
 
     selected = buckets.get("selected_candidates", [])
     supporting = buckets.get("supporting_candidates", [])
@@ -5536,6 +5544,13 @@ def main() -> None:
         action="store_true",
         help="Exclude fragments with audio_quality_status == 'manual_review'."
     )
+    parser.add_argument(
+        "--job-id",
+        default=None,
+        help="Backend job id, when launched by the pipeline. Used to scope the "
+             "output storyline filename so concurrent jobs can't pick up each "
+             "other's file (see save_storyline())."
+    )
 
     args = parser.parse_args()
 
@@ -5836,6 +5851,7 @@ def main() -> None:
         retrieval_diagnostics=retrieval_diagnostics,
         candidate_bucket_summary=candidate_bucket_summary,
         corpus_diagnostics=corpus_diagnostics,
+        job_id=args.job_id,
     )
 
     print_summary(storyline, output_path)
