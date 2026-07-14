@@ -552,15 +552,29 @@ def render_archive_clip(
             str(output_path),
         ]
     elif audio_mode == "muted":
+        # A segment with NO audio stream at all (-an) breaks HLS/MSE playback
+        # mid-stream: browsers require every segment in the stream to carry
+        # an audio track with identical codec/sample-rate/channel-layout —
+        # one segment missing audio entirely gets silently rejected along
+        # with everything after it (confirmed by the frontend team on the
+        # live HLS preview). Synthesize a silent AAC track instead, encoded
+        # with the exact same settings as every other segment.
         cmd = [
             "ffmpeg",
             "-y",
             "-ss", str(start),
             "-i", str(source_path),
+            "-f", "lavfi",
+            "-i", "anullsrc=channel_layout=stereo:sample_rate=48000",
             "-t", str(duration),
             "-vf", vf,
-            "-an",
+            "-map", "0:v:0",
+            "-map", "1:a:0",
+            "-shortest",
             *_vcodec_flags(threads=2),
+            "-c:a", "aac",
+            "-ar", "48000",
+            "-ac", "2",
             str(output_path),
         ]
     else:
