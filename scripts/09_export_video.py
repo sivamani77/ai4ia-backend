@@ -2082,7 +2082,21 @@ class HLSStreamWriter:
             "#EXT-X-MEDIA-SEQUENCE:0",
             "#EXT-X-PLAYLIST-TYPE:EVENT",
         ]
-        for name, dur in self._entries:
+        for i, (name, dur) in enumerate(self._entries):
+            if i > 0:
+                # Every segment is encoded independently (fresh ffmpeg process
+                # per timeline item, starting at PTS 0) — there is no shared
+                # timeline across segments, so every boundary is a genuine
+                # discontinuity. Without this tag, players' internal
+                # transmuxers (raw MPEG-TS isn't MSE-native — this is what
+                # actually feeds the browser's SourceBuffer) read the PTS
+                # reset at segment 2+ as corrupt/out-of-order timestamps and
+                # silently drop audio from there on, while video keeps
+                # displaying (audio buffering is stricter about monotonic
+                # continuity than video frame display) — confirmed live:
+                # exactly "segment 1 audio plays, video fine after that but
+                # silent."
+                lines.append("#EXT-X-DISCONTINUITY")
             lines.append(f"#EXTINF:{dur:.3f},")
             lines.append(name)
         if self._closed:
