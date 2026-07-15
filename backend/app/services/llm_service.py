@@ -27,6 +27,8 @@ from app.core.config import (
     VLLM_BASE_URL,
     VLLM_MODEL,
     VLLM_CHAT_ENDPOINT,
+    STORYLINE_VLLM_BASE_URL,
+    STORYLINE_VLLM_MODEL
 )
 
 logger = logging.getLogger("ai4ia.services.llm")
@@ -34,6 +36,17 @@ logger = logging.getLogger("ai4ia.services.llm")
 REQUEST_TIMEOUT_SECONDS = 300
 MAX_RETRIES = 3
 RETRY_SLEEP_SECONDS = 4
+
+# Model name -> vLLM host. Two separate vLLM deployments exist (20b at
+# VLLM_BASE_URL, 120b at STORYLINE_VLLM_BASE_URL) — resolve by model name so
+# callers that pass INSIGHT_MODEL/SPEAKER_EXTRACTION_MODEL (120b) reach the
+# right host instead of falling through to Ollama with a model name Ollama
+# doesn't have.
+_VLLM_BASE_URL_BY_MODEL = {
+    VLLM_MODEL: VLLM_BASE_URL,
+    STORYLINE_VLLM_MODEL: STORYLINE_VLLM_BASE_URL,
+}
+
 
 
 # ---------------------------------------------------------------------------
@@ -207,6 +220,7 @@ def generate_text(
     _trace: dict | None = None,
 ) -> str:
     resolved_model = model or VLLM_MODEL
+    base_url = _VLLM_BASE_URL_BY_MODEL.get(resolved_model, VLLM_BASE_URL)
     t0 = time.time()
     retry_count = 0
     response_text = ""
@@ -214,7 +228,7 @@ def generate_text(
 
     try:
         data, retry_count = _post_with_retries(
-            f"{VLLM_BASE_URL}{VLLM_CHAT_ENDPOINT}",
+            f"{base_url}{VLLM_CHAT_ENDPOINT}",
             {
                 "model": resolved_model,
                 "messages": [{"role": "user", "content": prompt}],
@@ -252,7 +266,7 @@ def generate_json(
     - Strong model (openai/gpt-oss-20b or explicit override) → vLLM /v1/chat/completions
     """
     resolved_model = model or FAST_LLM_MODEL
-    use_vllm = resolved_model == VLLM_MODEL
+    use_vllm = resolved_model in _VLLM_BASE_URL_BY_MODEL
     t0 = time.time()
     retry_count = 0
     response_text = ""
@@ -261,7 +275,7 @@ def generate_json(
     try:
         if use_vllm:
             data, retry_count = _post_with_retries(
-                f"{VLLM_BASE_URL}{VLLM_CHAT_ENDPOINT}",
+                f"{_VLLM_BASE_URL_BY_MODEL}{VLLM_CHAT_ENDPOINT}",
                 {
                     "model": resolved_model,
                     "messages": [{"role": "user", "content": prompt}],

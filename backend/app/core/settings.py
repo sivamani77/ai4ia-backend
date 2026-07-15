@@ -128,8 +128,8 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------
     # LLM models
     # ------------------------------------------------------------------
-    speaker_extraction_model: str = "openai/gpt-oss-20b"
-    insight_model: str = "openai/gpt-oss-20b"
+    speaker_extraction_model: str = "openai/gpt-oss-120b"
+    insight_model: str = "openai/gpt-oss-120b"
     embedding_model: str = "nomic-embed-text:v1.5"
     fast_llm_model: str = "llama3.1:8b"
 

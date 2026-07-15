@@ -16,6 +16,9 @@ VLLM_BASE_URL = settings.vllm_base_url
 VLLM_MODEL = settings.vllm_model
 VLLM_CHAT_ENDPOINT = settings.vllm_chat_endpoint
 STRONG_LLM_MODEL = VLLM_MODEL   # alias — strong model is the vLLM model
+
+STORYLINE_VLLM_BASE_URL = settings.storyline_vllm_base_url
+STORYLINE_VLLM_MODEL = settings.storyline_vllm_model
 TTS_PROVIDER = "edge-tts"
 EXPORT_ENGINE = "ffmpeg"
 
