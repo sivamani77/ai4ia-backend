@@ -44,6 +44,7 @@ from app.pipeline.timeline_budget import (  # noqa: E402
     _candidate_is_speaker_eligible,
     build_duration_budget,
     fill_timeline_to_target,
+    timeline_segment_count_for_duration,
     timeline_total_seconds,
 )
 
@@ -620,14 +621,43 @@ def context_window_to_prompt_text(window: list[dict[str, Any]], frag_start: floa
 # Topic detection
 # ---------------------------------------------------------------------------
 
-def detect_narrative_sections(user_prompt: str, topic_terms: list[str]) -> list[dict[str, Any]]:
+def detect_narrative_sections(
+    user_prompt: str,
+    topic_terms: list[str],
+    target_duration_seconds: int = 120,
+) -> list[dict[str, Any]]:
     # Only check hardcoded deepfake terms — topic_terms came FROM the prompt and always match,
     # so including them would make every topic look like deepfake.
     prompt_lower = (user_prompt or "").lower()
+    base = GENERIC_NARRATIVE_SECTIONS
     for term in DEEPFAKE_TOPIC_TERMS:
         if term in prompt_lower:
-            return DEEPFAKE_NARRATIVE_SECTIONS
-    return GENERIC_NARRATIVE_SECTIONS
+            base = DEEPFAKE_NARRATIVE_SECTIONS
+            break
+
+    # timeline_segment_count_for_duration(120) == len(base) == 6, so short/
+    # default requests are unaffected. Longer requests previously stayed
+    # capped at this fixed 6-section arc no matter the target — 07's own
+    # storyline generation scales its section count with target_duration_seconds
+    # (same helper), but 07b rebuilt its narrative structure from this
+    # hardcoded, unscaled template, silently discarding everything upstream
+    # wrote past section 6 and capping the whole pipeline's output duration
+    # regardless of what was requested. Repeat the hook→...→synthesis arc
+    # cyclically to reach the same segment count 07 already targets.
+    desired_count = timeline_segment_count_for_duration(target_duration_seconds)
+    if desired_count <= len(base):
+        return base
+
+    sections: list[dict[str, Any]] = []
+    for i in range(desired_count):
+        src = base[i % len(base)]
+        pass_num = i // len(base) + 1
+        sec = dict(src)
+        if pass_num > 1:
+            sec["section_id"] = f"{src['section_id']}_{pass_num}"
+            sec["title"] = f"{src['title']} (Part {pass_num})"
+        sections.append(sec)
+    return sections
 
 # ---------------------------------------------------------------------------
 # Individual fragment validation
@@ -672,15 +702,28 @@ def _extract_speaker_from_video_title(source_video: str) -> str:
     return ""
 
 
+_SECTION_ID_PASS_SUFFIX_RE = re.compile(r"_\d+$")
+
+
+def _base_section_id(section_id: str) -> str:
+    """Strip the trailing "_<pass_number>" detect_narrative_sections adds when
+    it repeats the base arc to cover a longer target_duration (e.g. S1_HOOK_2
+    -> S1_HOOK) — the topic-default dicts below are keyed by the original,
+    unsuffixed section ids only, so a repeated section must map back to its
+    base id to find a default at all."""
+    return _SECTION_ID_PASS_SUFFIX_RE.sub("", section_id or "")
+
+
 def _clean_voiceover_text(
     text: str,
     section_id: str,
     is_deepfake_topic: bool = False,
 ) -> str:
     """Strip instruction phrases from voiceover text and apply topic defaults if needed."""
+    base_section_id = _base_section_id(section_id)
     if not text:
         defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-        return defaults.get(section_id, "")
+        return defaults.get(base_section_id, "")
 
     cleaned = text.strip()
 
@@ -695,7 +738,7 @@ def _clean_voiceover_text(
             else:
                 # Nothing left — use topic default
                 defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-                cleaned = defaults.get(section_id, cleaned)
+                cleaned = defaults.get(base_section_id, cleaned)
             break
 
     # If still looks like instruction text with no factual content, use default
@@ -703,7 +746,7 @@ def _clean_voiceover_text(
     words = cleaned.lower().split()
     if words and words[0] in instruction_verbs:
         defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-        cleaned = defaults.get(section_id, cleaned)
+        cleaned = defaults.get(base_section_id, cleaned)
 
     # Ensure it ends with a period
     if cleaned and not cleaned.rstrip()[-1:] in ".!?":
@@ -1437,7 +1480,20 @@ def enrich_final_timeline(
         if not item.get("start"):
             item["start"] = float(orig.get("start") or cand.get("start") or 0)
         if not item.get("end"):
-            item["end"] = float(orig.get("end") or cand.get("end") or item["start"] + 10)
+            # narration_broll has no real fragment behind it (fid/cand/orig all
+            # empty), so the "+10" flat fallback below would give every
+            # narration item the same 10s regardless of how much it actually
+            # has to say — a 90-word and a 210-word voiceover both got clamped
+            # to 10s, which silently capped total video duration far below
+            # whatever the narration was actually written (and word-budgeted)
+            # to fill. Estimate from the written text at ~2.5 words/sec instead,
+            # matching the rate the word budget itself was computed at.
+            default_span = 10.0
+            if t == "narration_broll":
+                words = len((item.get("voiceover_text") or "").split())
+                if words:
+                    default_span = max(6.0, round(words / 2.5, 2))
+            item["end"] = float(orig.get("end") or cand.get("end") or item["start"] + default_span)
 
         if t == "speaker_clip":
             item["type"] = "speaker_clip"
@@ -2121,7 +2177,7 @@ def main() -> None:
     ]
 
     # Detect narrative structure
-    narrative_sections = detect_narrative_sections(user_prompt, topic_terms)
+    narrative_sections = detect_narrative_sections(user_prompt, topic_terms, target_duration)
     log(f"Narrative structure: {[s['section_id'] for s in narrative_sections]}")
     log(f"Fragment items to validate: {len(fragment_items)}")
 
@@ -2313,7 +2369,7 @@ def main() -> None:
             t = item.get("type") or item.get("segment_type") or ""
             if t == "narration_broll" and not (item.get("voiceover_text") or "").strip():
                 sid = item.get("section_id") or ""
-                item["voiceover_text"] = defaults.get(sid, "")
+                item["voiceover_text"] = defaults.get(_base_section_id(sid), "")
                 item["subtitle_text"] = item["voiceover_text"]
 
     # Ensure all narrative sections are represented in the timeline
@@ -2336,7 +2392,7 @@ def main() -> None:
             raw_vo = item.get("voiceover_text") or ""
             cleaned = _clean_voiceover_text(raw_vo, sid, is_deepfake_topic)
             if not cleaned:
-                cleaned = defaults.get(sid, "")
+                cleaned = defaults.get(_base_section_id(sid), "")
             item["voiceover_text"] = cleaned
             item["subtitle_text"] = cleaned
 
@@ -2404,7 +2460,7 @@ def main() -> None:
                 _raw_vo = _item.get("voiceover_text") or ""
                 _cleaned = _clean_voiceover_text(_raw_vo, _sid, is_deepfake_topic)
                 if not _cleaned:
-                    _cleaned = _defaults.get(_sid, "")
+                    _cleaned = _defaults.get(_base_section_id(_sid), "")
                 _item["voiceover_text"] = _cleaned
                 _item["subtitle_text"] = _cleaned
         enriched_timeline = _enforce_section_rhythm(enriched_timeline, narrative_sections)

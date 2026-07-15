@@ -3322,6 +3322,51 @@ def timeline_requires_moment_repair(export_timeline: list[dict]) -> bool:
     return False
 
 
+def _narration_broll_items_from_sections(storyline: dict[str, Any]) -> list[dict[str, Any]]:
+    """Turn storyline.sections' written narration into narration_broll timeline items.
+
+    build_export_timeline_from_candidates only ever emits fragment-linked
+    segments (one per real source clip) — it has no notion of the narrative
+    text written for each section. Without this, repair_or_rebuild_timeline_
+    with_moments would silently discard every word of narration the storyline
+    LLM wrote (still present in storyline["sections"], just never carried into
+    export_timeline), collapsing the video down to whatever handful of raw
+    source clips exist — regardless of how much real narrative content was
+    actually produced for the requested duration.
+    """
+    items: list[dict[str, Any]] = []
+    for sec in (storyline.get("sections") or []):
+        text = (sec.get("narration") or sec.get("viewer_narration") or "").strip()
+        if not text:
+            continue
+        words = len(text.split())
+        # ~2.5 words/sec matches the word-budget assumption used when the
+        # narration was generated (see target_words = per_section_s * 2.5
+        # in 07b_validate_storyline_with_llm.py) — keeps estimated duration
+        # consistent with what the text was actually written to fill.
+        duration = max(6.0, round(words / 2.5, 2))
+        items.append({
+            "type": "narration_broll",
+            "segment_type": "narration_broll",
+            "audio_mode": "ai_voiceover",
+            "muted": True,
+            "section_id": sec.get("section_id"),
+            "voiceover_text": text,
+            "subtitle_text": text,
+            "subtitle_kind": "voiceover",
+            "duration": duration,
+            "start": None,
+            "end": None,
+            "moment_text": "",
+            "moment_summary": "",
+            "moment_selection_reason": "narration_from_storyline_sections",
+            "section_role": sec.get("section_type") or sec.get("role"),
+            "speech_quality": {},
+            "moment_scores": {},
+        })
+    return items
+
+
 def repair_or_rebuild_timeline_with_moments(
     storyline: dict[str, Any],
     selected_candidates: list[dict[str, Any]],
@@ -3372,17 +3417,44 @@ def repair_or_rebuild_timeline_with_moments(
     # If rebuild produced title/closing cards, don't double-add from the existing timeline
     rebuilt_has_title = any(item.get("type") == "title_card" for item in rebuilt)
     rebuilt_has_closing = any(item.get("type") == "closing_card" for item in rebuilt)
+    rebuilt_content = [
+        item for item in rebuilt
+        if item.get("type") not in ("title_card", "closing_card")
+    ]
+
+    # build_export_timeline_from_candidates only knows real source clips — it
+    # never carries over the narration the storyline LLM wrote for each
+    # section (still sitting in storyline["sections"], untouched by this
+    # rebuild). Interleave it back in so a repaired timeline isn't reduced to
+    # a bare clip reel capped at however many real fragments happened to be
+    # selected — narration duration is written to fill target_duration
+    # already, so this is what actually lets the video reach the requested
+    # length instead of stopping at raw_fragment_count × per_segment_duration.
+    narration_items = _narration_broll_items_from_sections(storyline)
+    interleaved: list[dict[str, Any]] = []
+    frag_idx = 0
+    for nb in narration_items:
+        interleaved.append(nb)
+        if frag_idx < len(rebuilt_content):
+            interleaved.append(rebuilt_content[frag_idx])
+            frag_idx += 1
+    interleaved.extend(rebuilt_content[frag_idx:])
+    content = interleaved or rebuilt_content
 
     final: list[dict[str, Any]] = []
     if not rebuilt_has_title:
         title_cards = [item for item in card_items if item.get("type") == "title_card" or item.get("timeline_type") == "title_card"]
         final.extend(title_cards)
+    else:
+        final.extend(item for item in rebuilt if item.get("type") == "title_card")
 
-    final.extend(rebuilt)
+    final.extend(content)
 
     if not rebuilt_has_closing:
         closing_cards = [item for item in card_items if item.get("type") == "closing_card" or item.get("timeline_type") == "closing_card"]
         final.extend(closing_cards)
+    else:
+        final.extend(item for item in rebuilt if item.get("type") == "closing_card")
 
     result["export_timeline"] = final
     result["timeline_repair"] = {
@@ -3390,8 +3462,10 @@ def repair_or_rebuild_timeline_with_moments(
         "reason": "llm_timeline_missing_phase4o_moment_fields",
         "raw_timeline_items": raw_count,
         "rebuilt_timeline_items": len(final),
+        "narration_items_added": len(narration_items),
     }
-    log(f"Timeline rebuilt: {raw_count} raw items → {len(final)} Phase 4O items.")
+    log(f"Timeline rebuilt: {raw_count} raw items → {len(final)} Phase 4O items "
+        f"({len(narration_items)} narration_broll from storyline sections).")
     return result
 
 

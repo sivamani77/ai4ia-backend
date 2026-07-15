@@ -47,6 +47,16 @@ START_NGROK=0
 
 # ── helpers ───────────────────────────────────────────────────────────────────
 
+if [ -f "$PROJECT_ROOT/.env" ]; then
+  eval "$(python3 -c "
+import shlex
+from dotenv import dotenv_values
+for k, v in dotenv_values('$PROJECT_ROOT/.env').items():
+    if v is not None:
+        print(f'export {k}={shlex.quote(v)}')
+")"
+fi
+
 cleanup() {
   for pid_var in NGROK_PID WORKER_PID UVICORN_PID; do
     pid="${!pid_var:-}"
