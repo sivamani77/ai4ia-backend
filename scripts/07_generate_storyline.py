@@ -77,8 +77,10 @@ def _get_chroma_collection():
     host = os.environ.get("CHROMA_HOST", "chromadb")
     port = int(os.environ.get("CHROMA_PORT", "8000"))
     collection_name = os.environ.get("CHROMA_COLLECTION", "fragments")
+    auth_token = os.environ.get("CHROMA_AUTH_TOKEN", "")
 
-    client = chromadb.HttpClient(host=host, port=port)
+    headers = {"Authorization": f"Bearer {auth_token}"} if auth_token else None
+    client = chromadb.HttpClient(host=host, port=port, headers=headers)
     _CHROMA_COLLECTION = client.get_collection(collection_name)
     return _CHROMA_COLLECTION
 
