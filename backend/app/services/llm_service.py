@@ -28,7 +28,7 @@ from app.core.config import (
     VLLM_MODEL,
     VLLM_CHAT_ENDPOINT,
     STORYLINE_VLLM_BASE_URL,
-    STORYLINE_VLLM_MODEL
+    STORYLINE_VLLM_MODEL,
 )
 
 logger = logging.getLogger("ai4ia.services.llm")
@@ -46,8 +46,6 @@ _VLLM_BASE_URL_BY_MODEL = {
     VLLM_MODEL: VLLM_BASE_URL,
     STORYLINE_VLLM_MODEL: STORYLINE_VLLM_BASE_URL,
 }
-
-
 
 # ---------------------------------------------------------------------------
 # Internal helpers
@@ -263,7 +261,9 @@ def generate_json(
 
     Routing:
     - Fast model (llama3.1:8b / default) → Ollama /api/generate with format=json
-    - Strong model (openai/gpt-oss-20b or explicit override) → vLLM /v1/chat/completions
+    - Strong model (any model in _VLLM_BASE_URL_BY_MODEL, or explicit
+      override) → vLLM /v1/chat/completions, on whichever vLLM host that
+      model actually lives on
     """
     resolved_model = model or FAST_LLM_MODEL
     use_vllm = resolved_model in _VLLM_BASE_URL_BY_MODEL
@@ -275,7 +275,7 @@ def generate_json(
     try:
         if use_vllm:
             data, retry_count = _post_with_retries(
-                f"{_VLLM_BASE_URL_BY_MODEL}{VLLM_CHAT_ENDPOINT}",
+                f"{_VLLM_BASE_URL_BY_MODEL[resolved_model]}{VLLM_CHAT_ENDPOINT}",
                 {
                     "model": resolved_model,
                     "messages": [{"role": "user", "content": prompt}],

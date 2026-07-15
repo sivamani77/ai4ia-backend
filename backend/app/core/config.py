@@ -17,6 +17,11 @@ VLLM_MODEL = settings.vllm_model
 VLLM_CHAT_ENDPOINT = settings.vllm_chat_endpoint
 STRONG_LLM_MODEL = VLLM_MODEL   # alias — strong model is the vLLM model
 
+# Separate, larger vLLM deployment (gpt-oss-120b) — used by the video pipeline
+# (scripts/07_generate_storyline.py) and, via INSIGHT_MODEL below, by
+# Insights/Relay of Ideas/Theme Synthesis/Speaker Comparison. Distinct host
+# from VLLM_BASE_URL above, which still serves the smaller 20b model for any
+# other feature (translation, concept mindmap) that doesn't opt into 120b.
 STORYLINE_VLLM_BASE_URL = settings.storyline_vllm_base_url
 STORYLINE_VLLM_MODEL = settings.storyline_vllm_model
 TTS_PROVIDER = "edge-tts"
