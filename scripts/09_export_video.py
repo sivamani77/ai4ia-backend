@@ -68,6 +68,61 @@ SECTION_VOICEOVER_VOLUME = 1.0
 DEFAULT_SUBTITLE_CHUNK_WORDS = 10
 MIN_SUBTITLE_ENTRY_DURATION = 1.2
 
+_WHISPER_MODEL_NAME = "small"
+_whisper_model_singleton = None
+
+
+def _get_whisper_model():
+    """Lazily load the same faster-whisper 'small' model pre-downloaded into
+    the Docker image (see Dockerfile) — reused here for real per-word
+    timestamps on speaker_clip captions instead of an even-pace estimate."""
+    global _whisper_model_singleton
+    if _whisper_model_singleton is None:
+        from faster_whisper import WhisperModel
+        _whisper_model_singleton = WhisperModel(_WHISPER_MODEL_NAME, device="cpu", compute_type="int8")
+    return _whisper_model_singleton
+
+
+def _transcribe_words(media_path: Path) -> list[dict[str, Any]]:
+    """Transcribe a rendered segment file and return real per-word timestamps
+    (segment-local time, i.e. relative to that clip file's own start)."""
+    model = _get_whisper_model()
+    segments_iter, _info = model.transcribe(
+        str(media_path),
+        task="transcribe",
+        vad_filter=True,
+        beam_size=5,
+        word_timestamps=True,
+    )
+    words: list[dict[str, Any]] = []
+    for segment in segments_iter:
+        for w in (segment.words or []):
+            text = (w.word or "").strip()
+            if not text:
+                continue
+            words.append({"word": text, "start": float(w.start), "end": float(w.end)})
+    return words
+
+
+def _real_timed_entries_from_words(
+    words: list[dict[str, Any]], max_words: int = DEFAULT_SUBTITLE_CHUNK_WORDS
+) -> list[dict[str, Any]]:
+    """Group transcribed words into caption chunks using each word's own real
+    start/end (not an evenly-divided estimate)."""
+    entries: list[dict[str, Any]] = []
+    for i in range(0, len(words), max_words):
+        group = words[i:i + max_words]
+        if not group:
+            continue
+        entries.append(
+            {
+                "start": group[0]["start"],
+                "end": group[-1]["end"],
+                "text": " ".join(w["word"] for w in group),
+            }
+        )
+    return entries
+
 
 def _probe_nvenc() -> bool:
     """True only if h264_nvenc is both compiled in AND can actually encode a
@@ -1395,11 +1450,55 @@ def build_subtitle_artifacts(segment_infos: list[dict[str, Any]]) -> tuple[list[
             )
             continue
 
-        segment_entries = make_subtitle_entries_for_segment(
-            text=subtitle_text,
-            segment_start=float(info["start_time"]),
-            segment_end=float(info["end_time"]),
-        )
+        caption_start = float(info["start_time"])
+        caption_end = float(info["end_time"])
+        segment_entries: list[dict[str, Any]] = []
+
+        # A speaker_clip's render window (start_time/end_time) can span far
+        # more of the archive fragment than what subtitle_text (our curated
+        # pull-quote) covers — captioning only the matched quote and going
+        # blank for the rest of the clip reads as broken playback. Instead,
+        # transcribe the ACTUAL rendered segment file with Whisper and caption
+        # the WHOLE clip from that real transcript — continuous, accurate,
+        # word-level-synced captions for as long as the clip actually plays,
+        # not just for the curated excerpt. Falls back to the even-pace
+        # estimate (clamped to the quote's own plausible span) only if
+        # transcription itself fails.
+        if subtitle_type == "speaker":
+            segment_path = info.get("path")
+            try:
+                if not segment_path:
+                    raise ValueError("no rendered segment path to transcribe")
+                words = _transcribe_words(Path(segment_path))
+                if words:
+                    real_entries = _real_timed_entries_from_words(words)
+                    segment_entries = [
+                        {
+                            "start": caption_start + e["start"],
+                            "end": caption_start + e["end"],
+                            "text": e["text"],
+                        }
+                        for e in real_entries
+                    ]
+                    log(
+                        f"  [subtitles] speaker_clip {str(timeline_item.get('fragment_id'))[:40]!r}: "
+                        f"real word-level captions for full clip ({len(words)} words transcribed)"
+                    )
+            except Exception as exc:
+                log(f"  [subtitles] word-level transcription failed for speaker_clip, falling back to estimate: {exc}")
+
+            if not segment_entries:
+                quote_words = len(subtitle_text.split())
+                if quote_words:
+                    estimated_speech_dur = max(3.0, quote_words / 2.5)
+                    caption_end = min(caption_end, caption_start + estimated_speech_dur)
+
+        if not segment_entries:
+            segment_entries = make_subtitle_entries_for_segment(
+                text=subtitle_text,
+                segment_start=caption_start,
+                segment_end=caption_end,
+            )
 
         if not segment_entries:
             coverage["segments_without_subtitles"] += 1
