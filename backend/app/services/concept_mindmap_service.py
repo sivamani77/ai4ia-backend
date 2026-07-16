@@ -5,7 +5,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-from app.core.config import VLLM_MODEL
+from app.core.config import STORYLINE_VLLM_MODEL
 from app.core.paths import STORYLINES_DIR
 from app.services import fragment_store
 from app.services.llm_service import generate_json
@@ -161,7 +161,7 @@ def _generate_video_mindmap(query: str, payload: dict[str, Any], source_path: Pa
         logline=clean_text(story.get("logline")) or "",
         script=script_text,
     )
-    extraction = generate_json(prompt, model=VLLM_MODEL, temperature=0.2)
+    extraction = generate_json(prompt, model=STORYLINE_VLLM_MODEL, temperature=0.2)
     if not isinstance(extraction, dict) or not extraction.get("main_ideas"):
         raise ValueError("LLM returned no main_ideas for video mindmap")
 
