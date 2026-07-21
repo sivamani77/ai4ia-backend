@@ -620,6 +620,32 @@ def normalize_plural(token: str) -> str:
     return token
 
 
+def parse_list_field(value: Any) -> list:
+    """Normalize a metadata list field regardless of source shape.
+
+    The local JSONL path stores these as native Python lists. ChromaDB
+    metadata only accepts scalars, so import_embeddings_to_chroma.py's
+    sanitize_metadata JSON-encodes lists (e.g. clip_usage_candidates,
+    keywords, theme_tags, chapter_tags) into strings. Treating that string
+    as already-a-list (set(), [:6], " ".join()) silently corrupts it —
+    set() splits into individual characters, slicing takes characters not
+    items, join() interleaves every character with spaces. Older Chroma
+    data may still use the legacy comma-joined format, so fall back to
+    that if the value isn't valid JSON.
+    """
+    if isinstance(value, list):
+        return value
+    if isinstance(value, str) and value:
+        try:
+            parsed = json.loads(value)
+            if isinstance(parsed, list):
+                return parsed
+        except (json.JSONDecodeError, ValueError):
+            pass
+        return [c.strip() for c in value.split(",") if c.strip()]
+    return []
+
+
 def normalize_name(value: str) -> str:
     lowered = (value or "").lower().replace("_", " ").replace("-", " ")
     lowered = re.sub(r"[^a-z0-9\s]+", " ", lowered)
@@ -937,11 +963,7 @@ def classify_candidate_relevance(
     semantic_score = float(enriched.get("semantic_score") or 0.0)
     quote_strength = float(enriched.get("quote_strength") or 0.0)
     clarity_score = float(enriched.get("clarity_score") or 0.0)
-    _raw_usage = enriched.get("clip_usage_candidates") or []
-    if isinstance(_raw_usage, str):
-        usage_candidates = set(c.strip() for c in _raw_usage.split(",") if c.strip())
-    else:
-        usage_candidates = set(_raw_usage)
+    usage_candidates = set(parse_list_field(enriched.get("clip_usage_candidates")))
 
     # Crypto/cryptography disambiguation
     if is_crypto_prompt:
@@ -1186,7 +1208,7 @@ def candidate_search_blob(record: dict[str, Any]) -> str:
     parts = [
         record.get("text", ""),
         record.get("summary", ""),
-        " ".join(record.get("keywords", []) or []),
+        " ".join(parse_list_field(record.get("keywords"))),
         record.get("source_video", ""),
         record.get("speaker", ""),
         record.get("primary_speaker", ""),
@@ -1336,11 +1358,7 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     final_prompt_score = float(enriched.get("final_prompt_score") or 0.0)
     quote_strength = float(enriched.get("quote_strength") or 0.0)
     clarity_score = float(enriched.get("clarity_score") or 0.0)
-    _raw_usage2 = enriched.get("clip_usage_candidates") or []
-    if isinstance(_raw_usage2, str):
-        usage_candidates = set(c.strip() for c in _raw_usage2.split(",") if c.strip())
-    else:
-        usage_candidates = set(_raw_usage2)
+    usage_candidates = set(parse_list_field(enriched.get("clip_usage_candidates")))
     chapter_match = bool(enriched.get("chapter_match"))
     theme_match = bool(enriched.get("theme_match"))
     generic_terms = enriched.get("generic_evidence_terms") or []
@@ -2573,7 +2591,7 @@ def retrieve_candidates(
 
 
 def utility_boost(record: dict[str, Any]) -> float:
-    usage = set(record.get("clip_usage_candidates", []))
+    usage = set(parse_list_field(record.get("clip_usage_candidates")))
 
     boost = 0.0
 
@@ -2830,10 +2848,7 @@ def build_candidate_pack(candidates: list[dict[str, Any]]) -> list[dict[str, Any
     Only include fields the LLM needs — trimmed to keep prompt under token budget."""
     packed = []
     for item in candidates:
-        # Resolve clip_usage_candidates — may be comma-string from ChromaDB
-        cuc = item.get("clip_usage_candidates", [])
-        if isinstance(cuc, str):
-            cuc = [c.strip() for c in cuc.split(",") if c.strip()]
+        cuc = parse_list_field(item.get("clip_usage_candidates"))
 
         packed.append({
             "fragment_id": item.get("fragment_id"),
@@ -2845,7 +2860,7 @@ def build_candidate_pack(candidates: list[dict[str, Any]]) -> list[dict[str, Any
             "primary_theme": item.get("primary_theme"),
             "primary_chapter": item.get("primary_chapter"),
             "summary": truncate_text(item.get("summary", ""), 150),
-            "keywords": item.get("keywords", [])[:6],
+            "keywords": parse_list_field(item.get("keywords"))[:6],
             "clip_usage_candidates": cuc,
             "quote_strength": item.get("quote_strength"),
             "clarity_score": item.get("clarity_score"),
@@ -5117,7 +5132,7 @@ def build_fallback_storyline(
     soundbites_cap = max(8, timeline_segment_count_for_duration(duration))
     soundbites = [
         item for item in candidates
-        if "speaker_soundbite" in item.get("clip_usage_candidates", [])
+        if "speaker_soundbite" in parse_list_field(item.get("clip_usage_candidates"))
     ][:soundbites_cap]
     visuals = candidates[:max(18, timeline_segment_count_for_duration(duration) * 2)]
 
