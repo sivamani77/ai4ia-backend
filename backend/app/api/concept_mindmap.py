@@ -10,11 +10,6 @@ router = APIRouter(prefix="/v1", tags=["Concept Mindmap"])
 class ConceptMindmapRequest(BaseModel):
     query: str = Field(..., min_length=5, max_length=300)
     storyline_id: str | None = Field(None, max_length=100)
-    mode: str = Field(
-        "legacy",
-        pattern="^(video|legacy)$",
-        description="'legacy' = theme/chapter/speaker/content-centric map (default, no LLM); 'video' = NotebookLM-style map of what the video says",
-    )
 
 
 @router.post("/concept-mindmap")
@@ -23,7 +18,7 @@ def create_concept_mindmap(request: ConceptMindmapRequest):
         return generate_concept_mindmap(
             query=request.query,
             storyline_id=request.storyline_id,
-            mode=request.mode,
+            mode="legacy",
         )
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
