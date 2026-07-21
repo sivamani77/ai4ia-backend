@@ -311,10 +311,13 @@ def embed_single_fallback(text: str) -> list[float]:
     return embedding
 
 
-def embed_texts(texts: list[str]) -> list[list[float]]:
+def embed_texts(texts: list[str]) -> list[list[float] | None]:
     """
     First tries modern batch endpoint /api/embed.
-    If that fails, falls back to single-item /api/embeddings.
+    If that fails, falls back to single-item /api/embeddings, isolating each
+    item's failure (e.g. one oversized fragment exceeding the model's context
+    length) so it doesn't take out every other item in the same batch — a
+    failed item comes back as None rather than aborting the whole call.
     """
 
     try:
@@ -323,9 +326,13 @@ def embed_texts(texts: list[str]) -> list[list[float]]:
     except Exception as exc:
         log(f"/api/embed failed. Falling back to /api/embeddings. Reason: {exc}")
 
-        embeddings = []
+        embeddings: list[list[float] | None] = []
         for text in texts:
-            embeddings.append(embed_single_fallback(text))
+            try:
+                embeddings.append(embed_single_fallback(text))
+            except Exception as item_exc:
+                log(f"  Item failed in fallback: {item_exc}")
+                embeddings.append(None)
 
         return embeddings
 
@@ -467,6 +474,16 @@ def main() -> None:
                 embeddings = embed_texts(texts)
 
                 for fragment, embedding in zip(batch, embeddings):
+                    if embedding is None:
+                        failed.append(
+                            {
+                                "fragment_id": fragment.get("fragment_id"),
+                                "source_video": fragment.get("source_video"),
+                                "error": "embedding request failed for this item",
+                            }
+                        )
+                        continue
+
                     normalized_embedding = normalize_vector(embedding)
 
                     record = dict(fragment)

@@ -16,7 +16,7 @@ sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJ
 
 from app.core.taxonomy_loader import THEMES, CHAPTERS  # noqa: E402
 
-FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments"
+FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments_cleaned"
 CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
 SPEAKERS_METADATA_DIR = PROJECT_ROOT / "data" / "metadata" / "speakers"
 REPORT_PATH = PROJECT_ROOT / "data" / "metadata" / "youtube" / "fragment_classification_report.csv"
@@ -356,7 +356,7 @@ def determine_clip_usage(text: str, quote_strength: float, clarity_score: float,
     text_norm = normalize(text)
     usage = []
 
-    if quote_strength >= 0.50 and clarity_score >= 0.55:
+    if quote_strength >= 0.35 and clarity_score >= 0.55:
         usage.append("speaker_soundbite")
 
     if narration_support_score >= 0.6:

@@ -34,7 +34,7 @@ import os
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 # Use the full classified JSONL (data/embeddings/) which has quote_strength,
 # clarity_score, clip_usage_candidates — required for speaker clip selection.
-JSONL_PATH = PROJECT_ROOT / "data" / "embeddings_cleaned" / "classified_fragments_embeddings.jsonl"
+JSONL_PATH = PROJECT_ROOT / "data" / "embeddings" / "classified_fragments_embeddings.jsonl"
 CHROMA_DIR = PROJECT_ROOT / "data" / "chroma"
 COLLECTION_NAME = os.environ.get("CHROMA_COLLECTION", "fragments")
 CHROMA_HOST = os.environ.get("CHROMA_HOST", "localhost")
@@ -42,55 +42,36 @@ CHROMA_PORT = int(os.environ.get("CHROMA_PORT", "8001"))
 BATCH_SIZE = 500
 
 
+
+# Fields excluded from Chroma metadata: "embedding" is stored as the actual
+# vector (not metadata), "fragment_id" is stored as the Chroma record id, and
+# "embedding_text" is stored verbatim as the Chroma "document" — duplicating
+# any of these into metadata as well would be pure waste, not added fidelity.
+_METADATA_EXCLUDED_FIELDS = {"embedding", "fragment_id", "embedding_text"}
+
+
 def sanitize_metadata(row: dict) -> dict:
-    """Extract only scalar-safe metadata fields for ChromaDB."""
-    def _str(v) -> str:
-        return str(v) if v is not None else ""
-
-    def _float(v) -> float:
-        try:
-            return float(v) if v is not None else 0.0
-        except (TypeError, ValueError):
-            return 0.0
-
-    def _int(v) -> int:
-        try:
-            return int(v) if v is not None else 0
-        except (TypeError, ValueError):
-            return 0
-
-    # clip_usage_candidates is a list — store as comma-separated string
-    clip_candidates = row.get("clip_usage_candidates") or []
-    if isinstance(clip_candidates, list):
-        clip_candidates_str = ",".join(clip_candidates)
-    else:
-        clip_candidates_str = _str(clip_candidates)
-
-    return {
-        "video_id":                  _str(row.get("video_id")),
-        "source_video":              _str(row.get("source_video")),
-        "fragment_index":            _int(row.get("fragment_index")),
-        "start":                     _float(row.get("start")),
-        "end":                       _float(row.get("end")),
-        "duration":                  _float(row.get("duration")),
-        "word_count":                _int(row.get("word_count")),
-        "theme":                     _str(row.get("theme") or row.get("primary_theme")),
-        "chapter":                   _str(row.get("chapter") or row.get("primary_chapter")),
-        "storyline_role":            _str(row.get("storyline_role")),
-        "summary":                   _str(row.get("summary")),
-        "speaker":                   _str(row.get("speaker") or row.get("speaker_name")),
-        "speaker_attribution":       _str(row.get("speaker_attribution")),
-        "quote_strength":            _float(row.get("quote_strength")),
-        "clarity_score":             _float(row.get("clarity_score")),
-        "narration_support_score":   _float(row.get("narration_support_score")),
-        "clip_usage_candidates":     clip_candidates_str,
-        "classification_confidence": _float(row.get("classification_confidence")),
-        "audio_quality_status":      _str(row.get("audio_quality_status")),
-        "transcript_quality_score":  _float(row.get("transcript_quality_score")),
-        "video_year":                _int(row.get("video_year")),
-        "embedding_model":           _str(row.get("embedding_model")),
-        "embedding_created_at":      _str(row.get("embedding_created_at")),
-    }
+    """Pass through every field from the JSONL record as Chroma metadata,
+    verbatim by field name — every consumer of this collection (scripts/
+    07_generate_storyline.py's CHROMA_MODE=http path, embedding_index.py)
+    must see the exact same field names the JSONL/fragments_classified data
+    uses (primary_theme, primary_chapter, speaker, keywords, ...), not a
+    curated/renamed subset. ChromaDB metadata values must be str/int/float/
+    bool, so lists and dicts are JSON-encoded and None becomes "".
+    """
+    metadata: dict = {}
+    for key, value in row.items():
+        if key in _METADATA_EXCLUDED_FIELDS:
+            continue
+        if value is None:
+            metadata[key] = ""
+        elif isinstance(value, (str, int, float, bool)):
+            metadata[key] = value
+        elif isinstance(value, (list, dict)):
+            metadata[key] = json.dumps(value, ensure_ascii=False)
+        else:
+            metadata[key] = str(value)
+    return metadata
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -200,7 +181,7 @@ def main() -> None:
         results["metadatas"][0],
     ), 1):
         print(f"  #{rank}  dist={dist:.4f}  id={rid[:60]}...")
-        print(f"        theme={meta['theme'] or '(none)'}  chapter={meta['chapter'] or '(none)'}")
+        print(f"        theme={meta.get('primary_theme') or '(none)'}  chapter={meta.get('primary_chapter') or '(none)'}  speaker={meta.get('speaker') or '(none)'}")
 
 
 if __name__ == "__main__":

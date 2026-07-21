@@ -20,6 +20,7 @@ Usage:
     python scripts/01_download_videos.py --url <channel>  # override channel URL
 """
 import argparse
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -28,6 +29,42 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DIR = PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel"
 META_DIR = PROJECT_ROOT / "data" / "metadata" / "youtube"
 ARCHIVE_FILE = META_DIR / "download_archive.txt"
+
+# yt-dlp needs a JS runtime >=20 to solve YouTube's JS challenge; without one,
+# extraction silently reports many videos as "not available" even when they
+# aren't. The system default `node` on PATH may be an older nvm version, so
+# search nvm's installed versions for one new enough rather than assume PATH
+# already points at it.
+_MIN_NODE_MAJOR = 20
+
+
+def _find_js_runtime_node() -> str | None:
+    import shutil
+
+    candidates: list[tuple[int, str]] = []
+
+    path_node = shutil.which("node")
+    if path_node:
+        try:
+            out = subprocess.run([path_node, "--version"], capture_output=True, text=True, timeout=10)
+            match = re.match(r"v(\d+)", out.stdout.strip())
+            if match:
+                candidates.append((int(match.group(1)), path_node))
+        except (OSError, subprocess.SubprocessError):
+            pass
+
+    nvm_dir = Path.home() / ".nvm" / "versions" / "node"
+    if nvm_dir.is_dir():
+        for version_dir in nvm_dir.iterdir():
+            match = re.match(r"v(\d+)", version_dir.name)
+            node_bin = version_dir / "bin" / "node"
+            if match and node_bin.exists():
+                candidates.append((int(match.group(1)), str(node_bin)))
+
+    eligible = [c for c in candidates if c[0] >= _MIN_NODE_MAJOR]
+    if not eligible:
+        return None
+    return max(eligible, key=lambda c: c[0])[1]
 
 # Channel "Videos" tab — yt-dlp expands this to every public upload.
 DEFAULT_CHANNEL = "https://www.youtube.com/@ai4iaconference861/videos"
@@ -64,6 +101,10 @@ def build_command(channel_url: str, limit: int | None, list_only: bool) -> list[
         "--retries", "10",
         "--output", OUTPUT_TEMPLATE,
     ]
+
+    node_bin = _find_js_runtime_node()
+    if node_bin:
+        cmd += ["--js-runtimes", f"node:{node_bin}"]
 
     if limit:
         cmd += ["--max-downloads", str(limit)]

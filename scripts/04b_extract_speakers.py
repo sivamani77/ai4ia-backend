@@ -26,7 +26,9 @@ sys.path.insert(0, str(PROJECT_ROOT / "backend"))
 
 from app.services.llm_service import generate_json, SPEAKER_EXTRACTION_MODEL  # noqa: E402
 
-CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
+import os
+
+CLASSIFIED_DIR = Path(os.getenv("AI4IA_CLASSIFIED_DIR", str(PROJECT_ROOT / "data" / "fragments_classified")))
 RAW_DIR = PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel"
 SPEAKERS_DIR = PROJECT_ROOT / "data" / "metadata" / "speakers"
 
@@ -66,6 +68,9 @@ _NON_PERSON_WORDS = {"zimbabwe", "eswatini", "uganda", "kenya", "nigeria", "ghan
 
 def parse_title_name_hint(title: str) -> str | None:
     """If a title is '<Person Name> - <Topic>', return the name. Region/session -> None."""
+    # Strip a leading track/session code like "(7G)" or "(9A)" — otherwise it fails
+    # the all-tokens-capitalized check below and masks a real name right after it.
+    title = re.sub(r"^\(\s*[0-9]+[A-Za-z]*\s*\)\s*", "", title.strip())
     # Accept ' - ', ' -', or 'word- ' separators.
     lead = re.split(r"\s+-\s*|\s*-\s+", title, maxsplit=1)[0].strip()
     if lead == title.strip():  # no separator found
@@ -158,8 +163,16 @@ def main() -> int:
     todo = []
     skipped = 0
     for fpath in files:
+        # Match extract_one()'s actual output key (payload video_id, falling back
+        # to source_video, then the file stem) — checking against the filename
+        # stem alone missed every video already saved under its short video_id.
         vid = fpath.stem.replace(".classified", "")
-        # video_id may differ from filename stem; cheap check on the common case
+        if not args.force:
+            try:
+                payload = json.loads(fpath.read_text(encoding="utf-8"))
+                vid = payload.get("video_id") or payload.get("source_video") or vid
+            except Exception:  # noqa: BLE001
+                pass
         if not args.force and (SPEAKERS_DIR / f"{vid}.json").exists():
             skipped += 1
             continue

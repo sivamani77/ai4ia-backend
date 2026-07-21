@@ -1014,7 +1014,7 @@ def classify_candidate_relevance(
             reason = "Speaker matched; selected as one of the strongest clips across available themes."
             speaker_clip_allowed = (
                 "speaker_soundbite" in usage_candidates
-                and quote_strength >= 0.50
+                and quote_strength >= 0.35
                 and clarity_score >= 0.75
             )
         elif semantic_score >= 0.52:
@@ -1022,7 +1022,7 @@ def classify_candidate_relevance(
             reason = f"Speaker matched with limited topic evidence; semantic {semantic_score:.3f}"
             speaker_clip_allowed = (
                 "speaker_soundbite" in usage_candidates
-                and quote_strength >= 0.55
+                and quote_strength >= 0.40
                 and clarity_score >= 0.75
             )
         else:
@@ -1034,7 +1034,7 @@ def classify_candidate_relevance(
         reason = "Speaker and requested chapter matched."
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.50
+            and quote_strength >= 0.35
             and clarity_score >= 0.75
         )
     elif theme_match and (len(meaningful_overlap) >= 1 or semantic_score >= 0.58):
@@ -1042,7 +1042,7 @@ def classify_candidate_relevance(
         reason = "Speaker and requested theme matched."
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.50
+            and quote_strength >= 0.35
             and clarity_score >= 0.75
         )
     elif len(meaningful_overlap) >= 2 and semantic_score >= 0.62:
@@ -1050,7 +1050,7 @@ def classify_candidate_relevance(
         reason = f"Strong meaningful overlap ({meaningful_overlap}) + semantic {semantic_score:.3f}"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.50
+            and quote_strength >= 0.35
             and clarity_score >= 0.75
         )
     elif len(meaningful_overlap) >= 1 and semantic_score >= 0.66:
@@ -1058,7 +1058,7 @@ def classify_candidate_relevance(
         reason = f"Meaningful overlap ({meaningful_overlap}) + high semantic {semantic_score:.3f}"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.50
+            and quote_strength >= 0.35
             and clarity_score >= 0.75
         )
     elif len(expanded_overlap) >= 2 and semantic_score >= 0.65:
@@ -1066,7 +1066,7 @@ def classify_candidate_relevance(
         reason = f"Non-generic expanded overlap ({expanded_overlap}) + semantic {semantic_score:.3f}"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.50
+            and quote_strength >= 0.35
             and clarity_score >= 0.75
         )
     elif len(generic_expanded_overlap) >= 2 and semantic_score >= 0.67:
@@ -1079,7 +1079,7 @@ def classify_candidate_relevance(
         reason = f"High semantic {semantic_score:.3f} + theme/expanded match"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.55
+            and quote_strength >= 0.40
             and clarity_score >= 0.75
         )
     elif (total_theme >= 1 or total_meaningful >= 1 or len(expanded_overlap) >= 1) and semantic_score >= 0.62:
@@ -1087,7 +1087,7 @@ def classify_candidate_relevance(
         reason = f"Topic/theme overlap at moderate semantic {semantic_score:.3f}: meaningful={meaningful_overlap}, theme={theme_overlap}, expanded={expanded_overlap[:3]}"
         speaker_clip_allowed = (
             "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.55
+            and quote_strength >= 0.40
             and clarity_score >= 0.75
         )
     elif total_meaningful >= 1 or total_theme >= 1 or len(expanded_overlap) >= 1:
@@ -1117,7 +1117,7 @@ def classify_candidate_relevance(
     # Thresholds lowered from 0.65/0.85 since quote_strength is now a better signal.
     if role in ("exact", "strong_related"):
         speaker_soundbite_allowed = (
-            quote_strength >= 0.50
+            quote_strength >= 0.35
             and clarity_score >= 0.80
         )
     else:
@@ -1387,7 +1387,7 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     speaker_soundbite_allowed = False
     if role in ("exact", "strong_related"):
         speaker_soundbite_allowed = (
-            quote_strength >= 0.50
+            quote_strength >= 0.35
             and clarity_score >= 0.80
         )
 
@@ -2735,7 +2735,7 @@ def select_balanced_candidates(retrieved: list[dict[str, Any]], limit: int) -> l
             6,
         )
 
-    def sort_key(record: dict[str, Any]) -> tuple[int, float]:
+    def sort_key(record: dict[str, Any]) -> tuple[int, int, float]:
         relevance_role = record.get("relevance_role")
         priority = 0
         if relevance_role == "exact":
@@ -2747,7 +2747,18 @@ def select_balanced_candidates(retrieved: list[dict[str, Any]], limit: int) -> l
         elif relevance_role == "contextual":
             priority = 1
         # "reject" stays at 0
-        return (priority, float(record["selection_score"]))
+
+        # Among equally-relevant candidates, prefer real speaking clips over
+        # silent b-roll — utility_boost's score bonus alone is too small to
+        # reliably win this tie against a marginally-more-topical b-roll clip.
+        if record.get("speaker_soundbite_allowed") or record.get("speaker_clip_allowed"):
+            speaker_bonus = 2
+        elif record.get("speaker_visual_allowed"):
+            speaker_bonus = 1
+        else:
+            speaker_bonus = 0
+
+        return (priority, speaker_bonus, float(record["selection_score"]))
 
     # Filter out rejected candidates before selection
     retrieved = [r for r in retrieved if r.get("relevance_role") != "reject"]
@@ -4017,13 +4028,21 @@ def decide_clip_audio_role(
     # - low intro penalty
     # - minimum meaningful score
     # - reasonable duration
+    #
+    # No upper duration bound: window length is already driven by
+    # per_segment_duration (build_export_timeline_from_candidates), which
+    # adapts to however many candidates survived selection — when only a
+    # few candidates are available, each window has to be long to fill the
+    # requested video length. There's no separate semantic/LLM step that
+    # trims a window down to soundbite length, so a fixed upper bound here
+    # only rejected clips for being exactly as long as they needed to be.
     is_speaker_clip = (
         is_meaningful
         and effective_usable_speech
         and intro_penalty < 0.20
         and final_score >= 0.20        # lowered from 0.45 — conference transcripts score lower
         and completeness >= 0.35       # lowered from 0.65 — partial credit for mid-window starts
-        and 5.0 <= duration <= 20.0
+        and duration >= 5.0            # floor only — guards against degenerate micro-clips
         and speaker_allowed
     )
 

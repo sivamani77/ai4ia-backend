@@ -191,11 +191,20 @@ def _build_where(filters: dict) -> dict | None:
     Fields that live only in Supabase (speaker, edition, year) are left
     to post-filtering by callers on the returned fragment dicts.
     """
+    # Caller-facing filter keys ("theme", "chapter") stay as-is; the Chroma
+    # metadata field names are primary_theme/primary_chapter (verbatim from
+    # fragments_classified — see import_embeddings_to_chroma.py's
+    # sanitize_metadata, which no longer renames these).
+    field_map = {
+        "theme": "primary_theme",
+        "chapter": "primary_chapter",
+        "audio_quality_status": "audio_quality_status",
+    }
     clauses: list[dict] = []
-    for key in ("theme", "chapter", "audio_quality_status"):
-        val = filters.get(key)
+    for filter_key, chroma_field in field_map.items():
+        val = filters.get(filter_key)
         if val:
-            clauses.append({key: {"$eq": str(val)}})
+            clauses.append({chroma_field: {"$eq": str(val)}})
 
     if not clauses:
         return None
