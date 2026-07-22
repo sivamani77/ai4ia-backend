@@ -647,6 +647,7 @@ def render_archive_clip(
             "-t", str(duration),
             "-vf", vf,
             "-af", af,
+            "-shortest",
             *_vcodec_flags(threads=2),
             "-c:a", "aac",
             "-ar", "48000",
@@ -2590,7 +2591,11 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             str(output_path),
         ]).strip() or "0")
         _av_delta = _aud_dur_check - _vid_dur_check
-        if _av_delta > 1.0:
+        if _av_delta > 0.15:
+            if _av_delta > 2.0:
+                raise ExportIntegrityError(
+                    f"A/V sync corruption: audio duration ({_aud_dur_check:.2f}s) exceeds video duration ({_vid_dur_check:.2f}s) by {_av_delta:.2f}s (exceeds 2.0s hard ceiling)"
+                )
             log(f"  A/V balance: video={_vid_dur_check:.2f}s audio={_aud_dur_check:.2f}s delta={_av_delta:.2f}s — padding video stream")
             _padded = output_path.parent / (output_path.stem + "_avpad.mp4")
             run_cmd([
@@ -2603,6 +2608,8 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             _padded.replace(output_path)
             log(f"  A/V balance: video stream padded — final duration ≈ {_aud_dur_check:.2f}s")
     except Exception as _av_exc:
+        if isinstance(_av_exc, ExportIntegrityError):
+            raise
         log(f"  A/V balance check failed (non-fatal): {_av_exc}")
 
     rhythm = {
@@ -2762,8 +2769,8 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
         log(f"  video_stream_duration: {vid_dur:.2f}s")
         log(f"  audio_stream_duration: {aud_dur:.2f}s")
         log(f"  duration_delta:        {dur_delta:.2f}s")
-        if dur_delta > 1.0:
-            log(f"WARNING: duration_delta ({dur_delta:.2f}s) exceeds 1 second — possible A/V sync issue.")
+        if dur_delta > 0.2:
+            log(f"WARNING: duration_delta ({dur_delta:.2f}s) exceeds 0.2s — possible A/V sync issue.")
         _target = float(_manifest_target_dur) if _manifest_target_dur else 0.0
         _planned = float((export_manifest.get("duration_budget") or {}).get("planned_total_seconds") or 0.0)
         export_manifest["duration_check"] = {

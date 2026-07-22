@@ -1099,51 +1099,32 @@ def classify_candidate_relevance(
     elif semantic_score >= 0.68 and (total_theme >= 1 or total_meaningful >= 1):
         role = "strong_related"
         reason = f"High semantic {semantic_score:.3f} + theme/expanded match"
-        speaker_clip_allowed = (
-            "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.40
-            and clarity_score >= 0.75
-        )
     elif (total_theme >= 1 or total_meaningful >= 1 or len(expanded_overlap) >= 1) and semantic_score >= 0.62:
         role = "strong_related"
         reason = f"Topic/theme overlap at moderate semantic {semantic_score:.3f}: meaningful={meaningful_overlap}, theme={theme_overlap}, expanded={expanded_overlap[:3]}"
-        speaker_clip_allowed = (
-            "speaker_soundbite" in usage_candidates
-            and quote_strength >= 0.40
-            and clarity_score >= 0.75
-        )
     elif total_meaningful >= 1 or total_theme >= 1 or len(expanded_overlap) >= 1:
         role = "weak_related"
         reason = f"Partial overlap below semantic threshold: meaningful={meaningful_overlap}, theme={theme_overlap}, expanded={expanded_overlap[:3]}"
-        speaker_clip_allowed = False
     elif len(generic_expanded_overlap) >= 1 and semantic_score >= 0.60:
         role = "contextual"
         reason = f"Only generic synonym match ({generic_expanded_overlap}) + semantic {semantic_score:.3f}"
-        speaker_clip_allowed = False
     elif semantic_score >= 0.60:
         role = "contextual"
         reason = f"Broad semantic similarity {semantic_score:.3f} only, no topic overlap"
-        speaker_clip_allowed = False
     else:
         role = "reject"
         reason = f"Low semantic {semantic_score:.3f}, no topic overlap"
-        speaker_clip_allowed = False
         broll_allowed = False
 
-    # Hard rule: never allow speaker soundbite for weak/contextual/reject
-    if role in ("weak_related", "contextual", "reject"):
-        speaker_clip_allowed = False
-
-    # speaker_soundbite_allowed: prompt-relative gate — role must be exact/strong_related
-    # so the same clip can be a soundbite for one prompt and b-roll for another.
-    # Thresholds lowered from 0.65/0.85 since quote_strength is now a better signal.
-    if role in ("exact", "strong_related"):
+    # speaker_soundbite_allowed: quote-quality gate (clarity, quote_strength),
+    # decoupled from prompt-overlap role (exact/strong_related/weak_related).
+    # Role affects section placement, not whether a quality quote is allowed to be spoken.
+    speaker_soundbite_allowed = False
+    if role != "reject":
         speaker_soundbite_allowed = (
             quote_strength >= 0.35
-            and clarity_score >= 0.80
+            and clarity_score >= 0.75
         )
-    else:
-        speaker_soundbite_allowed = False
 
     # speaker_visual_allowed: true for speaker-prompt clips that belong to the requested speaker,
     # even if not good enough for a soundbite. The clip can run muted under narration.
@@ -1162,6 +1143,9 @@ def classify_candidate_relevance(
     elif role == "contextual":
         use_as = "context_only"
         final_video_allowed = False
+    elif speaker_soundbite_allowed:
+        use_as = "speaker_soundbite"
+        final_video_allowed = True
     elif role == "weak_related":
         if speaker_visual_allowed:
             # Speaker-matched weak clip — usable as visual under narration
@@ -1170,9 +1154,6 @@ def classify_candidate_relevance(
         else:
             use_as = "narration_support"
             final_video_allowed = False  # will be promoted to True only for low-evidence fallback
-    elif speaker_soundbite_allowed:
-        use_as = "speaker_soundbite"
-        final_video_allowed = True
     elif speaker_visual_allowed:
         use_as = "speaker_visual"
         final_video_allowed = True
@@ -1403,10 +1384,10 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
         reason = f"Generic-only evidence cannot be exact. {enriched.get('selection_reason')}"
 
     speaker_soundbite_allowed = False
-    if role in ("exact", "strong_related"):
+    if role != "reject":
         speaker_soundbite_allowed = (
             quote_strength >= 0.35
-            and clarity_score >= 0.80
+            and clarity_score >= 0.75
         )
 
     speaker_visual_allowed = False
@@ -1422,6 +1403,9 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     elif role == "contextual":
         use_as = "context_only"
         final_video_allowed = False
+    elif speaker_soundbite_allowed:
+        use_as = "speaker_soundbite"
+        final_video_allowed = True
     elif role == "weak_related":
         if speaker_visual_allowed:
             use_as = "speaker_visual"
@@ -1429,9 +1413,6 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
         else:
             use_as = "narration_support"
             final_video_allowed = False
-    elif speaker_soundbite_allowed:
-        use_as = "speaker_soundbite"
-        final_video_allowed = True
     elif speaker_visual_allowed:
         use_as = "speaker_visual"
         final_video_allowed = True

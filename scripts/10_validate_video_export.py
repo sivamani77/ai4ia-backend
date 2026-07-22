@@ -18,6 +18,7 @@ Optional:
 import argparse
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -27,11 +28,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 # ---------------------------------------------------------------------------
 # Scoring weights
 # ---------------------------------------------------------------------------
-WEIGHT_FILES = 20
-WEIGHT_SUBTITLES = 20
-WEIGHT_CLIP_DIVERSITY = 25
+WEIGHT_FILES = 15
+WEIGHT_VIDEO_STREAM = 20
+WEIGHT_SUBTITLES = 15
+WEIGHT_CLIP_DIVERSITY = 20
 WEIGHT_PLANNING = 15
-WEIGHT_RHYTHM = 15
+WEIGHT_RHYTHM = 10
 WEIGHT_MANIFEST_COMPLETENESS = 5
 
 SCORE_PASS = 80
@@ -124,19 +126,121 @@ def check_files(export: dict, base_dir: Path) -> dict:
     result["failures"] = failures
     result["warnings"] = warnings
 
-    # Pass resolved paths forward for subtitle check
+    # Pass resolved paths forward for subtitle & video stream checks
     result["_srt_path"] = srt_path
     result["_vtt_path"] = vtt_path
+    result["_mp4_path"] = mp4_path
 
     # Score contribution (out of WEIGHT_FILES)
     score = WEIGHT_FILES
     if not mp4_exists or mp4_size_mb < 1.0:
         score -= 10
     if not srt_exists:
-        score -= 4
+        score -= 2
     if not vtt_exists:
-        score -= 4
+        score -= 3
     result["_score"] = max(score, 0)
+
+    return result
+
+
+def check_video_stream(mp4_path: Path | None) -> dict:
+    result: dict = {"status": "pass", "details": {}}
+    failures: list[str] = []
+    warnings: list[str] = []
+
+    if not mp4_path or not mp4_path.exists():
+        result["status"] = "fail"
+        result["failures"] = ["MP4 file not found for video stream inspection"]
+        result["warnings"] = []
+        result["_score"] = 0
+        return result
+
+    # 1. Resolution & Frame-Rate check via ffprobe
+    try:
+        probe_cmd = [
+            "ffprobe", "-v", "error",
+            "-select_streams", "v:0",
+            "-show_entries", "stream=width,height,r_frame_rate,avg_frame_rate,codec_name",
+            "-of", "json",
+            str(mp4_path),
+        ]
+        proc = subprocess.run(probe_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=30)
+        if proc.returncode == 0:
+            info = json.loads(proc.stdout)
+            streams = info.get("streams", [])
+            if not streams:
+                failures.append("No video stream found in MP4 file")
+            else:
+                vstream = streams[0]
+                width = vstream.get("width")
+                height = vstream.get("height")
+                r_fps = str(vstream.get("r_frame_rate") or "")
+                avg_fps = str(vstream.get("avg_frame_rate") or "")
+
+                result["details"]["width"] = width
+                result["details"]["height"] = height
+                result["details"]["r_frame_rate"] = r_fps
+                result["details"]["avg_frame_rate"] = avg_fps
+
+                if width != 1920 or height != 1080:
+                    failures.append(f"Resolution mismatch: expected 1920x1080, got {width}x{height}")
+
+                fps_val = None
+                if avg_fps and "/" in avg_fps:
+                    num, den = avg_fps.split("/")
+                    if float(den) > 0:
+                        fps_val = float(num) / float(den)
+                elif r_fps and "/" in r_fps:
+                    num, den = r_fps.split("/")
+                    if float(den) > 0:
+                        fps_val = float(num) / float(den)
+
+                if fps_val is not None:
+                    result["details"]["fps_calculated"] = round(fps_val, 2)
+                    if abs(fps_val - 30.0) > 0.5:
+                        failures.append(f"Frame rate mismatch: expected 30.0 fps, got {fps_val:.2f} fps ({avg_fps or r_fps})")
+        else:
+            warnings.append(f"ffprobe stream inspection failed with exit code {proc.returncode}")
+    except Exception as exc:
+        warnings.append(f"Resolution/fps check error: {exc}")
+
+    # 2. Freeze detection check via ffmpeg freezedetect
+    try:
+        freeze_cmd = [
+            "ffmpeg", "-nostats", "-v", "info",
+            "-i", str(mp4_path),
+            "-vf", "freezedetect=n=-30dB:d=3",
+            "-f", "null", "-",
+        ]
+        proc = subprocess.run(freeze_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=120)
+        stderr_log = proc.stderr or ""
+
+        freeze_durations = [
+            float(m) for m in re.findall(r"freeze_duration:\s*([\d.]+)", stderr_log)
+        ]
+        max_freeze = max(freeze_durations) if freeze_durations else 0.0
+        result["details"]["freeze_detected"] = len(freeze_durations) > 0
+        result["details"]["max_freeze_duration_s"] = round(max_freeze, 2)
+        result["details"]["freeze_runs_count"] = len(freeze_durations)
+
+        if max_freeze > 3.0:
+            failures.append(
+                f"Video freeze detected: max freeze duration {max_freeze:.2f}s exceeds 3.0s threshold ({len(freeze_durations)} freeze run{'s' if len(freeze_durations) > 1 else ''})"
+            )
+        elif max_freeze > 1.5:
+            warnings.append(f"Minor video freeze detected: max duration {max_freeze:.2f}s")
+    except Exception as exc:
+        warnings.append(f"Freeze detection error: {exc}")
+
+    if failures:
+        result["status"] = "fail"
+    elif warnings:
+        result["status"] = "warn"
+
+    result["failures"] = failures
+    result["warnings"] = warnings
+    result["_score"] = 0 if failures else (15 if warnings else WEIGHT_VIDEO_STREAM)
 
     return result
 
@@ -277,6 +381,16 @@ def check_clip_diversity(export: dict) -> dict:
         warnings.append(
             "speaker_use_counts is empty — speaker metadata not enriched yet (Phase 4B enrichment may be pending)"
         )
+
+    speaker_clips = [
+        t for t in timeline
+        if (t.get("segment_type") or t.get("type")) == "speaker_clip"
+        or (t.get("audio_mode") in ("source", "source_audio") and (t.get("type") or t.get("segment_type")) not in ("title_card", "closing_card", "year_stamp"))
+    ]
+    result["details"]["speaker_clip_count"] = len(speaker_clips)
+
+    if len(speaker_clips) == 0:
+        failures.append("Zero speaker clips in export — video contains no real speaker footage")
 
     if repeated_fragments:
         failures.append(
@@ -483,7 +597,8 @@ def check_manifest_completeness(export: dict) -> dict:
 def compute_overall(checks: dict) -> tuple[int, str, list[str], list[str], list[str]]:
     total = sum(
         checks[k].get("_score", 0)
-        for k in ("files", "subtitles", "clip_diversity", "planning", "rhythm", "manifest_completeness")
+        for k in ("files", "video_stream", "subtitles", "clip_diversity", "planning", "rhythm", "manifest_completeness")
+        if k in checks
     )
 
     all_failures: list[str] = []
@@ -581,6 +696,19 @@ def print_report(
     sub = checks["subtitles"]["details"]
     print(f"  {icon(srt_s)} SRT exists: {sub.get('srt_cue_count', 0)} cues")
     print(f"  {icon(vtt_s)} VTT exists: {sub.get('vtt_cue_count', 0)} cues")
+
+    # Video Stream Integrity
+    if "video_stream" in checks:
+        vs = checks["video_stream"]["details"]
+        vs_fails = checks["video_stream"].get("failures", [])
+        print()
+        print("Video Stream:")
+        res_s = "fail" if any("Resolution" in fl for fl in vs_fails) else "pass"
+        fps_s = "fail" if any("Frame rate" in fl for fl in vs_fails) else "pass"
+        freeze_s = "fail" if any("Video freeze" in fl for fl in vs_fails) else ("warn" if vs.get("max_freeze_duration_s", 0) > 1.5 else "pass")
+        print(f"  {icon(res_s)} Resolution: {vs.get('width', '?')}x{vs.get('height', '?')}")
+        print(f"  {icon(fps_s)} Frame rate: {vs.get('avg_frame_rate', '?')} (r_fps: {vs.get('r_frame_rate', '?')})")
+        print(f"  {icon(freeze_s)} Freeze detection: max duration {vs.get('max_freeze_duration_s', 0.0)}s ({vs.get('freeze_runs_count', 0)} freeze runs)")
 
     # Clip diversity
     d = checks["clip_diversity"]["details"]
@@ -730,7 +858,9 @@ def main() -> None:
     files_check = check_files(export, base_dir)
     srt_path = files_check.pop("_srt_path", None)
     vtt_path = files_check.pop("_vtt_path", None)
+    mp4_path = files_check.pop("_mp4_path", None)
 
+    video_stream_check = check_video_stream(mp4_path)
     subtitles_check = check_subtitles(export, srt_path, vtt_path)
     diversity_check = check_clip_diversity(export)
     rhythm_check = check_rhythm(export)
@@ -739,6 +869,7 @@ def main() -> None:
 
     checks = {
         "files": files_check,
+        "video_stream": video_stream_check,
         "subtitles": subtitles_check,
         "clip_diversity": diversity_check,
         "rhythm": rhythm_check,
