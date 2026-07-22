@@ -109,9 +109,16 @@ class _TokenBucket:
 _create_limiter = _TokenBucket(rate=5, per=60.0)
 
 
-def _assert_owns(job: dict[str, Any], user_id: str) -> None:
-    """Raise 404 (not 403) to avoid leaking job existence to other users."""
-    if job.get("user_id") and user_id and job["user_id"] != user_id:
+def _assert_owns(job: dict[str, Any], current_user: CurrentUser) -> None:
+    """Raise 404 (not 403) to avoid leaking job existence to other users.
+
+    Admins bypass this — same rationale as the identical bypass in
+    video_media.py: the admin per-user generations feed needs to read job
+    detail for jobs it doesn't own.
+    """
+    if current_user.persona == "admin":
+        return
+    if job.get("user_id") and current_user.id and job["user_id"] != current_user.id:
         raise HTTPException(status_code=404, detail=f"Job not found: {job['job_id']}")
 
 
@@ -253,14 +260,14 @@ def list_video_jobs(
 @router.get("/{job_id}", response_model=None)
 def get_video_job(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, current_user.id)
+    _assert_owns(job, current_user)
     return _job_response(job).model_dump()
 
 
 @router.delete("/{job_id}", status_code=202)
 def cancel_video_job(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, current_user.id)
+    _assert_owns(job, current_user)
 
     terminal = {"completed", "failed", "cancelled"}
     if job.get("status") in terminal:
@@ -344,7 +351,7 @@ async def _sse_generator(job_id: str, last_event_id: int = 0):
 @router.get("/{job_id}/events")
 async def stream_job_events(job_id: str, last_event_id: int = 0, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, current_user.id)
+    _assert_owns(job, current_user)
     return StreamingResponse(
         _sse_generator(job_id, last_event_id),
         media_type="text/event-stream",
@@ -362,7 +369,7 @@ async def stream_job_events(job_id: str, last_event_id: int = 0, current_user: C
 @router.get("/{job_id}/storyline")
 def get_job_storyline(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, current_user.id)
+    _assert_owns(job, current_user)
     paths = job.get("paths", {})
     vsp = paths.get("validated_storyline_path")
     isp = paths.get("storyline_path")
@@ -438,7 +445,7 @@ def get_job_storyline(job_id: str, current_user: CurrentUser = Depends(get_curre
 @router.get("/{job_id}/validation-report")
 def get_job_validation_report(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, current_user.id)
+    _assert_owns(job, current_user)
     paths = job.get("paths", {})
     vsp = paths.get("validated_storyline_path")
 
@@ -515,7 +522,7 @@ def get_job_provenance(job_id: str, current_user: CurrentUser = Depends(get_curr
     The old endpoints are preserved for backwards compatibility.
     """
     job = _require_job(job_id)
-    _assert_owns(job, current_user.id)
+    _assert_owns(job, current_user)
     paths = job.get("paths", {})
 
     # Load storyline data (prefer validated). Try S3 key always if present —
@@ -772,7 +779,7 @@ def get_job_provenance(job_id: str, current_user: CurrentUser = Depends(get_curr
 @router.get("/{job_id}/assets")
 def get_job_assets(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, current_user.id)
+    _assert_owns(job, current_user)
     paths = job.get("paths", {})
     amp = paths.get("asset_manifest_path")
 
@@ -874,7 +881,7 @@ def get_job_assets(job_id: str, current_user: CurrentUser = Depends(get_current_
 @router.get("/{job_id}/result")
 def get_job_result(job_id: str, current_user: CurrentUser = Depends(get_current_user)):
     job = _require_job(job_id)
-    _assert_owns(job, current_user.id)
+    _assert_owns(job, current_user)
     if job.get("status") not in ("completed", "failed"):
         return {
             "job_id": job_id,

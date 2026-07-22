@@ -4,6 +4,7 @@ Admin user management API. Every route here requires persona=admin
 
 GET    /api/admin/users                — list/search/filter all accounts
 GET    /api/admin/users/{user_id}       — one account's full detail
+GET    /api/admin/users/{user_id}/generations — everything this user has generated
 POST   /api/admin/users                 — create an account directly (no OTP)
 PATCH  /api/admin/users/{user_id}       — edit name/email/persona
 POST   /api/admin/users/{user_id}/reset-password  — force-set a password
@@ -21,6 +22,7 @@ from app.schemas.admin_users import (
     AdminDeleteUserResponse,
     AdminResetPasswordRequest,
     AdminUpdateUserRequest,
+    AdminUserGenerationsResponse,
     AdminUserListResponse,
     AdminUserRecord,
 )
@@ -48,6 +50,22 @@ def list_users(
 @router.get("/{user_id}", response_model=AdminUserRecord)
 def get_user(user_id: str):
     return AdminUserRecord(**admin_user_service.get_user(user_id))
+
+
+@router.get("/{user_id}/generations", response_model=AdminUserGenerationsResponse)
+def get_user_generations(user_id: str):
+    """Every video-generation job this user has created, any status
+    (queued/running/failed/completed) — prompt in, rendered media out.
+    For admin monitoring/debugging of what a specific user is generating."""
+    from app.services import job_store
+    from app.services.admin_content_service import job_to_generation_entry
+
+    user = AdminUserRecord(**admin_user_service.get_user(user_id))
+
+    jobs = job_store.list_by_user(user_id)
+    generations = [job_to_generation_entry(job) for job in jobs]
+
+    return AdminUserGenerationsResponse(user=user, generations=generations, total=len(generations))
 
 
 @router.post("", response_model=AdminUserRecord, status_code=201)

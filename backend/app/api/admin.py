@@ -31,7 +31,7 @@ def list_export_archive(
     through this admin view, never through the per-account /video-jobs
     endpoints."""
     from app.services.job_store import list_jobs
-    from app.api.video_media import _get_registry, _media_list_entry
+    from app.services.admin_content_service import job_to_generation_entry
 
     all_jobs = list_jobs()
     if status != "all":
@@ -41,37 +41,7 @@ def list_export_archive(
     total = len(all_jobs)
     page = all_jobs[offset: offset + limit]
 
-    entries = []
-    for job in page:
-        job_id = job.get("job_id") or job.get("id")
-        prompt = job.get("prompt") or (job.get("payload") or {}).get("prompt")
-
-        try:
-            reg = _get_registry(job_id)
-            objects = {
-                oid: _media_list_entry(job_id, oid, obj)
-                for oid, obj in reg.get("objects", {}).items()
-            }
-        except HTTPException:
-            objects = {}
-
-        entries.append({
-            "job_id": job_id,
-            "user_id": job.get("user_id"),
-            "status": job.get("status"),
-            "prompt": prompt,
-            "created_at": job.get("created_at"),
-            "completed_at": job.get("completed_at"),
-            "video": objects.get("video"),
-            "srt": objects.get("srt"),
-            "vtt": objects.get("vtt"),
-            "manifest": objects.get("manifest"),
-            "thumbnail": objects.get("thumbnail"),
-            "other_assets": [
-                v for k, v in objects.items()
-                if k not in ("video", "srt", "vtt", "manifest", "thumbnail")
-            ],
-        })
+    entries = [job_to_generation_entry(job) for job in page]
 
     return {
         "jobs": entries,

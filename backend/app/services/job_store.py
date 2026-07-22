@@ -128,21 +128,34 @@ def cancel_job(job_id: str) -> bool:
     return True
 
 
+def _row_to_metadata(row: dict[str, Any]) -> dict[str, Any]:
+    metadata = dict(row.get("metadata", {}) or {})
+
+    metadata["job_id"] = row["id"]
+    metadata["status"] = row.get("status")
+    metadata["progress_percent"] = row.get("progress", 0)
+    metadata["user_id"] = metadata.get("user_id") or row.get("user_id", "")
+
+    return metadata
+
+
 def list_jobs() -> list[dict[str, Any]]:
     repo = get_job_repo()
 
     rows = repo.list_jobs()
 
-    jobs = []
+    return [_row_to_metadata(row) for row in rows]
 
-    for row in rows:
-        metadata = dict(row.get("metadata", {}) or {})
 
-        metadata["job_id"] = row["id"]
-        metadata["status"] = row.get("status")
-        metadata["progress_percent"] = row.get("progress", 0)
-        metadata["user_id"] = metadata.get("user_id") or row.get("user_id", "")
+def list_by_user(user_id: str) -> list[dict[str, Any]]:
+    """All jobs (any status) created by a single user, newest first.
 
-        jobs.append(metadata)
+    Used by the admin per-user generation feed so an admin can see queued/
+    running/failed jobs too, not just completed ones.
+    """
+    repo = get_job_repo()
 
-    return jobs
+    rows = repo.list_by_user(user_id)
+    rows.sort(key=lambda r: r.get("created_at") or "", reverse=True)
+
+    return [_row_to_metadata(row) for row in rows]

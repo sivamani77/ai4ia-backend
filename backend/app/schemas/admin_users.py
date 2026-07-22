@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Any
+
 from pydantic import BaseModel, Field, field_validator
 
 from app.core.security import validate_password_strength
@@ -77,3 +79,33 @@ class AdminDeleteUserResponse(BaseModel):
     mode: str
     deleted_jobs: int = 0
     deleted_storage_objects: int = 0
+
+
+class AdminGenerationEntry(BaseModel):
+    """One video-generation job belonging to a user, any status — includes
+    the prompt that produced it plus whatever media has rendered so far,
+    for admin monitoring/debugging."""
+
+    job_id: str | None = None
+    user_id: str | None = None
+    status: str | None = None
+    prompt: str | None = None
+    target_duration: int | None = None
+    current_stage: str | None = None
+    progress_percent: int | None = None
+    message: str | None = None
+    error: Any = None
+    created_at: str | None = None
+    completed_at: str | None = None
+    video: dict[str, Any] | None = None
+    srt: dict[str, Any] | None = None
+    vtt: dict[str, Any] | None = None
+    manifest: dict[str, Any] | None = None
+    thumbnail: dict[str, Any] | None = None
+    other_assets: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class AdminUserGenerationsResponse(BaseModel):
+    user: AdminUserRecord
+    generations: list[AdminGenerationEntry]
+    total: int
