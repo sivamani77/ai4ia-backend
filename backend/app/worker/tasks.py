@@ -30,8 +30,14 @@ def run_video_job_task(self, job_id: str, request: dict[str, Any]) -> dict[str, 
     logger.info("[%s] Celery worker starting pipeline", job_id)
     try:
         run_video_job(job_id, request)
-        logger.info("[%s] Pipeline completed successfully", job_id)
-        return {"job_id": job_id, "status": "completed"}
+        from app.services.job_store import load_job
+        job = load_job(job_id)
+        status = job.get("status", "completed") if job else "completed"
+        if status == "failed":
+            logger.error("[%s] Pipeline execution ended with status 'failed'", job_id)
+        else:
+            logger.info("[%s] Pipeline completed successfully", job_id)
+        return {"job_id": job_id, "status": status}
     except Exception as exc:
         logger.exception("[%s] Pipeline raised unhandled exception", job_id)
         raise exc

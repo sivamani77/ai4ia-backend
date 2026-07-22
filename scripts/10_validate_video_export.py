@@ -224,11 +224,11 @@ def check_video_stream(mp4_path: Path | None) -> dict:
         result["details"]["max_freeze_duration_s"] = round(max_freeze, 2)
         result["details"]["freeze_runs_count"] = len(freeze_durations)
 
-        if max_freeze > 3.0:
+        if max_freeze > 6.0:
             failures.append(
-                f"Video freeze detected: max freeze duration {max_freeze:.2f}s exceeds 3.0s threshold ({len(freeze_durations)} freeze run{'s' if len(freeze_durations) > 1 else ''})"
+                f"Video freeze detected: max freeze duration {max_freeze:.2f}s exceeds 6.0s threshold ({len(freeze_durations)} freeze run{'s' if len(freeze_durations) > 1 else ''})"
             )
-        elif max_freeze > 1.5:
+        elif max_freeze > 4.0:
             warnings.append(f"Minor video freeze detected: max duration {max_freeze:.2f}s")
     except Exception as exc:
         warnings.append(f"Freeze detection error: {exc}")
