@@ -1,0 +1,35 @@
+name: Mobius Caller Workflow
+on:
+  push:
+    branches: [ dev, prod, master, release ]
+jobs:
+  dev_job:
+    if: github.ref == 'refs/heads/dev'
+    uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-prod-config-test.yaml@config
+    with:
+      SERVICE_CODE: ai4ia-backend
+    secrets: inherit
+  prod_job:
+    if: github.ref == 'refs/heads/prod'
+    uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-prod-config-test.yaml@config
+    with:
+      SERVICE_CODE: ai4ia-backend
+    secrets: inherit
+  master_job:
+    if: github.ref == 'refs/heads/master'
+    uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-prod-config-test.yaml@config
+    with:
+      SERVICE_CODE: ai4ia-backend
+    secrets: inherit
+  release_job:
+    if: github.ref == 'refs/heads/release'
+    uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-prod-config-test.yaml@config
+    with:
+      SERVICE_CODE: ai4ia-backend
+    secrets: inherit
+  unauthorized_branch_job:
+    if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/prod' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: This is not an authorized branch, please Run on DEV or Prod Branch
+        run: echo "This is not an authorized branch. please Run on DEV or Prod  Branch"
