@@ -2579,9 +2579,6 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             hls_writer.finalize(success=False)
         raise RuntimeError("No video segments created.")
 
-    if hls_writer is not None:
-        hls_writer.finalize(success=True)
-
     if output_name:
         p = Path(output_name)
         # If output_name already contains a directory component, use it as-is
@@ -2637,8 +2634,13 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             log(f"  A/V balance: video stream padded — final duration ≈ {_aud_dur_check:.2f}s")
     except Exception as _av_exc:
         if isinstance(_av_exc, ExportIntegrityError):
+            if hls_writer is not None:
+                hls_writer.finalize(success=False)
             raise
         log(f"  A/V balance check failed (non-fatal): {_av_exc}")
+
+    if hls_writer is not None:
+        hls_writer.finalize(success=True)
 
     rhythm = {
         "enabled": True,
@@ -2743,9 +2745,10 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             _year = _ti.get("year")
         else:
             _year = _ti.get("video_year")
-        _speaker = (
-            _ti.get("speaker") or _ti.get("speaker_name") or _ti.get("primary_speaker")
-        ) if _stype == "speaker_clip" else None
+        _speaker_val = (
+            _ti.get("speaker") or _ti.get("speaker_name") or _ti.get("primary_speaker") or _seg.get("speaker")
+        )
+        _speaker = _speaker_val if (_stype in ("speaker_clip", "speaker_visual") or _speaker_val) else None
         _tl_events.append({
             "segment_index": _si,
             "type": _stype,

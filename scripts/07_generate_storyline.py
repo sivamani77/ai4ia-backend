@@ -1117,10 +1117,9 @@ def classify_candidate_relevance(
         broll_allowed = False
 
     # speaker_soundbite_allowed: quote-quality gate (clarity, quote_strength),
-    # decoupled from prompt-overlap role (exact/strong_related/weak_related).
-    # Role affects section placement, not whether a quality quote is allowed to be spoken.
+    # scoped to relevant prompt-overlap roles (exact / strong_related).
     speaker_soundbite_allowed = False
-    if role != "reject":
+    if role in ("exact", "strong_related"):
         speaker_soundbite_allowed = (
             quote_strength >= 0.35
             and clarity_score >= 0.75
@@ -1143,7 +1142,7 @@ def classify_candidate_relevance(
     elif role == "contextual":
         use_as = "context_only"
         final_video_allowed = False
-    elif speaker_soundbite_allowed:
+    elif role in ("exact", "strong_related") and speaker_soundbite_allowed:
         use_as = "speaker_soundbite"
         final_video_allowed = True
     elif role == "weak_related":
@@ -1384,7 +1383,7 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
         reason = f"Generic-only evidence cannot be exact. {enriched.get('selection_reason')}"
 
     speaker_soundbite_allowed = False
-    if role != "reject":
+    if role in ("exact", "strong_related"):
         speaker_soundbite_allowed = (
             quote_strength >= 0.35
             and clarity_score >= 0.75
@@ -1403,7 +1402,7 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     elif role == "contextual":
         use_as = "context_only"
         final_video_allowed = False
-    elif speaker_soundbite_allowed:
+    elif role in ("exact", "strong_related") and speaker_soundbite_allowed:
         use_as = "speaker_soundbite"
         final_video_allowed = True
     elif role == "weak_related":
