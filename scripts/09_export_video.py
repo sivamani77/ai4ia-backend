@@ -555,6 +555,7 @@ def render_archive_clip(
     external_audio_path: Path | None = None,
     target_duration: float | None = None,
     lower_third: dict[str, str] | None = None,
+    stream_loop: bool = False,
 ) -> None:
     """
     Renders archive-derived segments for:
@@ -591,6 +592,7 @@ def render_archive_clip(
         cmd = [
             "ffmpeg",
             "-y",
+            *(["-stream_loop", "-1"] if stream_loop else []),
             "-ss", str(start),
             "-i", str(source_path),
             "-i", str(external_audio_path),
@@ -617,6 +619,7 @@ def render_archive_clip(
         cmd = [
             "ffmpeg",
             "-y",
+            *(["-stream_loop", "-1"] if stream_loop else []),
             "-ss", str(start),
             "-i", str(source_path),
             "-f", "lavfi",
@@ -642,11 +645,13 @@ def render_archive_clip(
         cmd = [
             "ffmpeg",
             "-y",
+            *(["-stream_loop", "-1"] if stream_loop else []),
             "-ss", str(start),
             "-i", str(source_path),
             "-t", str(duration),
             "-vf", vf,
             "-af", af,
+            "-shortest",
             *_vcodec_flags(threads=2),
             "-c:a", "aac",
             "-ar", "48000",
@@ -1835,6 +1840,7 @@ class SegmentPlan:
     muted: bool = False
     visual_mode: str | None = None
     bandaid_note: str | None = None
+    stream_loop: bool = False
 
 
 def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan:
@@ -1914,22 +1920,34 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
             end = start + DEFAULT_CLIP_DURATION
         target_duration = float(item.get("render_duration") or (end - start))
 
-        no_video_frames = video_stream_dur > 0 and start >= (video_stream_dur - 0.5)
-        if no_video_frames:
-            bandaid_note = (
-                f"speaker_clip {str(fragment_id)[:40]!r}: ts={start:.1f}s beyond video track "
-                f"({video_stream_dur:.1f}s) — rendered BLACK video + source audio. "
-                f"Upstream clamp (Step 07/08) should have caught this; source likely unindexed."
-            )
-            return SegmentPlan(
-                kind="black_source_audio", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id,
-                source_path=source_path, start=start, target_duration=target_duration,
-                lower_third=lower_third, muted=item.get("muted", False), bandaid_note=bandaid_note,
-            )
+        bandaid_note = None
+        if video_stream_dur > 0 and (start + target_duration) > (video_stream_dur - 0.5):
+            if video_stream_dur >= target_duration + 0.5:
+                fallback_start = max(0.0, video_stream_dur - target_duration - 0.5)
+                bandaid_note = (
+                    f"speaker_clip {str(fragment_id)[:40]!r}: window {start:.1f}s..{start+target_duration:.1f}s "
+                    f"exceeds video track ({video_stream_dur:.1f}s) — shifted window back to {fallback_start:.1f}s."
+                )
+                log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
+                start = fallback_start
+                end = fallback_start + target_duration
+            else:
+                bandaid_note = (
+                    f"speaker_clip {str(fragment_id)[:40]!r}: video track ({video_stream_dur:.1f}s) "
+                    f"shorter than quote ({target_duration:.1f}s) — rendering clean black visual + source audio."
+                )
+                log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
+                return SegmentPlan(
+                    kind="black_source_audio", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id,
+                    source_path=source_path, start=start, target_duration=target_duration,
+                    lower_third=lower_third, muted=item.get("muted", False), bandaid_note=bandaid_note,
+                )
+
         return SegmentPlan(
             kind="archive", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id,
             source_path=source_path, start=start, end=end, target_duration=target_duration,
             role=role, audio_mode="source", lower_third=lower_third, muted=item.get("muted", False),
+            bandaid_note=bandaid_note,
         )
 
     # ---- narration_broll / ai_voiceover -------------------------------------
@@ -1958,12 +1976,6 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
                 f"narration_broll item {idx} ({fragment_id!r}) has zero target_duration — "
                 f"audio_path={item.get('audio_path')!r}. Aborting export."
             )
-        # Safety net for a stale/miscomputed manifest: a narration segment is a
-        # voiceover over a still visual, so it must not run much longer than the
-        # actual voiceover. If the declared duration far exceeds the real audio
-        # (the classic "58s window around a 6s voiceover = 52s of silence" bug),
-        # trust the audio, not the manifest. Upstream fix lives in Step 08's
-        # reconcile_narration_duration; this guard protects manifests already on disk.
         if external_audio_path and external_audio_path.exists():
             real_audio_dur = get_media_duration(external_audio_path)
             if real_audio_dur > 0.0 and tts_duration > real_audio_dur + 2.0:
@@ -1973,8 +1985,6 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
                     f"{real_audio_dur + 0.4:.1f}s to avoid trailing silence. Re-run Step 08 to fix the manifest."
                 )
                 tts_duration = real_audio_dur + 0.4
-        # Render exactly the reconciled duration from the manifest — the renderer
-        # neither stretches segments toward the target nor trims them.
         target_duration = tts_duration
 
         _vis_path_str = (
@@ -1994,21 +2004,31 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
                 f"(it now generates a visual for every footage-less narration item)."
             )
         bandaid_note = None
-        if video_stream_dur > 0 and start >= (video_stream_dur - 0.5):
-            fallback_start = max(0.0, video_stream_dur - target_duration - 1.0)
-            bandaid_note = (
-                f"narration_broll item {idx} ({str(fragment_id)[:40]!r}): ts={start:.1f}s beyond "
-                f"video track ({video_stream_dur:.1f}s) — shifted visual to ts={fallback_start:.1f}s. "
-                f"Upstream clamp (Step 07/08) should have caught this; source likely unindexed."
-            )
-            log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
-            start = fallback_start
-            end = fallback_start + target_duration
+        stream_loop = False
+        if video_stream_dur > 0 and (start + target_duration) > (video_stream_dur - 0.5):
+            if video_stream_dur >= target_duration + 0.5:
+                fallback_start = max(0.0, video_stream_dur - target_duration - 0.5)
+                bandaid_note = (
+                    f"narration_broll item {idx} ({str(fragment_id)[:40]!r}): window {start:.1f}s..{start+target_duration:.1f}s "
+                    f"exceeds video track ({video_stream_dur:.1f}s) — shifted window back to {fallback_start:.1f}s."
+                )
+                log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
+                start = fallback_start
+                end = fallback_start + target_duration
+            else:
+                stream_loop = True
+                bandaid_note = (
+                    f"narration_broll item {idx} ({str(fragment_id)[:40]!r}): source video track ({video_stream_dur:.1f}s) "
+                    f"shorter than voiceover ({target_duration:.1f}s) — enabling video stream looping."
+                )
+                log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
+                start = 0.0
+                end = video_stream_dur
         return SegmentPlan(
             kind="archive", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id,
             source_path=source_path, start=start, end=end, target_duration=target_duration,
             role=role, audio_mode=audio_mode, audio_path=external_audio_path, lower_third=None,
-            muted=item.get("muted", False), bandaid_note=bandaid_note,
+            muted=item.get("muted", False), bandaid_note=bandaid_note, stream_loop=stream_loop,
         )
 
     # ---- archive_visual / speaker_visual / default --------------------------
@@ -2019,31 +2039,37 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
     if seg_type == "archive_visual" or item_audio_mode == "silent" or item.get("muted") is True:
         audio_mode = "muted"
         lower_third = None
-    else:  # speaker_visual and any other archive-clip fallthrough
+    else:
         audio_mode = "source"
 
-    # Guard against a video stream that ends before the requested window
-    # (e.g. a source recording whose audio track outlasts its video track —
-    # `-ss` past the video's end silently produces a zero-frame, N/A-duration
-    # file). Shift the window back onto real footage rather than failing.
     bandaid_note = None
+    stream_loop = False
     clip_span = max(end - start, 1.0)
-    if video_stream_dur > 0 and start >= (video_stream_dur - 0.5):
-        fallback_start = max(0.0, video_stream_dur - clip_span - 1.0)
-        bandaid_note = (
-            f"segment {idx} ({seg_type or item_type}, {str(fragment_id)[:40]!r}): ts={start:.1f}s "
-            f"beyond video track ({video_stream_dur:.1f}s) — shifted window to ts={fallback_start:.1f}s. "
-            f"Upstream clamp (Step 07/08) should have caught this; source likely unindexed."
-        )
-        log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
-        end = fallback_start + clip_span
-        start = fallback_start
+    if video_stream_dur > 0 and (start + clip_span) > (video_stream_dur - 0.5):
+        if video_stream_dur >= clip_span + 0.5:
+            fallback_start = max(0.0, video_stream_dur - clip_span - 0.5)
+            bandaid_note = (
+                f"segment {idx} ({seg_type or item_type}, {str(fragment_id)[:40]!r}): window {start:.1f}s..{start+clip_span:.1f}s "
+                f"exceeds video track ({video_stream_dur:.1f}s) — shifted window to {fallback_start:.1f}s."
+            )
+            log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
+            end = fallback_start + clip_span
+            start = fallback_start
+        else:
+            stream_loop = True
+            bandaid_note = (
+                f"segment {idx} ({seg_type or item_type}, {str(fragment_id)[:40]!r}): source video track ({video_stream_dur:.1f}s) "
+                f"shorter than clip span ({clip_span:.1f}s) — enabling video stream looping."
+            )
+            log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
+            start = 0.0
+            end = video_stream_dur
 
     return SegmentPlan(
         kind="archive", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id,
         source_path=source_path, start=start, end=end, target_duration=None,
         role=role, audio_mode=audio_mode, lower_third=lower_third,
-        muted=item.get("muted", False), bandaid_note=bandaid_note,
+        muted=item.get("muted", False), bandaid_note=bandaid_note, stream_loop=stream_loop,
     )
 
 
@@ -2102,6 +2128,7 @@ def _execute_plan(plan: SegmentPlan) -> None:
             external_audio_path=plan.audio_path,
             target_duration=plan.target_duration,
             lower_third=plan.lower_third,
+            stream_loop=plan.stream_loop,
         )
     else:
         raise RuntimeError(f"_execute_plan: unhandled plan kind {plan.kind!r}")
@@ -2592,7 +2619,11 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             str(output_path),
         ]).strip() or "0")
         _av_delta = _aud_dur_check - _vid_dur_check
-        if _av_delta > 1.0:
+        if _av_delta > 0.15:
+            if _av_delta > 2.0:
+                raise ExportIntegrityError(
+                    f"A/V sync corruption: audio duration ({_aud_dur_check:.2f}s) exceeds video duration ({_vid_dur_check:.2f}s) by {_av_delta:.2f}s (exceeds 2.0s hard ceiling)"
+                )
             log(f"  A/V balance: video={_vid_dur_check:.2f}s audio={_aud_dur_check:.2f}s delta={_av_delta:.2f}s — padding video stream")
             _padded = output_path.parent / (output_path.stem + "_avpad.mp4")
             run_cmd([
@@ -2605,6 +2636,8 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             _padded.replace(output_path)
             log(f"  A/V balance: video stream padded — final duration ≈ {_aud_dur_check:.2f}s")
     except Exception as _av_exc:
+        if isinstance(_av_exc, ExportIntegrityError):
+            raise
         log(f"  A/V balance check failed (non-fatal): {_av_exc}")
 
     rhythm = {
@@ -2764,8 +2797,8 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
         log(f"  video_stream_duration: {vid_dur:.2f}s")
         log(f"  audio_stream_duration: {aud_dur:.2f}s")
         log(f"  duration_delta:        {dur_delta:.2f}s")
-        if dur_delta > 1.0:
-            log(f"WARNING: duration_delta ({dur_delta:.2f}s) exceeds 1 second — possible A/V sync issue.")
+        if dur_delta > 0.2:
+            log(f"WARNING: duration_delta ({dur_delta:.2f}s) exceeds 0.2s — possible A/V sync issue.")
         _target = float(_manifest_target_dur) if _manifest_target_dur else 0.0
         _planned = float((export_manifest.get("duration_budget") or {}).get("planned_total_seconds") or 0.0)
         export_manifest["duration_check"] = {

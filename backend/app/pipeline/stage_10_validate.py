@@ -57,18 +57,16 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     code, stdout, stderr = run_script(job_id, "10_validate_export", cmd)
 
     if code != 0:
-        update_stage(job_id, "10_validate_export", "completed", 100,
-                     f"Validation returned exit code {code} (see logs)")
-        jb = load_job(job_id)
-        jb["warnings"] = jb.get("warnings", []) + [f"10_validate_export exit code {code}"]
-        save_job(job_id, jb)
-    else:
-        update_stage(job_id, "10_validate_export", "completed", 100, "Export validation passed")
+        update_stage(job_id, "10_validate_export", "failed", 100,
+                     f"Export validation failed (exit code {code})")
+        append_event(job_id, "stage_failed", "10_validate_export", {"exit_code": code, "error": stderr[-1000:]})
+        raise RuntimeError(f"10_validate_video_export.py failed with exit code {code}:\n{stdout[-1000:]}\n{stderr[-1000:]}")
 
+    update_stage(job_id, "10_validate_export", "completed", 100, "Export validation passed")
     append_event(job_id, "stage_completed", "10_validate_export", {"exit_code": code})
     return StageResult(
         stage="10_validate_export",
         status="completed",
-        message="Export validation passed" if code == 0 else f"Validation returned exit code {code} (see logs)",
+        message="Export validation passed",
         data={"exit_code": code},
     )

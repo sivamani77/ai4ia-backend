@@ -150,6 +150,7 @@ CRITICAL_GATE_NAMES = frozenset({
     "all_sections_covered",
     "all_speaker_labels_present",
     "no_instruction_leakage_in_voiceover",
+    "has_speaker_clips",
     # all_voiceovers_topic_specific is a warning, not a repair trigger —
     # script-07's fallback narration uses common AI openers that are still on-topic
     "final_timeline_approved",
@@ -1940,7 +1941,7 @@ def check_quality_gates(
         _flag("all_sections_covered", sid, f"GATE FAIL: Section {sid} missing from final timeline.")
     gate_sections = not bool(missing_sids)
 
-    # 2. All speaker labels present
+    # 2. All speaker labels present & has speaker clips
     gate_speakers = True
     for sc in speaker_clips:
         fid = (sc.get("fragment_id") or "?")[:40]
@@ -1948,6 +1949,10 @@ def check_quality_gates(
         if not speaker:
             _flag("all_speaker_labels_present", fid, f"GATE FAIL: speaker_clip {fid!r} has no speaker label.")
             gate_speakers = False
+
+    gate_has_speakers = len(speaker_clips) > 0
+    if not gate_has_speakers:
+        _flag("has_speaker_clips", "timeline", "GATE FAIL: Final timeline contains 0 speaker clips — zero speaker footage.")
 
     # 3. All speaker quotes complete
     gate_quotes = True
@@ -2014,6 +2019,7 @@ def check_quality_gates(
     gates: dict[str, Any] = {
         "all_sections_covered": gate_sections,
         "all_speaker_labels_present": gate_speakers,
+        "has_speaker_clips": gate_has_speakers,
         "all_speaker_quotes_complete": gate_quotes,
         "no_instruction_leakage_in_voiceover": gate_no_leak,
         "all_voiceovers_topic_specific": gate_specific,
@@ -2483,10 +2489,11 @@ def main() -> None:
     # the shortfall with the next ranked real candidates before locking.
     # ------------------------------------------------------------------
     duration_fill_report: dict[str, Any] | None = None
-    if target_duration:
-        floor = float(target_duration) * DURATION_FILL_MARGIN
+    speaker_clip_count = sum(1 for item in enriched_timeline if (item.get("type") or item.get("segment_type")) == "speaker_clip")
+    if target_duration or speaker_clip_count == 0:
+        floor = float(target_duration or 0) * DURATION_FILL_MARGIN
         current_total = timeline_total_seconds(enriched_timeline)
-        if current_total < floor:
+        if current_total < floor or speaker_clip_count == 0:
             used_fids = {str(i.get("fragment_id")) for i in enriched_timeline if i.get("fragment_id")}
             approved_pool = [
                 c for c in (validated_candidates or [])
@@ -2552,6 +2559,9 @@ def main() -> None:
                     f"'Additional Perspectives' closing section."
                 )
             assembled["final_timeline"] = enriched_timeline
+
+    # Re-verify quality gates after duration top-up / rescue net
+    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections)
 
     # Lock every validated clip window: downstream stages (08/09) render these
     # verbatim and may only extend narration for TTS, never shrink anything.
