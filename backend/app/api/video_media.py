@@ -478,6 +478,32 @@ async def hls_segment(job_id: str, filename: str, current_user: CurrentUser = De
 # Subtitles
 # ---------------------------------------------------------------------------
 
+def _vtt_to_srt(vtt_text: str) -> str:
+    """Convert WebVTT text to SRT format."""
+    lines = vtt_text.splitlines()
+    srt_lines = []
+    cue_idx = 1
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        if line.startswith("WEBVTT") or line.startswith("Kind:") or line.startswith("Language:"):
+            i += 1
+            continue
+        if "-->" in line:
+            ts_line = line.replace(".", ",")
+            srt_lines.append(str(cue_idx))
+            srt_lines.append(ts_line)
+            cue_idx += 1
+            i += 1
+            while i < len(lines) and lines[i].strip():
+                srt_lines.append(lines[i])
+                i += 1
+            srt_lines.append("")
+        else:
+            i += 1
+    return "\n".join(srt_lines)
+
+
 @router.get("/{job_id}/subtitles/{fmt}")
 async def get_subtitles(job_id: str, fmt: str, current_user: CurrentUser = Depends(get_current_user)):
     _require_owned_job(job_id, current_user)
@@ -486,9 +512,29 @@ async def get_subtitles(job_id: str, fmt: str, current_user: CurrentUser = Depen
         raise HTTPException(status_code=400, detail="Unsupported subtitle format. Use 'srt' or 'vtt'.")
     try:
         obj = _resolve(job_id, fmt)
+        return _file_response(obj, disposition="inline")
     except HTTPException:
-        raise HTTPException(status_code=404, detail="Subtitle format not available")
-    return _file_response(obj, disposition="inline")
+        # Fall back to live streaming HLS subtitles (subs.vtt) generated during Stage 09 render
+        vtt_bytes: bytes | None = None
+        if STORAGE_BACKEND == "s3":
+            try:
+                vtt_bytes = _hls_s3_get(job_id, "subs.vtt")
+            except Exception:
+                pass
+        else:
+            file_path = _hls_dir(job_id) / "subs.vtt"
+            if file_path.exists():
+                vtt_bytes = file_path.read_bytes()
+
+        if not vtt_bytes:
+            raise HTTPException(status_code=404, detail="Subtitle format not available yet.")
+
+        vtt_text = vtt_bytes.decode("utf-8", errors="replace")
+        if fmt == "vtt":
+            return Response(content=vtt_text, media_type="text/vtt", headers={"Cache-Control": "no-cache"})
+        else:
+            srt_text = _vtt_to_srt(vtt_text)
+            return Response(content=srt_text, media_type="application/x-subrip", headers={"Cache-Control": "no-cache"})
 
 
 # ---------------------------------------------------------------------------

@@ -2181,6 +2181,8 @@ class HLSStreamWriter:
             "#EXT-X-MEDIA-SEQUENCE:0",
             "#EXT-X-PLAYLIST-TYPE:EVENT",
         ]
+        if self._subtitle_entries:
+            lines.append('#EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subs",NAME="English",DEFAULT=YES,AUTOSELECT=YES,FORCED=NO,LANGUAGE="en",URI="subs.vtt"')
         for i, (name, dur) in enumerate(self._entries):
             if i > 0:
                 # Every segment is encoded independently (fresh ffmpeg process

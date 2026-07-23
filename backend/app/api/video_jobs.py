@@ -928,6 +928,14 @@ def get_job_result(job_id: str, current_user: CurrentUser = Depends(get_current_
         has_vtt = bool(vttp and Path(vttp).exists())
         has_manifest = bool(emp and Path(emp).exists())
 
+    # Live HLS subtitle check during rendering/streaming
+    from app.core.paths import EXPORTS_DIR
+    _hls_subs_local = EXPORTS_DIR / "hls" / job_id / "subs.vtt"
+    has_live_subs = _hls_subs_local.exists() if (job_id and STORAGE_BACKEND != "s3") else (job.get("status") in ("running", "completed"))
+    if has_live_subs:
+        has_vtt = True
+        has_srt = True
+
     # Parse export manifest
     summary: dict[str, Any] = {}
     duration_check: dict[str, Any] = {}
