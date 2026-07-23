@@ -232,7 +232,7 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------
     # Storage backend
     # ------------------------------------------------------------------
-    ai4ia_storage_backend: str = "local"
+    ai4ia_storage_backend: str = "s3"
 
     # Progressive HLS streaming during export (stage 09) — off by default,
     # enable once the frontend player is ready to consume a growing playlist.
