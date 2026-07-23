@@ -930,6 +930,7 @@ def get_job_result(job_id: str, current_user: CurrentUser = Depends(get_current_
 
     # Live HLS subtitle check during rendering/streaming
     from app.core.paths import EXPORTS_DIR
+    from app.services.storage_service import STORAGE_BACKEND
     _hls_subs_local = EXPORTS_DIR / "hls" / job_id / "subs.vtt"
     has_live_subs = _hls_subs_local.exists() if (job_id and STORAGE_BACKEND != "s3") else (job.get("status") in ("running", "completed"))
     if has_live_subs:
