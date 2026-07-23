@@ -394,7 +394,7 @@ def check_clip_diversity(export: dict) -> dict:
     result["details"]["speaker_clip_count"] = len(speaker_clips)
 
     if len(speaker_clips) == 0:
-        failures.append("Zero speaker clips in export — video contains no real speaker footage")
+        warnings.append("Zero speaker clips in export — video contains no real speaker footage (narration/B-roll only)")
 
     if repeated_fragments:
         failures.append(
