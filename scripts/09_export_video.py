@@ -705,7 +705,6 @@ def concat_segments(segment_paths: list[Path], output_path: Path, subtitle_path:
         "-c:a", "aac",
         "-ar", "48000",
         "-ac", "2",
-        "-shortest",
         "-movflags", "+faststart",
         str(output_path),
     ]
