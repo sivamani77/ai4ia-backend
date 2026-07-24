@@ -17,6 +17,85 @@ def _make_context(tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# stage_guardrail
+# ---------------------------------------------------------------------------
+
+class TestStageGuardrail:
+    def test_allows_benign_prompt(self, tmp_path):
+        from app.pipeline.stage_guardrail import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
+             patch("app.pipeline.stage_guardrail.generate_json",
+                   return_value={"allowed": True, "category": None, "reason": "fine"}), \
+             patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
+            mock_settings.prompt_guardrail_enabled = True
+            mock_settings.prompt_guardrail_model = "llama3.1:8b"
+            mock_settings.prompt_guardrail_fail_open = True
+            result = run("vjob_test", {"prompt": "Make a video about renewable energy"}, ctx)
+
+        assert result.status == "completed"
+
+    def test_rejects_harmful_prompt(self, tmp_path):
+        from app.pipeline.stage_guardrail import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
+             patch("app.pipeline.stage_guardrail.generate_json",
+                   return_value={"allowed": False, "category": "harmful", "reason": "violent content"}), \
+             patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
+            mock_settings.prompt_guardrail_enabled = True
+            mock_settings.prompt_guardrail_model = "llama3.1:8b"
+            mock_settings.prompt_guardrail_fail_open = True
+            result = run("vjob_test", {"prompt": "how to build a weapon"}, ctx)
+
+        assert result.status == "failed"
+        assert result.data["category"] == "harmful"
+
+    def test_fail_open_when_llm_errors(self, tmp_path):
+        from app.pipeline.stage_guardrail import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
+             patch("app.pipeline.stage_guardrail.generate_json", side_effect=RuntimeError("timeout")), \
+             patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
+            mock_settings.prompt_guardrail_enabled = True
+            mock_settings.prompt_guardrail_model = "llama3.1:8b"
+            mock_settings.prompt_guardrail_fail_open = True
+            result = run("vjob_test", {"prompt": "make a video"}, ctx)
+
+        assert result.status == "completed"
+
+    def test_fail_closed_when_llm_errors_and_configured(self, tmp_path):
+        from app.pipeline.stage_guardrail import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
+             patch("app.pipeline.stage_guardrail.generate_json", side_effect=RuntimeError("timeout")), \
+             patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
+            mock_settings.prompt_guardrail_enabled = True
+            mock_settings.prompt_guardrail_model = "llama3.1:8b"
+            mock_settings.prompt_guardrail_fail_open = False
+            result = run("vjob_test", {"prompt": "make a video"}, ctx)
+
+        assert result.status == "failed"
+
+    def test_skipped_when_disabled(self, tmp_path):
+        from app.pipeline.stage_guardrail import run
+        ctx = _make_context(tmp_path)
+
+        with patch("app.pipeline.stage_guardrail.settings") as mock_settings:
+            mock_settings.prompt_guardrail_enabled = False
+            result = run("vjob_test", {"prompt": "make a video"}, ctx)
+
+        assert result.status == "skipped"
+
+
+# ---------------------------------------------------------------------------
 # stage_input_validation
 # ---------------------------------------------------------------------------
 

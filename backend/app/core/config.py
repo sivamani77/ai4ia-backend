@@ -31,3 +31,7 @@ SEMANTIC_TOP_K_DEFAULT = 20
 
 INSIGHT_MODEL = settings.insight_model
 INSIGHT_DEFAULT_LIMIT = 15
+
+PROMPT_GUARDRAIL_ENABLED = settings.prompt_guardrail_enabled
+PROMPT_GUARDRAIL_MODEL = settings.prompt_guardrail_model
+PROMPT_GUARDRAIL_FAIL_OPEN = settings.prompt_guardrail_fail_open

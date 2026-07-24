@@ -40,7 +40,8 @@ _stage_start_times: dict[tuple[str, str], float] = {}
 # Stage weights (must sum to 100)
 # ---------------------------------------------------------------------------
 STAGE_WEIGHTS: dict[str, int] = {
-    "input_validation": 2,
+    "prompt_guardrail": 1,
+    "input_validation": 1,
     "07_storyline": 15,
     "07b_validate_storyline": 35,
     "08_assets": 25,
@@ -50,6 +51,7 @@ STAGE_WEIGHTS: dict[str, int] = {
 }
 
 STAGE_DEFINITIONS = [
+    {"stage": "prompt_guardrail",        "label": "Prompt content check"},
     {"stage": "input_validation",        "label": "Input validation"},
     {"stage": "07_storyline",            "label": "Initial storyline generation"},
     {"stage": "07b_validate_storyline",  "label": "LLM editorial validation"},
@@ -320,6 +322,7 @@ def _maybe_cache_storyline_result(job_id: str, request: dict[str, Any], ctx: "Pi
 def run_video_job(job_id: str, request: dict[str, Any]) -> None:
     """Run the full pipeline via stage modules."""
     from app.pipeline import (
+        stage_guardrail,
         stage_input_validation,
         stage_07_storyline,
         stage_07b_validate,
@@ -357,6 +360,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         ctx = PipelineContext(job_id=job_id, request=request)
 
         stages = [
+            stage_guardrail,
             stage_input_validation,
             stage_07_storyline,
             stage_07b_validate,
@@ -372,7 +376,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             cached_storyline = _storyline_cache.get_cached_storyline(request)
             if cached_storyline is not None:
                 _apply_cached_storyline(job_id, ctx, cached_storyline)
-                stages = [stage_08_assets, stage_09_export, stage_10_validate, stage_11_subtitles]
+                stages = [stage_guardrail, stage_08_assets, stage_09_export, stage_10_validate, stage_11_subtitles]
 
         for stage_mod in stages:
             stage_name = getattr(stage_mod, "STAGE_NAME", stage_mod.__name__.split(".")[-1])

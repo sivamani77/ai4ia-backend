@@ -134,6 +134,20 @@ class Settings(BaseSettings):
     fast_llm_model: str = "llama3.1:8b"
 
     # ------------------------------------------------------------------
+    # Prompt guardrail — runs as the very first pipeline stage, before any
+    # other work starts, and rejects harmful/abusive/illegal/off-topic
+    # prompts via an LLM classification call (app/pipeline/stage_guardrail.py).
+    # ------------------------------------------------------------------
+    prompt_guardrail_enabled: bool = True
+    # Fast model is sufficient for this classification and keeps the added
+    # latency low on every job; override to a stronger model if false
+    # negatives become a problem.
+    prompt_guardrail_model: str = "llama3.1:8b"
+    # If the LLM call itself fails (timeout, unparsable output), allow the
+    # prompt through rather than blocking legitimate users on infra failure.
+    prompt_guardrail_fail_open: bool = True
+
+    # ------------------------------------------------------------------
     # Response translation
     # ------------------------------------------------------------------
     translation_enabled: bool = False
