@@ -2562,6 +2562,7 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
     quality_checks["source_audio_segments"] = source_audio_segments
     quality_checks["ai_voiceover_segments"] = ai_voiceover_segments
     quality_checks["rendered_speaker_clips"] = rendered_speaker
+    quality_checks["speaker_clip_count"] = rendered_speaker
 
     # Fix 9: surface any render-time footage bandaids (source video ended before the
     # requested window). These should be caught by the upstream clamp in Steps 07/08;
