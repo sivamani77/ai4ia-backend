@@ -686,7 +686,7 @@ def concat_segments(segment_paths: list[Path], output_path: Path, subtitle_path:
     if subtitle_path is not None:
         subtitle_filter_path = str(subtitle_path.resolve()).replace(":", "\\:")
         vf_chain += (
-            f",subtitles='{subtitle_filter_path}':"
+            f",subtitles='{subtitle_filter_path}':eof_action=pass:"
             "force_style='Fontsize=16,Outline=1,Shadow=1,MarginV=32,Alignment=2'"
         )
 
