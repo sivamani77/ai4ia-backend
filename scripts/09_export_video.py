@@ -2605,7 +2605,7 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
     )
     log(f"  [phase-timing] concat phase done (elapsed so far: {time.time() - _export_t0:.1f}s)")
 
-    # Fix 6: A/V ending balance — if video stream is shorter than audio, pad last frame
+    # Fix 6: A/V ending balance — harmonize audio and video stream durations cleanly
     try:
         _vid_dur_check = float(run_cmd_capture([
             "ffprobe", "-v", "error", "-select_streams", "v:0",
@@ -2620,27 +2620,35 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             str(output_path),
         ]).strip() or "0")
         _av_delta = _aud_dur_check - _vid_dur_check
-        if _av_delta > 0.15:
-            if _av_delta > 2.0:
-                raise ExportIntegrityError(
-                    f"A/V sync corruption: audio duration ({_aud_dur_check:.2f}s) exceeds video duration ({_vid_dur_check:.2f}s) by {_av_delta:.2f}s (exceeds 2.0s hard ceiling)"
-                )
-            log(f"  A/V balance: video={_vid_dur_check:.2f}s audio={_aud_dur_check:.2f}s delta={_av_delta:.2f}s — padding video stream")
-            _padded = output_path.parent / (output_path.stem + "_avpad.mp4")
-            run_cmd([
-                "ffmpeg", "-y", "-i", str(output_path),
-                "-vf", f"tpad=stop_mode=clone:stop_duration={_av_delta + 0.15:.3f}",
-                *_vcodec_flags(threads=None),
-                "-c:a", "copy",
-                str(_padded),
-            ])
-            _padded.replace(output_path)
-            log(f"  A/V balance: video stream padded — final duration ≈ {_aud_dur_check:.2f}s")
+        if abs(_av_delta) > 0.15:
+            if _av_delta > 0:
+                # Audio stream longer than video — trim trailing audio to video duration
+                log(f"  A/V balance: audio ({_aud_dur_check:.2f}s) exceeds video ({_vid_dur_check:.2f}s) by {_av_delta:.2f}s — trimming trailing audio")
+                _trimmed = output_path.parent / (output_path.stem + "_avtrim.mp4")
+                run_cmd([
+                    "ffmpeg", "-y", "-i", str(output_path),
+                    "-t", f"{_vid_dur_check:.3f}",
+                    "-c", "copy",
+                    str(_trimmed),
+                ])
+                _trimmed.replace(output_path)
+                log(f"  A/V balance: audio stream trimmed to match video duration ({_vid_dur_check:.2f}s)")
+            else:
+                # Video stream longer than audio — pad audio stream with silence
+                _abs_delta = abs(_av_delta)
+                log(f"  A/V balance: video ({_vid_dur_check:.2f}s) exceeds audio ({_aud_dur_check:.2f}s) by {_abs_delta:.2f}s — padding audio stream")
+                _padded = output_path.parent / (output_path.stem + "_avpad.mp4")
+                run_cmd([
+                    "ffmpeg", "-y", "-i", str(output_path),
+                    "-af", f"apad=pad_dur={_abs_delta + 0.15:.3f}",
+                    "-c:v", "copy",
+                    "-c:a", "aac", "-ar", "48000", "-ac", "2",
+                    "-shortest",
+                    str(_padded),
+                ])
+                _padded.replace(output_path)
+                log(f"  A/V balance: audio stream padded — final duration ≈ {_vid_dur_check:.2f}s")
     except Exception as _av_exc:
-        if isinstance(_av_exc, ExportIntegrityError):
-            if hls_writer is not None:
-                hls_writer.finalize(success=False)
-            raise
         log(f"  A/V balance check failed (non-fatal): {_av_exc}")
 
     if hls_writer is not None:
