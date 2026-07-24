@@ -500,6 +500,7 @@ def build_video_filter(
         f"fps={FPS}",
         f"fade=t=in:st=0:d={FADE_DURATION}",
         f"fade=t=out:st={fade_out_start}:d={FADE_DURATION}",
+        "tpad=stop_mode=clone:stop=-1"
     ]
 
     if lower_third:
@@ -628,7 +629,6 @@ def render_archive_clip(
             "-vf", vf,
             "-map", "0:v:0",
             "-map", "1:a:0",
-            "-shortest",
             *_vcodec_flags(threads=2),
             "-c:a", "aac",
             "-ar", "48000",
@@ -639,7 +639,8 @@ def render_archive_clip(
         af = (
             f"volume={ARCHIVE_AUDIO_VOLUME},"
             f"afade=t=in:st=0:d=0.15,"
-            f"afade=t=out:st={max(duration - 0.25, 0)}:d=0.25"
+            f"afade=t=out:st={max(duration - 0.25, 0)}:d=0.25,"
+            "apad=-1"
         )
 
         cmd = [
@@ -651,7 +652,6 @@ def render_archive_clip(
             "-t", str(duration),
             "-vf", vf,
             "-af", af,
-            "-shortest",
             *_vcodec_flags(threads=2),
             "-c:a", "aac",
             "-ar", "48000",
