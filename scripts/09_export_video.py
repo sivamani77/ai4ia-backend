@@ -2606,20 +2606,21 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
     log(f"  [phase-timing] concat phase done (elapsed so far: {time.time() - _export_t0:.1f}s)")
 
     # Fix 6: A/V ending balance — harmonize audio and video stream durations cleanly
+    # NOTE: we use get_media_duration (format=duration) rather than ffprobe
+    # stream=duration because concat-produced MP4 files often report stream=duration
+    # as "N/A" (the stream header has no explicit duration field, only the moov atom
+    # does). That causes the stream probe to return 0.0, which triggers the trim
+    # branch and chops the entire 8-minute video down to match a short audio stream.
     try:
-        _vid_dur_check = float(run_cmd_capture([
-            "ffprobe", "-v", "error", "-select_streams", "v:0",
-            "-show_entries", "stream=duration",
-            "-of", "default=noprint_wrappers=1:nokey=1",
-            str(output_path),
-        ]).strip() or "0")
+        _vid_dur_check = get_media_duration(output_path)
         _aud_dur_check = float(run_cmd_capture([
             "ffprobe", "-v", "error", "-select_streams", "a:0",
             "-show_entries", "stream=duration",
             "-of", "default=noprint_wrappers=1:nokey=1",
             str(output_path),
-        ]).strip() or "0")
+        ]).strip() or "0") or _vid_dur_check
         _av_delta = _aud_dur_check - _vid_dur_check
+        log(f"  A/V balance probe: video={_vid_dur_check:.2f}s audio={_aud_dur_check:.2f}s delta={_av_delta:.2f}s")
         if abs(_av_delta) > 0.15:
             if _av_delta > 0:
                 # Audio stream longer than video — trim trailing audio to video duration
@@ -2648,6 +2649,8 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
                 ])
                 _padded.replace(output_path)
                 log(f"  A/V balance: audio stream padded — final duration ≈ {_vid_dur_check:.2f}s")
+        else:
+            log(f"  A/V balance: streams within tolerance ({abs(_av_delta):.2f}s) — no correction needed")
     except Exception as _av_exc:
         log(f"  A/V balance check failed (non-fatal): {_av_exc}")
 
