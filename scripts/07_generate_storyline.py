@@ -4691,23 +4691,18 @@ def _synthesize_documentary_evidence(topic: str | None, texts: list[str], topic_
     return f"Across these conversations, {topic_label} is not a distant aspiration. It is a field in motion — with real evidence, real failure, and real possibilities for change."
 
 
-def _make_cinematic_title(topic_terms: list[str], topic_label: str) -> str:
-    """Generate a cinematic, non-technical documentary title."""
-    cinematic_titles = {
-        "healthcare": "AI at the Bedside",
-        "health": "AI at the Bedside",
-        "women": "Agency and the Algorithm",
-        "empowerment": "Agency and the Algorithm",
-        "governance": "Who Writes the Rules",
-        "youth": "The Next Generation",
-        "education": "Learning in the Age of AI",
-        "crypto": "The Digital Promise",
-        "accessibility": "Access and the Invisible Divide",
-    }
-    for term in topic_terms:
-        if term in cinematic_titles:
-            return cinematic_titles[term]
-    return f"AI and {topic_label}"
+def _make_cinematic_title(topic_terms: list[str], topic_label: str, raw_prompt: str = "") -> str:
+    """Generate a dynamic documentary title based on the user's prompt or topic."""
+    if raw_prompt and len(raw_prompt.strip()) > 2:
+        clean_p = raw_prompt.strip().rstrip(".!?")
+        clean_p = re.sub(r"^(generate|create|build|make)\s+(a\s+)?(video|documentary)\s+(about|on|for|regarding)\s+", "", clean_p, flags=re.IGNORECASE)
+        words = clean_p.split()
+        if len(words) > 8:
+            clean_p = " ".join(words[:8])
+        return clean_p.title()
+    if topic_label:
+        return f"AI and {topic_label.title()}"
+    return "Artificial Intelligence and Society"
 
 
 def detect_generic_fallback_narration(text: str, prompt_profile: dict) -> list[str]:
@@ -5220,8 +5215,9 @@ def build_fallback_storyline(
     elif topic_label:
         topic_term_0 = (topic_terms[:1] or [None])[0]
         hook = CINEMATIC_HOOKS.get(topic_term_0 or "", "")
-        title = _make_cinematic_title(topic_terms, topic_label)
-        logline = hook or doc_arc.get("narrative_thesis") or f"A documentary on AI and {topic_label}."
+        raw_prompt = prompt_intent.get("raw_prompt") or prompt_intent.get("query") or ""
+        title = _make_cinematic_title(topic_terms, topic_label, raw_prompt=raw_prompt)
+        logline = hook or doc_arc.get("narrative_thesis") or f"A documentary on {title}."
     else:
         title = "Artificial Intelligence and the Human Question"
         logline = doc_arc.get("narrative_thesis") or "A documentary on artificial intelligence and society."
