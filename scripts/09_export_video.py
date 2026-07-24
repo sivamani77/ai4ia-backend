@@ -1590,6 +1590,7 @@ def _build_canonical_rendering_timeline(
     fragment_item_index = 0  # 0-based counter for all fragment items (logging only)
     voiceover_slot_index = 0  # 0-based counter for narration/archive items only (positional voiceover matching)
     _relay_section_idx = 0  # track section index for bridge narration in chronological_relay
+    used_voiceover_paths: set[str] = set()
 
     for idx, raw_item in enumerate(canonical, start=1):
         item = normalize_canonical_timeline_item(raw_item, manifest, idx, source_lookup=sl)
@@ -1737,18 +1738,19 @@ def _build_canonical_rendering_timeline(
                         str(voiceover_slot_index),
                     ):
                         if key and key in sv_map:
-                            audio_path = sv_map[key]
-                            break
+                            candidate_ap = sv_map[key]
+                            if str(candidate_ap.resolve()) not in used_voiceover_paths:
+                                audio_path = candidate_ap
+                                break
 
-                if audio_path:
+                if audio_path and str(audio_path.resolve()) not in used_voiceover_paths:
+                    used_voiceover_paths.add(str(audio_path.resolve()))
                     item["audio_path"] = str(audio_path)
                     item["segment_type"] = "narration_broll"
                     item["audio_mode"] = "ai_voiceover"
                     probed_audio_dur = get_media_duration(audio_path)
                     preset_render_dur = float(item.get("render_duration") or 0.0)
                     if preset_render_dur > 0.0:
-                        # Step 08 already reconciled this duration against the TTS audio —
-                        # trust it, but the audio must actually fit the declared window.
                         if probed_audio_dur > preset_render_dur + 1.0:
                             raise ExportIntegrityError(
                                 f"Narration item {idx}: voiceover {audio_path.name} is "
@@ -1757,14 +1759,12 @@ def _build_canonical_rendering_timeline(
                             )
                         item["duration"] = preset_render_dur
                     else:
-                        # Legacy manifest without reconciled durations (pre-Phase-4 Step 08).
                         if probed_audio_dur <= 0.0:
                             log(f"  [canonical] WARNING: voiceover {audio_path.name} probed as 0s — using fragment duration")
                         narration_duration = max(probed_audio_dur, 0.0) + 0.4
                         frag_dur = float(item.get("duration") or 0.0)
                         item["duration"] = max(frag_dur, narration_duration)
                         item["render_duration"] = item["duration"]
-                    # Propagate subtitle text from section_voiceovers if not already set
                     if not item.get("subtitle_text") or not item.get("voiceover_text"):
                         for sv in (manifest.get("voice", {}).get("section_voiceovers") or []):
                             sv_ap = sv.get("audio_path", "")
@@ -1776,12 +1776,15 @@ def _build_canonical_rendering_timeline(
                                     item["voiceover_text"] = text
                                 item.setdefault("subtitle_kind", "voiceover")
                                 break
-                    seg_type = "narration_broll"
                     narration_broll_count += 1
                     log(f"  [canonical] Attached voiceover to item {idx} (voiceover_slot_index={voiceover_slot_index}): {audio_path.name} ({probed_audio_dur:.2f}s → render {item['duration']:.2f}s)")
                 else:
-                    item["audio_mode"] = "silent"
+                    item["audio_path"] = None
+                    item["segment_type"] = "archive_visual"
+                    item["audio_mode"] = "muted"
+                    item["muted"] = True
                     archive_visual_count += 1
+                    log(f"  [canonical] Archive visual item {idx}: {item.get('fragment_id', '')[:40]!r}")
 
             fragment_item_index += 1
             voiceover_slot_index += 1
