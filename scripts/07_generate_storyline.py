@@ -429,14 +429,16 @@ PROMPT_TOPIC_CONFIG: dict[str, dict[str, Any]] = {
         "strictness": "high",
     },
     "women": {
-        "expanded_terms": ["woman", "female", "girls", "gender", "agency", "participation", "leadership"],
-        "generic_terms_removed": ["inclusion", "equity", "access", "diversity"],
-        "strictness": "high",
+        "expanded_terms": ["woman", "female", "girls", "gender", "agency", "participation", "leadership", "youth", "empowerment", "inclusion", "equity", "access", "rights", "community"],
+        "strictness": "medium",
     },
     "empowerment": {
-        "expanded_terms": ["woman", "female", "girls", "gender", "agency", "participation", "leadership"],
-        "generic_terms_removed": ["inclusion", "equity", "access", "diversity"],
-        "strictness": "high",
+        "expanded_terms": ["woman", "female", "girls", "gender", "agency", "participation", "leadership", "youth", "empowerment", "inclusion", "equity", "access", "rights", "community"],
+        "strictness": "medium",
+    },
+    "youth": {
+        "expanded_terms": ["young", "children", "students", "generation", "future", "education", "participation", "empowerment", "opportunity", "youth"],
+        "strictness": "medium",
     },
     "healthcare": {
         "expanded_terms": ["health", "medicine", "medical", "patient", "doctor", "hospital", "clinical", "public health"],
@@ -1119,15 +1121,10 @@ def classify_candidate_relevance(
     # speaker_soundbite_allowed: quote-quality gate (clarity, quote_strength),
     # scoped to relevant prompt-overlap roles (exact / strong_related / speaker-matched weak_related).
     speaker_soundbite_allowed = False
-    if role in ("exact", "strong_related"):
+    if role in ("exact", "strong_related", "weak_related"):
         speaker_soundbite_allowed = (
-            quote_strength >= 0.25
-            and clarity_score >= 0.70
-        )
-    elif role == "weak_related" and (requested_speaker and speaker_match):
-        speaker_soundbite_allowed = (
-            quote_strength >= 0.30
-            and clarity_score >= 0.70
+            quote_strength >= 0.20
+            and clarity_score >= 0.50
         )
 
     # speaker_visual_allowed: true for speaker-prompt clips that belong to the requested speaker,
@@ -1321,10 +1318,6 @@ def apply_hard_rejection_rules(candidate: dict[str, Any], profile: dict[str, Any
         if negative_terms and not crypto_positive:
             return True, "Rejected: cryptography is not cryptocurrency evidence"
 
-    if topic_terms & {"women", "woman", "empowerment", "empower"}:
-        if not direct_terms and generic_terms and not expanded_terms:
-            return True, "Rejected: generic inclusion/access terms are not direct women empowerment evidence"
-
     if not direct_terms and not expanded_terms and negative_terms and float(candidate.get("semantic_score") or 0.0) < 0.7:
         return True, "Rejected: negative-term conflict without direct evidence"
 
@@ -1388,15 +1381,10 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
         reason = f"Generic-only evidence cannot be exact. {enriched.get('selection_reason')}"
 
     speaker_soundbite_allowed = False
-    if role in ("exact", "strong_related"):
+    if role in ("exact", "strong_related", "weak_related"):
         speaker_soundbite_allowed = (
-            quote_strength >= 0.25
-            and clarity_score >= 0.70
-        )
-    elif role == "weak_related" and (requested_speaker and enriched.get("speaker_match")):
-        speaker_soundbite_allowed = (
-            quote_strength >= 0.30
-            and clarity_score >= 0.70
+            quote_strength >= 0.20
+            and clarity_score >= 0.50
         )
 
     speaker_visual_allowed = False

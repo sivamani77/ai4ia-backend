@@ -1869,19 +1869,23 @@ def build_hybrid_export_timeline(
         speaker_clip_fids.add(fid)
         selected_for_speaker.append(i)
 
-    # Guaranteed minimum 1 speaker clip fallback floor:
-    # If strict scoring/bounds demoted all clips to 0, force-promote the best available fragment.
-    if not selected_for_speaker and scored:
-        best_candidate = max(scored, key=lambda x: (
-            1 if (x[2].get("source_video") or x[1].get("source_video")) else 0,
-            x[3]
-        ))
-        best_i, best_item, best_cand, _, _ = best_candidate
-        best_fid = str(best_item.get("fragment_id") or "")
-        if best_fid:
-            speaker_clip_fids.add(best_fid)
-            selected_for_speaker.append(best_i)
-            log(f"  [hybrid-repair] Guaranteed minimum speaker clip floor applied: promoted fragment {best_fid[-40:]!r}")
+    # Guaranteed speaker clip allocation floor:
+    # Ensure at least up to 3 speaker clip slots are filled from available scored fragments
+    if len(selected_for_speaker) < 3 and scored:
+        remaining_candidates = [
+            cand_tuple for cand_tuple in scored
+            if str(cand_tuple[1].get("fragment_id") or "") not in speaker_clip_fids
+            and (cand_tuple[2].get("source_video") or cand_tuple[1].get("source_video"))
+        ]
+        remaining_candidates.sort(key=lambda x: -x[3])
+        target_fill = min(3 - len(selected_for_speaker), len(remaining_candidates))
+        for idx_fill in range(target_fill):
+            b_i, b_item, b_cand, _, _ = remaining_candidates[idx_fill]
+            b_fid = str(b_item.get("fragment_id") or "")
+            if b_fid:
+                speaker_clip_fids.add(b_fid)
+                selected_for_speaker.append(b_i)
+                log(f"  [hybrid-repair] Guaranteed speaker allocation floor applied: promoted fragment {b_fid[-40:]!r} as speaker_clip")
 
     # Build voiceover cycling iterator for narration_broll items
     valid_vo_paths = [p for p in (section_voiceover_paths or []) if p and Path(p).exists()]
