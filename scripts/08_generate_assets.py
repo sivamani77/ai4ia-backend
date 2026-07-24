@@ -1803,8 +1803,14 @@ def build_hybrid_export_timeline(
         cand = candidate_by_fid.get(str(fid), {})
         pre_type = item.get("type") or item.get("segment_type") or ""
 
-        # 07b already approved this as a speaker clip — honour it, bypass re-scoring
-        if pre_type == "speaker_clip" and fid:
+        # 07b / Stage 07 approved this as a speaker clip or soundbite — honour it, bypass re-scoring
+        is_storyline_soundbite = (
+            pre_type == "speaker_clip"
+            or cand.get("use_as") == "speaker_soundbite"
+            or cand.get("speaker_soundbite_allowed") is True
+            or item.get("use_as") == "speaker_soundbite"
+        )
+        if is_storyline_soundbite and fid:
             pre_approved_speaker_fids.add(str(fid))
             scored.append((orig_idx, item, cand, 1.0, True))
             continue
@@ -1819,11 +1825,11 @@ def build_hybrid_export_timeline(
             source_video is not None
             and start is not None
             and end is not None
-            and role in ("exact", "strong_related")
+            and role in ("exact", "strong_related", "weak_related")
         )
         try:
             dur = float(item.get("duration") or 0.0) or (float(end or 0) - float(start or 0))
-            if not (6.0 <= dur <= 60.0):
+            if not (4.0 <= dur <= 90.0):
                 eligible = False
         except (TypeError, ValueError):
             eligible = False
@@ -1832,7 +1838,7 @@ def build_hybrid_export_timeline(
         scored.append((orig_idx, item, cand, score, eligible))
 
     # Select top-N as speaker clips (pre-filter: remove those flagged for demotion by bounds check)
-    # Pre-approved items (from 07b) are always included first, then fill remaining slots from scored.
+    # Pre-approved items (from 07/07b) are always included first, then fill remaining slots from scored.
     eligible_only = [(i, item, cand, sc) for i, item, cand, sc, elig in scored if elig]
     eligible_only.sort(key=lambda x: (
         0 if str(x[1].get("fragment_id") or "") in pre_approved_speaker_fids else 1,
@@ -1850,7 +1856,7 @@ def build_hybrid_export_timeline(
     for i, item, cand, sc in eligible_only:
         fid = str(item.get("fragment_id") or "")
         is_pre_approved = fid in pre_approved_speaker_fids
-        # Pre-approved items (07b validated) bypass score and demotion thresholds
+        # Pre-approved items (07/07b validated) bypass score and demotion thresholds
         if not is_pre_approved:
             if sc < speaker_clip_score_threshold:
                 continue
@@ -1862,6 +1868,20 @@ def build_hybrid_export_timeline(
                 continue
         speaker_clip_fids.add(fid)
         selected_for_speaker.append(i)
+
+    # Guaranteed minimum 1 speaker clip fallback floor:
+    # If strict scoring/bounds demoted all clips to 0, force-promote the best available fragment.
+    if not selected_for_speaker and scored:
+        best_candidate = max(scored, key=lambda x: (
+            1 if (x[2].get("source_video") or x[1].get("source_video")) else 0,
+            x[3]
+        ))
+        best_i, best_item, best_cand, _, _ = best_candidate
+        best_fid = str(best_item.get("fragment_id") or "")
+        if best_fid:
+            speaker_clip_fids.add(best_fid)
+            selected_for_speaker.append(best_i)
+            log(f"  [hybrid-repair] Guaranteed minimum speaker clip floor applied: promoted fragment {best_fid[-40:]!r}")
 
     # Build voiceover cycling iterator for narration_broll items
     valid_vo_paths = [p for p in (section_voiceover_paths or []) if p and Path(p).exists()]
