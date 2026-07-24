@@ -1955,9 +1955,9 @@ def build_hybrid_export_timeline(
             b = bounds_cache.get(orig_idx, {})
             if b.get("should_demote"):
                 stat_demoted += 1
-            # Assign section voiceover path by cycling
-            if valid_vo_paths:
-                vo_path = valid_vo_paths[vo_cycle_idx % len(valid_vo_paths)]
+            # Assign section voiceover path once (do not cycle duplicate voiceovers)
+            if vo_cycle_idx < len(valid_vo_paths):
+                vo_path = valid_vo_paths[vo_cycle_idx]
                 item["audio_path"] = vo_path
                 item["voiceover_path"] = vo_path
                 # Set subtitle/voiceover text from path→text map
@@ -1966,9 +1966,17 @@ def build_hybrid_export_timeline(
                     item["subtitle_text"] = vo_text
                     item["voiceover_text"] = vo_text
                     item["subtitle_kind"] = "voiceover"
+                reconcile_narration_duration(item, item.get("audio_path"))
                 vo_cycle_idx += 1
-            # Reconcile duration against the real TTS audio length (never trims audio)
-            reconcile_narration_duration(item, item.get("audio_path"))
+            else:
+                item["audio_path"] = None
+                item["voiceover_path"] = None
+                item["audio_mode"] = "muted"
+                item["muted"] = True
+                cand_dur = float(cand.get("duration") or (float(cand.get("end") or 0) - float(cand.get("start") or 0))) if cand else 0.0
+                dur = max(cand_dur if cand_dur > 1.0 else 5.0, 4.0)
+                item["duration"] = dur
+                item["render_duration"] = dur
             if float(item.get("duration") or 0.0) == 0.0:
                 stat_zero_dur += 1
 

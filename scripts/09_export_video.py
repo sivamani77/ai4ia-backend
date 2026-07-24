@@ -1752,12 +1752,13 @@ def _build_canonical_rendering_timeline(
                     preset_render_dur = float(item.get("render_duration") or 0.0)
                     if preset_render_dur > 0.0:
                         if probed_audio_dur > preset_render_dur + 1.0:
-                            raise ExportIntegrityError(
-                                f"Narration item {idx}: voiceover {audio_path.name} is "
-                                f"{probed_audio_dur:.1f}s but manifest declares "
-                                f"{preset_render_dur:.1f}s — manifest is stale, re-run Step 08."
+                            log(
+                                f"  [canonical] WARNING: voiceover {audio_path.name} probed as "
+                                f"{probed_audio_dur:.1f}s exceeding declared {preset_render_dur:.1f}s — updating duration to {probed_audio_dur + 0.4:.1f}s"
                             )
-                        item["duration"] = preset_render_dur
+                            item["duration"] = probed_audio_dur + 0.4
+                        else:
+                            item["duration"] = preset_render_dur
                     else:
                         if probed_audio_dur <= 0.0:
                             log(f"  [canonical] WARNING: voiceover {audio_path.name} probed as 0s — using fragment duration")
