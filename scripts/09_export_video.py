@@ -640,7 +640,7 @@ def render_archive_clip(
             f"volume={ARCHIVE_AUDIO_VOLUME},"
             f"afade=t=in:st=0:d=0.15,"
             f"afade=t=out:st={max(duration - 0.25, 0)}:d=0.25,"
-            "apad=-1"
+            "apad"
         )
 
         cmd = [
