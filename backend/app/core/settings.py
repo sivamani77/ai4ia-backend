@@ -121,7 +121,7 @@ class Settings(BaseSettings):
     # other features and are untouched by this flag.
     # ------------------------------------------------------------------
     storyline_strong_model: str = "gpt-oss:120b"
-    storyline_llm_backend: str = "ollama"  # "ollama" | "vllm"
+    storyline_llm_backend: str = "vllm"  # "ollama" | "vllm"
     storyline_vllm_base_url: str = "http://vllm-gpt-120.mobiusdtaas.ai"
     storyline_vllm_model: str = "openai/gpt-oss-120b"
 
