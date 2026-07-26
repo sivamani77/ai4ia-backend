@@ -11,7 +11,8 @@ from prometheus_fastapi_instrumentator import Instrumentator
 from pythonjsonlogger.json import JsonFormatter
 
 from app.core.auth import require_api_key, require_role
-from app.core.config import API_PREFIX, VLLM_BASE_URL
+from app.core.config import API_PREFIX
+from app.core import dependency_state
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
 from app.core import metrics as _metrics
@@ -110,7 +111,7 @@ def _reap_orphaned_jobs() -> None:
         logger.exception("Failed to reap orphaned jobs on startup")
 
 
-_DEPENDENCY_CHECK_INTERVAL_SECONDS = 30
+_DEPENDENCY_CHECK_INTERVAL_SECONDS = 60
 
 
 async def _dependency_metrics_loop() -> None:
@@ -122,7 +123,6 @@ async def _dependency_metrics_loop() -> None:
         for name, check_fn in (
             ("supabase", _check_supabase),
             ("chroma", _check_chroma),
-            ("vllm", _check_vllm),
         ):
             start = time.perf_counter()
             try:
@@ -300,17 +300,6 @@ def _check_chroma() -> dict:
         return {"ok": False, "error": str(exc)[:120]}
 
 
-def _check_vllm() -> dict:
-    import urllib.request
-    url = VLLM_BASE_URL.rstrip("/") + "/health"
-    try:
-        req = urllib.request.Request(url, headers={"Accept": "application/json"})
-        with urllib.request.urlopen(req, timeout=4) as r:
-            return {"ok": r.status == 200}
-    except Exception as exc:
-        return {"ok": False, "error": str(exc)[:120]}
-
-
 @app.get(f"{API_PREFIX}/health")
 async def health():
     from app.services.video_job_runner import _redis_reachable
@@ -318,12 +307,20 @@ async def health():
     redis_up = _redis_reachable()
     use_celery = bool(settings.redis_url) and redis_up
 
-    supabase, chroma, vllm = await asyncio.gather(
+    # snapshot() reads Redis, so it goes through to_thread like the other
+    # two — it is a blocking client, and /api/health is hit by every probe
+    # on every pod. Never let it stall the event loop.
+    supabase, chroma, llm_hosts = await asyncio.gather(
         asyncio.to_thread(_check_supabase),
         asyncio.to_thread(_check_chroma),
-        asyncio.to_thread(_check_vllm),
+        asyncio.to_thread(dependency_state.snapshot),
     )
 
+    # Deliberately excludes the model hosts. They are scale-to-zero GPU
+    # deployments, so "nobody has called it recently" is their normal idle
+    # state — folding that into readiness would mark every API pod unready
+    # whenever the GPU was correctly scaled down, and crash-loop the
+    # deployment. llm_hosts below is reported for humans, never gated on.
     all_ok = redis_up and supabase["ok"] and chroma["ok"]
 
     return {
@@ -333,8 +330,12 @@ async def health():
             "redis": {"ok": redis_up},
             "supabase": supabase,
             "chroma": chroma,
-            "vllm": vllm,
         },
+        # Last known state of vLLM/Ollama, recorded by whichever process
+        # actually called them. Reading this costs nothing — no request is
+        # made to the hosts here, which is the entire point: probing them is
+        # what used to keep the GPU resident 24/7.
+        "llm_hosts": llm_hosts,
         "worker_mode": "celery" if use_celery else "thread_fallback",
     }
 

@@ -133,6 +133,13 @@ class Settings(BaseSettings):
     embedding_model: str = "nomic-embed-text:v1.5"
     fast_llm_model: str = "llama3.1:8b"
 
+    # How long a recorded model-host outcome stays meaningful. Past this the
+    # host reports "unknown" rather than a stale up/down — see
+    # app/core/dependency_state.py. Deliberately generous: the model hosts
+    # are scale-to-zero, so a quiet period is normal, not a fault, and the
+    # cure for "unknown" is never to start polling them.
+    llm_health_stale_after_seconds: int = 900
+
     # ------------------------------------------------------------------
     # Prompt guardrail — runs as the very first pipeline stage, before any
     # other work starts, and rejects harmful/abusive/illegal/off-topic

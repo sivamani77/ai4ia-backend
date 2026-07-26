@@ -18,6 +18,8 @@ from typing import Any
 
 import requests
 
+from app.core import dependency_state
+from app.core import metrics as _metrics
 from app.core.config import (
     OLLAMA_BASE_URL,
     EMBEDDING_MODEL,
@@ -52,17 +54,36 @@ _VLLM_BASE_URL_BY_MODEL = {
 # ---------------------------------------------------------------------------
 
 def _post_with_retries(url: str, payload: dict, timeout: int = REQUEST_TIMEOUT_SECONDS) -> tuple[dict, int]:
-    """Return (response_dict, retry_count). Raises on exhausted retries."""
+    """Return (response_dict, retry_count). Raises on exhausted retries.
+
+    Every vLLM and Ollama call in the backend funnels through here, which is
+    why the model-host health record is taken here too: one instrumentation
+    point covers embeddings, the guardrail, insights, comparisons and
+    speaker extraction, and it costs no extra requests to the GPU. See
+    app/core/dependency_state.py for why health is recorded rather than
+    probed.
+    """
+    host = dependency_state.host_from_url(url)
     last_error = None
+    t0 = time.time()
     for attempt in range(1, MAX_RETRIES + 1):
         try:
             resp = requests.post(url, json=payload, timeout=timeout)
             resp.raise_for_status()
-            return resp.json(), attempt - 1
+            result = resp.json()
+            elapsed = time.time() - t0
+            dependency_state.record(host, True, latency_s=elapsed)
+            _metrics.llm_calls_total.labels(host=host, outcome="success").inc()
+            _metrics.llm_call_duration_seconds.labels(host=host).observe(elapsed)
+            return result, attempt - 1
         except Exception as exc:  # noqa: BLE001
             last_error = exc
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_SLEEP_SECONDS)
+    elapsed = time.time() - t0
+    dependency_state.record(host, False, latency_s=elapsed, error=str(last_error))
+    _metrics.llm_calls_total.labels(host=host, outcome="failure").inc()
+    _metrics.llm_call_duration_seconds.labels(host=host).observe(elapsed)
     raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")
 
 

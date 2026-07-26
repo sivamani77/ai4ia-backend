@@ -362,6 +362,31 @@ def log(msg: str) -> None:
     print(f"[{ts}] {msg}", flush=True)
 
 
+# --- model-host health, recorded not probed -------------------------------
+# Mirrors the shim in 07_generate_storyline.py. Both scripts are short-lived
+# subprocesses that issue most of the 120b traffic, so they are the main
+# contributors to the shared health record /api/health reads
+# (app/core/dependency_state.py). Best-effort throughout: telemetry must
+# never be able to fail a validation run.
+
+def _dep_host(url: str) -> str:
+    try:
+        from app.core import dependency_state
+        return dependency_state.host_from_url(url)
+    except Exception:
+        return ""
+
+
+def _record_dep(host: str, ok: bool, latency_s: float, error: str | None = None) -> None:
+    if not host:
+        return
+    try:
+        from app.core import dependency_state
+        dependency_state.record(host, ok, latency_s=latency_s, error=error)
+    except Exception:
+        pass
+
+
 def _to_ollama_generate_payload(payload: dict[str, Any]) -> dict[str, Any]:
     """Translate an OpenAI-chat-shaped payload (model/messages/temperature/
     max_completion_tokens) into Ollama's /api/generate shape (model/prompt/
@@ -429,6 +454,8 @@ def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SE
         url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
         req_payload = _to_ollama_generate_payload(payload)
 
+    _host = _dep_host(url)
+    _call_started = time.time()
     last_error: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
         try:
@@ -445,6 +472,7 @@ def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SE
             else:
                 _content = data.get("response", "")
             log(f"  [llm-timing] model={req_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            _record_dep(_host, True, time.time() - _call_started)
             return _content or ""
 
         except Exception as exc:
@@ -452,6 +480,7 @@ def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SE
             log(f"  [llm] Attempt {attempt}/{MAX_RETRIES} failed: {exc}")
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_SLEEP_SECONDS * (2 ** (attempt - 1)))
+    _record_dep(_host, False, time.time() - _call_started, str(last_error))
     raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")
 
 
@@ -469,6 +498,8 @@ async def post_with_retries_async(
         url = OLLAMA_BASE_URL.rstrip("/") + GENERATE_ENDPOINT
         req_payload = _to_ollama_generate_payload(payload)
 
+    _host = _dep_host(url)
+    _call_started = time.time()
     last_error: Exception | None = None
     for attempt in range(1, MAX_RETRIES + 1):
         try:
@@ -485,6 +516,7 @@ async def post_with_retries_async(
             else:
                 _content = data.get("response", "")
             log(f"  [llm-timing] model={req_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            _record_dep(_host, True, time.time() - _call_started)
             return _content or ""
 
         except Exception as exc:
@@ -492,6 +524,7 @@ async def post_with_retries_async(
             log(f"  [llm] Attempt {attempt}/{MAX_RETRIES} failed: {exc}")
             if attempt < MAX_RETRIES:
                 await asyncio.sleep(RETRY_SLEEP_SECONDS * (2 ** (attempt - 1)))
+    _record_dep(_host, False, time.time() - _call_started, str(last_error))
     raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")
 
 

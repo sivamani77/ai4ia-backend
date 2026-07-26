@@ -83,6 +83,26 @@ dependency_check_duration_seconds = Histogram(
     ["dependency"],
 )
 
+# Model-host health, derived from real traffic rather than from probes. The
+# vLLM/Ollama hosts are scale-to-zero GPUs, so polling them for a gauge is
+# what keeps them resident — alert on the failure rate of calls we were
+# making anyway instead:
+#     rate(llm_calls_total{outcome="failure"}[10m])
+# Note these are only emitted by long-lived processes (API, Celery worker).
+# The scripts/07* subprocesses record to dependency_state but are never
+# scraped, since they exit with the job.
+llm_calls_total = Counter(
+    "llm_calls_total",
+    "LLM / embedding HTTP calls by model host and outcome",
+    ["host", "outcome"],  # outcome: success | failure
+)
+
+llm_call_duration_seconds = Histogram(
+    "llm_call_duration_seconds",
+    "Latency of an LLM / embedding call, including retries",
+    ["host"],
+)
+
 # ---------------------------------------------------------------------------
 # Auth
 # ---------------------------------------------------------------------------

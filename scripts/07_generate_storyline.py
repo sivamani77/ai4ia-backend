@@ -225,8 +225,34 @@ def log(message: str) -> None:
     print(f"[{ts}] {message}", flush=True)
 
 
+# --- model-host health, recorded not probed -------------------------------
+# This script is a short-lived subprocess but issues most of the 120b
+# traffic, so it is the main contributor to the shared health record that
+# /api/health reads (app/core/dependency_state.py). Everything below is
+# best-effort: telemetry must never be able to fail a storyline run.
+
+def _dep_host(url: str) -> str:
+    try:
+        from app.core import dependency_state
+        return dependency_state.host_from_url(url)
+    except Exception:
+        return ""
+
+
+def _record_dep(host: str, ok: bool, latency_s: float, error: str | None = None) -> None:
+    if not host:
+        return
+    try:
+        from app.core import dependency_state
+        dependency_state.record(host, ok, latency_s=latency_s, error=error)
+    except Exception:
+        pass
+
+
 def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SECONDS) -> dict[str, Any]:
+    _host = _dep_host(url)
     last_error = None
+    _call_started = time.time()
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
@@ -235,6 +261,7 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
             response.raise_for_status()
             _result = response.json()
             log(f"  [llm-timing] model={payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
+            _record_dep(_host, True, time.time() - _call_started)
             return _result
         except Exception as exc:
             last_error = exc
@@ -243,6 +270,7 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
                 # Exponential backoff: gives a cold/overloaded Ollama time to recover.
                 time.sleep(RETRY_SLEEP_SECONDS * (2 ** (attempt - 1)))
 
+    _record_dep(_host, False, time.time() - _call_started, str(last_error))
     raise RuntimeError(f"Request failed after retries: {last_error}")
 
 

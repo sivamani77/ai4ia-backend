@@ -23,6 +23,27 @@ if str(_BACKEND) not in sys.path:
 
 
 # ---------------------------------------------------------------------------
+# Keep model-host health records out of a real Redis during tests.
+# ---------------------------------------------------------------------------
+
+@pytest.fixture(autouse=True)
+def _no_dependency_state_redis(monkeypatch):
+    """Force app.core.dependency_state onto its in-memory path.
+
+    llm_service._post_with_retries records model-host health on every call,
+    so without this a test run publishes its fake hosts ("http://x", ...) to
+    whatever Redis the developer has running, and they then show up in
+    /api/health for the next 15 minutes.
+    """
+    from app.core import dependency_state
+
+    monkeypatch.setattr(dependency_state, "_get_redis", lambda: None)
+    dependency_state.reset_for_tests()
+    yield
+    dependency_state.reset_for_tests()
+
+
+# ---------------------------------------------------------------------------
 # mock_settings — patches app.core.settings.settings with safe in-test values
 # ---------------------------------------------------------------------------
 
