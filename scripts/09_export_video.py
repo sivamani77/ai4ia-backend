@@ -387,11 +387,26 @@ def find_font_file() -> str | None:
 
 
 def escape_drawtext_text(text: str) -> str:
+    """Escape text for embedding inside a single-quoted drawtext value
+    (callers always wrap the result as text='{...}').
+
+    A literal apostrophe can't be escaped as `\\'` inside an ffmpeg
+    filtergraph single-quoted string — that backslash prints literally and
+    the quote still closes right there, leaving everything after it (the
+    rest of this value, every later option on the same filter, and any
+    filter after it in the chain) to be parsed as raw unquoted syntax. That
+    corrupted a downstream `enable=` expression and swallowed the next
+    filter's name into it, aborting the whole ffmpeg command — reproduced
+    live with a speaker name containing an apostrophe (e.g. "D'Souza").
+    The correct escape is to close the quote, emit a literal quote via
+    concatenation, and reopen: '\\''  (must run before the other
+    replacements below, none of which touch a raw `'`.)
+    """
     return (
         str(text)
         .replace("\\", "\\\\")
         .replace(":", "\\:")
-        .replace("'", "\\'")
+        .replace("'", "'\\''")
         .replace("%", "\\%")
         .replace(",", "\\,")
         .replace("[", "\\[")
