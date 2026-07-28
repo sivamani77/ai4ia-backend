@@ -26,7 +26,8 @@ from app.schemas.admin_users import (
     AdminUserListResponse,
     AdminUserRecord,
 )
-from app.services import admin_user_service
+from app.schemas.sessions import SessionListResponse
+from app.services import admin_user_service, session_activity_service
 
 router = APIRouter(prefix="/admin/users", tags=["admin-users"])
 
@@ -66,6 +67,17 @@ def get_user_generations(user_id: str):
     generations = [job_to_generation_entry(job) for job in jobs]
 
     return AdminUserGenerationsResponse(user=user, generations=generations, total=len(generations))
+
+
+@router.get("/{user_id}/sessions", response_model=SessionListResponse)
+def get_user_sessions(
+    user_id: str,
+    limit: int = Query(50, ge=1, le=200),
+    offset: int = Query(0, ge=0),
+):
+    """This user's full login/activity history (active + ended sessions).
+    Drill-down from the global feed at GET /admin/sessions."""
+    return session_activity_service.list_sessions_for_user(user_id, limit=limit, offset=offset)
 
 
 @router.post("", response_model=AdminUserRecord, status_code=201)

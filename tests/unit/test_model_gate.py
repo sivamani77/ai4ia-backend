@@ -83,6 +83,53 @@ class TestWarmLock:
         assert model_gate.warm_async(model_gate.LLM) is True
 
 
+class TestWarmOnce:
+    """The embedding warm confirmation call must use the longer
+    model_embedding_warm_timeout_seconds, not is_ready()'s fast 5s default —
+    a cold host's first real load routinely exceeds 5s."""
+
+    def test_uses_configured_warm_timeout_not_fast_default(self, monkeypatch):
+        monkeypatch.setattr(model_gate, "_pull_embedding_model", lambda: (True, None))
+        monkeypatch.setattr(model_gate.settings, "model_embedding_warm_timeout_seconds", 45)
+        seen_timeouts = []
+
+        def _fake_probe_embedding(*, timeout=5):
+            seen_timeouts.append(timeout)
+            return True, None
+
+        monkeypatch.setattr(model_gate, "_probe_embedding", _fake_probe_embedding)
+
+        ok, error = model_gate._warm_once(model_gate.EMBEDDING)
+
+        assert ok is True
+        assert seen_timeouts == [45]
+
+    def test_pull_failure_short_circuits_without_probing(self, monkeypatch):
+        monkeypatch.setattr(model_gate, "_pull_embedding_model", lambda: (False, "pull failed"))
+        probe_calls = []
+        monkeypatch.setattr(
+            model_gate, "_probe_embedding", lambda **k: probe_calls.append(k) or (True, None)
+        )
+
+        ok, error = model_gate._warm_once(model_gate.EMBEDDING)
+
+        assert ok is False
+        assert error == "pull failed"
+        assert probe_calls == []
+
+    def test_llm_target_does_not_touch_embedding_pull(self, monkeypatch):
+        pull_calls = []
+        monkeypatch.setattr(
+            model_gate, "_pull_embedding_model", lambda: pull_calls.append(1) or (True, None)
+        )
+        monkeypatch.setitem(model_gate._PROBES, model_gate.LLM, lambda: (True, None))
+
+        ok, error = model_gate._warm_once(model_gate.LLM)
+
+        assert ok is True
+        assert pull_calls == []
+
+
 class TestBackoffWarmer:
     def test_succeeds_on_first_attempt_updates_state_ready(self, monkeypatch):
         monkeypatch.setattr(model_gate.settings, "model_warm_deadline_seconds", 5)

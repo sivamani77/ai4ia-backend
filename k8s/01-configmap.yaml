@@ -33,6 +33,7 @@ data:
   MODEL_WARM_DEADLINE_SECONDS: "600"
   MODEL_WARM_LOCK_SECONDS: "300"
   OLLAMA_KEEP_ALIVE: "5m"
+  MODEL_EMBEDDING_WARM_TIMEOUT_SECONDS: "45"
 
   # S3 storage backend — switches exports/assets/storylines/ingest pipeline
   # output to S3 instead of local disk (see storage_service.py / s3_helpers.py).

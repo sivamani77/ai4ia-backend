@@ -8,9 +8,31 @@ from typing import Any
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel
 
-from app.services import embedding_index, fragment_store
+from app.schemas.sessions import SessionListResponse
+from app.services import embedding_index, fragment_store, session_activity_service
 
 router = APIRouter(prefix="/admin", tags=["Admin"])
+
+
+# ---------------------------------------------------------------------------
+# Session/activity feed — every user's logins, across the whole system.
+# Admin-only: gated by require_role("admin") at the router include in
+# main.py. See app/services/session_activity_service.py; per-user drill-down
+# lives at GET /admin/users/{user_id}/sessions (app/api/admin_users.py), and
+# the self-service equivalent at GET /auth/me/sessions (app/api/auth.py).
+# ---------------------------------------------------------------------------
+
+@router.get("/sessions", response_model=SessionListResponse)
+def list_all_sessions(
+    limit: int = Query(50, ge=1, le=200),
+    offset: int = Query(0, ge=0),
+    user_id: str | None = Query(None, description="Narrow to one user"),
+    active_only: bool | None = Query(None, description="true = not yet ended, false = already ended"),
+    since: str | None = Query(None, description="ISO timestamp — only sessions created at/after this"),
+):
+    return session_activity_service.list_all_sessions(
+        limit=limit, offset=offset, user_id=user_id, active_only=active_only, since=since
+    )
 
 
 # ---------------------------------------------------------------------------

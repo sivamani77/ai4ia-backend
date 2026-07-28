@@ -10,6 +10,7 @@ import logging
 from typing import Any, TypedDict
 
 from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one
+from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.sessions")
 
@@ -124,8 +125,65 @@ class SessionRepository:
         )
         return [self._normalize(row) for row in rows]
 
+    def list_all(
+        self,
+        *,
+        limit: int = 50,
+        offset: int = 0,
+        user_id: str | None = None,
+        active_only: bool | None = None,
+        since: str | None = None,
+    ) -> tuple[list[SessionRecord], int]:
+        """Activity feed — every session (any user) unless `user_id` narrows
+        it to one. Returns (page, total_count), same shape as
+        UserRepository.list_all. `active_only=True` means "not yet ended";
+        `False` means "already ended"; omitted means both.
+        """
+        where_clauses: list[str] = []
+        params: dict[str, Any] = {}
+
+        if user_id:
+            where_clauses.append("user_id = %(user_id)s")
+            params["user_id"] = user_id
+        if active_only is True:
+            where_clauses.append("ended_at is null")
+        elif active_only is False:
+            where_clauses.append("ended_at is not null")
+        if since:
+            where_clauses.append("created_at >= %(since)s")
+            params["since"] = since
+
+        where_sql = f"where {' and '.join(where_clauses)}" if where_clauses else ""
+
+        total_row = pg_fetch_one(f"select count(*) as n from user_sessions {where_sql}", params)
+        total = int(total_row["n"]) if total_row else 0
+
+        rows = pg_fetch_all(
+            f"""
+            select * from user_sessions
+            {where_sql}
+            order by created_at desc
+            limit %(limit)s offset %(offset)s
+            """,
+            {**params, "limit": limit, "offset": offset},
+        )
+        return [self._normalize(row) for row in rows], total
+
+    def list_for_user(
+        self, user_id: str, *, limit: int = 50, offset: int = 0
+    ) -> tuple[list[SessionRecord], int]:
+        """Full history for one user (active + ended) — for the activity-log
+        use case. list_active_for_user above stays for its original,
+        narrower purpose (does this user have a live session right now)."""
+        return self.list_all(user_id=user_id, limit=limit, offset=offset)
+
     def _normalize(self, row: dict[str, Any]) -> SessionRecord:
-        data = dict(row)
+        # psycopg2's RealDictCursor returns live datetime objects for
+        # timestamptz columns (unlike the Supabase/PostgREST client used
+        # elsewhere, which already hands back ISO strings) — normalize_value
+        # converts them so callers (and Pydantic response models) get a
+        # consistent str shape regardless of which client produced the row.
+        data = normalize_value(dict(row))
         if not isinstance(data.get("metadata"), dict):
             data["metadata"] = {}
         return SessionRecord(**data)

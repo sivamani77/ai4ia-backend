@@ -170,6 +170,14 @@ class Settings(BaseSettings):
     # for this long after the call so the next real embed doesn't cold-load.
     ollama_keep_alive: str = "5m"
     ollama_warm_models: list[str] = ["nomic-embed-text:v1.5"]
+    # Timeout for the warmer's confirmation embed call (the one that forces
+    # the model off disk into memory after /api/pull). Deliberately much
+    # longer than is_ready()'s fast 5s check — a cold host waking from
+    # scale-to-zero routinely needs more than 5s to actually load the model,
+    # and a too-short timeout here just makes the warmer retry (and pile up
+    # duplicate in-flight load requests) instead of waiting for the one
+    # already in progress to finish.
+    model_embedding_warm_timeout_seconds: int = 45
 
     # ------------------------------------------------------------------
     # Prompt guardrail — runs as the very first pipeline stage, before any

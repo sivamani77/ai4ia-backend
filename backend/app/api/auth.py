@@ -13,7 +13,7 @@ GET  /api/auth/me                — current account, from a verified access tok
 """
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, Request, Response
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response
 
 from app.core.auth import CurrentUser, get_current_user
 from app.core.settings import settings
@@ -30,7 +30,8 @@ from app.schemas.auth import (
     UserPublic,
     VerifyOtpRequest,
 )
-from app.services import auth_service, model_gate
+from app.schemas.sessions import SessionListResponse
+from app.services import auth_service, model_gate, session_activity_service
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -171,3 +172,16 @@ def me(current_user: CurrentUser = Depends(get_current_user)):
     if user is None:
         raise HTTPException(status_code=404, detail="Account not found")
     return UserPublic(**auth_service.to_public_user(user))
+
+
+@router.get("/me/sessions", response_model=SessionListResponse)
+def my_sessions(
+    limit: int = Query(50, ge=1, le=200),
+    offset: int = Query(0, ge=0),
+    current_user: CurrentUser = Depends(get_current_user),
+):
+    """The caller's own login/activity history — active + ended sessions,
+    each showing when, from where (IP/user-agent), and how it ended."""
+    return session_activity_service.list_sessions_for_user(
+        current_user.id, limit=limit, offset=offset
+    )

@@ -97,7 +97,14 @@ def _get_redis():
 # model host. Each returns (ok, error_message).
 # ---------------------------------------------------------------------------
 
-def _probe_embedding() -> tuple[bool, str | None]:
+def _probe_embedding(*, timeout: float = 5) -> tuple[bool, str | None]:
+    """A successful /api/pull only means the blob is on disk — the model
+    still has to load off disk into memory on the FIRST real inference
+    call, which is what this does. On a scale-to-zero host that just woke
+    up, that cold load can take much longer than the fast timeout used for
+    the interactive-request readiness check (is_ready()), so callers that
+    are actively warming (as opposed to just checking) pass a longer
+    timeout — see _warm_once."""
     try:
         resp = requests.post(
             f"{OLLAMA_BASE_URL.rstrip('/')}/api/embed",
@@ -106,7 +113,7 @@ def _probe_embedding() -> tuple[bool, str | None]:
                 "input": "ping",
                 "keep_alive": settings.ollama_keep_alive,
             },
-            timeout=5,
+            timeout=timeout,
         )
         resp.raise_for_status()
         data = resp.json()
@@ -291,6 +298,11 @@ def _warm_once(key: str) -> tuple[bool, str | None]:
         pulled, pull_error = _pull_embedding_model()
         if not pulled:
             return False, pull_error
+        # Longer timeout than is_ready()'s fast check: this call is what
+        # forces the cold load off disk, which routinely takes longer than
+        # the 5s used for a cheap readiness probe. _probe_embedding already
+        # catches its own exceptions, so this is safe to call directly.
+        return _probe_embedding(timeout=settings.model_embedding_warm_timeout_seconds)
     return _call_probe(key)
 
 

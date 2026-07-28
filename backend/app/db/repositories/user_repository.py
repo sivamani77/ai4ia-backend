@@ -4,7 +4,15 @@ import logging
 from datetime import datetime, timezone
 from typing import Any, Mapping, TypedDict
 
+from postgrest.exceptions import APIError
+
 from app.db.supabase import get_auth_supabase_client
+
+# Postgres error code for a value that doesn't parse as the column's type
+# (app_users.id is uuid) — raised before the query even runs, so an
+# arbitrary caller-supplied id string (e.g. a path param that isn't a UUID)
+# must be treated as "not found", not surfaced as a 500.
+_INVALID_TEXT_REPRESENTATION = "22P02"
 
 logger = logging.getLogger("ai4ia.db.repositories.users")
 
@@ -45,8 +53,28 @@ class UserRepository:
         return self._first(response.data)
 
     def get_by_id(self, user_id: str) -> UserRecord | None:
-        response = self._table.select("*").eq("id", user_id).limit(1).execute()
+        try:
+            response = self._table.select("*").eq("id", user_id).limit(1).execute()
+        except APIError as exc:
+            if exc.code == _INVALID_TEXT_REPRESENTATION:
+                return None
+            raise
         return self._first(response.data)
+
+    def get_by_ids(self, ids: list[str]) -> list[UserRecord]:
+        """Batch fetch for enrichment — e.g. resolving usernames onto a list
+        of sessions from the separate pipeline Postgres project (no SQL JOIN
+        is possible across the two databases). One query instead of N
+        get_by_id calls."""
+        if not ids:
+            return []
+        try:
+            response = self._table.select("*").in_("id", ids).execute()
+        except APIError as exc:
+            if exc.code == _INVALID_TEXT_REPRESENTATION:
+                return []
+            raise
+        return [UserRecord(**row) for row in (response.data or [])]
 
     def username_exists(self, username: str) -> bool:
         response = self._table.select("id").eq("username", username).limit(1).execute()
