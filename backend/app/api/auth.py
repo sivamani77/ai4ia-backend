@@ -30,7 +30,7 @@ from app.schemas.auth import (
     UserPublic,
     VerifyOtpRequest,
 )
-from app.services import auth_service
+from app.services import auth_service, model_gate
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -81,14 +81,21 @@ def signup(payload: SignupRequest):
 
 
 @router.post("/verify-otp")
-def verify_otp(payload: VerifyOtpRequest, response: Response):
+def verify_otp(payload: VerifyOtpRequest, request: Request, response: Response):
     _require_valid_purpose(payload.purpose)
     result = auth_service.verify_otp(email=payload.email, code=payload.code, purpose=payload.purpose)
 
     if payload.purpose == "signup":
-        user, access_token, refresh_token = auth_service.issue_token_pair(result["id"])
+        user, access_token, refresh_token, session_id = auth_service.issue_token_pair(
+            result["id"],
+            user_agent=request.headers.get("user-agent"),
+            ip=_client_ip(request),
+        )
         _set_refresh_cookie(response, refresh_token)
-        return AuthTokenResponse(access_token=access_token, user=UserPublic(**user))
+        model_gate.trigger_warmup(session_id)
+        return AuthTokenResponse(
+            access_token=access_token, user=UserPublic(**user), session_id=session_id
+        )
 
     return MessageResponse(message="Code verified")
 
@@ -102,7 +109,7 @@ def resend_otp(payload: ResendOtpRequest):
 
 @router.post("/login", response_model=AuthTokenResponse)
 def login(payload: LoginRequest, request: Request, response: Response):
-    user, access_token, refresh_token = auth_service.login(
+    user, access_token, refresh_token, session_id = auth_service.login(
         username=payload.username,
         password=payload.password,
         client_key=f"{payload.username}:{_client_ip(request)}",
@@ -110,7 +117,10 @@ def login(payload: LoginRequest, request: Request, response: Response):
         ip=_client_ip(request),
     )
     _set_refresh_cookie(response, refresh_token)
-    return AuthTokenResponse(access_token=access_token, user=UserPublic(**user))
+    model_gate.trigger_warmup(session_id)
+    return AuthTokenResponse(
+        access_token=access_token, user=UserPublic(**user), session_id=session_id
+    )
 
 
 @router.post("/refresh", response_model=AuthTokenResponse)
@@ -119,13 +129,18 @@ def refresh(request: Request, response: Response):
     if not refresh_token:
         raise HTTPException(status_code=401, detail="No session found. Please log in.")
 
-    user, access_token, new_refresh_token = auth_service.refresh_access_token(
+    # No model_gate.trigger_warmup here by design — refresh fires on every
+    # silent token renewal (page load, tab focus), not just a real return
+    # visit. See the note in auth_service.refresh_access_token.
+    user, access_token, new_refresh_token, session_id = auth_service.refresh_access_token(
         refresh_token=refresh_token,
         user_agent=request.headers.get("user-agent"),
         ip=_client_ip(request),
     )
     _set_refresh_cookie(response, new_refresh_token)
-    return AuthTokenResponse(access_token=access_token, user=UserPublic(**user))
+    return AuthTokenResponse(
+        access_token=access_token, user=UserPublic(**user), session_id=session_id
+    )
 
 
 @router.post("/logout", response_model=MessageResponse)

@@ -1,9 +1,12 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
-from app.services import comparison_service
+from app.api.deps import require_models
+from app.services import comparison_service, model_gate
 
 router = APIRouter(tags=["Comparison & Relay"])
+
+_model_gate_dep = [Depends(require_models(model_gate.EMBEDDING, model_gate.LLM))]
 
 
 class CompareSpeakersRequest(BaseModel):
@@ -31,17 +34,17 @@ def _run(fn, *args):
         raise HTTPException(status_code=502, detail=f"Generation failed: {exc}")
 
 
-@router.post("/compare/speakers")
+@router.post("/compare/speakers", dependencies=_model_gate_dep)
 def api_compare_speakers(req: CompareSpeakersRequest):
     return _run(comparison_service.compare_speakers, req.speakers, req.topic,
                 req.limit_per_speaker)
 
 
-@router.post("/synthesis/theme")
+@router.post("/synthesis/theme", dependencies=_model_gate_dep)
 def api_synthesize_theme(req: ThemeSynthesisRequest):
     return _run(comparison_service.synthesize_theme, req.theme, req.limit)
 
 
-@router.post("/relay")
+@router.post("/relay", dependencies=_model_gate_dep)
 def api_build_relay(req: RelayRequest):
     return _run(comparison_service.build_relay, req.topic, req.limit)

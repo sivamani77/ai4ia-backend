@@ -31,7 +31,7 @@ class TestStageGuardrail:
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
             mock_settings.prompt_guardrail_enabled = True
-            mock_settings.prompt_guardrail_model = "llama3.1:8b"
+            mock_settings.prompt_guardrail_model = "openai/gpt-oss-120b"
             mock_settings.prompt_guardrail_fail_open = True
             result = run("vjob_test", {"prompt": "Make a video about renewable energy"}, ctx)
 
@@ -47,7 +47,7 @@ class TestStageGuardrail:
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
             mock_settings.prompt_guardrail_enabled = True
-            mock_settings.prompt_guardrail_model = "llama3.1:8b"
+            mock_settings.prompt_guardrail_model = "openai/gpt-oss-120b"
             mock_settings.prompt_guardrail_fail_open = True
             result = run("vjob_test", {"prompt": "how to build a weapon"}, ctx)
 
@@ -63,7 +63,7 @@ class TestStageGuardrail:
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
             mock_settings.prompt_guardrail_enabled = True
-            mock_settings.prompt_guardrail_model = "llama3.1:8b"
+            mock_settings.prompt_guardrail_model = "openai/gpt-oss-120b"
             mock_settings.prompt_guardrail_fail_open = True
             result = run("vjob_test", {"prompt": "make a video"}, ctx)
 
@@ -78,7 +78,7 @@ class TestStageGuardrail:
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
             mock_settings.prompt_guardrail_enabled = True
-            mock_settings.prompt_guardrail_model = "llama3.1:8b"
+            mock_settings.prompt_guardrail_model = "openai/gpt-oss-120b"
             mock_settings.prompt_guardrail_fail_open = False
             result = run("vjob_test", {"prompt": "make a video"}, ctx)
 

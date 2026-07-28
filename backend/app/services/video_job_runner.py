@@ -22,6 +22,7 @@ from app.core.config import VLLM_MODEL
 from app.core.security import parse_timestamp
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext
+from app.services import model_gate
 from app.services.job_store import (
     save_job,
     load_job,
@@ -358,6 +359,30 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         log.info("Pipeline started")
 
         ctx = PipelineContext(job_id=job_id, request=request)
+
+        # Gate: nothing below this point may touch Ollama/vLLM until both are
+        # confirmed reachable. Unlike the interactive-endpoint gate (api/deps.py),
+        # this is a queued background job with nobody holding an HTTP connection
+        # open, so a long blocking wait here is the right trade — it's visible
+        # to the user as a job event instead of failing a request outright.
+        update_stage(job_id, "model_warmup", "running", 0,
+                     "Waiting for AI model hosts to come online")
+        readiness = model_gate.ensure_ready(
+            model_gate.EMBEDDING, model_gate.LLM,
+            wait_seconds=settings.model_warm_deadline_seconds,
+        )
+        not_ready = [key for key, ok in readiness.items() if not ok]
+        if not_ready:
+            states = {key: model_gate.state(key) for key in not_ready}
+            log.error("Model host(s) never became ready: %s", states)
+            _fail_job(
+                job_id, "model_warmup", "model_unavailable",
+                f"AI model host(s) did not come online in time: {', '.join(not_ready)}",
+                details=str(states),
+            )
+            _cleanup_job_tmp_dirs(job_id)
+            return
+        update_stage(job_id, "model_warmup", "completed", 100, "AI model hosts ready")
 
         stages = [
             stage_guardrail,

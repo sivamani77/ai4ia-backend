@@ -103,8 +103,8 @@ class Settings(BaseSettings):
     # `*_model` settings still reference the same "openai/gpt-oss-20b"
     # identifier as a default value, independent of vLLM being reachable)
     # ------------------------------------------------------------------
-    vllm_base_url: str = "http://vllm-gpt-oss.mobiusdtaas.ai"
-    vllm_model: str = "openai/gpt-oss-20b"
+    vllm_base_url: str = "http://vllm-gpt-120.mobiusdtaas.ai"
+    vllm_model: str = "openai/gpt-oss-120b"
     vllm_chat_endpoint: str = "/v1/chat/completions"
 
     # ------------------------------------------------------------------
@@ -141,15 +141,49 @@ class Settings(BaseSettings):
     llm_health_stale_after_seconds: int = 900
 
     # ------------------------------------------------------------------
+    # Model gate (app/services/model_gate.py) — targets Ollama (embeddings)
+    # and the 120b vLLM host only; the 20b deployment is unused. Unlike
+    # dependency_state above, the gate DOES probe the hosts directly (a
+    # feature request needs a true answer, not "nobody has called it
+    # recently") — but only ever on a real login or a real feature request,
+    # never on a timer, so the scale-to-zero idle window is still reachable.
+    # ------------------------------------------------------------------
+    model_gate_enabled: bool = True
+    model_warmup_on_login: bool = True
+    # Caches a real probe result for this long — a stampede guard so N
+    # concurrent requests don't each send their own probe, not a substitute
+    # for the probe. Must stay well under the GPU's scale-to-zero idle
+    # timeout, or the gate can wave a request through to a host that just
+    # disappeared.
+    model_probe_cache_seconds: int = 15
+    # How long an interactive request (insights/relay/compare) blocks for a
+    # cold model before returning 503 + Retry-After. Video jobs use a much
+    # longer wait_seconds directly against model_gate, not this setting.
+    model_gate_inline_wait_seconds: int = 10
+    # Overall deadline for the exponential-backoff warmer before it gives up
+    # and records state="error". A 120b cold start is minutes, not seconds.
+    model_warm_deadline_seconds: int = 600
+    # Distributed lock (SET NX EX) so two API pods don't both hammer a cold
+    # GPU with duplicate warm attempts for the same target.
+    model_warm_lock_seconds: int = 300
+    # Ollama keep_alive on the warm-up embed call — keeps the model resident
+    # for this long after the call so the next real embed doesn't cold-load.
+    ollama_keep_alive: str = "5m"
+    ollama_warm_models: list[str] = ["nomic-embed-text:v1.5"]
+
+    # ------------------------------------------------------------------
     # Prompt guardrail — runs as the very first pipeline stage, before any
     # other work starts, and rejects harmful/abusive/illegal/off-topic
     # prompts via an LLM classification call (app/pipeline/stage_guardrail.py).
     # ------------------------------------------------------------------
     prompt_guardrail_enabled: bool = True
-    # Fast model is sufficient for this classification and keeps the added
-    # latency low on every job; override to a stronger model if false
-    # negatives become a problem.
-    prompt_guardrail_model: str = "llama3.1:8b"
+    # The 120b vLLM model already serving insights/storyline. It is far more
+    # reliable than the fast 8b model on the off_topic and prompt-extraction
+    # cases, which are the ones that actually fire here, and the host is
+    # already warm for the rest of the pipeline. Must stay a name present in
+    # llm_service._VLLM_BASE_URL_BY_MODEL, or generate_json will route the
+    # call to Ollama with a model Ollama does not have.
+    prompt_guardrail_model: str = "openai/gpt-oss-120b"
     # If the LLM call itself fails (timeout, unparsable output), allow the
     # prompt through rather than blocking legitimate users on infra failure.
     prompt_guardrail_fail_open: bool = True

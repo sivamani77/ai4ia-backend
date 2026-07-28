@@ -1,6 +1,6 @@
 """Batch text translation with pluggable providers and a Redis cache.
 
-Primary provider is the vLLM strong model (gpt-oss-20b); the interface is
+Primary provider is the vLLM strong model (gpt-oss-120b); the interface is
 provider-agnostic so an MT API (DeepL, LibreTranslate, ...) can be swapped
 in via settings.translation_provider without touching callers.
 

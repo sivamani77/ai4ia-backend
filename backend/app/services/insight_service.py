@@ -153,7 +153,7 @@ def generate_insight(
             "how_it_works": (
                 "Semantic search embeds your query with nomic-embed-text:v1.5 and retrieves "
                 "the top-K fragments by cosine similarity from the 3875-fragment corpus. "
-                "The LLM (openai/gpt-oss-20b) is given only those numbered fragments as its evidence "
+                "The LLM (openai/gpt-oss-120b) is given only those numbered fragments as its evidence "
                 "pool and must cite fragment numbers for every claim it makes. "
                 "After generation, any claim whose fragment_refs don't resolve to real fragments "
                 "is moved to unsupported_claims and excluded from the final output."

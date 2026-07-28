@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
+from app.api.deps import require_models
 from app.core.auth import CurrentUser, get_current_user
 from app.core.config import INSIGHT_DEFAULT_LIMIT
-from app.services import insight_service
+from app.services import insight_service, model_gate
 
 router = APIRouter(prefix="/insights", tags=["Insights"])
 
@@ -14,7 +15,10 @@ class GenerateInsightRequest(BaseModel):
     limit: int = Field(INSIGHT_DEFAULT_LIMIT, ge=5, le=100)
 
 
-@router.post("/generate")
+@router.post(
+    "/generate",
+    dependencies=[Depends(require_models(model_gate.EMBEDDING, model_gate.LLM))],
+)
 def api_generate_insight(req: GenerateInsightRequest, current_user: CurrentUser = Depends(get_current_user)):
     try:
         return insight_service.generate_insight(req.query, req.filters, req.limit, user_id=current_user.id)

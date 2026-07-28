@@ -71,6 +71,10 @@ class AuthTokenResponse(BaseModel):
     access_token: str
     token_type: str = "bearer"
     user: UserPublic
+    # Refresh-token family_id, reused as the session id (see
+    # app/services/session_service.py). Frontend stores this and sends it
+    # back as X-Session-Id for endpoints that report model warm-up status.
+    session_id: str
 
 
 class ForgotPasswordRequest(BaseModel):

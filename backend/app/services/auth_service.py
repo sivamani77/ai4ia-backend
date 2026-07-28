@@ -29,6 +29,7 @@ from app.db.repositories import (
     get_refresh_token_repository,
     get_user_repository,
 )
+from app.services import session_service
 from app.services.mail_service import MailDeliveryError, send_otp_email, send_password_changed_notice
 
 logger = logging.getLogger("ai4ia.services.auth")
@@ -168,7 +169,9 @@ def resend_otp(*, email: str, purpose: str) -> None:
     _metrics.auth_events_total.labels(event="otp_resend", outcome="success").inc()
 
 
-def issue_token_pair(user_id: str) -> tuple[dict, str, str]:
+def issue_token_pair(
+    user_id: str, *, user_agent: str | None = None, ip: str | None = None
+) -> tuple[dict, str, str, str]:
     """Issue a fresh access + refresh token pair for an already-authenticated
     user_id — used right after signup verification, where no password check
     is needed again."""
@@ -178,8 +181,11 @@ def issue_token_pair(user_id: str) -> tuple[dict, str, str]:
         raise HTTPException(status_code=404, detail="Account not found")
     persona = _to_ui_persona(user.get("persona"))
     access_token = create_access_token(user_id=user_id, persona=persona)
-    refresh_token = _issue_refresh_token(user_id=user_id)
-    return to_public_user(user), access_token, refresh_token
+    refresh_token, session_id = _issue_refresh_token(user_id=user_id, user_agent=user_agent, ip=ip)
+    session_service.create_session(
+        session_id=session_id, user_id=user_id, user_agent=user_agent, ip=ip
+    )
+    return to_public_user(user), access_token, refresh_token, session_id
 
 
 def verify_otp(*, email: str, code: str, purpose: str) -> dict:
@@ -228,8 +234,14 @@ def verify_otp(*, email: str, code: str, purpose: str) -> dict:
 # Login
 # ---------------------------------------------------------------------------
 
-def _issue_refresh_token(*, user_id: str, family_id: str | None = None, user_agent: str | None = None, ip: str | None = None) -> str:
+def _issue_refresh_token(
+    *, user_id: str, family_id: str | None = None, user_agent: str | None = None, ip: str | None = None
+) -> tuple[str, str]:
+    """Returns (refresh_token, family_id). `family_id` is reused as the
+    session id — see app/services/session_service.py — one identifier per
+    login that survives refresh rotation."""
     token = generate_refresh_token()
+    resolved_family_id = family_id or str(uuid.uuid4())
     expires_at = (
         datetime.now(timezone.utc) + timedelta(seconds=settings.refresh_token_ttl_seconds)
     ).isoformat()
@@ -237,16 +249,18 @@ def _issue_refresh_token(*, user_id: str, family_id: str | None = None, user_age
         {
             "user_id": user_id,
             "token_hash": hash_refresh_token(token),
-            "family_id": family_id or str(uuid.uuid4()),
+            "family_id": resolved_family_id,
             "expires_at": expires_at,
             "user_agent": user_agent,
             "ip": ip,
         }
     )
-    return token
+    return token, resolved_family_id
 
 
-def login(*, username: str, password: str, client_key: str, user_agent: str | None = None, ip: str | None = None) -> tuple[dict, str, str]:
+def login(
+    *, username: str, password: str, client_key: str, user_agent: str | None = None, ip: str | None = None
+) -> tuple[dict, str, str, str]:
     if not _login_limiter.allow(client_key):
         _metrics.rate_limit_rejections_total.labels(limiter="login").inc()
         _metrics.auth_events_total.labels(event="login", outcome="rate_limited").inc()
@@ -304,8 +318,11 @@ def login(*, username: str, password: str, client_key: str, user_agent: str | No
 
     persona = _to_ui_persona(user.get("persona"))
     access_token = create_access_token(user_id=user["id"], persona=persona)
-    refresh_token = _issue_refresh_token(user_id=user["id"], user_agent=user_agent, ip=ip)
-    return to_public_user(user), access_token, refresh_token
+    refresh_token, session_id = _issue_refresh_token(user_id=user["id"], user_agent=user_agent, ip=ip)
+    session_service.create_session(
+        session_id=session_id, user_id=user["id"], user_agent=user_agent, ip=ip
+    )
+    return to_public_user(user), access_token, refresh_token, session_id
 
 
 def _record_failed_attempt(user: dict) -> None:
@@ -348,6 +365,7 @@ def reset_password(*, email: str, code: str, new_password: str) -> None:
     users.reset_login_attempts(user["id"])
 
     get_refresh_token_repository().revoke_all_for_user(user["id"])
+    session_service.end_all_sessions_for_user(user["id"], reason="password_reset")
     get_auth_audit_repository().log(event="password_reset", success=True, user_id=user["id"])
     _metrics.auth_events_total.labels(event="password_reset", outcome="success").inc()
 
@@ -361,7 +379,9 @@ def reset_password(*, email: str, code: str, new_password: str) -> None:
 # Refresh / logout
 # ---------------------------------------------------------------------------
 
-def refresh_access_token(*, refresh_token: str, user_agent: str | None = None, ip: str | None = None) -> tuple[dict, str, str]:
+def refresh_access_token(
+    *, refresh_token: str, user_agent: str | None = None, ip: str | None = None
+) -> tuple[dict, str, str, str]:
     tokens = get_refresh_token_repository()
     users = get_user_repository()
     audit = get_auth_audit_repository()
@@ -385,6 +405,7 @@ def refresh_access_token(*, refresh_token: str, user_agent: str | None = None, i
         # This token was already rotated once — someone is replaying an old
         # token, meaning the whole family may be compromised. Kill it all.
         tokens.revoke_family(record["family_id"])
+        session_service.end_session(record["family_id"], reason="reuse_detected")
         audit.log(event="refresh_reuse_detected", success=False, user_id=record["user_id"])
         _metrics.auth_events_total.labels(event="refresh", outcome="failure").inc()
         _metrics.auth_refresh_reuse_detected_total.inc()
@@ -399,12 +420,18 @@ def refresh_access_token(*, refresh_token: str, user_agent: str | None = None, i
 
     persona = _to_ui_persona(user.get("persona"))
     access_token = create_access_token(user_id=user["id"], persona=persona)
-    new_refresh_token = _issue_refresh_token(
+    new_refresh_token, session_id = _issue_refresh_token(
         user_id=user["id"], family_id=record["family_id"], user_agent=user_agent, ip=ip
     )
+    # No model warm-up here by design — refresh happens on every silent
+    # token renewal (page loads, tab focus), not just on a real return visit,
+    # and firing a warm-up on every one of those would defeat the point of
+    # scale-to-zero. Only touch last_seen_at; app/services/model_gate.py
+    # decides readiness by probing the hosts directly when a feature is used.
+    session_service.touch_session(session_id)
     audit.log(event="refresh", success=True, user_id=user["id"])
     _metrics.auth_events_total.labels(event="refresh", outcome="success").inc()
-    return to_public_user(user), access_token, new_refresh_token
+    return to_public_user(user), access_token, new_refresh_token, session_id
 
 
 def logout(*, refresh_token: str) -> None:
@@ -414,5 +441,6 @@ def logout(*, refresh_token: str) -> None:
         _metrics.auth_events_total.labels(event="logout", outcome="noop").inc()
         return
     tokens.revoke(record["id"])
+    session_service.end_session(record["family_id"], reason="logout")
     get_auth_audit_repository().log(event="logout", success=True, user_id=record["user_id"])
     _metrics.auth_events_total.labels(event="logout", outcome="success").inc()

@@ -340,6 +340,18 @@ async def health():
     }
 
 
+@app.get(f"{API_PREFIX}/models/status", dependencies=[Depends(require_api_key)])
+async def models_status():
+    """Status variable for the model-gate warm-up (app/services/model_gate.py)
+    — reads cached Redis state only, never probes the model hosts. Gating
+    decisions never read this; they call model_gate.is_ready()/ensure_ready(),
+    which probe directly. This is for the frontend to show "starting
+    models..." after login."""
+    from app.services import model_gate
+
+    return await asyncio.to_thread(model_gate.all_states)
+
+
 _auth_dep = [Depends(require_api_key)]
 _admin_dep = [Depends(require_api_key), Depends(require_role("admin"))]
 

@@ -1,6 +1,8 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
+from app.api.deps import require_models
+from app.services import model_gate
 from app.services.concept_mindmap_service import generate_concept_mindmap
 
 
@@ -12,7 +14,10 @@ class ConceptMindmapRequest(BaseModel):
     storyline_id: str | None = Field(None, max_length=100)
 
 
-@router.post("/concept-mindmap")
+@router.post(
+    "/concept-mindmap",
+    dependencies=[Depends(require_models(model_gate.LLM))],
+)
 def create_concept_mindmap(request: ConceptMindmapRequest):
     try:
         return generate_concept_mindmap(

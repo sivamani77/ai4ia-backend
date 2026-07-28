@@ -5,6 +5,7 @@ from app.db.repositories.event_repository import EventRepository
 from app.db.repositories.job_repository import JobRepository
 from app.db.repositories.otp_repository import OtpRepository
 from app.db.repositories.refresh_token_repository import RefreshTokenRepository
+from app.db.repositories.session_repository import SessionRepository
 from app.db.repositories.user_repository import UserRepository
 
 
@@ -38,17 +39,24 @@ def get_refresh_token_repository() -> RefreshTokenRepository:
     return RefreshTokenRepository()
 
 
+@lru_cache(maxsize=1)
+def get_session_repository() -> SessionRepository:
+    return SessionRepository()
+
+
 __all__ = [
     "AuthAuditRepository",
     "EventRepository",
     "JobRepository",
     "OtpRepository",
     "RefreshTokenRepository",
+    "SessionRepository",
     "UserRepository",
     "get_auth_audit_repository",
     "get_event_repository",
     "get_job_repository",
     "get_otp_repository",
     "get_refresh_token_repository",
+    "get_session_repository",
     "get_user_repository",
 ]
