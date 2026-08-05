@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from urllib.parse import quote, urlsplit, urlunsplit
 
 from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings
@@ -63,6 +64,10 @@ class Settings(BaseSettings):
     # Redis / Celery
     # ------------------------------------------------------------------
     redis_url: str = "redis://localhost:6379/0"
+    # Set when Redis requires auth and the password isn't already embedded
+    # in redis_url. Injected into redis_url by _apply_redis_password below;
+    # leave unset and redis_url is used as-is (unauthenticated, as before).
+    redis_password: str = ""
 
     # ------------------------------------------------------------------
     # Postgres — direct connection for the video-job pipeline tables
@@ -321,6 +326,29 @@ class Settings(BaseSettings):
     ai4ia_local_exports_dir: Path = Path()
     ai4ia_local_assets_dir: Path = Path()
     ai4ia_local_jobs_dir: Path = Path()
+
+    @model_validator(mode="after")
+    def _apply_redis_password(self) -> "Settings":
+        """Inject redis_password into redis_url, unless a password is already embedded.
+
+        Lets deployments supply REDIS_URL and REDIS_PASSWORD as separate env
+        vars/secrets instead of hand-assembling one auth URL. No-op when
+        redis_password is unset, so unauthenticated Redis behaves exactly
+        as before.
+        """
+        if not self.redis_password or not self.redis_url:
+            return self
+
+        parts = urlsplit(self.redis_url)
+        if "@" in parts.netloc:
+            return self  # credentials already embedded — leave as-is
+
+        host = f"[{parts.hostname}]" if parts.hostname and ":" in parts.hostname else (parts.hostname or "")
+        netloc = f":{quote(self.redis_password, safe='')}@{host}"
+        if parts.port:
+            netloc += f":{parts.port}"
+        self.redis_url = urlunsplit((parts.scheme, netloc, parts.path, parts.query, parts.fragment))
+        return self
 
     @model_validator(mode="after")
     def _set_path_defaults(self) -> "Settings":

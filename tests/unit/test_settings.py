@@ -99,6 +99,39 @@ class TestDerivedPaths:
 
 
 # ---------------------------------------------------------------------------
+# redis_password merged into redis_url
+# ---------------------------------------------------------------------------
+
+class TestRedisPassword:
+    def test_no_password_leaves_url_unchanged(self):
+        s = Settings(redis_url="redis://localhost:6379/0", redis_password="")
+        assert s.redis_url == "redis://localhost:6379/0"
+
+    def test_password_injected_into_url(self):
+        s = Settings(redis_url="redis://my-redis:6379/0", redis_password="secret")
+        assert s.redis_url == "redis://:secret@my-redis:6379/0"
+
+    def test_password_preserves_path(self):
+        s = Settings(redis_url="redis://my-redis:7002/3", redis_password="secret")
+        assert s.redis_url == "redis://:secret@my-redis:7002/3"
+
+    def test_password_with_special_characters_is_percent_encoded(self):
+        s = Settings(redis_url="redis://my-redis:6379/0", redis_password="p@ss/word:x")
+        assert s.redis_url == "redis://:p%40ss%2Fword%3Ax@my-redis:6379/0"
+
+    def test_existing_credentials_not_overridden(self):
+        s = Settings(
+            redis_url="redis://user:existing@my-redis:6379/0",
+            redis_password="secret",
+        )
+        assert s.redis_url == "redis://user:existing@my-redis:6379/0"
+
+    def test_no_password_and_no_url(self):
+        s = Settings(redis_url="", redis_password="")
+        assert s.redis_url == ""
+
+
+# ---------------------------------------------------------------------------
 # validate_deployment_env
 # ---------------------------------------------------------------------------
 

@@ -8,6 +8,9 @@ data:
   OLLAMA_BASE_URL: "http://ollama-mobius-sales.mobiusdtaas.ai"
   VLLM_BASE_URL: "http://vllm-gpt-oss.mobiusdtaas.ai"
   VLLM_MODEL: "openai/gpt-oss-20b"
+  # If Redis requires auth, put the password in the ai4ia-secrets Secret's
+  # REDIS_PASSWORD key (see 02-secret.yaml.example) rather than embedding it
+  # here — settings.py merges the two at startup.
   REDIS_URL: "redis://redis:6379/0"
 
   # ChromaDB — HTTP mode, pointed at the in-cluster StatefulSet service

@@ -1053,9 +1053,11 @@ def _redis_reachable() -> bool:
 
     redis_url = settings.redis_url
     try:
-        parts = redis_url.replace("redis://", "").split("/")[0].split(":")
-        host = parts[0] or "localhost"
-        port = int(parts[1]) if len(parts) > 1 else 6379
+        from urllib.parse import urlsplit
+
+        parts = urlsplit(redis_url)
+        host = parts.hostname or "localhost"
+        port = parts.port or 6379
         with socket.create_connection((host, port), timeout=0.5):
             result = True
     except Exception:
