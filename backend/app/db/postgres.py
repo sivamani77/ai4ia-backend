@@ -13,6 +13,7 @@ Connection address comes from settings.database_url (DATABASE_URL env var).
 from __future__ import annotations
 
 import logging
+import threading
 import time
 from contextlib import contextmanager
 from typing import Any, Callable, Iterator, TypeVar
@@ -28,6 +29,7 @@ logger = logging.getLogger("ai4ia.db.postgres")
 _T = TypeVar("_T")
 
 _pool: pg_pool.ThreadedConnectionPool | None = None
+_pool_lock = threading.Lock()
 
 
 def _is_transient_connection_error(exc: Exception) -> bool:
@@ -40,40 +42,52 @@ def _is_transient_connection_error(exc: Exception) -> bool:
 def get_pool() -> pg_pool.ThreadedConnectionPool:
     global _pool
     if _pool is None:
-        logger.info("Initializing Postgres connection pool")
-        _pool = pg_pool.ThreadedConnectionPool(
-            minconn=1,
-            maxconn=10,
-            dsn=settings.database_url,
-        )
+        with _pool_lock:
+            if _pool is None:  # re-check: another thread may have won the race
+                logger.info("Initializing Postgres connection pool")
+                _pool = pg_pool.ThreadedConnectionPool(
+                    minconn=1,
+                    maxconn=10,
+                    dsn=settings.database_url,
+                )
     return _pool
 
 
 def reset_pool() -> None:
-    """Drop the pool so the next get_pool() builds a fresh one. Used to
-    recover if the pool's connections are all in a bad state (e.g. after
-    the Postgres server itself restarted)."""
+    """Drop the pool so the next get_pool() builds a fresh one. Reserved for
+    when the pool itself is unusable (e.g. DSN/credentials changed) — normal
+    per-connection failures are handled by discarding just that connection
+    in _connection(), not by tearing down the pool other threads are using."""
     global _pool
-    if _pool is not None:
-        try:
-            _pool.closeall()
-        except Exception:  # noqa: BLE001
-            pass
-        _pool = None
+    with _pool_lock:
+        if _pool is not None:
+            try:
+                _pool.closeall()
+            except Exception:  # noqa: BLE001
+                pass
+            _pool = None
 
 
 @contextmanager
 def _connection() -> Iterator[Any]:
     pool = get_pool()
     conn = pool.getconn()
+    discard = False
     try:
         yield conn
         conn.commit()
-    except Exception:
-        conn.rollback()
+    except Exception as exc:
+        discard = _is_transient_connection_error(exc)
+        try:
+            conn.rollback()
+        except Exception:  # noqa: BLE001
+            discard = True
         raise
     finally:
-        pool.putconn(conn)
+        try:
+            pool.putconn(conn, close=discard)
+        except pg_pool.PoolError:
+            logger.warning("Pool already closed while returning connection")
 
 
 def _with_retry(op_name: str, fn: Callable[[], _T], *, attempts: int = 3) -> _T:
@@ -87,10 +101,10 @@ def _with_retry(op_name: str, fn: Callable[[], _T], *, attempts: int = 3) -> _T:
                 logger.exception("Postgres operation failed: op=%s", op_name)
                 raise
             logger.warning(
-                "Postgres transient error on %s (attempt %d/%d): %s — resetting pool",
+                "Postgres transient error on %s (attempt %d/%d): %s — "
+                "discarding connection and retrying",
                 op_name, attempt, attempts, exc,
             )
-            reset_pool()
             time.sleep(0.5 * attempt)
     raise last_exc  # unreachable, keeps type-checkers happy
 
