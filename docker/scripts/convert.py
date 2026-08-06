@@ -105,7 +105,8 @@ def update_configmap(input_file, existing_yaml, output_yaml, remove_unmatched=Fa
         print(f"'{existing_yaml}' not found — creating a new file.")
         data = {}
 
-    if 'configmap' not in data:
+    # Guard against 'configmap:' present in YAML but empty (parses to None)
+    if 'configmap' not in data or data['configmap'] is None:
         data['configmap'] = {}
 
     updated = False
@@ -129,7 +130,6 @@ def update_configmap(input_file, existing_yaml, output_yaml, remove_unmatched=Fa
         print(f"Wrote {output_yaml}")
     else:
         print("No changes — values.yaml not modified.")
-
 
 def main():
     parser = argparse.ArgumentParser(description='Update values.yaml based on a .env file')
