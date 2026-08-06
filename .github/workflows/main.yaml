@@ -1,29 +1,29 @@
 name: Mobius Caller Workflow
 on:
   push:
-    branches: [ dev, prod, master, release ]
+    branches: [ dev, prod, master, nexusconnects ]
 jobs:
   dev_job:
     if: github.ref == 'refs/heads/dev'
-    uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-prod-config-test.yaml@config
+    uses: gaiangroup/access/.github/workflows/python-ai4ia-nexusconnects.yaml@config
     with:
       SERVICE_CODE: ai4ia-backend
     secrets: inherit
   prod_job:
     if: github.ref == 'refs/heads/prod'
-    uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-prod-config-test.yaml@config
+    uses: gaiangroup/access/.github/workflows/python-ai4ia-nexusconnects.yaml@config
     with:
       SERVICE_CODE: ai4ia-backend
     secrets: inherit
   master_job:
     if: github.ref == 'refs/heads/master'
-    uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-prod-config-test.yaml@config
+    uses: gaiangroup/access/.github/workflows/python-ai4ia-nexusconnects.yaml@config
     with:
       SERVICE_CODE: ai4ia-backend
     secrets: inherit
-  release_job:
-    if: github.ref == 'refs/heads/release'
-    uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-prod-config-test.yaml@config
+  nexusconnects_job:
+    if: github.ref == 'refs/heads/nexusconnects'
+    uses: gaiangroup/access/.github/workflows/python-ai4ia-nexusconnects.yaml@config
     with:
       SERVICE_CODE: ai4ia-backend
     secrets: inherit
