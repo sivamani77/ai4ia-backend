@@ -27,3 +27,15 @@ email-validator==2.3.0
 python-dateutil==2.9.0.post0
 prometheus-client==0.25.0
 prometheus-fastapi-instrumentator==8.0.2
+opentelemetry-api
+opentelemetry-exporter-jaeger==1.21.0
+opentelemetry-exporter-jaeger-proto-grpc==1.21.0
+opentelemetry-exporter-jaeger-thrift==1.21.0
+opentelemetry-instrumentation==0.44b0
+opentelemetry-instrumentation-asgi==0.44b0
+opentelemetry-instrumentation-fastapi==0.44b0
+opentelemetry-sdk
+opentelemetry-semantic-conventions==0.44b0
+opentelemetry-util-http==0.44b0
+opentelemetry-instrumentation-requests
+
