@@ -105,3 +105,6 @@ htmlcov/
 data/storylines/
 db/
 data/jobs
+
+scripts/export_api_curls.py
+api_curls.sh

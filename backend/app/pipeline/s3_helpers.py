@@ -110,3 +110,45 @@ def cleanup_tmp_dir(name: str) -> None:
     p = Path(f"/tmp/ai4ia_pipeline/{name}")
     if p.exists():
         shutil.rmtree(p, ignore_errors=True)
+
+
+def download_if_missing(
+    stage: str,
+    job_id: str,
+    s3_prefix: str,
+    filenames: list[str],
+    env_var: str,
+    *,
+    required_key: str | None = None,
+) -> dict[str, str]:
+    """Download `filenames` from `s3_prefix` into a job-scoped tmp dir (named
+    "{stage}_{job_id}", matching each runner's own tmp_dir calls), skipping
+    any file already present locally, and map the result onto `env_var`.
+
+    A single filename resolves to that file's local path; multiple filenames
+    are downloaded into a shared subdirectory (named after the last segment
+    of `s3_prefix`) and `env_var` resolves to that directory instead.
+
+    Returns {} without downloading anything when S3 isn't in use, or when
+    `required_key` is given and that key doesn't yet exist in the bucket —
+    for sidecars that are optional because they may not have been produced.
+    """
+    if not use_s3():
+        return {}
+    if required_key is not None and not key_exists(required_key):
+        return {}
+
+    work = tmp_dir(f"{stage}_{job_id}")
+    if len(filenames) == 1:
+        local = work / filenames[0]
+        if not local.exists():
+            download(f"{s3_prefix}/{filenames[0]}", local)
+        return {env_var: str(local)}
+
+    local_dir = work / s3_prefix.rsplit("/", 1)[-1]
+    local_dir.mkdir(parents=True, exist_ok=True)
+    for fname in filenames:
+        local = local_dir / fname
+        if not local.exists():
+            download(f"{s3_prefix}/{fname}", local)
+    return {env_var: str(local_dir)}

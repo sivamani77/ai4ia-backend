@@ -6,7 +6,6 @@ of marginally-higher-scoring narration-only clips — collapsing usable_speaker 
 1-2 even when 12+ good speaker candidates existed in the pool.
 """
 
-import importlib.util
 import sys
 from pathlib import Path
 
@@ -16,14 +15,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
+import app.pipeline.storyline_gen.selection as selection_module  # noqa: E402
+
 
 @pytest.fixture(scope="module")
 def s07():
-    path = PROJECT_ROOT / "scripts" / "07_generate_storyline.py"
-    spec = importlib.util.spec_from_file_location("s07_sel", path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+    return selection_module
 
 
 def _narration(i: int, score: float):

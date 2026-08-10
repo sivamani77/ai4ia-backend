@@ -19,9 +19,12 @@ logger = logging.getLogger("ai4ia.services.video_job_runner")
 
 from app.core import metrics as _metrics
 from app.core.config import VLLM_MODEL
+from app.core.otel import get_tracer
 from app.core.security import parse_timestamp
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext
+
+_tracer = get_tracer("ai4ia.pipeline")
 from app.services import model_gate
 from app.services.job_store import (
     save_job,
@@ -408,7 +411,8 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             stage_log = _job_logger(job_id, stage_name)
             stage_log.info("Stage starting")
             try:
-                result = stage_mod.run(job_id, request, ctx)
+                with _tracer.start_as_current_span(stage_name, attributes={"job_id": job_id}):
+                    result = stage_mod.run(job_id, request, ctx)
             except JobCancelledException:
                 # Cancelled mid-stage: the subprocess was already killed inside
                 # run_script. Finalize as cancelled (not failed) and stop.

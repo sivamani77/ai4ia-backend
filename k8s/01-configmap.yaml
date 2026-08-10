@@ -45,3 +45,10 @@ data:
   AI4IA_OBJECT_STORAGE_BUCKET: "ai4ia-data"        # <-- change to your bucket
   AI4IA_OBJECT_STORAGE_REGION: "ap-south-2"             # <-- change to your region
   AI4IA_OBJECT_STORAGE_ENDPOINT: ""                    # only set for non-AWS S3-compatible
+
+  # OpenTelemetry traces (see backend/app/core/otel.py). Leave unset to
+  # disable tracing entirely (safe default — api/worker skip all
+  # instrumentation when this is empty). Point it at the in-cluster OTel
+  # Collector once DevOps stands one up, e.g.
+  # "http://otel-collector.ai4ia.svc.cluster.local:4317"
+  OTEL_EXPORTER_OTLP_ENDPOINT: ""

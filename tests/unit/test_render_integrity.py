@@ -11,6 +11,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
+from app.pipeline.assets_gen import voiceover as voiceover_mod  # noqa: E402
+
 
 def _load_script(name: str):
     path = PROJECT_ROOT / "scripts" / f"{name}.py"
@@ -65,7 +67,7 @@ class TestNarrationReconciliation:
     def test_audio_longer_than_fragment_window_wins(self, gen_assets, monkeypatch, tmp_path):
         audio = tmp_path / "vo.mp3"
         audio.write_bytes(b"fake")
-        monkeypatch.setattr(gen_assets, "get_media_duration", lambda p: 60.0)
+        monkeypatch.setattr(voiceover_mod, "get_media_duration", lambda p: 60.0)
         item = {"start": 0.0, "end": 45.0, "duration": 45.0}
         gen_assets.reconcile_narration_duration(item, str(audio))
         assert item["render_duration"] == 60.4  # audio + 0.4 tail, never trimmed
@@ -75,7 +77,7 @@ class TestNarrationReconciliation:
     def test_fragment_window_longer_than_audio_wins(self, gen_assets, monkeypatch, tmp_path):
         audio = tmp_path / "vo.mp3"
         audio.write_bytes(b"fake")
-        monkeypatch.setattr(gen_assets, "get_media_duration", lambda p: 20.0)
+        monkeypatch.setattr(voiceover_mod, "get_media_duration", lambda p: 20.0)
         item = {"duration": 49.0}
         gen_assets.reconcile_narration_duration(item, str(audio))
         assert item["render_duration"] == 49.0

@@ -10,7 +10,6 @@ narrative assembly). Real failure: '(6N)：...XYNOGENY？' in the S3 filename vs
 '(6N)_:...XYNOGENY?' in the manifest.
 """
 
-import importlib.util
 import sys
 from pathlib import Path
 
@@ -20,14 +19,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
+import app.pipeline.export_gen.manifest_io as manifest_io_module  # noqa: E402
+
 
 @pytest.fixture(scope="module")
 def export_video():
-    path = PROJECT_ROOT / "scripts" / "09_export_video.py"
-    spec = importlib.util.spec_from_file_location("export_video_find_src", path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+    return manifest_io_module
 
 
 class TestVideoIdPrefix:

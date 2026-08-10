@@ -9,7 +9,7 @@ from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, STORYLINES_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script, _newest_file_after
-from app.pipeline.s3_helpers import use_s3, upload, download, key_exists, tmp_dir
+from app.pipeline.s3_helpers import use_s3, upload, download_if_missing
 from app.pipeline.timeline_budget import SOURCE_DURATION_INDEX_S3_KEY
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
@@ -26,16 +26,7 @@ _EMBEDDINGS_FILES = [
 
 def _prepare_embeddings(job_id: str) -> dict[str, str]:
     """Download embeddings from S3 to /tmp and return AI4IA_EMBEDDINGS_DIR env override."""
-    if not use_s3():
-        return {}
-    work = tmp_dir(f"07_{job_id}")
-    embeddings_tmp = work / "embeddings"
-    embeddings_tmp.mkdir(parents=True, exist_ok=True)
-    for fname in _EMBEDDINGS_FILES:
-        local = embeddings_tmp / fname
-        if not local.exists():
-            download(f"{_S3_EMBEDDINGS_PREFIX}/{fname}", local)
-    return {"AI4IA_EMBEDDINGS_DIR": str(embeddings_tmp)}
+    return download_if_missing("07", job_id, _S3_EMBEDDINGS_PREFIX, _EMBEDDINGS_FILES, "AI4IA_EMBEDDINGS_DIR")
 
 
 def _prepare_source_duration_index(job_id: str) -> dict[str, str]:
@@ -46,15 +37,11 @@ def _prepare_source_duration_index(job_id: str) -> dict[str, str]:
     Optional: the index may not exist yet (first deploy) — proceed without it,
     the pipeline falls back to treating lengths as unknown, same as before.
     """
-    if not use_s3():
-        return {}
-    if not key_exists(SOURCE_DURATION_INDEX_S3_KEY):
-        return {}
-    work = tmp_dir(f"07_{job_id}")
-    local = work / "source_video_durations.json"
-    if not local.exists():
-        download(SOURCE_DURATION_INDEX_S3_KEY, local)
-    return {"AI4IA_SOURCE_DURATION_INDEX": str(local)}
+    prefix, _, filename = SOURCE_DURATION_INDEX_S3_KEY.rpartition("/")
+    return download_if_missing(
+        "07", job_id, prefix, [filename], "AI4IA_SOURCE_DURATION_INDEX",
+        required_key=SOURCE_DURATION_INDEX_S3_KEY,
+    )
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
