@@ -10,7 +10,7 @@ from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script
-from app.pipeline.s3_helpers import use_s3, download, download_prefix, key_exists, tmp_dir, cleanup_tmp_dir
+from app.pipeline.s3_helpers import use_s3, download_if_missing, download_prefix, tmp_dir, cleanup_tmp_dir, upload
 from app.pipeline.timeline_budget import SOURCE_DURATION_INDEX_S3_KEY
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
@@ -32,14 +32,13 @@ def _prepare_inputs(storyline_path: str, job_id: str) -> tuple[Path, Path, Path,
     # S3 mode — work entirely in /tmp
     work = tmp_dir(f"07b_{job_id}")
 
-    # Download storyline JSON from S3
-    # storyline_path is a local path like /app/data/storylines/storyline_xxx.json
-    # In S3 mode, stage_07 wrote the file to S3 at raw/storylines/<filename>
+    # storyline_path is a local path like /app/data/storylines/storyline_xxx.json;
+    # in S3 mode, stage_07 wrote the file to S3 at raw/storylines/<filename>
     sp_local = Path(storyline_path)
-    storyline_local = work / sp_local.name
-    if not storyline_local.exists():
-        s3_key = f"raw/storylines/{sp_local.name}"
-        download(s3_key, storyline_local)
+    storyline_env = download_if_missing(
+        "07b", job_id, "raw/storylines", [sp_local.name], "storyline_local"
+    )
+    storyline_local = Path(storyline_env["storyline_local"])
 
     # Download transcripts from S3 to /tmp
     transcripts_dir = work / "transcripts_cleaned_aligned"
@@ -57,15 +56,11 @@ def _prepare_source_duration_index(job_id: str) -> dict[str, str]:
     """Download the small source-video-duration sidecar (see stage_07_storyline
     for why this stage needs it without downloading full video files). Optional —
     the duration top-up loop just treats lengths as unknown if it's missing."""
-    if not use_s3():
-        return {}
-    if not key_exists(SOURCE_DURATION_INDEX_S3_KEY):
-        return {}
-    work = tmp_dir(f"07b_{job_id}")
-    local = work / "source_video_durations.json"
-    if not local.exists():
-        download(SOURCE_DURATION_INDEX_S3_KEY, local)
-    return {"AI4IA_SOURCE_DURATION_INDEX": str(local)}
+    prefix, _, filename = SOURCE_DURATION_INDEX_S3_KEY.rpartition("/")
+    return download_if_missing(
+        "07b", job_id, prefix, [filename], "AI4IA_SOURCE_DURATION_INDEX",
+        required_key=SOURCE_DURATION_INDEX_S3_KEY,
+    )
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -101,7 +96,6 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
 
     # Upload validated storyline to S3
     if use_s3():
-        from app.pipeline.s3_helpers import upload
         s3_key = f"raw/storylines/{validated_path.name}"
         upload(validated_path, s3_key)
 
@@ -137,12 +131,9 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if use_s3():
         job["paths"]["validated_storyline_s3_key"] = f"raw/storylines/{validated_path.name}"
     job["updated_at"] = _utc_now()
-    save_job(job_id, job)
-
     if warnings_list:
-        jb = load_job(job_id)
-        jb["warnings"] = jb.get("warnings", []) + [w["note"] or w["issue"] for w in warnings_list]
-        save_job(job_id, jb)
+        job["warnings"] = job.get("warnings", []) + [w["note"] or w["issue"] for w in warnings_list]
+    save_job(job_id, job)
 
     update_stage(job_id, "07b_validate_storyline", "completed", 100,
                  f"{approved} speaker clips, {nb_count} narration brolls, {len(sections_covered)} sections covered")

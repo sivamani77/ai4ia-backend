@@ -13,9 +13,14 @@ from pythonjsonlogger.json import JsonFormatter
 from app.core.auth import require_api_key, require_role
 from app.core.config import API_PREFIX
 from app.core import dependency_state
+from app.core.otel import setup_tracing
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
 from app.core import metrics as _metrics
+
+# Must run before the httpx/requests/psycopg2 instrumentors below patch
+# their clients, and before the app is constructed.
+setup_tracing("ai4ia-api")
 
 from app.api.auth import router as auth_router
 from app.api.dashboard import router as dashboard_router
@@ -32,10 +37,15 @@ from app.api.provenance import router as provenance_router
 
 
 class _PipelineLogFilter(logging.Filter):
-    """Inject default job_id/stage so all log records satisfy the formatter."""
+    """Inject default job_id/stage/otelTraceID/otelSpanID so all log records
+    satisfy the formatter. otelTraceID/otelSpanID are normally set by
+    LoggingInstrumentor (see app.core.otel) — the defaults here only kick in
+    when tracing is disabled (no OTEL_EXPORTER_OTLP_ENDPOINT)."""
     def filter(self, record: logging.LogRecord) -> bool:
         record.job_id = getattr(record, "job_id", "-")
         record.stage = getattr(record, "stage", "-")
+        record.otelTraceID = getattr(record, "otelTraceID", "-")
+        record.otelSpanID = getattr(record, "otelSpanID", "-")
         return True
 
 
@@ -46,15 +56,15 @@ _root_logger.setLevel(logging.INFO)
 if os.environ.get("LOG_FORMAT", "").lower() == "json":
     _handler = logging.StreamHandler()
     _handler.setFormatter(JsonFormatter(
-        fmt="%(asctime)s %(levelname)s %(name)s %(job_id)s %(stage)s %(message)s",
-        rename_fields={"asctime": "ts", "levelname": "level", "name": "logger"},
+        fmt="%(asctime)s %(levelname)s %(name)s %(job_id)s %(stage)s %(otelTraceID)s %(message)s",
+        rename_fields={"asctime": "ts", "levelname": "level", "name": "logger", "otelTraceID": "trace_id"},
     ))
     _handler.addFilter(_pipeline_filter)
     _root_logger.handlers = [_handler]
 else:
     logging.basicConfig(
         level=logging.INFO,
-        format="%(asctime)s | %(levelname)s | %(name)s | %(job_id)s | %(stage)s | %(message)s",
+        format="%(asctime)s | %(levelname)s | %(name)s | %(job_id)s | %(stage)s | %(otelTraceID)s | %(message)s",
     )
     for _h in _root_logger.handlers:
         _h.addFilter(_pipeline_filter)
@@ -170,6 +180,18 @@ app = FastAPI(
 Instrumentator(excluded_handlers=["/metrics", f"{API_PREFIX}/health"]).instrument(app).expose(
     app, endpoint="/metrics", include_in_schema=False
 )
+
+# Traces — no-op unless OTEL_EXPORTER_OTLP_ENDPOINT is set (see app.core.otel).
+if os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT"):
+    from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
+    from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
+    from opentelemetry.instrumentation.psycopg2 import Psycopg2Instrumentor
+    from opentelemetry.instrumentation.requests import RequestsInstrumentor
+
+    FastAPIInstrumentor.instrument_app(app, excluded_urls="/metrics," + f"{API_PREFIX}/health")
+    HTTPXClientInstrumentor().instrument()
+    RequestsInstrumentor().instrument()
+    Psycopg2Instrumentor().instrument()
 
 
 @app.middleware("http")

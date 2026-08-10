@@ -10,7 +10,6 @@ for start=1358.4s is valid against the audio-derived duration but has no video
 frames there at all.
 """
 
-import importlib.util
 import sys
 from pathlib import Path
 from unittest.mock import patch
@@ -21,14 +20,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
+import app.pipeline.export_gen.segment_pipeline as segment_pipeline_module  # noqa: E402
+
 
 @pytest.fixture(scope="module")
 def export_video():
-    path = PROJECT_ROOT / "scripts" / "09_export_video.py"
-    spec = importlib.util.spec_from_file_location("export_video_09", path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+    return segment_pipeline_module
 
 
 class TestArchiveVisualWindowGuard:
