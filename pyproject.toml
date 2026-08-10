@@ -30,14 +30,20 @@ dependencies = [
     "python-dateutil",
     "prometheus-client",
     "prometheus-fastapi-instrumentator",
-    "opentelemetry-sdk>=1.44.0",
-    "opentelemetry-exporter-otlp-proto-grpc>=1.44.0",
-    "opentelemetry-instrumentation-fastapi>=0.65b0",
-    "opentelemetry-instrumentation-celery>=0.65b0",
-    "opentelemetry-instrumentation-httpx>=0.65b0",
-    "opentelemetry-instrumentation-requests>=0.65b0",
-    "opentelemetry-instrumentation-psycopg2>=0.65b0",
-    "opentelemetry-instrumentation-logging>=0.65b0",
+    "opentelemetry-api",
+    "opentelemetry-sdk",
+    "opentelemetry-exporter-jaeger-thrift==1.21.0",
+    "opentelemetry-instrumentation==0.44b0",
+    "opentelemetry-instrumentation-asgi==0.44b0",
+    "opentelemetry-instrumentation-fastapi==0.44b0",
+    "opentelemetry-instrumentation-requests==0.44b0",
+    "opentelemetry-instrumentation-celery==0.44b0",
+    "opentelemetry-instrumentation-httpx==0.44b0",
+    "opentelemetry-instrumentation-psycopg2==0.44b0",
+    "opentelemetry-instrumentation-logging==0.44b0",
+    # opentelemetry-instrumentation==0.44b0 imports pkg_resources at runtime,
+    # which setuptools>=81 no longer ships. Pin below that.
+    "setuptools<81",
 ]
 
 [project.optional-dependencies]

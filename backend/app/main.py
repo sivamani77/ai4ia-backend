@@ -13,7 +13,7 @@ from pythonjsonlogger.json import JsonFormatter
 from app.core.auth import require_api_key, require_role
 from app.core.config import API_PREFIX
 from app.core import dependency_state
-from app.core.otel import setup_tracing
+from app.core.otel import is_enabled as _otel_enabled, setup_tracing
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
 from app.core import metrics as _metrics
@@ -181,8 +181,8 @@ Instrumentator(excluded_handlers=["/metrics", f"{API_PREFIX}/health"]).instrumen
     app, endpoint="/metrics", include_in_schema=False
 )
 
-# Traces — no-op unless OTEL_EXPORTER_OTLP_ENDPOINT is set (see app.core.otel).
-if os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT"):
+# Traces — no-op unless JAEGER_URL is set (see app.core.otel).
+if _otel_enabled():
     from opentelemetry.instrumentation.fastapi import FastAPIInstrumentor
     from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
     from opentelemetry.instrumentation.psycopg2 import Psycopg2Instrumentor
@@ -191,7 +191,11 @@ if os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT"):
     FastAPIInstrumentor.instrument_app(app, excluded_urls="/metrics," + f"{API_PREFIX}/health")
     HTTPXClientInstrumentor().instrument()
     RequestsInstrumentor().instrument()
-    Psycopg2Instrumentor().instrument()
+    # skip_dep_check: the instrumentor's dependency check looks for a
+    # "psycopg2" distribution specifically, but this project installs
+    # "psycopg2-binary" (same `import psycopg2`, different package name) —
+    # without this it silently no-ops instead of instrumenting.
+    Psycopg2Instrumentor().instrument(skip_dep_check=True)
 
 
 @app.middleware("http")

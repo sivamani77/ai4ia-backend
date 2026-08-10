@@ -8,18 +8,16 @@ The broker and result backend are both Redis — configure via environment:
 """
 from __future__ import annotations
 
-import os
-
 from celery import Celery
 
-from app.core.otel import setup_tracing
+from app.core.otel import is_enabled as _otel_enabled, setup_tracing
 from app.core.settings import settings
 
 REDIS_URL = settings.redis_url
 
 setup_tracing("ai4ia-worker")
 
-if os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT"):
+if _otel_enabled():
     from opentelemetry.instrumentation.celery import CeleryInstrumentor
     from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
     from opentelemetry.instrumentation.psycopg2 import Psycopg2Instrumentor
@@ -28,7 +26,9 @@ if os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT"):
     CeleryInstrumentor().instrument()
     HTTPXClientInstrumentor().instrument()
     RequestsInstrumentor().instrument()
-    Psycopg2Instrumentor().instrument()
+    # See app.main for why skip_dep_check is needed here (psycopg2-binary
+    # vs. psycopg2 distribution-name mismatch).
+    Psycopg2Instrumentor().instrument(skip_dep_check=True)
 
 celery_app = Celery(
     "ai4ia",

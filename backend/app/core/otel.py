@@ -2,9 +2,12 @@
 OpenTelemetry tracing setup, shared by the API process (app.main) and the
 Celery worker (app.worker.celery_app).
 
-Enabled only when OTEL_EXPORTER_OTLP_ENDPOINT is set (pointing at an OTel
-Collector — see k8s/01-configmap.yaml). Without it, setup_tracing() is a
-no-op so local dev / tests / CI never need a collector running.
+Exports to the org's existing Jaeger collector (istio-system namespace) via
+the Thrift-over-HTTP collector endpoint — same protocol/package versions
+already used by other services here, pinned in requirements.txt.
+
+Enabled only when JAEGER_URL is set (see k8s/01-configmap.yaml). Without it,
+setup_tracing() is a no-op so local dev / tests / CI never need Jaeger running.
 """
 from __future__ import annotations
 
@@ -22,24 +25,32 @@ def setup_tracing(service_name: str) -> None:
         return
     _configured = True
 
-    if not os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT"):
+    jaeger_url = os.environ.get("JAEGER_URL")
+    if not jaeger_url:
         return
+    jaeger_port = int(os.environ.get("JAEGER_PORT", "14268"))
 
     from opentelemetry import trace
-    from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
+    from opentelemetry.exporter.jaeger.thrift import JaegerExporter
     from opentelemetry.instrumentation.logging import LoggingInstrumentor
     from opentelemetry.sdk.resources import Resource
     from opentelemetry.sdk.trace import TracerProvider
     from opentelemetry.sdk.trace.export import BatchSpanProcessor
 
     provider = TracerProvider(resource=Resource.create({"service.name": service_name}))
-    provider.add_span_processor(BatchSpanProcessor(OTLPSpanExporter()))
+    provider.add_span_processor(BatchSpanProcessor(JaegerExporter(
+        collector_endpoint=f"http://{jaeger_url}:{jaeger_port}/api/traces",
+    )))
     trace.set_tracer_provider(provider)
 
     # set_logging_format=False: we own the log format strings (see
     # app.main's _PipelineLogFilter) and just want otelTraceID/otelSpanID
     # attached to each LogRecord for them to reference.
     LoggingInstrumentor().instrument(set_logging_format=False)
+
+
+def is_enabled() -> bool:
+    return bool(os.environ.get("JAEGER_URL"))
 
 
 def get_tracer(name: str):
