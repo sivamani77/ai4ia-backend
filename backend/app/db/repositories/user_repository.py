@@ -14,7 +14,30 @@ from app.db.supabase import get_auth_supabase_client
 # must be treated as "not found", not surfaced as a 500.
 _INVALID_TEXT_REPRESENTATION = "22P02"
 
+# Postgres error code for a unique-index violation — raised by the
+# case-insensitive unique indexes on lower(username)/lower(email_id). The
+# username_exists()/email_exists() pre-checks are a TOCTOU race (two signups
+# for "Cordel"/"cordel" within milliseconds could both pass), so this is the
+# actual backstop: the DB serializes the insert, one of the two hits this.
+_UNIQUE_VIOLATION = "23505"
+
 logger = logging.getLogger("ai4ia.db.repositories.users")
+
+
+class DuplicateUserError(Exception):
+    """Raised when create_user loses a uniqueness race at the DB level —
+    field is 'username' or 'email', inferred from the violated index name."""
+
+    def __init__(self, field: str) -> None:
+        self.field = field
+        super().__init__(f"Duplicate {field}")
+
+
+def _escape_for_ilike(value: str) -> str:
+    """Escape Postgres LIKE/ILIKE wildcards (% and _) so an exact
+    case-insensitive match doesn't behave as a pattern — usernames are
+    allowed to contain literal underscores."""
+    return value.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
 
 
 class UserRecord(TypedDict, total=False):
@@ -45,11 +68,18 @@ class UserRepository:
         self._table = self._client.table(self.table_name)
 
     def get_by_username(self, username: str) -> UserRecord | None:
-        response = self._table.select("*").eq("username", username).limit(1).execute()
+        """Case-insensitive: matches regardless of how the account's
+        username was originally cased, without requiring stored data to be
+        rewritten to a canonical case."""
+        response = (
+            self._table.select("*").ilike("username", _escape_for_ilike(username)).limit(1).execute()
+        )
         return self._first(response.data)
 
     def get_by_email(self, email: str) -> UserRecord | None:
-        response = self._table.select("*").eq("email_id", email).limit(1).execute()
+        response = (
+            self._table.select("*").ilike("email_id", _escape_for_ilike(email)).limit(1).execute()
+        )
         return self._first(response.data)
 
     def get_by_id(self, user_id: str) -> UserRecord | None:
@@ -77,16 +107,27 @@ class UserRepository:
         return [UserRecord(**row) for row in (response.data or [])]
 
     def username_exists(self, username: str) -> bool:
-        response = self._table.select("id").eq("username", username).limit(1).execute()
+        response = (
+            self._table.select("id").ilike("username", _escape_for_ilike(username)).limit(1).execute()
+        )
         return bool(response.data)
 
     def email_exists(self, email: str) -> bool:
-        response = self._table.select("id").eq("email_id", email).limit(1).execute()
+        response = (
+            self._table.select("id").ilike("email_id", _escape_for_ilike(email)).limit(1).execute()
+        )
         return bool(response.data)
 
     def create_user(self, data: Mapping[str, Any]) -> UserRecord:
         payload = dict(data)
-        response = self._table.insert(payload).execute()
+        try:
+            response = self._table.insert(payload).execute()
+        except APIError as exc:
+            if exc.code == _UNIQUE_VIOLATION:
+                message = f"{exc.message or ''} {getattr(exc, 'details', '') or ''}".lower()
+                field = "username" if "username" in message else "email"
+                raise DuplicateUserError(field) from exc
+            raise
         created = self._first(response.data)
         if created is None:
             raise RuntimeError("Insert into app_users returned no row")

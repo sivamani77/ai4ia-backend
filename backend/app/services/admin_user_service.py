@@ -12,6 +12,7 @@ from app.db.repositories import (
     get_refresh_token_repository,
     get_user_repository,
 )
+from app.db.repositories.user_repository import DuplicateUserError
 from app.services.auth_service import _PERSONA_TO_DB, _to_ui_persona, to_public_user
 
 logger = logging.getLogger("ai4ia.services.admin_users")
@@ -71,21 +72,25 @@ def create_user(
     if users.email_exists(email):
         raise HTTPException(status_code=409, detail="Email already registered")
 
-    created = users.create_user(
-        {
-            "username": username,
-            "password_hash": hash_password(password),
-            "password": "",
-            "first_name": first_name,
-            "last_name": last_name,
-            "email_id": email,
-            "persona": _ADMIN_PERSONA_TO_DB[persona],
-            # Admin-created accounts are active immediately — no OTP dance;
-            # the admin is vouching for the email out-of-band.
-            "status": "active",
-            "email_verified": True,
-        }
-    )
+    try:
+        created = users.create_user(
+            {
+                "username": username,
+                "password_hash": hash_password(password),
+                "password": "",
+                "first_name": first_name,
+                "last_name": last_name,
+                "email_id": email,
+                "persona": _ADMIN_PERSONA_TO_DB[persona],
+                # Admin-created accounts are active immediately — no OTP dance;
+                # the admin is vouching for the email out-of-band.
+                "status": "active",
+                "email_verified": True,
+            }
+        )
+    except DuplicateUserError as exc:
+        detail = "Username already taken" if exc.field == "username" else "Email already registered"
+        raise HTTPException(status_code=409, detail=detail)
     get_auth_audit_repository().log(event="admin_create_user", success=True, user_id=created["id"])
     return to_admin_record(created)
 

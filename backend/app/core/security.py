@@ -26,6 +26,23 @@ _LOWERCASE_RE = re.compile(r"[a-z]")
 _DIGIT_RE = re.compile(r"[0-9]")
 _SPECIAL_RE = re.compile(r"""[!"#$%&'()*+,\-./:;<=>?@\[\\\]^_`{|}~]""")
 
+USERNAME_RE = re.compile(r"^[a-zA-Z0-9_.\-]{3,32}$")
+
+
+def normalize_identifier(value: str) -> str:
+    """Canonical form for a username or email: trimmed + lowercased, so
+    lookups and uniqueness checks aren't sensitive to case or incidental
+    whitespace (e.g. autofill/copy-paste padding). Existing accounts created
+    before this was enforced are matched case-insensitively at the query
+    layer (see UserRepository) rather than requiring a backfill."""
+    return value.strip().lower()
+
+
+def validate_username_format(username: str) -> str:
+    if not USERNAME_RE.match(username):
+        raise ValueError("Username may only contain letters, numbers, '.', '_', '-'")
+    return username
+
 
 def validate_password_strength(password: str) -> str:
     if len(password) < MIN_PASSWORD_LENGTH:

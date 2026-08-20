@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from typing import Any
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
-from app.core.security import validate_password_strength
+from app.core.security import normalize_identifier, validate_password_strength, validate_username_format
 
 
 class AdminUserRecord(BaseModel):
@@ -34,8 +34,18 @@ class AdminCreateUserRequest(BaseModel):
     password: str
     first_name: str = Field(..., min_length=1, max_length=100)
     last_name: str = Field(..., min_length=1, max_length=100)
-    email: str
+    email: EmailStr
     persona: str = Field(..., description="general | expert | admin")
+
+    @field_validator("username")
+    @classmethod
+    def _validate_username(cls, v: str) -> str:
+        return validate_username_format(normalize_identifier(v))
+
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, v: str) -> str:
+        return normalize_identifier(v)
 
     @field_validator("password")
     @classmethod
@@ -53,8 +63,13 @@ class AdminCreateUserRequest(BaseModel):
 class AdminUpdateUserRequest(BaseModel):
     first_name: str | None = Field(None, min_length=1, max_length=100)
     last_name: str | None = Field(None, min_length=1, max_length=100)
-    email: str | None = None
+    email: EmailStr | None = None
     persona: str | None = None
+
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, v: str | None) -> str | None:
+        return normalize_identifier(v) if v is not None else v
 
     @field_validator("persona")
     @classmethod

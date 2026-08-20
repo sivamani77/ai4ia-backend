@@ -29,6 +29,7 @@ from app.db.repositories import (
     get_refresh_token_repository,
     get_user_repository,
 )
+from app.db.repositories.user_repository import DuplicateUserError
 from app.services import session_service
 from app.services.mail_service import MailDeliveryError, send_otp_email, send_password_changed_notice
 
@@ -99,21 +100,26 @@ def signup(*, username: str, password: str, first_name: str, last_name: str, ema
         raise HTTPException(status_code=409, detail="Email already registered")
 
     password_hash = hash_password(password)
-    created = users.create_user(
-        {
-            "username": username,
-            "password_hash": password_hash,
-            # Legacy plaintext column is NOT NULL in the existing schema but
-            # unused for new accounts — password_hash is authoritative.
-            "password": "",
-            "first_name": first_name,
-            "last_name": last_name,
-            "email_id": email,
-            "persona": _PERSONA_TO_DB[persona],
-            "status": "pending_verification",
-            "email_verified": False,
-        }
-    )
+    try:
+        created = users.create_user(
+            {
+                "username": username,
+                "password_hash": password_hash,
+                # Legacy plaintext column is NOT NULL in the existing schema but
+                # unused for new accounts — password_hash is authoritative.
+                "password": "",
+                "first_name": first_name,
+                "last_name": last_name,
+                "email_id": email,
+                "persona": _PERSONA_TO_DB[persona],
+                "status": "pending_verification",
+                "email_verified": False,
+            }
+        )
+    except DuplicateUserError as exc:
+        _metrics.auth_events_total.labels(event="signup", outcome="failure").inc()
+        detail = "Username already taken" if exc.field == "username" else "Email already registered"
+        raise HTTPException(status_code=409, detail=detail)
     audit.log(event="signup", success=True, user_id=created["id"])
     _metrics.auth_events_total.labels(event="signup", outcome="success").inc()
 
@@ -270,6 +276,8 @@ def login(
     audit = get_auth_audit_repository()
 
     user = users.get_by_username(username)
+    if user is None and "@" in username:
+        user = users.get_by_email(username)
     if user is None:
         audit.log(event="login", success=False)
         _metrics.auth_events_total.labels(event="login", outcome="failure").inc()

@@ -1,12 +1,8 @@
 from __future__ import annotations
 
-import re
-
 from pydantic import BaseModel, EmailStr, Field, field_validator
 
-from app.core.security import validate_password_strength
-
-_USERNAME_RE = re.compile(r"^[a-zA-Z0-9_.\-]{3,32}$")
+from app.core.security import normalize_identifier, validate_password_strength, validate_username_format
 
 
 class SignupRequest(BaseModel):
@@ -20,9 +16,12 @@ class SignupRequest(BaseModel):
     @field_validator("username")
     @classmethod
     def _validate_username(cls, v: str) -> str:
-        if not _USERNAME_RE.match(v):
-            raise ValueError("Username may only contain letters, numbers, '.', '_', '-'")
-        return v
+        return validate_username_format(normalize_identifier(v))
+
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, v: str) -> str:
+        return normalize_identifier(v)
 
     @field_validator("password")
     @classmethod
@@ -47,15 +46,33 @@ class VerifyOtpRequest(BaseModel):
     code: str = Field(..., min_length=6, max_length=6)
     purpose: str = Field(..., description="signup | password_reset")
 
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, v: str) -> str:
+        return normalize_identifier(v)
+
 
 class ResendOtpRequest(BaseModel):
     email: EmailStr
     purpose: str = Field(..., description="signup | password_reset")
 
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, v: str) -> str:
+        return normalize_identifier(v)
+
 
 class LoginRequest(BaseModel):
-    username: str
+    username: str = Field(..., description="Username or email")
     password: str
+
+    @field_validator("username")
+    @classmethod
+    def _strip_username(cls, v: str) -> str:
+        # Kept case-sensitive here (not normalize_identifier's lowercasing):
+        # existing accounts predate the lowercase-only rule, and lookup is
+        # case-insensitive at the query layer, so trimming is all this needs.
+        return v.strip()
 
 
 class UserPublic(BaseModel):
@@ -80,11 +97,21 @@ class AuthTokenResponse(BaseModel):
 class ForgotPasswordRequest(BaseModel):
     email: EmailStr
 
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, v: str) -> str:
+        return normalize_identifier(v)
+
 
 class ResetPasswordRequest(BaseModel):
     email: EmailStr
     code: str = Field(..., min_length=6, max_length=6)
     new_password: str
+
+    @field_validator("email")
+    @classmethod
+    def _normalize_email(cls, v: str) -> str:
+        return normalize_identifier(v)
 
     @field_validator("new_password")
     @classmethod
