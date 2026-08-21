@@ -32,6 +32,7 @@ from pathlib import Path
 import os
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(PROJECT_ROOT / "backend"))
 # Use the full classified JSONL (data/embeddings/) which has quote_strength,
 # clarity_score, clip_usage_candidates — required for speaker clip selection.
 JSONL_PATH = PROJECT_ROOT / "data" / "embeddings" / "classified_fragments_embeddings.jsonl"
@@ -74,6 +75,51 @@ def sanitize_metadata(row: dict) -> dict:
     return metadata
 
 
+def _facets_for(row: dict, facets_cache: dict) -> dict:
+    """derive_facets() is keyed off (title, source_video) and is pure/cheap,
+    but every fragment from the same video would otherwise recompute it —
+    cache per source_video within one import run."""
+    from app.services.enrichment import derive_facets
+
+    source_video = row.get("source_video") or ""
+    if source_video not in facets_cache:
+        facets_cache[source_video] = derive_facets(row.get("video_title") or source_video, source_video)
+    return facets_cache[source_video]
+
+
+def to_postgres_row(row: dict, facets_cache: dict) -> dict:
+    """Shape one JSONL record into the Postgres `fragments` row — same field
+    set as FragmentRepository.upsert_many() expects."""
+    facets = _facets_for(row, facets_cache)
+    start = float(row.get("start") or 0)
+    end = float(row.get("end") or 0)
+    return {
+        "fragment_id": row["fragment_id"],
+        "source_video": row.get("source_video"),
+        "video_id": row.get("video_id"),
+        "video_title": row.get("video_title"),
+        "speaker": row.get("speaker"),
+        "speaker_attribution": row.get("speaker_attribution"),
+        "text": row.get("text") or "",
+        "summary": row.get("summary"),
+        "start": start,
+        "end": end,
+        "duration": float(row.get("duration") or max(end - start, 0)),
+        "primary_theme": row.get("primary_theme"),
+        "primary_chapter": row.get("primary_chapter"),
+        "theme_tags": row.get("theme_tags") or [],
+        "chapter_tags": row.get("chapter_tags") or [],
+        "clip_usage_candidates": row.get("clip_usage_candidates") or [],
+        "quote_strength": float(row.get("quote_strength") or 0),
+        "clarity_score": float(row.get("clarity_score") or 0),
+        "year": facets.get("year"),
+        "edition": facets.get("edition"),
+        "session_type": facets.get("session_type"),
+        "keywords": row.get("keywords") or [],
+        "extra": {},
+    }
+
+
 def load_jsonl(path: Path) -> list[dict]:
     rows = []
     with path.open(encoding="utf-8") as fh:
@@ -92,6 +138,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Import embeddings into ChromaDB")
     parser.add_argument("--reset", action="store_true",
                         help="Drop and recreate the collection before importing")
+    parser.add_argument("--skip-postgres", action="store_true",
+                        help="Only write to Chroma, skip the companion Postgres fragments upsert")
     args = parser.parse_args()
 
     if not JSONL_PATH.exists():
@@ -141,7 +189,14 @@ def main() -> None:
         sys.exit(1)
     print(f"  Embedding dim: {len(sample['embedding'])} | model: {sample.get('embedding_model')}")
 
-    # Batch import
+    # Batch import — Chroma gets vectors, Postgres gets the SQL-queryable row
+    # (theme/chapter/speaker aggregates, filtered search).
+    pg_repo = None
+    facets_cache: dict = {}
+    if not args.skip_postgres:
+        from app.db.repositories.fragment_repository import FragmentRepository
+        pg_repo = FragmentRepository()
+
     total = len(rows)
     imported = 0
     t1 = time.time()
@@ -154,6 +209,11 @@ def main() -> None:
             documents=[r.get("embedding_text") or r.get("text") or "" for r in batch],
             metadatas=[sanitize_metadata(r) for r in batch],
         )
+        if pg_repo is not None:
+            try:
+                pg_repo.upsert_many([to_postgres_row(r, facets_cache) for r in batch])
+            except Exception as e:
+                print(f"  [warn] Postgres upsert failed for batch starting at {i}: {e}")
         imported += len(batch)
         pct = imported / total * 100
         elapsed = time.time() - t1

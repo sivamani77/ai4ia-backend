@@ -136,7 +136,14 @@ class UserRepository:
     def update_user(self, user_id: str, updates: Mapping[str, Any]) -> None:
         payload = dict(updates)
         payload["updated_at"] = datetime.now(timezone.utc).isoformat()
-        self._table.update(payload).eq("id", user_id).execute()
+        try:
+            self._table.update(payload).eq("id", user_id).execute()
+        except APIError as exc:
+            if exc.code == _UNIQUE_VIOLATION:
+                message = f"{exc.message or ''} {getattr(exc, 'details', '') or ''}".lower()
+                field = "username" if "username" in message else "email"
+                raise DuplicateUserError(field) from exc
+            raise
 
     def upgrade_legacy_password(self, user_id: str, password_hash: str) -> None:
         """Called once a legacy plaintext row has been verified — moves the

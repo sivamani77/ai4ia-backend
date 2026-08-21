@@ -17,6 +17,7 @@ from app.core.otel import is_enabled as _otel_enabled, setup_tracing
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
 from app.core import metrics as _metrics
+from app.db.schema import ensure_pipeline_schema
 
 # Must run before the httpx/requests/psycopg2 instrumentors below patch
 # their clients, and before the app is constructed.
@@ -153,6 +154,11 @@ async def lifespan(app: FastAPI):
 
     for warning in settings.validate_deployment_env():
         logger.warning(warning)
+
+    try:
+        await asyncio.to_thread(ensure_pipeline_schema)
+    except Exception:
+        logger.exception("Failed to ensure pipeline Postgres schema on startup")
 
     await asyncio.to_thread(_reap_orphaned_jobs)
     await asyncio.to_thread(_reap_orphaned_ingest_jobs)

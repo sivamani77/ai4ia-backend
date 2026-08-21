@@ -3,10 +3,15 @@ from __future__ import annotations
 import logging
 from typing import Any, Mapping, TypedDict
 
-from app.db.supabase import get_supabase_client
+import psycopg2.extras
+
+from app.core.settings import settings
+from app.db.postgres import pg_fetch_all, pg_fetch_one
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.storylines")
+
+_JSONB_FIELDS = ("sections", "selected_candidates", "export_timeline", "editorial_quality_gates", "full_payload")
 
 
 class StorylineRecord(TypedDict, total=False):
@@ -26,74 +31,140 @@ class StorylineRecord(TypedDict, total=False):
 
 
 class StorylineRepository:
-    table_name = "storylines"
+    """Storylines live in Postgres; reads fall back to the legacy Supabase
+    pipeline project for rows not yet backfilled. Writes go to Postgres only."""
 
-    def __init__(self) -> None:
-        self._client = get_supabase_client()
-        self._table = self._client.table(self.table_name)
+    table_name = "storylines"
 
     def create(self, data: Mapping[str, Any]) -> StorylineRecord:
         payload = self._to_row(data)
         self._log("insert", payload.get("id"))
-        try:
-            response = self._table.insert(payload).execute()
-        except Exception:
-            logger.exception("storylines insert failed id=%s", payload.get("id"))
-            raise
-        return self._from_row(response.data[0]) if response.data else payload  # type: ignore[return-value]
+        row = pg_fetch_one(
+            """
+            insert into storylines (id, job_id, title, logline, user_prompt,
+                                    target_duration_seconds, is_validated, sections,
+                                    selected_candidates, export_timeline,
+                                    editorial_quality_gates, full_payload, created_at)
+            values (%(id)s, %(job_id)s, %(title)s, %(logline)s, %(user_prompt)s,
+                    %(target_duration_seconds)s, %(is_validated)s, %(sections)s,
+                    %(selected_candidates)s, %(export_timeline)s,
+                    %(editorial_quality_gates)s, %(full_payload)s, coalesce(%(created_at)s, now()))
+            returning *
+            """,
+            self._to_row_params(payload),
+        )
+        return self._from_row(row) if row is not None else payload  # type: ignore[return-value]
 
     def upsert(self, data: Mapping[str, Any]) -> StorylineRecord:
         payload = self._to_row(data)
         self._log("upsert", payload.get("id"))
-        try:
-            response = self._table.upsert(payload).execute()
-        except Exception:
-            logger.exception("storylines upsert failed id=%s", payload.get("id"))
-            raise
-        return self._from_row(response.data[0]) if response.data else payload  # type: ignore[return-value]
+        row = pg_fetch_one(
+            """
+            insert into storylines (id, job_id, title, logline, user_prompt,
+                                    target_duration_seconds, is_validated, sections,
+                                    selected_candidates, export_timeline,
+                                    editorial_quality_gates, full_payload, created_at)
+            values (%(id)s, %(job_id)s, %(title)s, %(logline)s, %(user_prompt)s,
+                    %(target_duration_seconds)s, %(is_validated)s, %(sections)s,
+                    %(selected_candidates)s, %(export_timeline)s,
+                    %(editorial_quality_gates)s, %(full_payload)s, coalesce(%(created_at)s, now()))
+            on conflict (id) do update set
+                job_id = excluded.job_id,
+                title = excluded.title,
+                logline = excluded.logline,
+                user_prompt = excluded.user_prompt,
+                target_duration_seconds = excluded.target_duration_seconds,
+                is_validated = excluded.is_validated,
+                sections = excluded.sections,
+                selected_candidates = excluded.selected_candidates,
+                export_timeline = excluded.export_timeline,
+                editorial_quality_gates = excluded.editorial_quality_gates,
+                full_payload = excluded.full_payload
+            returning *
+            """,
+            self._to_row_params(payload),
+        )
+        return self._from_row(row) if row is not None else payload  # type: ignore[return-value]
 
     def get(self, storyline_id: str) -> StorylineRecord | None:
         self._log("select_one", storyline_id)
-        try:
-            response = self._table.select("*").eq("id", storyline_id).limit(1).execute()
-        except Exception:
-            logger.exception("storylines select failed id=%s", storyline_id)
-            raise
-        return self._from_row(response.data[0]) if response.data else None
+        row = pg_fetch_one("select * from storylines where id = %s limit 1", (storyline_id,))
+        if row is not None:
+            return self._from_row(row)
+        return self._legacy_get(storyline_id)
 
     def list(self, limit: int = 100) -> list[StorylineRecord]:
         self._log("select_many")
+        rows = pg_fetch_all(
+            "select id, job_id, title, logline, user_prompt, target_duration_seconds, "
+            "is_validated, created_at from storylines order by created_at desc limit %s",
+            (limit,),
+        )
+        if rows:
+            return [self._from_row(row) for row in rows]
+        return self._legacy_list(limit)
+
+    def get_latest(self) -> StorylineRecord | None:
+        self._log("select_latest")
+        row = pg_fetch_one("select * from storylines order by created_at desc limit 1")
+        if row is not None:
+            return self._from_row(row)
+        return self._legacy_get_latest()
+
+    # -- legacy Supabase fallback (read-only) --------------------------------
+
+    def _legacy_table(self):
+        if not settings.supabase_url or not settings.supabase_service_key:
+            return None
+        try:
+            from app.db.supabase import get_supabase_client
+            return get_supabase_client().table(self.table_name)
+        except Exception:
+            logger.exception("Legacy Supabase storylines client unavailable")
+            return None
+
+    def _legacy_get(self, storyline_id: str) -> StorylineRecord | None:
+        table = self._legacy_table()
+        if table is None:
+            return None
+        try:
+            response = table.select("*").eq("id", storyline_id).limit(1).execute()
+        except Exception:
+            logger.exception("Legacy storylines select failed id=%s", storyline_id)
+            return None
+        return self._from_row(response.data[0]) if response.data else None
+
+    def _legacy_list(self, limit: int) -> list[StorylineRecord]:
+        table = self._legacy_table()
+        if table is None:
+            return []
         try:
             response = (
-                self._table.select(
-                    "id,job_id,title,logline,user_prompt,target_duration_seconds,is_validated,created_at"
-                )
+                table.select("id,job_id,title,logline,user_prompt,target_duration_seconds,is_validated,created_at")
                 .order("created_at", desc=True)
                 .limit(limit)
                 .execute()
             )
         except Exception:
-            logger.exception("storylines list failed")
-            raise
+            logger.exception("Legacy storylines list failed")
+            return []
         return [self._from_row(row) for row in response.data or []]
 
-    def get_latest(self) -> StorylineRecord | None:
-        self._log("select_latest")
+    def _legacy_get_latest(self) -> StorylineRecord | None:
+        table = self._legacy_table()
+        if table is None:
+            return None
         try:
-            response = (
-                self._table.select("*")
-                .order("created_at", desc=True)
-                .limit(1)
-                .execute()
-            )
+            response = table.select("*").order("created_at", desc=True).limit(1).execute()
         except Exception:
-            logger.exception("storylines get_latest failed")
-            raise
+            logger.exception("Legacy storylines get_latest failed")
+            return None
         return self._from_row(response.data[0]) if response.data else None
+
+    # -- row shaping ----------------------------------------------------------
 
     def _to_row(self, data: Mapping[str, Any]) -> dict[str, Any]:
         d = self._normalize(dict(data))
-        # Support both top-level and nested storyline.{title,logline,...}
         story = d.get("storyline") or {}
         return {
             "id": d.get("id") or d.get("storyline_id"),
@@ -129,8 +200,15 @@ class StorylineRepository:
             created_at=d.get("created_at"),
         )
 
+    def _to_row_params(self, payload: Mapping[str, Any]) -> dict[str, Any]:
+        params = dict(payload)
+        for field in _JSONB_FIELDS:
+            if field in params:
+                params[field] = psycopg2.extras.Json(params[field])
+        return params
+
     def _log(self, operation: str, record_id: str | None = None) -> None:
-        logger.debug("storylines op=%s id=%s", operation, record_id)
+        logger.debug("Postgres repository operation: table=%s operation=%s id=%s", self.table_name, operation, record_id)
 
     def _normalize(self, value: Any) -> Any:
         return normalize_value(value)

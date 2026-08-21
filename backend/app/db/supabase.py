@@ -6,12 +6,19 @@ from typing import Any
 
 from app.core.settings import settings
 
+# Pipeline project — LEGACY. fragments/storylines/insights/ingest_* now live
+# in Postgres (see app.db.postgres, app.db.schema.ensure_pipeline_schema).
+# get_supabase_client() below is kept only so repositories can fall back to
+# reading rows that predate the Postgres cutover and haven't been backfilled
+# yet — nothing should ever write through this client again. Safe to leave
+# SUPABASE_URL/SUPABASE_SERVICE_KEY unset once the cluster's Postgres has all
+# pipeline data (the fallback simply no-ops when unset).
 SUPABASE_URL = settings.supabase_url
 SUPABASE_SERVICE_KEY = settings.supabase_service_key
 
 # Auth project — separate Supabase project holding app_users/otp_codes/
 # refresh_tokens/auth_audit. Deliberately NOT the same client as the
-# pipeline database above.
+# legacy pipeline project above, and NOT part of this Postgres migration.
 AUTH_SUPABASE_URL = settings.auth_supabase_url
 AUTH_SUPABASE_SERVICE_KEY = settings.auth_supabase_service_key
 
@@ -70,6 +77,10 @@ def _create_supabase_client() -> Client:
 
 @lru_cache(maxsize=1)
 def get_supabase_client() -> Client:
+    """LEGACY read-only fallback client for the pipeline project. Repositories
+    use this to look up rows not yet present in Postgres — do not write
+    through this client, and do not add new callers outside that fallback
+    path."""
     return _create_supabase_client()
 
 

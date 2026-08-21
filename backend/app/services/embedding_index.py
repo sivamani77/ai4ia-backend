@@ -163,12 +163,12 @@ class EmbeddingIndex:
         dists = raw["distances"][0]
         metas = raw["metadatas"][0]
 
-        # One batched Supabase round trip for all candidate ids instead of one per row.
+        # One batched Postgres round trip for all candidate ids instead of one per row.
         frags_by_id = fragment_store.get_many(ids)
 
         results: list[dict] = []
         for rid, dist, meta in zip(ids, dists, metas):
-            # Prefer the full Supabase row; fall back to Chroma metadata
+            # Prefer the full Postgres row; fall back to Chroma metadata
             frag = frags_by_id.get(rid) or {"fragment_id": rid, **meta}
             out = dict(frag)
             out.pop("embedding", None)
@@ -188,7 +188,7 @@ def _build_where(filters: dict) -> dict | None:
     """Convert API filter dict to a ChromaDB where clause.
 
     Only fields stored as Chroma metadata scalars are filtered here.
-    Fields that live only in Supabase (speaker, edition, year) are left
+    Fields that live only in Postgres (speaker, edition, year) are left
     to post-filtering by callers on the returned fragment dicts.
     """
     # Caller-facing filter keys ("theme", "chapter") stay as-is; the Chroma

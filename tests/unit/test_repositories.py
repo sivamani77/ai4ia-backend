@@ -1,28 +1,14 @@
-"""Unit tests for DB repository normalize/marshal helpers — no real Supabase."""
+"""Unit tests for DB repository normalize/marshal helpers — Postgres-backed,
+no real database connection required. Pure _to_row/_from_row/_normalize_*
+helpers are exercised directly; a handful of tests that touch a query path
+mock pg_fetch_one/pg_fetch_all/pg_execute at the repository module level."""
 from __future__ import annotations
 
 from decimal import Decimal
-from datetime import date, datetime
-from unittest.mock import MagicMock, patch
+from datetime import date
+from unittest.mock import patch
 
 import pytest
-
-
-def _make_mock_client():
-    """Build a mock Supabase client with chainable query builder."""
-    client = MagicMock()
-    chain = MagicMock()
-    chain.insert.return_value = chain
-    chain.select.return_value = chain
-    chain.update.return_value = chain
-    chain.upsert.return_value = chain
-    chain.eq.return_value = chain
-    chain.gt.return_value = chain
-    chain.order.return_value = chain
-    chain.limit.return_value = chain
-    chain.execute.return_value = MagicMock(data=[])
-    client.table.return_value = chain
-    return client, chain
 
 
 # ---------------------------------------------------------------------------
@@ -32,33 +18,31 @@ def _make_mock_client():
 class TestEventRepositoryNormalize:
     def _repo(self):
         from app.db.repositories.event_repository import EventRepository
-        client, chain = _make_mock_client()
-        with patch("app.db.repositories.event_repository.get_supabase_client", return_value=client):
-            return EventRepository(), chain
+        return EventRepository()
 
     def test_normalize_input_folds_stage_into_payload(self):
-        repo, _ = self._repo()
+        repo = self._repo()
         result = repo._normalize_input({"job_id": "j1", "stage": "transcribe", "payload": {"x": 1}})
         assert "stage" not in result
         assert result["payload"]["stage"] == "transcribe"
 
     def test_normalize_input_creates_payload_when_missing(self):
-        repo, _ = self._repo()
+        repo = self._repo()
         result = repo._normalize_input({"job_id": "j1", "stage": "transcribe"})
         assert result["payload"] == {"stage": "transcribe"}
 
     def test_normalize_output_returns_event_record(self):
-        repo, _ = self._repo()
+        repo = self._repo()
         row = {"job_id": "j1", "event_type": "stage_update", "payload": {"x": 2}}
         result = repo._normalize_output(row)
         assert result["event_type"] == "stage_update"
 
     def test_normalize_value_decimal(self):
-        repo, _ = self._repo()
+        repo = self._repo()
         assert repo._normalize_value(Decimal("3.14")) == pytest.approx(3.14)
 
     def test_normalize_value_date(self):
-        repo, _ = self._repo()
+        repo = self._repo()
         d = date(2025, 1, 15)
         result = repo._normalize_value(d)
         assert result == "2025-01-15"
@@ -71,9 +55,7 @@ class TestEventRepositoryNormalize:
 class TestInsightRepositoryMarshal:
     def _repo(self):
         from app.db.repositories.insight_repository import InsightRepository
-        client, chain = _make_mock_client()
-        with patch("app.db.repositories.insight_repository.get_supabase_client", return_value=client):
-            return InsightRepository()
+        return InsightRepository()
 
     def test_to_row_defaults_lists_to_empty(self):
         repo = self._repo()
@@ -111,9 +93,7 @@ class TestInsightRepositoryMarshal:
 class TestStorylineRepositoryMarshal:
     def _repo(self):
         from app.db.repositories.storyline_repository import StorylineRepository
-        client, chain = _make_mock_client()
-        with patch("app.db.repositories.storyline_repository.get_supabase_client", return_value=client):
-            return StorylineRepository()
+        return StorylineRepository()
 
     def test_to_row_defaults(self):
         repo = self._repo()
@@ -139,9 +119,7 @@ class TestStorylineRepositoryMarshal:
 class TestJobRepositoryNormalize:
     def _repo(self):
         from app.db.repositories.job_repository import JobRepository
-        client, chain = _make_mock_client()
-        with patch("app.db.repositories.job_repository.get_supabase_client", return_value=client):
-            return JobRepository()
+        return JobRepository()
 
     def test_filters_out_extra_columns(self):
         repo = self._repo()
@@ -173,37 +151,46 @@ class TestJobRepositoryNormalize:
 
     def test_get_job_uses_id(self):
         from app.db.repositories.job_repository import JobRepository
-        client, chain = _make_mock_client()
-        chain.execute.return_value = MagicMock(data=[{"id": "j1", "status": "queued"}])
-        with patch("app.db.repositories.job_repository.get_supabase_client", return_value=client):
-            repo = JobRepository()
-        result = repo.get_job("j1")
+        repo = JobRepository()
+        with patch("app.db.repositories.job_repository.pg_fetch_one", return_value={"id": "j1", "status": "queued"}):
+            result = repo.get_job("j1")
         assert result["id"] == "j1"
 
 
 # ---------------------------------------------------------------------------
-# FragmentRepository basic operations
+# FragmentRepository — Postgres primary, legacy Supabase fallback disabled
 # ---------------------------------------------------------------------------
 
 class TestFragmentRepository:
     def _repo(self):
         from app.db.repositories.fragment_repository import FragmentRepository
-        client, chain = _make_mock_client()
-        with patch("app.db.repositories.fragment_repository.get_supabase_client", return_value=client):
-            return FragmentRepository(), chain
+        return FragmentRepository()
 
     def test_get_returns_none_on_empty(self):
-        repo, chain = self._repo()
-        chain.execute.return_value = MagicMock(data=[])
-        result = repo.get("frag_xyz")
+        repo = self._repo()
+        with patch("app.db.repositories.fragment_repository.pg_fetch_one", return_value=None), \
+             patch.object(repo, "_legacy_table", return_value=None):
+            result = repo.get("frag_xyz")
         assert result is None
 
     def test_list_all_returns_list(self):
-        repo, chain = self._repo()
-        chain.execute.return_value = MagicMock(data=[{"id": "f1", "text": "hello"}])
-        result = repo.list_all()
+        repo = self._repo()
+        with patch("app.db.repositories.fragment_repository.pg_fetch_one", return_value={"has_data": True}), \
+             patch("app.db.repositories.fragment_repository.pg_fetch_all",
+                   return_value=[{"fragment_id": "f1", "text": "hello"}]):
+            result = repo.list_all()
         assert isinstance(result, list)
         assert len(result) == 1
+        assert result[0]["fragment_id"] == "f1"
+
+    def test_list_all_falls_back_to_legacy_when_postgres_empty(self):
+        repo = self._repo()
+        legacy_rows = [{"fragment_id": "legacy1", "text": "old row"}]
+        with patch("app.db.repositories.fragment_repository.pg_fetch_one", return_value={"has_data": False}), \
+             patch.object(repo, "_legacy_list_all", return_value=[repo._from_row(r) for r in legacy_rows]) as legacy:
+            result = repo.list_all()
+        legacy.assert_called_once()
+        assert result[0]["fragment_id"] == "legacy1"
 
 
 # ---------------------------------------------------------------------------
@@ -211,19 +198,19 @@ class TestFragmentRepository:
 # ---------------------------------------------------------------------------
 
 class TestJobRepositoryCRUD:
-    def _repo_with(self, return_data):
+    def _repo(self):
         from app.db.repositories.job_repository import JobRepository
-        client, chain = _make_mock_client()
-        chain.execute.return_value = MagicMock(data=return_data)
-        with patch("app.db.repositories.job_repository.get_supabase_client", return_value=client):
-            return JobRepository(), chain
+        return JobRepository()
 
     def test_upsert_job_calls_execute(self):
-        repo, chain = self._repo_with([])
-        repo.upsert_job({"id": "j1", "status": "queued"})
-        chain.execute.assert_called()
+        repo = self._repo()
+        with patch("app.db.repositories.job_repository.pg_execute") as mock_execute:
+            repo.upsert_job({"id": "j1", "status": "queued"})
+        mock_execute.assert_called_once()
 
     def test_list_jobs_returns_list(self):
-        repo, chain = self._repo_with([{"id": "j1"}, {"id": "j2"}])
-        result = repo.list_jobs()
+        repo = self._repo()
+        with patch("app.db.repositories.job_repository.pg_fetch_all",
+                   return_value=[{"id": "j1"}, {"id": "j2"}]):
+            result = repo.list_jobs()
         assert len(result) == 2

@@ -121,3 +121,46 @@ class ResetPasswordRequest(BaseModel):
 
 class MessageResponse(BaseModel):
     message: str
+
+
+class UpdateProfileRequest(BaseModel):
+    first_name: str | None = Field(None, min_length=1, max_length=100)
+    last_name: str | None = Field(None, min_length=1, max_length=100)
+
+
+class ChangePasswordRequest(BaseModel):
+    current_password: str
+    code: str = Field(..., min_length=6, max_length=6)
+    new_password: str
+    confirm_new_password: str
+
+    @field_validator("new_password")
+    @classmethod
+    def _validate_new_password(cls, v: str) -> str:
+        return validate_password_strength(v)
+
+    @field_validator("confirm_new_password")
+    @classmethod
+    def _passwords_match(cls, v: str, info) -> str:
+        if v != info.data.get("new_password"):
+            raise ValueError("new_password and confirm_new_password do not match")
+        return v
+
+
+class RequestEmailChangeRequest(BaseModel):
+    new_email: EmailStr
+
+    @field_validator("new_email")
+    @classmethod
+    def _normalize_email(cls, v: str) -> str:
+        return normalize_identifier(v)
+
+
+class ChangeEmailRequest(BaseModel):
+    new_email: EmailStr
+    code: str = Field(..., min_length=6, max_length=6)
+
+    @field_validator("new_email")
+    @classmethod
+    def _normalize_email(cls, v: str) -> str:
+        return normalize_identifier(v)

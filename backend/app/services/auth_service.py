@@ -31,7 +31,12 @@ from app.db.repositories import (
 )
 from app.db.repositories.user_repository import DuplicateUserError
 from app.services import session_service
-from app.services.mail_service import MailDeliveryError, send_otp_email, send_password_changed_notice
+from app.services.mail_service import (
+    MailDeliveryError,
+    send_email_changed_notice,
+    send_otp_email,
+    send_password_changed_notice,
+)
 
 logger = logging.getLogger("ai4ia.services.auth")
 
@@ -381,6 +386,124 @@ def reset_password(*, email: str, code: str, new_password: str) -> None:
         send_password_changed_notice(email)
     except MailDeliveryError:
         logger.warning("Password changed notice failed to send to %s", email)
+
+
+# ---------------------------------------------------------------------------
+# Self-service profile — name / password / email
+# ---------------------------------------------------------------------------
+
+def update_profile(user_id: str, *, first_name: str | None, last_name: str | None) -> dict:
+    users = get_user_repository()
+    user = users.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="Account not found")
+
+    updates: dict = {}
+    if first_name is not None:
+        updates["first_name"] = first_name
+    if last_name is not None:
+        updates["last_name"] = last_name
+
+    if updates:
+        users.update_user(user_id, updates)
+
+    get_auth_audit_repository().log(event="profile_update", success=True, user_id=user_id)
+    return to_public_user(users.get_by_id(user_id))
+
+
+def request_password_change_otp(user_id: str) -> None:
+    users = get_user_repository()
+    user = users.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="Account not found")
+
+    email = user.get("email_id")
+    if not email:
+        raise HTTPException(status_code=400, detail="Account has no email on file")
+
+    if not _otp_resend_limiter.allow(f"{email}:password_change"):
+        _metrics.rate_limit_rejections_total.labels(limiter="otp_resend").inc()
+        raise HTTPException(status_code=429, detail="Please wait before requesting another code")
+
+    _issue_otp(email=email, purpose="password_change", user_id=user_id)
+
+
+def change_password(user_id: str, *, current_password: str, code: str, new_password: str) -> None:
+    from app.db.repositories import get_refresh_token_repository
+
+    users = get_user_repository()
+    user = users.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="Account not found")
+
+    email = user.get("email_id")
+    if not email:
+        raise HTTPException(status_code=400, detail="Account has no email on file")
+
+    if not verify_password(current_password, user.get("password_hash") or ""):
+        raise HTTPException(status_code=401, detail="Current password is incorrect")
+
+    verify_otp(email=email, code=code, purpose="password_change")
+
+    users.update_user(user_id, {"password_hash": hash_password(new_password), "password": ""})
+    users.reset_login_attempts(user_id)
+
+    get_refresh_token_repository().revoke_all_for_user(user_id)
+    session_service.end_all_sessions_for_user(user_id, reason="password_change")
+    get_auth_audit_repository().log(event="password_change", success=True, user_id=user_id)
+
+    try:
+        send_password_changed_notice(email)
+    except MailDeliveryError:
+        logger.warning("Password changed notice failed to send to %s", email)
+
+
+def request_email_change_otp(user_id: str, *, new_email: str) -> None:
+    users = get_user_repository()
+    user = users.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="Account not found")
+
+    if new_email == (user.get("email_id") or ""):
+        raise HTTPException(status_code=400, detail="This is already your email")
+    if users.email_exists(new_email):
+        raise HTTPException(status_code=409, detail="Email already registered")
+
+    if not _otp_resend_limiter.allow(f"{new_email}:email_change"):
+        _metrics.rate_limit_rejections_total.labels(limiter="otp_resend").inc()
+        raise HTTPException(status_code=429, detail="Please wait before requesting another code")
+
+    _issue_otp(email=new_email, purpose="email_change", user_id=user_id)
+
+
+def change_email(user_id: str, *, new_email: str, code: str) -> dict:
+    users = get_user_repository()
+    user = users.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="Account not found")
+
+    old_email = user.get("email_id")
+    # Re-check at confirm time too — closes the same request-then-confirm
+    # race window that create_user's DuplicateUserError backstops for signup.
+    if users.email_exists(new_email):
+        raise HTTPException(status_code=409, detail="Email already registered")
+
+    verify_otp(email=new_email, code=code, purpose="email_change")
+
+    try:
+        users.update_user(user_id, {"email_id": new_email})
+    except DuplicateUserError:
+        raise HTTPException(status_code=409, detail="Email already registered")
+
+    get_auth_audit_repository().log(event="email_change", success=True, user_id=user_id)
+
+    if old_email:
+        try:
+            send_email_changed_notice(old_email, new_email)
+        except MailDeliveryError:
+            logger.warning("Email changed notice failed to send to %s", old_email)
+
+    return to_public_user(users.get_by_id(user_id))
 
 
 # ---------------------------------------------------------------------------

@@ -82,11 +82,13 @@ class Settings(BaseSettings):
     database_url: str = "postgresql://ai4ia:ai4ia_local_dev@localhost:5432/ai4ia"
 
     # ------------------------------------------------------------------
-    # Supabase — auth project only (app_users, otp_codes, refresh_tokens,
-    # auth_audit). The pipeline/jobs project above has been replaced by
-    # direct Postgres for the four tables listed above; supabase_url/
-    # supabase_service_key are kept only in case any other pipeline table
-    # (storylines, insights, fragments) still reads from that project.
+    # Supabase — pipeline project, LEGACY. Every pipeline table (fragments,
+    # storylines, insights, ingest_jobs, ingest_status, ingest_job_events)
+    # now lives in Postgres (app.db.schema.ensure_pipeline_schema) plus
+    # Chroma for fragment vectors. These two settings are kept only so the
+    # repositories can fall back to reading rows that predate the Postgres
+    # cutover — nothing writes through this project anymore. Safe to leave
+    # unset once a cluster's Postgres holds all pipeline data.
     # ------------------------------------------------------------------
     supabase_url: str = ""
     supabase_service_key: str = ""
@@ -398,10 +400,10 @@ class Settings(BaseSettings):
             warnings.append(
                 "Redis is localhost — jobs will not survive restarts in a cloud deployment"
             )
-        if not self.supabase_url:
-            warnings.append("SUPABASE_URL is not set")
-        if not self.supabase_service_key:
-            warnings.append("SUPABASE_SERVICE_KEY is not set")
+        # SUPABASE_URL/SUPABASE_SERVICE_KEY are now optional: the pipeline
+        # runs on Postgres + Chroma (see app.db.schema), and these only
+        # enable a legacy read fallback for rows not yet backfilled — no
+        # warning needed when they're unset.
         if not self.auth_supabase_url:
             warnings.append("AUTH_SUPABASE_URL is not set — user auth (app_users) unavailable")
         if not self.auth_supabase_service_key:

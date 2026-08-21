@@ -3,7 +3,10 @@ from __future__ import annotations
 import logging
 from typing import Any, Mapping, TypedDict
 
-from app.db.supabase import get_supabase_client
+import psycopg2.extras
+
+from app.core.settings import settings
+from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.ingest_status")
@@ -27,137 +30,116 @@ class IngestStatusRecord(TypedDict, total=False):
 
 
 class IngestStatusRepository:
-    table_name = "ingest_status"
+    """Ingest status rows live in Postgres; reads fall back to the legacy
+    Supabase pipeline project for rows not yet backfilled. Writes go to
+    Postgres only."""
 
-    def __init__(self) -> None:
-        self._client = get_supabase_client()
-        self._table = self._client.table(self.table_name)
+    table_name = "ingest_status"
 
     def upsert(self, data: Mapping[str, Any]) -> IngestStatusRecord:
         """Upsert a (video_id, stage) row. The UNIQUE constraint handles deduplication."""
         payload = self._normalize_input(data)
         self._log("upsert", payload.get("video_id"), payload.get("stage"))
 
-        try:
-            response = (
-                self._table
-                .upsert(payload, on_conflict="video_id,stage")
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase ingest_status operation failed: operation=upsert video_id=%s stage=%s",
-                payload.get("video_id"),
-                payload.get("stage"),
-            )
-            raise
-
-        if response.data:
-            return self._normalize_output(response.data[0])
-        return self.get(payload["video_id"], payload["stage"])
+        row = pg_fetch_one(
+            """
+            insert into ingest_status (video_id, stage, status, job_id, error, metadata, updated_at)
+            values (%(video_id)s, %(stage)s, %(status)s, %(job_id)s, %(error)s, %(metadata)s, now())
+            on conflict (video_id, stage) do update set
+                status = excluded.status,
+                job_id = excluded.job_id,
+                error = excluded.error,
+                metadata = excluded.metadata,
+                updated_at = now()
+            returning *
+            """,
+            self._to_row_params(payload),
+        )
+        return self._normalize_output(row) if row is not None else self.get(payload["video_id"], payload["stage"])  # type: ignore[return-value]
 
     def get(self, video_id: str, stage: str) -> IngestStatusRecord | None:
         self._log("select_one", video_id, stage)
-
-        try:
-            response = (
-                self._table.select("*")
-                .eq("video_id", video_id)
-                .eq("stage", stage)
-                .limit(1)
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase ingest_status operation failed: operation=select_one video_id=%s stage=%s",
-                video_id,
-                stage,
-            )
-            raise
-
-        if not response.data:
-            return None
-        return self._normalize_output(response.data[0])
+        row = pg_fetch_one(
+            "select * from ingest_status where video_id = %s and stage = %s limit 1",
+            (video_id, stage),
+        )
+        if row is not None:
+            return self._normalize_output(row)
+        return self._legacy_get(video_id, stage)
 
     def get_for_video(self, video_id: str) -> list[IngestStatusRecord]:
         """All stage rows for a single video, ordered by stage definition order."""
         self._log("select_video", video_id)
-
-        try:
-            response = (
-                self._table.select("*")
-                .eq("video_id", video_id)
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase ingest_status operation failed: operation=select_video video_id=%s",
-                video_id,
-            )
-            raise
-
-        rows = [self._normalize_output(row) for row in response.data or []]
+        rows = pg_fetch_all("select * from ingest_status where video_id = %s", (video_id,))
+        records = [self._normalize_output(row) for row in rows] or self._legacy_get_for_video(video_id)
         stage_order = list(VALID_STAGES)
-        return sorted(rows, key=lambda r: stage_order.index(r["stage"]) if r["stage"] in stage_order else 99)
+        return sorted(records, key=lambda r: stage_order.index(r["stage"]) if r["stage"] in stage_order else 99)
 
     def get_for_videos(self, video_ids: list[str]) -> list[IngestStatusRecord]:
         """Bulk fetch all stage rows for a list of video_ids."""
         if not video_ids:
             return []
         self._log("select_bulk")
-
-        try:
-            response = (
-                self._table.select("*")
-                .in_("video_id", video_ids)
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase ingest_status operation failed: operation=select_bulk count=%d",
-                len(video_ids),
-            )
-            raise
-
-        return [self._normalize_output(row) for row in response.data or []]
+        rows = pg_fetch_all("select * from ingest_status where video_id = any(%s)", (list(video_ids),))
+        return [self._normalize_output(row) for row in rows]
 
     def list_by_stage_status(self, stage: str, status: str) -> list[IngestStatusRecord]:
         """Find all videos at a given stage+status (e.g. all failed downloads)."""
         self._log("select_stage_status")
-
-        try:
-            response = (
-                self._table.select("*")
-                .eq("stage", stage)
-                .eq("status", status)
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase ingest_status operation failed: operation=select_stage_status stage=%s status=%s",
-                stage,
-                status,
-            )
-            raise
-
-        return [self._normalize_output(row) for row in response.data or []]
+        rows = pg_fetch_all(
+            "select * from ingest_status where stage = %s and status = %s",
+            (stage, status),
+        )
+        return [self._normalize_output(row) for row in rows]
 
     def get_completed_video_ids(self) -> set[str]:
         """Return set of video_ids where ALL 7 stages are completed — fully ingested videos."""
-        try:
-            response = (
-                self._table.select("video_id")
-                .eq("stage", "embed")
-                .eq("status", "completed")
-                .execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase ingest_status operation failed: operation=get_completed_video_ids"
-            )
-            raise
+        rows = pg_fetch_all(
+            "select video_id from ingest_status where stage = %s and status = %s",
+            ("embed", "completed"),
+        )
+        return {row["video_id"] for row in rows}
 
-        return {row["video_id"] for row in response.data or []}
+    # -- legacy Supabase fallback (read-only) --------------------------------
+
+    def _legacy_table(self):
+        if not settings.supabase_url or not settings.supabase_service_key:
+            return None
+        try:
+            from app.db.supabase import get_supabase_client
+            return get_supabase_client().table(self.table_name)
+        except Exception:
+            logger.exception("Legacy Supabase ingest_status client unavailable")
+            return None
+
+    def _legacy_get(self, video_id: str, stage: str) -> IngestStatusRecord | None:
+        table = self._legacy_table()
+        if table is None:
+            return None
+        try:
+            response = table.select("*").eq("video_id", video_id).eq("stage", stage).limit(1).execute()
+        except Exception:
+            logger.exception("Legacy ingest_status select failed video_id=%s stage=%s", video_id, stage)
+            return None
+        return self._normalize_output(response.data[0]) if response.data else None
+
+    def _legacy_get_for_video(self, video_id: str) -> list[IngestStatusRecord]:
+        table = self._legacy_table()
+        if table is None:
+            return []
+        try:
+            response = table.select("*").eq("video_id", video_id).execute()
+        except Exception:
+            logger.exception("Legacy ingest_status select_video failed video_id=%s", video_id)
+            return []
+        return [self._normalize_output(row) for row in response.data or []]
+
+    # -- row shaping ----------------------------------------------------------
+
+    def _to_row_params(self, payload: Mapping[str, Any]) -> dict[str, Any]:
+        params = dict(payload)
+        params["metadata"] = psycopg2.extras.Json(params.get("metadata") or {})
+        return params
 
     def _normalize_input(self, data: Mapping[str, Any]) -> dict[str, Any]:
         row: dict[str, Any] = {}
@@ -169,6 +151,9 @@ class IngestStatusRepository:
         if row.get("status") and row.get("status") not in VALID_STATUSES:
             raise ValueError(f"Invalid ingest status: {row.get('status')!r}. Must be one of {sorted(VALID_STATUSES)}")
 
+        row.setdefault("status", "pending")
+        row.setdefault("job_id", None)
+        row.setdefault("error", None)
         if not isinstance(row.get("metadata"), dict):
             row["metadata"] = {}
 
@@ -193,7 +178,7 @@ class IngestStatusRepository:
 
     def _log(self, operation: str, video_id: str | None = None, stage: str | None = None) -> None:
         logger.debug(
-            "Supabase repository operation: table=%s operation=%s video_id=%s stage=%s",
+            "Postgres repository operation: table=%s operation=%s video_id=%s stage=%s",
             self.table_name,
             operation,
             video_id,

@@ -3,7 +3,10 @@ from __future__ import annotations
 import logging
 from typing import Any, Mapping, TypedDict
 
-from app.db.supabase import get_supabase_client
+import psycopg2.extras
+
+from app.core.settings import settings
+from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.ingest_jobs")
@@ -24,105 +27,127 @@ class IngestJobRecord(TypedDict, total=False):
 
 
 class IngestJobRepository:
-    table_name = "ingest_jobs"
+    """Ingest jobs live in Postgres; reads fall back to the legacy Supabase
+    pipeline project for rows not yet backfilled. Writes go to Postgres only."""
 
-    def __init__(self) -> None:
-        self._client = get_supabase_client()
-        self._table = self._client.table(self.table_name)
+    table_name = "ingest_jobs"
 
     def create_job(self, data: Mapping[str, Any]) -> IngestJobRecord:
         payload = self._normalize_input(data)
         record_id = payload.get("id")
         self._log("insert", record_id)
 
-        try:
-            response = self._table.insert(payload).execute()
-        except Exception:
-            logger.exception(
-                "Supabase ingest_jobs operation failed: operation=insert id=%s", record_id
-            )
-            raise
-
-        created = self._extract_optional_single(response.data)
-        if created is not None:
-            return created
+        row = pg_fetch_one(
+            """
+            insert into ingest_jobs (id, status, channel_url, video_limit, progress, message,
+                                     error, metadata, created_at, started_at, completed_at)
+            values (%(id)s, %(status)s, %(channel_url)s, %(video_limit)s, %(progress)s, %(message)s,
+                    %(error)s, %(metadata)s, coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s)
+            returning *
+            """,
+            self._to_row_params(payload),
+        )
+        if row is not None:
+            return self._normalize_output(row)
         return self.get_job(str(record_id))
 
     def get_job(self, record_id: str) -> IngestJobRecord | None:
         self._log("select_one", record_id)
-
-        try:
-            response = (
-                self._table.select("*").eq("id", record_id).limit(1).execute()
-            )
-        except Exception:
-            logger.exception(
-                "Supabase ingest_jobs operation failed: operation=select_one id=%s", record_id
-            )
-            raise
-
-        return self._extract_optional_single(response.data)
+        row = pg_fetch_one("select * from ingest_jobs where id = %s limit 1", (record_id,))
+        if row is not None:
+            return self._normalize_output(row)
+        return self._legacy_get_job(record_id)
 
     def upsert_job(self, data: Mapping[str, Any]) -> None:
         payload = self._normalize_input(data)
         self._log("upsert", payload.get("id"))
-
-        try:
-            self._table.upsert(payload, on_conflict="id").execute()
-        except Exception:
-            logger.exception(
-                "Supabase ingest_jobs operation failed: operation=upsert id=%s", payload.get("id")
-            )
-            raise
+        pg_execute(
+            """
+            insert into ingest_jobs (id, status, channel_url, video_limit, progress, message,
+                                     error, metadata, created_at, started_at, completed_at)
+            values (%(id)s, %(status)s, %(channel_url)s, %(video_limit)s, %(progress)s, %(message)s,
+                    %(error)s, %(metadata)s, coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s)
+            on conflict (id) do update set
+                status = excluded.status,
+                channel_url = excluded.channel_url,
+                video_limit = excluded.video_limit,
+                progress = excluded.progress,
+                message = excluded.message,
+                error = excluded.error,
+                metadata = excluded.metadata,
+                started_at = excluded.started_at,
+                completed_at = excluded.completed_at
+            """,
+            self._to_row_params(payload),
+        )
 
     def list_jobs(self, limit: int = 50) -> list[IngestJobRecord]:
         self._log("select_many")
-
-        try:
-            response = (
-                self._table.select("*")
-                .order("created_at", desc=True)
-                .limit(limit)
-                .execute()
-            )
-        except Exception:
-            logger.exception("Supabase ingest_jobs operation failed: operation=select_many")
-            raise
-
-        return [self._normalize_output(row) for row in response.data or []]
+        rows = pg_fetch_all("select * from ingest_jobs order by created_at desc limit %s", (limit,))
+        if rows:
+            return [self._normalize_output(row) for row in rows]
+        return self._legacy_list_jobs(limit)
 
     def list_running_jobs(self) -> list[IngestJobRecord]:
         """Return jobs in queued or running state (used for orphan reaping)."""
         self._log("select_running")
+        rows = pg_fetch_all(
+            "select * from ingest_jobs where status = any(%s) order by created_at desc",
+            (["queued", "running"],),
+        )
+        return [self._normalize_output(row) for row in rows]
 
+    # -- legacy Supabase fallback (read-only) --------------------------------
+
+    def _legacy_table(self):
+        if not settings.supabase_url or not settings.supabase_service_key:
+            return None
         try:
-            response = (
-                self._table.select("*")
-                .in_("status", ["queued", "running"])
-                .order("created_at", desc=True)
-                .execute()
-            )
+            from app.db.supabase import get_supabase_client
+            return get_supabase_client().table(self.table_name)
         except Exception:
-            logger.exception("Supabase ingest_jobs operation failed: operation=select_running")
-            raise
+            logger.exception("Legacy Supabase ingest_jobs client unavailable")
+            return None
 
+    def _legacy_get_job(self, record_id: str) -> IngestJobRecord | None:
+        table = self._legacy_table()
+        if table is None:
+            return None
+        try:
+            response = table.select("*").eq("id", record_id).limit(1).execute()
+        except Exception:
+            logger.exception("Legacy ingest_jobs select failed id=%s", record_id)
+            return None
+        return self._normalize_output(response.data[0]) if response.data else None
+
+    def _legacy_list_jobs(self, limit: int) -> list[IngestJobRecord]:
+        table = self._legacy_table()
+        if table is None:
+            return []
+        try:
+            response = table.select("*").order("created_at", desc=True).limit(limit).execute()
+        except Exception:
+            logger.exception("Legacy ingest_jobs list failed")
+            return []
         return [self._normalize_output(row) for row in response.data or []]
 
-    def _extract_optional_single(
-        self, rows: list[dict[str, Any]] | None
-    ) -> IngestJobRecord | None:
-        if not rows:
-            return None
-        return self._normalize_output(rows[0])
+    # -- row shaping ----------------------------------------------------------
+
+    def _to_row_params(self, payload: Mapping[str, Any]) -> dict[str, Any]:
+        params = dict(payload)
+        params["metadata"] = psycopg2.extras.Json(params.get("metadata") or {})
+        if params.get("error") is not None:
+            params["error"] = psycopg2.extras.Json(params["error"])
+        return params
 
     def _normalize_input(self, data: Mapping[str, Any]) -> dict[str, Any]:
         row = {k: normalize_value(v) for k, v in dict(data).items()}
-        # Coerce progress to int
         if "progress" in row:
             try:
                 row["progress"] = int(row["progress"])
             except (TypeError, ValueError):
                 row["progress"] = 0
+        row.setdefault("metadata", {})
         return row
 
     def _normalize_output(self, data: Mapping[str, Any]) -> IngestJobRecord:
@@ -146,7 +171,7 @@ class IngestJobRepository:
 
     def _log(self, operation: str, record_id: str | None = None) -> None:
         logger.debug(
-            "Supabase repository operation: table=%s operation=%s id=%s",
+            "Postgres repository operation: table=%s operation=%s id=%s",
             self.table_name,
             operation,
             record_id,

@@ -33,13 +33,16 @@ def _send(*, to: str, subject: str, text_body: str, html_body: str) -> None:
         raise MailDeliveryError(f"Failed to send email to {to}") from exc
 
 
+_OTP_PURPOSE_TEXT = {
+    "signup": ("Verify your AI4IA account", "complete your sign-up"),
+    "password_reset": ("Reset your AI4IA password", "reset your password"),
+    "password_change": ("Confirm your AI4IA password change", "confirm changing your password"),
+    "email_change": ("Confirm your new AI4IA email address", "confirm this is your new email address"),
+}
+
+
 def send_otp_email(to: str, code: str, purpose: str) -> None:
-    if purpose == "signup":
-        subject = "Verify your AI4IA account"
-        intent = "complete your sign-up"
-    else:
-        subject = "Reset your AI4IA password"
-        intent = "reset your password"
+    subject, intent = _OTP_PURPOSE_TEXT.get(purpose, _OTP_PURPOSE_TEXT["password_reset"])
 
     text_body = (
         f"Your verification code is: {code}\n\n"
@@ -71,3 +74,20 @@ def send_password_changed_notice(to: str) -> None:
 </div>
 """
     _send(to=to, subject=subject, text_body=text_body, html_body=html_body)
+
+
+def send_email_changed_notice(old_email: str, new_email: str) -> None:
+    """Sent to the OLD address after an email change completes — so if an
+    attacker with a hijacked session redirects the account's email, the real
+    owner still finds out at the address they actually control."""
+    subject = "Your AI4IA account email was changed"
+    text_body = (
+        f"Your account's email was just changed to {new_email}. "
+        "If this wasn't you, please contact support immediately."
+    )
+    html_body = f"""\
+<div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
+  <p>{text_body}</p>
+</div>
+"""
+    _send(to=old_email, subject=subject, text_body=text_body, html_body=html_body)
