@@ -18,4 +18,4 @@ data:
   note: >-
     jobs-data is defined as emptyDir directly in 10-api.yaml and 11-worker.yaml,
     not here. This file is intentionally left with no PVCs while S3 backend is
-    in use and no StorageClass exists on the cluster.
+    in use and no StorageClass exi sts on the cluster.
