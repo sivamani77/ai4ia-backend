@@ -459,36 +459,51 @@ def change_password(user_id: str, *, current_password: str, code: str, new_passw
 
 
 def request_email_change_otp(user_id: str, *, new_email: str) -> None:
+    """Issues TWO codes: one to the current email (proves the request is
+    really coming from the account holder, not just a hijacked session) and
+    one to the new email (proves they control it). Both are required to
+    confirm in change_email()."""
     users = get_user_repository()
     user = users.get_by_id(user_id)
     if user is None:
         raise HTTPException(status_code=404, detail="Account not found")
 
-    if new_email == (user.get("email_id") or ""):
+    current_email = user.get("email_id")
+    if not current_email:
+        raise HTTPException(status_code=400, detail="Account has no email on file")
+    if new_email == current_email:
         raise HTTPException(status_code=400, detail="This is already your email")
     if users.email_exists(new_email):
         raise HTTPException(status_code=409, detail="Email already registered")
 
+    if not _otp_resend_limiter.allow(f"{current_email}:email_change_old"):
+        _metrics.rate_limit_rejections_total.labels(limiter="otp_resend").inc()
+        raise HTTPException(status_code=429, detail="Please wait before requesting another code")
+    _issue_otp(email=current_email, purpose="email_change_old", user_id=user_id)
+
     if not _otp_resend_limiter.allow(f"{new_email}:email_change"):
         _metrics.rate_limit_rejections_total.labels(limiter="otp_resend").inc()
         raise HTTPException(status_code=429, detail="Please wait before requesting another code")
-
     _issue_otp(email=new_email, purpose="email_change", user_id=user_id)
 
 
-def change_email(user_id: str, *, new_email: str, code: str) -> dict:
+def change_email(user_id: str, *, new_email: str, current_email_code: str, new_email_code: str) -> dict:
     users = get_user_repository()
     user = users.get_by_id(user_id)
     if user is None:
         raise HTTPException(status_code=404, detail="Account not found")
 
     old_email = user.get("email_id")
+    if not old_email:
+        raise HTTPException(status_code=400, detail="Account has no email on file")
+
     # Re-check at confirm time too — closes the same request-then-confirm
     # race window that create_user's DuplicateUserError backstops for signup.
     if users.email_exists(new_email):
         raise HTTPException(status_code=409, detail="Email already registered")
 
-    verify_otp(email=new_email, code=code, purpose="email_change")
+    verify_otp(email=old_email, code=current_email_code, purpose="email_change_old")
+    verify_otp(email=new_email, code=new_email_code, purpose="email_change")
 
     try:
         users.update_user(user_id, {"email_id": new_email})
@@ -497,11 +512,10 @@ def change_email(user_id: str, *, new_email: str, code: str) -> dict:
 
     get_auth_audit_repository().log(event="email_change", success=True, user_id=user_id)
 
-    if old_email:
-        try:
-            send_email_changed_notice(old_email, new_email)
-        except MailDeliveryError:
-            logger.warning("Email changed notice failed to send to %s", old_email)
+    try:
+        send_email_changed_notice(old_email, new_email)
+    except MailDeliveryError:
+        logger.warning("Email changed notice failed to send to %s", old_email)
 
     return to_public_user(users.get_by_id(user_id))
 

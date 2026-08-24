@@ -204,7 +204,7 @@ class TestChangePassword:
 # ---------------------------------------------------------------------------
 
 class TestRequestEmailChangeOtp:
-    def test_issues_otp_to_new_email(self):
+    def test_issues_otp_to_both_current_and_new_email(self):
         user_id = _uid()
         old_email = _email()
         new_email = _email()
@@ -216,7 +216,20 @@ class TestRequestEmailChangeOtp:
              patch("app.services.auth_service._issue_otp") as mock_issue:
             auth_service.request_email_change_otp(user_id, new_email=new_email)
 
-        mock_issue.assert_called_once_with(email=new_email, purpose="email_change", user_id=user_id)
+        assert mock_issue.call_count == 2
+        mock_issue.assert_any_call(email=old_email, purpose="email_change_old", user_id=user_id)
+        mock_issue.assert_any_call(email=new_email, purpose="email_change", user_id=user_id)
+
+    def test_no_email_on_account_raises_400(self):
+        user_id = _uid()
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = {"id": user_id, "email_id": None}
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users):
+            with pytest.raises(HTTPException) as exc_info:
+                auth_service.request_email_change_otp(user_id, new_email=_email())
+
+        assert exc_info.value.status_code == 400
 
     def test_same_as_current_email_raises_400(self):
         user_id = _uid()
@@ -263,7 +276,7 @@ class TestRequestEmailChangeOtp:
 # ---------------------------------------------------------------------------
 
 class TestChangeEmail:
-    def test_success_swaps_email_and_notifies_old_address(self):
+    def test_success_verifies_both_codes_swaps_email_and_notifies_old_address(self):
         user_id = _uid()
         old_email = _email()
         new_email = _email()
@@ -278,9 +291,13 @@ class TestChangeEmail:
              patch("app.services.auth_service.get_auth_audit_repository", return_value=MagicMock()), \
              patch("app.services.auth_service.verify_otp") as mock_verify_otp, \
              patch("app.services.auth_service.send_email_changed_notice") as mock_notice:
-            result = auth_service.change_email(user_id, new_email=new_email, code="123456")
+            result = auth_service.change_email(
+                user_id, new_email=new_email, current_email_code="111111", new_email_code="222222"
+            )
 
-        mock_verify_otp.assert_called_once_with(email=new_email, code="123456", purpose="email_change")
+        assert mock_verify_otp.call_count == 2
+        mock_verify_otp.assert_any_call(email=old_email, code="111111", purpose="email_change_old")
+        mock_verify_otp.assert_any_call(email=new_email, code="222222", purpose="email_change")
         mock_users.update_user.assert_called_once_with(user_id, {"email_id": new_email})
         mock_notice.assert_called_once_with(old_email, new_email)
         assert result["email"] == new_email
@@ -294,12 +311,14 @@ class TestChangeEmail:
         with patch("app.services.auth_service.get_user_repository", return_value=mock_users), \
              patch("app.services.auth_service.verify_otp") as mock_verify_otp:
             with pytest.raises(HTTPException) as exc_info:
-                auth_service.change_email(user_id, new_email=_email(), code="123456")
+                auth_service.change_email(
+                    user_id, new_email=_email(), current_email_code="111111", new_email_code="222222"
+                )
 
         assert exc_info.value.status_code == 409
         mock_verify_otp.assert_not_called()
 
-    def test_invalid_otp_propagates_without_updating(self):
+    def test_invalid_old_email_otp_propagates_without_checking_new_code(self):
         user_id = _uid()
         mock_users = MagicMock()
         mock_users.get_by_id.return_value = {"id": user_id, "email_id": _email()}
@@ -307,12 +326,28 @@ class TestChangeEmail:
 
         with patch("app.services.auth_service.get_user_repository", return_value=mock_users), \
              patch("app.services.auth_service.verify_otp",
-                   side_effect=HTTPException(status_code=400, detail="Incorrect verification code")):
+                   side_effect=HTTPException(status_code=400, detail="Incorrect verification code")) as mock_verify_otp:
             with pytest.raises(HTTPException) as exc_info:
-                auth_service.change_email(user_id, new_email=_email(), code="000000")
+                auth_service.change_email(
+                    user_id, new_email=_email(), current_email_code="000000", new_email_code="222222"
+                )
 
         assert exc_info.value.status_code == 400
+        mock_verify_otp.assert_called_once()  # stopped after the first (old-email) check
         mock_users.update_user.assert_not_called()
+
+    def test_no_email_on_account_raises_400(self):
+        user_id = _uid()
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = {"id": user_id, "email_id": None}
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users):
+            with pytest.raises(HTTPException) as exc_info:
+                auth_service.change_email(
+                    user_id, new_email=_email(), current_email_code="111111", new_email_code="222222"
+                )
+
+        assert exc_info.value.status_code == 400
 
     def test_user_not_found_raises_404(self):
         mock_users = MagicMock()
@@ -320,6 +355,8 @@ class TestChangeEmail:
 
         with patch("app.services.auth_service.get_user_repository", return_value=mock_users):
             with pytest.raises(HTTPException) as exc_info:
-                auth_service.change_email(_uid(), new_email=_email(), code="123456")
+                auth_service.change_email(
+                    _uid(), new_email=_email(), current_email_code="111111", new_email_code="222222"
+                )
 
         assert exc_info.value.status_code == 404

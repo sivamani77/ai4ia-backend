@@ -8,6 +8,7 @@ from app.core.paths import RAW_VIDEO_DIR, CLASSIFIED_FRAGMENTS_DIR
 from app.core.settings import settings
 from app.core.taxonomy import THEMES, CHAPTERS, chapter_id_from_name
 from app.db.repositories.fragment_repository import FragmentRepository
+from app.services.video_naming import parse_source_video
 
 _S3_RAW_PREFIX = "raw/youtube/ai4ia_channel/"
 
@@ -90,8 +91,14 @@ def _list_videos_from_s3() -> list[dict[str, Any]]:
     for key in sorted(mp4_keys):
         stem = Path(key).stem
         info = info_map.get(stem, {})
-        stem_parts = stem.split("_")
-        youtube_id = stem_parts[1] if len(stem_parts) >= 2 else stem
+        # YouTube ids are always exactly 11 characters — parse by that
+        # fixed length, not split("_"), which mis-parses the 42 of 309
+        # ids that contain an underscore themselves (e.g. "9_sJS37LjJ4"
+        # truncates to "9"). See video_naming.py's docstring; this is
+        # what scripts/reconcile_archive_stores.py caught: those 42
+        # videos got the wrong primary key in the videos table.
+        parsed_id, _ = parse_source_video(stem)
+        youtube_id = parsed_id or stem
         title = info.get("title") or infer_speaker_from_filename(stem)
         videos.append({
             "video_id": youtube_id,
@@ -163,8 +170,8 @@ def list_videos() -> list[dict[str, Any]]:
                 stem = path.stem
                 info = safe_read_json(RAW_VIDEO_DIR / f"{stem}.info.json")
                 title = (info or {}).get("title") or stem
-                stem_parts = stem.split("_")
-                youtube_id = stem_parts[1] if len(stem_parts) >= 2 else stem
+                parsed_id, _ = parse_source_video(stem)
+                youtube_id = parsed_id or stem
                 videos.append({
                     "video_id": youtube_id,
                     "source_video": stem,

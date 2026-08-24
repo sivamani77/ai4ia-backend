@@ -38,6 +38,10 @@ _OTP_PURPOSE_TEXT = {
     "password_reset": ("Reset your AI4IA password", "reset your password"),
     "password_change": ("Confirm your AI4IA password change", "confirm changing your password"),
     "email_change": ("Confirm your new AI4IA email address", "confirm this is your new email address"),
+    "email_change_old": (
+        "Confirm you want to change your AI4IA email",
+        "confirm you want to change your account's email address",
+    ),
 }
 
 

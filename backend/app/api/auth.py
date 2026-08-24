@@ -13,8 +13,8 @@ GET  /api/auth/me                — current account, from a verified access tok
 PATCH /api/auth/me               — update name
 POST /api/auth/me/password/request-otp — send OTP for a self-service password change
 POST /api/auth/me/password        — current password + OTP + new password -> revokes all sessions
-POST /api/auth/me/email/request-otp — send OTP to a prospective new email
-POST /api/auth/me/email           — OTP + new email -> swaps email, notifies old address
+POST /api/auth/me/email/request-otp — send OTP to BOTH current and new email
+POST /api/auth/me/email           — both OTPs + new email -> swaps email, notifies old address
 """
 from __future__ import annotations
 
@@ -213,12 +213,17 @@ def request_email_change_otp(
     payload: RequestEmailChangeRequest, current_user: CurrentUser = Depends(get_current_user)
 ):
     auth_service.request_email_change_otp(current_user.id, new_email=payload.new_email)
-    return MessageResponse(message="Verification code sent to your new email")
+    return MessageResponse(message="Verification codes sent to your current and new email")
 
 
 @router.post("/me/email", response_model=UserPublic)
 def change_email(payload: ChangeEmailRequest, current_user: CurrentUser = Depends(get_current_user)):
-    updated = auth_service.change_email(current_user.id, new_email=payload.new_email, code=payload.code)
+    updated = auth_service.change_email(
+        current_user.id,
+        new_email=payload.new_email,
+        current_email_code=payload.current_email_code,
+        new_email_code=payload.new_email_code,
+    )
     return UserPublic(**updated)
 
 

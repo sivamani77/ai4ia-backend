@@ -66,6 +66,21 @@ class VideoRepository:
         row = pg_fetch_one("select count(*) as n from videos")
         return int(row["n"]) if row else 0
 
+    def delete_not_in(self, video_ids: list[str]) -> int:
+        """Remove rows whose video_id isn't in the given set — cleans up
+        stale/wrongly-keyed rows from before a parsing fix (e.g. rows
+        upserted under a truncated id by the pre-fix youtube-id parser).
+        Pass the *current, correctly-parsed* full video_id set. Only ever
+        touches this videos table — not fragments, Chroma, or S3."""
+        self._log("delete_not_in")
+        if not video_ids:
+            return 0
+        rows = pg_fetch_all(
+            "delete from videos where video_id != all(%s) returning video_id",
+            (list(video_ids),),
+        )
+        return len(rows)
+
     def _to_row(self, data: Mapping[str, Any]) -> dict[str, Any]:
         d = self._normalize(dict(data))
         return {

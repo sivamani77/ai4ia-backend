@@ -158,7 +158,8 @@ class RequestEmailChangeRequest(BaseModel):
 
 class ChangeEmailRequest(BaseModel):
     new_email: EmailStr
-    code: str = Field(..., min_length=6, max_length=6)
+    current_email_code: str = Field(..., min_length=6, max_length=6)
+    new_email_code: str = Field(..., min_length=6, max_length=6)
 
     @field_validator("new_email")
     @classmethod
