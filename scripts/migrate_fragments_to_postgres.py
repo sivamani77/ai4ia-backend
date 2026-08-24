@@ -23,6 +23,7 @@ Run from the repo root, or in any pod with Chroma + Postgres access:
     python scripts/migrate_fragments_to_postgres.py
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -39,11 +40,26 @@ PAGE_SIZE = 1000
 BATCH_SIZE = 200
 
 
-def _infer_topic(source_video: str) -> str:
-    """source_video looks like '0182_IeXbR5L4EWE_Ashwini Kotaru - ...' —
-    strip the numeric prefix and video_id to get a human title."""
-    parts = (source_video or "").split("_", 2)
-    return parts[2].strip() if len(parts) > 2 else (source_video or "")
+_SOURCE_VIDEO_PREFIX_RE = re.compile(r"^\d+_")
+
+
+def _parse_source_video(source_video: str) -> tuple[str | None, str]:
+    """source_video looks like '0182_IeXbR5L4EWE_Ashwini Kotaru - ...':
+    a numeric index, then the video_id, then the title. YouTube video ids
+    are always exactly 11 characters, so slice by that fixed length rather
+    than splitting on '_' — 42 of the 309 ids in this catalog (e.g.
+    '9_sJS37LjJ4') contain an underscore themselves, which a naive
+    split('_', 2) mis-parses (id truncated to '9', title left with the
+    id's other half glued onto the front)."""
+    if not source_video:
+        return None, ""
+    m = _SOURCE_VIDEO_PREFIX_RE.match(source_video)
+    if not m:
+        return None, source_video
+    rest = source_video[m.end():]
+    video_id = rest[:11] or None
+    title = rest[11:].lstrip("_").strip()
+    return video_id, title
 
 
 def _get_chroma_collection():
@@ -79,7 +95,12 @@ def _parse_json_field(value, default):
 
 def _to_row(fragment_id: str, meta: dict) -> dict:
     source_video = meta.get("source_video") or None
-    video_title = _infer_topic(source_video) if source_video else None
+    # Prefer parsing video_id/title from source_video ourselves — Chroma's
+    # own video_id field was computed with the same underscore-splitting
+    # bug (see _parse_source_video's docstring) and is wrong for ~42
+    # videos; source_video itself is reliable, so re-derive from it.
+    parsed_video_id, video_title = _parse_source_video(source_video or "")
+    video_id = parsed_video_id or meta.get("video_id") or None
     facets = derive_facets(video_title or "", source_video or "")
 
     start = float(meta.get("start") or 0)
@@ -88,8 +109,8 @@ def _to_row(fragment_id: str, meta: dict) -> dict:
     return {
         "fragment_id": fragment_id,
         "source_video": source_video,
-        "video_id": meta.get("video_id") or None,
-        "video_title": video_title,
+        "video_id": video_id,
+        "video_title": video_title or None,
         "speaker": meta.get("speaker") or None,
         "speaker_attribution": meta.get("speaker_attribution") or None,
         "text": meta.get("text") or "",
