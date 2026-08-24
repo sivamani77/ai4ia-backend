@@ -2,9 +2,12 @@
 Sync required pipeline data from local filesystem to S3.
 
 Uploads:
-  data/embeddings/  → raw/embeddings/       (classified JSONL + numpy matrix — stage 07)
-  data/transcripts_cleaned/  → raw/transcripts_cleaned/  (stage 07b primary)
-  data/transcripts/          → raw/transcripts/           (stage 07b fallback)
+  data/embeddings/            → raw/embeddings/            (classified JSONL + numpy matrix — stage 07)
+  data/transcripts_cleaned/   → raw/transcripts_cleaned/   (stage 07b primary)
+  data/transcripts/           → raw/transcripts/           (stage 07b fallback)
+  data/fragments_classified/  → raw/fragments_classified/  (scripts/migrate_fragments_to_postgres.py source)
+  data/metadata/speakers/     → raw/metadata/speakers/     (scripts/migrate_fragments_to_postgres.py source)
+  data/raw/youtube/ai4ia_channel/ → raw/youtube/ai4ia_channel/  (video titles, optional — migration degrades gracefully without it)
 
 Run once from the project root:
   python scripts/sync_data_to_s3.py [--dry-run] [--skip-existing]
@@ -20,9 +23,12 @@ from app.pipeline.s3_helpers import _s3, _bucket, list_keys  # noqa: E402
 
 SYNC_MANIFEST = [
     # (local_dir, s3_prefix, suffixes_to_include)
-    ("data/embeddings",          "raw/embeddings",          None),
-    ("data/transcripts_cleaned", "raw/transcripts_cleaned", (".json", ".txt", ".srt")),
-    ("data/transcripts",         "raw/transcripts",         (".json", ".txt", ".srt")),
+    # ("data/embeddings",                     "raw/embeddings",             None),
+    # ("data/transcripts_cleaned",            "raw/transcripts_cleaned",    (".json", ".txt", ".srt")),
+    # ("data/transcripts",                    "raw/transcripts",            (".json", ".txt", ".srt")),
+    ("data/fragments_classified",           "raw/fragments_classified",   (".json",)),
+    ("data/metadata/speakers",              "raw/metadata/speakers",      (".json",)),
+    # ("data/raw/youtube/ai4ia_channel",      "raw/youtube/ai4ia_channel",  (".json",)),
 ]
 
 
