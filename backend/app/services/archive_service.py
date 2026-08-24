@@ -109,6 +109,26 @@ def _list_videos_from_s3() -> list[dict[str, Any]]:
     return videos
 
 
+def _video_record_to_dict(r: dict[str, Any]) -> dict[str, Any]:
+    """Reconstruct the dict shape callers expect (matching
+    _list_videos_from_s3()'s output) from a videos-table row."""
+    source_video = r.get("source_video") or ""
+    video_id = r.get("video_id")
+    return {
+        "video_id": video_id,
+        "source_video": source_video,
+        "filename": f"{source_video}.mp4" if source_video else None,
+        "title": r.get("title"),
+        "speaker_or_topic": infer_speaker_from_filename(source_video) if source_video else "",
+        "path": None,
+        "thumbnail": None,
+        "duration": r.get("duration"),
+        "webpage_url": r.get("webpage_url"),
+        "s3_key": r.get("s3_raw_key"),
+        "stream_url": f"/api/archive/videos/{video_id}/stream",
+    }
+
+
 def list_videos() -> list[dict[str, Any]]:
     global _videos_cache
     data, ts = _videos_cache
@@ -118,10 +138,25 @@ def list_videos() -> list[dict[str, Any]]:
     videos: list[dict[str, Any]] = []
 
     if settings.ai4ia_storage_backend == "s3":
+        from app.db.repositories.video_repository import VideoRepository
+        repo = VideoRepository()
         try:
-            videos = _list_videos_from_s3()
+            records = [dict(r) for r in repo.list_all()]
         except Exception:
-            pass
+            records = []
+
+        if records:
+            videos = [_video_record_to_dict(r) for r in records]
+        else:
+            # videos table not populated yet — scan S3 live (original
+            # behavior) and opportunistically sync it in, so next call
+            # reads from Postgres and scripts/reconcile_archive_stores.py
+            # has something to compare against.
+            try:
+                videos = _list_videos_from_s3()
+                repo.upsert_many(videos)
+            except Exception:
+                pass
     else:
         if RAW_VIDEO_DIR.exists():
             for path in sorted(RAW_VIDEO_DIR.glob("*.mp4")):

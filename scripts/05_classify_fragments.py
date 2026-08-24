@@ -15,6 +15,7 @@ _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
 from app.core.taxonomy_loader import THEMES, CHAPTERS  # noqa: E402
+from app.pipeline import s3_helpers  # noqa: E402
 
 FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments_cleaned"
 CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
@@ -387,8 +388,23 @@ def determine_clip_usage(text: str, quote_strength: float, clarity_score: float,
 
 
 def load_speaker_lookup() -> dict[str, dict]:
-    """video_id/source_video -> speaker roster record from 04b_extract_speakers.py output."""
+    """video_id/source_video -> speaker roster record from 04b_extract_speakers.py output.
+
+    The automated ingest pipeline (ingest_job_runner.py) never runs
+    04b_extract_speakers.py — it's a standalone script — so a pod running
+    this classify stage usually has an empty local SPEAKERS_METADATA_DIR
+    even when rosters exist. 04b now uploads each roster to S3
+    (raw/metadata/speakers/), so pull those down first when running in S3
+    mode and the local dir has nothing — mirrors the same S3-fallback
+    pattern already used by scripts/migrate_fragments_to_postgres.py.
+    """
     lookup: dict[str, dict] = {}
+
+    if s3_helpers.use_s3() and not any(SPEAKERS_METADATA_DIR.glob("*.json")):
+        try:
+            s3_helpers.download_prefix("raw/metadata/speakers", SPEAKERS_METADATA_DIR)
+        except Exception as e:  # noqa: BLE001
+            print(f"  [warn] Failed to download speaker rosters from S3: {e}")
 
     if not SPEAKERS_METADATA_DIR.exists():
         return lookup

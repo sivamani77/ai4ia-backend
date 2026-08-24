@@ -128,7 +128,69 @@ _STATEMENTS = [
     )
     """,
     "create index if not exists idx_ingest_job_events_job_id on ingest_job_events (job_id, id)",
+    # ------------------------------------------------------------------
+    # videos — canonical registry, one row per video. Lets list_videos()/
+    # get_video() (archive_service.py) stop re-deriving video identity by
+    # parsing the same filename string independently in three different
+    # places in the codebase, and gives a real signal ("does this video
+    # have a raw file in S3") for scripts/reconcile_archive_stores.py.
+    # ------------------------------------------------------------------
+    """
+    create table if not exists videos (
+        video_id text primary key,
+        source_video text unique,
+        title text,
+        duration double precision,
+        webpage_url text,
+        s3_raw_key text,
+        updated_at timestamptz not null default now()
+    )
+    """,
+    "create index if not exists idx_videos_source_video on videos (source_video)",
+    # ------------------------------------------------------------------
+    # speakers / speaker_aliases — canonical speaker identity. fragments.
+    # speaker stays a plain text column (no FK migration, no query
+    # rewrites elsewhere); this is the growable source of truth that
+    # backend/app/services/speaker_aliases.canonicalize() and
+    # scripts/04b_extract_speakers.py's in-code alias map are seeded from
+    # and should eventually read from directly.
+    # ------------------------------------------------------------------
+    """
+    create table if not exists speakers (
+        canonical_name text primary key
+    )
+    """,
+    """
+    create table if not exists speaker_aliases (
+        alias text primary key,
+        canonical_name text not null references speakers(canonical_name)
+    )
+    """,
 ]
+
+
+def _seed_speaker_aliases() -> None:
+    """Idempotent: inserts canonical names + aliases from the in-code map
+    (backend/app/services/speaker_aliases.ALIASES) if not already present.
+    Safe to call every startup — ON CONFLICT DO NOTHING, never overwrites
+    a row someone has since edited directly in the table."""
+    from app.services.speaker_aliases import ALIASES
+
+    canonical_names = set(ALIASES.values())
+    for name in canonical_names:
+        pg_execute(
+            "insert into speakers (canonical_name) values (%s) on conflict do nothing",
+            (name,),
+        )
+    for alias, canonical_name in ALIASES.items():
+        pg_execute(
+            """
+            insert into speaker_aliases (alias, canonical_name)
+            values (%s, %s)
+            on conflict (alias) do nothing
+            """,
+            (alias, canonical_name),
+        )
 
 
 def ensure_pipeline_schema() -> None:
@@ -136,4 +198,8 @@ def ensure_pipeline_schema() -> None:
     to call on every startup — every statement is IF NOT EXISTS."""
     for statement in _STATEMENTS:
         pg_execute(statement)
-    logger.info("Pipeline Postgres schema ensured (fragments, storylines, insights, ingest_*)")
+    _seed_speaker_aliases()
+    logger.info(
+        "Pipeline Postgres schema ensured "
+        "(fragments, storylines, insights, ingest_*, videos, speakers, speaker_aliases)"
+    )

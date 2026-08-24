@@ -242,3 +242,24 @@ create table if not exists ingest_job_events (
 );
 
 create index if not exists idx_ingest_job_events_job_id on ingest_job_events (job_id, id);
+
+create table if not exists videos (
+    video_id text primary key,
+    source_video text unique,
+    title text,
+    duration double precision,
+    webpage_url text,
+    s3_raw_key text,
+    updated_at timestamptz not null default now()
+);
+
+create index if not exists idx_videos_source_video on videos (source_video);
+
+create table if not exists speakers (
+    canonical_name text primary key
+);
+
+create table if not exists speaker_aliases (
+    alias text primary key,
+    canonical_name text not null references speakers(canonical_name)
+);

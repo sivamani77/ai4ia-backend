@@ -22,9 +22,14 @@ from datetime import datetime
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(PROJECT_ROOT / "backend"))
+# Local dev layout: backend/app/. Docker image layout (see Dockerfile): app/
+# directly under PROJECT_ROOT, with no backend/ directory at all.
+_BACKEND_DIR = PROJECT_ROOT / "backend"
+sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
+from app.pipeline import s3_helpers  # noqa: E402
 from app.services.llm_service import generate_json, SPEAKER_EXTRACTION_MODEL  # noqa: E402
+from app.services.speaker_aliases import canonicalize as canonicalize_speaker  # noqa: E402
 
 import os
 
@@ -130,6 +135,14 @@ def extract_one(fpath: Path, model: str) -> tuple[str, str]:
             speakers.insert(0, {"name": title_hint, "role": "Speaker",
                                 "affiliation": None, "confidence": 0.9})
 
+    # Canonicalize known duplicate spellings immediately, at extraction
+    # time — not just retroactively in the Postgres backfill — so a
+    # newly-ingested video referencing an already-known speaker doesn't
+    # add yet another spelling variant to clean up later.
+    primary = canonicalize_speaker(primary)
+    for s in speakers:
+        s["name"] = canonicalize_speaker(s.get("name"))
+
     record = {
         "video_id": video_id,
         "source_video": source_video,
@@ -143,6 +156,19 @@ def extract_one(fpath: Path, model: str) -> tuple[str, str]:
         "extracted_at": datetime.now().isoformat(),
     }
     out_path.write_text(json.dumps(record, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    # 05_classify_fragments.py's speaker fallback (load_speaker_lookup) has
+    # no automated way to see this roster once it runs in a different pod —
+    # the automated ingest pipeline never runs this script at all, and
+    # nothing else made this output durable. Upload alongside the local
+    # write (kept, not deleted — the --force/skip-if-exists check above
+    # relies on the local copy) so classify can pull it from S3 later.
+    if s3_helpers.use_s3():
+        try:
+            s3_helpers.upload(out_path, f"raw/metadata/speakers/{video_id}.json")
+        except Exception as e:  # noqa: BLE001
+            print(f"  [warn] S3 upload failed for {video_id}: {e}")
+
     return "ok", f"{video_id}: primary={primary!r} ({len(speakers)} speakers)"
 
 

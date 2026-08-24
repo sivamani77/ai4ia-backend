@@ -23,7 +23,6 @@ Run from the repo root, or in any pod with Chroma + Postgres access:
     python scripts/migrate_fragments_to_postgres.py
 """
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -34,32 +33,14 @@ _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
 from app.db.repositories.fragment_repository import FragmentRepository
+from app.pipeline import s3_helpers
 from app.services.enrichment import derive_facets
+from app.services.speaker_aliases import canonicalize as canonicalize_speaker
+from app.services.video_naming import parse_source_video
 
 PAGE_SIZE = 1000
 BATCH_SIZE = 200
-
-
-_SOURCE_VIDEO_PREFIX_RE = re.compile(r"^\d+_")
-
-
-def _parse_source_video(source_video: str) -> tuple[str | None, str]:
-    """source_video looks like '0182_IeXbR5L4EWE_Ashwini Kotaru - ...':
-    a numeric index, then the video_id, then the title. YouTube video ids
-    are always exactly 11 characters, so slice by that fixed length rather
-    than splitting on '_' — 42 of the 309 ids in this catalog (e.g.
-    '9_sJS37LjJ4') contain an underscore themselves, which a naive
-    split('_', 2) mis-parses (id truncated to '9', title left with the
-    id's other half glued onto the front)."""
-    if not source_video:
-        return None, ""
-    m = _SOURCE_VIDEO_PREFIX_RE.match(source_video)
-    if not m:
-        return None, source_video
-    rest = source_video[m.end():]
-    video_id = rest[:11] or None
-    title = rest[11:].lstrip("_").strip()
-    return video_id, title
+_ROSTER_SCRATCH_NAME = "migrate_fragments_to_postgres_rosters"
 
 
 def _get_chroma_collection():
@@ -83,6 +64,48 @@ def _get_chroma_collection():
     )
 
 
+_roster_cache: dict[str, str | None] = {}
+
+
+def _lookup_roster_speaker(video_id: str | None) -> str | None:
+    """Fallback for fragments Chroma never got a speaker for. Root cause
+    (confirmed for 8 videos in the 309-video catalog): 05_classify_fragments.py
+    ran before that video's roster (04b_extract_speakers.py output) existed,
+    so its fallback-fill found nothing — and nothing ever revisits a video
+    once its roster shows up later. The roster itself is usually correct
+    (LLM extraction succeeded even when the deterministic title-hint didn't),
+    so re-check it here rather than leaving the fragment speakerless.
+    Lazy + cached: only fetched for fragments that actually need it."""
+    if not video_id:
+        return None
+    if video_id in _roster_cache:
+        return _roster_cache[video_id]
+
+    speaker = None
+    if s3_helpers.use_s3():
+        key = f"raw/metadata/speakers/{video_id}.json"
+        if s3_helpers.key_exists(key):
+            local = s3_helpers.tmp_dir(_ROSTER_SCRATCH_NAME) / f"{video_id}.json"
+            try:
+                s3_helpers.download(key, local)
+                roster = json.loads(local.read_text(encoding="utf-8"))
+                speaker = roster.get("primary_speaker") or None
+            except Exception:
+                speaker = None
+    else:
+        from app.core.paths import SPEAKERS_DIR
+        local = SPEAKERS_DIR / f"{video_id}.json"
+        if local.exists():
+            try:
+                roster = json.loads(local.read_text(encoding="utf-8"))
+                speaker = roster.get("primary_speaker") or None
+            except Exception:
+                speaker = None
+
+    _roster_cache[video_id] = speaker
+    return speaker
+
+
 def _parse_json_field(value, default):
     if not value:
         return default
@@ -97,22 +120,31 @@ def _to_row(fragment_id: str, meta: dict) -> dict:
     source_video = meta.get("source_video") or None
     # Prefer parsing video_id/title from source_video ourselves — Chroma's
     # own video_id field was computed with the same underscore-splitting
-    # bug (see _parse_source_video's docstring) and is wrong for ~42
+    # bug (see parse_source_video's docstring) and is wrong for ~42
     # videos; source_video itself is reliable, so re-derive from it.
-    parsed_video_id, video_title = _parse_source_video(source_video or "")
+    parsed_video_id, video_title = parse_source_video(source_video or "")
     video_id = parsed_video_id or meta.get("video_id") or None
     facets = derive_facets(video_title or "", source_video or "")
 
     start = float(meta.get("start") or 0)
     end = float(meta.get("end") or 0)
 
+    speaker = meta.get("speaker") or None
+    speaker_attribution = meta.get("speaker_attribution") or None
+    if not speaker:
+        roster_speaker = _lookup_roster_speaker(video_id)
+        if roster_speaker:
+            speaker = roster_speaker
+            speaker_attribution = speaker_attribution or "video-level"
+    speaker = canonicalize_speaker(speaker)
+
     return {
         "fragment_id": fragment_id,
         "source_video": source_video,
         "video_id": video_id,
         "video_title": video_title or None,
-        "speaker": meta.get("speaker") or None,
-        "speaker_attribution": meta.get("speaker_attribution") or None,
+        "speaker": speaker,
+        "speaker_attribution": speaker_attribution,
         "text": meta.get("text") or "",
         "summary": meta.get("summary") or None,
         "start": start,
@@ -174,6 +206,9 @@ def main() -> None:
         print(f"  [{min(offset, total)}/{total}] upserted so far: {total_upserted}")
 
     print(f"\nDone. Total upserted={total_upserted}  failed={total_failed}")
+
+    if s3_helpers.use_s3():
+        s3_helpers.cleanup_tmp_dir(_ROSTER_SCRATCH_NAME)
 
 
 if __name__ == "__main__":
