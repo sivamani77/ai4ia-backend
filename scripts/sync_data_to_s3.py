@@ -28,7 +28,7 @@ SYNC_MANIFEST = [
     # ("data/transcripts",                    "raw/transcripts",            (".json", ".txt", ".srt")),
     ("data/fragments_classified",           "raw/fragments_classified",   (".json",)),
     ("data/metadata/speakers",              "raw/metadata/speakers",      (".json",)),
-    # ("data/raw/youtube/ai4ia_channel",      "raw/youtube/ai4ia_channel",  (".json",)),
+    ("data/raw/youtube/ai4ia_channel",      "raw/youtube/ai4ia_channel",  (".json",)),
 ]
 
 
