@@ -33,6 +33,19 @@ class VideoRepository:
         self._log("upsert_many")
         for row in rows:
             payload = self._to_row(row)
+            # source_video is a second unique column, and — unlike
+            # video_id — was never subject to the youtube-id parsing bug
+            # (scripts/sync_videos_registry.py), so a stale row from
+            # before that fix can already exist with the *correct*
+            # source_video but a *wrong* video_id. ON CONFLICT (video_id)
+            # alone won't match that row (the new video_id differs), so
+            # the INSERT would then collide on the source_video unique
+            # constraint instead. Clear any such stale row first so the
+            # video_id conflict target is the only one left to resolve.
+            pg_execute(
+                "delete from videos where source_video = %(source_video)s and video_id != %(video_id)s",
+                payload,
+            )
             pg_execute(
                 """
                 insert into videos (video_id, source_video, title, duration, webpage_url, s3_raw_key, updated_at)
