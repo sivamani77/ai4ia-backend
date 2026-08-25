@@ -20,15 +20,13 @@ import logging
 from pathlib import Path
 from typing import Any
 
-import threading
-import time
-
 from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from app.core.auth import CurrentUser, get_current_user
 from app.core import metrics as _metrics
+from app.core.rate_limit import TokenBucket
 
 from app.schemas.pipeline import JobResponse
 
@@ -81,32 +79,8 @@ _MAX_GLOBAL_QUEUED    = 50  # hard cap on total active+queued jobs
 # In-process rate limiter for job creation (no external dependency)
 # ---------------------------------------------------------------------------
 
-class _TokenBucket:
-    """Allow at most `rate` requests per `per` seconds per key."""
-
-    def __init__(self, rate: int, per: float) -> None:
-        self._rate = rate
-        self._per = per
-        self._lock = threading.Lock()
-        self._tokens: dict[str, float] = {}
-        self._last: dict[str, float] = {}
-
-    def allow(self, key: str) -> bool:
-        now = time.monotonic()
-        with self._lock:
-            last = self._last.get(key, now)
-            tokens = self._tokens.get(key, float(self._rate))
-            tokens = min(float(self._rate), tokens + (now - last) * (self._rate / self._per))
-            self._last[key] = now
-            if tokens >= 1:
-                self._tokens[key] = tokens - 1
-                return True
-            self._tokens[key] = tokens
-            return False
-
-
 # 5 job-creation requests per user per 60 seconds
-_create_limiter = _TokenBucket(rate=5, per=60.0)
+_create_limiter = TokenBucket(rate=5, per=60.0)
 
 
 def _assert_owns(job: dict[str, Any], current_user: CurrentUser) -> None:

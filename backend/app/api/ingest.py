@@ -23,10 +23,13 @@ from typing import Any
 
 from pathlib import Path
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import StreamingResponse, PlainTextResponse
 from pydantic import BaseModel, Field
 
+from app.core.auth import CurrentUser, require_role
+from app.core import metrics as _metrics
+from app.core.rate_limit import TokenBucket
 from app.services.ingest_job_runner import (
     create_ingest_job,
     start_ingest_job_background,
@@ -88,6 +91,12 @@ class VideoIngestStatus(BaseModel):
 # Helpers
 # ---------------------------------------------------------------------------
 
+# 3 sync/re-sync triggers per admin per 5 minutes — the pipeline itself is
+# also serialized to one job at a time (see _is_job_running), but that only
+# limits concurrency, not request rate.
+_trigger_limiter = TokenBucket(rate=3, per=300.0)
+
+
 def _is_job_running() -> str | None:
     """Return job_id of any currently running/queued ingest job, or None."""
     jobs = list_ingest_jobs(limit=10)
@@ -143,7 +152,10 @@ def _derive_overall_status(stages: dict[str, dict[str, Any]]) -> str:
 # ---------------------------------------------------------------------------
 
 @router.post("/sync", status_code=202)
-def trigger_sync(body: SyncRequest | None = None) -> dict[str, Any]:
+def trigger_sync(
+    body: SyncRequest | None = None,
+    current_user: CurrentUser = Depends(require_role("admin")),
+) -> dict[str, Any]:
     """
     Trigger a full YouTube channel sync.
 
@@ -152,6 +164,13 @@ def trigger_sync(body: SyncRequest | None = None) -> dict[str, Any]:
 
     Only one sync job can run at a time. Returns 409 if one is already active.
     """
+    if not _trigger_limiter.allow(current_user.id):
+        _metrics.rate_limit_rejections_total.labels(limiter="ingest_trigger").inc()
+        raise HTTPException(
+            status_code=429,
+            detail="Too many ingest triggers. Please wait before starting another sync.",
+        )
+
     req = body or SyncRequest()
 
     running_id = _is_job_running()
@@ -183,13 +202,23 @@ def trigger_sync(body: SyncRequest | None = None) -> dict[str, Any]:
 # ---------------------------------------------------------------------------
 
 @router.post("/videos/{video_id}/sync", status_code=202)
-def trigger_single_video_sync(video_id: str) -> dict[str, Any]:
+def trigger_single_video_sync(
+    video_id: str,
+    current_user: CurrentUser = Depends(require_role("admin")),
+) -> dict[str, Any]:
     """
     Re-trigger ingestion for a specific video_id (e.g. to retry after failure).
 
     This creates a new ingest job that will only process the given video.
     It bypasses the discovery stage and goes straight to download/process.
     """
+    if not _trigger_limiter.allow(current_user.id):
+        _metrics.rate_limit_rejections_total.labels(limiter="ingest_trigger").inc()
+        raise HTTPException(
+            status_code=429,
+            detail="Too many ingest triggers. Please wait before starting another sync.",
+        )
+
     from app.core.paths import RAW_VIDEO_DIR
     from app.core.settings import settings
     from app.services.ingest_store import upsert_video_stage

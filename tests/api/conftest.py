@@ -55,7 +55,7 @@ def api_app(mock_settings, mock_job_store, monkeypatch):
 
     monkeypatch.setattr(main, "_reap_orphaned_jobs", lambda: None)
     monkeypatch.setattr(main, "_reap_orphaned_ingest_jobs", lambda: None)
-    monkeypatch.setattr(video_jobs, "_create_limiter", video_jobs._TokenBucket(rate=5, per=60.0))
+    monkeypatch.setattr(video_jobs, "_create_limiter", video_jobs.TokenBucket(rate=5, per=60.0))
 
     for path in (
         mock_settings.ai4ia_local_exports_dir,

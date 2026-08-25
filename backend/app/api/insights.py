@@ -4,9 +4,14 @@ from pydantic import BaseModel, Field
 from app.api.deps import require_models
 from app.core.auth import CurrentUser, get_current_user
 from app.core.config import INSIGHT_DEFAULT_LIMIT
+from app.core import metrics as _metrics
+from app.core.rate_limit import TokenBucket
 from app.services import insight_service, model_gate
 
 router = APIRouter(prefix="/insights", tags=["Insights"])
+
+# 10 generation requests per user per 60 seconds
+_insight_limiter = TokenBucket(rate=10, per=60.0)
 
 
 class GenerateInsightRequest(BaseModel):
@@ -20,6 +25,12 @@ class GenerateInsightRequest(BaseModel):
     dependencies=[Depends(require_models(model_gate.EMBEDDING, model_gate.LLM))],
 )
 def api_generate_insight(req: GenerateInsightRequest, current_user: CurrentUser = Depends(get_current_user)):
+    if not _insight_limiter.allow(current_user.id):
+        _metrics.rate_limit_rejections_total.labels(limiter="insights_generate").inc()
+        raise HTTPException(
+            status_code=429,
+            detail="Too many requests. Please wait before trying again.",
+        )
     try:
         return insight_service.generate_insight(req.query, req.filters, req.limit, user_id=current_user.id)
     except ValueError as exc:
@@ -29,13 +40,13 @@ def api_generate_insight(req: GenerateInsightRequest, current_user: CurrentUser 
 
 
 @router.get("")
-def api_list_insights():
+def api_list_insights(current_user: CurrentUser = Depends(get_current_user)):
     items = insight_service.list_insights()
     return {"count": len(items), "insights": items}
 
 
 @router.get("/{insight_id}")
-def api_get_insight(insight_id: str):
+def api_get_insight(insight_id: str, current_user: CurrentUser = Depends(get_current_user)):
     insight = insight_service.get_insight(insight_id)
     if not insight:
         raise HTTPException(status_code=404, detail="Insight not found")
@@ -43,7 +54,7 @@ def api_get_insight(insight_id: str):
 
 
 @router.get("/{insight_id}/sources")
-def api_insight_sources(insight_id: str):
+def api_insight_sources(insight_id: str, current_user: CurrentUser = Depends(get_current_user)):
     insight = insight_service.get_insight(insight_id)
     if not insight:
         raise HTTPException(status_code=404, detail="Insight not found")

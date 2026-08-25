@@ -2,11 +2,27 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
 from app.api.deps import require_models
+from app.core.auth import CurrentUser, get_current_user
+from app.core import metrics as _metrics
+from app.core.rate_limit import TokenBucket
 from app.services import comparison_service, model_gate
 
 router = APIRouter(tags=["Comparison & Relay"])
 
 _model_gate_dep = [Depends(require_models(model_gate.EMBEDDING, model_gate.LLM))]
+
+# 10 requests per user per 60 seconds, shared across the 3 routes below —
+# they are comparable-cost LLM operations.
+_compare_limiter = TokenBucket(rate=10, per=60.0)
+
+
+def _check_rate_limit(current_user: CurrentUser) -> None:
+    if not _compare_limiter.allow(current_user.id):
+        _metrics.rate_limit_rejections_total.labels(limiter="compare").inc()
+        raise HTTPException(
+            status_code=429,
+            detail="Too many requests. Please wait before trying again.",
+        )
 
 
 class CompareSpeakersRequest(BaseModel):
@@ -35,16 +51,19 @@ def _run(fn, *args):
 
 
 @router.post("/compare/speakers", dependencies=_model_gate_dep)
-def api_compare_speakers(req: CompareSpeakersRequest):
+def api_compare_speakers(req: CompareSpeakersRequest, current_user: CurrentUser = Depends(get_current_user)):
+    _check_rate_limit(current_user)
     return _run(comparison_service.compare_speakers, req.speakers, req.topic,
                 req.limit_per_speaker)
 
 
 @router.post("/synthesis/theme", dependencies=_model_gate_dep)
-def api_synthesize_theme(req: ThemeSynthesisRequest):
+def api_synthesize_theme(req: ThemeSynthesisRequest, current_user: CurrentUser = Depends(get_current_user)):
+    _check_rate_limit(current_user)
     return _run(comparison_service.synthesize_theme, req.theme, req.limit)
 
 
 @router.post("/relay", dependencies=_model_gate_dep)
-def api_build_relay(req: RelayRequest):
+def api_build_relay(req: RelayRequest, current_user: CurrentUser = Depends(get_current_user)):
+    _check_rate_limit(current_user)
     return _run(comparison_service.build_relay, req.topic, req.limit)

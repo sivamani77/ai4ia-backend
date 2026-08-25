@@ -311,7 +311,7 @@ def test_video_job_rate_limit_and_capacity(client, mock_job_store, monkeypatch):
     )
     assert response.status_code == 429
 
-    monkeypatch.setattr(video_jobs_module, "_create_limiter", video_jobs_module._TokenBucket(rate=5, per=60.0))
+    monkeypatch.setattr(video_jobs_module, "_create_limiter", video_jobs_module.TokenBucket(rate=5, per=60.0))
     monkeypatch.setattr(
         video_jobs_module,
         "list_jobs",

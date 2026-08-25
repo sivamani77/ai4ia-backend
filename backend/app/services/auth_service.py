@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 import logging
-import threading
-import time
 from datetime import datetime, timedelta, timezone
 
 from fastapi import HTTPException
@@ -10,6 +8,7 @@ from fastapi import HTTPException
 import uuid
 
 from app.core import metrics as _metrics
+from app.core.rate_limit import TokenBucket
 from app.core.security import (
     create_access_token,
     generate_otp_code,
@@ -46,32 +45,8 @@ _PERSONA_TO_DB = {"general": "user", "expert": "researcher"}
 _DB_TO_PERSONA = {"user": "general", "researcher": "expert", "admin": "admin"}
 
 
-class _TokenBucket:
-    """Allow at most `rate` requests per `per` seconds per key."""
-
-    def __init__(self, rate: int, per: float) -> None:
-        self._rate = rate
-        self._per = per
-        self._lock = threading.Lock()
-        self._tokens: dict[str, float] = {}
-        self._last: dict[str, float] = {}
-
-    def allow(self, key: str) -> bool:
-        now = time.monotonic()
-        with self._lock:
-            last = self._last.get(key, now)
-            tokens = self._tokens.get(key, float(self._rate))
-            tokens = min(float(self._rate), tokens + (now - last) * (self._rate / self._per))
-            self._last[key] = now
-            if tokens >= 1:
-                self._tokens[key] = tokens - 1
-                return True
-            self._tokens[key] = tokens
-            return False
-
-
-_otp_resend_limiter = _TokenBucket(rate=1, per=60.0)
-_login_limiter = _TokenBucket(rate=5, per=60.0)
+_otp_resend_limiter = TokenBucket(rate=1, per=60.0)
+_login_limiter = TokenBucket(rate=5, per=60.0)
 
 
 def _to_ui_persona(db_persona: str | None) -> str:
