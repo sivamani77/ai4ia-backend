@@ -237,6 +237,7 @@ def generate_text(
     model: str | None = None,
     temperature: float = 0.3,
     _trace: dict | None = None,
+    system: str | None = None,
 ) -> str:
     resolved_model = model or VLLM_MODEL
     base_url = _VLLM_BASE_URL_BY_MODEL.get(resolved_model, VLLM_BASE_URL)
@@ -245,12 +246,15 @@ def generate_text(
     response_text = ""
     error_str: str | None = None
 
+    messages = [{"role": "system", "content": system}] if system else []
+    messages.append({"role": "user", "content": prompt})
+
     try:
         data, retry_count = _post_with_retries(
             f"{base_url}{VLLM_CHAT_ENDPOINT}",
             {
                 "model": resolved_model,
-                "messages": [{"role": "user", "content": prompt}],
+                "messages": messages,
                 "temperature": temperature,
                 "max_completion_tokens": 4096,
                 "stream": False,
@@ -277,6 +281,7 @@ def generate_json(
     model: str | None = None,
     temperature: float = 0.2,
     _trace: dict | None = None,
+    system: str | None = None,
 ) -> Any:
     """Generate and parse JSON.
 
@@ -285,6 +290,10 @@ def generate_json(
     - Strong model (any model in _VLLM_BASE_URL_BY_MODEL, or explicit
       override) → vLLM /v1/chat/completions, on whichever vLLM host that
       model actually lives on
+
+    `system`, when given, is sent as a real system-role message on the vLLM
+    path and as Ollama's native top-level "system" field on the Ollama path —
+    kept separate from `prompt` at the transport layer either way.
     """
     resolved_model = model or FAST_LLM_MODEL
     use_vllm = resolved_model in _VLLM_BASE_URL_BY_MODEL
@@ -295,11 +304,13 @@ def generate_json(
 
     try:
         if use_vllm:
+            messages = [{"role": "system", "content": system}] if system else []
+            messages.append({"role": "user", "content": prompt})
             data, retry_count = _post_with_retries(
                 f"{_VLLM_BASE_URL_BY_MODEL[resolved_model]}{VLLM_CHAT_ENDPOINT}",
                 {
                     "model": resolved_model,
-                    "messages": [{"role": "user", "content": prompt}],
+                    "messages": messages,
                     "temperature": temperature,
                     "max_completion_tokens": 4096,
                     "stream": False,
@@ -307,15 +318,18 @@ def generate_json(
             )
             raw = (data["choices"][0]["message"]["content"] or "").strip()
         else:
+            ollama_payload: dict[str, Any] = {
+                "model": resolved_model,
+                "prompt": prompt,
+                "stream": False,
+                "format": "json",
+                "options": {"temperature": temperature},
+            }
+            if system:
+                ollama_payload["system"] = system
             data, retry_count = _post_with_retries(
                 f"{OLLAMA_BASE_URL}/api/generate",
-                {
-                    "model": resolved_model,
-                    "prompt": prompt,
-                    "stream": False,
-                    "format": "json",
-                    "options": {"temperature": temperature},
-                },
+                ollama_payload,
             )
             raw = (data.get("response") or "").strip()
 

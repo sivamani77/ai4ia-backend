@@ -2,6 +2,7 @@
 import json
 from typing import Any
 
+from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
 from app.pipeline.validate_gen.json_utils import extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries
 
@@ -37,7 +38,7 @@ RULES:
   "fragment_id" field from that entry entirely rather than guessing.
 
 OUTPUT: Respond with ONLY a valid JSON object. No markdown, no commentary outside the JSON.
-"""
+""" + UNTRUSTED_CONTENT_NOTICE
 
 
 def assemble_narrative_with_llm(
@@ -81,9 +82,7 @@ def assemble_narrative_with_llm(
     target_words = max(40, int(per_section_s * 2.5))
     min_sentences = max(3, round(target_words / 15))
 
-    prompt = f"""{NARRATIVE_ASSEMBLY_SYSTEM}
-
-USER PROMPT: "{user_prompt}"
+    user_text = f"""USER PROMPT: {wrap_untrusted(user_prompt)}
 TARGET DURATION: {target_duration} seconds
 TARGET WORDS PER NARRATION_BROLL SEGMENT: ~{target_words} words (about {min_sentences}-{min_sentences + 2} sentences) — do not undershoot this, thin narration gets replaced downstream.
 
@@ -91,7 +90,7 @@ NARRATIVE SECTIONS:
 {sections_json}
 
 APPROVED CANDIDATE CLIPS:
-{candidates_json}
+{wrap_untrusted(candidates_json)}
 
 Build the final documentary timeline.
 
@@ -153,7 +152,10 @@ Return JSON with this exact structure:
     try:
         raw = post_with_retries({
             "model": STRONG_LLM_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
+            "messages": [
+                {"role": "system", "content": NARRATIVE_ASSEMBLY_SYSTEM},
+                {"role": "user", "content": user_text},
+            ],
             "temperature": 0.3,
             # This model emits its reasoning trace before the actual answer, and for
             # a full-narrative assembly (multiple sections + a full final_timeline)

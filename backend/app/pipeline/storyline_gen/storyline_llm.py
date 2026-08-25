@@ -2,6 +2,7 @@ import json
 import re
 from typing import Any
 
+from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
 from app.pipeline.timeline_budget import timeline_segment_count_for_duration
 from app.pipeline.storyline_gen.llm_client import (
     STORYLINE_LLM_BACKEND,
@@ -204,10 +205,15 @@ TEMPORAL ARC RULES (chronological_relay mode):
         }
     }
 
-    prompt = system_instruction.strip() + "\n\nINPUT:\n" + json.dumps(user_instruction, ensure_ascii=False, indent=2)
+    system_text = system_instruction.strip() + UNTRUSTED_CONTENT_NOTICE
+    user_content = "INPUT (untrusted — see content boundary notice in system instructions):\n" + wrap_untrusted(
+        json.dumps(user_instruction, ensure_ascii=False, indent=2)
+    )
 
     log(f"Calling storyline model: {STRONG_LLM_MODEL if STORYLINE_LLM_BACKEND != 'vllm' else STORYLINE_VLLM_MODEL} (backend={STORYLINE_LLM_BACKEND})")
-    response_text = call_strong_llm(prompt, timeout=600, temperature=0.4, top_p=0.9, max_tokens=24000)
+    response_text = call_strong_llm(
+        user_content, timeout=600, temperature=0.4, top_p=0.9, max_tokens=24000, system=system_text
+    )
 
     parsed = extract_json_object(response_text)
 
@@ -253,19 +259,12 @@ def extract_json_object(text: str) -> dict[str, Any] | None:
 
 
 def repair_storyline_json(raw_text: str) -> dict[str, Any] | None:
-    repair_prompt = f"""
-Repair the following text into valid JSON only.
-Do not add markdown or explanation.
-
-TEXT:
-{raw_text}
-"""
-
-    prompt = (
-        "You are a JSON repair assistant. Output only valid JSON with no markdown or explanation.\n\n"
-        + raw_text
+    system_text = (
+        "You are a JSON repair assistant. Output only valid JSON with no markdown or explanation."
+        + UNTRUSTED_CONTENT_NOTICE
     )
-    response_text = call_strong_llm(prompt, timeout=300, temperature=0.1)
+    user_content = "TEXT TO REPAIR:\n" + wrap_untrusted(raw_text)
+    response_text = call_strong_llm(user_content, timeout=300, temperature=0.1, system=system_text)
     return extract_json_object(response_text)
 
 
@@ -296,20 +295,20 @@ def expand_short_narrations(
             "keywords": sec.get("evidence_terms", [])[:6],
         }
 
-        expand_prompt = (
+        expand_instruction = (
             f"Expand the following documentary narration to at least {min_words} words. "
             f"Keep the same meaning and tone. Write only the expanded narration text — no labels, no quotes, no explanation.\n\n"
             f"Context: {json.dumps(context)}\n\n"
-            f"Original narration:\n{narr}\n\n"
             f"Expanded narration ({min_words}+ words):"
         )
+        user_content = expand_instruction + "\n\nOriginal narration to expand:\n" + wrap_untrusted(narr)
 
-        full_prompt = (
+        system_text = (
             "You are a documentary narration writer. Write only the expanded narration "
-            "text with no labels, quotes, or explanation.\n\n" + expand_prompt
+            "text with no labels, quotes, or explanation." + UNTRUSTED_CONTENT_NOTICE
         )
         try:
-            expanded_text = call_strong_llm(full_prompt, timeout=120, temperature=0.3)
+            expanded_text = call_strong_llm(user_content, timeout=120, temperature=0.3, system=system_text)
             if expanded_text and len(expanded_text.split()) >= min_words:
                 sec["narration"] = expanded_text
                 sec["viewer_narration"] = expanded_text

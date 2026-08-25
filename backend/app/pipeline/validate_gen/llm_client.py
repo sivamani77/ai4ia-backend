@@ -64,8 +64,10 @@ def _record_dep(host: str, ok: bool, latency_s: float, error: str | None = None)
 def _to_ollama_generate_payload(payload: dict[str, Any]) -> dict[str, Any]:
     """Translate an OpenAI-chat-shaped payload (model/messages/temperature/
     max_completion_tokens) into Ollama's /api/generate shape (model/prompt/
-    options.temperature/options.num_ctx). All call sites in this module use a
-    single user-role message, so the prompt is just that message's content.
+    options.temperature/options.num_ctx). Role-separated: any role="system"
+    messages are joined into Ollama's native top-level "system" field; every
+    other message (role="user", etc.) is joined into "prompt" — preserving
+    real system/user separation instead of flattening both into one string.
 
     Deliberately does NOT set the top-level "format": "json" flag: verified live
     against this Ollama host that gpt-oss:120b returns an EMPTY response when
@@ -77,10 +79,13 @@ def _to_ollama_generate_payload(payload: dict[str, Any]) -> dict[str, Any]:
     with extract_json_object/extract_json_array, so plain prompting works fine —
     prefer that over a "format" flag that silently breaks this model."""
     messages = payload.get("messages") or []
-    prompt = "\n\n".join(
-        str(m.get("content") or "") for m in messages if m.get("content")
+    system_text = "\n\n".join(
+        str(m.get("content") or "") for m in messages if m.get("role") == "system" and m.get("content")
     )
-    return {
+    prompt = "\n\n".join(
+        str(m.get("content") or "") for m in messages if m.get("role") != "system" and m.get("content")
+    )
+    result: dict[str, Any] = {
         "model": payload.get("model"),
         "prompt": prompt,
         "stream": False,
@@ -89,6 +94,9 @@ def _to_ollama_generate_payload(payload: dict[str, Any]) -> dict[str, Any]:
             "num_ctx": payload.get("max_completion_tokens", 4096),
         },
     }
+    if system_text:
+        result["system"] = system_text
+    return result
 
 
 def _to_vllm_chat_payload(payload: dict[str, Any]) -> dict[str, Any]:

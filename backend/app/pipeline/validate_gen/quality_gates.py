@@ -2,10 +2,24 @@
 import json
 from typing import Any
 
+from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
 from app.pipeline.validate_gen.fragment_validation import _quote_ends_completely, _quote_starts_cleanly
 from app.pipeline.validate_gen.json_utils import extract_json_array, extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries
 from app.pipeline.validate_gen.narrative_templates import DEEPFAKE_VISUAL_ASSET_PLANS, GENERIC_VISUAL_ASSET_PLANS
+
+# Fixed instructional preamble for the timeline-repair LLM call — kept
+# separate from the (untrusted) user_prompt/current-timeline content that
+# _build_repair_prompt interpolates, so the two are sent as distinct
+# system/user messages rather than one flattened string.
+_REPAIR_SYSTEM = "You are repairing a documentary video timeline that failed automated quality gates." + UNTRUSTED_CONTENT_NOTICE
+
+_TOPUP_VET_SYSTEM = (
+    "You are validating archive clips for topical relevance to a documentary. "
+    "These clips were added to reach the requested video duration. For EACH "
+    "clip decide whether its excerpt is topically relevant enough to include "
+    "(related themes are acceptable; only reject clearly off-topic content)."
+) + UNTRUSTED_CONTENT_NOTICE
 
 # Maximum iterations for the narrative quality-gate repair loop
 MAX_VALIDATION_ITERATIONS = 3
@@ -263,8 +277,11 @@ def _build_repair_prompt(
     user_prompt: str,
     iteration: int,
     target_duration: int = 120,
-) -> str:
-    """Build a structured LLM repair prompt describing failing gates and repair rules."""
+) -> tuple[str, str]:
+    """Build a structured LLM repair prompt describing failing gates and repair
+    rules. Returns (system, user) — user_prompt and the current timeline
+    summary (both untrusted: user-submitted / transcript-derived) are wrapped
+    via wrap_untrusted() rather than concatenated raw into the instructions."""
     failed_gates = [k for k, v in quality_gates.items() if isinstance(v, bool) and not v]
     offending = quality_gates.get("offending_items", {})
 
@@ -311,13 +328,13 @@ def _build_repair_prompt(
         indent=2,
     )
 
-    return (
+    user = (
         f"The validated timeline (iteration {iteration}) failed these quality gates:\n"
         f"{failure_report}\n\n"
-        f'ORIGINAL USER PROMPT: "{user_prompt}"\n'
+        f"ORIGINAL USER PROMPT: {wrap_untrusted(user_prompt)}\n"
         f"TARGET DURATION: {target_duration} seconds\n\n"
         f"REQUIRED NARRATIVE SECTIONS (all must be present):\n{sections_json}\n\n"
-        f"CURRENT TIMELINE:\n{current_tl_summary}\n\n"
+        f"CURRENT TIMELINE:\n{wrap_untrusted(current_tl_summary)}\n\n"
         "REPAIR RULES:\n"
         "1. Demote any speaker_clip with quote_complete=false to narration_broll.\n"
         "2. Ensure all narrative sections are present.\n"
@@ -342,6 +359,7 @@ def _build_repair_prompt(
         '"visual_title": "Context: Key Concepts", "visual_asset_type": "diagram"}\n'
         "]\n"
     )
+    return _REPAIR_SYSTEM, user
 
 
 def _llm_repair_timeline(
@@ -353,13 +371,16 @@ def _llm_repair_timeline(
     target_duration: int = 120,
 ) -> "list | None":
     """Ask LLM to repair a failed timeline. Returns new timeline list or None on failure."""
-    prompt = _build_repair_prompt(
+    system_text, user_text = _build_repair_prompt(
         current_timeline, quality_gates, narrative_sections, user_prompt, iteration, target_duration
     )
     try:
         raw = post_with_retries({
             "model": STRONG_LLM_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
+            "messages": [
+                {"role": "system", "content": system_text},
+                {"role": "user", "content": user_text},
+            ],
             "temperature": 0.3,
             "max_completion_tokens": 10000,
             "stream": False,
@@ -547,14 +568,10 @@ def _llm_vet_topup_items(items: list[dict[str, Any]], user_prompt: str) -> set[s
         indent=2,
     )
 
-    prompt = f"""You are validating archive clips for a documentary about: "{user_prompt}"
-
-These clips were added to reach the requested video duration. For EACH clip decide
-whether its excerpt is topically relevant enough to include (related themes are
-acceptable; only reject clearly off-topic content).
+    user_text = f"""DOCUMENTARY TOPIC: {wrap_untrusted(user_prompt)}
 
 CLIPS:
-{items_json}
+{wrap_untrusted(items_json)}
 
 Return ONLY a JSON array, one entry per clip:
 [{{"fragment_id": "...", "approved": true}}]
@@ -562,7 +579,10 @@ Return ONLY a JSON array, one entry per clip:
     try:
         raw = post_with_retries({
             "model": STRONG_LLM_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
+            "messages": [
+                {"role": "system", "content": _TOPUP_VET_SYSTEM},
+                {"role": "user", "content": user_text},
+            ],
             "temperature": 0.1,
             "max_completion_tokens": 2048,
             "stream": False,

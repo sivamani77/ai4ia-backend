@@ -93,6 +93,7 @@ def call_strong_llm(
     temperature: float = 0.4,
     top_p: float | None = None,
     max_tokens: int = 8192,
+    system: str | None = None,
 ) -> str:
     """Call STRONG_LLM_MODEL via whichever backend is configured
     (STORYLINE_LLM_BACKEND), returning the raw response text.
@@ -101,6 +102,10 @@ def call_strong_llm(
     every call site below just deals with a prompt string, regardless of
     backend — matches the pattern already used in
     scripts/07b_validate_storyline_with_llm.py.
+
+    `system`, when given, is sent as a real system-role message on the vLLM
+    path and as Ollama's native top-level "system" field on the Ollama
+    path — kept separate from `prompt` at the transport layer either way.
 
     max_tokens caps the vLLM response only (Ollama's /api/generate has no
     equivalent cap here — it already runs until natural completion). Callers
@@ -111,9 +116,11 @@ def call_strong_llm(
     """
     if STORYLINE_LLM_BACKEND == "vllm":
         url = STORYLINE_VLLM_BASE_URL.rstrip("/") + CHAT_ENDPOINT
+        messages = [{"role": "system", "content": system}] if system else []
+        messages.append({"role": "user", "content": prompt})
         payload = {
             "model": STORYLINE_VLLM_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
+            "messages": messages,
             "temperature": temperature,
             "max_completion_tokens": max_tokens,
             "stream": False,
@@ -141,12 +148,14 @@ def call_strong_llm(
     options: dict[str, Any] = {"temperature": temperature, "num_ctx": 32000}
     if top_p is not None:
         options["top_p"] = top_p
-    payload = {
+    payload: dict[str, Any] = {
         "model": STRONG_LLM_MODEL,
         "prompt": prompt,
         "stream": False,
         "options": options,
     }
+    if system:
+        payload["system"] = system
     data = post_with_retries(url, payload, timeout=timeout)
     return (data.get("response") or "").strip()
 

@@ -5,6 +5,7 @@ from typing import Any
 
 import httpx
 
+from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
 from app.pipeline.validate_gen.json_utils import extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries, post_with_retries_async
 from app.pipeline.validate_gen.narrative_templates import DEEPFAKE_VOICEOVER_DEFAULTS, GENERIC_VOICEOVER_DEFAULTS
@@ -48,7 +49,7 @@ RULES:
 - The final video must follow the narrative structure provided: hook → context → evidence/impact → challenges → responses → synthesis.
 
 OUTPUT: Respond with ONLY a valid JSON object. No markdown, no explanation outside the JSON.
-"""
+""" + UNTRUSTED_CONTENT_NOTICE
 
 
 def _extract_speaker_from_video_title(source_video: str) -> str:
@@ -155,8 +156,15 @@ def _build_validation_prompt(
     narrative_sections: list[dict[str, Any]],
     user_prompt: str,
     target_duration: int,
-) -> tuple[str, str]:
-    """Build the per-fragment validation prompt. Returns (prompt, fragment_id)."""
+) -> tuple[str, str, str]:
+    """Build the per-fragment validation prompt. Returns (system, user, fragment_id).
+
+    user_prompt, the candidate's transcript text, and the surrounding
+    transcript are all untrusted content (user-submitted or sourced from
+    ingested video) — each is wrapped via wrap_untrusted() rather than
+    concatenated raw into the prompt, so it can never be mistaken for an
+    instruction by the model.
+    """
     frag_id = candidate.get("fragment_id", "?")
     frag_start = float(candidate.get("start") or 0)
     frag_end = float(candidate.get("end") or frag_start + 10)
@@ -172,9 +180,7 @@ def _build_validation_prompt(
         for s in narrative_sections
     )
 
-    prompt = f"""{CANDIDATE_VALIDATION_SYSTEM}
-
-USER PROMPT: "{user_prompt}"
+    user = f"""USER PROMPT: {wrap_untrusted(user_prompt)}
 TARGET VIDEO DURATION: {target_duration} seconds
 
 NARRATIVE SECTIONS:
@@ -186,12 +192,12 @@ CANDIDATE FRAGMENT:
   start: {frag_start:.2f}s
   end: {frag_end:.2f}s
   duration: {frag_end - frag_start:.2f}s
-  text: "{text}"
+  text: {wrap_untrusted(text)}
   speech_quality: speech_ratio={speech_quality.get("speech_ratio", 0):.2f}, is_usable={speech_quality.get("is_usable_speech", False)}
   moment_scores: completeness={moment_scores.get("quote_completeness_score", 0):.2f}, final={moment_scores.get("final_moment_score", 0):.2f}
 
 SURROUNDING TRANSCRIPT (lines marked <<<FRAGMENT>>> are the selected fragment):
-{context_text if context_text else "  (no transcript available)"}
+{wrap_untrusted(context_text) if context_text else "  (no transcript available)"}
 
 Decide how to use this fragment. If the fragment text starts or ends mid-sentence, check if the surrounding transcript extends it into a complete thought, and if so, provide expanded quote_start/quote_end.
 
@@ -213,7 +219,7 @@ Return JSON with these exact fields:
   "confidence": 0.85
 }}
 """
-    return prompt, frag_id
+    return CANDIDATE_VALIDATION_SYSTEM, user, frag_id
 
 
 def _parse_validation_result(raw: str, frag_id: str) -> dict[str, Any] | None:
@@ -234,13 +240,16 @@ def validate_candidate_with_llm(
     user_prompt: str,
     target_duration: int,
 ) -> dict[str, Any] | None:
-    prompt, frag_id = _build_validation_prompt(
+    system_text, user_text, frag_id = _build_validation_prompt(
         candidate, context_window, narrative_sections, user_prompt, target_duration
     )
     try:
         raw = post_with_retries({
             "model": STRONG_LLM_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
+            "messages": [
+                {"role": "system", "content": system_text},
+                {"role": "user", "content": user_text},
+            ],
             "temperature": 0.3,
             "max_completion_tokens": 4096,
             "stream": False,
@@ -260,14 +269,17 @@ async def validate_candidate_with_llm_async(
     client: httpx.AsyncClient,
     semaphore: asyncio.Semaphore,
 ) -> dict[str, Any] | None:
-    prompt, frag_id = _build_validation_prompt(
+    system_text, user_text, frag_id = _build_validation_prompt(
         candidate, context_window, narrative_sections, user_prompt, target_duration
     )
     async with semaphore:
         try:
             raw = await post_with_retries_async({
                 "model": STRONG_LLM_MODEL,
-                "messages": [{"role": "user", "content": prompt}],
+                "messages": [
+                    {"role": "system", "content": system_text},
+                    {"role": "user", "content": user_text},
+                ],
                 "temperature": 0.3,
                 "max_completion_tokens": 4096,
                 "stream": False,
