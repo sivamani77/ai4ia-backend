@@ -5,7 +5,6 @@ from typing import Any, Mapping, TypedDict
 
 import psycopg2.extras
 
-from app.core.settings import settings
 from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one
 from app.db.utils import normalize_value
 
@@ -30,9 +29,7 @@ class IngestStatusRecord(TypedDict, total=False):
 
 
 class IngestStatusRepository:
-    """Ingest status rows live in Postgres; reads fall back to the legacy
-    Supabase pipeline project for rows not yet backfilled. Writes go to
-    Postgres only."""
+    """Ingest status rows live entirely in the cluster Postgres database."""
 
     table_name = "ingest_status"
 
@@ -63,15 +60,13 @@ class IngestStatusRepository:
             "select * from ingest_status where video_id = %s and stage = %s limit 1",
             (video_id, stage),
         )
-        if row is not None:
-            return self._normalize_output(row)
-        return self._legacy_get(video_id, stage)
+        return self._normalize_output(row) if row is not None else None
 
     def get_for_video(self, video_id: str) -> list[IngestStatusRecord]:
         """All stage rows for a single video, ordered by stage definition order."""
         self._log("select_video", video_id)
         rows = pg_fetch_all("select * from ingest_status where video_id = %s", (video_id,))
-        records = [self._normalize_output(row) for row in rows] or self._legacy_get_for_video(video_id)
+        records = [self._normalize_output(row) for row in rows]
         stage_order = list(VALID_STAGES)
         return sorted(records, key=lambda r: stage_order.index(r["stage"]) if r["stage"] in stage_order else 99)
 
@@ -99,40 +94,6 @@ class IngestStatusRepository:
             ("embed", "completed"),
         )
         return {row["video_id"] for row in rows}
-
-    # -- legacy Supabase fallback (read-only) --------------------------------
-
-    def _legacy_table(self):
-        if not settings.supabase_url or not settings.supabase_service_key:
-            return None
-        try:
-            from app.db.supabase import get_supabase_client
-            return get_supabase_client().table(self.table_name)
-        except Exception:
-            logger.exception("Legacy Supabase ingest_status client unavailable")
-            return None
-
-    def _legacy_get(self, video_id: str, stage: str) -> IngestStatusRecord | None:
-        table = self._legacy_table()
-        if table is None:
-            return None
-        try:
-            response = table.select("*").eq("video_id", video_id).eq("stage", stage).limit(1).execute()
-        except Exception:
-            logger.exception("Legacy ingest_status select failed video_id=%s stage=%s", video_id, stage)
-            return None
-        return self._normalize_output(response.data[0]) if response.data else None
-
-    def _legacy_get_for_video(self, video_id: str) -> list[IngestStatusRecord]:
-        table = self._legacy_table()
-        if table is None:
-            return []
-        try:
-            response = table.select("*").eq("video_id", video_id).execute()
-        except Exception:
-            logger.exception("Legacy ingest_status select_video failed video_id=%s", video_id)
-            return []
-        return [self._normalize_output(row) for row in response.data or []]
 
     # -- row shaping ----------------------------------------------------------
 

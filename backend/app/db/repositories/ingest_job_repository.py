@@ -5,7 +5,6 @@ from typing import Any, Mapping, TypedDict
 
 import psycopg2.extras
 
-from app.core.settings import settings
 from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one
 from app.db.utils import normalize_value
 
@@ -27,8 +26,7 @@ class IngestJobRecord(TypedDict, total=False):
 
 
 class IngestJobRepository:
-    """Ingest jobs live in Postgres; reads fall back to the legacy Supabase
-    pipeline project for rows not yet backfilled. Writes go to Postgres only."""
+    """Ingest jobs live entirely in the cluster Postgres database."""
 
     table_name = "ingest_jobs"
 
@@ -54,9 +52,7 @@ class IngestJobRepository:
     def get_job(self, record_id: str) -> IngestJobRecord | None:
         self._log("select_one", record_id)
         row = pg_fetch_one("select * from ingest_jobs where id = %s limit 1", (record_id,))
-        if row is not None:
-            return self._normalize_output(row)
-        return self._legacy_get_job(record_id)
+        return self._normalize_output(row) if row is not None else None
 
     def upsert_job(self, data: Mapping[str, Any]) -> None:
         payload = self._normalize_input(data)
@@ -84,9 +80,7 @@ class IngestJobRepository:
     def list_jobs(self, limit: int = 50) -> list[IngestJobRecord]:
         self._log("select_many")
         rows = pg_fetch_all("select * from ingest_jobs order by created_at desc limit %s", (limit,))
-        if rows:
-            return [self._normalize_output(row) for row in rows]
-        return self._legacy_list_jobs(limit)
+        return [self._normalize_output(row) for row in rows]
 
     def list_running_jobs(self) -> list[IngestJobRecord]:
         """Return jobs in queued or running state (used for orphan reaping)."""
@@ -96,40 +90,6 @@ class IngestJobRepository:
             (["queued", "running"],),
         )
         return [self._normalize_output(row) for row in rows]
-
-    # -- legacy Supabase fallback (read-only) --------------------------------
-
-    def _legacy_table(self):
-        if not settings.supabase_url or not settings.supabase_service_key:
-            return None
-        try:
-            from app.db.supabase import get_supabase_client
-            return get_supabase_client().table(self.table_name)
-        except Exception:
-            logger.exception("Legacy Supabase ingest_jobs client unavailable")
-            return None
-
-    def _legacy_get_job(self, record_id: str) -> IngestJobRecord | None:
-        table = self._legacy_table()
-        if table is None:
-            return None
-        try:
-            response = table.select("*").eq("id", record_id).limit(1).execute()
-        except Exception:
-            logger.exception("Legacy ingest_jobs select failed id=%s", record_id)
-            return None
-        return self._normalize_output(response.data[0]) if response.data else None
-
-    def _legacy_list_jobs(self, limit: int) -> list[IngestJobRecord]:
-        table = self._legacy_table()
-        if table is None:
-            return []
-        try:
-            response = table.select("*").order("created_at", desc=True).limit(limit).execute()
-        except Exception:
-            logger.exception("Legacy ingest_jobs list failed")
-            return []
-        return [self._normalize_output(row) for row in response.data or []]
 
     # -- row shaping ----------------------------------------------------------
 

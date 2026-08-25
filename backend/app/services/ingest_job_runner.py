@@ -168,18 +168,22 @@ def _run_script(
     stage: str,
     timeout: int = 7200,
 ) -> tuple[int, str, str]:
-    """Run a script subprocess, writing stdout/stderr line-by-line in real time.
+    """Run a script subprocess, streaming stdout/stderr line-by-line in real time.
 
-    Log files grow during execution so the SSE log-tail endpoint can stream
-    live output. Returns (returncode, stdout, stderr) for backward compat.
+    Lines are written to per-job log files (so the SSE log-tail endpoint can
+    stream live output) AND to the server logger, so subprocess output —
+    e.g. yt-dlp's actual error text — lands in `kubectl logs`/celery stdout
+    instead of being stuck in a file operators can't easily reach.
+    Returns (returncode, stdout, stderr) for backward compat.
     """
     import threading as _threading
 
+    log = _log(job_id)
     log_dir = DATA_DIR / "jobs" / job_id / "logs"
     log_dir.mkdir(parents=True, exist_ok=True)
 
     cmd = [PYTHON_BIN, str(script)] + args
-    _log(job_id).info("Running %s: %s", stage, " ".join(cmd))
+    log.info("Running %s: %s", stage, " ".join(cmd))
 
     stdout_log = log_dir / f"{stage}.stdout.log"
     stderr_log = log_dir / f"{stage}.stderr.log"
@@ -187,14 +191,18 @@ def _run_script(
     stdout_log.write_text("")
     stderr_log.write_text("")
 
-    def _drain(pipe, log_path: Path) -> str:
-        """Read pipe line by line, appending to log file in real time."""
+    def _drain(pipe, log_path: Path, level: int) -> str:
+        """Read pipe line by line, appending to the log file and the server
+        logger (real time) so failures are visible without a shell into the pod."""
         buf: list[str] = []
         try:
             with open(log_path, "a", buffering=1) as fh:
                 for line in pipe:
                     fh.write(line)
                     buf.append(line)
+                    stripped = line.rstrip("\n")
+                    if stripped:
+                        log.log(level, "[%s] %s", stage, stripped)
         except Exception:
             pass
         return "".join(buf)
@@ -213,10 +221,10 @@ def _run_script(
         stderr_buf: list[str] = []
 
         def _drain_stdout():
-            stdout_buf.append(_drain(proc.stdout, stdout_log))
+            stdout_buf.append(_drain(proc.stdout, stdout_log, logging.INFO))
 
         def _drain_stderr():
-            stderr_buf.append(_drain(proc.stderr, stderr_log))
+            stderr_buf.append(_drain(proc.stderr, stderr_log, logging.WARNING))
 
         t_out = _threading.Thread(target=_drain_stdout, daemon=True)
         t_err = _threading.Thread(target=_drain_stderr, daemon=True)
@@ -232,15 +240,28 @@ def _run_script(
             msg = f"Script timed out after {timeout}s: {script}"
             with open(stderr_log, "a") as fh:
                 fh.write(f"\n{msg}\n")
+            log.error("%s: %s", stage, msg)
             return -1, "".join(stdout_buf), msg
 
         t_out.join()
         t_err.join()
-        return proc.returncode, "".join(stdout_buf), "".join(stderr_buf)
+        stdout_all = "".join(stdout_buf)
+        stderr_all = "".join(stderr_buf)
+
+        if proc.returncode not in (0, 101):  # 101 = yt-dlp --max-downloads reached (expected)
+            log.error(
+                "%s exited rc=%d — last stderr:\n%s",
+                stage, proc.returncode, stderr_all[-2000:] or "(no stderr captured)",
+            )
+        else:
+            log.info("%s finished rc=%d", stage, proc.returncode)
+
+        return proc.returncode, stdout_all, stderr_all
 
     except Exception as exc:
         msg = str(exc)
         stderr_log.write_text(msg)
+        log.exception("%s: failed to launch subprocess: %s", stage, msg)
         return -1, "", msg
 
 
@@ -346,7 +367,8 @@ def _stage_discover(job_id: str, channel_url: str, video_limit: int | None) -> l
     if video_limit:
         cmd += ["--max-downloads", str(video_limit)]
 
-    _log(job_id).info("Discovering channel: %s", channel_url)
+    disc_log = _log(job_id)
+    disc_log.info("Discovering channel: %s", channel_url)
 
     try:
         result = subprocess.run(
@@ -358,6 +380,9 @@ def _stage_discover(job_id: str, channel_url: str, video_limit: int | None) -> l
         raise RuntimeError(
             "yt-dlp is not installed. Install it with: pip install yt-dlp"
         )
+
+    if result.stderr:
+        disc_log.warning("yt-dlp discovery stderr:\n%s", result.stderr[-2000:])
 
     if result.returncode not in (0, 101):  # 101 = max-downloads reached (expected)
         raise RuntimeError(f"yt-dlp discovery failed (rc={result.returncode}): {result.stderr[:500]}")
@@ -423,6 +448,10 @@ def _stage_discover(job_id: str, channel_url: str, video_limit: int | None) -> l
         new_count=len(new_videos),
         skipped_count=skipped,
         total_count=len(channel_videos),
+    )
+    disc_log.info(
+        "Discover stage: %d total on channel, %d new, %d already downloaded",
+        len(channel_videos), len(new_videos), skipped,
     )
     append_ingest_event(job_id, "discover_completed", {
         "new_videos": new_videos,
@@ -531,6 +560,15 @@ def _stage_download(job_id: str, new_videos: list[dict[str, Any]], channel_url: 
         downloaded=downloaded_ids,
         failed=failed_ids,
     )
+    if downloaded_ids:
+        _log(job_id).info("Download stage: %d/%d videos downloaded", len(downloaded_ids), len(new_videos))
+    else:
+        _log(job_id).error(
+            "Download stage: 0/%d videos downloaded (yt-dlp rc=%d) — see the [download] "
+            "lines above for the actual yt-dlp error. Common causes: no JS runtime in the "
+            "worker image for YouTube's challenge, or a bot-check/sign-in wall on this IP.",
+            len(new_videos), returncode,
+        )
     return downloaded_ids
 
 

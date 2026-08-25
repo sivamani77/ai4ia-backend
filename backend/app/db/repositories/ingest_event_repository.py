@@ -5,7 +5,6 @@ from typing import Any, Mapping, TypedDict
 
 import psycopg2.extras
 
-from app.core.settings import settings
 from app.db.postgres import pg_fetch_all, pg_fetch_one
 from app.db.utils import normalize_value
 
@@ -21,9 +20,7 @@ class IngestEventRecord(TypedDict, total=False):
 
 
 class IngestEventRepository:
-    """Ingest job events live in Postgres; reads fall back to the legacy
-    Supabase pipeline project for rows not yet backfilled. Writes go to
-    Postgres only."""
+    """Ingest job events live entirely in the cluster Postgres database."""
 
     table_name = "ingest_job_events"
 
@@ -51,9 +48,7 @@ class IngestEventRepository:
             "select * from ingest_job_events where job_id = %s order by id asc",
             (job_id,),
         )
-        if rows:
-            return [self._normalize_output(row) for row in rows]
-        return self._legacy_get_events(job_id)
+        return [self._normalize_output(row) for row in rows]
 
     def get_events_after(self, job_id: str, after_id: int | None = 0) -> list[IngestEventRecord]:
         """Cursor-based fetch for SSE streaming. Returns events with id > after_id."""
@@ -66,29 +61,6 @@ class IngestEventRepository:
             (job_id, after_id),
         )
         return [self._normalize_output(row) for row in rows]
-
-    # -- legacy Supabase fallback (read-only) --------------------------------
-
-    def _legacy_table(self):
-        if not settings.supabase_url or not settings.supabase_service_key:
-            return None
-        try:
-            from app.db.supabase import get_supabase_client
-            return get_supabase_client().table(self.table_name)
-        except Exception:
-            logger.exception("Legacy Supabase ingest_job_events client unavailable")
-            return None
-
-    def _legacy_get_events(self, job_id: str) -> list[IngestEventRecord]:
-        table = self._legacy_table()
-        if table is None:
-            return []
-        try:
-            response = table.select("*").eq("job_id", job_id).order("id", desc=False).execute()
-        except Exception:
-            logger.exception("Legacy ingest_job_events select failed job_id=%s", job_id)
-            return []
-        return [self._normalize_output(row) for row in response.data or []]
 
     # -- row shaping ----------------------------------------------------------
 

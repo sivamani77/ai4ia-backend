@@ -11,10 +11,16 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /app
 
 # Install system dependencies
+# nodejs: yt-dlp needs a JS runtime >=20 to solve YouTube's JS challenge in
+# scripts/01_download_videos.py; without it, downloads silently fail as
+# "not available" for every video.
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ffmpeg \
         curl \
         libgomp1 \
+        ca-certificates \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy only dependency files first (improves layer caching)
