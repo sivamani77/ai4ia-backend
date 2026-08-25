@@ -38,8 +38,16 @@ class TestBuildWhere:
         assert len(result["$and"]) == 2
 
     def test_unknown_filter_key_ignored(self):
-        result = self._build({"speaker": "Alice"})
+        result = self._build({"not_a_real_filter": "Alice"})
         assert result is None
+
+    def test_speaker_filter(self):
+        # speaker is a plain Chroma metadata field (written verbatim by
+        # import_embeddings_to_chroma.py) — confirmed live: a semantic
+        # search filtered by speaker was silently ignoring it and
+        # returning unrelated top-K matches until this was added.
+        result = self._build({"speaker": "Ashwini Kotaru"})
+        assert result == {"speaker": {"$eq": "Ashwini Kotaru"}}
 
     def test_none_value_ignored(self):
         result = self._build({"theme": None})

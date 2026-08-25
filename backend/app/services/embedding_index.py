@@ -188,8 +188,19 @@ def _build_where(filters: dict) -> dict | None:
     """Convert API filter dict to a ChromaDB where clause.
 
     Only fields stored as Chroma metadata scalars are filtered here.
-    Fields that live only in Postgres (speaker, edition, year) are left
-    to post-filtering by callers on the returned fragment dicts.
+    `edition`/`year` are derived facets computed only when a fragment is
+    written to Postgres (see migrate_fragments_to_postgres.py's
+    derive_facets() call) — Chroma has no equivalent field, so those two
+    genuinely can't be filtered here and are silently ignored (no caller
+    currently post-filters by them either — a real gap, but a separate,
+    lower-impact one than speaker was).
+
+    `speaker`, by contrast, WAS wrongly excluded here: it's a plain Chroma
+    metadata field (written verbatim by import_embeddings_to_chroma.py's
+    sanitize_metadata()) and always has been. Confirmed live: filters:
+    {"speaker": "Ashwini Kotaru"} silently returned unrelated top-K
+    semantic matches instead of her fragments, because this function
+    dropped the filter and nothing downstream ever re-applied it.
     """
     # Caller-facing filter keys ("theme", "chapter") stay as-is; the Chroma
     # metadata field names are primary_theme/primary_chapter (verbatim from
@@ -199,6 +210,7 @@ def _build_where(filters: dict) -> dict | None:
         "theme": "primary_theme",
         "chapter": "primary_chapter",
         "audio_quality_status": "audio_quality_status",
+        "speaker": "speaker",
     }
     clauses: list[dict] = []
     for filter_key, chroma_field in field_map.items():

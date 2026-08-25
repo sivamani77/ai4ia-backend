@@ -41,6 +41,7 @@ dependencies = [
     "opentelemetry-instrumentation-httpx==0.44b0",
     "opentelemetry-instrumentation-psycopg2==0.44b0",
     "opentelemetry-instrumentation-logging==0.44b0",
+    "yt-dlp",
     # opentelemetry-instrumentation==0.44b0 imports pkg_resources at runtime,
     # which setuptools>=81 no longer ships. Pin below that.
     "setuptools<81",
