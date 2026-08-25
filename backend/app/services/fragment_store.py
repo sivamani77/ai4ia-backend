@@ -54,6 +54,14 @@ def by_facet(facet: str, value: str) -> list[dict]:
     return [dict(r) for r in FragmentRepository().search(**kwargs)]
 
 
+def list_fragment_ids_by_source_video(source_video: str) -> list[str]:
+    return FragmentRepository().list_fragment_ids_by_source_video(source_video)
+
+
+def delete_many(fragment_ids: list[str]) -> list[str]:
+    return FragmentRepository().delete_many(fragment_ids)
+
+
 def speakers_summary() -> list[dict]:
     """Aggregate speakers via DB group-by. Result cached for 60s."""
     global _speakers_cache

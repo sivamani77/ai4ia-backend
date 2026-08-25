@@ -363,6 +363,9 @@ def delete_video_artifacts(video_stem: str, confirm: str = ""):
     if not stem:
         raise HTTPException(status_code=400, detail="video_stem must not be empty")
 
+    # --- find phase (read-only) ---------------------------------------
+    fragment_ids = fragment_store.list_fragment_ids_by_source_video(stem)
+
     search_prefixes = [
         "raw/youtube/ai4ia_channel/",
         "raw/audio/",
@@ -381,16 +384,48 @@ def delete_video_artifacts(video_stem: str, confirm: str = ""):
             matched_by_prefix[prefix] = len(keys)
             all_keys.extend(keys)
 
-    if not all_keys:
+    if not all_keys and not fragment_ids:
         raise HTTPException(status_code=404, detail=f"No artifacts found for stem '{stem}'")
 
-    deleted = _delete_keys(all_keys)
+    # --- delete phase: Chroma -> Postgres -> S3 -------------------------
+    # Chroma goes first and aborts everything else on failure: search()
+    # falls back to raw Chroma metadata when a fragment has no Postgres
+    # row, so a fragment stays fully retrievable as long as its vector
+    # exists — Chroma is the layer that actually has to go for "deleted"
+    # content to stop being citable in new storylines.
+    embeddings_deleted = 0
+    fragments_deleted: list[str] = []
+    if fragment_ids:
+        try:
+            embeddings_deleted = embedding_index.delete(fragment_ids)
+        except Exception as exc:
+            raise HTTPException(
+                status_code=502,
+                detail=f"Failed to delete embeddings from ChromaDB — aborting before Postgres/S3 delete: {exc}",
+            )
+        try:
+            fragments_deleted = fragment_store.delete_many(fragment_ids)
+        except Exception as exc:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Embeddings deleted, but failed to delete fragment rows from Postgres: {exc}",
+            )
+
+    try:
+        deleted = _delete_keys(all_keys) if all_keys else 0
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Fragments/embeddings deleted, but failed to delete S3 objects: {exc}",
+        )
 
     return {
         "status": "deleted",
         "video_stem": stem,
         "deleted_count": deleted,
         "deleted_by_prefix": matched_by_prefix,
+        "fragments_deleted": len(fragments_deleted),
+        "embeddings_deleted": embeddings_deleted,
     }
 
 

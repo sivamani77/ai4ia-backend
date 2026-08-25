@@ -296,6 +296,88 @@ class TestEmbeddingIndexSearch:
 
 
 # ---------------------------------------------------------------------------
+# EmbeddingIndex.delete
+# ---------------------------------------------------------------------------
+
+class TestEmbeddingIndexDelete:
+    def test_delete_calls_collection_delete_with_ids(self):
+        from app.services.embedding_index import EmbeddingIndex
+        idx = EmbeddingIndex()
+        mock_collection = MagicMock()
+        idx._collection = mock_collection
+        idx._loaded = True
+
+        result = idx.delete(["frag_0", "frag_1"])
+
+        mock_collection.delete.assert_called_once_with(ids=["frag_0", "frag_1"])
+        assert result == 2
+
+    def test_delete_empty_list_is_a_noop(self):
+        from app.services.embedding_index import EmbeddingIndex
+        idx = EmbeddingIndex()
+        mock_collection = MagicMock()
+        idx._collection = mock_collection
+        idx._loaded = True
+
+        result = idx.delete([])
+
+        mock_collection.delete.assert_not_called()
+        assert result == 0
+
+    def test_delete_raises_when_collection_none(self):
+        from app.services.embedding_index import EmbeddingIndex
+        idx = EmbeddingIndex()
+        idx._loaded = True
+        idx._collection = None
+
+        with pytest.raises(RuntimeError, match="ChromaDB collection not available"):
+            idx.delete(["frag_0"])
+
+    def test_delete_triggers_load_if_not_loaded(self):
+        from app.services.embedding_index import EmbeddingIndex
+        idx = EmbeddingIndex()
+        mock_collection = MagicMock()
+        mock_client = MagicMock()
+        mock_client.get_collection.return_value = mock_collection
+
+        with patch("app.services.embedding_index.settings.chroma_mode", "local"), \
+             patch("app.services.embedding_index._make_client", return_value=mock_client):
+            idx.delete(["frag_0"])
+
+        assert idx._loaded is True
+        mock_collection.delete.assert_called_once_with(ids=["frag_0"])
+
+
+class TestHttpCollectionDelete:
+    def test_delete_posts_ids_to_delete_endpoint(self):
+        from app.services.embedding_index import _HttpCollection
+
+        col = _HttpCollection("http://chroma:8000/api/v2", "col-id", "fragments", {"Accept": "application/json"})
+
+        captured = {}
+
+        class _FakeResponse:
+            def __enter__(self):
+                return self
+            def __exit__(self, *a):
+                return False
+            def read(self):
+                return b""
+
+        def fake_urlopen(req, timeout=30):
+            import json as _json
+            captured["url"] = req.full_url
+            captured["body"] = _json.loads(req.data)
+            return _FakeResponse()
+
+        with patch("urllib.request.urlopen", side_effect=fake_urlopen):
+            col.delete(["frag_0", "frag_1"])
+
+        assert captured["url"] == f"{col._col_url}/delete"
+        assert captured["body"] == {"ids": ["frag_0", "frag_1"]}
+
+
+# ---------------------------------------------------------------------------
 # Module-level API (backward-compatible singleton)
 # ---------------------------------------------------------------------------
 
@@ -329,3 +411,14 @@ class TestModuleLevelApi:
             result = ei.reload()
 
         assert result == {"fragments": 5}
+
+    def test_delete_delegates_to_instance(self):
+        from app.services import embedding_index as ei
+        mock_instance = MagicMock()
+        mock_instance.delete.return_value = 2
+
+        with patch.object(ei, "_get_instance", return_value=mock_instance):
+            result = ei.delete(["frag_0", "frag_1"])
+
+        mock_instance.delete.assert_called_once_with(["frag_0", "frag_1"])
+        assert result == 2

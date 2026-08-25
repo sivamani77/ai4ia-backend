@@ -58,6 +58,15 @@ class _HttpCollection:
         with urllib.request.urlopen(req, timeout=30) as r:
             return _json.loads(r.read())
 
+    def delete(self, ids: list) -> None:
+        import urllib.request, json as _json
+        body = {"ids": ids}
+        data = _json.dumps(body).encode()
+        req = urllib.request.Request(f"{self._col_url}/delete", data=data,
+                                     headers={**self._headers, "Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            r.read()
+
 
 def _make_http_collection(collection_name: str) -> "_HttpCollection":
     """Connect to ChromaDB over raw HTTP, bypassing the broken 1.5.x Python client init."""
@@ -179,6 +188,28 @@ class EmbeddingIndex:
 
         return results
 
+    # ------------------------------------------------------------------
+    # Delete
+    # ------------------------------------------------------------------
+
+    def delete(self, fragment_ids: list[str]) -> int:
+        """Remove fragments from the index by id. Raises if the collection
+        isn't available — deletion must fail closed, never silently no-op,
+        since a fragment stays fully retrievable via search() as long as its
+        Chroma vector exists (search() falls back to raw Chroma metadata
+        when the Postgres row is missing)."""
+        if not fragment_ids:
+            return 0
+        with self._lock:
+            if not self._loaded:
+                self.load()
+            if self._collection is None:
+                raise RuntimeError(
+                    "ChromaDB collection not available — cannot delete fragments."
+                )
+            self._collection.delete(ids=fragment_ids)
+        return len(fragment_ids)
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -247,3 +278,7 @@ def search(query: str, top_k: int = 20, filters: dict | None = None) -> list[dic
 
 def reload() -> dict[str, int]:
     return _get_instance().reload()
+
+
+def delete(fragment_ids: list[str]) -> int:
+    return _get_instance().delete(fragment_ids)

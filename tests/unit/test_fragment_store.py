@@ -26,6 +26,10 @@ def _mock_repo(fragments: list[dict[str, Any]] | None = None) -> MagicMock:
     repo.speakers_aggregate.return_value = [
         {"speaker": "Alice", "fragment_count": 2, "video_count": 1}
     ]
+    repo.list_fragment_ids_by_source_video.side_effect = lambda source_video: [
+        f["fragment_id"] for f in frags if f.get("source_video") == source_video
+    ]
+    repo.delete_many.side_effect = lambda fragment_ids: list(fragment_ids)
     return repo
 
 
@@ -178,6 +182,47 @@ class TestByFacet:
         with patch("app.services.fragment_store.FragmentRepository", return_value=mock_repo):
             result = fs.by_facet("edition", "AI4IA 2025")
         assert len(result) == 1
+
+
+# ---------------------------------------------------------------------------
+# list_fragment_ids_by_source_video / delete_many
+# ---------------------------------------------------------------------------
+
+class TestDeleteBySourceVideo:
+    def test_list_fragment_ids_by_source_video_returns_matching_ids(self):
+        import app.services.fragment_store as fs
+        frags = [
+            make_fragment("v1_0001", source_video="v1"),
+            make_fragment("v1_0002", source_video="v1"),
+            make_fragment("v2_0001", source_video="v2"),
+        ]
+        repo = _mock_repo(frags)
+        with patch("app.services.fragment_store.FragmentRepository", return_value=repo):
+            result = fs.list_fragment_ids_by_source_video("v1")
+        assert result == ["v1_0001", "v1_0002"]
+
+    def test_list_fragment_ids_by_source_video_no_match_returns_empty(self):
+        import app.services.fragment_store as fs
+        repo = _mock_repo([make_fragment("v1_0001", source_video="v1")])
+        with patch("app.services.fragment_store.FragmentRepository", return_value=repo):
+            result = fs.list_fragment_ids_by_source_video("nonexistent")
+        assert result == []
+
+    def test_delete_many_returns_deleted_ids(self):
+        import app.services.fragment_store as fs
+        repo = _mock_repo()
+        with patch("app.services.fragment_store.FragmentRepository", return_value=repo):
+            result = fs.delete_many(["v1_0001", "v1_0002"])
+        assert result == ["v1_0001", "v1_0002"]
+        repo.delete_many.assert_called_once_with(["v1_0001", "v1_0002"])
+
+    def test_delete_many_empty_list(self):
+        import app.services.fragment_store as fs
+        repo = _mock_repo()
+        repo.delete_many.side_effect = lambda ids: []
+        with patch("app.services.fragment_store.FragmentRepository", return_value=repo):
+            result = fs.delete_many([])
+        assert result == []
 
 
 # ---------------------------------------------------------------------------

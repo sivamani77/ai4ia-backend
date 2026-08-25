@@ -207,6 +207,28 @@ class FragmentRepository:
 
         return results
 
+    def list_fragment_ids_by_source_video(self, source_video: str) -> list[str]:
+        self._log("select_ids_by_source_video", source_video)
+        rows = pg_fetch_all(
+            "select fragment_id from fragments where source_video = %s", (source_video,)
+        )
+        return [row["fragment_id"] for row in rows]
+
+    # -- deletes ----------------------------------------------------------
+
+    def delete_many(self, fragment_ids: list[str]) -> list[str]:
+        """Delete by explicit id list (not by source_video again) so the
+        caller can delete exactly the ids it already removed from Chroma —
+        never a superset picked up by a second, later-running query."""
+        if not fragment_ids:
+            return []
+        self._log("delete_many", f"{len(fragment_ids)} ids")
+        rows = pg_fetch_all(
+            "delete from fragments where fragment_id = any(%s) returning fragment_id",
+            (list(fragment_ids),),
+        )
+        return [row["fragment_id"] for row in rows]
+
     def count(self) -> int:
         self._log("count")
         if not self._pg_has_data():
