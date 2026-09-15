@@ -1,0 +1,111 @@
+{
+  "database": "postgres_pipeline",
+  "table": "ingest_status",
+  "source": "backend/app/db/schema.py",
+  "description": "Per-video, per-stage ingest state. The unique (video_id, stage) key makes stages idempotently resumable.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigserial",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "video_id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "stage",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Pipeline stage name (download, extract_audio, transcribe, ...)."
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "nullable": false,
+      "default": "'pending'",
+      "description": ""
+    },
+    {
+      "name": "job_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "ingest_jobs.id."
+    },
+    {
+      "name": "error",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "metadata",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "unique_constraints": [
+    {
+      "columns": [
+        "video_id",
+        "stage"
+      ]
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_ingest_status_video_id",
+      "columns": [
+        "video_id"
+      ]
+    },
+    {
+      "name": "idx_ingest_status_stage_status",
+      "columns": [
+        "stage",
+        "status"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "ingest_jobs",
+      "column": "job_id",
+      "enforced": false
+    },
+    {
+      "type": "references",
+      "table": "videos",
+      "column": "video_id",
+      "enforced": false
+    }
+  ]
+}

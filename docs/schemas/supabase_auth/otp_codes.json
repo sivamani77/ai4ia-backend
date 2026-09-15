@@ -1,0 +1,98 @@
+{
+  "database": "supabase_auth",
+  "table": "otp_codes",
+  "source": "backend/app/db/repositories/otp_repository.py + db/migrations/0005_otp_email_change_purposes.sql",
+  "schema_confidence": "derived_from_code_and_migrations",
+  "description": "One-time codes for signup verification, password reset/change, and email change. Only the latest unused code per (email, purpose) is valid.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "nullable": false,
+      "default": "gen_random_uuid()",
+      "description": ""
+    },
+    {
+      "name": "email",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Target address; queried together with purpose."
+    },
+    {
+      "name": "user_id",
+      "type": "uuid",
+      "nullable": true,
+      "default": null,
+      "description": "app_users.id; null for pre-account flows.",
+      "on_delete": "cascade"
+    },
+    {
+      "name": "purpose",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Constrained by otp_codes_purpose_check (migration 0005 added the two email_change values).",
+      "enum": [
+        "signup",
+        "password_reset",
+        "password_change",
+        "email_change",
+        "email_change_old"
+      ]
+    },
+    {
+      "name": "code_hash",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Hashed code - the plaintext code is never stored."
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": null,
+      "description": "now() + settings.otp_ttl_minutes."
+    },
+    {
+      "name": "attempts",
+      "type": "integer",
+      "nullable": true,
+      "default": "0",
+      "description": "Incremented on each failed verification."
+    },
+    {
+      "name": "used_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": "Non-null once consumed or invalidated by a newer code."
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "check_constraints": [
+    {
+      "name": "otp_codes_purpose_check",
+      "expression": "purpose in ('signup', 'password_reset', 'password_change', 'email_change', 'email_change_old')"
+    }
+  ],
+  "indexes": [],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "app_users",
+      "column": "user_id",
+      "on_delete": "cascade"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "database": "supabase_auth",
+  "table": "refresh_tokens",
+  "source": "backend/app/db/repositories/refresh_token_repository.py",
+  "schema_confidence": "derived_from_code",
+  "description": "Rotating refresh tokens grouped into families. Replaying a used token revokes its whole family.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "nullable": false,
+      "default": "gen_random_uuid()",
+      "description": ""
+    },
+    {
+      "name": "user_id",
+      "type": "uuid",
+      "nullable": false,
+      "default": null,
+      "description": "app_users.id.",
+      "on_delete": "cascade"
+    },
+    {
+      "name": "token_hash",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Hashed token; looked up directly, so effectively unique."
+    },
+    {
+      "name": "family_id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Rotation lineage id; also used as user_sessions.id in the pipeline DB."
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": "now()",
+      "description": ""
+    },
+    {
+      "name": "used_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": "Set when rotated; a second use means reuse detection."
+    },
+    {
+      "name": "revoked_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "user_agent",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "ip",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "indexes": [],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "app_users",
+      "column": "user_id",
+      "on_delete": "cascade"
+    },
+    {
+      "type": "logical",
+      "table": "user_sessions",
+      "database": "postgres_pipeline",
+      "via": "family_id -> user_sessions.id",
+      "enforced": false
+    }
+  ]
+}

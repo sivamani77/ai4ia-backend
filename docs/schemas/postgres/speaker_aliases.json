@@ -1,0 +1,47 @@
+{
+  "database": "postgres_pipeline",
+  "table": "speaker_aliases",
+  "source": "backend/app/db/schema.py",
+  "description": "Alias -> canonical speaker name mapping used to normalize fragments.speaker.",
+  "primary_key": [
+    "alias"
+  ],
+  "columns": [
+    {
+      "name": "alias",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "canonical_name",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "FK to speakers.canonical_name."
+    }
+  ],
+  "indexes": [],
+  "foreign_keys": [
+    {
+      "columns": [
+        "canonical_name"
+      ],
+      "references": {
+        "table": "speakers",
+        "columns": [
+          "canonical_name"
+        ]
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "speakers",
+      "column": "canonical_name",
+      "enforced": true
+    }
+  ]
+}

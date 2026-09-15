@@ -1,0 +1,80 @@
+{
+  "project": "AI4IA backend",
+  "generated_from": "repository DDL (db/init, db/migrations, backend/app/db/schema.py) and repository classes under backend/app/db/repositories",
+  "generated_on": "2026-09-11",
+  "databases": [
+    {
+      "key": "postgres_pipeline",
+      "kind": "postgres",
+      "connection_setting": "DATABASE_URL",
+      "client": "psycopg2 (backend/app/db/postgres.py)",
+      "description": "Pipeline database. Migrated off Supabase; the REST/PostgREST layer caused 'Server disconnected' on long jobs, so these tables are now reached directly.",
+      "schema_source_of_truth": "backend/app/db/schema.py::ensure_pipeline_schema() (run at API startup); db/init/001_schema.sql mirrors it for fresh containers",
+      "tables": [
+        "agent_decision_records",
+        "fragments",
+        "ingest_job_events",
+        "ingest_jobs",
+        "ingest_status",
+        "insights",
+        "job_events",
+        "jobs",
+        "llm_call_traces",
+        "speaker_aliases",
+        "speakers",
+        "storylines",
+        "user_sessions",
+        "videos"
+      ],
+      "functions": [
+        "update_job_partial"
+      ]
+    },
+    {
+      "key": "supabase_auth",
+      "kind": "supabase",
+      "connection_setting": "AUTH_SUPABASE_URL / AUTH_SUPABASE_SERVICE_KEY",
+      "client": "supabase-py via get_auth_supabase_client() (backend/app/db/supabase.py)",
+      "description": "Separate auth-only Supabase project. Managed through the Supabase SQL editor; no DDL files for these tables exist in the repo except the two ALTER migrations, so column lists are derived from the repository code.",
+      "schema_source_of_truth": "the Supabase project itself; repository TypedDicts mirror it",
+      "tables": [
+        "app_users",
+        "auth_audit",
+        "otp_codes",
+        "refresh_tokens"
+      ]
+    }
+  ],
+  "cross_database_links": [
+    {
+      "from": "postgres_pipeline.jobs.user_id",
+      "to": "supabase_auth.app_users.id",
+      "enforced": false
+    },
+    {
+      "from": "postgres_pipeline.user_sessions.user_id",
+      "to": "supabase_auth.app_users.id",
+      "enforced": false
+    },
+    {
+      "from": "supabase_auth.refresh_tokens.family_id",
+      "to": "postgres_pipeline.user_sessions.id",
+      "enforced": false
+    },
+    {
+      "from": "postgres_pipeline.agent_decision_records.user_id",
+      "to": "supabase_auth.app_users.id",
+      "enforced": false
+    },
+    {
+      "from": "postgres_pipeline.llm_call_traces.user_id",
+      "to": "supabase_auth.app_users.id",
+      "enforced": false
+    }
+  ],
+  "caveats": [
+    "No live database credentials are present in .env, so these schemas are reconstructed from the repository, not introspected from a running database.",
+    "user_sessions cites db/migrations/0005_user_sessions.sql, which does not exist in the repo (0005 is the OTP purposes migration); its columns come from session_repository.py.",
+    "Tables marked schema_confidence=derived_from_code may have additional columns or constraints that only exist in the live Supabase project."
+  ]
+}

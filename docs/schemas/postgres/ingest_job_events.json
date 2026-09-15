@@ -1,0 +1,63 @@
+{
+  "database": "postgres_pipeline",
+  "table": "ingest_job_events",
+  "source": "backend/app/db/schema.py",
+  "description": "Append-only event stream for an ingest job.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigserial",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "job_id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "type",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "data",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_ingest_job_events_job_id",
+      "columns": [
+        "job_id",
+        "id"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "ingest_jobs",
+      "column": "job_id",
+      "enforced": false
+    }
+  ]
+}

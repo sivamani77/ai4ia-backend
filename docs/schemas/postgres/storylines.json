@@ -1,0 +1,124 @@
+{
+  "database": "postgres_pipeline",
+  "table": "storylines",
+  "source": "backend/app/db/schema.py",
+  "description": "Generated storyline (the main pipeline workflow output) for a job, including its section plan and export timeline.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "job_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "jobs.id that produced this storyline."
+    },
+    {
+      "name": "title",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "logline",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "user_prompt",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "target_duration_seconds",
+      "type": "integer",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "is_validated",
+      "type": "boolean",
+      "nullable": false,
+      "default": "false",
+      "description": "Passed the editorial quality gates."
+    },
+    {
+      "name": "sections",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "selected_candidates",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": "Chosen fragment candidates per section."
+    },
+    {
+      "name": "export_timeline",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": "Ordered cut list for export."
+    },
+    {
+      "name": "editorial_quality_gates",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "full_payload",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": "Complete generated object as returned by the pipeline."
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_storylines_job_id",
+      "columns": [
+        "job_id"
+      ]
+    },
+    {
+      "name": "idx_storylines_created_at",
+      "columns": [
+        "created_at desc"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "jobs",
+      "column": "job_id",
+      "enforced": false
+    }
+  ]
+}

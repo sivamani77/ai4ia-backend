@@ -1,0 +1,125 @@
+{
+  "database": "postgres_pipeline",
+  "table": "user_sessions",
+  "source": "backend/app/db/repositories/session_repository.py (DDL file db/migrations/0005_user_sessions.sql is referenced but missing from the repo - columns below are derived from the repository code)",
+  "schema_confidence": "derived_from_code",
+  "description": "Durable login-session record. id is the refresh-token family_id, so it survives token rotation - one row per login.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Refresh-token family_id (see auth_service._issue_refresh_token)."
+    },
+    {
+      "name": "user_id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "app_users.id in the auth Supabase project (cross-database, no FK)."
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": "now()",
+      "description": ""
+    },
+    {
+      "name": "last_seen_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": "now()",
+      "description": "Bumped by touch() on each authenticated request."
+    },
+    {
+      "name": "ended_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": "Null while the session is active."
+    },
+    {
+      "name": "end_reason",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Why the session ended.",
+      "observed_values": [
+        "logout",
+        "password_reset",
+        "password_change",
+        "reuse_detected"
+      ]
+    },
+    {
+      "name": "user_agent",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "ip",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "warmup_state",
+      "type": "text",
+      "nullable": true,
+      "default": "'idle'",
+      "description": "Model warm-up status only - never gates a request.",
+      "observed_values": [
+        "idle",
+        "warming",
+        "ready",
+        "error"
+      ]
+    },
+    {
+      "name": "warmup_started_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "warmup_ready_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "warmup_error",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Truncated to 500 chars by session_service."
+    },
+    {
+      "name": "metadata",
+      "type": "jsonb",
+      "nullable": true,
+      "default": "'{}'::jsonb",
+      "description": "Normalized to {} by the repository when absent."
+    }
+  ],
+  "indexes": [],
+  "relationships": [
+    {
+      "type": "logical",
+      "table": "app_users",
+      "database": "supabase_auth",
+      "via": "user_id",
+      "enforced": false
+    }
+  ]
+}

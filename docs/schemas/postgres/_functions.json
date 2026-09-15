@@ -1,0 +1,45 @@
+{
+  "database": "postgres_pipeline",
+  "functions": [
+    {
+      "name": "update_job_partial",
+      "source": "db/migrations/0004_atomic_job_partial_update.sql, db/init/001_schema.sql",
+      "language": "plpgsql",
+      "returns": "void",
+      "description": "Atomic partial update of a jobs row. Replaces an application-side read-merge-write that lost concurrent updates; the merge happens inside one UPDATE so row locking serializes writers.",
+      "arguments": [
+        {
+          "name": "p_id",
+          "type": "text",
+          "default": null,
+          "description": "jobs.id to update."
+        },
+        {
+          "name": "p_columns",
+          "type": "jsonb",
+          "default": "null",
+          "description": "Scalar top-level columns to set; only keys present are touched."
+        },
+        {
+          "name": "p_metadata_patch",
+          "type": "jsonb",
+          "default": "null",
+          "description": "Shallow-merged into jobs.metadata via ||."
+        }
+      ],
+      "updatable_columns": [
+        "status",
+        "source_type",
+        "source_value",
+        "progress",
+        "started_at",
+        "completed_at",
+        "error",
+        "job_type",
+        "worker_id",
+        "retry_count",
+        "metadata"
+      ]
+    }
+  ]
+}
