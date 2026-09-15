@@ -31,8 +31,9 @@ class InsightRecord(TypedDict, total=False):
 
 
 class InsightRepository:
-    """Insights live in Postgres; reads fall back to the legacy Supabase
-    pipeline project for rows not yet backfilled. Writes go to Postgres only."""
+    """Insights live in Postgres (DATABASE_URL). Reads and writes both go
+    there; the legacy Supabase read fallback was removed once the pipeline
+    project was fully backfilled."""
 
     table_name = "insights"
 
@@ -56,9 +57,7 @@ class InsightRepository:
     def get(self, insight_id: str) -> InsightRecord | None:
         self._log("select_one", insight_id)
         row = pg_fetch_one("select * from insights where id = %s limit 1", (insight_id,))
-        if row is not None:
-            return self._from_row(row)
-        return self._legacy_get(insight_id)
+        return self._from_row(row) if row is not None else None
 
     def list(self, limit: int = 100) -> list[InsightRecord]:
         self._log("select_many")
@@ -66,48 +65,7 @@ class InsightRepository:
             "select id, query, title, evidence_coverage, created_at from insights order by created_at desc limit %s",
             (limit,),
         )
-        if rows:
-            return [self._from_row(row) for row in rows]
-        return self._legacy_list(limit)
-
-    # -- legacy Supabase fallback (read-only) --------------------------------
-
-    def _legacy_table(self):
-        if not settings.supabase_url or not settings.supabase_service_key:
-            return None
-        try:
-            from app.db.supabase import get_supabase_client
-            return get_supabase_client().table(self.table_name)
-        except Exception:
-            logger.exception("Legacy Supabase insights client unavailable")
-            return None
-
-    def _legacy_get(self, insight_id: str) -> InsightRecord | None:
-        table = self._legacy_table()
-        if table is None:
-            return None
-        try:
-            response = table.select("*").eq("id", insight_id).limit(1).execute()
-        except Exception:
-            logger.exception("Legacy insights select failed id=%s", insight_id)
-            return None
-        return self._from_row(response.data[0]) if response.data else None
-
-    def _legacy_list(self, limit: int) -> list[InsightRecord]:
-        table = self._legacy_table()
-        if table is None:
-            return []
-        try:
-            response = (
-                table.select("id,query,title,evidence_coverage,created_at")
-                .order("created_at", desc=True)
-                .limit(limit)
-                .execute()
-            )
-        except Exception:
-            logger.exception("Legacy insights list failed")
-            return []
-        return [self._from_row(row) for row in response.data or []]
+        return [self._from_row(row) for row in rows]
 
     # -- row shaping ----------------------------------------------------------
 

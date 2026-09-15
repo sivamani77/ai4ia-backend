@@ -20,7 +20,7 @@ def get_event_repo() -> EventRepository:
     return EventRepository()
 
 
-def _to_supabase_job(job_id: str, data: dict[str, Any]) -> dict[str, Any]:
+def _to_job_row(job_id: str, data: dict[str, Any]) -> dict[str, Any]:
     payload = data.get("payload", {})
     request = data.get("request", {})
 
@@ -48,7 +48,7 @@ def _to_supabase_job(job_id: str, data: dict[str, Any]) -> dict[str, Any]:
 
 def save_job(job_id: str, data: dict[str, Any]) -> None:
     repo = get_job_repo()
-    row = _to_supabase_job(job_id, data)
+    row = _to_job_row(job_id, data)
     repo.upsert_job(row)
     logger.info("Job persisted id=%s status=%s", job_id, data.get("status", "unknown"))
 

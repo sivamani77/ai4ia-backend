@@ -5,8 +5,6 @@ API_PREFIX = "/api"
 
 OLLAMA_BASE_URL = settings.ollama_base_url
 REDIS_URL = settings.redis_url
-SUPABASE_URL = settings.supabase_url
-SUPABASE_SERVICE_KEY = settings.supabase_service_key
 
 EMBEDDING_MODEL = settings.embedding_model
 FAST_LLM_MODEL = settings.fast_llm_model

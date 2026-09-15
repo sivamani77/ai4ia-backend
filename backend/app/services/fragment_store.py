@@ -1,4 +1,4 @@
-"""Fragment store — reads from Supabase fragments table.
+"""Fragment store — reads the fragments table from Postgres (DATABASE_URL).
 
 Public API is identical to the previous filesystem/in-memory version so all
 callers (embedding_index, insight_service, archive_service) require no changes.

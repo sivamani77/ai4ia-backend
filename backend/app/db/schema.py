@@ -193,6 +193,169 @@ def _seed_speaker_aliases() -> None:
         )
 
 
+# ---------------------------------------------------------------------------
+# Auth tables — migrated off the separate auth Supabase project.
+#
+# These used to live in their own Supabase project reached via
+# AUTH_SUPABASE_URL. They now live here, in the same database as the pipeline
+# tables, which is what makes refresh_tokens.family_id -> user_sessions.id a
+# same-database relationship instead of the unenforced cross-project link it
+# used to be. See db/migrations/0006_auth_tables_to_postgres.sql for the same
+# DDL as a reviewable migration, and scripts/migrate_auth_data_from_supabase.py
+# for the one-time data copy.
+#
+# Two deliberate choices, both to preserve existing behaviour exactly:
+#
+#   * app_users.password is NOT NULL. It is the dead legacy plaintext column;
+#     signup writes '' and upgrade_legacy_password blanks it. Dropping it is a
+#     separate change, because rows predating the Argon2id cutover still carry
+#     a value there and UserRecord still exposes it.
+#   * refresh_tokens.family_id gets an index but NOT a foreign key to
+#     user_sessions. A refresh token is issued before its session row exists in
+#     some flows, so adding that FK now would reject logins that succeed today.
+#     Enforcing it is a follow-up that needs the write order audited first.
+# ---------------------------------------------------------------------------
+
+_AUTH_STATEMENTS = [
+    # gen_random_uuid() lives in pgcrypto on older servers; on PG13+ it is
+    # built in. Creating the extension is a no-op where it is already present
+    # and harmless where it is built in.
+    "create extension if not exists pgcrypto",
+
+    """
+    create table if not exists app_users (
+        id uuid primary key default gen_random_uuid(),
+        username text not null,
+        password_hash text,
+        password text not null default '',
+        first_name text,
+        last_name text,
+        email_id text not null,
+        persona text,
+        status text default 'pending_verification',
+        email_verified boolean default false,
+        failed_login_count integer default 0,
+        locked_until timestamptz,
+        created_at timestamptz default now(),
+        updated_at timestamptz default now(),
+        constraint app_users_status_check check (
+            status in ('pending_verification', 'active', 'locked', 'deactivated')
+        )
+    )
+    """,
+    # Case-insensitive uniqueness. UserRepository.username_exists/email_exists
+    # are a TOCTOU pre-check only — these indexes are the real backstop, and
+    # the repository maps their 23505 to DuplicateUserError.
+    """
+    create unique index if not exists app_users_username_lower_key
+        on app_users (lower(username))
+    """,
+    """
+    create unique index if not exists app_users_email_lower_key
+        on app_users (lower(email_id))
+    """,
+
+    """
+    create table if not exists user_sessions (
+        id text primary key,
+        user_id uuid not null,
+        created_at timestamptz default now(),
+        last_seen_at timestamptz default now(),
+        ended_at timestamptz,
+        end_reason text,
+        user_agent text,
+        ip text,
+        warmup_state text not null default 'idle',
+        warmup_started_at timestamptz,
+        warmup_ready_at timestamptz,
+        warmup_error text,
+        metadata jsonb not null default '{}'::jsonb
+    )
+    """,
+    "create index if not exists user_sessions_user_id_idx on user_sessions (user_id)",
+    """
+    create index if not exists user_sessions_active_idx
+        on user_sessions (user_id) where ended_at is null
+    """,
+    "create index if not exists user_sessions_created_at_idx on user_sessions (created_at desc)",
+
+    """
+    create table if not exists otp_codes (
+        id uuid primary key default gen_random_uuid(),
+        email text not null,
+        user_id uuid references app_users (id) on delete cascade,
+        purpose text not null,
+        code_hash text not null,
+        expires_at timestamptz not null,
+        attempts integer default 0,
+        used_at timestamptz,
+        created_at timestamptz default now(),
+        constraint otp_codes_purpose_check check (
+            purpose in (
+                'signup', 'password_reset', 'password_change',
+                'email_change', 'email_change_old'
+            )
+        )
+    )
+    """,
+    # get_latest_active() filters on (email, purpose, used_at is null) and
+    # orders by created_at desc — this index serves that query directly.
+    """
+    create index if not exists otp_codes_lookup_idx
+        on otp_codes (email, purpose, created_at desc) where used_at is null
+    """,
+
+    """
+    create table if not exists refresh_tokens (
+        id uuid primary key default gen_random_uuid(),
+        user_id uuid not null references app_users (id) on delete cascade,
+        token_hash text not null,
+        family_id text not null,
+        expires_at timestamptz not null,
+        created_at timestamptz default now(),
+        used_at timestamptz,
+        revoked_at timestamptz,
+        user_agent text,
+        ip text
+    )
+    """,
+    # get_by_hash() is the hot path on every refresh; the hash is effectively
+    # unique, so a unique index both serves the lookup and blocks collisions.
+    """
+    create unique index if not exists refresh_tokens_token_hash_key
+        on refresh_tokens (token_hash)
+    """,
+    "create index if not exists refresh_tokens_family_idx on refresh_tokens (family_id)",
+    "create index if not exists refresh_tokens_user_idx on refresh_tokens (user_id)",
+
+    """
+    create table if not exists auth_audit (
+        id uuid primary key default gen_random_uuid(),
+        event text not null,
+        success boolean not null,
+        user_id uuid references app_users (id) on delete set null,
+        ip text,
+        user_agent text,
+        created_at timestamptz default now()
+    )
+    """,
+    "create index if not exists auth_audit_user_idx on auth_audit (user_id, created_at desc)",
+]
+
+
+def ensure_auth_schema() -> None:
+    """Create the auth tables if they don't already exist. Safe to call on
+    every startup — every statement is IF NOT EXISTS. This is what makes the
+    schema half of the Supabase migration happen automatically on deploy; the
+    data half is the one-time scripts/migrate_auth_data_from_supabase.py."""
+    for statement in _AUTH_STATEMENTS:
+        pg_execute(statement)
+    logger.info(
+        "Auth Postgres schema ensured "
+        "(app_users, user_sessions, otp_codes, refresh_tokens, auth_audit)"
+    )
+
+
 def ensure_pipeline_schema() -> None:
     """Create the pipeline tables/indexes if they don't already exist. Safe
     to call on every startup — every statement is IF NOT EXISTS."""
@@ -203,3 +366,4 @@ def ensure_pipeline_schema() -> None:
         "Pipeline Postgres schema ensured "
         "(fragments, storylines, insights, ingest_*, videos, speakers, speaker_aliases)"
     )
+    ensure_auth_schema()

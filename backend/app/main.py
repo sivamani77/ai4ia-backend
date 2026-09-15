@@ -132,7 +132,7 @@ async def _dependency_metrics_loop() -> None:
     per-request."""
     while True:
         for name, check_fn in (
-            ("supabase", _check_supabase),
+            ("postgres", _check_postgres),
             ("chroma", _check_chroma),
         ):
             start = time.perf_counter()
@@ -306,7 +306,10 @@ app.add_middleware(
 )
 
 
-def _check_supabase() -> dict:
+def _check_postgres() -> dict:
+    """Round-trips a real query against DATABASE_URL. Named for Supabase until
+    the auth migration; the pipeline tables it touches have been on Postgres
+    since well before that, so the old name described nothing."""
     try:
         from app.db.repositories.job_repository import JobRepository
         JobRepository().list_jobs()
@@ -342,8 +345,8 @@ async def health():
     # snapshot() reads Redis, so it goes through to_thread like the other
     # two — it is a blocking client, and /api/health is hit by every probe
     # on every pod. Never let it stall the event loop.
-    supabase, chroma, llm_hosts = await asyncio.gather(
-        asyncio.to_thread(_check_supabase),
+    postgres, chroma, llm_hosts = await asyncio.gather(
+        asyncio.to_thread(_check_postgres),
         asyncio.to_thread(_check_chroma),
         asyncio.to_thread(dependency_state.snapshot),
     )
@@ -353,14 +356,14 @@ async def health():
     # state — folding that into readiness would mark every API pod unready
     # whenever the GPU was correctly scaled down, and crash-loop the
     # deployment. llm_hosts below is reported for humans, never gated on.
-    all_ok = redis_up and supabase["ok"] and chroma["ok"]
+    all_ok = redis_up and postgres["ok"] and chroma["ok"]
 
     return {
         "status": "ok" if all_ok else "degraded",
         "service": settings.app_name,
         "checks": {
             "redis": {"ok": redis_up},
-            "supabase": supabase,
+            "postgres": postgres,
             "chroma": chroma,
         },
         # Last known state of vLLM/Ollama, recorded by whichever process

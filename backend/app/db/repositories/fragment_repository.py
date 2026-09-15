@@ -50,10 +50,10 @@ class FragmentRecord(TypedDict, total=False):
 
 class FragmentRepository:
     """Fragments live in Postgres (SQL-queryable) with vectors/metadata mirrored
-    in Chroma for search. Reads fall back to the legacy Supabase pipeline
-    project for rows not yet backfilled into Postgres; writes go to Postgres
-    only — see backend/app/db/schema.py for the table and
-    scripts/migrate_fragments_to_postgres.py for the one-time backfill."""
+    in Chroma for search. Reads and writes both go to Postgres; the legacy
+    Supabase read fallback was removed once the pipeline project was fully
+    backfilled — see backend/app/db/schema.py for the table and
+    scripts/migrate_fragments_to_postgres.py for that one-time backfill."""
 
     table_name = "fragments"
 
@@ -109,9 +109,7 @@ class FragmentRepository:
     def get(self, fragment_id: str) -> FragmentRecord | None:
         self._log("select_one", fragment_id)
         row = pg_fetch_one(f"select {_COLUMNS} from fragments where fragment_id = %s", (fragment_id,))
-        if row is not None:
-            return self._from_row(row)
-        return self._legacy_get(fragment_id)
+        return self._from_row(row) if row is not None else None
 
     def get_many(self, fragment_ids: list[str]) -> list[FragmentRecord]:
         """Batched lookup — one round trip instead of one `get()` call per id."""
@@ -122,16 +120,10 @@ class FragmentRepository:
             f"select {_COLUMNS} from fragments where fragment_id = any(%s)",
             (list(fragment_ids),),
         )
-        found = [self._from_row(row) for row in rows]
-        missing = set(fragment_ids) - {r["fragment_id"] for r in found}
-        if missing:
-            found.extend(self._legacy_get_many(sorted(missing)))
-        return found
+        return [self._from_row(row) for row in rows]
 
     def list_all(self, limit: int = 10000) -> list[FragmentRecord]:
         self._log("select_all")
-        if not self._pg_has_data():
-            return self._legacy_list_all(limit)
         rows = pg_fetch_all(f"select {_COLUMNS} from fragments order by fragment_id limit %s", (limit,))
         return [self._from_row(row) for row in rows]
 
@@ -153,13 +145,6 @@ class FragmentRepository:
         limit: int = 200,
     ) -> list[FragmentRecord]:
         self._log("search")
-        if not self._pg_has_data():
-            return self._legacy_search(
-                query=query, theme=theme, chapter=chapter, speaker=speaker,
-                source_video=source_video, year=year, edition=edition,
-                clip_usage=clip_usage, min_duration=min_duration, max_duration=max_duration,
-                start_after=start_after, end_before=end_before, limit=limit,
-            )
 
         clauses: list[str] = []
         params: dict[str, Any] = {"limit": limit}
@@ -231,16 +216,12 @@ class FragmentRepository:
 
     def count(self) -> int:
         self._log("count")
-        if not self._pg_has_data():
-            return self._legacy_count()
         row = pg_fetch_one("select count(*) as n from fragments")
         return int(row["n"]) if row else 0
 
     def speakers_aggregate(self) -> list[dict[str, Any]]:
         """Group-by speaker in the DB — avoids loading all rows into Python."""
         self._log("speakers_aggregate")
-        if not self._pg_has_data():
-            return self._legacy_speakers_aggregate()
         rows = pg_fetch_all(
             """
             select speaker,
@@ -266,8 +247,6 @@ class FragmentRepository:
     def chapter_counts(self) -> dict[str, int]:
         """Return {chapter_name: count} aggregated in the DB."""
         self._log("chapter_counts")
-        if not self._pg_has_data():
-            return self._legacy_chapter_counts()
         rows = pg_fetch_all(
             """
             select primary_chapter, count(*) as n
@@ -277,167 +256,6 @@ class FragmentRepository:
             """
         )
         return {row["primary_chapter"]: int(row["n"]) for row in rows}
-
-    # -- legacy Supabase fallback (read-only) ------------------------------
-
-    def _legacy_table(self):
-        """Returns the old Supabase pipeline `fragments` table, or None if no
-        legacy project is configured (e.g. it's been fully decommissioned)."""
-        if not settings.supabase_url or not settings.supabase_service_key:
-            return None
-        try:
-            from app.db.supabase import get_supabase_client
-            return get_supabase_client().table(self.table_name)
-        except Exception:
-            logger.exception("Legacy Supabase fragments client unavailable")
-            return None
-
-    def _pg_has_data(self) -> bool:
-        row = pg_fetch_one("select exists(select 1 from fragments limit 1) as has_data")
-        return bool(row and row.get("has_data"))
-
-    def _legacy_get(self, fragment_id: str) -> FragmentRecord | None:
-        table = self._legacy_table()
-        if table is None:
-            return None
-        try:
-            response = table.select("*").eq("fragment_id", fragment_id).limit(1).execute()
-        except Exception:
-            logger.exception("Legacy fragments select failed id=%s", fragment_id)
-            return None
-        return self._from_row(response.data[0]) if response.data else None
-
-    def _legacy_get_many(self, fragment_ids: list[str]) -> list[FragmentRecord]:
-        table = self._legacy_table()
-        if table is None or not fragment_ids:
-            return []
-        try:
-            response = table.select("*").in_("fragment_id", fragment_ids).execute()
-        except Exception:
-            logger.exception("Legacy fragments select_many failed count=%d", len(fragment_ids))
-            return []
-        return [self._from_row(row) for row in response.data or []]
-
-    def _legacy_list_all(self, limit: int) -> list[FragmentRecord]:
-        table = self._legacy_table()
-        if table is None:
-            return []
-        PAGE = 1000
-        all_rows: list[dict] = []
-        offset = 0
-        try:
-            while True:
-                response = (
-                    table.select("*").order("fragment_id").range(offset, offset + PAGE - 1).execute()
-                )
-                page_data = response.data or []
-                all_rows.extend(page_data)
-                if len(page_data) < PAGE or len(all_rows) >= limit:
-                    break
-                offset += PAGE
-        except Exception:
-            logger.exception("Legacy fragments list_all failed at offset=%d", offset)
-        return [self._from_row(row) for row in all_rows[:limit]]
-
-    def _legacy_search(self, *, query, theme, chapter, speaker, source_video, year,
-                        edition, clip_usage, min_duration, max_duration,
-                        start_after, end_before, limit) -> list[FragmentRecord]:
-        table = self._legacy_table()
-        if table is None:
-            return []
-        try:
-            q = table.select("*")
-            if theme:
-                q = q.ilike("primary_theme", f"%{theme}%")
-            if chapter:
-                q = q.ilike("primary_chapter", f"%{chapter}%")
-            if speaker:
-                q = q.ilike("speaker", f"%{speaker}%")
-            if source_video:
-                q = q.ilike("source_video", f"%{source_video}%")
-            if year:
-                q = q.eq("year", year)
-            if edition:
-                q = q.ilike("edition", f"%{edition}%")
-            if min_duration is not None:
-                q = q.gte("duration", min_duration)
-            if max_duration is not None:
-                q = q.lte("duration", max_duration)
-            if start_after is not None:
-                q = q.gte("start", start_after)
-            if end_before is not None:
-                q = q.lte("end", end_before)
-            response = q.limit(limit).execute()
-        except Exception:
-            logger.exception("Legacy fragments search failed")
-            return []
-
-        rows = [self._from_row(row) for row in response.data or []]
-        if query:
-            ql = query.lower()
-            rows = [r for r in rows if ql in self._search_haystack(r)]
-        return rows
-
-    def _legacy_count(self) -> int:
-        table = self._legacy_table()
-        if table is None:
-            return 0
-        try:
-            response = table.select("fragment_id", count="exact").limit(1).execute()
-            return response.count or 0
-        except Exception:
-            logger.exception("Legacy fragments count failed")
-            return 0
-
-    def _legacy_speakers_aggregate(self) -> list[dict[str, Any]]:
-        table = self._legacy_table()
-        if table is None:
-            return []
-        try:
-            response = (
-                table.select("speaker, speaker_attribution, source_video, fragment_id")
-                .not_.is_("speaker", "null")
-                .execute()
-            )
-            rows = response.data or []
-        except Exception:
-            logger.exception("Legacy fragments speakers_aggregate failed")
-            return []
-
-        counts: dict[str, dict] = {}
-        for r in rows:
-            sp = r.get("speaker")
-            if not sp:
-                continue
-            rec = counts.setdefault(sp, {
-                "speaker": sp, "fragment_count": 0, "videos": set(),
-                "attribution": r.get("speaker_attribution"),
-            })
-            rec["fragment_count"] += 1
-            rec["videos"].add(r.get("source_video"))
-
-        out = []
-        for rec in counts.values():
-            rec["video_count"] = len(rec.pop("videos"))
-            out.append(rec)
-        return sorted(out, key=lambda r: r["fragment_count"], reverse=True)
-
-    def _legacy_chapter_counts(self) -> dict[str, int]:
-        table = self._legacy_table()
-        if table is None:
-            return {}
-        try:
-            response = table.select("primary_chapter, fragment_id").not_.is_("primary_chapter", "null").execute()
-            rows = response.data or []
-        except Exception:
-            logger.exception("Legacy fragments chapter_counts failed")
-            return {}
-        counts: Counter = Counter()
-        for r in rows:
-            ch = r.get("primary_chapter")
-            if ch:
-                counts[ch] += 1
-        return dict(counts)
 
     # -- row shaping --------------------------------------------------------
 

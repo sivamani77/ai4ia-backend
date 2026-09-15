@@ -54,8 +54,6 @@ def mock_settings(tmp_path, monkeypatch):
 
     fake = MagicMock()
     fake.app_name = "AI4IA Demo Video Studio"
-    fake.supabase_url = "https://test.supabase.co"
-    fake.supabase_service_key = "test-key"
     fake.redis_url = "redis://localhost:6379/0"
     fake.project_root = tmp_path
     fake.ai4ia_local_exports_dir = tmp_path / "exports"

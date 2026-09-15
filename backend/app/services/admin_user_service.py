@@ -170,12 +170,14 @@ def reactivate_user(user_id: str) -> dict:
 
 def hard_delete_user(user_id: str) -> dict:
     """Full cascade delete — 'right to be forgotten'. Removes the account
-    AND everything attributable to it across BOTH Supabase projects:
+    AND everything attributable to it. Both groups now live in the same
+    Postgres database (DATABASE_URL), but they are still deleted in two
+    steps because only the second group is covered by FK cascades:
 
-      pipeline project: the user's jobs (+ S3/local export artifacts),
-                         job_events, llm_call_traces, agent_decision_records
-      auth project:      app_users row (cascades refresh_tokens/otp_codes/
-                         auth_audit via FK ON DELETE CASCADE)
+      pipeline tables: the user's jobs (+ S3/local export artifacts),
+                       job_events, llm_call_traces, agent_decision_records
+      auth tables:     app_users row (cascades refresh_tokens/otp_codes and
+                       nulls auth_audit.user_id via FK ON DELETE rules)
 
     Insights are NOT covered — the insights table has no user attribution
     today (a separate, larger schema change), so there is nothing to delete

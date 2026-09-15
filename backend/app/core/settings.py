@@ -82,24 +82,18 @@ class Settings(BaseSettings):
     database_url: str = "postgresql://ai4ia:ai4ia_local_dev@localhost:5432/ai4ia"
 
     # ------------------------------------------------------------------
-    # Supabase — pipeline project, LEGACY. Every pipeline table (fragments,
-    # storylines, insights, ingest_jobs, ingest_status, ingest_job_events)
-    # now lives in Postgres (app.db.schema.ensure_pipeline_schema) plus
-    # Chroma for fragment vectors. These two settings are kept only so the
-    # repositories can fall back to reading rows that predate the Postgres
-    # cutover — nothing writes through this project anymore. Safe to leave
-    # unset once a cluster's Postgres holds all pipeline data.
-    # ------------------------------------------------------------------
-    supabase_url: str = ""
-    supabase_service_key: str = ""
-
-    # ------------------------------------------------------------------
-    # Supabase — auth project (app_users, otp_codes, refresh_tokens,
-    # auth_audit). This is a SEPARATE Supabase project from the one above —
-    # app_users already existed there before the backend owned auth, and the
-    # frontend's anon/publishable key for it must never be used server-side.
-    # The backend needs that project's service-role key to hash/verify
-    # passwords and manage tokens.
+    # Supabase — MIGRATION ONLY. Nothing in the running application reads
+    # these any more: app_users/otp_codes/refresh_tokens/auth_audit moved to
+    # Postgres (see app.db.schema.ensure_auth_schema), and the legacy
+    # pipeline read-fallback was removed with them. The `supabase` SDK is no
+    # longer a dependency at all.
+    #
+    # They survive here for exactly one consumer:
+    # scripts/migrate_auth_data_from_supabase.py, the one-time data copy,
+    # which reads the Supabase auth project over PostgREST using plain
+    # `requests`. The Supabase project is retained read-only as the backup
+    # of record, so these stay set in the deployment secret rather than
+    # being deleted after cutover.
     # ------------------------------------------------------------------
     auth_supabase_url: str = ""
     auth_supabase_service_key: str = ""
@@ -405,14 +399,11 @@ class Settings(BaseSettings):
             warnings.append(
                 "Redis is localhost — jobs will not survive restarts in a cloud deployment"
             )
-        # SUPABASE_URL/SUPABASE_SERVICE_KEY are now optional: the pipeline
-        # runs on Postgres + Chroma (see app.db.schema), and these only
-        # enable a legacy read fallback for rows not yet backfilled — no
-        # warning needed when they're unset.
-        if not self.auth_supabase_url:
-            warnings.append("AUTH_SUPABASE_URL is not set — user auth (app_users) unavailable")
-        if not self.auth_supabase_service_key:
-            warnings.append("AUTH_SUPABASE_SERVICE_KEY is not set — user auth (app_users) unavailable")
+        # No Supabase warnings here any more. Auth runs on Postgres via
+        # DATABASE_URL (checked above), and AUTH_SUPABASE_* is needed only by
+        # the one-time migration script, never by the running app — warning
+        # about it at startup would be telling operators to configure
+        # something the server does not use.
         if not self.api_key:
             warnings.append("API_KEY is not set — running in open dev mode, no auth enforced")
         if not self.jwt_signing_key:

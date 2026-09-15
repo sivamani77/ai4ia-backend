@@ -5,7 +5,7 @@ def test_health_ok(client, monkeypatch):
     import app.main as main
     import app.services.video_job_runner as video_job_runner
 
-    monkeypatch.setattr(main, "_check_supabase", lambda: {"ok": True})
+    monkeypatch.setattr(main, "_check_postgres", lambda: {"ok": True})
     monkeypatch.setattr(main, "_check_chroma", lambda: {"ok": True})
     monkeypatch.setattr(main, "_check_ollama", lambda: {"ok": True})
     monkeypatch.setattr(video_job_runner, "_redis_reachable", lambda: True)
@@ -24,7 +24,7 @@ def test_health_degraded_when_dependencies_fail(client, monkeypatch):
     import app.main as main
     import app.services.video_job_runner as video_job_runner
 
-    monkeypatch.setattr(main, "_check_supabase", lambda: {"ok": False, "error": "db down"})
+    monkeypatch.setattr(main, "_check_postgres", lambda: {"ok": False, "error": "db down"})
     monkeypatch.setattr(main, "_check_chroma", lambda: {"ok": True})
     monkeypatch.setattr(main, "_check_ollama", lambda: {"ok": False, "error": "ollama down"})
     monkeypatch.setattr(video_job_runner, "_redis_reachable", lambda: False)
@@ -36,7 +36,7 @@ def test_health_degraded_when_dependencies_fail(client, monkeypatch):
     assert data["status"] == "degraded"
     assert data["worker_mode"] == "thread_fallback"
     assert data["checks"]["redis"]["ok"] is False
-    assert data["checks"]["supabase"]["ok"] is False
+    assert data["checks"]["postgres"]["ok"] is False
     assert data["checks"]["ollama"]["ok"] is False
 
 

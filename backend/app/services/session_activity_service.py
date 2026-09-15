@@ -17,9 +17,14 @@ from app.db.repositories import get_session_repository, get_user_repository
 
 
 def _enrich_with_usernames(sessions: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """user_sessions (pipeline Postgres) and app_users (auth Supabase) are
-    separate databases — no SQL JOIN is possible, so usernames are resolved
-    with one batch lookup instead of a query per row."""
+    """Resolves usernames onto session rows with one batch lookup instead of
+    a query per row.
+
+    user_sessions and app_users now share a database (both moved to
+    DATABASE_URL), so a SQL JOIN is finally possible here and would be
+    cheaper still. Kept as a batch lookup for now because the join belongs in
+    SessionRepository.list_all, which builds its own WHERE clause — folding
+    it in is a follow-up, not part of the migration."""
     user_ids = sorted({s["user_id"] for s in sessions if s.get("user_id")})
     if not user_ids:
         return sessions
