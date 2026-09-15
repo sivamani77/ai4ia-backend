@@ -6,8 +6,14 @@ Exports to the org's existing Jaeger collector (istio-system namespace) via
 the Thrift-over-HTTP collector endpoint — same protocol/package versions
 already used by other services here, pinned in requirements.txt.
 
-Enabled only when JAEGER_URL is set (see k8s/01-configmap.yaml). Without it,
-setup_tracing() is a no-op so local dev / tests / CI never need Jaeger running.
+Enabled only when JAEGER_URL is set. Without it, setup_tracing() is a no-op,
+so local dev / tests / CI never need Jaeger running.
+
+NOTE: the gate is JAEGER_URL, not OTEL_EXPORTER_OTLP_ENDPOINT. The latter is
+set in .env but is read by nothing in this codebase, so setting it alone does
+NOT enable tracing. The only place JAEGER_URL was ever set was the Kubernetes
+configmap now parked in examples/local-dev/k8s/01-configmap.yaml, which does
+not deploy — meaning tracing is currently off in the deployed environment.
 """
 from __future__ import annotations
 
