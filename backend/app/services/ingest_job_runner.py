@@ -359,6 +359,7 @@ def _stage_discover(job_id: str, channel_url: str, video_limit: int | None) -> l
 
     cmd = [
         "yt-dlp",
+        *(["--cookies", settings.youtube_cookies_file] if settings.youtube_cookies_file else []),
         "--flat-playlist",
         "--print", "%(playlist_index)s\t%(id)s\t%(title)s",
         "--no-warnings",
@@ -493,6 +494,7 @@ def _stage_download(job_id: str, new_videos: list[dict[str, Any]], channel_url: 
         [
             "--url", channel_url,
             *(["--limit", str(len(new_videos))] if len(new_videos) < 100 else []),
+            *(["--cookies", settings.youtube_cookies_file] if settings.youtube_cookies_file else []),
         ],
         job_id,
         "download",

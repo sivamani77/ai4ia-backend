@@ -274,6 +274,11 @@ class Settings(BaseSettings):
     # YouTube ingestion
     # ------------------------------------------------------------------
     youtube_channel_url: str = "https://www.youtube.com/@ai4iaconference861/videos"
+    # Path to a Netscape-format cookies.txt (exported from a logged-in YouTube
+    # session) mounted into the worker. Without it, yt-dlp on cloud/datacenter
+    # IPs gets blocked by YouTube's "Sign in to confirm you're not a bot" wall
+    # and every download fails. See scripts/01_download_videos.py.
+    youtube_cookies_file: str | None = None
     # Set to true only in deployed environments to enable periodic auto-sync
     enable_auto_sync: bool = False
     # Cron schedule for auto-sync (Celery beat format, UTC)

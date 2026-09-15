@@ -20,6 +20,7 @@ Usage:
     python scripts/01_download_videos.py --url <channel>  # override channel URL
 """
 import argparse
+import os
 import re
 import subprocess
 import sys
@@ -73,14 +74,21 @@ DEFAULT_CHANNEL = "https://www.youtube.com/@ai4iaconference861/videos"
 OUTPUT_TEMPLATE = str(RAW_DIR / "%(playlist_index)04d_%(id)s_%(title)s.%(ext)s")
 
 
-def build_command(channel_url: str, limit: int | None, list_only: bool) -> list[str]:
+def build_command(channel_url: str, limit: int | None, list_only: bool, cookies_file: str | None = None) -> list[str]:
     if list_only:
         # Print channel entries without downloading anything.
-        return ["yt-dlp", "--flat-playlist", "--print",
+        cmd = ["yt-dlp"]
+        if cookies_file:
+            cmd += ["--cookies", cookies_file]
+        cmd += ["--flat-playlist", "--print",
                 "%(playlist_index)04d  %(id)s  %(title)s", channel_url]
+        return cmd
 
     cmd = [
         "yt-dlp",
+        # --- auth: without cookies, YouTube blocks cloud/datacenter IPs with
+        # "Sign in to confirm you're not a bot" and every download fails ---
+        *(["--cookies", cookies_file] if cookies_file else []),
         # --- resume / dedupe ---
         "--download-archive", str(ARCHIVE_FILE),
         # --- format: best mp4 video+audio, merged ---
@@ -126,6 +134,10 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0, help="max NEW videos to fetch (0 = all)")
     ap.add_argument("--list", action="store_true", dest="list_only",
                     help="list channel videos without downloading")
+    ap.add_argument("--cookies", default=os.environ.get("YOUTUBE_COOKIES_FILE"),
+                    help="path to a Netscape-format cookies.txt for yt-dlp auth "
+                         "(env: YOUTUBE_COOKIES_FILE). Required on cloud/datacenter "
+                         "IPs to avoid YouTube's bot-check wall.")
     args = ap.parse_args()
 
     RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -134,9 +146,17 @@ def main() -> int:
     already = _archive_count()
     print(f"Channel : {args.url}")
     print(f"Archive : {ARCHIVE_FILE} ({already} already downloaded)")
-    print(f"Output  : {RAW_DIR}\n", flush=True)
+    print(f"Output  : {RAW_DIR}")
+    if args.cookies:
+        if not Path(args.cookies).exists():
+            print(f"WARNING: --cookies file not found: {args.cookies} — proceeding without it, "
+                  f"downloads will likely fail with 'Sign in to confirm you're not a bot'.")
+            args.cookies = None
+        else:
+            print(f"Cookies : {args.cookies}")
+    print(flush=True)
 
-    cmd = build_command(args.url, args.limit or None, args.list_only)
+    cmd = build_command(args.url, args.limit or None, args.list_only, args.cookies)
     print("Running:", " ".join(cmd), "\n", flush=True)
 
     # --max-downloads exits with code 101 once the cap is hit; treat that as success.
