@@ -1,9 +1,0 @@
-{
-  "video_id": "0035_-wGhiqItYpM_Andres_Burbano_-_Beyond_the_Divide_-_A_Material_and_Cultural_History_of_AI_for_a_Decolonized_Future",
-  "source_audio": "/home/ash/ai4ia-demo-pipeline/data/raw/youtube/ai4ia_channel/0035_-wGhiqItYpM_Andres_Burbano_-_Beyond_the_Divide_-_A_Material_and_Cultural_History_of_AI_for_a_Decolonized_Future.mp4",
-  "clean_audio": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0035_-wGhiqItYpM_Andres_Burbano_-_Beyond_the_Divide_-_A_Material_and_Cultural_History_of_AI_for_a_Decolonized_Future.clean.wav",
-  "cleaning_profile": "voice_norm_denoise",
-  "af_filter": "highpass=f=80,lowpass=f=8000,afftdn=nf=-25,loudnorm=I=-16:TP=-1.5:LRA=11",
-  "created_at": "2026-06-19T10:14:09.594806",
-  "ffmpeg_command": "ffmpeg -y -i /home/ash/ai4ia-demo-pipeline/data/raw/youtube/ai4ia_channel/0035_-wGhiqItYpM_Andres_Burbano_-_Beyond_the_Divide_-_A_Material_and_Cultural_History_of_AI_for_a_Decolonized_Future.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 1 -af highpass=f=80,lowpass=f=8000,afftdn=nf=-25,loudnorm=I=-16:TP=-1.5:LRA=11 /home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0035_-wGhiqItYpM_Andres_Burbano_-_Beyond_the_Divide_-_A_Material_and_Cultural_History_of_AI_for_a_Decolonized_Future.clean.wav"
-}

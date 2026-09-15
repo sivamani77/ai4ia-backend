@@ -41,18 +41,17 @@ dist/
 
 # AI4IA heavy generated/runtime data
 backend/runtime/
-data/raw/
-data/audio/
-data/videos/
-data/exports/
-data/generated_assets/
-data/embeddings/
-data/embeddings_cleaned/
-data/chroma/
-data/transcripts/
-data/fragments/
-data/processed/
-data/cache/
+
+# data/ is pipeline working data (transcripts, fragments, embeddings, media).
+# It used to be tracked -- 1,211 files / 137 MB -- which made clones slow and
+# put derived artifacts under review alongside code. S3 is the source of
+# truth; use scripts/sync_data_to_s3.py and scripts/download_data_from_s3.py
+# to move it. Untracking does not shrink existing history, only future clones.
+#
+# Only .gitkeep files are kept so the directory layout survives a fresh clone.
+data/
+!data/.gitkeep
+!data/**/.gitkeep
 
 # Large media files anywhere
 *.mp4
@@ -85,14 +84,9 @@ transcription_report.csv
 fragment_creation_report.csv
 embedding_generation_report.csv
 
-# Keep folders if needed
-!data/.gitkeep
-!data/**/.gitkeep
-
 # Subtitle files generated from videos
 *.srt
 *.vtt
-data/subtitles/
 
 # Backup files
 *.bak
@@ -102,8 +96,6 @@ coverage.json
 htmlcov/
 
 .codegraph/.gitignore
-data/storylines/
-data/jobs
 
 scripts/export_api_curls.py
 api_curls.sh

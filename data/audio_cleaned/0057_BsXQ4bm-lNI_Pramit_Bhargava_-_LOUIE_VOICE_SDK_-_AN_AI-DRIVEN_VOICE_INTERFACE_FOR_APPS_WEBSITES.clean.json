@@ -1,9 +1,0 @@
-{
-  "video_id": "0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES",
-  "source_audio": "/home/ash/ai4ia-demo-pipeline/data/raw/youtube/ai4ia_channel/0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES.mp4",
-  "clean_audio": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES.clean.wav",
-  "cleaning_profile": "voice_norm_denoise",
-  "af_filter": "highpass=f=80,lowpass=f=8000,afftdn=nf=-25,loudnorm=I=-16:TP=-1.5:LRA=11",
-  "created_at": "2026-06-19T10:36:59.369120",
-  "ffmpeg_command": "ffmpeg -y -i /home/ash/ai4ia-demo-pipeline/data/raw/youtube/ai4ia_channel/0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 1 -af highpass=f=80,lowpass=f=8000,afftdn=nf=-25,loudnorm=I=-16:TP=-1.5:LRA=11 /home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0057_BsXQ4bm-lNI_Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES.clean.wav"
-}
