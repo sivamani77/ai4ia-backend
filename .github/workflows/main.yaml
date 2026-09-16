@@ -1,7 +1,7 @@
 name: Mobius Caller Workflow
 on:
   push:
-    branches: [ dev, release, master, nexusconnects, uat ]
+    branches: [ dev, release, master, nexusconnects, uat  ]
 jobs:
   dev_job:
     if: github.ref == 'refs/heads/dev'
