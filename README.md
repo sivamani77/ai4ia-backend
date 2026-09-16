@@ -107,7 +107,7 @@ scripts/           Numbered pipeline scripts (01 download → 11 subtitles) + mi
 config/            Prompts, taxonomy, themes, video list, branding assets
 db/                init SQL + migrations (incl. the auth migration runbook)
 data/              Runtime data (transcripts, fragments, embeddings, chroma, …) — NOT tracked
-docker/            Dockerfile built by CI
+docker/            Dockerfile built by CI — the only one that ships
 docs/              Schema reference + production-readiness audits
 tests/             pytest suite (unit + api)
 k6/                k6 load tests and reports
@@ -192,7 +192,7 @@ Consequences worth knowing:
 - The workflow runs **no tests, no linting and no image scan** before deploying.
 - The manifests and compose files under [examples/local-dev/](examples/local-dev/) deploy nothing. They describe a superseded VM topology and are kept for reference only.
 - `docker-compose.infra.yml` at the repo root is local development infrastructure, not deployment.
-- The repo-root `Dockerfile` is **not** the one CI builds. It differs from `docker/Dockerfile` (it pre-downloads the Whisper model but has no Node.js; `docker/Dockerfile` is the reverse).
+- There is exactly one Dockerfile in play: **`docker/Dockerfile`**. The old repo-root one has been retired to [examples/local-dev/](examples/local-dev/) so there is no ambiguity about which image ships. It still holds one line worth porting — see [Known gaps](#known-gaps).
 
 ## Known gaps
 
@@ -201,7 +201,7 @@ Tracked in [docs/AI4IA_Release_Audit_2026-09-15.xlsx](docs/AI4IA_Release_Audit_2
 | Gap | Effect |
 |---|---|
 | The deployed worker entrypoint consumes only `video_jobs` | Ingest jobs are accepted, enqueued, and never executed — silently, with no timeout or alert |
-| `docker/Dockerfile` has no Whisper pre-download | Workers fetch the model at runtime on first transcription |
+| `docker/Dockerfile` has no Whisper pre-download | Workers fetch the model at runtime on first transcription. The retired `examples/local-dev/Dockerfile` has the one-line fix |
 | `require_api_key` returns successfully when `API_KEY` is unset | An unset env var disables the shared-key gate rather than failing closed |
 | No LLM concurrency limit anywhere | Retries are fixed-interval and correlated; bursts fail together |
 | Test suite is red and not run in CI | A bare `pytest` does not collect; some tests need live infrastructure |

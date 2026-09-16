@@ -25,6 +25,7 @@ truth.
 | `docker-compose.api.yml` | API VM | Obsolete topology |
 | `docker-compose.worker.yml` | Worker VM — consumes only `video_jobs` | Obsolete, and wrong |
 | `docker-compose.gpu.yml` | Single-VM GPU variant | Obsolete |
+| `Dockerfile` | The old repo-root image | Not built by CI — see the note below |
 | `Dockerfile.gpu-worker` | GPU worker image (`aswinmobiusdtaas/ai4ia-pipeline:v2.9-gpu`) | Not built by CI |
 | `DEPLOYMENT.md` | Two-VM runbook | Describes a deployment that no longer exists |
 
@@ -43,8 +44,27 @@ names, queue names, service DNS. Several are known wrong:
 - `k8s/02-secret.yaml.example` contains a real Supabase project URL.
 - `k8s/11-worker.yaml` pins `:v2.9-gpu`, an image CI does not build.
 - `DEPLOYMENT.md` documents `-Q video_jobs` only, omitting `ingest_jobs`.
+- `Dockerfile` here has no Node.js, so yt-dlp downloads fail silently in it.
 - The auth tables these reference have since moved from Supabase to Postgres
   (see `db/migrations/README_auth_migration.md`).
 
 If you need the real deployment topology, read the reusable workflow in
 `gaiangroup/access`, not this directory.
+
+## One thing here is still worth harvesting
+
+`Dockerfile` (the old repo-root one) pre-downloads the Whisper `small` model
+into the image:
+
+```dockerfile
+RUN python -c "from faster_whisper import WhisperModel; WhisperModel('small', device='cpu', compute_type='int8')"
+```
+
+`docker/Dockerfile` — the one CI actually builds — does **not**. So deployed
+workers fetch that model over the network on their first transcription,
+which is a cold-start cost and a runtime dependency on an external host.
+Porting that single line into `docker/Dockerfile` is a worthwhile follow-up.
+
+The reverse is also true and already handled: `docker/Dockerfile` installs
+Node.js 20, which the file here lacks, and without it every yt-dlp download
+fails silently. That is why this one is the copy that was retired.
