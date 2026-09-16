@@ -41,6 +41,19 @@ class Settings(BaseSettings):
     otp_max_attempts: int = 5
     otp_resend_cooldown_seconds: int = 60
 
+    # ------------------------------------------------------------------
+    # Auth data retention (privacy policy 2.4)
+    # ------------------------------------------------------------------
+    # user_sessions / refresh_tokens / auth_audit all store the client IP and
+    # user-agent. Every end-of-life operation on those rows is an UPDATE
+    # (ended_at / revoked_at), so without this sweep they would accumulate
+    # indefinitely. Rows are deleted once they have been finished for longer
+    # than this window; counted from ended_at/expires_at, not created_at, so
+    # a long-lived active session is never cut off mid-use.
+    auth_data_retention_days: int = 30
+    # Blank disables the sweep entirely (Celery beat format, UTC).
+    auth_purge_cron: str = "30 3 * * *"  # 03:30 UTC daily
+
     # Login brute-force lockout
     login_max_failed_attempts: int = 5
     login_lockout_seconds: int = 15 * 60  # 15 minutes

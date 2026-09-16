@@ -10,6 +10,7 @@ from app.db.repositories import (
     get_event_repository,
     get_job_repository,
     get_refresh_token_repository,
+    get_session_repository,
     get_user_repository,
 )
 from app.db.repositories.user_repository import DuplicateUserError
@@ -176,8 +177,11 @@ def hard_delete_user(user_id: str) -> dict:
 
       pipeline tables: the user's jobs (+ S3/local export artifacts),
                        job_events, llm_call_traces, agent_decision_records
-      auth tables:     app_users row (cascades refresh_tokens/otp_codes and
-                       nulls auth_audit.user_id via FK ON DELETE rules)
+      auth tables:     user_sessions (deleted explicitly — that table has no
+                       FK to app_users, so nothing cascades to it and its
+                       stored ip/user_agent would outlive the account), then
+                       the app_users row (cascades refresh_tokens/otp_codes
+                       and nulls auth_audit.user_id via FK ON DELETE rules)
 
     Insights are NOT covered — the insights table has no user attribution
     today (a separate, larger schema change), so there is nothing to delete
@@ -215,16 +219,21 @@ def hard_delete_user(user_id: str) -> dict:
     llm_traces.delete_by_user(user_id)
     decision_records.delete_by_user(user_id)
 
+    # Must precede delete_user: user_sessions has no FK to app_users, so this
+    # is the only thing that removes the session rows' ip/user_agent.
+    deleted_sessions = get_session_repository().delete_all_for_user(user_id)
+
     users.delete_user(user_id)  # cascades refresh_tokens/otp_codes/auth_audit (auth project FK)
 
     logger.info(
-        "Hard-deleted user %s: %d jobs, %d storage objects",
-        user_id, len(user_jobs), deleted_storage_objects,
+        "Hard-deleted user %s: %d jobs, %d storage objects, %d sessions",
+        user_id, len(user_jobs), deleted_storage_objects, deleted_sessions,
     )
 
     return {
         "deleted_jobs": len(user_jobs),
         "deleted_storage_objects": deleted_storage_objects,
+        "deleted_sessions": deleted_sessions,
     }
 
 

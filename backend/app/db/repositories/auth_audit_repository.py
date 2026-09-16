@@ -5,7 +5,7 @@ from __future__ import annotations
 
 import logging
 
-from app.db.postgres import pg_execute
+from app.db.postgres import pg_execute, pg_fetch_all
 
 logger = logging.getLogger("ai4ia.db.repositories.auth_audit")
 
@@ -44,6 +44,21 @@ class AuthAuditRepository:
         except Exception:
             # Audit logging must never break the auth flow it's observing.
             logger.exception("Failed to write auth_audit row: event=%s user_id=%s", event, user_id)
+
+    def purge_before(self, *, retention_days: int) -> int:
+        """Delete audit rows older than `retention_days`, counted from
+        created_at — unlike sessions and refresh tokens these rows have no
+        end-of-life state, the write itself is the event. Returns the number
+        of rows removed."""
+        rows = pg_fetch_all(
+            """
+            delete from auth_audit
+            where created_at < now() - make_interval(days => %(days)s)
+            returning id
+            """,
+            {"days": retention_days},
+        )
+        return len(rows)
 
 
 __all__ = ["AuthAuditRepository"]

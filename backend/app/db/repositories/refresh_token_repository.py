@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from typing import Any, TypedDict
 
-from app.db.postgres import pg_execute, pg_fetch_one
+from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one
 from app.db.utils import normalize_value
 
 _WRITABLE_COLUMNS = frozenset({
@@ -89,6 +89,28 @@ class RefreshTokenRepository:
             """,
             (user_id,),
         )
+
+    def purge_spent_before(self, *, retention_days: int) -> int:
+        """Delete refresh tokens that can no longer be used and have been
+        dead for longer than `retention_days`.
+
+        A token is dead once it is revoked or past expires_at; nothing in the
+        auth flow ever deleted those rows, so they accumulated forever along
+        with their ip/user_agent. A live token is never touched, whatever its
+        age. Returns the number of rows removed."""
+        rows = pg_fetch_all(
+            """
+            delete from refresh_tokens
+            where (
+                    (revoked_at is not null
+                     and revoked_at < now() - make_interval(days => %(days)s))
+                 or (expires_at < now() - make_interval(days => %(days)s))
+            )
+            returning id
+            """,
+            {"days": retention_days},
+        )
+        return len(rows)
 
 
 __all__ = ["RefreshTokenRepository", "RefreshTokenRecord"]

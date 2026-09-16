@@ -110,6 +110,33 @@ class SessionRepository:
             {"user_id": user_id, "reason": reason},
         )
 
+    def purge_ended_before(self, *, retention_days: int) -> int:
+        """Delete sessions that ended more than `retention_days` ago.
+
+        Only rows with a non-null ended_at are eligible, so an active session
+        is never purged however old it is — the clock starts at logout, not
+        at login. Returns the number of rows removed."""
+        rows = pg_fetch_all(
+            """
+            delete from user_sessions
+            where ended_at is not null
+              and ended_at < now() - make_interval(days => %(days)s)
+            returning id
+            """,
+            {"days": retention_days},
+        )
+        return len(rows)
+
+    def delete_all_for_user(self, user_id: str) -> int:
+        """Hard delete every session row for a user. user_sessions has no FK
+        to app_users (see db/schema.py), so account deletion must call this
+        explicitly or the row's ip/user_agent outlives the account."""
+        rows = pg_fetch_all(
+            "delete from user_sessions where user_id = %s returning id",
+            (user_id,),
+        )
+        return len(rows)
+
     def get(self, session_id: str) -> SessionRecord | None:
         row = pg_fetch_one("select * from user_sessions where id = %s limit 1", (session_id,))
         return self._normalize(row) if row is not None else None
