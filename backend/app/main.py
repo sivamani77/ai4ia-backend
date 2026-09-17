@@ -18,6 +18,7 @@ from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
 from app.core import metrics as _metrics
 from app.db.schema import ensure_pipeline_schema
+from app.services.auth_data_migration import run_once as run_auth_data_migration_once
 
 # Must run before the httpx/requests/psycopg2 instrumentors below patch
 # their clients, and before the app is constructed.
@@ -159,6 +160,11 @@ async def lifespan(app: FastAPI):
         await asyncio.to_thread(ensure_pipeline_schema)
     except Exception:
         logger.exception("Failed to ensure pipeline Postgres schema on startup")
+
+    try:
+        await asyncio.to_thread(run_auth_data_migration_once)
+    except Exception:
+        logger.exception("Failed to run one-time Supabase auth data migration on startup")
 
     await asyncio.to_thread(_reap_orphaned_jobs)
     await asyncio.to_thread(_reap_orphaned_ingest_jobs)
