@@ -11,7 +11,7 @@ from app.services import insight_service, model_gate
 router = APIRouter(prefix="/insights", tags=["Insights"])
 
 # 10 generation requests per user per 60 seconds
-_insight_limiter = TokenBucket(rate=10, per=60.0)
+_insight_limiter = TokenBucket(rate=10, per=60.0, name="insights_generate")
 
 
 class GenerateInsightRequest(BaseModel):

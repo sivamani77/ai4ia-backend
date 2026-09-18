@@ -80,7 +80,7 @@ _MAX_GLOBAL_QUEUED    = 50  # hard cap on total active+queued jobs
 # ---------------------------------------------------------------------------
 
 # 5 job-creation requests per user per 60 seconds
-_create_limiter = TokenBucket(rate=5, per=60.0)
+_create_limiter = TokenBucket(rate=5, per=60.0, name="job_creation")
 
 
 def _assert_owns(job: dict[str, Any], current_user: CurrentUser) -> None:

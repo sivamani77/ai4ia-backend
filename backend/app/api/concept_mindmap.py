@@ -10,7 +10,7 @@ from app.services.concept_mindmap_service import generate_concept_mindmap
 router = APIRouter(prefix="/v1", tags=["Concept Mindmap"])
 
 # 10 requests per user per 60 seconds
-_mindmap_limiter = TokenBucket(rate=10, per=60.0)
+_mindmap_limiter = TokenBucket(rate=10, per=60.0, name="concept_mindmap")
 
 
 class ConceptMindmapRequest(BaseModel):

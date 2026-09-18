@@ -43,6 +43,22 @@ def _no_dependency_state_redis(monkeypatch):
     dependency_state.reset_for_tests()
 
 
+@pytest.fixture(autouse=True)
+def _no_rate_limit_redis(monkeypatch):
+    """Force app.core.rate_limit onto its in-process fallback path.
+
+    TokenBucket is Redis-backed so the limit is shared across replicas; left
+    unpatched, every rate-limited endpoint hit in a test run would consume
+    real counters against whatever Redis the developer has running, and
+    those counters persist for the window (up to 300s) — polluting the next
+    test run's results. Tests that want to exercise the Redis path itself
+    patch app.core.rate_limit._get_redis locally instead.
+    """
+    from app.core import rate_limit
+
+    monkeypatch.setattr(rate_limit, "_get_redis", lambda: None)
+
+
 # ---------------------------------------------------------------------------
 # mock_settings — patches app.core.settings.settings with safe in-test values
 # ---------------------------------------------------------------------------

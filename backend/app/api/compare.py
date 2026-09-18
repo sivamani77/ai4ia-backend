@@ -13,7 +13,7 @@ _model_gate_dep = [Depends(require_models(model_gate.EMBEDDING, model_gate.LLM))
 
 # 10 requests per user per 60 seconds, shared across the 3 routes below —
 # they are comparable-cost LLM operations.
-_compare_limiter = TokenBucket(rate=10, per=60.0)
+_compare_limiter = TokenBucket(rate=10, per=60.0, name="compare")
 
 
 def _check_rate_limit(current_user: CurrentUser) -> None:

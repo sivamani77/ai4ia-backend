@@ -45,8 +45,8 @@ _PERSONA_TO_DB = {"general": "user", "expert": "researcher"}
 _DB_TO_PERSONA = {"user": "general", "researcher": "expert", "admin": "admin"}
 
 
-_otp_resend_limiter = TokenBucket(rate=1, per=60.0)
-_login_limiter = TokenBucket(rate=5, per=60.0)
+_otp_resend_limiter = TokenBucket(rate=1, per=60.0, name="otp_resend")
+_login_limiter = TokenBucket(rate=5, per=60.0, name="login")
 
 
 def _to_ui_persona(db_persona: str | None) -> str:

@@ -94,7 +94,7 @@ class VideoIngestStatus(BaseModel):
 # 3 sync/re-sync triggers per admin per 5 minutes — the pipeline itself is
 # also serialized to one job at a time (see _is_job_running), but that only
 # limits concurrency, not request rate.
-_trigger_limiter = TokenBucket(rate=3, per=300.0)
+_trigger_limiter = TokenBucket(rate=3, per=300.0, name="ingest_trigger")
 
 
 def _is_job_running() -> str | None:
