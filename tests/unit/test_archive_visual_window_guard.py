@@ -55,7 +55,7 @@ class TestArchiveVisualWindowGuard:
              patch.object(export_video, "get_video_stream_duration", return_value=295.2), \
              patch.object(export_video, "render_archive_clip", side_effect=fake_render_archive_clip), \
              patch.object(export_video, "get_media_duration", return_value=19.4):
-            idx, path, info = export_video._render_one_segment(1, item, tmp_path / "out", 0.0)
+            idx, path, info = export_video._render_one_segment(1, item, tmp_path / "out")
 
         assert path is not None and path.exists()
         assert info["duration"] == 19.4
@@ -93,7 +93,7 @@ class TestArchiveVisualWindowGuard:
              patch.object(export_video, "get_video_stream_duration", return_value=295.2), \
              patch.object(export_video, "render_archive_clip", side_effect=fake_render_archive_clip), \
              patch.object(export_video, "get_media_duration", return_value=20.0):
-            export_video._render_one_segment(1, item, tmp_path / "out", 0.0)
+            export_video._render_one_segment(1, item, tmp_path / "out")
 
         assert captured_calls[0]["start"] == 10.0
         assert captured_calls[0]["end"] == 30.0

@@ -9,7 +9,8 @@ import pytest
 class TestRunVideoJobTask:
     def test_calls_run_video_job(self):
         from app.worker.tasks import run_video_job_task
-        with patch("app.worker.tasks.run_video_job") as mock_run:
+        with patch("app.worker.tasks.run_video_job") as mock_run, \
+             patch("app.services.job_store.load_job", return_value={"status": "completed"}):
             # Call via .run() to bypass Celery machinery
             run_video_job_task.run("vjob_abc123", {"key": "val"})
         mock_run.assert_called_once_with("vjob_abc123", {"key": "val"})
@@ -17,13 +18,15 @@ class TestRunVideoJobTask:
     def test_passes_job_id_and_request(self):
         from app.worker.tasks import run_video_job_task
         received = []
-        with patch("app.worker.tasks.run_video_job", side_effect=lambda jid, req: received.append((jid, req))):
+        with patch("app.worker.tasks.run_video_job", side_effect=lambda jid, req: received.append((jid, req))), \
+             patch("app.services.job_store.load_job", return_value={"status": "completed"}):
             run_video_job_task.run("vjob_test_456", {"prompt": "test"})
         assert received == [("vjob_test_456", {"prompt": "test"})]
 
     def test_returns_completed_status(self):
         from app.worker.tasks import run_video_job_task
-        with patch("app.worker.tasks.run_video_job"):
+        with patch("app.worker.tasks.run_video_job"), \
+             patch("app.services.job_store.load_job", return_value={"status": "completed"}):
             result = run_video_job_task.run("vjob_ok", {})
         assert result["status"] == "completed"
         assert result["job_id"] == "vjob_ok"

@@ -92,11 +92,25 @@ def test_archive_routes(client, mock_settings, monkeypatch):
 
 
 def test_insights_compare_and_mindmap_routes(client, monkeypatch):
+    import app.main as main
+    from app.core.auth import CurrentUser, get_current_user
     import app.services.insight_service as insight_service
     import app.services.comparison_service as comparison_service
     import app.services.concept_mindmap_service as mindmap_service
 
-    monkeypatch.setattr(insight_service, "generate_insight", lambda query, filters, limit: {
+    # api_generate_insight now requires a verified user (Depends(get_current_user))
+    # so it can attribute the insight to current_user.id — override the dependency
+    # rather than crafting a real JWT.
+    main.app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="test-user", persona="general")
+    try:
+        _run_insights_compare_and_mindmap(client, monkeypatch, insight_service, comparison_service, mindmap_service)
+    finally:
+        main.app.dependency_overrides.pop(get_current_user, None)
+
+
+def _run_insights_compare_and_mindmap(client, monkeypatch, insight_service, comparison_service, mindmap_service):
+    import app.api.concept_mindmap as concept_mindmap_module
+    monkeypatch.setattr(insight_service, "generate_insight", lambda query, filters, limit, user_id=None: {
         "query": query,
         "limit": limit,
         "count": 2,
@@ -118,7 +132,7 @@ def test_insights_compare_and_mindmap_routes(client, monkeypatch):
         "topic": topic,
         "limit": limit,
     })
-    monkeypatch.setattr(mindmap_service, "generate_concept_mindmap", lambda query, storyline_id=None: {
+    monkeypatch.setattr(concept_mindmap_module, "generate_concept_mindmap", lambda query, storyline_id=None, mode="legacy": {
         "query": query,
         "storyline_id": storyline_id,
     })

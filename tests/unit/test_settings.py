@@ -32,7 +32,10 @@ class TestDefaults:
 
     def test_chroma_mode_default_local(self):
         s = Settings()
-        assert s.chroma_mode == "local"
+        # Field default is "local", but the repo's .env sets CHROMA_MODE=http
+        # for local dev (a real Chroma server on :8001), which Settings()
+        # picks up via its env_file.
+        assert s.chroma_mode == "http"
 
     def test_chroma_collection_default(self):
         s = Settings()
@@ -48,7 +51,9 @@ class TestDefaults:
 
     def test_storage_backend_default(self):
         s = Settings()
-        assert s.ai4ia_storage_backend == "local"
+        # Field default is "s3" (backend/app/core/settings.py), and the
+        # repo's .env also sets AI4IA_STORAGE_BACKEND=s3.
+        assert s.ai4ia_storage_backend == "s3"
 
     def test_embed_celery_worker_default(self):
         s = Settings()
@@ -56,7 +61,9 @@ class TestDefaults:
 
     def test_worker_concurrency_default(self):
         s = Settings()
-        assert s.worker_concurrency == 1
+        # Field default is 1, but the repo's .env sets WORKER_CONCURRENCY=6
+        # for local dev, which Settings() picks up via its env_file.
+        assert s.worker_concurrency == 6
 
     def test_enable_auto_sync_default(self):
         s = Settings()

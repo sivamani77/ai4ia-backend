@@ -74,13 +74,18 @@ class TestNarrationReconciliation:
         assert item["duration"] == 60.4
         assert item["tts_audio_seconds"] == 60.0
 
-    def test_fragment_window_longer_than_audio_wins(self, gen_assets, monkeypatch, tmp_path):
+    def test_audio_always_wins_over_fragment_window_when_present(self, gen_assets, monkeypatch, tmp_path):
+        # Real TTS audio always wins over any inherited start/end window, even a
+        # larger one — a narration_broll segment is audio over a still image, so
+        # honouring a stray, larger window would pad it with dead silence (see
+        # reconcile_narration_duration's docstring). The window is only a
+        # last-resort fallback when there's no usable audio at all.
         audio = tmp_path / "vo.mp3"
         audio.write_bytes(b"fake")
         monkeypatch.setattr(voiceover_mod, "get_media_duration", lambda p: 20.0)
         item = {"duration": 49.0}
         gen_assets.reconcile_narration_duration(item, str(audio))
-        assert item["render_duration"] == 49.0
+        assert item["render_duration"] == 20.4
 
     def test_missing_audio_keeps_fragment_duration(self, gen_assets):
         item = {"duration": 30.0}

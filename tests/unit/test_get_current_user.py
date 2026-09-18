@@ -16,6 +16,15 @@ def _bearer(token: str) -> HTTPAuthorizationCredentials:
 
 
 class TestGetCurrentUser:
+    @pytest.fixture(autouse=True)
+    def _jwt_signing_key(self, monkeypatch):
+        """create_access_token needs a non-empty HMAC key; settings.jwt_signing_key
+        defaults to "" with no .env present in this environment. Pin one here —
+        see the identical fixture in test_core_security.py."""
+        from app.core import security as security_module
+
+        monkeypatch.setattr(security_module.settings, "jwt_signing_key", "test-signing-key-that-is-at-least-32-bytes-long", raising=False)
+
     def test_valid_token_resolves_user(self):
         token = create_access_token(user_id="user-123", persona="general")
         user = get_current_user(credentials=_bearer(token))

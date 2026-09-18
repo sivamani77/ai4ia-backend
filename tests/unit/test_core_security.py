@@ -60,6 +60,16 @@ class TestLegacyPlaintextCompare:
 
 
 class TestAccessTokens:
+    @pytest.fixture(autouse=True)
+    def _jwt_signing_key(self, monkeypatch):
+        """create_access_token/decode_access_token need a non-empty HMAC key.
+        settings.jwt_signing_key defaults to "" and nothing sets it in this
+        test environment (no .env), so pin one here rather than relying on
+        ambient config for what is otherwise pure JWT encode/decode logic."""
+        from app.core import security as security_module
+
+        monkeypatch.setattr(security_module.settings, "jwt_signing_key", "test-signing-key-that-is-at-least-32-bytes-long", raising=False)
+
     def test_create_and_decode_roundtrip(self):
         token = create_access_token(user_id="user-abc", persona="admin")
         claims = decode_access_token(token)
@@ -68,7 +78,14 @@ class TestAccessTokens:
 
     def test_tampered_token_rejected(self):
         token = create_access_token(user_id="user-abc", persona="general")
-        tampered = token[:-1] + ("x" if token[-1] != "x" else "y")
+        # Flip a character a few positions before the end rather than the
+        # very last one: the last base64url character of an HS256 (32-byte)
+        # signature only encodes 2 real bits plus 4 padding bits, so an
+        # occasional last-char substitution decodes to the SAME signature
+        # bytes as the original (a flaky no-op "tamper"). A character well
+        # inside the signature is always byte-aligned.
+        idx = -6
+        tampered = token[:idx] + ("x" if token[idx] != "x" else "y") + token[idx + 1:]
         with pytest.raises(TokenInvalidError):
             decode_access_token(tampered)
 

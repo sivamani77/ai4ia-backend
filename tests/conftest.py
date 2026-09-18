@@ -77,6 +77,12 @@ def mock_settings(tmp_path, monkeypatch):
     fake.ai4ia_storage_backend = "local"
     fake.allowed_origins = ["*"]
     fake.validate_deployment_env.return_value = []
+    # Interactive-endpoint model gate (api/deps.py's require_models) — off by
+    # default so a MagicMock doesn't leak into a real int/bool comparison
+    # (e.g. `wait_seconds > 0` against model_gate_inline_wait_seconds) for any
+    # test that hits a gated route without explicitly exercising the gate.
+    fake.model_gate_enabled = False
+    fake.model_gate_inline_wait_seconds = 0
 
     monkeypatch.setattr(settings_module, "settings", fake)
     return fake
@@ -129,6 +135,7 @@ def mock_job_store(monkeypatch):
 
     import app.services.job_store as js
     import app.services.video_job_runner as vjr
+    import app.services.media_registry as media_registry
 
     monkeypatch.setattr(js, "save_job", _save_job)
     monkeypatch.setattr(js, "load_job", _load_job)
@@ -142,6 +149,12 @@ def mock_job_store(monkeypatch):
     monkeypatch.setattr(vjr, "load_job", _load_job)
     monkeypatch.setattr(vjr, "append_event", _append_event)
     monkeypatch.setattr(vjr, "list_jobs", _list_jobs)
+
+    # app.services.media_registry does `from app.services.job_store import
+    # load_job` at module top level (a plain name bound once, at whichever
+    # test first imports it in this process) — the patch on js.load_job above
+    # doesn't reach that already-bound copy. Rebind it directly too.
+    monkeypatch.setattr(media_registry, "load_job", _load_job)
 
     yield {"jobs": jobs, "events": events}
 

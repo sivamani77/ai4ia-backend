@@ -105,8 +105,7 @@ class TestCreateVideoJob:
     def test_returns_job_id_string(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test prompt"})
+        job_id = create_video_job({"prompt": "test prompt", "target_duration": 150})
 
         assert isinstance(job_id, str)
         assert job_id.startswith("vjob_")
@@ -114,8 +113,7 @@ class TestCreateVideoJob:
     def test_job_id_has_uuid_suffix(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test"})
+        job_id = create_video_job({"prompt": "test", "target_duration": 150})
 
         parts = job_id.split("_")
         # Format: vjob_YYYYMMDD_HHMMSS_<8hex>
@@ -125,8 +123,7 @@ class TestCreateVideoJob:
     def test_job_saved_with_correct_initial_state(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "AI ethics"})
+        job_id = create_video_job({"prompt": "AI ethics", "target_duration": 150})
 
         job = mock_job_store["jobs"][job_id]
         assert job["status"] == "queued"
@@ -138,8 +135,7 @@ class TestCreateVideoJob:
     def test_job_has_all_path_slots(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test"})
+        job_id = create_video_job({"prompt": "test", "target_duration": 150})
 
         paths = mock_job_store["jobs"][job_id]["paths"]
         for key in ("storyline_path", "validated_storyline_path", "asset_manifest_path",
@@ -150,8 +146,7 @@ class TestCreateVideoJob:
     def test_created_event_emitted(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test"})
+        job_id = create_video_job({"prompt": "test", "target_duration": 150})
 
         events = mock_job_store["events"].get(job_id, [])
         assert any(e["event_type"] == "created" for e in events)
@@ -159,24 +154,24 @@ class TestCreateVideoJob:
     def test_user_id_stored(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test"}, user_id="user_abc")
+        job_id = create_video_job({"prompt": "test", "target_duration": 150}, user_id="user_abc")
 
         assert mock_job_store["jobs"][job_id]["user_id"] == "user_abc"
 
-    def test_target_duration_defaults_to_150(self, mock_job_store, tmp_path):
+    def test_target_duration_required(self, mock_job_store, tmp_path):
+        # target_duration has no default here — it's the API layer's
+        # `VideoJobRequest.target_duration = Field(..., ge=30, le=600)`
+        # (backend/app/api/video_jobs.py) that guarantees callers of
+        # create_video_job() always supply one.
         from app.services.video_job_runner import create_video_job
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test"})
-
-        assert mock_job_store["jobs"][job_id]["target_duration"] == 150
+        with pytest.raises(KeyError):
+            create_video_job({"prompt": "test"})
 
     def test_target_duration_from_request(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test", "target_duration": 300})
+        job_id = create_video_job({"prompt": "test", "target_duration": 300})
 
         assert mock_job_store["jobs"][job_id]["target_duration"] == 300
 
@@ -189,8 +184,7 @@ class TestUpdateStage:
     def test_stage_status_written(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job, update_stage
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test"})
+        job_id = create_video_job({"prompt": "test", "target_duration": 150})
 
         update_stage(job_id, "07_storyline", "running", 30, "Generating storyline")
         job = mock_job_store["jobs"][job_id]
@@ -202,8 +196,7 @@ class TestUpdateStage:
     def test_global_progress_updated(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job, update_stage
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test"})
+        job_id = create_video_job({"prompt": "test", "target_duration": 150})
 
         update_stage(job_id, "input_validation", "completed", 100, "Done")
         job = mock_job_store["jobs"][job_id]
@@ -212,8 +205,7 @@ class TestUpdateStage:
     def test_progress_event_emitted(self, mock_job_store, tmp_path):
         from app.services.video_job_runner import create_video_job, update_stage
 
-        with patch("app.services.video_job_runner.VIDEO_JOBS_DIR", tmp_path / "jobs"):
-            job_id = create_video_job({"prompt": "test"})
+        job_id = create_video_job({"prompt": "test", "target_duration": 150})
 
         update_stage(job_id, "07_storyline", "running", 50, "halfway")
         events = mock_job_store["events"][job_id]

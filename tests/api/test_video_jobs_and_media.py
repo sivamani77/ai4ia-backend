@@ -2,11 +2,36 @@ from __future__ import annotations
 
 import copy
 import json
+import uuid
 from pathlib import Path
+
+import pytest
 
 
 OWNER_ID = "550e8400-e29b-41d4-a716-446655440000"
 OTHER_ID = "550e8400-e29b-41d4-a716-446655440001"
+
+
+@pytest.fixture(autouse=True)
+def _jwt_signing_key(monkeypatch):
+    """/api/video-jobs/* now identifies callers via a JWT bearer token
+    (Depends(get_current_user)), replacing the old X-Session-ID header.
+    create_access_token needs a non-empty HMAC key; settings.jwt_signing_key
+    defaults to "" with no .env present in this environment — see the
+    identical fixture in test_core_security.py."""
+    from app.core import security as security_module
+
+    monkeypatch.setattr(
+        security_module.settings, "jwt_signing_key",
+        "test-signing-key-that-is-at-least-32-bytes-long", raising=False,
+    )
+
+
+def _auth_headers(user_id: str) -> dict:
+    from app.core.security import create_access_token
+
+    token = create_access_token(user_id=user_id, persona="general")
+    return {"Authorization": f"Bearer {token}"}
 
 
 def _write_json(path: Path, payload: dict) -> None:
@@ -15,7 +40,13 @@ def _write_json(path: Path, payload: dict) -> None:
 
 
 def _seed_video_job(mock_settings, mock_job_store, sample_job):
-    job_id = "vjob_20260630_000001_abcd1234"
+    # Unique per call: some app-side module globals (e.g. storage_service's
+    # _LOCAL_JOBS_DIR) are resolved once at import time from whichever test's
+    # settings happened to be active first, so the on-disk media registry
+    # path for a fixed job_id can be shared — and polluted — across tests in
+    # the same pytest process. A unique job_id keeps each test's registry
+    # file separate regardless.
+    job_id = f"vjob_20260630_000001_{uuid.uuid4().hex[:8]}"
     job = copy.deepcopy(sample_job)
     job.update(
         {
@@ -255,9 +286,10 @@ def test_video_job_lifecycle_and_traffic_limits(client, mock_settings, mock_job_
 
     response = client.post(
         "/api/video-jobs",
-        headers={"X-Session-ID": OWNER_ID},
+        headers=_auth_headers(OWNER_ID),
         json={
             "prompt": "Create a documentary about AI access",
+            "target_duration": 150,
             "user_id": OWNER_ID,
         },
     )
@@ -265,22 +297,22 @@ def test_video_job_lifecycle_and_traffic_limits(client, mock_settings, mock_job_
     job_id = response.json()["job_id"]
     assert response.json()["status"] == "queued"
 
-    response = client.get("/api/video-jobs", headers={"X-Session-ID": OWNER_ID})
+    response = client.get("/api/video-jobs", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["total"] == 1
 
-    response = client.get(f"/api/video-jobs/{job_id}", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["job_id"] == job_id
 
-    response = client.delete(f"/api/video-jobs/{job_id}", headers={"X-Session-ID": OWNER_ID})
+    response = client.delete(f"/api/video-jobs/{job_id}", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 202
     assert response.json()["status"] == "cancelled"
 
-    response = client.delete(f"/api/video-jobs/{job_id}", headers={"X-Session-ID": OWNER_ID})
+    response = client.delete(f"/api/video-jobs/{job_id}", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 409
 
-    response = client.get(f"/api/video-jobs/{job_id}", headers={"X-Session-ID": OTHER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}", headers=_auth_headers(OTHER_ID))
     assert response.status_code == 404
 
 
@@ -293,9 +325,10 @@ def test_video_job_rate_limit_and_capacity(client, mock_job_store, monkeypatch):
     for idx in range(5):
         response = client.post(
             "/api/video-jobs",
-            headers={"X-Session-ID": OWNER_ID},
+            headers=_auth_headers(OWNER_ID),
             json={
                 "prompt": f"Create documentary {idx}",
+                "target_duration": 150,
                 "user_id": OWNER_ID,
             },
         )
@@ -303,9 +336,10 @@ def test_video_job_rate_limit_and_capacity(client, mock_job_store, monkeypatch):
 
     response = client.post(
         "/api/video-jobs",
-        headers={"X-Session-ID": OWNER_ID},
+        headers=_auth_headers(OWNER_ID),
         json={
             "prompt": "Create documentary 6",
+            "target_duration": 150,
             "user_id": OWNER_ID,
         },
     )
@@ -315,14 +349,16 @@ def test_video_job_rate_limit_and_capacity(client, mock_job_store, monkeypatch):
     monkeypatch.setattr(
         video_jobs_module,
         "list_jobs",
-        lambda: [{"job_id": f"j{i}", "status": "running"} for i in range(20)],
+        # _MAX_GLOBAL_QUEUED is 50 — must meet or exceed it to trip the cap.
+        lambda: [{"job_id": f"j{i}", "status": "running"} for i in range(50)],
     )
 
     response = client.post(
         "/api/video-jobs",
-        headers={"X-Session-ID": OTHER_ID},
+        headers=_auth_headers(OTHER_ID),
         json={
             "prompt": "Create documentary at capacity",
+            "target_duration": 150,
             "user_id": OTHER_ID,
         },
     )
@@ -349,102 +385,104 @@ def test_video_job_detail_events_and_reports(client, mock_settings, mock_job_sto
         },
     ]
 
-    response = client.get(f"/api/video-jobs/{job_id}", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["result_available"] is True
 
-    response = client.get(f"/api/video-jobs/{job_id}/events", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/events", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert "event: done" in response.text
 
-    response = client.get(f"/api/video-jobs/{job_id}/storyline", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/storyline", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["status"] == "available"
     assert len(response.json()["sections"]) == 2
 
-    response = client.get(f"/api/video-jobs/{job_id}/explainability", headers={"X-Session-ID": OWNER_ID})
+    # /explainability was folded into /provenance (see get_job_provenance's
+    # docstring); the response is now flat — no "status" wrapper key.
+    response = client.get(f"/api/video-jobs/{job_id}/provenance", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
-    assert response.json()["status"] == "available" or response.json()["status"] == "not_available"
+    assert response.json()["job_id"] == job_id
 
-    response = client.get(f"/api/video-jobs/{job_id}/validation-report", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/validation-report", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["approved_fragments"] == 1
     assert response.json()["changed_decisions"][0]["reason"] == "Reduced for pacing"
 
-    response = client.get(f"/api/video-jobs/{job_id}/assets", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/assets", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["status"] == "completed"
     assert response.json()["voiceovers"][0]["asset_id"] == "voiceover_sec2"
 
-    response = client.get(f"/api/video-jobs/{job_id}/result", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/result", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["job_id"] == job_id
 
-    response = client.get(f"/api/video-jobs/{job_id}/result", headers={"X-Session-ID": OTHER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/result", headers=_auth_headers(OTHER_ID))
     assert response.status_code == 404
 
 
 def test_video_media_endpoints(client, mock_settings, mock_job_store, sample_job):
     job_id, _job = _seed_video_job(mock_settings, mock_job_store, sample_job)
 
-    response = client.get(f"/api/video-jobs/{job_id}/video/stream", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/video/stream", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.content == b"video-bytes"
 
     response = client.get(
         f"/api/video-jobs/{job_id}/video/stream",
-        headers={"X-Session-ID": OWNER_ID, "Range": "bytes=0-3"},
+        headers={**_auth_headers(OWNER_ID), "Range": "bytes=0-3"},
     )
     assert response.status_code == 206
     assert response.headers["content-range"].startswith("bytes 0-3/")
 
-    response = client.get(f"/api/video-jobs/{job_id}/video/download", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/video/download", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.headers["content-disposition"].startswith("attachment")
 
-    response = client.get(f"/api/video-jobs/{job_id}/video/signed-url", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/video/signed-url", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["storage_backend"] == "local"
 
-    response = client.get(f"/api/video-jobs/{job_id}/subtitles/srt", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/subtitles/srt", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
 
-    response = client.get(f"/api/video-jobs/{job_id}/subtitles/ass", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/subtitles/ass", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 400
 
-    response = client.get(f"/api/video-jobs/{job_id}/manifest", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/manifest", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["quality_checks"]["speaker_clip_count"] == 1
 
-    response = client.get(f"/api/video-jobs/{job_id}/media", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/media", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["job_id"] == job_id
     assert any(item["asset_id"] == "video" for item in response.json()["objects"])
     assert all(item["asset_id"] != "thumbnail" for item in response.json()["objects"])
 
-    response = client.get(f"/api/video-jobs/{job_id}/thumbnail", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/thumbnail", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
 
     response = client.get(
         f"/api/video-jobs/{job_id}/assets/voiceover_sec2/stream",
-        headers={"X-Session-ID": OWNER_ID, "Range": "bytes=0-4"},
+        headers={**_auth_headers(OWNER_ID), "Range": "bytes=0-4"},
     )
     assert response.status_code == 206
     assert response.content == b"audio"
 
-    response = client.get(f"/api/video-jobs/{job_id}/assets/voiceover_sec2/download", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/assets/voiceover_sec2/download", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
 
-    response = client.get(f"/api/video-jobs/{job_id}/assets/voiceover_sec2/metadata", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/assets/voiceover_sec2/metadata", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["asset_id"] == "voiceover_sec2"
 
-    response = client.get(f"/api/video-jobs/{job_id}/assets/voiceover_sec2/signed-url", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/assets/voiceover_sec2/signed-url", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.json()["storage_backend"] == "local"
 
-    response = client.get(f"/api/video-jobs/{job_id}/assets/visual_sec2/stream", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/assets/visual_sec2/stream", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
 
-    response = client.get(f"/api/video-jobs/{job_id}/assets/visual_sec2/download", headers={"X-Session-ID": OWNER_ID})
+    response = client.get(f"/api/video-jobs/{job_id}/assets/visual_sec2/download", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
