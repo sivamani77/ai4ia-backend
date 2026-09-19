@@ -44,6 +44,11 @@ jobs_orphan_reaped_total = Counter(
     "Jobs marked failed on startup because their owning process was gone",
 )
 
+jobs_abandoned_total = Counter(
+    "jobs_abandoned_total",
+    "Jobs refused as poison pills after repeated broker redelivery (worker loss)",
+)
+
 job_queue_position = Histogram(
     "job_queue_position",
     "Queue position of a job at creation time",
