@@ -1146,7 +1146,11 @@ def _stage_embed(job_id: str, video_ids: list[str]) -> list[str]:
         for vid in video_ids:
             upsert_video_stage(vid, "embed", "failed", job_id=job_id,
                                error=f"Embedding generation failed (rc={returncode})")
-        _update_job(job_id, "embed", "failed", 0, f"Embedding generation failed (rc={returncode})")
+        # succeeded/failed recorded here (unlike before) so a resume can read
+        # stage_status["embed"]["failed"] the same way it reads every other
+        # tail stage's — see _resolve_resume_candidates.
+        _update_job(job_id, "embed", "failed", 0, f"Embedding generation failed (rc={returncode})",
+                   succeeded=[], failed=list(video_ids))
         raise RuntimeError(f"06_generate_embeddings.py failed (rc={returncode}): {stderr[:500]}")
 
     _update_job(job_id, "embed", "running", 60, "Importing embeddings into ChromaDB")
@@ -1186,6 +1190,146 @@ def _stage_embed(job_id: str, video_ids: list[str]) -> list[str]:
                        call_type="embed", decision_label="fragment_embedding",
                        video_count=len(video_ids))
     return video_ids
+
+
+# ---------------------------------------------------------------------------
+# Resume — retry the tail of a job (or a single video) without repeating
+# discover/download
+# ---------------------------------------------------------------------------
+#
+# A stage failure used to mean re-running the whole job from discover, and
+# discover only finds videos not yet in yt-dlp's download archive — so any
+# video that *was* downloaded but failed a later stage became permanently
+# invisible to every future sync. The five tail stages all share the shape
+# (job_id, video_ids) -> list[str], with each stage's own script processing
+# whatever it finds on disk/S3 regardless of video_ids (video_ids only scopes
+# verification and per-video bookkeeping) — which is what makes resuming a
+# subset safe: calling a stage with a different video_ids list cannot change
+# what its script does to the filesystem, only which videos get checked and
+# recorded.
+
+RESUMABLE_STAGES: list[str] = ["extract_audio", "transcribe", "create_fragments", "classify", "embed"]
+
+_RESUMABLE_STAGE_FNS: dict[str, Any] = {
+    "extract_audio": _stage_extract_audio,
+    "transcribe": _stage_transcribe,
+    "create_fragments": _stage_create_fragments,
+    "classify": _stage_classify,
+    "embed": _stage_embed,
+}
+
+# Where to find "what fed this stage" when it needs to look at its
+# predecessor rather than its own failed list — (predecessor stage,
+# predecessor's success key). download uses "downloaded" instead of
+# "succeeded" for historical reasons; every tail stage uses "succeeded".
+_PREDECESSOR: dict[str, tuple[str, str]] = {
+    "extract_audio": ("download", "downloaded"),
+    "transcribe": ("extract_audio", "succeeded"),
+    "create_fragments": ("transcribe", "succeeded"),
+    "classify": ("create_fragments", "succeeded"),
+    "embed": ("classify", "succeeded"),
+}
+
+
+def resolve_resume_candidates(job: dict[str, Any],
+                              from_stage: str | None = None) -> tuple[str, list[str]]:
+    """Work out where to resume a failed job and which videos to retry.
+
+    Returns (from_stage, video_ids). Raises ValueError with an operator-facing
+    message on anything that makes the job unresumable — the API layer turns
+    that straight into a 400.
+
+    from_stage, if not given, is the job's current_stage at the moment it
+    failed (both _fail_job and _update_job set it). discover/download
+    failures are refused: those videos were never fully downloaded, so a
+    plain POST /sync already picks them back up correctly on its own.
+
+    video_ids prefers stage_status[from_stage]["failed"] — the exact batch
+    _require_some_success recorded as having failed that stage, scoped to
+    this one job, not a cross-job query. Falls back to the predecessor
+    stage's success list, which covers a stage that crashed before reaching
+    _require_some_success (so never recorded its own failed list) but still
+    left a record of what was handed to it.
+    """
+    stage_status = job.get("stage_status") or {}
+    stage = from_stage or job.get("current_stage")
+
+    if stage not in RESUMABLE_STAGES:
+        raise ValueError(
+            f"Cannot resume from stage '{stage}' — only {RESUMABLE_STAGES} are resumable. "
+            "A discover or download failure needs a fresh POST /ingest/sync instead; "
+            "download already retries anything not yet in the archive."
+        )
+
+    own_failed = (stage_status.get(stage) or {}).get("failed") or []
+    if own_failed:
+        return stage, list(own_failed)
+
+    predecessor_stage, key = _PREDECESSOR[stage]
+    predecessor_ids = (stage_status.get(predecessor_stage) or {}).get(key) or []
+    if predecessor_ids:
+        return stage, list(predecessor_ids)
+
+    raise ValueError(
+        f"Nothing to resume: no failed videos recorded for '{stage}' and its "
+        f"predecessor '{predecessor_stage}' recorded no successes either."
+    )
+
+
+def create_resume_job(*, resume_from_stage: str, resume_video_ids: list[str],
+                      channel_url: str | None = None,
+                      resumed_from_job_id: str | None = None) -> str:
+    """Create a job that starts at resume_from_stage for resume_video_ids
+    instead of at discover. Used by both POST /jobs/{id}/resume (retrying a
+    specific failed job's own failed videos) and the single-video retrigger
+    endpoint (force-reprocessing one already-downloaded video regardless of
+    job history) — they differ only in how the video list is sourced."""
+    job_id = create_ingest_job(channel_url=channel_url)
+    job = load_ingest_job(job_id)
+    job["resume_from_stage"] = resume_from_stage
+    job["resume_video_ids"] = list(resume_video_ids)
+    if resumed_from_job_id:
+        job["resumed_from_job_id"] = resumed_from_job_id
+    save_ingest_job(job_id, job)
+    return job_id
+
+
+def _run_resumed_stages(job_id: str, from_stage: str, video_ids: list[str]) -> None:
+    """Run RESUMABLE_STAGES[from_stage:] for exactly video_ids.
+
+    Deliberately does not seed discover/download or earlier tail stages into
+    stage_status as fake-completed: /provenance builds its stage trace
+    straight from stage_status, and a resumed job that never ran discover
+    should not claim it did. The visible cost is that a resumed run's
+    progress percentage starts lower than 100 minus the remaining stages'
+    weight — a cosmetic gap, not a correctness one.
+
+    Raises on failure rather than calling _fail_job itself: run_ingest_job's
+    caller already wraps this in the same top-level except that handles every
+    other stage failure, so a second failure path here would risk a racy
+    double-write to the job row instead of a single consistent one.
+    """
+    log = _log(job_id)
+    if from_stage not in _RESUMABLE_STAGE_FNS:
+        raise RuntimeError(f"Cannot resume from stage '{from_stage}'")
+    if not video_ids:
+        raise RuntimeError("Resume requested with no video_ids to process")
+
+    names = RESUMABLE_STAGES
+    ids = list(video_ids)
+    for name in names[names.index(from_stage):]:
+        if _is_cancelling(job_id):
+            return _cancel_job(job_id, f"cancelled before {name}")
+        ids = _RESUMABLE_STAGE_FNS[name](job_id, ids)
+
+    summary = {
+        "resumed_from_stage": from_stage,
+        "resumed_video_count": len(video_ids),
+        "embedded": len(ids),
+    }
+    _complete_job(job_id, summary)
+    log.info("Resumed ingest pipeline completed: %s", summary)
+    _emit_ingest_decision_record(job_id, summary)
 
 
 # ---------------------------------------------------------------------------
@@ -1322,6 +1466,11 @@ def run_ingest_job(job_id: str) -> None:
         job["updated_at"] = _utc_now()
         save_ingest_job(job_id, job)
         log.info("Ingest pipeline started channel=%s", channel_url)
+
+        resume_from_stage = job.get("resume_from_stage")
+        if resume_from_stage:
+            _run_resumed_stages(job_id, resume_from_stage, job.get("resume_video_ids") or [])
+            return
 
         # Stage 1: discover
         if _is_cancelling(job_id):

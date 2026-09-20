@@ -4,6 +4,7 @@ YouTube channel ingestion API.
 Endpoints:
   POST /api/ingest/sync                           — trigger a full channel sync
   POST /api/ingest/videos/{video_id}/sync         — re-ingest a single video
+  POST /api/ingest/jobs/{job_id}/resume           — retry a failed job's failed videos from where it died
   GET  /api/ingest/jobs                           — list ingest jobs
   GET  /api/ingest/jobs/{job_id}                  — get job status
   GET  /api/ingest/jobs/{job_id}/events           — SSE stream of job events
@@ -32,6 +33,8 @@ from app.core import metrics as _metrics
 from app.core.rate_limit import TokenBucket
 from app.services.ingest_job_runner import (
     create_ingest_job,
+    create_resume_job,
+    resolve_resume_candidates,
     start_ingest_job_background,
 )
 from app.services.ingest_store import (
@@ -221,7 +224,6 @@ def trigger_single_video_sync(
 
     from app.core.paths import RAW_VIDEO_DIR
     from app.core.settings import settings
-    from app.services.ingest_store import upsert_video_stage
 
     # Check if the video exists — S3 or local depending on backend
     already_downloaded = False
@@ -237,16 +239,19 @@ def trigger_single_video_sync(
         already_downloaded = len(mp4_files) > 0
 
     if not already_downloaded:
-        # Full re-ingest: create a standard job but limit to this video
+        # Not downloaded yet, so there is nothing to resume from — a normal
+        # sync (scoped to at most 1 new video) is the only correct path,
+        # since discover/download aren't part of the resumable stage set.
         job_id = create_ingest_job(video_limit=1)
-        # Mark the target video so the runner knows what to focus on
-        # (the discover stage will still run but should find exactly this video as new)
     else:
-        # Video is already downloaded — re-run from extract_audio onwards
-        job_id = create_ingest_job(video_limit=1)
-        # Reset stages so runner picks it up again
-        for stage in ["extract_audio", "transcribe", "create_fragments", "classify", "embed"]:
-            upsert_video_stage(video_id, stage, "pending", job_id=job_id)
+        # Previously this reset 5 ingest_status rows to "pending" and then
+        # started a plain job, which begins at discover -- discover only
+        # finds videos not yet in yt-dlp's archive, so an already-downloaded
+        # video is never "new" and the pending rows were never read by
+        # anything. Route through the same resume engine as POST
+        # /jobs/{id}/resume instead: start straight at extract_audio for
+        # exactly this video.
+        job_id = create_resume_job(resume_from_stage="extract_audio", resume_video_ids=[video_id])
 
     start_ingest_job_background(job_id)
 
@@ -257,6 +262,75 @@ def trigger_single_video_sync(
         "status": "queued",
         "already_downloaded": already_downloaded,
         "message": "Video re-ingest job queued",
+    }
+
+
+# ---------------------------------------------------------------------------
+# POST /ingest/jobs/{job_id}/resume — retry a failed job from where it died
+# ---------------------------------------------------------------------------
+
+@router.post("/jobs/{job_id}/resume", status_code=202)
+def resume_ingest_job(
+    job_id: str,
+    current_user: CurrentUser = Depends(require_role("admin")),
+) -> dict[str, Any]:
+    """
+    Retry a failed ingest job's failed videos from the stage they failed at,
+    instead of a plain POST /sync (which starts at discover and never sees
+    an already-downloaded video again).
+
+    Only jobs that failed at extract_audio, transcribe, create_fragments,
+    classify or embed are resumable — a discover or download failure means
+    the videos were never fully downloaded, so a plain sync already retries
+    them correctly on its own.
+    """
+    if not _trigger_limiter.allow(current_user.id):
+        _metrics.rate_limit_rejections_total.labels(limiter="ingest_trigger").inc()
+        raise HTTPException(
+            status_code=429,
+            detail="Too many ingest triggers. Please wait before starting another sync.",
+        )
+
+    try:
+        job = load_ingest_job(job_id)
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail=f"Ingest job not found: {job_id}")
+
+    if job.get("status") != "failed":
+        raise HTTPException(
+            status_code=400,
+            detail=f"Only a failed job can be resumed (status is '{job.get('status')}')",
+        )
+
+    try:
+        from_stage, video_ids = resolve_resume_candidates(job)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+    running_id = _is_job_running()
+    if running_id:
+        raise HTTPException(
+            status_code=409,
+            detail={"message": "A sync job is already active", "active_job_id": running_id},
+        )
+
+    new_job_id = create_resume_job(
+        resume_from_stage=from_stage,
+        resume_video_ids=video_ids,
+        channel_url=job.get("channel_url"),
+        resumed_from_job_id=job_id,
+    )
+    start_ingest_job_background(new_job_id)
+
+    logger.info("Ingest job resumed original=%s new=%s from_stage=%s videos=%d",
+               job_id, new_job_id, from_stage, len(video_ids))
+    return {
+        "job_id": new_job_id,
+        "resumed_from_job_id": job_id,
+        "from_stage": from_stage,
+        "video_count": len(video_ids),
+        "status": "queued",
+        "message": f"Resuming {len(video_ids)} video(s) from '{from_stage}'",
     }
 
 
