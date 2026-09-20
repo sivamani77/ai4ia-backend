@@ -534,6 +534,25 @@ def _update_job(
     })
 
 
+def _require_some_success(job_id: str, stage: str, video_ids: list[str],
+                          succeeded: list[str], failed: list[str]) -> None:
+    """Raise if every video in a non-empty batch failed this stage.
+
+    A stage that verifies per video and still calls _update_job(...,
+    "completed", ...) even when nothing survived is what let a 43/43 download
+    failure sit in the UI as a green run with error: null -- and every stage
+    downstream of download had the same shape, so the failure just moved one
+    stage further before it went silently unnoticed. Mirrors how _stage_embed
+    already handles its own rc!=0 failure: mark the stage failed with its
+    counts, then raise so run_ingest_job's top-level except turns it into a
+    real job failure via _fail_job.
+    """
+    if video_ids and not succeeded:
+        msg = f"All {len(video_ids)} videos failed {stage}"
+        _update_job(job_id, stage, "failed", 0, msg, succeeded=succeeded, failed=failed)
+        raise RuntimeError(msg)
+
+
 def _compute_progress(stage_status: dict[str, Any]) -> int:
     total = 0
     for stage, weight in INGEST_STAGE_WEIGHTS.items():
@@ -871,6 +890,7 @@ def _stage_extract_audio(job_id: str, video_ids: list[str]) -> list[str]:
                 f"Extracted audio for {len(succeeded)}/{len(video_ids)} videos",
             )
 
+    _require_some_success(job_id, "extract_audio", video_ids, succeeded, failed)
     _update_job(
         job_id, "extract_audio", "completed", 100,
         f"Audio extracted for {len(succeeded)}/{len(video_ids)} videos",
@@ -946,6 +966,7 @@ def _stage_transcribe(job_id: str, video_ids: list[str]) -> list[str]:
                 f"Transcribed {len(succeeded)}/{len(video_ids)} files",
             )
 
+    _require_some_success(job_id, "transcribe", video_ids, succeeded, failed)
     _update_job(
         job_id, "transcribe", "completed", 100,
         f"Transcribed {len(succeeded)}/{len(video_ids)} files",
@@ -1020,6 +1041,7 @@ def _stage_create_fragments(job_id: str, video_ids: list[str]) -> list[str]:
         _s3_cleanup_dir(DATA_DIR / "transcripts", video_ids=video_ids)
         _s3_cleanup_dir(RAW_VIDEO_DIR, video_ids=video_ids, suffixes=(".info.json",))
 
+    _require_some_success(job_id, "create_fragments", video_ids, succeeded, failed)
     _update_job(
         job_id, "create_fragments", "completed", 100,
         f"Fragments created for {len(succeeded)}/{len(video_ids)} videos",
@@ -1081,6 +1103,7 @@ def _stage_classify(job_id: str, video_ids: list[str]) -> list[str]:
                        "*.classified.json", delete_after=True)
         _s3_cleanup_dir(DATA_DIR / "fragments", suffixes=(".fragments.json",))
 
+    _require_some_success(job_id, "classify", video_ids, succeeded, failed)
     _update_job(
         job_id, "classify", "completed", 100,
         f"Classified {len(succeeded)}/{len(video_ids)} videos",

@@ -120,6 +120,7 @@ def _stage_harness(use_s3: bool, chunks: list[list[str]] | None = None):
          patch.object(runner, "append_ingest_event"), \
          patch.object(runner, "_emit_ingest_trace"), \
          patch.object(runner, "_resolve_stem", side_effect=lambda vid: f"0001_{vid}_T"), \
+         patch("pathlib.Path.exists", return_value=True), \
          plan:
         yield mock_download, mock_cleanup, mock_run
 

@@ -113,6 +113,84 @@ class TestTotalDownloadFailureIsAFailure:
         assert job["status"] == "completed"
 
 
+class TestRequireSomeSuccess:
+    """Every stage past download had the identical shape download did: verify
+    per video, then report 'completed' regardless of whether anything
+    survived. Fixing only download would have just moved the same silent
+    failure one stage further down the pipeline."""
+
+    def test_raises_when_every_video_in_a_batch_failed(self):
+        import app.services.ingest_job_runner as runner
+        with patch.object(runner, "_update_job"):
+            with pytest.raises(RuntimeError, match="All 2 videos failed transcribe"):
+                runner._require_some_success("job1", "transcribe", ["v1", "v2"], [], ["v1", "v2"])
+
+    def test_does_not_raise_on_partial_success(self):
+        import app.services.ingest_job_runner as runner
+        with patch.object(runner, "_update_job") as mock_update:
+            runner._require_some_success("job1", "transcribe", ["v1", "v2"], ["v1"], ["v2"])
+        mock_update.assert_not_called()
+
+    def test_does_not_raise_when_the_batch_was_empty(self):
+        """video_ids=[] means the stage had nothing to do, not that it failed
+        -- that case is handled by each stage's own early return."""
+        import app.services.ingest_job_runner as runner
+        with patch.object(runner, "_update_job") as mock_update:
+            runner._require_some_success("job1", "transcribe", [], [], [])
+        mock_update.assert_not_called()
+
+    def test_marks_the_stage_failed_before_raising(self):
+        """So the job's stage_status carries the failure and counts even
+        though _fail_job (called by run_ingest_job's except) doesn't set them."""
+        import app.services.ingest_job_runner as runner
+        with patch.object(runner, "_update_job") as mock_update:
+            with pytest.raises(RuntimeError):
+                runner._require_some_success("job1", "classify", ["v1"], [], ["v1"])
+        mock_update.assert_called_once()
+        args = mock_update.call_args.args
+        assert args[1] == "classify"
+        assert args[2] == "failed"
+
+    @pytest.mark.parametrize("stage_fn_name", [
+        "_stage_extract_audio", "_stage_transcribe",
+        "_stage_create_fragments", "_stage_classify",
+    ])
+    def test_real_stage_raises_when_verification_finds_nothing(self, stage_fn_name):
+        """Drives the REAL stage function (not a mock standing in for it) to
+        a genuine zero-survivor outcome: the script "succeeds" but every
+        per-video output file is missing, exactly like a cookie-wall failure
+        that only breaks part way through a stage's script."""
+        import app.services.ingest_job_runner as runner
+        stage_fn = getattr(runner, stage_fn_name)
+
+        with patch.object(runner, "_ingest_use_s3", return_value=False), \
+             patch.object(runner, "_run_script", return_value=(0, "", "")), \
+             patch.object(runner, "_update_job"), \
+             patch.object(runner, "upsert_video_stage"), \
+             patch.object(runner, "append_ingest_event"), \
+             patch.object(runner, "_emit_ingest_trace"), \
+             patch.object(runner, "_resolve_stem", side_effect=lambda vid: f"0001_{vid}_T"), \
+             patch("pathlib.Path.exists", return_value=False):  # no output ever lands
+            with pytest.raises(RuntimeError, match="All 1 videos failed"):
+                stage_fn("job1", ["v1"])
+
+    def test_total_failure_partway_through_the_pipeline_fails_the_whole_job(self):
+        """End-to-end version: a real stage raising via _require_some_success
+        propagates through run_ingest_job's except into a failed job, not an
+        all-zeros green completion."""
+        import app.services.ingest_job_runner as runner
+
+        with _runner_harness() as job, \
+             patch.object(runner, "_stage_discover",
+                          return_value=[{"video_id": "v1"}]), \
+             patch.object(runner, "_stage_download", return_value=["v1"]), \
+             patch.object(runner, "_stage_extract_audio",
+                          side_effect=RuntimeError("All 1 videos failed transcribe")):
+            runner.run_ingest_job("job1")
+
+        assert job["status"] == "failed"
+
+
 class TestScriptOutputReachesTheEventStream:
     """Log files live on whichever container ran the stage; Postgres is the
     only channel the API and worker both see."""
