@@ -227,6 +227,35 @@ class TestChunking:
         assert truncate_flags == [True, False]
 
 
+class TestEmbedUploadsEverythingStorylineNeeds:
+    """stage_07_storyline's _prepare_embeddings requires the jsonl, the .npy
+    matrix and the .json metadata, and raises if any is missing. Ingest used
+    to upload only the jsonl, so a clean ingest could still leave video
+    generation unable to start."""
+
+    def test_uploads_matrix_and_metadata_alongside_the_jsonl(self):
+        import app.services.ingest_job_runner as runner
+        from app.services.ingest_job_runner import _stage_embed
+
+        with patch.object(runner, "_ingest_use_s3", return_value=True), \
+             patch.object(runner, "_s3_download_dir", return_value=0), \
+             patch.object(runner, "_s3_cleanup_dir", return_value=0), \
+             patch.object(runner, "_s3_upload_dir", return_value=0) as mock_upload, \
+             patch.object(runner, "_run_script", return_value=(0, "", "")), \
+             patch.object(runner, "_update_job"), \
+             patch.object(runner, "upsert_video_stage"), \
+             patch.object(runner, "append_ingest_event"), \
+             patch.object(runner, "_emit_ingest_trace"), \
+             patch.object(runner, "_resolve_stem", side_effect=lambda vid: f"0001_{vid}_T"), \
+             patch("pathlib.Path.exists", return_value=False):  # skip the chroma import step
+            _stage_embed("job1", ["aaa"])
+
+        patterns = [c.args[2] for c in mock_upload.call_args_list if len(c.args) >= 3]
+        assert "*.jsonl" in patterns
+        assert "*.npy" in patterns
+        assert "*.json" in patterns
+
+
 class TestCleanupAfterEachStage:
     def test_extract_audio_releases_the_mp4s(self):
         from app.services.ingest_job_runner import _stage_extract_audio

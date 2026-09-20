@@ -356,6 +356,7 @@ def _run_script(
     stage: str,
     timeout: int = 7200,
     truncate: bool = True,
+    cmd: list[str] | None = None,
 ) -> tuple[int, str, str]:
     """Run a script subprocess, streaming stdout/stderr line-by-line in real time.
 
@@ -377,7 +378,11 @@ def _run_script(
     log_dir = DATA_DIR / "jobs" / job_id / "logs"
     log_dir.mkdir(parents=True, exist_ok=True)
 
-    cmd = [PYTHON_BIN, str(script)] + args
+    # cmd lets a caller run an arbitrary executable (e.g. the yt-dlp binary
+    # directly, for discover) instead of a PYTHON_BIN-run .py script under
+    # SCRIPTS_DIR — every other caller leaves it unset.
+    if cmd is None:
+        cmd = [PYTHON_BIN, str(script)] + args
     log.info("Running %s: %s", stage, " ".join(cmd))
 
     stdout_log = log_dir / f"{stage}.stdout.log"
@@ -599,26 +604,23 @@ def _stage_discover(job_id: str, channel_url: str, video_limit: int | None) -> l
     disc_log = _log(job_id)
     disc_log.info("Discovering channel: %s", channel_url)
 
-    try:
-        result = subprocess.run(
-            cmd, capture_output=True, text=True, timeout=120, cwd=str(PROJECT_ROOT)
-        )
-    except subprocess.TimeoutExpired:
-        raise RuntimeError("yt-dlp channel discovery timed out after 120s")
-    except FileNotFoundError:
-        raise RuntimeError(
-            "yt-dlp is not installed. Install it with: pip install yt-dlp"
-        )
+    # Routed through _run_script (rather than a bare subprocess.run, as before)
+    # so discovery's yt-dlp output reaches script_log events in Postgres like
+    # every other stage's — previously a discovery failure had nothing an
+    # operator could inspect beyond the container's own log stream.
+    returncode, stdout, stderr = _run_script(
+        "yt-dlp", [], job_id, "discover", timeout=120, cmd=cmd,
+    )
 
-    if result.stderr:
-        disc_log.warning("yt-dlp discovery stderr:\n%s", result.stderr[-2000:])
+    if stderr:
+        disc_log.warning("yt-dlp discovery stderr:\n%s", stderr[-2000:])
 
-    if result.returncode not in (0, 101):  # 101 = max-downloads reached (expected)
-        raise RuntimeError(f"yt-dlp discovery failed (rc={result.returncode}): {result.stderr[:500]}")
+    if returncode not in (0, 101):  # 101 = max-downloads reached (expected)
+        raise RuntimeError(f"yt-dlp discovery failed (rc={returncode}): {stderr[:500]}")
 
     # Parse channel listing
     channel_videos: list[dict[str, Any]] = []
-    for line in result.stdout.strip().splitlines():
+    for line in stdout.strip().splitlines():
         parts = line.split("\t", 2)
         if len(parts) < 2:
             continue
@@ -1137,6 +1139,12 @@ def _stage_embed(job_id: str, video_ids: list[str]) -> list[str]:
 
     if _ingest_use_s3():
         _s3_upload_dir(DATA_DIR / "embeddings", "raw/embeddings", "*.jsonl", delete_after=False)
+        # stage_07_storyline's _prepare_embeddings requires all three of these
+        # (see _EMBEDDINGS_FILES there) and raises if any is missing — without
+        # uploading the matrix and metadata, ingest can finish clean and video
+        # generation still cannot start.
+        _s3_upload_dir(DATA_DIR / "embeddings", "raw/embeddings", "*.npy", delete_after=False)
+        _s3_upload_dir(DATA_DIR / "embeddings", "raw/embeddings", "*.json", delete_after=False)
         _s3_upload_dir(DATA_DIR / "embeddings_cleaned", "raw/embeddings_cleaned", "*.jsonl", delete_after=False)
         # The classified fragments were only ever scratch for this stage. The
         # embeddings dir is left alone deliberately — it seeds 06's hash cache
