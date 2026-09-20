@@ -17,7 +17,7 @@ sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJ
 from app.core.taxonomy_loader import THEMES, CHAPTERS  # noqa: E402
 from app.pipeline import s3_helpers  # noqa: E402
 
-FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments_cleaned"
+FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments"
 CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
 SPEAKERS_METADATA_DIR = PROJECT_ROOT / "data" / "metadata" / "speakers"
 REPORT_PATH = PROJECT_ROOT / "data" / "metadata" / "youtube" / "fragment_classification_report.csv"
