@@ -79,6 +79,55 @@ def _claim_delivery(job_id: str) -> bool:
     return True
 
 
+def _claim_ingest_delivery(job_id: str) -> bool:
+    """The ingest-task counterpart to _claim_delivery.
+
+    Same acks_late + task_reject_on_worker_lost hazard applies here: an ingest
+    job downloading tens of GB of video is exactly the kind of task that can
+    OOM-kill its worker, and until now nothing bounded how many times the
+    broker would redeliver it. Separate from _claim_delivery because ingest
+    jobs live in their own store (app.services.ingest_store) with their own
+    _fail_job signature (no error_type argument, unlike the video job one).
+    """
+    from app.core import metrics as _metrics
+    from app.services.ingest_store import load_ingest_job, save_ingest_job
+    from app.services.ingest_job_runner import _fail_job
+
+    try:
+        job = load_ingest_job(job_id)
+    except Exception:  # noqa: BLE001
+        logger.warning("[%s] Could not read ingest job row for delivery guard", job_id)
+        return True
+
+    if job.get("status") in _TERMINAL_STATUSES:
+        logger.info("[%s] Skipping ingest delivery — already terminal (status=%s)",
+                    job_id, job.get("status"))
+        return False
+
+    attempts = int(job.get("delivery_attempts", 0)) + 1
+    job["delivery_attempts"] = attempts
+    save_ingest_job(job_id, job)
+
+    if attempts > _MAX_DELIVERIES:
+        logger.error(
+            "[%s] Abandoning ingest job — delivered %d times, worker lost on each.",
+            job_id, attempts,
+        )
+        _fail_job(
+            job_id,
+            "dispatch",
+            f"Abandoned after {attempts} deliveries — the worker died on each "
+            "attempt, so the job was refused instead of retried indefinitely.",
+        )
+        _metrics.jobs_abandoned_total.inc()
+        return False
+
+    if attempts > 1:
+        logger.warning("[%s] Ingest job redelivered by broker — delivery attempt %d of %d",
+                       job_id, attempts, _MAX_DELIVERIES)
+    return True
+
+
 @celery_app.task(
     name="ai4ia.run_video_job",
     bind=True,
@@ -118,6 +167,8 @@ def run_video_job_task(self, job_id: str, request: dict[str, Any]) -> dict[str, 
 def run_ingest_job_task(self, job_id: str) -> dict[str, Any]:
     """Execute the YouTube channel ingestion pipeline for *job_id*."""
     logger.info("[%s] Celery worker starting ingest pipeline", job_id)
+    if not _claim_ingest_delivery(job_id):
+        return {"job_id": job_id, "status": "abandoned"}
     try:
         run_ingest_job(job_id)
         logger.info("[%s] Ingest pipeline completed successfully", job_id)
