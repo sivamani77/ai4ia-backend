@@ -307,6 +307,12 @@ logger = logging.getLogger("ai4ia.ingest")
 
 PYTHON_BIN = sys.executable
 
+# Batching for the script_log events _run_script emits. yt-dlp is chatty, so
+# one event per line would hammer Postgres for no benefit.
+_EVENT_BATCH_LINES = 50
+_EVENT_FLUSH_SECONDS = 2.0
+_EVENT_LINE_CHARS = 2000
+
 # ---------------------------------------------------------------------------
 # Stage definitions & weights (must sum to 100)
 # ---------------------------------------------------------------------------
@@ -353,10 +359,16 @@ def _run_script(
 ) -> tuple[int, str, str]:
     """Run a script subprocess, streaming stdout/stderr line-by-line in real time.
 
-    Lines are written to per-job log files (so the SSE log-tail endpoint can
-    stream live output) AND to the server logger, so subprocess output —
-    e.g. yt-dlp's actual error text — lands in `kubectl logs`/celery stdout
-    instead of being stuck in a file operators can't easily reach.
+    Lines go three places: the per-job log files, the server logger, and — in
+    batches — job events in Postgres.
+
+    The events matter because the log files are written by whichever container
+    runs the stage, while the log-tail API endpoint reads its own filesystem.
+    When those differ, every stage log looks like it never started even though
+    the stage ran for a quarter of an hour. Postgres is the only channel both
+    sides share, which is how the video pipeline has always done it
+    (pipeline/base.py emits script_log the same way).
+
     Returns (returncode, stdout, stderr) for backward compat.
     """
     import threading as _threading
@@ -380,10 +392,29 @@ def _run_script(
         stdout_log.touch()
         stderr_log.touch()
 
-    def _drain(pipe, log_path: Path, level: int) -> str:
-        """Read pipe line by line, appending to the log file and the server
-        logger (real time) so failures are visible without a shell into the pod."""
+    def _drain(pipe, log_path: Path, level: int, stream_name: str = "stdout") -> str:
+        """Read pipe line by line, appending to the log file, the server logger
+        and (batched) the job's event stream."""
         buf: list[str] = []
+        pending: list[str] = []
+        last_flush = time.monotonic()
+
+        def _flush() -> None:
+            if not pending:
+                return
+            try:
+                append_ingest_event(job_id, "script_log", {
+                    "stage": stage,
+                    "stream": stream_name,
+                    # Long lines are almost always a yt-dlp progress bar, which
+                    # emits \r rather than \n and can arrive as one enormous
+                    # line. Cap it so a single row can't bloat the JSONB.
+                    "lines": [ln[:_EVENT_LINE_CHARS] for ln in pending],
+                })
+            except Exception:  # noqa: BLE001
+                pass  # observability must never break the pipeline
+            pending.clear()
+
         try:
             with open(log_path, "a", buffering=1) as fh:
                 for line in pipe:
@@ -392,8 +423,16 @@ def _run_script(
                     stripped = line.rstrip("\n")
                     if stripped:
                         log.log(level, "[%s] %s", stage, stripped)
+                        pending.append(stripped)
+                    now = time.monotonic()
+                    if len(pending) >= _EVENT_BATCH_LINES or (
+                        pending and now - last_flush >= _EVENT_FLUSH_SECONDS
+                    ):
+                        _flush()
+                        last_flush = now
         except Exception:
             pass
+        _flush()
         return "".join(buf)
 
     try:
@@ -410,10 +449,10 @@ def _run_script(
         stderr_buf: list[str] = []
 
         def _drain_stdout():
-            stdout_buf.append(_drain(proc.stdout, stdout_log, logging.INFO))
+            stdout_buf.append(_drain(proc.stdout, stdout_log, logging.INFO, "stdout"))
 
         def _drain_stderr():
-            stderr_buf.append(_drain(proc.stderr, stderr_log, logging.WARNING))
+            stderr_buf.append(_drain(proc.stderr, stderr_log, logging.WARNING, "stderr"))
 
         t_out = _threading.Thread(target=_drain_stdout, daemon=True)
         t_err = _threading.Thread(target=_drain_stderr, daemon=True)
@@ -1270,11 +1309,26 @@ def run_ingest_job(job_id: str) -> None:
 
         if not downloaded_ids:
             log.warning("No videos successfully downloaded")
-            _complete_job(job_id, {
+            # Every download failing is a failure, not a green run. Reporting
+            # it as completed is what let a 43-of-43 cookie-wall failure sit in
+            # the UI as a successful sync with error: null. The "nothing new to
+            # do" case is handled above and never reaches here, so arriving
+            # here means videos were found and all of them failed.
+            job = load_ingest_job(job_id)
+            job["summary"] = {
                 "new_videos_found": len(new_videos),
                 "downloaded": 0,
                 "message": "Discovery found new videos but all downloads failed",
-            })
+            }
+            save_ingest_job(job_id, job)
+            _fail_job(
+                job_id, "download",
+                f"All {len(new_videos)} downloads failed",
+                "yt-dlp produced no usable files. On cloud/datacenter IPs the "
+                "usual cause is YouTube's bot check — set YOUTUBE_COOKIES_FILE "
+                "to a mounted cookies.txt. The download stage's script_log "
+                "events carry yt-dlp's own error text.",
+            )
             return
 
         # Stage 3: extract_audio
