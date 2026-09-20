@@ -290,6 +290,14 @@ class Settings(BaseSettings):
     enable_auto_sync: bool = False
     # Cron schedule for auto-sync (Celery beat format, UTC)
     auto_sync_cron: str = "0 2 * * *"  # 02:00 UTC daily
+    # Bytes of video/audio an ingest stage may hold on local disk at once. In
+    # s3 mode the media stages pull their inputs down in chunks under this
+    # budget and delete them again after uploading results, so peak disk stays
+    # flat however large the channel grows. Budgeted in bytes rather than a
+    # count of videos because sizes vary ~28x (median 46MB, max 1.3GB), so a
+    # fixed count has wildly unpredictable disk cost. Default 1 GiB -> ~1.5GB
+    # peak, under 5% of the 30GiB volume the API also serves media from.
+    ingest_batch_bytes: int = 1_073_741_824
 
     # ------------------------------------------------------------------
     # Celery worker configuration (used by worker startup, not the API)
