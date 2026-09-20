@@ -171,8 +171,20 @@ def run_ingest_job_task(self, job_id: str) -> dict[str, Any]:
         return {"job_id": job_id, "status": "abandoned"}
     try:
         run_ingest_job(job_id)
-        logger.info("[%s] Ingest pipeline completed successfully", job_id)
-        return {"job_id": job_id, "status": "completed"}
+        # run_ingest_job catches its own pipeline failures internally and
+        # calls _fail_job rather than raising -- so without this reload, a
+        # failed job (e.g. 0/43 downloads) still fell through to this success
+        # branch, logging "completed successfully" and returning
+        # status: "completed" while the job row itself correctly said
+        # "failed". Same fix run_video_job_task already has.
+        from app.services.ingest_store import load_ingest_job
+        job = load_ingest_job(job_id)
+        status = job.get("status", "completed") if job else "completed"
+        if status == "failed":
+            logger.error("[%s] Ingest pipeline ended with status 'failed'", job_id)
+        else:
+            logger.info("[%s] Ingest pipeline completed successfully", job_id)
+        return {"job_id": job_id, "status": status}
     except Exception as exc:
         logger.exception("[%s] Ingest pipeline raised unhandled exception", job_id)
         raise exc

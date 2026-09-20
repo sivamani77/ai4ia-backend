@@ -158,9 +158,27 @@ class TestRunIngestJobTask:
 
     def test_returns_completed_status(self):
         from app.worker.tasks import run_ingest_job_task
-        with _ingest_job_row(), patch("app.worker.tasks.run_ingest_job"):
+
+        def _complete(jid):
+            row["status"] = "completed"
+
+        with _ingest_job_row() as row, patch("app.worker.tasks.run_ingest_job", side_effect=_complete):
             result = run_ingest_job_task.run("ingest_ok")
         assert result["status"] == "completed"
+
+    def test_returns_failed_status_when_the_job_ended_failed(self):
+        """run_ingest_job catches its own pipeline failures internally and
+        calls _fail_job rather than raising -- a real 0/43-downloads run
+        showed the task logging 'completed successfully' and returning
+        status: completed while the job row itself said 'failed'."""
+        from app.worker.tasks import run_ingest_job_task
+
+        def _fail(jid):
+            row["status"] = "failed"
+
+        with _ingest_job_row() as row, patch("app.worker.tasks.run_ingest_job", side_effect=_fail):
+            result = run_ingest_job_task.run("ingest_bad_run")
+        assert result["status"] == "failed"
 
     def test_exception_propagates(self):
         from app.worker.tasks import run_ingest_job_task
@@ -215,7 +233,18 @@ class TestIngestDeliveryGuard:
 
     def test_unreadable_job_row_does_not_block_the_pipeline(self):
         from app.worker.tasks import run_ingest_job_task
-        with patch("app.services.ingest_store.load_ingest_job", side_effect=RuntimeError("db down")), \
+
+        # Fail only the guard's read; the post-run status read succeeds.
+        reads = [RuntimeError("db down"), {"status": "completed"}]
+
+        def _load(jid):
+            result = reads.pop(0)
+            if isinstance(result, Exception):
+                raise result
+            return result
+
+        with patch("app.services.ingest_store.load_ingest_job", side_effect=_load), \
+             patch("app.services.ingest_store.save_ingest_job"), \
              patch("app.worker.tasks.run_ingest_job") as mock_run:
             run_ingest_job_task.run("ijob_dbdown")
         mock_run.assert_called_once()
