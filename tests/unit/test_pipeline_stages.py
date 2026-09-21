@@ -26,7 +26,8 @@ class TestStageGuardrail:
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
-             patch("app.pipeline.stage_guardrail.generate_json",
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json",
                    return_value={"allowed": True, "category": None, "reason": "fine"}), \
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
@@ -42,7 +43,8 @@ class TestStageGuardrail:
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
-             patch("app.pipeline.stage_guardrail.generate_json",
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json",
                    return_value={"allowed": False, "category": "harmful", "reason": "violent content"}), \
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
@@ -59,7 +61,8 @@ class TestStageGuardrail:
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
-             patch("app.pipeline.stage_guardrail.generate_json", side_effect=RuntimeError("timeout")), \
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json", side_effect=RuntimeError("timeout")), \
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
             mock_settings.prompt_guardrail_enabled = True
@@ -74,7 +77,8 @@ class TestStageGuardrail:
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
-             patch("app.pipeline.stage_guardrail.generate_json", side_effect=RuntimeError("timeout")), \
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json", side_effect=RuntimeError("timeout")), \
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
             mock_settings.prompt_guardrail_enabled = True

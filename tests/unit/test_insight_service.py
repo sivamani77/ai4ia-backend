@@ -347,6 +347,8 @@ class TestPromptSafety:
 
         with patch.object(insight_service.embedding_index, "search",
                           return_value=[make_fragment("f1")]), \
+             patch.object(insight_service.guardrail_service, "assert_query_allowed",
+                          MagicMock()), \
              patch.object(insight_service, "generate_json", fake_generate_json), \
              patch.object(insight_service, "InsightRepository", MagicMock()), \
              patch.object(insight_service, "_emit_insight_decision_record", lambda *a: None):

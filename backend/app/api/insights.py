@@ -7,6 +7,7 @@ from app.core.config import INSIGHT_DEFAULT_LIMIT
 from app.core import metrics as _metrics
 from app.core.rate_limit import TokenBucket
 from app.services import insight_service, model_gate
+from app.services.guardrail_service import GuardrailRejection
 
 router = APIRouter(prefix="/insights", tags=["Insights"])
 
@@ -33,6 +34,10 @@ def api_generate_insight(req: GenerateInsightRequest, current_user: CurrentUser 
         )
     try:
         return insight_service.generate_insight(req.query, req.filters, req.limit, user_id=current_user.id)
+    except GuardrailRejection as exc:
+        # Ahead of the blanket handler below, which would report a policy
+        # rejection as a 502 generation failure.
+        raise HTTPException(status_code=400, detail=exc.message)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
     except Exception as exc:  # noqa: BLE001

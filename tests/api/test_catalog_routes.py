@@ -119,16 +119,16 @@ def _run_insights_compare_and_mindmap(client, monkeypatch, insight_service, comp
     monkeypatch.setattr(insight_service, "get_insight", lambda insight_id: {"id": insight_id, "title": "Insight"})
     monkeypatch.setattr(insight_service, "build_sources_map", lambda insight: {"sources": [insight["id"]]})
 
-    monkeypatch.setattr(comparison_service, "compare_speakers", lambda speakers, topic, limit: {
+    monkeypatch.setattr(comparison_service, "compare_speakers", lambda speakers, topic, limit, user_id=None: {
         "speakers": speakers,
         "topic": topic,
         "limit": limit,
     })
-    monkeypatch.setattr(comparison_service, "synthesize_theme", lambda theme, limit: {
+    monkeypatch.setattr(comparison_service, "synthesize_theme", lambda theme, limit, user_id=None: {
         "theme": theme,
         "limit": limit,
     })
-    monkeypatch.setattr(comparison_service, "build_relay", lambda topic, limit: {
+    monkeypatch.setattr(comparison_service, "build_relay", lambda topic, limit, user_id=None: {
         "topic": topic,
         "limit": limit,
     })

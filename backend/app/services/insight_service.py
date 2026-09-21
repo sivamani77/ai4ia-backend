@@ -14,7 +14,7 @@ from typing import Any
 from app.core.config import INSIGHT_MODEL, INSIGHT_DEFAULT_LIMIT
 from app.db.repositories.insight_repository import InsightRepository
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
-from app.services import embedding_index, fragment_store
+from app.services import embedding_index, fragment_store, guardrail_service
 from app.services.llm_service import generate_json
 
 
@@ -114,6 +114,10 @@ def generate_insight(
 ) -> dict:
     limit = limit or INSIGHT_DEFAULT_LIMIT
     insight_id = f"insight_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}"
+
+    # Vet before retrieval: a barred query should cost no embedding call and
+    # leave no insight row behind. Raises GuardrailRejection.
+    guardrail_service.assert_query_allowed(query, surface="insight", user_id=user_id)
 
     pool = build_evidence_pool(query, filters, limit)
     if not pool:

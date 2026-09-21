@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from app.core.config import INSIGHT_MODEL
-from app.services import embedding_index, fragment_store
+from app.services import embedding_index, fragment_store, guardrail_service
 from app.services.insight_service import _truncate, _validate
 from app.services.llm_service import generate_json
 
@@ -74,7 +74,11 @@ Return JSON exactly:
 
 
 def compare_speakers(speakers: list[str], topic: str | None = None,
-                     limit_per_speaker: int = 6, model: str | None = None) -> dict:
+                     limit_per_speaker: int = 6, model: str | None = None,
+                     user_id: str | None = None) -> dict:
+    # Vet the caller's own words only — the default topic below is ours.
+    if topic:
+        guardrail_service.assert_query_allowed(topic, surface="compare_speakers", user_id=user_id)
     topic = topic or "their overall perspective on AI"
     pool: list[dict] = []
     missing: list[str] = []
@@ -178,7 +182,9 @@ Return JSON exactly:
 }}"""
 
 
-def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> dict:
+def synthesize_theme(theme: str, limit: int = 20, model: str | None = None,
+                     user_id: str | None = None) -> dict:
+    guardrail_service.assert_query_allowed(theme, surface="synthesis_theme", user_id=user_id)
     frags = embedding_index.search(theme, top_k=limit, filters={"theme": theme})
     if not frags:  # fall back to semantic-only if the theme string isn't an exact facet
         frags = embedding_index.search(theme, top_k=limit)
@@ -265,7 +271,9 @@ Return JSON exactly:
 }}"""
 
 
-def build_relay(topic: str, limit: int = 20, model: str | None = None) -> dict:
+def build_relay(topic: str, limit: int = 20, model: str | None = None,
+                user_id: str | None = None) -> dict:
+    guardrail_service.assert_query_allowed(topic, surface="relay", user_id=user_id)
     frags = embedding_index.search(topic, top_k=limit)
     if not frags:
         raise ValueError(f"No fragments found for topic: {topic}")

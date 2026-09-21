@@ -6,6 +6,7 @@ from app.core.auth import CurrentUser, get_current_user
 from app.core import metrics as _metrics
 from app.core.rate_limit import TokenBucket
 from app.services import comparison_service, model_gate
+from app.services.guardrail_service import GuardrailRejection
 
 router = APIRouter(tags=["Comparison & Relay"])
 
@@ -41,9 +42,13 @@ class RelayRequest(BaseModel):
     limit: int = Field(20, ge=5, le=60)
 
 
-def _run(fn, *args):
+def _run(fn, *args, **kwargs):
     try:
-        return fn(*args)
+        return fn(*args, **kwargs)
+    except GuardrailRejection as exc:
+        # Ahead of the blanket handlers below, which would report a policy
+        # rejection as a 502 generation failure.
+        raise HTTPException(status_code=400, detail=exc.message)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
@@ -54,16 +59,18 @@ def _run(fn, *args):
 def api_compare_speakers(req: CompareSpeakersRequest, current_user: CurrentUser = Depends(get_current_user)):
     _check_rate_limit(current_user)
     return _run(comparison_service.compare_speakers, req.speakers, req.topic,
-                req.limit_per_speaker)
+                req.limit_per_speaker, user_id=current_user.id)
 
 
 @router.post("/synthesis/theme", dependencies=_model_gate_dep)
 def api_synthesize_theme(req: ThemeSynthesisRequest, current_user: CurrentUser = Depends(get_current_user)):
     _check_rate_limit(current_user)
-    return _run(comparison_service.synthesize_theme, req.theme, req.limit)
+    return _run(comparison_service.synthesize_theme, req.theme, req.limit,
+                user_id=current_user.id)
 
 
 @router.post("/relay", dependencies=_model_gate_dep)
 def api_build_relay(req: RelayRequest, current_user: CurrentUser = Depends(get_current_user)):
     _check_rate_limit(current_user)
-    return _run(comparison_service.build_relay, req.topic, req.limit)
+    return _run(comparison_service.build_relay, req.topic, req.limit,
+                user_id=current_user.id)

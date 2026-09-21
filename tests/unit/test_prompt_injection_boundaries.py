@@ -228,7 +228,10 @@ class TestNarrativeAssemblyBoundaries:
 
 class TestStageGuardrailBoundaries:
     def test_run_sends_prompt_as_wrapped_user_message_with_separate_system(self, monkeypatch):
+        # The classification itself moved to guardrail_service (GAP-003); the
+        # boundary being asserted is unchanged.
         from app.pipeline import stage_guardrail
+        from app.services import guardrail_service
 
         captured = {}
 
@@ -237,10 +240,11 @@ class TestStageGuardrailBoundaries:
             captured["prompt"] = prompt
             return {"allowed": True, "category": None, "reason": "fine"}
 
-        monkeypatch.setattr(stage_guardrail, "generate_json", fake_generate_json)
+        monkeypatch.setattr(guardrail_service, "generate_json", fake_generate_json)
         monkeypatch.setattr(stage_guardrail, "update_stage", lambda *a, **k: None)
         monkeypatch.setattr(stage_guardrail, "append_event", lambda *a, **k: None)
         monkeypatch.setattr(stage_guardrail.settings, "prompt_guardrail_enabled", True, raising=False)
+        monkeypatch.setattr(guardrail_service.settings, "prompt_guardrail_enabled", True, raising=False)
 
         result = stage_guardrail.run("job1", {"prompt": MALICIOUS}, context=None)
 
