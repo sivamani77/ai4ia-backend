@@ -42,6 +42,31 @@ def reset_speakers_cache():
 
 
 # ---------------------------------------------------------------------------
+# stream_url_for
+# ---------------------------------------------------------------------------
+
+class TestStreamUrlFor:
+    def test_builds_archive_stream_path(self):
+        from app.services.fragment_store import stream_url_for
+        assert stream_url_for("0001_abc123_speaker") == "/api/archive/videos/0001_abc123_speaker/stream"
+
+    def test_none_source_video_returns_none(self):
+        from app.services.fragment_store import stream_url_for
+        assert stream_url_for(None) is None
+
+    def test_empty_string_returns_none(self):
+        from app.services.fragment_store import stream_url_for
+        assert stream_url_for("") is None
+
+    def test_special_characters_are_url_quoted(self):
+        from app.services.fragment_store import stream_url_for
+        result = stream_url_for("video with spaces/slash")
+        assert " " not in result
+        assert result.startswith("/api/archive/videos/")
+        assert result.endswith("/stream")
+
+
+# ---------------------------------------------------------------------------
 # reload
 # ---------------------------------------------------------------------------
 

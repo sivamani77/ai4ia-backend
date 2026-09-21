@@ -95,6 +95,22 @@ class TestBuildEvidencePool:
             self._pool(query="Q", filters={"theme": "T1"}, limit=7)
         mock_search.assert_called_once_with("Q", top_k=7, filters={"theme": "T1"})
 
+    def test_stream_url_computed_from_source_video(self):
+        """GAP-014 regression: fragment rows have no stream_url column, so it
+        must be derived from source_video (matching archive.py's fragment
+        preview endpoint), not read from a field that's never set."""
+        frags = [make_fragment("f1", source_video="0001_abc123_speaker")]
+        with patch("app.services.insight_service.embedding_index.search", return_value=frags):
+            pool = self._pool()
+        assert pool[0]["stream_url"] == "/api/archive/videos/0001_abc123_speaker/stream"
+
+    def test_stream_url_none_when_source_video_missing(self):
+        frags = [make_fragment("f1")]
+        frags[0].pop("source_video", None)
+        with patch("app.services.insight_service.embedding_index.search", return_value=frags):
+            pool = self._pool()
+        assert pool[0]["stream_url"] is None
+
 
 # ---------------------------------------------------------------------------
 # _validate

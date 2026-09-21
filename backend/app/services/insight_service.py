@@ -39,7 +39,7 @@ def build_evidence_pool(query: str, filters: dict | None, limit: int) -> list[di
             "start": f.get("start"),
             "end": f.get("end"),
             "duration": f.get("duration"),
-            "stream_url": f.get("stream_url"),
+            "stream_url": fragment_store.stream_url_for(f.get("source_video")),
             "similarity": f.get("similarity"),
             "text": f.get("text"),
         })

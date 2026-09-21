@@ -36,7 +36,7 @@ def _pool_from_fragments(frags: list[dict]) -> list[dict]:
             "speaker_attribution": f.get("speaker_attribution"), "edition": f.get("edition"),
             "primary_theme": f.get("primary_theme"), "primary_chapter": f.get("primary_chapter"),
             "start": f.get("start"), "end": f.get("end"), "duration": f.get("duration"),
-            "stream_url": f.get("stream_url"), "text": f.get("text"),
+            "stream_url": fragment_store.stream_url_for(f.get("source_video")), "text": f.get("text"),
         })
     return pool
 

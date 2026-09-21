@@ -1008,6 +1008,7 @@ def _resolve_section_sources(section: dict[str, Any], by_fragment: dict[str, dic
         seen.add(fragment_id)
         frag = fragment_store.get(fragment_id) or {}
         candidate = by_fragment.get(fragment_id) or {}
+        source_video = frag.get("source_video") or candidate.get("source_video")
         text = clean_text(
             frag.get("text")
             or candidate.get("text")
@@ -1019,7 +1020,7 @@ def _resolve_section_sources(section: dict[str, Any], by_fragment: dict[str, dic
                 "fragment_id": fragment_id,
                 "speaker": frag.get("speaker") or candidate.get("speaker"),
                 "speaker_attribution": frag.get("speaker_attribution"),
-                "source_video": frag.get("source_video") or candidate.get("source_video"),
+                "source_video": source_video,
                 "video_title": frag.get("video_title"),
                 "primary_theme": frag.get("primary_theme") or candidate.get("primary_theme"),
                 "primary_chapter": frag.get("primary_chapter") or candidate.get("primary_chapter"),
@@ -1029,7 +1030,7 @@ def _resolve_section_sources(section: dict[str, Any], by_fragment: dict[str, dic
                 "text": text,
                 "summary": clean_text(candidate.get("summary") or text),
                 "keywords": candidate.get("keywords") or frag.get("keywords") or [],
-                "stream_url": frag.get("stream_url"),
+                "stream_url": fragment_store.stream_url_for(source_video),
             }
         )
 

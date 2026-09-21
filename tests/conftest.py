@@ -251,6 +251,5 @@ def make_fragment(
         "edition": "AI4IA 2025",
         "year": 2025,
         "keywords": ["AI", "ethics"],
-        "stream_url": f"/api/archive/videos/abc123/stream",
         **extra,
     }

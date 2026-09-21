@@ -37,6 +37,22 @@ class TestPoolFromFragments:
         assert len(pool) == 1
         assert pool[0]["ref"] == 1
 
+    def test_stream_url_computed_from_source_video(self):
+        """GAP-014 regression: fragment rows have no stream_url column, so it
+        must be derived from source_video, not read from a field that's
+        never set on the raw fragment."""
+        from app.services.comparison_service import _pool_from_fragments
+        frag = make_fragment("f1", source_video="0001_abc123_speaker")
+        pool = _pool_from_fragments([frag])
+        assert pool[0]["stream_url"] == "/api/archive/videos/0001_abc123_speaker/stream"
+
+    def test_stream_url_none_when_source_video_missing(self):
+        from app.services.comparison_service import _pool_from_fragments
+        frag = make_fragment("f1")
+        frag.pop("source_video", None)
+        pool = _pool_from_fragments([frag])
+        assert pool[0]["stream_url"] is None
+
 
 # ---------------------------------------------------------------------------
 # _format_pool
@@ -86,7 +102,12 @@ class TestClip:
                          "primary_theme", "video_stream_url", "start", "end", "duration", "text"}
         assert expected_keys.issubset(result.keys())
 
-    def test_stream_url_from_stream_url(self):
+    def test_stream_url_passed_through_from_pool_entry(self):
+        """_clip itself just passes through whatever "stream_url" key its
+        input already carries — the actual computation happens upstream in
+        _pool_from_fragments (see TestPoolFromFragments.test_stream_url_
+        computed_from_source_video), which is what real callers always route
+        through before _clip sees a dict."""
         from app.services.comparison_service import _clip
         frag = make_fragment("f1")
         frag["stream_url"] = "/api/stream/abc"
