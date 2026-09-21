@@ -323,9 +323,27 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
         _aud_dur_check = _probe_stream_duration("a:0") or _format_dur
         _av_delta = _aud_dur_check - _vid_dur_check
         log(f"  A/V balance probe: video={_vid_dur_check:.2f}s audio={_aud_dur_check:.2f}s delta={_av_delta:.2f}s")
+        # Audio running LONG past the video is not a trailing-audio overhang, it
+        # means the video track is missing frames — and trimming the audio to
+        # match "fixes" the container while leaving every picture ahead of its
+        # sound. That is exactly what shipped on vjob_20260921_131232_4285690c:
+        # video=484.27s vs audio=489.16s, trimmed to 484.27s, after which
+        # duration_delta read 0.02s and the job reported no warnings at all,
+        # while every visual sat ~4.8s ahead of its narration for 8 minutes.
+        # Sub-second overhangs are ordinary tail rounding and still get trimmed;
+        # anything larger is a defect that must not be silently normalised away.
+        _SHORT_VIDEO_LIMIT = 1.0
+        if _av_delta > _SHORT_VIDEO_LIMIT:
+            raise ExportIntegrityError(
+                f"Video track is {_av_delta:.2f}s shorter than the audio track "
+                f"(video={_vid_dur_check:.2f}s, audio={_aud_dur_check:.2f}s). Frames went "
+                f"missing during concat, so the picture runs ahead of the sound for the "
+                f"whole export. Refusing to trim the audio and ship a desynced video."
+            )
+
         if abs(_av_delta) > 0.15:
             if _av_delta > 0:
-                # Audio stream longer than video — trim trailing audio to video duration
+                # Sub-second trailing-audio overhang — trim to the video duration.
                 log(f"  A/V balance: audio ({_aud_dur_check:.2f}s) exceeds video ({_vid_dur_check:.2f}s) by {_av_delta:.2f}s — trimming trailing audio")
                 _trimmed = output_path.parent / (output_path.stem + "_avtrim.mp4")
                 run_cmd([

@@ -33,6 +33,38 @@ from app.pipeline.export_gen.timeline_selection import get_canonical_export_time
 from app.pipeline.export_gen.subtitles import format_vtt_timestamp, get_segment_subtitle_text, make_subtitle_entries_for_segment, segment_has_spoken_audio
 
 
+# A rendered segment's video stream may legitimately end a fraction of a frame
+# before its container (last frame vs last audio packet, 1/30s quantisation).
+# Two frames of slack; anything beyond that is real missing picture.
+_SEGMENT_AV_TOLERANCE = 0.10
+
+
+def _segment_video_duration(path: Path) -> float:
+    """Seconds of actual picture in a rendered segment, from the frame count.
+
+    Not media_probe.video_stream_duration: segments are Matroska (see
+    SEGMENT_CONTAINER_SUFFIX), and Matroska carries no per-stream duration, so
+    that helper returns 0.0 for every segment this pipeline writes — a check
+    built on it silently never runs. Counting packets works on any container,
+    and segments are always exactly FPS by construction.
+    """
+    try:
+        out = subprocess.run(
+            [
+                "ffprobe", "-v", "error",
+                "-select_streams", "v:0",
+                "-count_packets",
+                "-show_entries", "stream=nb_read_packets",
+                "-of", "csv=p=0",
+                str(path),
+            ],
+            capture_output=True, text=True, timeout=60,
+        ).stdout.strip()
+        return int(out) / FPS if out else 0.0
+    except (subprocess.SubprocessError, ValueError, OSError):
+        return 0.0
+
+
 class ExportIntegrityError(RuntimeError):
     """A timeline segment cannot be rendered as planned.
 
@@ -742,6 +774,21 @@ def _render_one_segment(
         raise RuntimeError(
             f"Rendered segment {idx} ({seg_type_check}, fragment={item.get('fragment_id')!r}) "
             f"has duration 0.0 at {plan.segment_path}. Aborting export."
+        )
+
+    # The container duration above is max(video, audio). A segment whose VIDEO
+    # stream is shorter than that still reports a healthy duration here, gets a
+    # correct-looking slot on the timeline, and then loses exactly that much
+    # picture during concat — shifting every later visual earlier while the audio
+    # stays put. Catch it on the segment that caused it, by name, instead of
+    # discovering a 4.9s whole-export desync at the end (or not at all).
+    video_duration = _segment_video_duration(plan.segment_path)
+    if video_duration > 0.0 and (duration - video_duration) > _SEGMENT_AV_TOLERANCE:
+        raise ExportIntegrityError(
+            f"Rendered segment {idx} ({plan.seg_type}, fragment={item.get('fragment_id')!r}) "
+            f"has {video_duration:.3f}s of video but a {duration:.3f}s container "
+            f"({duration - video_duration:.3f}s of picture missing) at {plan.segment_path}. "
+            f"Concat would drop that picture and run every later visual early."
         )
     return idx, plan.segment_path, {
         "index": idx,

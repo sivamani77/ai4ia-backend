@@ -415,7 +415,21 @@ def concat_segments(segment_paths: list[Path], output_path: Path, subtitle_path:
         for path in segment_paths:
             f.write(f"file '{path.resolve()}'\n")
 
-    vf_chain = "fps=30,setpts=N/(30*TB),format=yuv420p"
+    # NO setpts here. `setpts=N/(30*TB)` rebuilds every video PTS from the
+    # OUTPUT FRAME INDEX, which throws away the concat demuxer's timeline: the
+    # video track then lasts exactly (frames / 30) regardless of how long the
+    # segments actually were. The audio side does the opposite — aresample
+    # honours timestamps and fills gaps with silence — so the two disagree the
+    # moment any segment's video stream is shorter than its container duration.
+    # Every frame missing anywhere pulls ALL later picture earlier while the
+    # sound stays put, and the error is permanent.
+    #
+    # Measured on job vjob_20260921_131232_4285690c: concat emitted video=484.27s
+    # against audio=489.16s, and every visual landed ~4.8s ahead of its narration
+    # for the whole 8-minute export. Keeping the demuxer's timestamps lets
+    # `fps=30` + `-vsync cfr` duplicate frames across a gap instead, which is
+    # what CFR output is for.
+    vf_chain = "fps=30,format=yuv420p"
     if subtitle_path is not None:
         subtitle_filter_path = str(subtitle_path.resolve()).replace(":", "\\:")
         vf_chain += (
