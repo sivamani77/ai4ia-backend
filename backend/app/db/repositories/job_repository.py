@@ -75,6 +75,22 @@ class JobRepository:
         return self._normalize_output(row) if row is not None else None
 
     def upsert_job(self, data: Mapping[str, Any]) -> None:
+        """Write a full job snapshot, except that a terminal status is sticky.
+
+        Callers build `data` from an earlier load_job() read, so this is a
+        read-modify-write. Cancellation does NOT go through here — it lands via
+        the atomic update_job_partial() — so a save whose snapshot predates a
+        cancellation would otherwise write the stale status back and silently
+        un-cancel the job. update_stage() runs on every progress tick, so that
+        window is hit easily during a long render.
+
+        Once the row is cancelled/completed/failed, no snapshot may move it out
+        of that state: the decision is made inside this single statement against
+        the row's committed value, so there is no window between check and write.
+        The metadata blob is still replaced wholesale (job dicts legitimately
+        drop keys, e.g. active_pid), but its status key is re-pinned to the
+        preserved value so the blob cannot contradict the column.
+        """
         payload = self._normalize_input(data)
         self._log("upsert", payload.get("id"))
 
@@ -87,7 +103,10 @@ class JobRepository:
                     coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s,
                     %(error)s, %(metadata)s, %(job_type)s, %(worker_id)s, %(retry_count)s)
             on conflict (id) do update set
-                status = excluded.status,
+                status = case
+                    when jobs.status in ('cancelled', 'completed', 'failed') then jobs.status
+                    else excluded.status
+                end,
                 source_type = excluded.source_type,
                 source_value = excluded.source_value,
                 progress = excluded.progress,
@@ -95,7 +114,11 @@ class JobRepository:
                 started_at = excluded.started_at,
                 completed_at = excluded.completed_at,
                 error = excluded.error,
-                metadata = excluded.metadata,
+                metadata = case
+                    when jobs.status in ('cancelled', 'completed', 'failed')
+                        then excluded.metadata || jsonb_build_object('status', jobs.status)
+                    else excluded.metadata
+                end,
                 job_type = excluded.job_type,
                 worker_id = excluded.worker_id,
                 retry_count = excluded.retry_count
