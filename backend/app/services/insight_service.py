@@ -13,6 +13,7 @@ from typing import Any
 
 from app.core.config import INSIGHT_MODEL, INSIGHT_DEFAULT_LIMIT
 from app.db.repositories.insight_repository import InsightRepository
+from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
 from app.services import embedding_index, fragment_store
 from app.services.llm_service import generate_json
 
@@ -46,37 +47,53 @@ def build_evidence_pool(query: str, filters: dict | None, limit: int) -> list[di
     return pool
 
 
-_PROMPT = """You are a research analyst synthesizing insights from the AI4IA conference archive.
+# Both inputs to this prompt are untrusted: the query is attacker-controlled
+# text straight off the API, and each fragment's transcript text comes from
+# ingested video. Neither is interpolated into the instructions — the
+# instructions are a system-role message and both travel in the user message
+# wrapped in wrap_untrusted(), matching stage_guardrail and fragment_validation.
+_SYSTEM_PROMPT = """You are a research analyst synthesizing insights from the AI4IA conference archive.
 
-Question: {query}
-
-You are given NUMBERED evidence fragments. You may ONLY use these fragments.
-EVERY statement you make MUST cite the fragment numbers that support it via a
-"fragment_refs" array (e.g. [1, 4]). Do NOT use any number not listed below.
-Do NOT invent facts. If the evidence is thin, say so and cite what exists.
-
-EVIDENCE:
-{evidence}
+Answer the question given in the user message. You are given NUMBERED evidence
+fragments. You may ONLY use these fragments. EVERY statement you make MUST cite
+the fragment numbers that support it via a "fragment_refs" array (e.g. [1, 4]).
+Do NOT use any number not listed in the evidence. Do NOT invent facts. If the
+evidence is thin, say so and cite what exists.
 
 Return JSON exactly in this shape:
-{{
+{
   "title": "<short evocative title>",
   "summary": "<2-4 sentence overview>",
-  "patterns":  [{{"statement": "<recurring idea>", "fragment_refs": [1,2]}}],
-  "contrasts": [{{"statement": "<tension or disagreement>", "fragment_refs": [3,4]}}],
-  "recommended_clips": [{{"ref": 1, "reason": "<why this clip is representative>"}}]
-}}"""
+  "patterns":  [{"statement": "<recurring idea>", "fragment_refs": [1,2]}],
+  "contrasts": [{"statement": "<tension or disagreement>", "fragment_refs": [3,4]}],
+  "recommended_clips": [{"ref": 1, "reason": "<why this clip is representative>"}]
+}""" + UNTRUSTED_CONTENT_NOTICE
 
 
 def _format_evidence(pool: list[dict]) -> str:
+    """Render the numbered citation pool.
+
+    The `[ref]` markers and metadata are ours and stay outside the wrapper so
+    the model can rely on them as structure; only the transcript text itself is
+    untrusted and gets wrapped.
+    """
     lines = []
     for p in pool:
         meta = " | ".join(filter(None, [
             p.get("speaker"), p.get("edition"),
             p.get("primary_theme"),
         ]))
-        lines.append(f"[{p['ref']}] ({meta}) {_truncate(p['text'])}")
+        lines.append(f"[{p['ref']}] ({meta}) {wrap_untrusted(_truncate(p['text']))}")
     return "\n".join(lines)
+
+
+def _build_user_message(query: str, pool: list[dict]) -> str:
+    return (
+        "QUESTION (untrusted — see content boundary notice in system instructions):\n"
+        + wrap_untrusted(query)
+        + "\n\nEVIDENCE:\n"
+        + _format_evidence(pool)
+    )
 
 
 def _validate(claims: list[dict], valid_refs: set[int]) -> tuple[list[dict], list[dict]]:
@@ -111,9 +128,10 @@ def generate_insight(
         "decision_label": "evidence_synthesis",
     }
     raw = generate_json(
-        _PROMPT.format(query=query, evidence=_format_evidence(pool)),
+        _build_user_message(query, pool),
         model=INSIGHT_MODEL,
         temperature=0.2,
+        system=_SYSTEM_PROMPT,
         _trace=llm_trace_ctx,
     )
 
