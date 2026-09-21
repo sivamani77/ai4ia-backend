@@ -495,11 +495,22 @@ def classify_fragment_file(path: Path, speaker_lookup: dict[str, dict] | None = 
     )
     fallback_speaker = speaker_meta.get("primary_speaker")
     fallback_speaker_attribution = speaker_meta.get("attribution")
+    is_multi_speaker = len(speaker_meta.get("speakers") or []) > 1
 
     fragments = payload.get("fragments", [])
     classified_fragments = [classify_fragment(fragment) for fragment in fragments]
 
-    if fallback_speaker:
+    if is_multi_speaker:
+        # No per-fragment diarization exists anywhere in this pipeline — the
+        # roster gives one name per VIDEO, not per clip. Blanket-assigning
+        # that one name to every fragment mislabels every panelist who isn't
+        # it, in a video with more than one speaker (GAP-015). Mark it
+        # ambiguous instead of guessing wrong; downstream credits/lower-third
+        # rendering treats a non-name attribution as "no confident name".
+        for fragment in classified_fragments:
+            if not fragment.get("speaker"):
+                fragment.setdefault("speaker_attribution", "Multiple speakers")
+    elif fallback_speaker:
         for fragment in classified_fragments:
             if not fragment.get("speaker"):
                 fragment["speaker"] = fallback_speaker
