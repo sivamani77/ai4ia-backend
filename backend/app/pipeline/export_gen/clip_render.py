@@ -24,6 +24,19 @@ FADE_DURATION = 0.45
 ARCHIVE_AUDIO_VOLUME = 1.0
 SECTION_VOICEOVER_VOLUME = 1.0
 
+# Intermediate segments carry LOSSLESS audio; AAC is encoded exactly once, by
+# concat_segments. AAC is a block codec: every encode adds priming samples at
+# the head and padding at the tail, and the container records them in an edit
+# list so a player can trim them. The concat demuxer ignores that edit list and
+# decodes raw frames, so each per-segment AAC encode leaked ~7 ms of audio into
+# the join while the video side stayed exact (setpts rebuilds it from frame
+# count). Lip sync therefore drifted by roughly 7 ms x segment_count — 141 ms
+# over 18 segments, past the point a viewer sees it against a talking face.
+# Measured on real footage: 7.15 ms/segment before, 0.21 ms/segment after.
+SEGMENT_AUDIO_CODEC = "pcm_s16le"
+# MP4 is a poor PCM carrier; these files are throwaway inputs to concat.
+SEGMENT_CONTAINER_SUFFIX = ".mkv"
+
 
 def _first_present(*vals: Any, default: float = 0.0) -> float:
     """Like `a or b or default`, but treats 0.0/0 as present rather than falsy."""
@@ -164,7 +177,7 @@ def make_card_video_with_optional_voiceover(
             "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.6",
             "-shortest",
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -181,7 +194,7 @@ def make_card_video_with_optional_voiceover(
             "-vf", zoom_filter,
             "-shortest",
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -306,7 +319,7 @@ def render_archive_clip(
             "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.4",
             "-shortest",
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -332,7 +345,7 @@ def render_archive_clip(
             "-map", "0:v:0",
             "-map", "1:a:0",
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -355,7 +368,7 @@ def render_archive_clip(
             "-vf", vf,
             "-af", af,
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),

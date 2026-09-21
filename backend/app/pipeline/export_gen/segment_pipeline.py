@@ -18,6 +18,8 @@ from app.pipeline.export_gen.clip_render import (
     FPS,
     OUTPUT_HEIGHT,
     OUTPUT_WIDTH,
+    SEGMENT_AUDIO_CODEC,
+    SEGMENT_CONTAINER_SUFFIX,
     STATIC_CARD_DURATION,
     TITLE_CARD_MIN_DURATION,
     _first_present,
@@ -340,7 +342,7 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
     durations (get_media_duration / get_video_stream_duration), which are cached.
     """
     segment_label = slugify(item.get("label") or item.get("fragment_id") or f"segment_{idx}", 70)
-    segment_path = work_dir / f"{idx:03d}_{segment_label}.mp4"
+    segment_path = work_dir / f"{idx:03d}_{segment_label}{SEGMENT_CONTAINER_SUFFIX}"
 
     item_type = item.get("type", "")
     seg_type = item.get("segment_type", "")
@@ -597,7 +599,7 @@ def _execute_plan(plan: SegmentPlan) -> None:
             "-vf", vf,
             "-filter:a", f"volume={ARCHIVE_AUDIO_VOLUME},afade=t=in:st=0:d=0.15,afade=t=out:st={max(td - 0.25, 0):.3f}:d=0.25",
             *_vcodec_flags(threads=2),
-            "-c:a", "aac", "-ar", "48000", "-ac", "2",
+            "-c:a", SEGMENT_AUDIO_CODEC, "-ar", "48000", "-ac", "2",
             str(plan.segment_path),
         ])
     elif plan.kind == "archive":
@@ -628,8 +630,12 @@ class HLSStreamWriter:
     finishes, instead of waiting for concat_segments() to produce one
     final mp4.
 
-    Segments are already h264/aac mp4 (see _execute_plan) so turning one
-    into a .ts chunk is a cheap remux (-c copy), not a re-encode.
+    Segments are h264 video + LOSSLESS PCM audio (see SEGMENT_AUDIO_CODEC),
+    so the video still copies but the audio must be encoded to AAC here —
+    MPEG-TS cannot carry PCM. This is the one place that still encodes AAC
+    per segment, and that is correct for HLS: each .ts chunk is a standalone
+    unit whose priming a player trims from its own container. The final mp4
+    takes the other path, where concat_segments encodes AAC exactly once.
 
     add_segment() must be called in ascending timeline order — the caller
     (_render_timeline_items) buffers out-of-order completions (segments
@@ -647,7 +653,7 @@ class HLSStreamWriter:
 
     def add_segment(
         self,
-        mp4_path: Path,
+        segment_path: Path,
         duration: float,
         timeline_item: dict[str, Any],
         start_time: float,
@@ -661,8 +667,9 @@ class HLSStreamWriter:
             subprocess.run(
                 [
                     "ffmpeg", "-y", "-loglevel", "error",
-                    "-i", str(mp4_path),
-                    "-c", "copy", "-bsf:a", "aac_adtstoasc",
+                    "-i", str(segment_path),
+                    "-c:v", "copy",
+                    "-c:a", "aac", "-ar", "48000", "-ac", "2",
                     "-f", "mpegts", str(seg_path),
                 ],
                 check=True,
