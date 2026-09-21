@@ -286,15 +286,25 @@ def _apply_cached_storyline(
     validated_path = STORYLINES_DIR / f"storyline_cache_{job_id}_validated.json"
     validated_path.write_text(json.dumps(cached_storyline), encoding="utf-8")
 
+    s3_key = f"raw/storylines/{validated_path.name}"
     if use_s3():
-        upload(validated_path, f"raw/storylines/{validated_path.name}")
+        upload(validated_path, s3_key)
 
     ctx.storyline_path = str(validated_path)
     ctx.validated_storyline_path = str(validated_path)
+    ctx.validated_storyline_data = cached_storyline
 
     job = load_job(job_id)
     job["paths"]["storyline_path"] = str(validated_path)
     job["paths"]["validated_storyline_path"] = str(validated_path)
+    if use_s3():
+        # Mirrors stage_07_storyline.py / stage_07b_validate.py: without this,
+        # a mindmap/decision-record lookup on a different pod (or after this
+        # worker restarts) can't resolve the file via S3 key and falls back to
+        # a full bucket listing + substring match on job_id — fragile, and the
+        # cause of "mind map not displayed" for cache-served jobs.
+        job["paths"]["storyline_s3_key"] = s3_key
+        job["paths"]["validated_storyline_s3_key"] = s3_key
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
 
