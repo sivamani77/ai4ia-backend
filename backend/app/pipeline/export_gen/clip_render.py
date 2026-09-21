@@ -21,6 +21,17 @@ LOWER_THIRD_DURATION = 3.8
 
 FADE_DURATION = 0.45
 
+# Fraction a card/generated-visual is zoomed in over its own length (Ken Burns).
+# This filter used to be a plain scale+crop with a FIXED centre offset, which is
+# the same pixels every frame — every narration segment was a literally frozen
+# image for its whole 26-41s, and freezedetect confirmed 270s of a 277s export
+# had zero motion. The crop filter only animates with eval=frame, which needs
+# ffmpeg 5+; this runs on 4.4, so zoompan is the portable way to get real
+# motion. zoompan steps in integer pixels, so the source is upscaled first
+# (ZOOM_SUPERSAMPLE) or the pan visibly stair-steps.
+KEN_BURNS_ZOOM = 0.08
+ZOOM_SUPERSAMPLE = 2
+
 ARCHIVE_AUDIO_VOLUME = 1.0
 SECTION_VOICEOVER_VOLUME = 1.0
 
@@ -153,13 +164,20 @@ def make_card_video_with_optional_voiceover(
 
     duration = max(min_duration, audio_duration + 0.8)
 
-    # scale+crop is ~5× faster than zoompan (no per-frame computation) while still
-    # giving a slightly zoomed-in cinematic look with fade in/out.
+    # Slow centred zoom over the segment's full length. Centred (rather than a
+    # diagonal pan) because these are text cards: panning drifts the headline
+    # and eyebrow off the edge, while a centred zoom only ever loses
+    # KEN_BURNS_ZOOM/2 from each side, which the card's margins absorb.
+    zoom_frames = max(1, round(duration * FPS))
     zoom_filter = (
-        f"scale={OUTPUT_WIDTH + 120}:{OUTPUT_HEIGHT + 68}:flags=lanczos,"
-        f"crop={OUTPUT_WIDTH}:{OUTPUT_HEIGHT}:(iw-ow)/2:(ih-oh)/2,"
+        f"scale={OUTPUT_WIDTH * ZOOM_SUPERSAMPLE}:{OUTPUT_HEIGHT * ZOOM_SUPERSAMPLE}:flags=lanczos,"
+        f"zoompan="
+        f"z='min(1+{KEN_BURNS_ZOOM}*on/{zoom_frames},{1 + KEN_BURNS_ZOOM})':"
+        f"d=1:"
+        f"x='iw/2-(iw/zoom/2)':"
+        f"y='ih/2-(ih/zoom/2)':"
+        f"s={OUTPUT_WIDTH}x{OUTPUT_HEIGHT}:fps={FPS},"
         f"setsar=1,"
-        f"fps={FPS},"
         f"fade=t=in:st=0:d={FADE_DURATION},"
         f"fade=t=out:st={max(duration - FADE_DURATION, 0)}:d={FADE_DURATION},"
         f"format=yuv420p"

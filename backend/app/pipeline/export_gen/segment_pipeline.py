@@ -442,19 +442,14 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
 
     # ---- narration_broll / ai_voiceover -------------------------------------
     if seg_type == "narration_broll" or item_audio_mode == "ai_voiceover":
-        start = float(item.get("start") or 0)
-        end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
-        if end <= start:
-            end = start + DEFAULT_CLIP_DURATION
+        # No start/end here: narration has no footage window to seek into — its
+        # picture is a generated still, so only its duration matters.
         external_audio_path = Path(item["audio_path"]) if item.get("audio_path") else None
-        if external_audio_path and external_audio_path.exists():
-            audio_mode = "external"
-        else:
+        if not (external_audio_path and external_audio_path.exists()):
             if external_audio_path:
-                log(f"  [render] External audio not found: {external_audio_path}. Falling back to muted.")
+                log(f"  [render] External audio not found: {external_audio_path}. Rendering the visual silent.")
             else:
-                log(f"  [render] narration_broll item {idx} ({fragment_id!r}) has no audio_path. Falling back to muted.")
-            audio_mode = "muted"
+                log(f"  [render] narration_broll item {idx} ({fragment_id!r}) has no audio_path. Rendering the visual silent.")
             external_audio_path = None
         tts_duration = float(
             item.get("render_duration") or item.get("duration") or get_clip_candidate_duration(item)
@@ -477,48 +472,26 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
                 tts_duration = real_audio_dur + 0.4
         target_duration = tts_duration
 
+        # Narration ALWAYS plays over its generated visual, never over archive
+        # footage — archive footage is reserved exclusively for speaker_clip, so
+        # a viewer never sees real footage except when a real person is speaking.
+        # Step 08 generates a visual for every narration_broll item, so a missing
+        # one is a manifest defect: fail loudly instead of quietly reaching for
+        # footage that this pipeline has decided narration must not use.
         _vis_path_str = (
             item.get("render_visual_path") or item.get("visual_path") or item.get("asset_path")
         )
-        if _vis_path_str and Path(_vis_path_str).exists():
-            return SegmentPlan(
-                kind="generated_visual", segment_path=segment_path, seg_type="narration_broll", fragment_id=fragment_id,
-                image_path=Path(_vis_path_str), audio_path=external_audio_path, min_duration=target_duration,
-                subtitle_text=item.get("voiceover_text") or item.get("subtitle_text") or "",
-                muted=False, visual_mode="generated_asset",
-            )
-        if not source_path:
+        if not _vis_path_str or not Path(_vis_path_str).exists():
             raise ExportIntegrityError(
                 f"Segment {idx} (narration_broll, fragment={fragment_id!r}): no generated "
-                f"visual and no source video — nothing to put on screen. Re-run Step 08 "
-                f"(it now generates a visual for every footage-less narration item)."
+                f"visual at {_vis_path_str!r}. Narration never renders over archive footage, "
+                f"so there is nothing to put on screen. Re-run Step 08 to generate it."
             )
-        bandaid_note = None
-        stream_loop = False
-        if video_stream_dur > 0 and (start + target_duration) > (video_stream_dur - 0.5):
-            if video_stream_dur >= target_duration + 0.5:
-                fallback_start = max(0.0, video_stream_dur - target_duration - 0.5)
-                bandaid_note = (
-                    f"narration_broll item {idx} ({str(fragment_id)[:40]!r}): window {start:.1f}s..{start+target_duration:.1f}s "
-                    f"exceeds video track ({video_stream_dur:.1f}s) — shifted window back to {fallback_start:.1f}s."
-                )
-                log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
-                start = fallback_start
-                end = fallback_start + target_duration
-            else:
-                stream_loop = True
-                bandaid_note = (
-                    f"narration_broll item {idx} ({str(fragment_id)[:40]!r}): source video track ({video_stream_dur:.1f}s) "
-                    f"shorter than voiceover ({target_duration:.1f}s) — enabling video stream looping."
-                )
-                log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
-                start = 0.0
-                end = video_stream_dur
         return SegmentPlan(
-            kind="archive", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id,
-            source_path=source_path, start=start, end=end, target_duration=target_duration,
-            role=role, audio_mode=audio_mode, audio_path=external_audio_path, lower_third=None,
-            muted=item.get("muted", False), bandaid_note=bandaid_note, stream_loop=stream_loop,
+            kind="generated_visual", segment_path=segment_path, seg_type="narration_broll", fragment_id=fragment_id,
+            image_path=Path(_vis_path_str), audio_path=external_audio_path, min_duration=target_duration,
+            subtitle_text=item.get("voiceover_text") or item.get("subtitle_text") or "",
+            muted=False, visual_mode="generated_asset",
         )
 
     # ---- archive_visual / speaker_visual / default --------------------------

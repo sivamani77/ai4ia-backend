@@ -521,20 +521,22 @@ def generate_visual_assets_for_timeline(
     final_timeline: list,
     visuals_dir: Path,
 ) -> list:
-    """Generate PIL visual assets for narration_broll items with visual_mode='generated_asset'.
+    """Generate a PIL visual asset for EVERY narration_broll item.
 
-    Sets visual_path, render_visual_path, asset_path on each qualifying item.
+    Sets visual_path, render_visual_path, asset_path on each narration item.
     Returns the updated list.
+
+    This used to skip items that had a source_video, on the assumption the
+    renderer would fall back to archive footage for those. It no longer does:
+    archive footage is reserved exclusively for speaker_clip segments, so
+    narration always needs its own visual and Step 09 hard-fails without one.
     """
     visuals_dir.mkdir(parents=True, exist_ok=True)
     result = []
     for item in final_timeline:
         item = dict(item)
         t = item.get("type") or item.get("segment_type") or ""
-        # A narration item without archive footage MUST have a generated visual,
-        # otherwise the renderer has nothing to put on screen for it.
-        needs_visual = item.get("visual_mode") == "generated_asset" or not item.get("source_video")
-        if t == "narration_broll" and needs_visual:
+        if t == "narration_broll":
             sid = item.get("section_id") or "S_UNKNOWN"
             vtype = item.get("visual_asset_type") or "concept_card"
             vtitle = item.get("visual_title") or sid.replace("_", " ").title()
