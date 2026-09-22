@@ -335,6 +335,19 @@ def score_candidate_for_prompt(candidate: dict[str, Any], profile: dict[str, Any
     else:
         speaker_match, speaker_match_reason = True, "no speaker requested"
 
+    # The prompt named this fragment's video by title (see
+    # lookup_requested_source_video). Keyword overlap alone cannot express
+    # that: keyword_score saturates at 1.0 after two matched terms and
+    # contributes only 0.25, so even a word-for-word title match landed well
+    # under the 0.48 `exact` gate and was filed as weak_related — which
+    # bucket_candidates drops from the video entirely.
+    requested_source_video = profile.get("requested_source_video")
+    title_match = bool(
+        requested_source_video
+        and str(enriched.get("source_video") or "") == requested_source_video
+    )
+    title_score = 1.0 if title_match else 0.0
+
     keyword_score = min(1.0, len(direct_terms) * 0.5)
     expanded_keyword_score = min(1.0, len(non_generic_expanded) * 0.35)
     theme_chapter_score = 1.0 if chapter_match else (0.8 if theme_match else 0.0)
@@ -362,6 +375,7 @@ def score_candidate_for_prompt(candidate: dict[str, Any], profile: dict[str, Any
         + 0.15 * theme_chapter_score
         + 0.10 * speaker_score
         + 0.05 * quote_quality_score
+        + 0.25 * title_score
         - generic_penalty
         - negative_term_penalty
     )
@@ -377,6 +391,8 @@ def score_candidate_for_prompt(candidate: dict[str, Any], profile: dict[str, Any
         reasons.append(f"theme match {enriched.get('primary_theme')}")
     if requested_speaker and speaker_match:
         reasons.append(f"speaker match {requested_speaker}")
+    if title_match:
+        reasons.append("prompt names this video's title")
     if not reasons:
         reasons.append(f"semantic similarity {semantic_score:.3f}")
     if negative_terms:
@@ -388,6 +404,8 @@ def score_candidate_for_prompt(candidate: dict[str, Any], profile: dict[str, Any
             "expanded_keyword_score": round(expanded_keyword_score, 6),
             "theme_chapter_score": round(theme_chapter_score, 6),
             "speaker_score": round(speaker_score, 6),
+            "title_score": round(title_score, 6),
+            "title_match": title_match,
             "quote_quality_score": round(quote_quality_score, 6),
             "generic_penalty": round(generic_penalty, 6),
             "negative_term_penalty": round(negative_term_penalty, 6),
@@ -454,6 +472,16 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     if reject:
         role = "reject"
         reason = reject_reason
+    elif enriched.get("title_match"):
+        # The user asked for this video by name. Its fragments are direct
+        # evidence by definition, whatever their transcripts happen to say —
+        # a title is about the video, not repeated inside every clip of it,
+        # so the keyword/semantic gates below systematically under-rate them.
+        role = "exact"
+        reason = (
+            f"Prompt names this video's title "
+            f"({profile.get('title_match_ratio')} of prompt terms matched)."
+        )
     elif requested_speaker and scope == "all_themes":
         if enriched.get("speaker_match") and (semantic_score >= 0.45 or quote_strength >= 0.55 or clarity_score >= 0.9):
             role = "exact"
@@ -497,7 +525,7 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
         role = "reject"
         reason = f"Low topic evidence. {enriched.get('selection_reason')}"
 
-    if generic_terms and not direct_terms and role == "exact":
+    if generic_terms and not direct_terms and role == "exact" and not enriched.get("title_match"):
         role = "strong_related"
         reason = f"Generic-only evidence cannot be exact. {enriched.get('selection_reason')}"
 

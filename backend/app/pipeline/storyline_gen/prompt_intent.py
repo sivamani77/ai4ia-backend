@@ -4,10 +4,13 @@ from pathlib import Path
 from typing import Any
 
 from app.core.paths import PROJECT_ROOT
+from app.core.settings import settings
 from app.pipeline.storyline_gen.text_utils import (
     clean_text,
     normalize_name,
     normalize_plural,
+    title_term_overlap,
+    video_title_from_source,
 )
 
 
@@ -313,6 +316,11 @@ def build_prompt_profile(
         "evidence_requirement": evidence_requirement,
         "strictness": strictness,
         "target_duration_seconds": target_duration_seconds,
+        # Populated by detect_prompt_intent, which has the corpus to match
+        # titles against; declared here so the profile shape is consistent.
+        "requested_source_video": None,
+        "title_match_ratio": 0.0,
+        "title_matched_terms": [],
     }
 
 
@@ -356,6 +364,71 @@ def lookup_requested_theme(prompt_terms: set[str], records: list[dict[str, Any]]
     return best_theme if best_score > 0 else None
 
 
+def lookup_requested_source_video(
+    topic_terms: set[str],
+    records: list[dict[str, Any]],
+    requested_speaker: str | None = None,
+) -> tuple[str | None, float, list[str]]:
+    """Find the source video whose title the prompt is naming, if any.
+
+    Returns (source_video, matched_ratio, matched_terms). A prompt that is a
+    video's exact title (or a close paraphrase) is a request for that video,
+    not merely a topic that resembles it — the caller uses this to relax the
+    per-source diversity cap and to pull the whole video into retrieval.
+
+    The match has to run both ways. Prompt-side coverage alone is not enough:
+    "what did the speakers say about access to information?" reduces to two
+    topic terms, and any title containing both scores 1.0 against it, which
+    would silently turn an ordinary topic prompt into a request for one
+    specific video. Requiring the matched terms to also account for most of
+    the *title* is what separates naming a video from sharing a word with it.
+    """
+    if not topic_terms:
+        return None, 0.0, []
+
+    titles: dict[str, str] = {}
+    for record in records:
+        source_video = str(record.get("source_video") or "")
+        if source_video and source_video not in titles:
+            titles[source_video] = video_title_from_source(record)
+
+    min_ratio = settings.title_match_min_ratio
+    scored: list[tuple[tuple, str, float, list[str]]] = []
+    for source_video, title in titles.items():
+        if not title:
+            continue
+        # Strip the requested speaker from the title the same way
+        # build_prompt_profile strips it from the prompt, so a title that is
+        # mostly a person's name ("Celine Caruso Dixon - Can We Use AI for
+        # Inclusion Work?") is compared on the terms that actually remain on
+        # both sides rather than being diluted by the name.
+        title_terms = extract_topic_terms(title, requested_speaker=requested_speaker)
+        if not title_terms:
+            continue
+        matched, prompt_ratio = title_term_overlap(title, topic_terms)
+        if len(matched) < 2 or prompt_ratio < min_ratio:
+            continue
+        title_ratio = len(matched) / len(title_terms)
+        if title_ratio < min_ratio:
+            continue
+        # Best two-way fit wins; then most terms matched.
+        key = (min(prompt_ratio, title_ratio), prompt_ratio + title_ratio, len(matched))
+        scored.append((key, source_video, prompt_ratio, matched))
+
+    if not scored:
+        return None, 0.0, []
+
+    scored.sort(key=lambda item: item[0], reverse=True)
+    # A generic phrase ("satellite event") can fit several titles equally
+    # well. That is a topic, not a video the user named, so treat a tie at the
+    # top as no title match rather than picking one video arbitrarily.
+    if len(scored) > 1 and scored[1][0] == scored[0][0]:
+        return None, 0.0, []
+
+    _, source_video, prompt_ratio, matched = scored[0]
+    return source_video, prompt_ratio, matched
+
+
 def detect_prompt_intent(
     prompt: str,
     known_speakers: list[str],
@@ -366,6 +439,13 @@ def detect_prompt_intent(
     topic_terms = set(profile.get("topic_terms") or [])
     chapter = lookup_requested_chapter(prompt, records)
     theme = lookup_requested_theme(topic_terms, records)
+
+    source_video, title_ratio, title_terms = lookup_requested_source_video(
+        topic_terms, records, requested_speaker=profile.get("requested_speaker")
+    )
+    profile["requested_source_video"] = source_video
+    profile["title_match_ratio"] = round(title_ratio, 4)
+    profile["title_matched_terms"] = title_terms
     if chapter:
         profile["chapter_hint"] = chapter
         if profile["intent_type"] == "topic_video":

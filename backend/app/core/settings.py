@@ -236,6 +236,19 @@ class Settings(BaseSettings):
     max_uses_per_source_video: int = Field(default=2, gt=0)
     max_uses_per_speaker: int = Field(default=2, gt=0)
 
+    # Title-targeted prompts. When the prompt is (or closely paraphrases) a
+    # source video's title, that video is what the user asked for, so the
+    # generic diversity cap above would be wrong — it would let at most
+    # max_uses_per_source_video clips of the requested video through and fill
+    # the rest of the runtime with other material.
+    # title_match_min_ratio: fraction of the prompt's topic terms that must
+    # appear in a video's title before the prompt counts as title-targeted.
+    # max_uses_per_requested_source_video: the relaxed per-source cap that
+    # then applies to that one video only; every other source keeps the
+    # normal cap.
+    title_match_min_ratio: float = Field(default=0.6, gt=0, le=1.0)
+    max_uses_per_requested_source_video: int = Field(default=6, gt=0)
+
     # Fragmenting rules — how transcript segments are grouped into fragments.
     fragment_min_duration_seconds: float = Field(default=35, gt=0)
     fragment_target_duration_seconds: float = Field(default=75, gt=0)

@@ -165,7 +165,19 @@ def main() -> None:
 
     log(f"Retrieved: {len(retrieved)} | Selected: {len(selected)} | Supporting: {len(supporting)} | Context: {len(context)} | Rejected: {len(rejected_cands)}")
 
-    selected = select_balanced_candidates(selected, limit=min(args.final_candidates, len(selected))) if selected else []
+    requested_source_video = prompt_intent.get("requested_source_video")
+    if requested_source_video:
+        log(
+            f"Prompt names a source video by title: {requested_source_video} "
+            f"(ratio={prompt_intent.get('title_match_ratio')}, "
+            f"terms={prompt_intent.get('title_matched_terms')})"
+        )
+
+    selected = select_balanced_candidates(
+        selected,
+        limit=min(args.final_candidates, len(selected)),
+        requested_source_video=requested_source_video,
+    ) if selected else []
     buckets["selected_candidates"] = selected
 
     selected, selection_issues = validate_speaker_selection(selected, prompt_intent)
@@ -187,6 +199,7 @@ def main() -> None:
         target_duration_seconds=args.duration,
         cap=cap,
         requested_speaker=prompt_intent.get("requested_speaker"),
+        requested_source_video=requested_source_video,
     )
     if evidence_strength == "low":
         cap_reason = "evidence_strength=low"
