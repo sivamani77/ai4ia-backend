@@ -96,19 +96,21 @@ ethics, governance, policy and related themes
 {_RESPONSE_CONTRACT}
 """ + UNTRUSTED_CONTENT_NOTICE
 
-# No topicality rule here, deliberately — see the module docstring. "off_topic"
-# stays in the response contract's category list only so both policies share one
-# output shape; this policy has no rule that would produce it.
+# No topicality rule here, deliberately — see the module docstring. The
+# no-subject rule below is not topicality: gibberish scores like a genuine
+# query in embedding space, so retrieval cannot reject it and this is the only
+# place that can.
 _QUERY_SYSTEM_PROMPT = f"""You are a content-safety classifier for AI4IA, a searchable archive of \
 conference talks on AI. Users submit research questions that are answered from the archive by \
 another model.
 
 Classify the user-submitted query given below. Reject it if it requests or contains any of:
 {_SAFETY_RULES}
+- no discernible subject at all: empty, gibberish, or pure greeting/small talk
 
 {_PERMISSIVE_NOTE} Do NOT reject a query merely for being broad, unusual, or seemingly unrelated \
 to the archive's subject matter — an empty or irrelevant result is a retrieval outcome, not a \
-policy violation.
+policy violation. A query with no subject is different: there is nothing to retrieve against.
 
 {_RESPONSE_CONTRACT}
 """ + UNTRUSTED_CONTENT_NOTICE

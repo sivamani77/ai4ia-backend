@@ -269,6 +269,12 @@ class Settings(BaseSettings):
     # single-label filter admits — a third reason to keep this unfiltered.
     storyline_corpus_version: str = "mixed_cleaned_v2"
 
+    # Minimum top-1 similarity before a surface will answer from retrieval.
+    # ANN always returns its top-k however poor the match. Measured: genuine
+    # queries 0.735-0.815, off-topic 0.564-0.658. Gibberish overlaps genuine
+    # and is the guardrail's job, not this one. Tune from evidence_gate logs.
+    archive_relevance_floor: float = Field(default=0.68, ge=0.0, le=1.0)
+
     # Fragmenting rules — how transcript segments are grouped into fragments.
     fragment_min_duration_seconds: float = Field(default=35, gt=0)
     fragment_target_duration_seconds: float = Field(default=75, gt=0)

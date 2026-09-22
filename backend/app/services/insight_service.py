@@ -14,7 +14,7 @@ from typing import Any
 from app.core.config import INSIGHT_MODEL, INSIGHT_DEFAULT_LIMIT
 from app.db.repositories.insight_repository import InsightRepository
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
-from app.services import embedding_index, fragment_store, guardrail_service
+from app.services import embedding_index, evidence_gate, fragment_store, guardrail_service
 from app.services.llm_service import generate_json
 
 
@@ -118,7 +118,12 @@ def _validate(claims: list[dict], valid_refs: set[int]) -> tuple[list[dict], lis
     return supported, unsupported
 
 
-def _declined_insight(insight_id: str, query: str, filters: dict | None) -> dict:
+def _declined_insight(
+    insight_id: str,
+    query: str,
+    filters: dict | None,
+    diagnostics: dict | None = None,
+) -> dict:
     """The no-evidence result, in the same shape as a generated insight.
 
     Every key a caller reads off a successful response is present and empty, so
@@ -135,6 +140,7 @@ def _declined_insight(insight_id: str, query: str, filters: dict | None) -> dict
             "No fragments in the archive matched this query closely enough to "
             "support an evidence-grounded answer."
         ),
+        "decline_diagnostics": diagnostics or {},
         "title": DECLINE_TITLE,
         "query": query,
         "filters": filters or {},
@@ -149,7 +155,7 @@ def _declined_insight(insight_id: str, query: str, filters: dict | None) -> dict
         "created_at": datetime.now(timezone.utc).isoformat(),
         "_explain": {
             "how_it_works": (
-                "Semantic search retrieved no fragments for this query, so no "
+                "Semantic search found nothing close enough to this query, so no "
                 "synthesis was attempted. The LLM was never called: with no "
                 "evidence pool there is nothing it could cite, and answering "
                 "anyway is the ungrounded-answer failure this path prevents."
@@ -157,7 +163,9 @@ def _declined_insight(insight_id: str, query: str, filters: dict | None) -> dict
             "retrieval": {
                 "method": "semantic_cosine_similarity",
                 "embedding_model": "nomic-embed-text:v1.5",
-                "fragments_retrieved": 0,
+                "fragments_retrieved": (diagnostics or {}).get("fragments_considered", 0),
+                "top_similarity": (diagnostics or {}).get("top_similarity"),
+                "relevance_floor": (diagnostics or {}).get("relevance_floor"),
                 "filters_applied": filters or {},
             },
             "generation": {"model": None, "skipped": True},
@@ -189,8 +197,9 @@ def generate_insight(
     guardrail_service.assert_query_allowed(query, surface="insight", user_id=user_id)
 
     pool = build_evidence_pool(query, filters, limit)
-    if not pool:
-        declined = _declined_insight(insight_id, query, filters)
+    sufficient, gate = evidence_gate.evidence_is_sufficient(pool, surface="insight")
+    if not sufficient:
+        declined = _declined_insight(insight_id, query, filters, diagnostics=gate)
         # Not stored: /insights lists generated insights, and the decision
         # record below is what keeps the run auditable.
         _emit_insight_decision_record(declined, user_id)

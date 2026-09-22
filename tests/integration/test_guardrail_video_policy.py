@@ -34,7 +34,7 @@ _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
 from app.core.settings import settings  # noqa: E402
-from app.services.guardrail_service import VIDEO_POLICY, classify  # noqa: E402
+from app.services.guardrail_service import QUERY_POLICY, VIDEO_POLICY, classify  # noqa: E402
 
 
 def _guardrail_reachable() -> bool:
@@ -134,6 +134,46 @@ def test_unrelated_subjects_are_rejected(prompt):
 @pytest.mark.parametrize("prompt", ADVERSARIAL)
 def test_adversarial_prompts_are_rejected(prompt):
     assert not classify(prompt, policy=VIDEO_POLICY).allowed
+
+
+# --------------------------------------------------------------------------
+# QUERY_POLICY — the archive-question policy used by insight, relay, synthesis
+# and compare. It vets safety only: no topicality rule, deliberately. The
+# no-subject rule was added after UAT showed gibberish reaching relay and
+# producing a narrated answer, since gibberish scores like a genuine query in
+# embedding space and retrieval cannot reject it.
+# --------------------------------------------------------------------------
+
+QUERY_NO_SUBJECT = [
+    "hjdqwljdkjhdjdhklwmdsd",              # from the relay screenshot
+    "jheflkmd;kdjndlwdsmujdnmwsk;fdnjkb",  # from the archive-search screenshot
+    "HGAWIDNWBSKHGDJIW",
+    "asdkjhasd kjahsd kjahsd",
+    "hi there, how are you today?",
+]
+
+# Broad, vague or archive-meta queries. The query policy must keep allowing
+# these — an empty result is a retrieval outcome, not a policy violation.
+QUERY_BROAD_BUT_REAL = [
+    "summarize the whole archive",
+    "AI ethics",
+    "deepfakes",
+    "women in AI",
+    "what did the speakers say about access to information?",
+    "how many speakers are there",
+]
+
+
+@pytest.mark.parametrize("query", QUERY_NO_SUBJECT)
+def test_query_policy_rejects_queries_with_no_subject(query):
+    assert not classify(query, policy=QUERY_POLICY).allowed
+
+
+@pytest.mark.parametrize("query", QUERY_BROAD_BUT_REAL)
+def test_query_policy_still_allows_broad_queries(query):
+    """The no-subject rule must not become a topicality rule by the back door."""
+    verdict = classify(query, policy=QUERY_POLICY)
+    assert verdict.allowed, f"rejected a broad but real query: {verdict.reason}"
 
 
 def test_same_subject_is_judged_the_same_in_either_mood():

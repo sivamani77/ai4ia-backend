@@ -192,11 +192,17 @@ class TestCompareSpeakers:
 # ---------------------------------------------------------------------------
 
 class TestSynthesizeTheme:
-    def test_raises_when_no_fragments(self):
+    def test_declines_when_no_fragments(self):
+        """Used to raise ValueError, which the router surfaced as a 422. Now
+        returns the same declined shape as insights so clients branch on one
+        field — see tests/unit/test_evidence_gate.py."""
         from app.services.comparison_service import synthesize_theme
-        with patch("app.services.comparison_service.embedding_index.search", return_value=[]):
-            with pytest.raises(ValueError, match="No fragments found"):
-                synthesize_theme("AI Ethics")
+        with patch("app.services.comparison_service.embedding_index.search", return_value=[]), \
+             patch("app.services.comparison_service.generate_json") as llm:
+            result = synthesize_theme("AI Ethics")
+        assert result["outcome"] == "insufficient_evidence"
+        assert result["key_points"] == []
+        llm.assert_not_called()
 
     def test_returns_dict_with_expected_keys(self):
         from app.services.comparison_service import synthesize_theme
@@ -223,11 +229,17 @@ class TestSynthesizeTheme:
 # ---------------------------------------------------------------------------
 
 class TestBuildRelay:
-    def test_raises_when_no_fragments(self):
+    def test_declines_when_no_fragments(self):
+        """Used to raise ValueError, which the router surfaced as a 422. Now
+        returns the same declined shape as insights — see
+        tests/unit/test_evidence_gate.py."""
         from app.services.comparison_service import build_relay
-        with patch("app.services.comparison_service.embedding_index.search", return_value=[]):
-            with pytest.raises(ValueError, match="No fragments found"):
-                build_relay("some topic")
+        with patch("app.services.comparison_service.embedding_index.search", return_value=[]), \
+             patch("app.services.comparison_service.generate_json") as llm:
+            result = build_relay("some topic")
+        assert result["outcome"] == "insufficient_evidence"
+        assert result["relay_steps"] == []
+        llm.assert_not_called()
 
     def test_returns_dict_with_expected_keys(self):
         from app.services.comparison_service import build_relay

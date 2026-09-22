@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 from app.core.config import SEMANTIC_TOP_K_DEFAULT
 from app.core.paths import RAW_VIDEO_DIR
 from app.core.settings import settings
-from app.services import embedding_index, fragment_store
+from app.services import embedding_index, evidence_gate, fragment_store
 from app.services.archive_service import (
     list_videos,
     get_video,
@@ -38,7 +38,19 @@ def api_semantic_search(req: SemanticSearchRequest):
         results = search_fragments(query=req.query, limit=req.top_k)
         return {"mode": "keyword_fallback", "reason": str(exc),
                 "count": len(results), "results": results}
-    return {"mode": mode, "count": len(results), "results": results}
+
+    # Results are returned either way — this is a search box, and hiding weak
+    # matches makes a near-miss query look like an empty archive. The flag
+    # lets the UI say "no strong matches" above them.
+    best = evidence_gate.top_similarity(results)
+    return {
+        "mode": mode,
+        "count": len(results),
+        "max_similarity": best,
+        "below_relevance_floor": best is not None and best < settings.archive_relevance_floor,
+        "relevance_floor": settings.archive_relevance_floor,
+        "results": results,
+    }
 
 
 @router.get("/speakers")

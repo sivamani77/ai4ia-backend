@@ -10,9 +10,73 @@ from datetime import datetime, timezone
 from typing import Any
 
 from app.core.config import INSIGHT_MODEL
-from app.services import embedding_index, fragment_store, guardrail_service
-from app.services.insight_service import _truncate, _validate
+from app.services import embedding_index, evidence_gate, fragment_store, guardrail_service
+from app.services.insight_service import (
+    DECLINE_TITLE,
+    OUTCOME_GENERATED,
+    OUTCOME_INSUFFICIENT_EVIDENCE,
+    _truncate,
+    _validate,
+)
 from app.services.llm_service import generate_json
+
+_DECLINE_REASON = (
+    "No fragments in the archive matched this closely enough to support an "
+    "evidence-grounded answer."
+)
+
+
+def _declined_relay(topic: str, diagnostics: dict) -> dict:
+    """Same shape as a generated relay, every collection empty. No LLM call."""
+    return {
+        "topic": topic,
+        "outcome": OUTCOME_INSUFFICIENT_EVIDENCE,
+        "decline_reason": _DECLINE_REASON,
+        "decline_diagnostics": diagnostics,
+        "relay_title": DECLINE_TITLE,
+        "relay_narrative": None,
+        "relay_steps": [],
+        "step_count": 0,
+        "distinct_speakers": 0,
+        "edition": "AI4IA 2025",
+        "models": {"llm": None},
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "Semantic search found nothing close enough to this topic, so no "
+                "relay was built and the LLM was never called."
+            ),
+            "retrieval": {"method": "semantic_cosine_similarity", **diagnostics},
+            "generation": {"model": None, "skipped": True},
+        },
+    }
+
+
+def _declined_theme(theme: str, diagnostics: dict) -> dict:
+    """Same shape as a generated theme synthesis, every collection empty."""
+    return {
+        "theme": theme,
+        "outcome": OUTCOME_INSUFFICIENT_EVIDENCE,
+        "decline_reason": _DECLINE_REASON,
+        "decline_diagnostics": diagnostics,
+        "title": DECLINE_TITLE,
+        "summary": None,
+        "key_points": [],
+        "representative_clips": [],
+        "unsupported_claims": [],
+        "evidence_pool": [],
+        "models": {"llm": None},
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "Neither the theme facet nor the semantic fallback found anything "
+                "close enough, so no synthesis was attempted and the LLM was "
+                "never called."
+            ),
+            "retrieval": {"method": "theme_facet_match → semantic_fallback", **diagnostics},
+            "generation": {"model": None, "skipped": True},
+        },
+    }
 
 
 def _clip(p: dict) -> dict:
@@ -188,8 +252,9 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None,
     frags = embedding_index.search(theme, top_k=limit, filters={"theme": theme})
     if not frags:  # fall back to semantic-only if the theme string isn't an exact facet
         frags = embedding_index.search(theme, top_k=limit)
-    if not frags:
-        raise ValueError(f"No fragments found for theme: {theme}")
+    sufficient, gate = evidence_gate.evidence_is_sufficient(frags, surface="synthesis_theme")
+    if not sufficient:
+        return _declined_theme(theme, gate)
 
     numbered = _pool_from_fragments(frags)
     valid = {p["ref"] for p in numbered}
@@ -210,6 +275,7 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None,
 
     return {
         "theme": theme,
+        "outcome": OUTCOME_GENERATED,
         "title": raw.get("title") or theme,
         "summary": raw.get("summary"),
         "key_points": key_points,
@@ -275,8 +341,9 @@ def build_relay(topic: str, limit: int = 20, model: str | None = None,
                 user_id: str | None = None) -> dict:
     guardrail_service.assert_query_allowed(topic, surface="relay", user_id=user_id)
     frags = embedding_index.search(topic, top_k=limit)
-    if not frags:
-        raise ValueError(f"No fragments found for topic: {topic}")
+    sufficient, gate = evidence_gate.evidence_is_sufficient(frags, surface="relay")
+    if not sufficient:
+        return _declined_relay(topic, gate)
 
     # Prefer diversity of speakers in the candidate pool.
     seen, diverse = set(), []
@@ -304,6 +371,7 @@ def build_relay(topic: str, limit: int = 20, model: str | None = None,
 
     return {
         "topic": topic,
+        "outcome": OUTCOME_GENERATED,
         "relay_title": raw.get("relay_title") or topic,
         "relay_narrative": raw.get("relay_narrative"),
         "relay_steps": steps,
