@@ -6,13 +6,16 @@ import uuid
 from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from prometheus_fastapi_instrumentator import Instrumentator
 from pythonjsonlogger.json import JsonFormatter
 
 from app.core.auth import require_api_key, require_role
 from app.core.config import API_PREFIX
 from app.core import dependency_state
+from app.core.error_messages import DEFAULT_MESSAGE
 from app.core.otel import is_enabled as _otel_enabled, setup_tracing
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
@@ -186,6 +189,28 @@ app = FastAPI(
     description="Backend API wrapper for AI4IA Demo Video Studio pipeline.",
     lifespan=lifespan,
 )
+
+
+@app.exception_handler(RequestValidationError)
+async def _validation_error_handler(request: Request, exc: RequestValidationError):
+    # Default FastAPI 422 body exposes pydantic internals (loc/msg/type) — keep
+    # that in logs, give the client one plain-English sentence instead.
+    logger.info("Validation error on %s %s: %s", request.method, request.url.path, exc.errors())
+    return JSONResponse(
+        status_code=422,
+        content={"detail": "Some of the details provided weren't valid. Please check your input and try again."},
+    )
+
+
+@app.exception_handler(Exception)
+async def _unhandled_exception_handler(request: Request, exc: Exception):
+    # Floor-level safety net for anything a route didn't already convert to an
+    # HTTPException with a friendly detail. Full exception goes to logs only.
+    logger.exception("Unhandled exception on %s %s", request.method, request.url.path)
+    return JSONResponse(
+        status_code=500,
+        content={"detail": DEFAULT_MESSAGE},
+    )
 
 # RED metrics (request rate/error/duration by method+path+status) served at
 # /metrics for Prometheus scraping — unauthenticated, same as /api/health.

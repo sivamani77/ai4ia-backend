@@ -72,7 +72,18 @@ class ExportIntegrityError(RuntimeError):
     final video below the validated plan, which is a contract violation. The fix
     belongs upstream (re-run Step 08, restore the missing media), never in
     dropping content at render time.
+
+    `message` (the RuntimeError text) is deliberately technical — fragment ids,
+    stream durations, container details — for logs and support. `user_message`
+    is what a client should show instead; see app.core.error_messages.
     """
+
+    def __init__(self, message: str, user_message: str | None = None):
+        super().__init__(message)
+        self.user_message = user_message or (
+            "We hit a problem while assembling part of your video and stopped "
+            "rather than ship a broken file. Please try generating it again."
+        )
 
 
 def _build_canonical_rendering_timeline(

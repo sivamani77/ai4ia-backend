@@ -9,6 +9,7 @@ import time
 from pathlib import Path
 from typing import Any
 
+from app.core.error_messages import ExportSubprocessError
 from app.core.paths import EXPORTS_DIR, SCRIPTS_DIR, RAW_VIDEO_DIR, GENERATED_ASSETS_DIR
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext, StageResult, run_script
@@ -406,10 +407,10 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
             watcher_thread.join(timeout=5)
 
     if code != 0:
-        raise RuntimeError(f"09_export_video.py exited {code}: {stderr[-4000:]}")
+        raise ExportSubprocessError(f"09_export_video.py exited {code}: {stderr[-4000:]}")
 
     if not video_path.exists():
-        raise RuntimeError(f"Expected export video not found: {video_path}")
+        raise ExportSubprocessError(f"Expected export video not found: {video_path}")
 
     export_manifest_path = EXPORTS_DIR / f"{video_path.stem}_export_manifest.json"
     timeline_metadata_path = EXPORTS_DIR / f"{video_path.stem}_timeline_metadata.json"

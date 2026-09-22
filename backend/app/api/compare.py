@@ -1,12 +1,17 @@
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
 from app.api.deps import require_models
 from app.core.auth import CurrentUser, get_current_user
+from app.core.error_messages import DEFAULT_MESSAGE
 from app.core import metrics as _metrics
 from app.core.rate_limit import TokenBucket
 from app.services import comparison_service, model_gate
 from app.services.guardrail_service import GuardrailRejection
+
+_log = logging.getLogger("ai4ia.api.compare")
 
 router = APIRouter(tags=["Comparison & Relay"])
 
@@ -51,8 +56,9 @@ def _run(fn, *args, **kwargs):
         raise HTTPException(status_code=400, detail=exc.message)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
-    except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=502, detail=f"Generation failed: {exc}")
+    except Exception:  # noqa: BLE001
+        _log.exception("Generation failed")
+        raise HTTPException(status_code=502, detail=DEFAULT_MESSAGE)
 
 
 @router.post("/compare/speakers", dependencies=_model_gate_dep)

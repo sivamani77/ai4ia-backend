@@ -19,6 +19,7 @@ logger = logging.getLogger("ai4ia.services.video_job_runner")
 
 from app.core import metrics as _metrics
 from app.core.config import VLLM_MODEL
+from app.core.error_messages import friendly_message
 from app.core.otel import get_tracer
 from app.core.security import parse_timestamp
 from app.core.settings import settings
@@ -144,7 +145,10 @@ def update_stage(
     })
 
 
-def _fail_job(job_id: str, stage: str, error_type: str, message: str, details: str = "") -> None:
+def _fail_job(
+    job_id: str, stage: str, error_type: str, message: str, details: str = "",
+    exc: Exception | None = None,
+) -> None:
     job = load_job(job_id)
     job["status"] = "failed"
     job["current_stage"] = stage
@@ -155,6 +159,10 @@ def _fail_job(job_id: str, stage: str, error_type: str, message: str, details: s
         "stage": stage,
         "message": message,
         "details": details[:2000],
+        # user_message is what the client should display. message/details are
+        # technical (exception text, tracebacks, ffmpeg output) for logs and
+        # support — never render them directly to a user.
+        "user_message": friendly_message(error_type, exc),
     }
     save_job(job_id, job)
     append_event(job_id, "failed", stage, {
@@ -515,7 +523,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         except Exception:
             pass
         log.exception("Pipeline error at stage %s: %s", stage, exc)
-        _fail_job(job_id, stage, "pipeline_error", str(exc), tb)
+        _fail_job(job_id, stage, "pipeline_error", str(exc), tb, exc=exc)
         _cleanup_job_tmp_dirs(job_id)
 
 
