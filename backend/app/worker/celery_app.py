@@ -182,6 +182,8 @@ celery_app.conf.update(
     # Do not prefetch more than one task at a time
     worker_prefetch_multiplier=1,
 
-    # Route all tasks to a dedicated queue so we can scale workers independently later
-    task_default_queue="video_jobs",
+    # Route all tasks to a dedicated queue so we can scale workers independently
+    # later, and so environments sharing one Redis do not consume each other's
+    # jobs. See settings.worker_queue.
+    task_default_queue=settings.worker_queue,
 )

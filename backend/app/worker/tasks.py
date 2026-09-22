@@ -10,6 +10,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
+from app.core.settings import settings
 from app.worker.celery_app import celery_app
 from app.services.video_job_runner import run_video_job
 from app.services.ingest_job_runner import run_ingest_job
@@ -133,7 +134,10 @@ def _claim_ingest_delivery(job_id: str) -> bool:
     bind=True,
     max_retries=0,          # pipeline failures are surfaced via job status, not Celery retries
     acks_late=True,
-    queue="video_jobs",
+    # Not a literal: release and uat share one Redis, so both workers consume
+    # the same queue and whichever claims the task first runs the job. Routing
+    # by settings lets each environment own a queue name.
+    queue=settings.worker_queue,
     track_started=True,
 )
 def run_video_job_task(self, job_id: str, request: dict[str, Any]) -> dict[str, Any]:
