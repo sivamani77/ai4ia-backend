@@ -75,7 +75,7 @@ All routes live under `/api` (interactive docs at `/docs`). Protected routes req
 
 | Area | Prefix | Highlights |
 |---|---|---|
-| Auth | `/api/auth` | signup + email OTP, login, refresh, logout, password reset |
+| Auth | `/api/auth` | signup + email OTP, login, refresh, logout, password reset, general→researcher upgrade |
 | Video jobs | `/api/video-jobs` | create/list/cancel jobs, events, storyline, validation report, provenance, assets, result |
 | Video media | `/api/video-jobs/{id}/video` | stream, download, signed URL, HLS playlist/segments, subtitles, thumbnail, timeline |
 | Archive | `/api/archive` | semantic search, speakers, themes, fragments, source-video streaming |

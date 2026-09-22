@@ -433,6 +433,80 @@ def change_password(user_id: str, *, current_password: str, code: str, new_passw
         logger.warning("Password changed notice failed to send to %s", email)
 
 
+def request_persona_upgrade_otp(user_id: str) -> None:
+    """Step 1 of the general -> researcher (expert) self-upgrade. Emails a
+    code to the address on file, which is what proves the request comes from
+    the account holder rather than a hijacked session."""
+    users = get_user_repository()
+    user = users.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="Account not found")
+
+    _assert_upgradable(user)
+
+    email = user.get("email_id")
+    if not email:
+        raise HTTPException(status_code=400, detail="Account has no email on file")
+
+    if not _otp_resend_limiter.allow(f"{email}:persona_upgrade"):
+        _metrics.rate_limit_rejections_total.labels(limiter="otp_resend").inc()
+        raise HTTPException(status_code=429, detail="Please wait before requesting another code")
+
+    _issue_otp(email=email, purpose="persona_upgrade", user_id=user_id)
+
+
+def upgrade_persona(user_id: str, *, code: str) -> tuple[dict, str]:
+    """Step 2 — verify the code and promote the account to researcher.
+
+    Returns the updated public user plus a fresh access token: `persona` is a
+    JWT claim that require_role reads off the token, so without a re-issue the
+    caller would keep general-level access until their current token expired.
+    The refresh path already re-reads persona from the database, so every
+    later token picks the new role up on its own.
+    """
+    users = get_user_repository()
+    user = users.get_by_id(user_id)
+    if user is None:
+        raise HTTPException(status_code=404, detail="Account not found")
+
+    # Re-checked here, not just at request time — the persona could have been
+    # changed by an admin in the window between the two calls.
+    _assert_upgradable(user)
+
+    email = user.get("email_id")
+    if not email:
+        raise HTTPException(status_code=400, detail="Account has no email on file")
+
+    verify_otp(email=email, code=code, purpose="persona_upgrade")
+
+    users.update_user(user_id, {"persona": _PERSONA_TO_DB["expert"]})
+
+    get_auth_audit_repository().log(event="persona_upgrade", success=True, user_id=user_id)
+    _metrics.auth_events_total.labels(event="persona_upgrade", outcome="success").inc()
+
+    updated = users.get_by_id(user_id)
+    public_user = to_public_user(updated)
+    access_token = create_access_token(user_id=user_id, persona=public_user["persona"])
+    return public_user, access_token
+
+
+def _assert_upgradable(user: dict) -> None:
+    """Only a plain `general` account can self-upgrade. An admin is not
+    'below' a researcher, so demoting one here would be a downgrade, not an
+    upgrade — both non-general cases are rejected rather than silently no-op'd."""
+    persona = _to_ui_persona(user.get("persona"))
+    if persona == "expert":
+        raise HTTPException(status_code=409, detail="This is already a researcher account")
+    if persona != "general":
+        raise HTTPException(
+            status_code=403,
+            detail="Only a general account can be upgraded to a researcher account",
+        )
+
+    if user.get("status") != "active":
+        raise HTTPException(status_code=403, detail="Account is not active")
+
+
 def request_email_change_otp(user_id: str, *, new_email: str) -> None:
     """Issues TWO codes: one to the current email (proves the request is
     really coming from the account holder, not just a hijacked session) and

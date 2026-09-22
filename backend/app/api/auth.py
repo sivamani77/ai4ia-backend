@@ -15,6 +15,8 @@ POST /api/auth/me/password/request-otp — send OTP for a self-service password 
 POST /api/auth/me/password        — current password + OTP + new password -> revokes all sessions
 POST /api/auth/me/email/request-otp — send OTP to BOTH current and new email
 POST /api/auth/me/email           — both OTPs + new email -> swaps email, notifies old address
+POST /api/auth/upgrade-persona/request — send OTP for a general -> researcher upgrade
+POST /api/auth/upgrade-persona    — OTP -> promotes to researcher, returns a new access token
 """
 from __future__ import annotations
 
@@ -36,6 +38,8 @@ from app.schemas.auth import (
     SignupRequest,
     SignupResponse,
     UpdateProfileRequest,
+    UpgradePersonaRequest,
+    UpgradePersonaResponse,
     UserPublic,
     VerifyOtpRequest,
 )
@@ -225,6 +229,28 @@ def change_email(payload: ChangeEmailRequest, current_user: CurrentUser = Depend
         new_email_code=payload.new_email_code,
     )
     return UserPublic(**updated)
+
+
+@router.post("/upgrade-persona/request", response_model=MessageResponse)
+def request_persona_upgrade(current_user: CurrentUser = Depends(get_current_user)):
+    """Step 1 of upgrading a general account to a researcher (expert) one."""
+    auth_service.request_persona_upgrade_otp(current_user.id)
+    return MessageResponse(message="Verification code sent to your email")
+
+
+@router.post("/upgrade-persona", response_model=UpgradePersonaResponse)
+def upgrade_persona(
+    payload: UpgradePersonaRequest, current_user: CurrentUser = Depends(get_current_user)
+):
+    """Step 2 — the code confirms the upgrade. The returned access token is
+    the one that carries the researcher role; the client must replace the
+    token it sent with this one."""
+    user, access_token = auth_service.upgrade_persona(current_user.id, code=payload.code)
+    return UpgradePersonaResponse(
+        message="Your account has been upgraded to a researcher account",
+        user=UserPublic(**user),
+        access_token=access_token,
+    )
 
 
 @router.get("/me/sessions", response_model=SessionListResponse)

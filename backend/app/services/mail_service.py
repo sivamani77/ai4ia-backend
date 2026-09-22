@@ -42,6 +42,10 @@ _OTP_PURPOSE_TEXT = {
         "Confirm you want to change your AI4IA email",
         "confirm you want to change your account's email address",
     ),
+    "persona_upgrade": (
+        "Confirm your AI4IA researcher upgrade",
+        "confirm upgrading your account to a researcher account",
+    ),
 }
 
 

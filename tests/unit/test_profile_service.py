@@ -360,3 +360,122 @@ class TestChangeEmail:
                 )
 
         assert exc_info.value.status_code == 404
+
+
+# ---------------------------------------------------------------------------
+# request_persona_upgrade_otp / upgrade_persona
+# ---------------------------------------------------------------------------
+
+def _general_user(user_id: str, email: str) -> dict:
+    return {"id": user_id, "username": "u", "first_name": "A", "last_name": "B",
+            "email_id": email, "persona": "user", "status": "active"}
+
+
+class TestRequestPersonaUpgradeOtp:
+    def test_issues_otp_to_own_email(self):
+        user_id, email = _uid(), _email()
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = _general_user(user_id, email)
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users), \
+             patch("app.services.auth_service._issue_otp") as mock_issue:
+            auth_service.request_persona_upgrade_otp(user_id)
+
+        mock_issue.assert_called_once_with(email=email, purpose="persona_upgrade", user_id=user_id)
+
+    def test_already_researcher_raises_409(self):
+        user_id, email = _uid(), _email()
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = {**_general_user(user_id, email), "persona": "researcher"}
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users), \
+             patch("app.services.auth_service._issue_otp") as mock_issue:
+            with pytest.raises(HTTPException) as exc_info:
+                auth_service.request_persona_upgrade_otp(user_id)
+
+        assert exc_info.value.status_code == 409
+        mock_issue.assert_not_called()
+
+    def test_admin_cannot_self_downgrade_via_upgrade(self):
+        user_id, email = _uid(), _email()
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = {**_general_user(user_id, email), "persona": "admin"}
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users):
+            with pytest.raises(HTTPException) as exc_info:
+                auth_service.request_persona_upgrade_otp(user_id)
+
+        assert exc_info.value.status_code == 403
+
+    def test_inactive_account_raises_403(self):
+        user_id, email = _uid(), _email()
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = {**_general_user(user_id, email), "status": "deactivated"}
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users):
+            with pytest.raises(HTTPException) as exc_info:
+                auth_service.request_persona_upgrade_otp(user_id)
+
+        assert exc_info.value.status_code == 403
+
+    def test_user_not_found_raises_404(self):
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = None
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users):
+            with pytest.raises(HTTPException) as exc_info:
+                auth_service.request_persona_upgrade_otp(_uid())
+
+        assert exc_info.value.status_code == 404
+
+
+class TestUpgradePersona:
+    def test_promotes_and_returns_token_carrying_new_persona(self):
+        user_id, email = _uid(), _email()
+        before = _general_user(user_id, email)
+        after = {**before, "persona": "researcher"}
+        mock_users = MagicMock()
+        mock_users.get_by_id.side_effect = [before, after]
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users), \
+             patch("app.services.auth_service.get_auth_audit_repository", return_value=MagicMock()), \
+             patch("app.services.auth_service.verify_otp") as mock_verify, \
+             patch("app.services.auth_service.create_access_token", return_value="tok") as mock_token:
+            user, access_token = auth_service.upgrade_persona(user_id, code="123456")
+
+        mock_verify.assert_called_once_with(email=email, code="123456", purpose="persona_upgrade")
+        mock_users.update_user.assert_called_once_with(user_id, {"persona": "researcher"})
+        # The new token must carry the upgraded role, not the old one.
+        mock_token.assert_called_once_with(user_id=user_id, persona="expert")
+        assert user["persona"] == "expert"
+        assert access_token == "tok"
+
+    def test_bad_code_leaves_persona_untouched(self):
+        user_id, email = _uid(), _email()
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = _general_user(user_id, email)
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users), \
+             patch("app.services.auth_service.verify_otp",
+                   side_effect=HTTPException(status_code=400, detail="Incorrect verification code")):
+            with pytest.raises(HTTPException) as exc_info:
+                auth_service.upgrade_persona(user_id, code="000000")
+
+        assert exc_info.value.status_code == 400
+        mock_users.update_user.assert_not_called()
+
+    def test_persona_changed_between_request_and_confirm_is_rejected(self):
+        """An admin could have promoted them in the window; the OTP must not
+        be spendable against an account that is no longer general."""
+        user_id, email = _uid(), _email()
+        mock_users = MagicMock()
+        mock_users.get_by_id.return_value = {**_general_user(user_id, email), "persona": "researcher"}
+
+        with patch("app.services.auth_service.get_user_repository", return_value=mock_users), \
+             patch("app.services.auth_service.verify_otp") as mock_verify:
+            with pytest.raises(HTTPException) as exc_info:
+                auth_service.upgrade_persona(user_id, code="123456")
+
+        assert exc_info.value.status_code == 409
+        mock_verify.assert_not_called()
+        mock_users.update_user.assert_not_called()
