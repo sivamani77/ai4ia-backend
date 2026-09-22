@@ -790,11 +790,26 @@ def _render_one_segment(
             f"({duration - video_duration:.3f}s of picture missing) at {plan.segment_path}. "
             f"Concat would drop that picture and run every later visual early."
         )
+
+    # Log the frame count for EVERY segment, not just failing ones, and record it
+    # in the manifest. When an export comes back short there is otherwise no way
+    # to tell afterwards whether the frames were missing as each segment was
+    # written or were dropped during concat: the .mkv segments live in a temp dir
+    # that is cleaned up, and the HLS .ts copies are truncated in their own right.
+    # One number per segment in the log settles that question from the job record
+    # alone, without needing to reproduce the run.
+    log(
+        f"  [segment-frames] segment {idx} ({plan.seg_type}): "
+        f"{round(video_duration * FPS)} frames = {video_duration:.3f}s video / "
+        f"{duration:.3f}s container"
+    )
+
     return idx, plan.segment_path, {
         "index": idx,
         "path": str(plan.segment_path),
         "timeline_item": item,
         "duration": duration,
+        "video_duration": round(video_duration, 3),
         "subtitle_text": plan.subtitle_text,
         "rendered": True,
         "segment_type": plan.seg_type,

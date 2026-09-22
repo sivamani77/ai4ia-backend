@@ -183,6 +183,16 @@ def make_card_video_with_optional_voiceover(
         f"format=yuv420p"
     )
 
+    # -frames:v, NOT -shortest. `-shortest` ends the file when the shortest
+    # INPUT ends and silently overrides `-t`: asked for 40s and for 60s of the
+    # same card over a 33.2s voiceover, it produced an identical 34.767s both
+    # times. The card then carries less picture than the timeline allocated it,
+    # and the gap is only discovered (if at all) once everything is concatenated.
+    # An explicit frame count is a demand rather than a hope, and `apad` with
+    # `-t` holds the audio to the same length, so both streams land on exactly
+    # `duration` by construction instead of by inference.
+    frames_v = str(zoom_frames)
+
     if audio_path and audio_path.exists():
         cmd = [
             "ffmpeg",
@@ -192,8 +202,8 @@ def make_card_video_with_optional_voiceover(
             "-i", str(audio_path),
             "-t", str(duration),
             "-vf", zoom_filter,
-            "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.6",
-            "-shortest",
+            "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad",
+            "-frames:v", frames_v,
             *_vcodec_flags(threads=2),
             "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
@@ -210,7 +220,7 @@ def make_card_video_with_optional_voiceover(
             "-i", "anullsrc=channel_layout=stereo:sample_rate=48000",
             "-t", str(duration),
             "-vf", zoom_filter,
-            "-shortest",
+            "-frames:v", frames_v,
             *_vcodec_flags(threads=2),
             "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
@@ -334,8 +344,11 @@ def render_archive_clip(
             "-vf", vf,
             "-map", "0:v:0",
             "-map", "1:a:0",
-            "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.4",
-            "-shortest",
+            # Same reasoning as make_card_video_with_optional_voiceover: an
+            # explicit frame count instead of -shortest, so the segment is
+            # exactly as long as the timeline says it is.
+            "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad",
+            "-frames:v", str(max(1, round(duration * FPS))),
             *_vcodec_flags(threads=2),
             "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
