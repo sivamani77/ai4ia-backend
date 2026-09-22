@@ -293,10 +293,34 @@ _AUTH_STATEMENTS = [
         constraint otp_codes_purpose_check check (
             purpose in (
                 'signup', 'password_reset', 'password_change',
-                'email_change', 'email_change_old'
+                'email_change', 'email_change_old', 'persona_upgrade'
             )
         )
     )
+    """,
+    # The create above only shapes a *fresh* database — an existing otp_codes
+    # keeps whatever constraint it was built with, so every new purpose value
+    # has to be widened in explicitly here too. Guarded on the constraint
+    # definition rather than run unconditionally: a bare drop/add would take
+    # an ACCESS EXCLUSIVE lock and revalidate the table on every boot.
+    """
+    do $$
+    begin
+        if not exists (
+            select 1 from pg_constraint
+            where conrelid = 'otp_codes'::regclass
+              and conname = 'otp_codes_purpose_check'
+              and pg_get_constraintdef(oid) like '%persona_upgrade%'
+        ) then
+            alter table otp_codes drop constraint if exists otp_codes_purpose_check;
+            alter table otp_codes add constraint otp_codes_purpose_check check (
+                purpose in (
+                    'signup', 'password_reset', 'password_change',
+                    'email_change', 'email_change_old', 'persona_upgrade'
+                )
+            );
+        end if;
+    end $$;
     """,
     # get_latest_active() filters on (email, purpose, used_at is null) and
     # orders by created_at desc — this index serves that query directly.

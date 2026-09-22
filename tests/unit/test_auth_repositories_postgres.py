@@ -192,3 +192,49 @@ class TestSupabaseFullyRemoved:
     def test_supabase_module_is_gone(self):
         with pytest.raises(ImportError):
             import app.db.supabase  # noqa: F401
+
+
+class TestOtpPurposeConstraintCoversEveryPurpose:
+    """otp_codes.purpose carries a CHECK constraint that has now twice fallen
+    behind the code that writes to it — migration 0005 (email_change) and 0007
+    (persona_upgrade) were both written after a purpose shipped and blew up
+    with a CheckViolation in production. This pins the two together so the
+    next new purpose fails here instead of at runtime."""
+
+    def _schema_sql(self) -> str:
+        from app.db import schema
+
+        return "\n".join(schema._AUTH_STATEMENTS)
+
+    def test_every_mail_purpose_is_allowed_by_the_constraint(self):
+        from app.services.mail_service import _OTP_PURPOSE_TEXT
+
+        sql = self._schema_sql()
+        missing = [p for p in _OTP_PURPOSE_TEXT if f"'{p}'" not in sql]
+        assert not missing, (
+            f"otp_codes_purpose_check does not allow {missing}. Add the value in "
+            "backend/app/db/schema.py (both the create-table constraint and the "
+            "guarded ALTER) plus a db/migrations/ copy."
+        )
+
+    def test_issued_purposes_are_allowed_by_the_constraint(self):
+        """Catches a purpose passed straight to _issue_otp without ever being
+        given mail copy — it would still hit the constraint."""
+        import re
+        from pathlib import Path
+
+        service = Path(__file__).resolve().parents[2] / "backend/app/services/auth_service.py"
+        issued = set(re.findall(r'_issue_otp\([^)]*purpose="([^"]+)"', service.read_text()))
+        assert issued, "no _issue_otp call sites found — did the helper get renamed?"
+
+        sql = self._schema_sql()
+        missing = sorted(p for p in issued if f"'{p}'" not in sql)
+        assert not missing, f"otp_codes_purpose_check does not allow {missing}"
+
+    def test_existing_databases_get_the_constraint_widened(self):
+        """A create-table-if-not-exists never touches an existing otp_codes, so
+        the widening ALTER must be present too — that is what repairs a
+        already-deployed database on startup."""
+        sql = self._schema_sql()
+        assert "drop constraint if exists otp_codes_purpose_check" in sql
+        assert "add constraint otp_codes_purpose_check" in sql
