@@ -249,6 +249,26 @@ class Settings(BaseSettings):
     title_match_min_ratio: float = Field(default=0.6, gt=0, le=1.0)
     max_uses_per_requested_source_video: int = Field(default=6, gt=0)
 
+    # Which fragments stage 07 retrieves from, passed through to
+    # 07_generate_storyline.py's --corpus-version. activate_corpus() treats
+    # "original_v1"/"cleaned_v2" as an exact-match filter on a fragment's
+    # source_transcript_version and "mixed_cleaned_v2" as no filtering at all.
+    #
+    # This must stay "mixed_cleaned_v2". source_transcript_version is
+    # per-video provenance, not a corpus generation: find_transcript() in
+    # scripts/04_regenerate_fragments_from_clean_transcripts.py picks ONE
+    # transcript per video (aligned > cleaned > original) and stamps whichever
+    # it used, so each video carries exactly one label and the label sets are
+    # disjoint — 220 videos are original_v1, a different 89 are cleaned_v2,
+    # 220 + 89 = 309. Filtering to either label therefore makes the other set
+    # unreachable to every video job rather than merely deprioritized. Stage 07
+    # used to pass no flag at all and inherit the script's "original_v1"
+    # default, which silently hid 89 of the 309 videos from retrieval.
+    #
+    # find_transcript can also emit "cleaned_v2_aligned", which neither
+    # single-label filter admits — a third reason to keep this unfiltered.
+    storyline_corpus_version: str = "mixed_cleaned_v2"
+
     # Fragmenting rules — how transcript segments are grouped into fragments.
     fragment_min_duration_seconds: float = Field(default=35, gt=0)
     fragment_target_duration_seconds: float = Field(default=75, gt=0)

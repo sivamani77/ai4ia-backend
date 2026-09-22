@@ -10,6 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
+from app.core.settings import settings  # noqa: E402
 from app.pipeline.storyline_gen.candidate_scoring import annotate_candidate_relevance  # noqa: E402
 from app.pipeline.storyline_gen.director import (  # noqa: E402
     bucket_candidates,
@@ -104,8 +105,11 @@ def main() -> None:
     )
     parser.add_argument(
         "--corpus-version",
-        default="original_v1",
-        help="Filter to a specific source_transcript_version (e.g. cleaned_v2, original_v1). Default: original_v1"
+        default=settings.storyline_corpus_version,
+        help="Filter to a specific source_transcript_version, or 'mixed_cleaned_v2' for no "
+             "filtering. source_transcript_version is per-video provenance and the label sets "
+             "are disjoint, so filtering to one label hides every video carrying the other — "
+             f"see settings.storyline_corpus_version. Default: {settings.storyline_corpus_version}"
     )
     parser.add_argument(
         "--min-transcript-quality",

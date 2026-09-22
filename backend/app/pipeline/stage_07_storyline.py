@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, STORYLINES_DIR, PROJECT_ROOT
+from app.core.settings import settings
 from app.pipeline.base import PipelineContext, StageResult, run_script, _newest_file_after
 from app.pipeline.s3_helpers import use_s3, upload, download_if_missing
 from app.pipeline.timeline_budget import SOURCE_DURATION_INDEX_S3_KEY
@@ -70,6 +71,12 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         "--duration", str(target_duration),
         "--style", request.get("style", "documentary"),
         "--job-id", job_id,
+        # Passed explicitly, although the script defaults to the same setting,
+        # so the corpus a job actually retrieved from is recorded in its
+        # script_log rather than being an invisible default. Omitting the flag
+        # is how stage 07 previously inherited "original_v1" and silently
+        # retrieved from 220 of the 309 videos.
+        "--corpus-version", settings.storyline_corpus_version,
     ]
 
     update_stage(job_id, "07_storyline", "running", 20, "Running storyline generation script")

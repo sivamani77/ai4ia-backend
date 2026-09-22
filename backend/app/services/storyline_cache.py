@@ -90,6 +90,12 @@ def _relevant_params(request: dict[str, Any]) -> dict[str, Any]:
         "visual_mode": request.get("visual_mode"),
         "max_validation_iterations": request.get("max_validation_iterations"),
         "corpus_version": _settings_module.settings.storyline_cache_corpus_version,
+        # The corpus stage 07 actually retrieves from is part of the key too,
+        # so changing it invalidates every cached entry automatically instead
+        # of relying on someone remembering to bump the manual knob above.
+        # Entries cached while this was "original_v1" were built from 220 of
+        # the 309 videos and must not be served now that all 309 are in scope.
+        "storyline_corpus_version": _settings_module.settings.storyline_corpus_version,
     }
 
 
