@@ -41,8 +41,23 @@ class TestPolicyPrompts:
         assert "Do NOT reject a query merely for being broad" in _QUERY_SYSTEM_PROMPT
 
     def test_video_policy_keeps_its_topicality_rule(self):
+        """Unlike the query policy, the video policy still bounds the subject."""
         from app.services.guardrail_service import _VIDEO_SYSTEM_PROMPT
-        assert "no reasonable relation to generating an AI4IA video" in _VIDEO_SYSTEM_PROMPT
+        assert "no plausible connection to the archive" in _VIDEO_SYSTEM_PROMPT
+        assert "no discernible subject at all" in _VIDEO_SYSTEM_PROMPT
+
+    def test_video_policy_judges_subject_not_grammatical_form(self):
+        """The rule used to be worded as "no reasonable relation to generating
+        an AI4IA video", which the classifier read as "is this shaped like a
+        video brief" — it rejected "What did <speaker> say about X at AI4IA?"
+        with "User request is a question, not a video generation prompt" while
+        allowing the same subject as an instruction. See
+        tests/integration/test_guardrail_video_policy.py for the behavioural
+        matrix; this pins the wording that carries the intent."""
+        from app.services.guardrail_service import _VIDEO_SYSTEM_PROMPT
+        assert "never on its grammatical form" in _VIDEO_SYSTEM_PROMPT
+        assert "Do not reject a prompt for being phrased as a question" in _VIDEO_SYSTEM_PROMPT
+        assert "no reasonable relation to generating an AI4IA video" not in _VIDEO_SYSTEM_PROMPT
 
     def test_both_policies_carry_the_safety_rules(self):
         from app.services.guardrail_service import _QUERY_SYSTEM_PROMPT, _VIDEO_SYSTEM_PROMPT
