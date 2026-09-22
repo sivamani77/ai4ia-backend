@@ -2,6 +2,8 @@ import json
 import re
 from typing import Any
 
+from app.services.video_naming import parse_source_video
+
 
 def clean_text(text: str) -> str:
     return " ".join((text or "").split()).strip()
@@ -92,21 +94,18 @@ def normalize_name(value: str) -> str:
     return re.sub(r"\s+", " ", lowered).strip()
 
 
-# Download filenames are "<NNNN>_<11-char youtube id>_<human title>" — see
-# scripts/01_download_videos.py and extract_video_id in 04_create_fragments.py.
-# The id is always exactly 11 characters (video_naming.py), so match it by
-# length rather than splitting on "_", which mis-parses the ids that contain
-# an underscore themselves.
-_SOURCE_VIDEO_PREFIX_RE = re.compile(r"^\d+_[A-Za-z0-9_-]{11}_")
-
-
 def video_title_from_source(record: dict[str, Any]) -> str:
     """Best available human title for the video a fragment came from.
 
     Fragment records carry the title only inside `source_video` (the download
     filename stem) — `video_title` is defined on FragmentRecord but is not
     populated in the embedding/Chroma metadata, so it is tried first and
-    falls back to the filename stem with its index/id prefix stripped.
+    falls back to the stem with its index/id prefix stripped.
+
+    Splitting the stem is delegated to video_naming.parse_source_video rather
+    than re-derived here: that module exists because three earlier copies used
+    split("_") and mis-parsed the 42 of 309 videos whose YouTube id itself
+    contains an underscore.
     """
     explicit = clean_text(str(record.get("video_title") or ""))
     if explicit:
@@ -114,7 +113,8 @@ def video_title_from_source(record: dict[str, Any]) -> str:
     stem = str(record.get("source_video") or "")
     if not stem:
         return ""
-    return clean_text(_SOURCE_VIDEO_PREFIX_RE.sub("", stem).replace("_", " "))
+    _, title = parse_source_video(stem)
+    return clean_text(title.replace("_", " "))
 
 
 def title_term_overlap(title: str, topic_terms: list[str] | set[str]) -> tuple[list[str], float]:
