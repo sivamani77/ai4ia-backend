@@ -528,6 +528,13 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             "year": _year,
             "speaker": _speaker,
             "topic": _ti.get("primary_chapter"),
+            # The real narrative section (S1_HOOK, S2_CONTEXT, ...) — several
+            # rendered segments (a narration bridge + its speaker_clip) can
+            # belong to the same section_id; the frontend groups consecutive
+            # events sharing this id into one chapter chip. section_role is a
+            # separate, older per-candidate classifier field (only set on
+            # speaker_clip items) kept for backward compatibility only.
+            "section_id": _ti.get("section_id"),
             "section_role": _ti.get("section_role"),
             "clip_start": _ti.get("start"),
             "clip_end": _ti.get("end"),
