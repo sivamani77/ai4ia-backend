@@ -49,7 +49,7 @@ After this change the platform:
 | **L1 Safety** | `stage_guardrail` (existing) | yes, self-hosted | job `failed`, `error.code = guardrail_rejected` |
 | **L2a Resolve** | new in-process stage `stage_resolve`, before the storyline cache check | no | job `failed`, `error.code = declined` |
 | **L2b Coverage** | start of stage 07, after retrieval | only in the unclear band | job `failed`, `error.code = declined`; or render with gap narration |
-| **L3 Output check** | stage 07b (existing, unchanged) | yes | existing behaviour |
+| **L3 Output check** | stage 07b (existing; gaps in §8.5) | yes | speaker intents: job `failed`, `error.code = declined`; others: render, recorded |
 
 Each layer returns a `reason_code`. `core/error_messages.py` maps each code to the user-facing message. The layer's result is written to `prompt_resolutions` (§10).
 
@@ -273,6 +273,23 @@ The stage 07 script cannot touch Postgres. So:
 
 **Storyline cache:** a cache hit skips stage 07, so coverage does not run again. That is fine, because a cached storyline came from a covered run. **The cache key must include `intent` + `intent_version`**, so a storyline built under an old template is never served for a new one.
 
+### 8.5 L3 — gaps found in stage 07b
+
+Found on local job `vjob_20260923_175711_515689b3` ("What did Cordell Green say about media regulation?"). Stage 07 selected 6 Cordel Green clips. The rendered video had none: 6 AI-narration segments, and no Cordel Green audio at all.
+
+Already fixed:
+
+- **The repair pass stripped clip ids.** `_build_repair_prompt` cut every `fragment_id` to 50 characters, and the ID check then discarded the ids the repair returned as hallucinated. 84% of corpus fragment ids are longer than 50 characters. The prompt now carries the full id.
+- **Local runs found no transcripts.** Local 07b reads `data/transcripts_cleaned_aligned` and `data/transcripts`, but neither folder existed, so the validator saw each clip without context and rejected it as mid-sentence. Both folders are now pulled from S3 (829 files, all MD5-verified). Deployed runs download them, so this was local-only (not verified on UAT).
+
+Still open, and part of L3:
+
+| Gap | Evidence | Proposed rule |
+|---|---|---|
+| **A failed timeline still renders.** 07b ended with `final_timeline_approved: false` and the job completed. | quality gate event on the job above | Speaker intents need at least one approved speaker clip after 07b. Otherwise decline with `speaker_clips_unusable` ("We found Cordel Green's talks, but no clip passed our quality checks."). Other intents render as today, recorded as `layer_outcome = 'l3_unapproved'`. |
+| **The repair loop can only make speaker coverage worse.** `final_timeline_approved` needs at least 2 speaker clips, but the repair may only reuse clip ids already in the timeline and is told just "does not pass minimum quality standards". With both fixes above, the re-run (`vjob_20260923_183215_f5ed2e0a`) found its transcripts and approved 2 speaker clips. Assembly placed 1, and two repair passes turned it into narration. The loop keeps the last result, not the best. | 07b log of the re-run | Never accept a repair that has fewer speaker clips than its input. Only ask the repair to fix gates it can fix. Tell it the real rule, and never to demote a speaker clip with a complete quote. |
+| **The repair pass is not grounded.** The narration said "warned computer-science pioneer Cordell Green" and put a quote in his mouth. Cordell Green is a different person. | validated storyline of the job above | Add the assembly prompt's GROUNDING rule to `_build_repair_prompt`, and send the approved clips' full `quote_text` instead of 100 characters. After repair, check narration: a person it names must be a registry speaker with a clip in the timeline, and narration never presents text as a quote ("said", "warned", quotation marks). |
+
 ---
 
 ## 9. What the user sees
@@ -478,6 +495,7 @@ Each phase ships on its own and is checked before the next.
 | 5 | new intents: `overview`, `speaker_panel`, `theme_chapter` | one hand-checked render each |
 | 6 | L2b coverage + judge + gap narration | coverage rows of the case matrix; band tuned on recorded `top_similarity` |
 | 7 | LLM router, **only if** recorded `resolution_method = 'fallback'` rows show misrouting | router accuracy on the labelled set |
+| L3 | §8.5: decline speaker intents with no approved clip; ground the repair pass and check its narration | the Cordell Green job above renders real Cordel Green clips or declines; no invented quotes |
 
 ---
 
