@@ -1,6 +1,6 @@
 # Speaker cleanup plan
 
-Status: Phases 0–6 done and rehearsed locally (2026-09-23). Next: Phase 7, UAT-only rollout (step 1). Owner: Aswin Prabhu. Last updated: 2026-09-23.
+Status: repair applied on the shared stores from uat on 2026-09-23 at 15:15 UTC (rollout steps 1–3 done). Next: step 4 (switch off), then the cleanup, not before 2026-09-30 15:15 UTC. Owner: Aswin Prabhu. Last updated: 2026-09-23.
 
 ## Why
 
@@ -313,6 +313,14 @@ What release sees from step 3 until it gets this code:
 - Release keeps its own cache key until the merge brings the new default, so it may keep serving cached storylines with old names until then.
 - **Release must not ingest until it has this code.** Its old ingest would write old spellings (the old alias map points several names the wrong way). Keep release ingest paused, or accept a drift check afterwards.
 - Old release code re-adds a few old alias rows to `speaker_aliases` on restart. Nothing reads that table yet, and UAT's next start corrects it.
+
+Rollout log:
+
+| Step | Commit | Result |
+|---|---|---|
+| 1 | `f0402a8` | Deployed 2026-09-23; startup normal, no `[speaker_repair]` lines; a video job ran through stage 08 |
+| 2 | `71d1713` | Dry run 14:50 UTC: identical to the local rehearsal for all 309 videos; report written to S3 |
+| 3 | `1248fb7` | Applied 15:13–15:15 UTC: 10,224 rows backed up, 5,112 fragments fixed in each store, all five checks passed; S3 files rewritten (309 classified, 211 + 98 rosters, 522 backup copies) |
 
 When release is merged later:
 
