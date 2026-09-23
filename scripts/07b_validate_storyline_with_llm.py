@@ -61,7 +61,9 @@ from app.pipeline.validate_gen.narrative_templates import (  # noqa: E402
 )
 from app.pipeline.validate_gen.quality_gates import (  # noqa: E402
     CRITICAL_GATE_NAMES,
+    EXTRA_SPEAKER_CHECKS,
     MAX_VALIDATION_ITERATIONS,
+    SPEAKER_CLIP_TARGET,
     _add_visual_asset_plan,
     _critical_gates_pass,
     _enforce_section_rhythm,
@@ -71,6 +73,11 @@ from app.pipeline.validate_gen.quality_gates import (  # noqa: E402
     _validate_speaker_quotes,
     check_quality_gates,
     frame_duration_fill_as_perspectives_section,
+    repair_can_help,
+    repair_is_better,
+    repair_shelf,
+    speaker_clip_target,
+    unchecked_speaker_candidates,
 )
 from app.pipeline.validate_gen.timeline_enrichment import (  # noqa: E402
     # _build_grounding_material / _narration_grounding_issues aren't called
@@ -166,7 +173,7 @@ def main() -> None:
         start = float(item.get("start") or 0)
         end = float(item.get("end") or start + 10)
 
-        log(f"\n[{i+1}/{len(fragment_items)}] Preparing: {fid[:60]!r}")
+        log(f"\n[{i+1}] Preparing: {fid[:60]!r}")
         log(f"  source_video: {source_video[:60]!r}  window: {start:.1f}→{end:.1f}s")
 
         cand_data = candidate_map.get(fid, {})
@@ -210,23 +217,26 @@ def main() -> None:
         result["text"] = merged.get("text") or merged.get("moment_text") or ""
         return i, result, used_fallback
 
-    # Concurrency cap: local Ollama can serialize past this — 6 chosen as a
-    # doubling of the prior thread-based cap of 3; tune down if Ollama logs
-    # queuing/timeouts under load.
-    max_concurrency = min(6, max(1, len(fragment_items)))
-    raw_results: dict[int, tuple[dict, bool]] = {}
+    def _validate_items(items: list[dict]) -> list[tuple[dict, bool]]:
+        """(result, used_fallback) for each item, in order."""
+        raw_results: dict[int, tuple[dict, bool]] = {}
+        if args.skip_llm:
+            for i, item in enumerate(items):
+                merged, _ = _prepare_fragment(i, item)
+                result = fallback_validation(merged)
+                log(f"  fallback decision: {result['decision']} | approved={result['approved']}")
+                result["source_video"] = merged["source_video"]
+                result["start"] = merged["start"]
+                result["end"] = merged["end"]
+                result["text"] = merged.get("text") or merged.get("moment_text") or ""
+                raw_results[i] = (result, False)
+            return [raw_results[i] for i in sorted(raw_results)]
 
-    if args.skip_llm:
-        for i, item in enumerate(fragment_items):
-            merged, _ = _prepare_fragment(i, item)
-            result = fallback_validation(merged)
-            log(f"  fallback decision: {result['decision']} | approved={result['approved']}")
-            result["source_video"] = merged["source_video"]
-            result["start"] = merged["start"]
-            result["end"] = merged["end"]
-            result["text"] = merged.get("text") or merged.get("moment_text") or ""
-            raw_results[i] = (result, False)
-    else:
+        # Concurrency cap: local Ollama can serialize past this — 6 chosen as a
+        # doubling of the prior thread-based cap of 3; tune down if Ollama logs
+        # queuing/timeouts under load.
+        max_concurrency = min(6, max(1, len(items)))
+
         async def _validate_all_async() -> None:
             semaphore = asyncio.Semaphore(max_concurrency)
             async with httpx.AsyncClient() as client:
@@ -245,24 +255,38 @@ def main() -> None:
                     raw_results[idx] = (final_result, used_fallback)
 
                 await asyncio.gather(*(
-                    _run_one(i, item) for i, item in enumerate(fragment_items)
+                    _run_one(i, item) for i, item in enumerate(items)
                 ))
 
         asyncio.run(_validate_all_async())
+        return [raw_results[i] for i in sorted(raw_results)]
 
-    validated_candidates: list[dict] = []
-    llm_fallback_count = 0
-    for i in sorted(raw_results.keys()):
-        result, used_fallback = raw_results[i]
-        if used_fallback:
-            llm_fallback_count += 1
-        validated_candidates.append(result)
+    results = _validate_items(fragment_items)
+
+    # Too few speaker clips approved: check more of stage 07's shortlist.
+    approved_speakers = sum(1 for r, _ in results if r.get("approved") and r.get("decision") == "speaker_clip")
+    if approved_speakers < SPEAKER_CLIP_TARGET:
+        extras = unchecked_speaker_candidates(
+            selected_candidates + (data.get("supporting_candidates") or []),
+            checked_fids={str(item.get("fragment_id")) for item in fragment_items},
+            limit=EXTRA_SPEAKER_CHECKS,
+        )
+        if extras:
+            log(f"\nOnly {approved_speakers} speaker clip(s) approved — checking {len(extras)} more from the shortlist.")
+            for c in extras:
+                candidate_map.setdefault(str(c["fragment_id"]), c)
+            results += _validate_items(extras)
+
+    validated_candidates: list[dict] = [r for r, _ in results]
+    llm_fallback_count = sum(1 for _, used_fallback in results if used_fallback)
 
     approved_count = sum(1 for c in validated_candidates if c.get("approved"))
     rejected_count = len(validated_candidates) - approved_count
     log(f"\nValidation complete: {approved_count} approved, {rejected_count} rejected out of {len(validated_candidates)}")
     if llm_fallback_count:
         log(f"WARNING: {llm_fallback_count}/{len(validated_candidates)} fragments used score-based fallback due to LLM failures — results may be lower quality.")
+    speaker_target = speaker_clip_target(validated_candidates)
+    log(f"Speaker clip target: {speaker_target}")
 
     # Full narrative assembly
     log("\nRunning full narrative assembly...")
@@ -382,7 +406,7 @@ def main() -> None:
 
     # Iterative quality-gate repair loop
     max_iters = args.max_iterations
-    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections)
+    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target)
     repair_iter = 0
     for repair_iter in range(1, max_iters + 1):
         if _critical_gates_pass(quality_gates):
@@ -396,6 +420,11 @@ def main() -> None:
             break
         failed = [k for k, v in quality_gates.items() if isinstance(v, bool) and not v and k in CRITICAL_GATE_NAMES]
         log(f"\nCritical gate failures on iteration {repair_iter}: {failed}")
+        shelf = repair_shelf(enriched_timeline, validated_candidates)
+        if not repair_can_help(quality_gates, shelf):
+            log("  [repair] Failures need speaker clips that were not approved — keeping current timeline.")
+            break
+        before = (enriched_timeline, quality_gates, warnings)
         log("Sending repair prompt to LLM...")
         repaired_tl = _llm_repair_timeline(
             current_timeline=enriched_timeline,
@@ -404,6 +433,8 @@ def main() -> None:
             user_prompt=user_prompt,
             iteration=repair_iter,
             target_duration=target_duration,
+            shelf=shelf,
+            speaker_target=speaker_target,
         )
         if not repaired_tl:
             log("  [repair] LLM returned nothing — keeping current timeline.")
@@ -441,7 +472,11 @@ def main() -> None:
                 _item["subtitle_text"] = _cleaned
         enriched_timeline = _enforce_section_rhythm(enriched_timeline, narrative_sections)
         enriched_timeline = _add_visual_asset_plan(enriched_timeline, narrative_sections, is_deepfake_topic)
-        warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections)
+        warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target)
+        if not repair_is_better(before[:2], (enriched_timeline, quality_gates)):
+            log("  [repair] Rejected: it would lose speaker clips or pass fewer gates — keeping the previous timeline.")
+            enriched_timeline, quality_gates, warnings = before
+            break
     else:
         repair_iter = max_iters
 
@@ -531,7 +566,7 @@ def main() -> None:
             assembled["final_timeline"] = enriched_timeline
 
     # Re-verify quality gates after duration top-up / rescue net
-    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections)
+    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target)
 
     # Lock every validated clip window: downstream stages (08/09) render these
     # verbatim and may only extend narration for TTS, never shrink anything.

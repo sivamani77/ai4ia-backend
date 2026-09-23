@@ -3,6 +3,7 @@ import json
 from typing import Any
 
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
+from app.pipeline.timeline_budget import _candidate_is_speaker_eligible
 from app.pipeline.validate_gen.fragment_validation import _base_section_id, _quote_ends_completely, _quote_starts_cleanly
 from app.pipeline.validate_gen.json_utils import extract_json_array, extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries
@@ -34,6 +35,78 @@ CRITICAL_GATE_NAMES = frozenset({
     # script-07's fallback narration uses common AI openers that are still on-topic
     "final_timeline_approved",
 })
+
+# Speaker clips an approved timeline aims for, when that many were approved.
+SPEAKER_CLIP_TARGET = 2
+# Extra shortlist clips to check when too few speaker clips were approved.
+EXTRA_SPEAKER_CHECKS = 6
+# Gates a repair can only fix by adding speaker clips.
+_SPEAKER_COUNT_GATES = frozenset({"has_speaker_clips", "final_timeline_approved"})
+
+
+def _item_type(item: dict[str, Any]) -> str:
+    return item.get("type") or item.get("segment_type") or ""
+
+
+def count_speaker_clips(timeline: list[dict[str, Any]]) -> int:
+    return sum(1 for item in timeline if _item_type(item) == "speaker_clip")
+
+
+def speaker_clip_target(validated_candidates: list[dict[str, Any]]) -> int:
+    """SPEAKER_CLIP_TARGET, lowered to the number of approved speaker clips."""
+    approved = sum(1 for c in validated_candidates
+                   if c.get("approved") and c.get("decision") == "speaker_clip")
+    return min(SPEAKER_CLIP_TARGET, approved)
+
+
+def unchecked_speaker_candidates(
+    shortlist: list[dict[str, Any]],
+    checked_fids: set[str],
+    limit: int,
+) -> list[dict[str, Any]]:
+    """Speaker-eligible shortlist clips not yet checked, in stage 07's rank order."""
+    picked: list[dict[str, Any]] = []
+    seen = set(checked_fids)
+    for candidate in shortlist:
+        fid = str(candidate.get("fragment_id") or "")
+        if fid and fid not in seen and _candidate_is_speaker_eligible(candidate):
+            picked.append(candidate)
+            seen.add(fid)
+        if len(picked) >= limit:
+            break
+    return picked
+
+
+def repair_shelf(
+    timeline: list[dict[str, Any]],
+    validated_candidates: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Approved clips not yet in the timeline, speaker clips first."""
+    used = {str(item.get("fragment_id")) for item in timeline if item.get("fragment_id")}
+    shelf = [c for c in validated_candidates
+             if c.get("approved") and c.get("fragment_id") and str(c["fragment_id"]) not in used]
+    return sorted(shelf, key=lambda c: c.get("decision") != "speaker_clip")
+
+
+def repair_can_help(quality_gates: dict[str, Any], shelf: list[dict[str, Any]]) -> bool:
+    """False when the only failures need speaker clips that do not exist."""
+    failed = {k for k in CRITICAL_GATE_NAMES if quality_gates.get(k) is False}
+    if failed - _SPEAKER_COUNT_GATES:
+        return True
+    return any(c.get("decision") == "speaker_clip" for c in shelf)
+
+
+def repair_is_better(
+    before: tuple[list[dict[str, Any]], dict[str, Any]],
+    after: tuple[list[dict[str, Any]], dict[str, Any]],
+) -> bool:
+    """A repair may not lose speaker clips or pass fewer critical gates."""
+    def passing(gates: dict[str, Any]) -> int:
+        return sum(1 for k in CRITICAL_GATE_NAMES if gates.get(k) is not False)
+
+    (tl_before, gates_before), (tl_after, gates_after) = before, after
+    return (count_speaker_clips(tl_after) >= count_speaker_clips(tl_before)
+            and passing(gates_after) >= passing(gates_before))
 
 
 def _validate_speaker_quotes(
@@ -281,6 +354,8 @@ def _build_repair_prompt(
     user_prompt: str,
     iteration: int,
     target_duration: int = 120,
+    shelf: list | None = None,
+    speaker_target: int = SPEAKER_CLIP_TARGET,
 ) -> tuple[str, str]:
     """Build a structured LLM repair prompt describing failing gates and repair
     rules. Returns (system, user) — user_prompt and the current timeline
@@ -288,6 +363,10 @@ def _build_repair_prompt(
     via wrap_untrusted() rather than concatenated raw into the instructions."""
     failed_gates = [k for k, v in quality_gates.items() if isinstance(v, bool) and not v]
     offending = quality_gates.get("offending_items", {})
+    shelf = shelf or []
+    n_speakers = count_speaker_clips(current_timeline)
+    speaker_rule = (f"The timeline has {n_speakers} speaker clip(s) and needs at least {speaker_target}. "
+                    "Add speaker clips from AVAILABLE CLIPS.")
 
     n_sections = max(1, len(narrative_sections))
     per_section_s = max(8, (target_duration - 10) // n_sections)
@@ -299,7 +378,8 @@ def _build_repair_prompt(
         "all_speaker_quotes_complete": "Some speaker clips have incomplete quotes — demote them to narration_broll.",
         "no_instruction_leakage_in_voiceover": "Some voiceover texts start with instruction phrases instead of viewer-facing narration.",
         "all_voiceovers_topic_specific": "Some voiceover texts are generic boilerplate, not specific to the documentary topic.",
-        "final_timeline_approved": "The overall timeline does not pass minimum quality standards.",
+        "final_timeline_approved": speaker_rule,
+        "has_speaker_clips": speaker_rule,
         "all_narration_broll_have_visual_asset_prompt": "Some narration_broll items are missing visual_asset_prompt.",
     }
 
@@ -333,6 +413,20 @@ def _build_repair_prompt(
         indent=2,
     )
 
+    shelf_json = json.dumps(
+        [
+            {
+                "fragment_id": c.get("fragment_id"),
+                "decision": c.get("decision"),
+                "section_id": c.get("section_id"),
+                "speaker": c.get("speaker", ""),
+                "quote_text": (c.get("quote_text") or c.get("text") or "")[:400],
+            }
+            for c in shelf
+        ],
+        indent=2,
+    )
+
     user = (
         f"The validated timeline (iteration {iteration}) failed these quality gates:\n"
         f"{failure_report}\n\n"
@@ -340,8 +434,11 @@ def _build_repair_prompt(
         f"TARGET DURATION: {target_duration} seconds\n\n"
         f"REQUIRED NARRATIVE SECTIONS (all must be present):\n{sections_json}\n\n"
         f"CURRENT TIMELINE:\n{wrap_untrusted(current_tl_summary)}\n\n"
+        "AVAILABLE CLIPS (approved, not yet used; decision=speaker_clip means real speaker audio):\n"
+        f"{wrap_untrusted(shelf_json)}\n\n"
         "REPAIR RULES:\n"
-        "1. Demote any speaker_clip with quote_complete=false to narration_broll.\n"
+        "1. Demote a speaker_clip to narration_broll only if quote_complete=false. Never demote a\n"
+        "   speaker_clip whose quote_complete=true, and never remove one.\n"
         "2. Ensure all narrative sections are present.\n"
         "3. Every narration_broll voiceover_text must be viewer-facing narration — never start with\n"
         "   'Explain', 'Mention', 'Show how', 'End with', 'Start with', 'Open with', 'Describe', 'Close with', etc.\n"
@@ -351,7 +448,7 @@ def _build_repair_prompt(
         "7. The final video must meaningfully answer the original prompt.\n"
         "8. PRESERVE existing voiceover_text if it is long and correct — only rewrite the offending items.\n"
         "9. CRITICAL: every \"fragment_id\" value must be copied EXACTLY, character-for-character,\n"
-        "   from a fragment_id already present in CURRENT TIMELINE above. Never invent, abbreviate,\n"
+        "   from CURRENT TIMELINE or AVAILABLE CLIPS above. Never invent, abbreviate,\n"
         "   or make up a fragment_id (e.g. \"hook_001\") — fabricated ones will be discarded. If an\n"
         "   item has no real clip behind it, OMIT the \"fragment_id\" field entirely.\n\n"
         "Return a repaired final_timeline as a JSON array. Include only the array (no extra keys).\n"
@@ -374,10 +471,13 @@ def _llm_repair_timeline(
     user_prompt: str,
     iteration: int,
     target_duration: int = 120,
+    shelf: list | None = None,
+    speaker_target: int = SPEAKER_CLIP_TARGET,
 ) -> "list | None":
     """Ask LLM to repair a failed timeline. Returns new timeline list or None on failure."""
     system_text, user_text = _build_repair_prompt(
-        current_timeline, quality_gates, narrative_sections, user_prompt, iteration, target_duration
+        current_timeline, quality_gates, narrative_sections, user_prompt, iteration, target_duration,
+        shelf=shelf, speaker_target=speaker_target,
     )
     try:
         raw = post_with_retries({
@@ -407,6 +507,7 @@ def _llm_repair_timeline(
 def check_quality_gates(
     final_timeline: list[dict[str, Any]],
     narrative_sections: list[dict[str, Any]],
+    speaker_target: int = SPEAKER_CLIP_TARGET,
 ) -> tuple[list[str], dict[str, Any]]:
     """Return (warnings_list, editorial_quality_gates_dict)."""
     warnings: list[str] = []
@@ -491,7 +592,7 @@ def check_quality_gates(
                     break
 
     # 6. Final timeline approved overall
-    gate_approved = gate_sections and gate_speakers and len(speaker_clips) >= 2
+    gate_approved = gate_sections and gate_speakers and len(speaker_clips) >= max(1, speaker_target)
 
     # 7. All narration_broll items have visual_asset_prompt
     gate_visual = True
