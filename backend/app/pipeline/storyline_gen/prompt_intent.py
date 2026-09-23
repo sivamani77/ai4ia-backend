@@ -364,6 +364,57 @@ def lookup_requested_theme(prompt_terms: set[str], records: list[dict[str, Any]]
     return best_theme if best_score > 0 else None
 
 
+# Nouns that name the archive itself rather than anything inside it. Most are
+# STOPWORDS, so they never reach topic_terms — they have to be matched against
+# the raw prompt.
+_ARCHIVE_META_NOUNS = {
+    "ai4ia", "conference", "conferences", "archive", "speaker", "speakers",
+    "theme", "themes", "chapter", "chapters", "video", "videos", "talk",
+    "talks", "session", "sessions", "presentation", "presentations",
+}
+
+# Question scaffolding that survives stopword removal but names no subject.
+_OVERVIEW_SCAFFOLDING = {
+    "overview", "summary", "summarize", "summarise", "main", "major",
+    "important", "most", "many", "much", "discussed", "topic", "whole",
+    "entire", "which", "covered", "cover", "everything", "total", "count",
+    "number", "list", "about", "general", "introduce", "introduction",
+}
+
+
+def detect_archive_overview(
+    prompt: str,
+    topic_terms: set[str] | list[str],
+    requested_speaker: str | None = None,
+    requested_source_video: str | None = None,
+) -> bool:
+    """True when the prompt asks about the archive itself, not a topic in it.
+
+    The test is what survives stopword removal. "how many speakers are there,
+    what are the major themes" reduces to pure scaffolding
+    (many/major/discussed/topic) because every subject noun in it is a
+    STOPWORD; "what did the speakers say about access to information" keeps
+    access/information. So a prompt naming the archive and leaving no subject
+    behind is asking about the archive.
+
+    Speaker and title requests take precedence — those paths already scope
+    retrieval and answer a narrower question.
+    """
+    if requested_speaker or requested_source_video:
+        return False
+    normalized = set(re.findall(r"[a-z0-9]+", normalize_name(prompt)))
+    if not (normalized & _ARCHIVE_META_NOUNS):
+        return False
+    # Meta nouns are subtracted too: "archive" is one of the few that is not a
+    # STOPWORD, so it reaches topic_terms and would otherwise read as a subject.
+    remaining = (
+        {normalize_plural(t) for t in (topic_terms or [])}
+        - _OVERVIEW_SCAFFOLDING
+        - _ARCHIVE_META_NOUNS
+    )
+    return not remaining
+
+
 def lookup_requested_source_video(
     topic_terms: set[str],
     records: list[dict[str, Any]],
@@ -446,6 +497,18 @@ def detect_prompt_intent(
     profile["requested_source_video"] = source_video
     profile["title_match_ratio"] = round(title_ratio, 4)
     profile["title_matched_terms"] = title_terms
+
+    if detect_archive_overview(
+        prompt,
+        topic_terms,
+        requested_speaker=profile.get("requested_speaker"),
+        requested_source_video=source_video,
+    ):
+        # The answer is a property of the corpus, not a quote from inside it,
+        # so the evidence requirement changes rather than merely relaxing.
+        profile["intent_type"] = "archive_overview"
+        profile["scope"] = "archive_overview"
+        profile["evidence_requirement"] = "corpus_facts"
     if chapter:
         profile["chapter_hint"] = chapter
         if profile["intent_type"] == "topic_video":
