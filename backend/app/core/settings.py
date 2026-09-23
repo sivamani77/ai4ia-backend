@@ -296,7 +296,7 @@ class Settings(BaseSettings):
     # Bump this after re-ingesting new source videos — it's part of the L1/L2
     # cache key, so every cached entry is implicitly invalidated by a version
     # change without needing a manual purge.
-    storyline_cache_corpus_version: str = "v1"
+    storyline_cache_corpus_version: str = "v2_speaker_registry"
     # A prompt naming a speaker uses their panel clips only when they have
     # fewer than this many solo clips (panel clips carry no per-clip name).
     speaker_panel_fallback_min_clips: int = 6

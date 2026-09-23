@@ -52,7 +52,7 @@ logger = logging.getLogger("ai4ia.speaker_repair")
 # --- Deploy switches (docs/speaker-cleanup-plan.md, Phase 7) -----------------
 REPAIR_NAME = "speaker_registry_v1"  # done-marker key; bump to run again
 RUN_SPEAKER_REPAIR = True            # True for deploys 1 and 2, then back to False
-SPEAKER_REPAIR_APPLY = False         # False = dry run and report only
+SPEAKER_REPAIR_APPLY = True          # False = dry run and report only
 RUN_SPEAKER_ROLLBACK = False         # restore the values saved before the repair
 RUN_SPEAKER_CLEANUP = False          # Phase 6: remove old data once the repair has settled
 SPEAKER_CLEANUP_APPLY = False        # False = preview only; True = delete (rollback no longer possible)
