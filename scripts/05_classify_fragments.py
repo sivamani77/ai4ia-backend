@@ -16,6 +16,7 @@ sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJ
 
 from app.core.taxonomy_loader import THEMES, CHAPTERS  # noqa: E402
 from app.pipeline import s3_helpers  # noqa: E402
+from app.services.speaker_registry import get_registry  # noqa: E402
 
 FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments"
 CLASSIFIED_DIR = PROJECT_ROOT / "data" / "fragments_classified"
@@ -516,6 +517,14 @@ def classify_fragment_file(path: Path, speaker_lookup: dict[str, dict] | None = 
                 fragment["speaker"] = fallback_speaker
             if not fragment.get("speaker_attribution"):
                 fragment["speaker_attribution"] = fallback_speaker_attribution
+
+    # The speaker registry has the final say: its roster for known videos,
+    # canonical spellings for everyone else.
+    registry = get_registry()
+    for fragment in classified_fragments:
+        fragment.update(registry.speaker_fields(
+            fragment.get("source_video") or payload.get("source_video"),
+            fragment.get("speaker"), fragment.get("speaker_attribution"), fragment.get("video_id")))
 
     classified_payload = dict(payload)
     classified_payload["classification_method"] = "rule_based_mvp_v1"

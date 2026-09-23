@@ -110,6 +110,7 @@ def _list_videos_from_s3() -> list[dict[str, Any]]:
             "thumbnail": None,
             "duration": info.get("duration"),
             "webpage_url": info.get("webpage_url"),
+            "description": info.get("description") or None,
             "s3_key": key,
             "stream_url": f"/api/archive/videos/{youtube_id}/stream",
         })

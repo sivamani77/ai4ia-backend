@@ -220,18 +220,38 @@ class FragmentRepository:
         return int(row["n"]) if row else 0
 
     def speakers_aggregate(self) -> list[dict[str, Any]]:
-        """Group-by speaker in the DB — avoids loading all rows into Python."""
+        """Group-by speaker in the DB — avoids loading all rows into Python.
+        fragment_count/video_count cover solo talks; panel_* counts come from
+        video_speakers, since panel fragments carry no single speaker."""
         self._log("speakers_aggregate")
         rows = pg_fetch_all(
             """
-            select speaker,
-                   count(*) as fragment_count,
-                   count(distinct source_video) as video_count,
-                   max(speaker_attribution) as attribution
-            from fragments
-            where speaker is not null
-            group by speaker
-            order by fragment_count desc
+            with solo as (
+                select speaker,
+                       count(*) as fragment_count,
+                       count(distinct source_video) as video_count,
+                       max(speaker_attribution) as attribution
+                from fragments
+                where speaker is not null and speaker <> ''
+                group by speaker
+            ),
+            panel as (
+                select vs.canonical_name as speaker,
+                       count(distinct vs.video_id) as panel_video_count,
+                       count(f.fragment_id) as panel_fragment_count
+                from video_speakers vs
+                join fragments f on f.video_id = vs.video_id and f.speaker_attribution = 'Multiple speakers'
+                group by vs.canonical_name
+            )
+            select coalesce(s.speaker, p.speaker) as speaker,
+                   coalesce(s.fragment_count, 0) as fragment_count,
+                   coalesce(s.video_count, 0) as video_count,
+                   coalesce(s.attribution, 'Multiple speakers') as attribution,
+                   coalesce(p.panel_video_count, 0) as panel_video_count,
+                   coalesce(p.panel_fragment_count, 0) as panel_fragment_count
+            from solo s
+            full outer join panel p on p.speaker = s.speaker
+            order by fragment_count desc, panel_fragment_count desc
             """
         )
         return [
@@ -240,6 +260,8 @@ class FragmentRepository:
                 "fragment_count": int(row["fragment_count"]),
                 "video_count": int(row["video_count"]),
                 "attribution": row["attribution"],
+                "panel_video_count": int(row["panel_video_count"]),
+                "panel_fragment_count": int(row["panel_fragment_count"]),
             }
             for row in rows
         ]

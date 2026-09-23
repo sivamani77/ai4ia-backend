@@ -6,6 +6,7 @@ from typing import Any
 import numpy as np
 
 from app.core.paths import PROJECT_ROOT
+from app.core.settings import settings
 from app.pipeline.storyline_gen.candidate_scoring import (
     candidate_search_blob,
     match_terms_in_text,
@@ -443,6 +444,7 @@ def hybrid_retrieve_candidates(
     keyword_pool: list[dict[str, Any]] = []
     theme_pool: list[dict[str, Any]] = []
     speaker_pool: list[dict[str, Any]] = []
+    panel_pool: list[dict[str, Any]] = []
     title_pool: list[dict[str, Any]] = []
 
     for record in records:
@@ -465,6 +467,14 @@ def hybrid_retrieve_candidates(
                 candidate["speaker_match"] = True
                 candidate["speaker_match_reason"] = speaker_reason
                 speaker_pool.append(candidate)
+            else:
+                panel_match, panel_reason = candidate_speaker_matches(record, requested_speaker, allow_panel=True)
+                if panel_match:
+                    candidate = dict(record)
+                    candidate["speaker_match"] = True
+                    candidate["speaker_match_panel"] = True
+                    candidate["speaker_match_reason"] = panel_reason
+                    panel_pool.append(candidate)
 
     keyword_pool = sorted(
         with_channel(keyword_pool, "keyword"),
@@ -480,15 +490,19 @@ def hybrid_retrieve_candidates(
         key=lambda item: float(item.get("semantic_score") or 0.0),
         reverse=True,
     )[: max(10, top_k // 3)]
-    speaker_pool = sorted(
-        with_channel(speaker_pool, "speaker"),
-        key=lambda item: (
+    def by_quality(item: dict[str, Any]) -> tuple[float, float, float]:
+        return (
             float(item.get("quote_strength") or 0.0),
             float(item.get("clarity_score") or 0.0),
             float(item.get("semantic_score") or 0.0),
-        ),
-        reverse=True,
-    )[:top_k]
+        )
+
+    speaker_pool = sorted(with_channel(speaker_pool, "speaker"), key=by_quality, reverse=True)
+    # Panel clips are a fallback: used only when the speaker has too few solo
+    # clips, and ranked after them.
+    if len(speaker_pool) < settings.speaker_panel_fallback_min_clips:
+        speaker_pool += sorted(with_channel(panel_pool, "speaker_panel"), key=by_quality, reverse=True)
+    speaker_pool = speaker_pool[:top_k]
 
     # The title channel is unbounded on purpose: when the prompt names a
     # specific video, every fragment of that video is in scope and the

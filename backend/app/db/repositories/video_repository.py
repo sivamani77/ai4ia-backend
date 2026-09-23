@@ -16,6 +16,7 @@ class VideoRecord(TypedDict, total=False):
     duration: float | None
     webpage_url: str | None
     s3_raw_key: str | None
+    description: str | None
     updated_at: str | None
 
 
@@ -48,14 +49,17 @@ class VideoRepository:
             )
             pg_execute(
                 """
-                insert into videos (video_id, source_video, title, duration, webpage_url, s3_raw_key, updated_at)
-                values (%(video_id)s, %(source_video)s, %(title)s, %(duration)s, %(webpage_url)s, %(s3_raw_key)s, now())
+                insert into videos (video_id, source_video, title, duration, webpage_url, s3_raw_key,
+                                    description, updated_at)
+                values (%(video_id)s, %(source_video)s, %(title)s, %(duration)s, %(webpage_url)s, %(s3_raw_key)s,
+                        %(description)s, now())
                 on conflict (video_id) do update set
                     source_video = excluded.source_video,
                     title = excluded.title,
                     duration = excluded.duration,
                     webpage_url = excluded.webpage_url,
                     s3_raw_key = excluded.s3_raw_key,
+                    description = coalesce(excluded.description, videos.description),
                     updated_at = now()
                 """,
                 payload,
@@ -103,6 +107,7 @@ class VideoRepository:
             "duration": float(d["duration"]) if d.get("duration") is not None else None,
             "webpage_url": d.get("webpage_url"),
             "s3_raw_key": d.get("s3_key") or d.get("s3_raw_key"),
+            "description": d.get("description") or None,
         }
 
     def _from_row(self, row: Mapping[str, Any]) -> VideoRecord:
@@ -114,6 +119,7 @@ class VideoRepository:
             duration=d.get("duration"),
             webpage_url=d.get("webpage_url"),
             s3_raw_key=d.get("s3_raw_key"),
+            description=d.get("description"),
             updated_at=d.get("updated_at"),
         )
 

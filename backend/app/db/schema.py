@@ -166,31 +166,63 @@ _STATEMENTS = [
         canonical_name text not null references speakers(canonical_name)
     )
     """,
+    # Speaker registry columns (config/speaker_registry.json). Additive only:
+    # uat and release share this database, so older code must keep working.
+    "alter table speakers add column if not exists status text not null default 'confirmed'",
+    "alter table speakers add column if not exists source text",
+    "alter table speakers add column if not exists register_name text",
+    "alter table speakers add column if not exists affiliation text",
+    "alter table speakers add column if not exists updated_at timestamptz not null default now()",
+    "alter table speaker_aliases add column if not exists normalized_alias text",
+    "alter table speaker_aliases add column if not exists source text",
+    "create index if not exists idx_speaker_aliases_normalized on speaker_aliases (normalized_alias)",
+    """
+    create table if not exists video_speakers (
+        video_id text not null,
+        canonical_name text not null,
+        role text,
+        ordinal integer not null default 0,
+        primary key (video_id, canonical_name)
+    )
+    """,
+    "alter table videos add column if not exists description text",
+    # One-off data repairs (app/services/speaker_repair.py): a done marker per
+    # repair, and the original values of every fragment it touches.
+    """
+    create table if not exists data_repairs (
+        name text primary key,
+        status text not null,
+        mode text,
+        attempts integer not null default 0,
+        registry_version text,
+        summary jsonb not null default '{}'::jsonb,
+        updated_at timestamptz not null default now()
+    )
+    """,
+    """
+    create table if not exists fragment_speaker_backup (
+        repair_name text not null,
+        store text not null,
+        fragment_id text not null,
+        video_id text,
+        speaker text,
+        speaker_attribution text,
+        speaker_roster text,
+        captured_at timestamptz not null default now(),
+        primary key (repair_name, store, fragment_id)
+    )
+    """,
 ]
 
 
 def _seed_speaker_aliases() -> None:
-    """Idempotent: inserts canonical names + aliases from the in-code map
-    (backend/app/services/speaker_aliases.ALIASES) if not already present.
-    Safe to call every startup — ON CONFLICT DO NOTHING, never overwrites
-    a row someone has since edited directly in the table."""
-    from app.services.speaker_aliases import ALIASES
+    """Upsert speakers and aliases from the speaker registry. Safe on every
+    startup. Rows the registry no longer lists are removed only by the
+    speaker repair (app/services/speaker_repair.py), not here."""
+    from app.db.repositories.speaker_repository import SpeakerRepository
+    from app.services.speaker_registry import get_registry
 
-    canonical_names = set(ALIASES.values())
-    for name in canonical_names:
-        pg_execute(
-            "insert into speakers (canonical_name) values (%s) on conflict do nothing",
-            (name,),
-        )
-    for alias, canonical_name in ALIASES.items():
-        pg_execute(
-            """
-            insert into speaker_aliases (alias, canonical_name)
-            values (%s, %s)
-            on conflict (alias) do nothing
-            """,
-            (alias, canonical_name),
-        )
+    SpeakerRepository().upsert_from_registry(get_registry())
 
 
 # ---------------------------------------------------------------------------

@@ -64,9 +64,14 @@ class TestSpeakerCount:
 
     def test_near_miss_spellings_lower_the_bound_but_are_not_merged(self):
         """Merging them could join two people, so they only bound the count."""
-        facts = build_corpus_facts([frag("v1", "Dario Pryshko"), frag("v2", "Dario Prishko")])
+        facts = build_corpus_facts([frag("v1", "Marta Kowalska"), frag("v2", "Marta Kowalski")])
         assert facts["speaker_count"] == 2
         assert facts["speaker_count_lower_bound"] == 1
+
+    def test_registry_aliases_are_merged(self):
+        """Spellings the speaker registry confirms as one person count once."""
+        facts = build_corpus_facts([frag("v1", "Dario Pryshko"), frag("v2", "Dario Prishko")])
+        assert facts["speaker_count"] == 1
 
     def test_stated_count_never_exceeds_the_lower_bound(self):
         facts = build_corpus_facts([frag(f"v{i}", n) for i, n in enumerate(_distinct_names(263))])
@@ -90,10 +95,17 @@ class TestNamedSpeakers:
 
     def test_ambiguous_spellings_are_withheld(self):
         facts = build_corpus_facts(
-            [frag("v1", "Dario Pryshko")] * 5 + [frag("v2", "Dario Prishko")] * 4
+            [frag("v1", "Marta Kowalska")] * 5 + [frag("v2", "Marta Kowalski")] * 4
             + [frag("v3", "Ana Ruiz")]
         )
         assert [s["name"] for s in facts["top_speakers"]] == ["Ana Ruiz"]
+
+    def test_registry_aliases_are_named_canonically(self):
+        facts = build_corpus_facts(
+            [frag("v1", "Dario Pryshko")] * 5 + [frag("v2", "Dario Prishko")] * 4
+            + [frag("v3", "Ana Ruiz")]
+        )
+        assert [s["name"] for s in facts["top_speakers"]] == ["Dariia Opryshko", "Ana Ruiz"]
 
     def test_first_name_only_is_withheld(self):
         facts = build_corpus_facts([frag("v1", "Kelly")] * 5 + [frag("v2", "Ana Ruiz")])

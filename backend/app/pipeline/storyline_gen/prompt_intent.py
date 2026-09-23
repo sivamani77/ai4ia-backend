@@ -115,16 +115,22 @@ PROMPT_TOPIC_CONFIG: dict[str, dict[str, Any]] = {
     },
 }
 
-SPEAKER_ALIAS_MAP: dict[str, str] = {
-    "codrel green": "Cordel Green",
-    "cordel green": "Cordel Green",
-    "cordell green": "Cordel Green",
-    "codel green": "Cordel Green",
-    "kodel green": "Cordel Green",
-    "kodel codel green": "Cordel Green",
-    "cordell kodel green": "Cordel Green",
-    "cordell greene": "Cordel Green",
-}
+def _speaker_alias_map() -> dict[str, str]:
+    """Normalized speaker name or alias -> canonical name, from the speaker
+    registry. Multi-word names only, so a one-word name such as "Nisha"
+    cannot match ordinary prompt text."""
+    from app.services.speaker_registry import get_registry
+
+    aliases: dict[str, str] = {}
+    for canonical, entry in get_registry().speakers.items():
+        for name in (canonical, *(entry.get("aliases") or [])):
+            key = normalize_name(name)
+            if len(key.split()) >= 2:
+                aliases.setdefault(key, canonical)
+    return aliases
+
+
+SPEAKER_ALIAS_MAP: dict[str, str] = _speaker_alias_map()
 
 
 def extract_meaningful_prompt_terms(prompt: str) -> set[str]:
@@ -190,9 +196,16 @@ def detect_requested_speaker(prompt: str, known_speakers: list[str]) -> str | No
     for alias, canonical in SPEAKER_ALIAS_MAP.items():
         alias_norm = normalize_name(alias)
         if re.search(rf"\b{re.escape(alias_norm)}\b", normalized_prompt):
-            # Verify canonical exists in known_speakers or close match
+            # Prefer the exact known spelling, then whole-word containment.
+            # Plain substrings are unsafe: "a singh" is inside "ashita singh".
+            canonical_norm = normalize_name(canonical)
             for known in known_speakers:
-                if normalize_name(canonical) in normalize_name(known) or normalize_name(known) in normalize_name(canonical):
+                if normalize_name(known) == canonical_norm:
+                    return known
+            for known in known_speakers:
+                known_norm = normalize_name(known)
+                if known_norm and (re.search(rf"\b{re.escape(canonical_norm)}\b", known_norm)
+                                   or re.search(rf"\b{re.escape(known_norm)}\b", canonical_norm)):
                     return known
             # Return canonical even if not in known_speakers (low confidence)
             return canonical
@@ -207,7 +220,28 @@ def detect_requested_speaker(prompt: str, known_speakers: list[str]) -> str | No
         if re.search(rf"\b{re.escape(normalized_speaker)}\b", normalized_prompt) and len(normalized_speaker) > best_len:
             best_match = speaker
             best_len = len(normalized_speaker)
-    return best_match
+    return best_match or _speaker_from_initials(prompt, known_speakers)
+
+
+# "C Howell", "C. Howell": a capital initial followed by a capitalized surname.
+_INITIAL_SURNAME = re.compile(r"\b([A-Z])\.?\s+([A-Z][A-Za-z'\-]{2,})\b")
+
+
+def _speaker_from_initials(prompt: str, known_speakers: list[str]) -> str | None:
+    """Resolve an initial plus surname through the speaker registry, only
+    when exactly one registered speaker matches."""
+    from app.services.speaker_registry import get_registry
+
+    registry = get_registry()
+    for initial, surname in _INITIAL_SURNAME.findall(prompt or ""):
+        canonical = registry.canonical(f"{initial} {surname}")
+        if not canonical:
+            continue
+        for known in known_speakers:
+            if normalize_name(known) == normalize_name(canonical):
+                return known
+        return canonical
+    return None
 
 
 def extract_topic_terms(prompt: str, requested_speaker: str | None = None) -> set[str]:
@@ -520,7 +554,11 @@ def detect_prompt_intent(
     return profile
 
 
-def candidate_speaker_matches(record: dict[str, Any], requested_speaker: str) -> tuple[bool, str]:
+def candidate_speaker_matches(record: dict[str, Any], requested_speaker: str,
+                              allow_panel: bool = False) -> tuple[bool, str]:
+    """Whether a fragment belongs to the requested speaker. Panel fragments
+    (roster only, no single speaker) count only when allow_panel is set or
+    retrieval marked the candidate as a panel fallback."""
     requested = normalize_name(requested_speaker)
     fields = [
         ("speaker", record.get("speaker")),
@@ -539,5 +577,11 @@ def candidate_speaker_matches(record: dict[str, Any], requested_speaker: str) ->
         normalized_value = normalize_name(str(candidate_name or ""))
         if normalized_value and requested in normalized_value:
             return True, f"speaker_candidates contains {requested_speaker}"
+
+    if allow_panel or record.get("speaker_match_panel"):
+        for name in str(record.get("speaker_roster") or "").split(";"):
+            normalized_value = normalize_name(name)
+            if normalized_value and requested in normalized_value:
+                return True, f"panel roster contains {requested_speaker}"
 
     return False, "speaker mismatch"

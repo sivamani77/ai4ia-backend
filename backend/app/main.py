@@ -22,6 +22,7 @@ from app.core.settings import settings
 from app.core import metrics as _metrics
 from app.db.schema import ensure_pipeline_schema
 from app.services.auth_data_migration import run_once as run_auth_data_migration_once
+from app.services.speaker_repair import start_in_background as start_speaker_repair
 
 # Must run before the httpx/requests/psycopg2 instrumentors below patch
 # their clients, and before the app is constructed.
@@ -168,6 +169,13 @@ async def lifespan(app: FastAPI):
         await asyncio.to_thread(run_auth_data_migration_once)
     except Exception:
         logger.exception("Failed to run one-time Supabase auth data migration on startup")
+
+    # One-off speaker repair; runs in a background thread only when its switch
+    # in app/services/speaker_repair.py is on.
+    try:
+        start_speaker_repair()
+    except Exception:
+        logger.exception("Failed to start the speaker repair")
 
     await asyncio.to_thread(_reap_orphaned_jobs)
     await asyncio.to_thread(_reap_orphaned_ingest_jobs)

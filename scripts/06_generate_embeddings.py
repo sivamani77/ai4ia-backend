@@ -125,6 +125,7 @@ def load_classified_fragments(source_dir: Path | None = None) -> list[dict[str, 
                 "transcript_quality_score": fragment.get("transcript_quality_score"),
                 "speaker": fragment.get("speaker"),
                 "speaker_attribution": fragment.get("speaker_attribution"),
+                "speaker_roster": fragment.get("speaker_roster") or "",
                 "source_file": path.name,
             }
 
@@ -179,6 +180,7 @@ def load_fragments_jsonl(jsonl_path: Path) -> list[dict[str, Any]]:
                     "transcript_quality_score": fragment.get("transcript_quality_score"),
                     "speaker": fragment.get("speaker"),
                     "speaker_attribution": fragment.get("speaker_attribution"),
+                    "speaker_roster": fragment.get("speaker_roster") or "",
                     "source_file": jsonl_path.name,
                     "embedding_model": "",
                     "text_hash": stable_hash(fragment.get("text", "")),

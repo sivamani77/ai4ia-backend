@@ -297,6 +297,9 @@ class Settings(BaseSettings):
     # cache key, so every cached entry is implicitly invalidated by a version
     # change without needing a manual purge.
     storyline_cache_corpus_version: str = "v1"
+    # A prompt naming a speaker uses their panel clips only when they have
+    # fewer than this many solo clips (panel clips carry no per-clip name).
+    speaker_panel_fallback_min_clips: int = 6
     # L2: semantic/paraphrase match via embedding similarity + an LLM
     # confirmation gate on candidate hits. Off by default — a false-positive
     # hit here serves the wrong topic's video, not just a slow one, so this

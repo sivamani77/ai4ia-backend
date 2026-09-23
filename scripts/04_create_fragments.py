@@ -13,6 +13,7 @@ _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
 from app.core.settings import settings  # noqa: E402
+from app.services.video_naming import parse_source_video  # noqa: E402
 
 TRANSCRIPT_DIR = PROJECT_ROOT / "data" / "transcripts"
 FRAGMENT_DIR = PROJECT_ROOT / "data" / "fragments"
@@ -59,17 +60,9 @@ def clean_text(text: str) -> str:
 
 
 def extract_video_id(stem: str) -> str:
-    """
-    Expected filename:
-    0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1
-
-    Returns:
-    SvVu6k02Hes
-    """
-    parts = stem.split("_")
-    if len(parts) >= 2:
-        return parts[1]
-    return stem
+    """0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1 -> SvVu6k02Hes.
+    Parsed by the fixed 11-character id length: ids can contain "_"."""
+    return parse_source_video(stem)[0] or stem
 
 
 def should_close_fragment(
