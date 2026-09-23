@@ -320,7 +320,8 @@ def _build_repair_prompt(
             {
                 "type": item.get("type") or item.get("segment_type"),
                 "section_id": item.get("section_id"),
-                "fragment_id": (item.get("fragment_id") or "")[:50],
+                # Full id: the repair must copy it exactly or the clip is discarded.
+                "fragment_id": item.get("fragment_id") or "",
                 "speaker": item.get("speaker", ""),
                 "quote_complete": item.get("quote_complete"),
                 "quote_text": (item.get("quote_text") or "")[:100],
