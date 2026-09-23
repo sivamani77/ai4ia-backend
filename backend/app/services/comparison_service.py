@@ -249,12 +249,18 @@ Return JSON exactly:
 def synthesize_theme(theme: str, limit: int = 20, model: str | None = None,
                      user_id: str | None = None) -> dict:
     guardrail_service.assert_query_allowed(theme, surface="synthesis_theme", user_id=user_id)
+    # Themes come from the taxonomy, so a facet hit is relevant by
+    # classification. The similarity floor only applies to the semantic fallback.
     frags = embedding_index.search(theme, top_k=limit, filters={"theme": theme})
-    if not frags:  # fall back to semantic-only if the theme string isn't an exact facet
+    retrieval_path = "theme_facet_match"
+    if frags:
+        frags.sort(key=lambda f: f.get("similarity") or 0.0, reverse=True)
+    else:  # fall back to semantic-only if the theme string isn't an exact facet
+        retrieval_path = "semantic_fallback"
         frags = embedding_index.search(theme, top_k=limit)
-    sufficient, gate = evidence_gate.evidence_is_sufficient(frags, surface="synthesis_theme")
-    if not sufficient:
-        return _declined_theme(theme, gate)
+        sufficient, gate = evidence_gate.evidence_is_sufficient(frags, surface="synthesis_theme")
+        if not sufficient:
+            return _declined_theme(theme, gate)
 
     numbered = _pool_from_fragments(frags)
     valid = {p["ref"] for p in numbered}
@@ -286,14 +292,14 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None,
         "created_at": datetime.now(timezone.utc).isoformat(),
         "_explain": {
             "how_it_works": (
-                "Fragments are retrieved by exact theme facet match first; if that returns nothing, "
-                "a pure semantic search on the theme string is used as fallback. "
+                "Fragments classified under the theme are retrieved and ordered by similarity; "
+                "if none match, a pure semantic search on the theme string is used as fallback. "
                 "The numbered pool is fed to openai/gpt-oss-120b which must cite fragment numbers for "
                 "every key point. Uncited key points are dropped. Representative clips are resolved "
                 "from the pool by their ref number."
             ),
             "retrieval": {
-                "method": "theme_facet_match → semantic_fallback",
+                "method": retrieval_path,
                 "embedding_model": "nomic-embed-text:v1.5",
                 "fragments_in_pool": len(numbered),
                 "limit_requested": limit,

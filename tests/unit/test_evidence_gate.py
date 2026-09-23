@@ -135,9 +135,10 @@ class TestRelayDeclines:
 
 
 class TestThemeSynthesisDeclines:
-    def test_weak_evidence_declines_without_calling_the_llm(self):
+    def test_weak_semantic_fallback_declines_without_calling_the_llm(self):
+        # Facet search finds nothing, fallback returns a weak match.
         with patch.object(comparison_service.embedding_index, "search",
-                          return_value=[frag(0.55, fragment_id="f1")]), \
+                          side_effect=[[], [frag(0.55, fragment_id="f1")]]), \
              patch.object(comparison_service.guardrail_service, "assert_query_allowed"), \
              patch.object(comparison_service, "generate_json") as llm:
             result = comparison_service.synthesize_theme("anything")
@@ -145,6 +146,23 @@ class TestThemeSynthesisDeclines:
         assert result["key_points"] == []
         assert result["evidence_pool"] == []
         llm.assert_not_called()
+
+    def test_facet_match_skips_the_floor_and_orders_by_similarity(self):
+        """Theme options come from the taxonomy; a classified fragment is
+        evidence even when the label scores low against transcript text."""
+        facet_hits = [frag(0.40, fragment_id="low"), frag(0.45, fragment_id="high")]
+        with patch.object(comparison_service.embedding_index, "search",
+                          return_value=facet_hits) as search, \
+             patch.object(comparison_service.guardrail_service, "assert_query_allowed"), \
+             patch.object(comparison_service, "generate_json",
+                          return_value={"title": "T", "summary": "S",
+                                        "key_points": [], "representative_clips": []}) as llm:
+            result = comparison_service.synthesize_theme("AI in Health, Science & Environment")
+        assert result["outcome"] == OUTCOME_GENERATED
+        assert [p["fragment_id"] for p in result["evidence_pool"]] == ["high", "low"]
+        assert result["_explain"]["retrieval"]["method"] == "theme_facet_match"
+        search.assert_called_once()
+        llm.assert_called_once()
 
     def test_declines_with_a_200_shape_not_a_valueerror(self):
         """It used to raise ValueError, which the router surfaced as a 422."""
