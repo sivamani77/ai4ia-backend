@@ -178,6 +178,20 @@ def assign_fragments_to_empty_narration_brolls(
     return final_timeline
 
 
+def canonicalize_speaker_names(final_timeline: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Use registry spellings in speaker labels and in shown or spoken text."""
+    from app.services.speaker_registry import get_registry
+
+    registry = get_registry()
+    for item in final_timeline:
+        if item.get("speaker"):
+            item["speaker"] = registry.canonical(item["speaker"]) or item["speaker"]
+        for key in ("voiceover_text", "subtitle_text", "visual_title", "title"):
+            if item.get(key):
+                item[key] = registry.fix_names_in_text(item[key])
+    return final_timeline
+
+
 def enrich_final_timeline(
     final_timeline: list[dict[str, Any]],
     candidate_map: dict[str, dict[str, Any]],
@@ -278,18 +292,18 @@ def enrich_final_timeline(
             item["render_end"] = re_
             item["render_duration"] = round(re_ - rs, 3)
 
-            # Fill speaker — multi-source fallback chain
-            if not item.get("speaker"):
-                sv = item.get("source_video") or ""
-                item["speaker"] = (
-                    validated.get("speaker_label")
-                    or validated.get("speaker")
-                    or cand.get("speaker")
-                    or cand.get("speaker_attribution")
-                    or orig.get("speaker")
-                    or _extract_speaker_from_video_title(sv)
-                    or "AI4IA conference speaker"
-                )
+            # Speaker label: the clip's own data wins over the LLM's spelling.
+            sv = item.get("source_video") or ""
+            item["speaker"] = (
+                validated.get("speaker_label")
+                or validated.get("speaker")
+                or cand.get("speaker")
+                or orig.get("speaker")
+                or cand.get("speaker_attribution")
+                or item.get("speaker")
+                or _extract_speaker_from_video_title(sv)
+                or "AI4IA conference speaker"
+            )
 
             # Fill quote_text / subtitle_text
             if not item.get("quote_text"):

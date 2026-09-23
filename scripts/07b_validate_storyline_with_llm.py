@@ -87,10 +87,12 @@ from app.pipeline.validate_gen.timeline_enrichment import (  # noqa: E402
     _build_grounding_material,
     _narration_grounding_issues,
     assign_fragments_to_empty_narration_brolls,
+    canonicalize_speaker_names,
     enrich_final_timeline,
     generate_voiceovers_for_timeline,
 )
 from app.pipeline.validate_gen.topic_detection import detect_narrative_sections  # noqa: E402
+from app.services.speaker_registry import get_registry  # noqa: E402
 from app.pipeline.validate_gen.transcript import (  # noqa: E402
     extract_context_window,
     find_transcript_file,
@@ -567,6 +569,12 @@ def main() -> None:
 
     # Re-verify quality gates after duration top-up / rescue net
     warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target)
+
+    # Registry spellings everywhere, whatever the prompt or the LLM wrote.
+    enriched_timeline = canonicalize_speaker_names(enriched_timeline)
+    for key in ("title", "logline"):
+        if assembled.get(key):
+            assembled[key] = get_registry().fix_names_in_text(assembled[key])
 
     # Lock every validated clip window: downstream stages (08/09) render these
     # verbatim and may only extend narration for TTS, never shrink anything.

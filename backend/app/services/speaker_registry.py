@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -51,6 +52,13 @@ class SpeakerRegistry:
             tokens = norm_key(canonical).split()
             if len(tokens) >= 2:
                 self._by_surname.setdefault(tokens[-1], []).append(canonical)
+        # Single-word aliases are left out: they match ordinary words.
+        self._alias_lookup = {alias.lower(): canonical for alias, canonical in self.aliases().items()
+                              if len(alias.split()) >= 2 and alias != canonical}
+        self._alias_pattern = re.compile(
+            r"\b(" + "|".join(re.escape(a) for a in sorted(self._alias_lookup, key=len, reverse=True)) + r")\b",
+            re.IGNORECASE,
+        ) if self._alias_lookup else None
 
     @classmethod
     def load(cls, path: Path = REGISTRY_PATH) -> "SpeakerRegistry":
@@ -79,6 +87,12 @@ class SpeakerRegistry:
             if len(hits) == 1:
                 return hits[0]
         return None
+
+    def fix_names_in_text(self, text: str) -> str:
+        """Replace multi-word alias spellings in free text with canonical names."""
+        if not text or not self._alias_pattern:
+            return text
+        return self._alias_pattern.sub(lambda m: self._alias_lookup[m.group(0).lower()], text)
 
     def canonicalize(self, name: str | None) -> str | None:
         """Canonical name if known, the name unchanged if not, None for placeholders."""
