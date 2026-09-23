@@ -18,6 +18,7 @@ from typing import Any
 logger = logging.getLogger("ai4ia.services.video_job_runner")
 
 from app.core import metrics as _metrics
+from app.core.code_version import code_version
 from app.core.config import VLLM_MODEL
 from app.core.error_messages import friendly_message
 from app.core.otel import get_tracer
@@ -254,6 +255,7 @@ def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
         "updated_at": _utc_now(),
         "completed_at": None,
         "request": request,
+        "api_code_version": code_version(),
         "paths": {
             "storyline_path": None,
             "validated_storyline_path": None,
@@ -376,8 +378,10 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         job["status"] = "running"
         job["started_at"] = _utc_now()
         job["updated_at"] = _utc_now()
+        # The worker's version, which can differ from the API that queued it.
+        job["code_version"] = code_version()
         save_job(job_id, job)
-        log.info("Pipeline started")
+        log.info("Pipeline started (code %s)", job["code_version"])
 
         ctx = PipelineContext(job_id=job_id, request=request)
 
@@ -599,6 +603,7 @@ def _emit_job_decision_record(job_id: str, outcome: str) -> None:
                 "subject": "documentary_generation",
                 "user_prompt": job.get("prompt"),
                 "accountability": "ai4ia-pipeline-v2",
+                "pipeline_version": job.get("code_version"),
                 "agents_executed": [
                     "intent", "retrieval", "classification",
                     "director", "synthesis", "storyline", "validation",

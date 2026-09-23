@@ -211,3 +211,31 @@ class TestUpdateStage:
         events = mock_job_store["events"][job_id]
         progress_events = [e for e in events if e["event_type"] == "progress"]
         assert len(progress_events) >= 1
+
+
+# ---------------------------------------------------------------------------
+# Code version stamps
+# ---------------------------------------------------------------------------
+
+class TestCodeVersionStamps:
+    def test_api_version_stamped_at_creation(self, mock_job_store, monkeypatch):
+        from app.services import video_job_runner as runner
+
+        monkeypatch.setattr(runner, "code_version", lambda: "git:api123")
+        job_id = runner.create_video_job({"prompt": "AI ethics", "target_duration": 150})
+
+        assert mock_job_store["jobs"][job_id]["api_code_version"] == "git:api123"
+
+    def test_worker_version_stamped_when_run_starts(self, mock_job_store, monkeypatch):
+        from app.services import video_job_runner as runner
+
+        job_id = runner.create_video_job({"prompt": "AI ethics", "target_duration": 150})
+        monkeypatch.setattr(runner, "code_version", lambda: "tree:worker456")
+
+        def _stop(*args, **kwargs):
+            raise RuntimeError("stop after the stamp")
+
+        monkeypatch.setattr(runner.model_gate, "ensure_ready", _stop)
+        runner.run_video_job(job_id, {"prompt": "AI ethics", "target_duration": 150})
+
+        assert mock_job_store["jobs"][job_id]["code_version"] == "tree:worker456"

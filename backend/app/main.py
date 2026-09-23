@@ -20,6 +20,7 @@ from app.core.otel import is_enabled as _otel_enabled, setup_tracing
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
 from app.core import metrics as _metrics
+from app.core.code_version import code_version
 from app.db.schema import ensure_pipeline_schema
 from app.services.auth_data_migration import run_once as run_auth_data_migration_once
 from app.services.speaker_repair import start_in_background as start_speaker_repair
@@ -157,6 +158,7 @@ async def _dependency_metrics_loop() -> None:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     ensure_runtime_dirs()
+    logger.info("Code version: %s", await asyncio.to_thread(code_version))
 
     for warning in settings.validate_deployment_env():
         logger.warning(warning)

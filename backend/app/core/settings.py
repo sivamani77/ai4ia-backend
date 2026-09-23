@@ -12,6 +12,8 @@ class Settings(BaseSettings):
     # Application metadata
     # ------------------------------------------------------------------
     app_name: str = "AI4IA Video Studio Backend"
+    # Recorded on every job. Blank = git commit locally, code hash in the image.
+    code_version: str = ""
 
     # ------------------------------------------------------------------
     # Security

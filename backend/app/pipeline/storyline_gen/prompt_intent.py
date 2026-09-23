@@ -1,12 +1,8 @@
-import json
 import re
-from pathlib import Path
 from typing import Any
 
-from app.core.paths import PROJECT_ROOT
 from app.core.settings import settings
 from app.pipeline.storyline_gen.text_utils import (
-    clean_text,
     normalize_name,
     normalize_plural,
     title_term_overlap,
@@ -156,37 +152,11 @@ def expand_prompt_terms(terms: set[str]) -> set[str]:
     return expanded
 
 
-def load_known_speakers(metadata_dir: Path | None = None) -> list[str]:
-    speakers_dir = metadata_dir or (PROJECT_ROOT / "data" / "metadata" / "speakers")
-    known: list[str] = []
-    seen: set[str] = set()
-    if not speakers_dir.exists():
-        return known
-    for fpath in speakers_dir.glob("*.json"):
-        try:
-            data = json.loads(fpath.read_text(encoding="utf-8"))
-            values: list[str] = []
-            primary = data.get("primary_speaker") or data.get("speaker")
-            if isinstance(primary, str) and primary.strip():
-                values.append(primary)
-            for sp in data.get("speakers", []):
-                if isinstance(sp, dict):
-                    name = sp.get("name")
-                    if isinstance(name, str) and name.strip():
-                        values.append(name)
-                elif isinstance(sp, str) and sp.strip():
-                    values.append(sp)
-            stem_guess = fpath.stem.split("_", 1)[-1].replace("_", " ").strip()
-            if stem_guess:
-                values.append(stem_guess)
-            for name in values:
-                norm = normalize_name(name)
-                if norm and norm not in seen:
-                    seen.add(norm)
-                    known.append(clean_text(str(name)))
-        except Exception:
-            pass
-    return known
+def load_known_speakers() -> list[str]:
+    """Canonical speaker names from the speaker registry."""
+    from app.services.speaker_registry import get_registry
+
+    return list(get_registry().speakers)
 
 
 def detect_requested_speaker(prompt: str, known_speakers: list[str]) -> str | None:

@@ -2,10 +2,7 @@ import re
 from typing import Any
 
 from app.pipeline.storyline_gen.llm_client import log
-from app.pipeline.storyline_gen.prompt_intent import (
-    candidate_speaker_matches,
-    load_known_speakers,
-)
+from app.pipeline.storyline_gen.prompt_intent import candidate_speaker_matches
 from app.pipeline.storyline_gen.text_utils import (
     SIDE_TOPIC_TERMS,
     clean_text,
@@ -594,9 +591,6 @@ def annotate_candidate_relevance(
 ) -> list[dict[str, Any]]:
     if not records:
         return []
-
-    if known_speakers is None:
-        known_speakers = load_known_speakers()
 
     requested_speaker = intent.get("requested_speaker")
 
