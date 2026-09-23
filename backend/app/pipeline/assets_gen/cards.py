@@ -469,7 +469,6 @@ def create_narration_visual_asset(
     }.get(visual_asset_type, "NARRATION")
 
     draw.text((110, 86), type_label, font=label_font, fill=GOLD_ACCENT)
-    draw.text((110, 110), section_id, font=small_font, fill=MUTED_TEXT_COLOR)
 
     # Main title
     y = draw_wrapped_text(draw, visual_title, (110, 195), title_font, TEXT_COLOR, max_width=1400, line_spacing=14)

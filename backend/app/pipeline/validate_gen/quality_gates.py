@@ -3,7 +3,7 @@ import json
 from typing import Any
 
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
-from app.pipeline.validate_gen.fragment_validation import _quote_ends_completely, _quote_starts_cleanly
+from app.pipeline.validate_gen.fragment_validation import _base_section_id, _quote_ends_completely, _quote_starts_cleanly
 from app.pipeline.validate_gen.json_utils import extract_json_array, extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries
 from app.pipeline.validate_gen.narrative_templates import DEEPFAKE_VISUAL_ASSET_PLANS, GENERIC_VISUAL_ASSET_PLANS
@@ -253,7 +253,11 @@ def _add_visual_asset_plan(
         t = item.get("type") or item.get("segment_type") or ""
         if t == "narration_broll" and not item.get("visual_mode"):
             sid = item.get("section_id") or ""
-            plan = plans.get(sid)
+            # A repeated section on a long video (e.g. "S3_EVIDENCE_2") isn't
+            # in the plan table — only the base ids are. Without stripping the
+            # pass suffix, the lookup misses and falls to the raw-slug
+            # fallback below ("S3 Evidence 2" as a literal card headline).
+            plan = plans.get(_base_section_id(sid))
             if plan:
                 item["visual_mode"] = plan["visual_mode"]
                 item["visual_asset_type"] = plan["visual_asset_type"]
