@@ -150,6 +150,35 @@ def _file_response(obj: StorageObject, disposition: str = "inline") -> Response:
     )
 
 
+def parse_byte_range(range_header: str, file_size: int) -> tuple[int, int]:
+    """Return the inclusive (start, end) of a single byte range, or raise 416."""
+    unsatisfiable = HTTPException(
+        status_code=416,
+        detail="Range Not Satisfiable",
+        headers={"Content-Range": f"bytes */{file_size}"},
+    )
+    try:
+        unit, rng = range_header.split("=", 1)
+        if unit.strip().lower() != "bytes":
+            raise ValueError("unsupported unit")
+        start_str, end_str = (s.strip() for s in rng.split("-", 1))
+        if not start_str:
+            # Suffix range: the last N bytes.
+            suffix = int(end_str)
+            if suffix <= 0:
+                raise unsatisfiable
+            return max(file_size - suffix, 0), file_size - 1
+        start = int(start_str)
+        end = int(end_str) if end_str else file_size - 1
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=416, detail="Invalid Range header")
+    if start < 0 or start >= file_size or start > end:
+        raise unsatisfiable
+    return start, min(end, file_size - 1)
+
+
 def _s3_range_response(obj: StorageObject, request: Request) -> Response:
     """Stream an S3 object with proper HTTP Range support."""
     from app.services.storage_service import (
@@ -178,14 +207,7 @@ def _s3_range_response(obj: StorageObject, request: Request) -> Response:
 
     range_header = request.headers.get("range")
     if range_header:
-        try:
-            unit, rng = range_header.split("=", 1)
-            start_str, end_str = rng.split("-", 1)
-            start = int(start_str) if start_str.strip() else 0
-            end = int(end_str) if end_str.strip() else file_size - 1
-        except Exception:
-            raise HTTPException(status_code=416, detail="Invalid Range header")
-        end = min(end, file_size - 1)
+        start, end = parse_byte_range(range_header, file_size)
         length = end - start + 1
 
         def _stream():
@@ -265,24 +287,7 @@ def _range_response(obj: StorageObject, request: Request) -> Response:
             },
         )
 
-    # Parse "bytes=start-end"
-    try:
-        unit, ranges = range_header.split("=", 1)
-        if unit.strip() != "bytes":
-            raise ValueError("unsupported unit")
-        start_str, end_str = ranges.split("-", 1)
-        start = int(start_str) if start_str.strip() else 0
-        end = int(end_str) if end_str.strip() else file_size - 1
-    except Exception:
-        raise HTTPException(status_code=416, detail="Invalid Range header")
-
-    if start > end or end >= file_size:
-        raise HTTPException(
-            status_code=416,
-            detail="Range Not Satisfiable",
-            headers={"Content-Range": f"bytes */{file_size}"},
-        )
-
+    start, end = parse_byte_range(range_header, file_size)
     length = end - start + 1
 
     def _iter():

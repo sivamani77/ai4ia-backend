@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
+from app.api.video_media import parse_byte_range
 from app.core.config import SEMANTIC_TOP_K_DEFAULT
 from app.core.paths import RAW_VIDEO_DIR
 from app.core.settings import settings
@@ -121,16 +122,7 @@ def api_stream_video(video_id: str, request: Request):
 
         range_header = request.headers.get("range")
         if range_header:
-            # Parse Range: bytes=start-end
-            try:
-                unit, rng = range_header.split("=", 1)
-                start_str, end_str = rng.split("-", 1)
-                start = int(start_str) if start_str.strip() else 0
-                end = int(end_str) if end_str.strip() else file_size - 1
-            except Exception:
-                raise HTTPException(status_code=416, detail="Invalid Range header")
-
-            end = min(end, file_size - 1)
+            start, end = parse_byte_range(range_header, file_size)
             length = end - start + 1
 
             def _stream_range():

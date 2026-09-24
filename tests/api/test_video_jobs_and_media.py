@@ -436,6 +436,14 @@ def test_video_media_endpoints(client, mock_settings, mock_job_store, sample_job
     assert response.status_code == 206
     assert response.headers["content-range"].startswith("bytes 0-3/")
 
+    response = client.get(
+        f"/api/video-jobs/{job_id}/video/stream",
+        headers={**_auth_headers(OWNER_ID), "Range": "bytes=99999999999-"},
+    )
+    assert response.status_code == 416
+    assert response.headers["content-range"] == f"bytes */{len(b'video-bytes')}"
+    assert response.json() == {"detail": "Range Not Satisfiable"}
+
     response = client.get(f"/api/video-jobs/{job_id}/video/download", headers=_auth_headers(OWNER_ID))
     assert response.status_code == 200
     assert response.headers["content-disposition"].startswith("attachment")
