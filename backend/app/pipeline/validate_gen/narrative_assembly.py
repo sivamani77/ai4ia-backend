@@ -65,7 +65,7 @@ def _clip_rules(clips_required: bool, speaker_target: int, cap: int) -> str:
 
 
 def _context_blocks(storyline_data: dict[str, Any]) -> str:
-    """Panel roster and requested facet, when the intent has them."""
+    """Panel roster, requested facet and archive gaps, when the job has them."""
     storyline = storyline_data.get("storyline") or {}
     blocks = ""
     if storyline.get("panel_context"):
@@ -75,6 +75,11 @@ def _context_blocks(storyline_data: dict[str, Any]) -> str:
     if storyline.get("requested_facet"):
         blocks += ("\nREQUESTED FACET (keep every section inside it):\n"
                    + json.dumps(storyline["requested_facet"], ensure_ascii=False) + "\n")
+    if storyline.get("coverage_gaps"):
+        from app.pipeline.storyline_gen.storyline_llm import COVERAGE_GAP_RULE
+
+        blocks += ("\nNOT IN THE ARCHIVE: " + wrap_untrusted(", ".join(storyline["coverage_gaps"]))
+                   + "\n" + COVERAGE_GAP_RULE + "\n")
     return blocks
 
 

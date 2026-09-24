@@ -285,6 +285,15 @@ class Settings(BaseSettings):
     # and is the guardrail's job, not this one. Tune from evidence_gate logs.
     archive_relevance_floor: float = Field(default=0.68, ge=0.0, le=1.0)
 
+    # Stage 07 coverage check (docs/intent-layer-design.md §8). Top-1 below
+    # this is not covered; between it and archive_relevance_floor the evidence
+    # judge decides. Measured 2026-09-24: covered prompts 0.72-0.81, off-topic
+    # 0.62-0.65, but "quantum computing in agriculture" 0.77, so topic terms
+    # missing from the evidence also go to the judge.
+    coverage_judge_low: float = Field(default=0.60, ge=0.0, le=1.0)
+    # False records the verdict but never declines (shadow mode).
+    coverage_decline_enabled: bool = True
+
     # Fragmenting rules — how transcript segments are grouped into fragments.
     fragment_min_duration_seconds: float = Field(default=35, gt=0)
     fragment_target_duration_seconds: float = Field(default=75, gt=0)

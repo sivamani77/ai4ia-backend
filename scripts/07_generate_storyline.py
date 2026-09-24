@@ -18,9 +18,10 @@ from app.pipeline.storyline_gen.director import (  # noqa: E402
     compute_evidence_metrics,
     get_selected_candidate_cap,
 )
+from app.pipeline.storyline_gen import coverage as coverage_check  # noqa: E402
 from app.pipeline.storyline_gen import intents  # noqa: E402
 from app.pipeline.storyline_gen.intents.context import build_intent_context, speaker_panel_only  # noqa: E402
-from app.pipeline.storyline_gen.llm_client import log, warm_up_ollama  # noqa: E402
+from app.pipeline.storyline_gen.llm_client import call_strong_llm, log, warm_up_ollama  # noqa: E402
 from app.pipeline.storyline_gen.moment_repair import (  # noqa: E402
     repair_or_rebuild_timeline_with_moments,
     timeline_requires_moment_repair,
@@ -130,6 +131,11 @@ def main() -> None:
         help="Exclude fragments with audio_quality_status == 'manual_review'."
     )
     parser.add_argument(
+        "--coverage-file",
+        default="",
+        help="Where to write the coverage verdict (JSON), for the stage module to read.",
+    )
+    parser.add_argument(
         "--job-id",
         default=None,
         help="Backend job id, when launched by the pipeline. Used to scope the "
@@ -170,6 +176,21 @@ def main() -> None:
 
     raw_retrieved = retrieve_candidates(args.prompt, prompt_intent, top_k=args.top_k)
     retrieved = annotate_candidate_relevance(raw_retrieved, args.prompt, prompt_intent, known_speakers)
+
+    # L2b: can the archive answer this at all? (docs/intent-layer-design.md §8)
+    coverage = coverage_check.assess(
+        intents.select(prompt_intent, {}).NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,
+        floor=settings.archive_relevance_floor, low=settings.coverage_judge_low, records=all_records,
+    )
+    log(f"Coverage: {coverage.verdict} ({coverage.method}) top1={coverage.top_similarity} "
+        f"pool={coverage.pool_size} missing_terms={coverage.missing_terms} missing={coverage.missing_aspects}")
+    if args.coverage_file:
+        Path(args.coverage_file).write_text(json.dumps(coverage.to_dict()), encoding="utf-8")
+    if coverage.verdict == "not_covered" and settings.coverage_decline_enabled:
+        log(f"Not covered ({coverage.reason_code}) — no storyline generated.")
+        return
+    if coverage.verdict == "partial":
+        intent_context["coverage_gaps"] = coverage.missing_aspects
 
     buckets = bucket_candidates(retrieved, prompt_intent)
     selected = buckets["selected_candidates"]
@@ -444,8 +465,9 @@ def main() -> None:
         storyline["intent"] = intent_used
     # 07b builds the video in this intent's format, even when the LLM storyline failed.
     storyline["format"] = intents.select(prompt_intent, director_plan).NAME
-    # Evidence 07b needs as well: facts for figures, the panel roster, the requested facet.
-    for key in ("archive_facts", "panel_context", "requested_facet"):
+    storyline["coverage"] = coverage.to_dict()
+    # Evidence 07b needs as well: facts for figures, the panel roster, the requested facet, archive gaps.
+    for key in ("archive_facts", "panel_context", "requested_facet", "coverage_gaps"):
         if intent_context.get(key):
             storyline[key] = intent_context[key]
     output_path = save_storyline(

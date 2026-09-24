@@ -1,7 +1,8 @@
-"""Make an archive overview answer the figure the prompt asked for.
+"""Final narration checks that must not depend on the LLM following a rule.
 
-The narration is told to state the asked figure; this checks it did, and
-otherwise opens the first narration with the figure from archive_facts.
+- An archive overview states the figure it was asked for, from archive_facts.
+- A partly covered request says what the archive has no talks on, and never
+  narrates that subject.
 """
 from __future__ import annotations
 
@@ -74,3 +75,46 @@ def ensure_asked_figures(timeline: list[dict[str, Any]], prompt: str, facts: str
         first["voiceover_text"] = " ".join(added + [text]).strip()
         first["subtitle_text"] = first["voiceover_text"]
     return added
+
+
+def _phrase_pattern(phrase: str) -> re.Pattern:
+    """A gap phrase in text, with spaces or hyphens between its words."""
+    words = [re.escape(w) for w in re.findall(r"[A-Za-z0-9]+", phrase.lower())]
+    return re.compile(r"\b" + r"[\s-]+".join(words) + r"s?\b", re.I)
+
+
+def _distinctive_words(gaps: list[str], addressed: list[str]) -> list[str]:
+    """Gap words the LLM builds invented sentences around ("space" for "space
+    law"): 4+ letters and not part of what the archive does cover."""
+    covered = {w for a in addressed for w in re.findall(r"[a-z0-9]+", a.lower())}
+    words = [w for g in gaps for w in re.findall(r"[a-z0-9]+", g.lower())]
+    return list(dict.fromkeys(w for w in words if len(w) >= 4 and w not in covered))
+
+
+def _join(items: list[str]) -> str:
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def state_coverage_gaps(timeline: list[dict[str, Any]], gaps: list[str], addressed: list[str]) -> int:
+    """For a partly covered request: drop narration sentences about a subject the
+    archive has no talks on (the LLM invents them), and open the first narration
+    by saying so. Returns the number of sentences dropped."""
+    gaps = [g for g in gaps if re.search(r"[A-Za-z0-9]", g)]
+    narrations = [i for i in timeline if (i.get("type") or i.get("segment_type")) == "narration_broll"]
+    if not gaps or not narrations:
+        return 0
+    patterns = [_phrase_pattern(g) for g in gaps] + [_phrase_pattern(w) for w in _distinctive_words(gaps, addressed)]
+    dropped = 0
+    for item in narrations:
+        sentences = re.split(r"(?<=[.!?])\s+", (item.get("voiceover_text") or "").strip())
+        kept = [s for s in sentences if not any(p.search(s) for p in patterns)]
+        dropped += len(sentences) - len(kept)
+        item["voiceover_text"] = " ".join(kept).strip()
+    statement = f"The AI4IA archive has no talks on {_join(gaps)}."
+    if addressed:
+        statement += f" This film looks at what its speakers said about {_join(addressed)}."
+    first = narrations[0]
+    first["voiceover_text"] = f"{statement} {first['voiceover_text']}".strip()
+    for item in narrations:
+        item["subtitle_text"] = item["voiceover_text"]
+    return dropped

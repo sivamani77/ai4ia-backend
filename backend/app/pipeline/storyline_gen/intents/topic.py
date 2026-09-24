@@ -6,7 +6,7 @@ from app.pipeline.validate_gen.narrative_templates import GENERIC_NARRATIVE_SECT
 NAME = "topic"
 VERSION = "2"
 CLIPS = "optional"
-# None: 07b picks the generic or the deepfake arc from the prompt.
+# None: 07b uses the topic arc (validate_gen/narrative_templates.py).
 SECTIONS = None
 INSTRUCTIONS = format_instructions(GENERIC_NARRATIVE_SECTIONS, CLIPS)
 

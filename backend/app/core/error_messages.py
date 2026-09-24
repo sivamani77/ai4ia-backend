@@ -48,6 +48,8 @@ DECLINE_MESSAGES: dict[str, str] = {
     "speaker_no_recording": "{name} is an AI4IA speaker, but the archive has no recorded talk from them.",
     "chapter_not_found": "The archive has chapters {first}–{last}; there is no chapter {n}.",
     "year_out_of_range": "The archive covers talks from {first} to {last}.",
+    "topic_not_covered": "The AI4IA archive doesn't have talks on {topic}. Related themes it does cover: {themes}.",
+    "speaker_topic_not_covered": "{name} spoke at AI4IA, but not about {topic}. {name}'s talks cover {themes}.",
 }
 
 GUARDRAIL_OFF_TOPIC_MESSAGE = (

@@ -200,7 +200,6 @@ def enrich_final_timeline(
     candidate_map: dict[str, dict[str, Any]],
     original_timeline: list[dict[str, Any]],
     validated_map: dict[str, dict[str, Any]] | None = None,
-    is_deepfake_topic: bool = False,
 ) -> list[dict[str, Any]]:
     """Fill in missing fields on final_timeline items from candidate_map / original timeline."""
     orig_by_fid: dict[str, dict[str, Any]] = {}
@@ -334,7 +333,7 @@ def enrich_final_timeline(
             # Clean voiceover text (remove instruction leakage)
             sid = item.get("section_id") or ""
             raw_vo = item.get("voiceover_text") or ""
-            item["voiceover_text"] = _clean_voiceover_text(raw_vo, sid, is_deepfake_topic)
+            item["voiceover_text"] = _clean_voiceover_text(raw_vo, sid)
             item["subtitle_text"] = item["voiceover_text"]
 
         result.append(item)

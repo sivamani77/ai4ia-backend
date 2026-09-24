@@ -21,7 +21,7 @@ from app.pipeline.validate_gen.topic_detection import detect_narrative_sections 
 
 
 def test_short_video_unaffected():
-    secs = detect_narrative_sections("impact of AI on service sector companies", [], 120)
+    secs = detect_narrative_sections(120)
     assert [s["section_id"] for s in secs] == [
         "S1_HOOK", "S2_CONTEXT", "S3_EVIDENCE", "S4_CHALLENGE", "S5_RESPONSE", "S6_SYNTHESIS",
     ]
@@ -29,7 +29,7 @@ def test_short_video_unaffected():
 
 def test_long_video_never_repeats_hook_context_or_synthesis():
     for target_duration in (180, 240, 360, 480):
-        secs = detect_narrative_sections("impact of AI on service sector companies", [], target_duration)
+        secs = detect_narrative_sections(target_duration)
         ids = [s["section_id"] for s in secs]
         assert ids[0] == "S1_HOOK"
         assert ids[1] == "S2_CONTEXT"
@@ -42,7 +42,7 @@ def test_long_video_never_repeats_hook_context_or_synthesis():
 
 
 def test_long_video_cycles_middle_sections_to_fill_extra_slots():
-    secs = detect_narrative_sections("impact of AI on service sector companies", [], 360)
+    secs = detect_narrative_sections(360)
     ids = [s["section_id"] for s in secs]
     assert "S3_EVIDENCE_2" in ids
     assert "S4_CHALLENGE_2" in ids

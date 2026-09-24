@@ -68,23 +68,24 @@ class TestSectionCount:
     @pytest.mark.parametrize("duration,count", [(60, 4), (120, 6), (300, 8), (600, 12), (900, 15)])
     @pytest.mark.parametrize("intent", FORMATTED, ids=lambda m: m.NAME)
     def test_first_and_last_once_at_every_length(self, intent, duration, count):
-        sections = detect_narrative_sections("", [], duration, format_sections=intent.SECTIONS)
+        sections = detect_narrative_sections(duration, format_sections=intent.SECTIONS)
         assert len(sections) == count
         assert sections[0] is intent.SECTIONS[0] and sections[-1] is intent.SECTIONS[-1]
         assert len(set(ids(sections))) == count
 
     def test_short_video_keeps_the_core_sections(self):
-        sections = detect_narrative_sections("", [], 60, format_sections=SPEAKER_SECTIONS)
+        sections = detect_narrative_sections(60, format_sections=SPEAKER_SECTIONS)
         assert ids(sections) == ["S1_OPENING", "S3_IDEAS", "S4_EXAMPLES", "S5_SYNTHESIS"]
 
     def test_chronological_stays_in_time_order(self):
-        sections = detect_narrative_sections("", [], 600, format_sections=intents.by_name("chronological").SECTIONS)
+        sections = detect_narrative_sections(600, format_sections=intents.by_name("chronological").SECTIONS)
         order = [sid.split("_")[1] for sid in ids(sections)]
         assert order == ["OPENING", "EARLY"] + ["SHIFT"] * 8 + ["RECENT", "SYNTHESIS"]
 
-    def test_topic_keeps_the_generic_and_deepfake_arcs(self):
-        assert ids(detect_narrative_sections("AI governance", [], 120))[0] == "S1_HOOK"
-        assert "S3_HUMAN_RISK" in ids(detect_narrative_sections("deepfakes and elections", [], 120))
+    def test_topic_uses_the_topic_arc_whatever_the_subject(self):
+        # The hand-written deepfake arc and its canned narration were removed.
+        assert ids(detect_narrative_sections(120)) == ["S1_HOOK", "S2_CONTEXT", "S3_EVIDENCE", "S4_CHALLENGE",
+                                                       "S5_RESPONSE", "S6_SYNTHESIS"]
 
 
 class TestClipPolicy:
@@ -239,14 +240,14 @@ class TestAssemblyPrompt:
 
 
 def test_section_visual_plan_is_used():
-    sections = detect_narrative_sections("", [], 120, format_sections=SPEAKER_SECTIONS)
+    sections = detect_narrative_sections(120, format_sections=SPEAKER_SECTIONS)
     result = _add_visual_asset_plan([narration("S3_IDEAS_2")], sections)
     assert result[0]["visual_title"] == "In Their Own Words"
     assert result[0]["visual_asset_type"] == "concept_card"
 
 
 class TestSectionIdAlignment:
-    SECTIONS = detect_narrative_sections("", [], 120, format_sections=intents.by_name("title").SECTIONS)
+    SECTIONS = detect_narrative_sections(120, format_sections=intents.by_name("title").SECTIONS)
 
     @pytest.mark.parametrize("given,expected", [
         ("S1_HOOK", "S1_OPENING"),          # copied from an example: found in three phase 8 renders

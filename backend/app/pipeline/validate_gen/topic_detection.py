@@ -1,12 +1,8 @@
-"""Narrative-structure selection for Step 07b — deepfake vs. generic arc, scaled to duration."""
+"""Narrative-structure selection for Step 07b: the intent's format or the topic arc, scaled to duration."""
 from typing import Any
 
 from app.pipeline.timeline_budget import timeline_segment_count_for_duration
-from app.pipeline.validate_gen.narrative_templates import (
-    DEEPFAKE_NARRATIVE_SECTIONS,
-    DEEPFAKE_TOPIC_TERMS,
-    GENERIC_NARRATIVE_SECTIONS,
-)
+from app.pipeline.validate_gen.narrative_templates import GENERIC_NARRATIVE_SECTIONS
 
 
 def _fit_format(sections: list[dict[str, Any]], desired_count: int) -> list[dict[str, Any]]:
@@ -32,24 +28,14 @@ def _fit_format(sections: list[dict[str, Any]], desired_count: int) -> list[dict
 
 
 def detect_narrative_sections(
-    user_prompt: str,
-    topic_terms: list[str],
     target_duration_seconds: int = 120,
     format_sections: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
     """The video's sections: the intent's format when it has one, otherwise the
-    generic or deepfake arc."""
+    topic arc, scaled to the duration."""
     if format_sections:
         return _fit_format(format_sections, timeline_segment_count_for_duration(target_duration_seconds))
-
-    # Only check hardcoded deepfake terms — topic_terms came FROM the prompt and always match,
-    # so including them would make every topic look like deepfake.
-    prompt_lower = (user_prompt or "").lower()
     base = GENERIC_NARRATIVE_SECTIONS
-    for term in DEEPFAKE_TOPIC_TERMS:
-        if term in prompt_lower:
-            base = DEEPFAKE_NARRATIVE_SECTIONS
-            break
 
     # timeline_segment_count_for_duration(120) == len(base) == 6, so short/
     # default requests are unaffected. Longer requests previously stayed

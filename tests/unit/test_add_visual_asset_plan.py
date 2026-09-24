@@ -23,18 +23,18 @@ def test_repeated_section_gets_same_template_as_base_section():
         {"type": "narration_broll", "section_id": "S1_HOOK"},
         {"type": "narration_broll", "section_id": "S1_HOOK_2"},
     ]
-    out = _add_visual_asset_plan(tl, [], is_deepfake_topic=False)
+    out = _add_visual_asset_plan(tl, [])
     assert out[0]["visual_title"] == out[1]["visual_title"]
     assert out[1]["visual_title"] != "S1 Hook 2"
 
 
 def test_cycled_middle_section_resolves_template():
     tl = [{"type": "narration_broll", "section_id": "S3_EVIDENCE_3"}]
-    out = _add_visual_asset_plan(tl, [], is_deepfake_topic=False)
+    out = _add_visual_asset_plan(tl, [])
     assert out[0]["visual_title"] == "Real-World Impact"
 
 
 def test_unknown_section_id_still_falls_back_to_slug():
     tl = [{"type": "narration_broll", "section_id": "SOME_UNKNOWN_ID"}]
-    out = _add_visual_asset_plan(tl, [], is_deepfake_topic=False)
+    out = _add_visual_asset_plan(tl, [])
     assert out[0]["visual_title"] == "Some Unknown Id"

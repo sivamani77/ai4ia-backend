@@ -41,7 +41,7 @@ from app.pipeline.timeline_budget import (  # noqa: E402
     fill_timeline_to_target,
     timeline_total_seconds,
 )
-from app.pipeline.validate_gen.archive_answer import ensure_asked_figures  # noqa: E402
+from app.pipeline.validate_gen.archive_answer import ensure_asked_figures, state_coverage_gaps  # noqa: E402
 from app.pipeline.validate_gen.fallback_timeline import build_fallback_final_timeline  # noqa: E402
 from app.pipeline.validate_gen.fragment_validation import (  # noqa: E402
     _base_section_id,
@@ -57,11 +57,7 @@ from app.pipeline.validate_gen.llm_client import (  # noqa: E402
     log,
 )
 from app.pipeline.validate_gen.narrative_assembly import assemble_narrative_with_llm  # noqa: E402
-from app.pipeline.validate_gen.narrative_templates import (  # noqa: E402
-    DEEPFAKE_TOPIC_TERMS,
-    DEEPFAKE_VOICEOVER_DEFAULTS,
-    GENERIC_VOICEOVER_DEFAULTS,
-)
+from app.pipeline.validate_gen.narrative_templates import GENERIC_VOICEOVER_DEFAULTS  # noqa: E402
 from app.pipeline.validate_gen.quality_gates import (  # noqa: E402
     CRITICAL_GATE_NAMES,
     EXTRA_SPEAKER_CHECKS,
@@ -148,8 +144,6 @@ def main() -> None:
     data = json.loads(storyline_path.read_text(encoding="utf-8"))
     user_prompt = data.get("user_prompt") or ""
     target_duration = int(data.get("target_duration_seconds") or 120)
-    prompt_profile = data.get("prompt_profile") or data.get("prompt_intent") or {}
-    topic_terms = prompt_profile.get("topic_terms") or []
 
     export_timeline = data.get("export_timeline") or []
     selected_candidates = data.get("selected_candidates") or []
@@ -171,8 +165,7 @@ def main() -> None:
     intent = intents.for_storyline(data)
     clips_required = intents.clips_required(intent, user_prompt)
     clip_cap = None if clips_required else OPTIONAL_CLIP_CAP
-    narrative_sections = detect_narrative_sections(user_prompt, topic_terms, target_duration,
-                                                   format_sections=intent.SECTIONS)
+    narrative_sections = detect_narrative_sections(target_duration, format_sections=intent.SECTIONS)
     clip_sections = {s["section_id"] for s in narrative_sections[1:-1]} if clips_required else set()
     log(f"Format: {intent.NAME} | clips {'required' if clips_required else f'optional (max {clip_cap})'}")
     log(f"Narrative structure: {[s['section_id'] for s in narrative_sections]}")
@@ -331,14 +324,8 @@ def main() -> None:
             max_clips=clip_cap,
         )
 
-    # Detect topic for defaults — only match actual deepfake terms in the prompt,
-    # never match topic_terms (they come from the prompt and would always match)
-    is_deepfake_topic = any(
-        term.lower() in user_prompt.lower()
-        for term in DEEPFAKE_TOPIC_TERMS
-    )
     vo_defaults = {
-        **(DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS),
+        **GENERIC_VOICEOVER_DEFAULTS,
         **{sec["section_id"]: sec["default_voiceover"] for sec in narrative_sections if sec.get("default_voiceover")},
     }
 
@@ -371,8 +358,7 @@ def main() -> None:
         final_timeline=raw_timeline,
         candidate_map=candidate_map,
         original_timeline=export_timeline,
-        validated_map=validated_map,
-        is_deepfake_topic=is_deepfake_topic,
+        validated_map=validated_map
     )
     enriched_timeline = align_section_ids(enriched_timeline, narrative_sections)
 
@@ -423,7 +409,7 @@ def main() -> None:
         if t == "narration_broll":
             sid = item.get("section_id") or ""
             raw_vo = item.get("voiceover_text") or ""
-            cleaned = _clean_voiceover_text(raw_vo, sid, is_deepfake_topic)
+            cleaned = _clean_voiceover_text(raw_vo, sid)
             if not cleaned:
                 cleaned = defaults.get(_base_section_id(sid), "")
             item["voiceover_text"] = cleaned
@@ -433,7 +419,7 @@ def main() -> None:
     enriched_timeline = _place_clips(enriched_timeline)
 
     # Add visual asset plan to all narration_broll items
-    enriched_timeline = _add_visual_asset_plan(enriched_timeline, narrative_sections, is_deepfake_topic)
+    enriched_timeline = _add_visual_asset_plan(enriched_timeline, narrative_sections)
 
     assembled["final_timeline"] = enriched_timeline
 
@@ -478,8 +464,7 @@ def main() -> None:
             final_timeline=repaired_tl,
             candidate_map=candidate_map,
             original_timeline=export_timeline,
-            validated_map=validated_map,
-            is_deepfake_topic=is_deepfake_topic,
+            validated_map=validated_map
         )
         enriched_timeline = align_section_ids(enriched_timeline, narrative_sections)
         enriched_timeline = assign_fragments_to_empty_narration_brolls(
@@ -501,13 +486,13 @@ def main() -> None:
             if _t == "narration_broll":
                 _sid = _item.get("section_id") or ""
                 _raw_vo = _item.get("voiceover_text") or ""
-                _cleaned = _clean_voiceover_text(_raw_vo, _sid, is_deepfake_topic)
+                _cleaned = _clean_voiceover_text(_raw_vo, _sid)
                 if not _cleaned:
                     _cleaned = _defaults.get(_base_section_id(_sid), "")
                 _item["voiceover_text"] = _cleaned
                 _item["subtitle_text"] = _cleaned
         enriched_timeline = _place_clips(enriched_timeline)
-        enriched_timeline = _add_visual_asset_plan(enriched_timeline, narrative_sections, is_deepfake_topic)
+        enriched_timeline = _add_visual_asset_plan(enriched_timeline, narrative_sections)
         warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target, clips_required)
         if not repair_is_better(before[:2], (enriched_timeline, quality_gates)):
             log("  [repair] Rejected: it would lose speaker clips or pass fewer gates — keeping the previous timeline.")
@@ -613,6 +598,18 @@ def main() -> None:
     if archive_facts:
         for sentence in ensure_asked_figures(enriched_timeline, user_prompt, archive_facts):
             log(f"Overview: narration did not state an asked figure — added {sentence!r}")
+
+    # A partly covered request says what the archive lacks, and never narrates it.
+    storyline = data.get("storyline") or {}
+    if storyline.get("coverage_gaps"):
+        dropped = state_coverage_gaps(enriched_timeline, storyline["coverage_gaps"],
+                                      (storyline.get("coverage") or {}).get("addressed_aspects") or [])
+        log(f"Coverage gaps {storyline['coverage_gaps']}: stated in the opening; "
+            f"dropped {dropped} narration sentence(s) about them.")
+        for item in enriched_timeline:
+            if item.get("type") == "narration_broll" and not (item.get("voiceover_text") or "").strip():
+                item["voiceover_text"] = item["subtitle_text"] = vo_defaults.get(
+                    _base_section_id(item.get("section_id") or ""), "")
 
     # Registry spellings everywhere, whatever the prompt or the LLM wrote.
     enriched_timeline = canonicalize_speaker_names(enriched_timeline)

@@ -1,7 +1,9 @@
 from __future__ import annotations
 import sys
+import tempfile
 import threading
 import uuid
+from pathlib import Path
 
 import json
 from datetime import datetime, timezone
@@ -82,6 +84,9 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     resolved_speaker = getattr(context, "resolved_speaker", None)
     if resolved_speaker:
         cmd += ["--requested-speaker", resolved_speaker]
+    coverage_path = Path(tempfile.gettempdir()) / f"ai4ia_coverage_{job_id}.json"
+    coverage_path.unlink(missing_ok=True)
+    cmd += ["--coverage-file", str(coverage_path)]
 
     update_stage(job_id, "07_storyline", "running", 20, "Running storyline generation script")
     with processing_records.exchange_log(job_id, "07_storyline", env_overrides):
@@ -89,6 +94,14 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
 
     if code != 0:
         raise RuntimeError(f"07_generate_storyline.py exited {code}: {stderr[-1000:]}")
+
+    coverage = _read_coverage(coverage_path)
+    if coverage:
+        processing_records.record_layer(job_id, coverage=coverage)
+        append_event(job_id, "coverage", "07_storyline", {
+            k: coverage.get(k) for k in ("verdict", "method", "top_similarity", "missing_aspects")})
+    if coverage.get("verdict") == "not_covered" and settings.coverage_decline_enabled:
+        return _decline(job_id, coverage)
 
     update_stage(job_id, "07_storyline", "running", 85, "Locating generated storyline")
     # Job-scoped lookup first — the script names its output storyline_{job_id}_*.json
@@ -153,6 +166,29 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         message=f"Storyline created — {cands} candidate fragments",
         data={"storyline_path": str(storyline_path), "title": title, "candidate_fragments": cands},
     )
+
+
+def _read_coverage(path: Path) -> dict[str, Any]:
+    """The script's coverage verdict; empty when it wrote none."""
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    finally:
+        path.unlink(missing_ok=True)
+
+
+def _decline(job_id: str, coverage: dict[str, Any]) -> StageResult:
+    """The archive cannot answer the prompt: fail the job with a specific message (§8.3)."""
+    message = coverage.get("user_message") or "The AI4IA archive doesn't have talks on this topic."
+    processing_records.record_layer(job_id, outcome="declined", reason_code=coverage.get("reason_code"),
+                                    user_message=message, suggestions=coverage.get("suggestions") or [])
+    update_stage(job_id, "07_storyline", "failed", 100, message)
+    append_event(job_id, "stage_failed", "07_storyline", {"reason_code": coverage.get("reason_code")})
+    return StageResult(stage="07_storyline", status="failed", message=message, data={
+        "error_code": "declined", "reason_code": coverage.get("reason_code"),
+        "user_message": message, "suggestions": coverage.get("suggestions") or [],
+    })
 
 
 def _emit_storyline_traces(job_id: str, sdata: dict, request: dict) -> None:

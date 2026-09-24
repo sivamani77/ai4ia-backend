@@ -65,6 +65,15 @@ class PromptResolutionRepository:
             params["only_if_outcome"] = only_if_outcome
         pg_execute(f"update prompt_resolutions set {', '.join(sets)} where {where}", params)
 
+    def finish_completed(self, job_id: str) -> None:
+        """Mark an in-progress job done: its coverage verdict, else "completed"."""
+        pg_execute(
+            "update prompt_resolutions set updated_at = now(), layer_outcome = case "
+            "when coverage->>'verdict' in ('covered', 'partial') then coverage->>'verdict' "
+            "else 'completed' end where job_id = %s and layer_outcome = 'in_progress'",
+            (job_id,),
+        )
+
     def get_by_job(self, job_id: str) -> dict[str, Any] | None:
         return pg_fetch_one(
             "select * from prompt_resolutions where job_id = %s order by attempt desc limit 1",

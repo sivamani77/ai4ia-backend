@@ -8,7 +8,7 @@ from app.pipeline.timeline_budget import _candidate_is_speaker_eligible
 from app.pipeline.validate_gen.fragment_validation import _base_section_id, _quote_ends_completely, _quote_starts_cleanly
 from app.pipeline.validate_gen.json_utils import extract_json_array, extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries
-from app.pipeline.validate_gen.narrative_templates import DEEPFAKE_VISUAL_ASSET_PLANS, GENERIC_VISUAL_ASSET_PLANS
+from app.pipeline.validate_gen.narrative_templates import GENERIC_VISUAL_ASSET_PLANS
 
 # Fixed instructional preamble for the timeline-repair LLM call — kept
 # separate from the (untrusted) user_prompt/current-timeline content that
@@ -370,12 +370,10 @@ def _critical_gates_pass(quality_gates: dict) -> bool:
 def _add_visual_asset_plan(
     final_timeline: list,
     narrative_sections: list,
-    is_deepfake_topic: bool = True,
 ) -> list:
     """Add visual_mode/visual_asset_type/visual_asset_prompt/visual_title/visual_keywords to narration_broll items."""
-    plans = DEEPFAKE_VISUAL_ASSET_PLANS if is_deepfake_topic else GENERIC_VISUAL_ASSET_PLANS
     # An intent's format carries its own plan per section.
-    plans = {**plans, **{s["section_id"]: s["visual"] for s in narrative_sections if s.get("visual")}}
+    plans = {**GENERIC_VISUAL_ASSET_PLANS, **{s["section_id"]: s["visual"] for s in narrative_sections if s.get("visual")}}
     result = []
     for item in final_timeline:
         item = dict(item)

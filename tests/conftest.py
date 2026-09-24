@@ -81,6 +81,11 @@ class _FakeRecords:
         for key, value in (merge or {}).items():
             row[key] = {**row.get(key, {}), **value}
 
+    def finish_completed(self, job_id):
+        verdict = ((self.resolutions.get(job_id) or {}).get("coverage") or {}).get("verdict")
+        self.update_by_job(job_id, fields={"layer_outcome": verdict if verdict in ("covered", "partial")
+                                           else "completed"}, only_if_outcome="in_progress")
+
 
 @pytest.fixture(autouse=True)
 def processing_records_store(monkeypatch):

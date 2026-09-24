@@ -76,13 +76,14 @@ def record_layer(
     intent: str | None = None,
     intent_version: str | None = None,
     template_hash: str | None = None,
+    coverage: Mapping[str, Any] | None = None,
 ) -> None:
     """Record one layer's result for a job."""
     fields = {k: v for k, v in (("layer_outcome", outcome), ("reason_code", reason_code),
                                 ("user_message", user_message), ("slots", slots),
                                 ("dropped_slots", dropped_slots), ("suggestions", suggestions),
                                 ("intent", intent), ("intent_version", intent_version),
-                                ("template_hash", template_hash))
+                                ("template_hash", template_hash), ("coverage", coverage))
               if v is not None}
     merge = {k: v for k, v in (("flags", flags), ("timings_ms", timings_ms)) if v}
     try:
@@ -92,8 +93,12 @@ def record_layer(
 
 
 def finish(job_id: str, outcome: str) -> None:
-    """Set the final outcome unless a layer already decided one (e.g. l1_rejected)."""
+    """Set the final outcome unless a layer already decided one (e.g. l1_rejected).
+    A completed job records its coverage verdict (covered / partial) when it has one."""
     try:
+        if outcome == "completed":
+            _resolutions().finish_completed(job_id)
+            return
         _resolutions().update_by_job(job_id, fields={"layer_outcome": outcome}, only_if_outcome="in_progress")
     except Exception:
         logger.warning("prompt_resolutions: could not finish %s", job_id, exc_info=True)

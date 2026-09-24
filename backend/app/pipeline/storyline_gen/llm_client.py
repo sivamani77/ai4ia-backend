@@ -102,6 +102,7 @@ def call_strong_llm(
     top_p: float | None = None,
     max_tokens: int = 8192,
     system: str | None = None,
+    reasoning_effort: str = "low",
 ) -> str:
     """Call STRONG_LLM_MODEL via whichever backend is configured
     (STORYLINE_LLM_BACKEND), returning the raw response text.
@@ -140,7 +141,7 @@ def call_strong_llm(
             # "low" cuts reasoning-token spend roughly in half (measured ~23 vs
             # ~55 completion tokens on a trivial prompt) and makes truncation
             # far less likely on our much larger real prompts.
-            "reasoning_effort": "low",
+            "reasoning_effort": reasoning_effort,
         }
         data = post_with_retries(url, payload, timeout=timeout)
         message = data["choices"][0]["message"]

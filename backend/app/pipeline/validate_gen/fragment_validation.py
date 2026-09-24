@@ -9,7 +9,7 @@ from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
 from app.pipeline.storyline_gen.intents.base import agenda_rule
 from app.pipeline.validate_gen.json_utils import extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries, post_with_retries_async
-from app.pipeline.validate_gen.narrative_templates import DEEPFAKE_VOICEOVER_DEFAULTS, GENERIC_VOICEOVER_DEFAULTS
+from app.pipeline.validate_gen.narrative_templates import GENERIC_VOICEOVER_DEFAULTS
 from app.pipeline.validate_gen.transcript import context_window_to_prompt_text
 
 # Weak trailing words that signal an incomplete quote
@@ -95,13 +95,11 @@ def _base_section_id(section_id: str) -> str:
 def _clean_voiceover_text(
     text: str,
     section_id: str,
-    is_deepfake_topic: bool = False,
 ) -> str:
-    """Strip instruction phrases from voiceover text and apply topic defaults if needed."""
+    """Strip instruction phrases from voiceover text and apply the section default if needed."""
     base_section_id = _base_section_id(section_id)
     if not text:
-        defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-        return defaults.get(base_section_id, "")
+        return GENERIC_VOICEOVER_DEFAULTS.get(base_section_id, "")
 
     cleaned = text.strip()
 
@@ -115,16 +113,14 @@ def _clean_voiceover_text(
                 cleaned = remainder[0].upper() + remainder[1:]
             else:
                 # Nothing left — use topic default
-                defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-                cleaned = defaults.get(base_section_id, cleaned)
+                cleaned = GENERIC_VOICEOVER_DEFAULTS.get(base_section_id, cleaned)
             break
 
     # If still looks like instruction text with no factual content, use default
     instruction_verbs = ("explain", "mention", "show", "describe", "illustrate", "demonstrate")
     words = cleaned.lower().split()
     if words and words[0] in instruction_verbs:
-        defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-        cleaned = defaults.get(base_section_id, cleaned)
+        cleaned = GENERIC_VOICEOVER_DEFAULTS.get(base_section_id, cleaned)
 
     # Ensure it ends with a period
     if cleaned and not cleaned.rstrip()[-1:] in ".!?":
