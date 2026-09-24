@@ -215,7 +215,7 @@ The first matching intent wins.
 | 4 | `speaker` | speaker, no topic | speaker's fragments, spread across their talks | clip pack + speaker context | one voice |
 | 5 | `overview` | `detect_archive_overview` (already built) | one strong clip per theme | **facts block** (`corpus_facts`) + representative clips | figures only from the facts block; clips are voices, never evidence for a figure |
 | 6 | `theme_chapter` | theme or chapter resolved | fragments classified to that facet | clip pack + facet description | stay inside the facet |
-| 7 | `chronological` | time-evolution wording (`evolved`, `over the years`, `since 2021`) | fragments bucketed by year | clips grouped by year | order by time; name the shift |
+| 7 | `chronological` | time-evolution wording (`evolved`, `over the years`, `since 2021`) **and** the director chose `chronological_relay` (the wording check was added in phase 8) | fragments bucketed by year | clips grouped by year | order by time; name the shift |
 | 8 | `topic` | fallback | relevance + speaker diversity (existing) | clip pack | ground every claim in a cited fragment |
 
 `choose_video_mode` can still choose `chronological_relay` for a `topic` request when the evidence spans years. The intent decides the instructions; the director still decides the video's shape.
@@ -388,6 +388,34 @@ Not changed: retrieval, candidate selection and stage 07's speaker-first reserve
   3. Section cards follow the intent's format.
   4. Overview states the asked figure.
   5. The duration meets the target, or the shortfall warning is honest.
+
+#### 7.4.6 Built (2026-09-24) and what the renders showed
+
+Built as specified in §7.4.3.
+
+**Differences from the spec:**
+- **L3 decline not built.** A required intent with no clip on the agenda does not decline yet. That decline is the L3 row of §12; until it exists, such a job renders narration-only, and the gates record `final_timeline_approved: false`.
+- **Agenda enforcement is mostly the LLM's.** The validator applies the agenda rule itself and returns `reject` with an agenda reason. The deterministic override (`reject_off_agenda`) only catches a `speaker_clip` verdict whose `agenda_relevant` is false. In the 15 gate renders it never had to act. Of 10 rejections, 8 cited the agenda or procedural talk: gratitude, greetings, introductions of another speaker.
+
+**Found in the first 9 renders, and fixed:**
+- **Section ids copied from the prompt's example.** The assembly and repair prompts showed `S1_HOOK` / `S2_CONTEXT` in their JSON examples. The LLM copied `S1_HOOK` for the opening narration in 3 of 9 jobs, so the format's real opening section was missing. 07b then filled it with the default line ("This film follows one talk…"), and the real opening was appended at the end.
+  - Fix: the examples now carry the job's own section ids.
+  - Fix: `align_section_ids` maps any unknown id onto the format. Opening words go to the first section, closing words to the last, anything else by its `S<n>` number.
+- **`speaker` was unreachable.** Stage 07 marks every speaker prompt `speaker_topic_summary`, even with no topic terms, so "What did Cordel Green say?" got the speaker-and-topic format. `speaker_topic` now needs topic terms.
+- **`topic` was rarely reachable.** The director picks `chronological_relay` whenever evidence spans at least 2 years with at least 3 exact clips, which is most well-covered topics. So "Deepfakes and elections" got early / shift / recent sections.
+  - `chronological` now also needs time wording in the prompt ("evolved", "over the years", "since 2021", "trends", …), as §7.2 describes.
+  - A relay-mode `topic` keeps its structure list, so the payload is unchanged.
+
+**Gate result (15 renders at 90 s):**
+- Every film opens and closes with narration, with no clip in the first or last section.
+- Optional intents used 1–2 clips; "What did speakers say about deepfakes?" switched to required and used 3–4.
+- Required intents used 1–4 clips of the right person, talk or panel.
+- The overview's first sentence answered the question: "…features over 300 speakers".
+- Section cards followed each format.
+
+**Open, and not caused by phase 8:**
+- **Duration overshoot.** Renders run 95–319 s for a 90 s target. Renders from before phase 8 ran 56–223 s for 60 s targets, so the overshoot predates it.
+- **Some clips start or end mid-sentence** ("a huge cost to human trust…"). This is the existing quote-completeness behaviour: such clips are flagged `quote_complete: false` and kept.
 
 ---
 
@@ -684,7 +712,7 @@ Each phase ships on its own and is checked before the next.
 | 6 | L2b coverage + judge + gap narration | coverage rows of the case matrix; band tuned on recorded `top_similarity` |
 | 7 | LLM router, **only if** recorded `resolution_method = 'fallback'` rows show misrouting | router accuracy on the labelled set |
 | L3 | §8.5: decline speaker intents with no approved clip; ground the repair pass and check its narration | the Cordell Green job above renders real Cordel Green clips or declines; no invented quotes |
-| 8 | §7.4: documentary format per intent, clip policy (required/optional), clips on the AI4IA agenda, clips never at the start or end | §7.4.5 renders. Can run before phase 6: gap narration then slots into each format instead of being refitted. |
+| 8 | §7.4: documentary format per intent, clip policy (required/optional), clips on the AI4IA agenda, clips never at the start or end | §7.4.5 renders. **Built 2026-09-24, before phase 6** (§7.4.6). |
 
 ---
 
