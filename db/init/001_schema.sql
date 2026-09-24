@@ -263,3 +263,60 @@ create table if not exists speaker_aliases (
     alias text primary key,
     canonical_name text not null references speakers(canonical_name)
 );
+
+
+-- Request and LLM-exchange records (mirrors backend/app/db/schema.py).
+create table if not exists prompt_resolutions (
+        id text primary key,
+        job_id text,
+        insight_id text,
+        surface text not null,
+        attempt integer not null default 1,
+        user_id text,
+        created_at timestamptz not null default now(),
+        updated_at timestamptz not null default now(),
+        raw_prompt text not null,
+        flags jsonb not null default '{}'::jsonb,
+        intent text,
+        intent_version text,
+        template_hash text,
+        resolution_method text,
+        slots jsonb not null default '{}'::jsonb,
+        dropped_slots jsonb not null default '[]'::jsonb,
+        layer_outcome text,
+        reason_code text,
+        user_message text,
+        suggestions jsonb not null default '[]'::jsonb,
+        coverage jsonb not null default '{}'::jsonb,
+        code_version text,
+        corpus_version text,
+        registry_version text,
+        timings_ms jsonb not null default '{}'::jsonb,
+        expires_at timestamptz
+    );
+create index if not exists idx_prompt_resolutions_job_id on prompt_resolutions (job_id);
+create index if not exists idx_prompt_resolutions_insight_id on prompt_resolutions (insight_id);
+create index if not exists idx_prompt_resolutions_user_id on prompt_resolutions (user_id);
+create index if not exists idx_prompt_resolutions_created_at on prompt_resolutions (created_at desc);
+create index if not exists idx_prompt_resolutions_outcome on prompt_resolutions (intent, layer_outcome);
+create table if not exists llm_call_payloads (
+        id text primary key,
+        trace_id text,
+        job_id text,
+        insight_id text,
+        user_id text,
+        stage text,
+        model text,
+        request_text text not null,
+        response_text text,
+        error text,
+        latency_ms integer,
+        size_bytes integer not null,
+        called_at timestamptz not null default now(),
+        expires_at timestamptz
+    );
+create index if not exists idx_llm_call_payloads_job_id on llm_call_payloads (job_id);
+create index if not exists idx_llm_call_payloads_user_id on llm_call_payloads (user_id);
+create index if not exists idx_llm_call_payloads_trace_id on llm_call_payloads (trace_id);
+create index if not exists idx_llm_call_payloads_expires_at on llm_call_payloads (expires_at);
+create index if not exists idx_prompt_resolutions_expires_at on prompt_resolutions (expires_at);

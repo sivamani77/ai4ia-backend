@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import logging
+import time
 from typing import Any
 
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext, StageResult
+from app.services import processing_records
 from app.services.guardrail_service import VIDEO_POLICY, classify
-from app.services.job_store import append_event
+from app.services.job_store import append_event, load_job
 from app.services.video_job_runner import update_stage
 
 logger = logging.getLogger("ai4ia.pipeline.guardrail")
@@ -18,6 +20,13 @@ REJECTION_MESSAGE = (
     "content guidelines. Please submit a prompt related to creating AI4IA "
     "video content."
 )
+
+
+def _job_user_id(job_id: str) -> str | None:
+    try:
+        return load_job(job_id).get("user_id") or None
+    except Exception:
+        return None
 
 
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
@@ -34,20 +43,27 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     update_stage(job_id, STAGE_NAME, "running", 50, "Checking prompt against content policy")
     append_event(job_id, "stage_started", STAGE_NAME, {})
 
+    started = time.monotonic()
     verdict = classify(
         prompt,
         policy=VIDEO_POLICY,
-        trace={"job_id": job_id, "stage": STAGE_NAME, "agent": "prompt_guardrail",
-               "decision_label": "prompt_moderation"},
+        trace={"job_id": job_id, "user_id": _job_user_id(job_id), "stage": STAGE_NAME,
+               "agent": "prompt_guardrail", "decision_label": "prompt_moderation"},
     )
+    timings = {"l1": int((time.monotonic() - started) * 1000)}
 
     if verdict.failed_open:
+        processing_records.record_layer(job_id, flags={"l1_failed_open": True}, timings_ms=timings)
         update_stage(job_id, STAGE_NAME, "completed", 100, "Guardrail check unavailable — allowed by default")
         append_event(job_id, "stage_completed", STAGE_NAME, {"fail_open": True})
         return StageResult(stage=STAGE_NAME, status="completed",
                            message="Guardrail check unavailable — allowed by default")
 
     if not verdict.allowed:
+        processing_records.record_layer(
+            job_id, outcome="l1_rejected", reason_code=verdict.category or "guardrail_rejected",
+            user_message=REJECTION_MESSAGE, timings_ms=timings,
+        )
         if verdict.category == "guardrail_unavailable":
             update_stage(job_id, STAGE_NAME, "failed", 100, REJECTION_MESSAGE)
             append_event(job_id, "stage_failed", STAGE_NAME, {"error": "guardrail_unavailable"})
@@ -65,6 +81,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
             data={"category": verdict.category, "reason": verdict.reason},
         )
 
+    processing_records.record_layer(job_id, timings_ms=timings)
     update_stage(job_id, STAGE_NAME, "completed", 100, "Prompt passed content policy check")
     append_event(job_id, "stage_completed", STAGE_NAME, {})
     return StageResult(stage=STAGE_NAME, status="completed", message="Prompt passed content policy check")

@@ -27,7 +27,7 @@ from app.core.settings import settings
 from app.pipeline.base import PipelineContext
 
 _tracer = get_tracer("ai4ia.pipeline")
-from app.services import model_gate
+from app.services import model_gate, processing_records
 from app.services.job_store import (
     save_job,
     load_job,
@@ -171,6 +171,7 @@ def _fail_job(
         "message": message,
     })
     _metrics.job_completions_total.labels(status="failed").inc()
+    processing_records.finish(job_id, "failed")
 
 
 def _cancel_job(job_id: str, message: str = "", *, kill_pid: bool = True) -> None:
@@ -182,6 +183,7 @@ def _cancel_job(job_id: str, message: str = "", *, kill_pid: bool = True) -> Non
     save_job(job_id, job)
     append_event(job_id, "cancelled", job.get("current_stage", "unknown"), {"message": message})
     _metrics.job_completions_total.labels(status="cancelled").inc()
+    processing_records.finish(job_id, "cancelled")
 
     # PID kill is only valid in the WORKER process (where the subprocess and its
     # active_pid actually live). The API's DELETE handler runs in a different
@@ -224,6 +226,7 @@ def _complete_job(job_id: str) -> None:
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
     _metrics.job_completions_total.labels(status="completed").inc()
+    processing_records.finish(job_id, "completed")
     created_at = job.get("created_at")
     if created_at:
         try:
@@ -272,6 +275,7 @@ def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
     }
     save_job(job_id, job)
     append_event(job_id, "created", "queued", {"prompt": request.get("prompt", "")})
+    processing_records.start_request(job_id, user_id, request.get("prompt", ""))
     _metrics.jobs_created_total.inc()
     return job_id
 

@@ -12,7 +12,9 @@ from __future__ import annotations
 
 import logging
 
-from app.db.postgres import pg_execute
+import psycopg2
+
+from app.core.settings import settings
 
 logger = logging.getLogger("ai4ia.db.schema")
 
@@ -212,6 +214,68 @@ _STATEMENTS = [
         primary key (repair_name, store, fragment_id)
     )
     """,
+    # One row per request: what was asked and what each layer decided.
+    # See docs/intent-layer-design.md §10.
+    """
+    create table if not exists prompt_resolutions (
+        id text primary key,
+        job_id text,
+        insight_id text,
+        surface text not null,
+        attempt integer not null default 1,
+        user_id text,
+        created_at timestamptz not null default now(),
+        updated_at timestamptz not null default now(),
+        raw_prompt text not null,
+        flags jsonb not null default '{}'::jsonb,
+        intent text,
+        intent_version text,
+        template_hash text,
+        resolution_method text,
+        slots jsonb not null default '{}'::jsonb,
+        dropped_slots jsonb not null default '[]'::jsonb,
+        layer_outcome text,
+        reason_code text,
+        user_message text,
+        suggestions jsonb not null default '[]'::jsonb,
+        coverage jsonb not null default '{}'::jsonb,
+        code_version text,
+        corpus_version text,
+        registry_version text,
+        timings_ms jsonb not null default '{}'::jsonb,
+        expires_at timestamptz
+    )
+    """,
+    "create index if not exists idx_prompt_resolutions_job_id on prompt_resolutions (job_id)",
+    "create index if not exists idx_prompt_resolutions_insight_id on prompt_resolutions (insight_id)",
+    "create index if not exists idx_prompt_resolutions_user_id on prompt_resolutions (user_id)",
+    "create index if not exists idx_prompt_resolutions_created_at on prompt_resolutions (created_at desc)",
+    "create index if not exists idx_prompt_resolutions_outcome on prompt_resolutions (intent, layer_outcome)",
+    # Exact text of every LLM request and response. Text, not jsonb: invalid
+    # JSON responses must be storable.
+    """
+    create table if not exists llm_call_payloads (
+        id text primary key,
+        trace_id text,
+        job_id text,
+        insight_id text,
+        user_id text,
+        stage text,
+        model text,
+        request_text text not null,
+        response_text text,
+        error text,
+        latency_ms integer,
+        size_bytes integer not null,
+        called_at timestamptz not null default now(),
+        expires_at timestamptz
+    )
+    """,
+    "create index if not exists idx_llm_call_payloads_job_id on llm_call_payloads (job_id)",
+    "create index if not exists idx_llm_call_payloads_user_id on llm_call_payloads (user_id)",
+    "create index if not exists idx_llm_call_payloads_trace_id on llm_call_payloads (trace_id)",
+    "create index if not exists idx_llm_call_payloads_expires_at on llm_call_payloads (expires_at)",
+    "create index if not exists idx_prompt_resolutions_expires_at on prompt_resolutions (expires_at)",
 ]
 
 
@@ -399,13 +463,31 @@ _AUTH_STATEMENTS = [
 ]
 
 
+# Serialises schema creation across API workers and pods.
+_SCHEMA_LOCK_KEY = 4_341_830_001
+
+
+def _run_locked(statements: list[str]) -> None:
+    """Run DDL on one connection under an advisory lock. Concurrent
+    CREATE ... IF NOT EXISTS on a new table otherwise fails with duplicate-key
+    errors, which several workers starting at once would hit."""
+    conn = psycopg2.connect(settings.database_url)
+    try:
+        conn.autocommit = True
+        with conn.cursor() as cur:
+            cur.execute("select pg_advisory_lock(%s)", (_SCHEMA_LOCK_KEY,))
+            for statement in statements:
+                cur.execute(statement)
+    finally:
+        conn.close()  # also releases the lock
+
+
 def ensure_auth_schema() -> None:
     """Create the auth tables if they don't already exist. Safe to call on
     every startup — every statement is IF NOT EXISTS. This is what makes the
     schema half of the Supabase migration happen automatically on deploy; the
     data half is the one-time scripts/migrate_auth_data_from_supabase.py."""
-    for statement in _AUTH_STATEMENTS:
-        pg_execute(statement)
+    _run_locked(_AUTH_STATEMENTS)
     logger.info(
         "Auth Postgres schema ensured "
         "(app_users, user_sessions, otp_codes, refresh_tokens, auth_audit)"
@@ -415,11 +497,11 @@ def ensure_auth_schema() -> None:
 def ensure_pipeline_schema() -> None:
     """Create the pipeline tables/indexes if they don't already exist. Safe
     to call on every startup — every statement is IF NOT EXISTS."""
-    for statement in _STATEMENTS:
-        pg_execute(statement)
+    _run_locked(_STATEMENTS)
     _seed_speaker_aliases()
     logger.info(
         "Pipeline Postgres schema ensured "
-        "(fragments, storylines, insights, ingest_*, videos, speakers, speaker_aliases)"
+        "(fragments, storylines, insights, ingest_*, videos, speakers, speaker_aliases, "
+        "prompt_resolutions, llm_call_payloads)"
     )
     ensure_auth_schema()

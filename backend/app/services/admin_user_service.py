@@ -176,7 +176,8 @@ def hard_delete_user(user_id: str) -> dict:
     steps because only the second group is covered by FK cascades:
 
       pipeline tables: the user's jobs (+ S3/local export artifacts),
-                       job_events, llm_call_traces, agent_decision_records
+                       job_events, llm_call_traces, agent_decision_records,
+                       prompt_resolutions, llm_call_payloads
       auth tables:     user_sessions (deleted explicitly — that table has no
                        FK to app_users, so nothing cascades to it and its
                        stored ip/user_agent would outlive the account), then
@@ -200,6 +201,7 @@ def hard_delete_user(user_id: str) -> dict:
 
     from app.db.repositories.llm_trace_repository import LLMTraceRepository
     from app.db.repositories.decision_record_repository import DecisionRecordRepository
+    from app.services import processing_records
 
     llm_traces = LLMTraceRepository()
     decision_records = DecisionRecordRepository()
@@ -213,11 +215,13 @@ def hard_delete_user(user_id: str) -> dict:
             continue
         deleted_storage_objects += _delete_job_storage(job_id)
         llm_traces.delete_by_job(job_id)
+        processing_records.delete_for_job(job_id)
         events_repo.delete_by_job(job_id)
         jobs_repo.delete_job(job_id)
 
     llm_traces.delete_by_user(user_id)
     decision_records.delete_by_user(user_id)
+    processing_records.delete_for_user(user_id)
 
     # Must precede delete_user: user_sessions has no FK to app_users, so this
     # is the only thing that removes the session rows' ip/user_agent.

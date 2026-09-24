@@ -7,6 +7,7 @@ from typing import Any
 import httpx
 
 from app.core.settings import settings
+from app.pipeline import llm_exchange_log
 
 OLLAMA_BASE_URL = settings.ollama_base_url
 GENERATE_ENDPOINT = "/api/generate"
@@ -155,6 +156,8 @@ def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SE
                 _content = data.get("response", "")
             log(f"  [llm-timing] model={req_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
             _record_dep(_host, True, time.time() - _call_started)
+            llm_exchange_log.record(req_payload.get("model"), req_payload, _content or "",
+                                    int((time.time() - _call_started) * 1000))
             return _content or ""
 
         except Exception as exc:
@@ -163,6 +166,8 @@ def post_with_retries(payload: dict[str, Any], timeout: int = REQUEST_TIMEOUT_SE
             if attempt < MAX_RETRIES:
                 time.sleep(RETRY_SLEEP_SECONDS * (2 ** (attempt - 1)))
     _record_dep(_host, False, time.time() - _call_started, str(last_error))
+    llm_exchange_log.record(req_payload.get("model"), req_payload, None,
+                            int((time.time() - _call_started) * 1000), error=str(last_error))
     raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")
 
 
@@ -199,6 +204,8 @@ async def post_with_retries_async(
                 _content = data.get("response", "")
             log(f"  [llm-timing] model={req_payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
             _record_dep(_host, True, time.time() - _call_started)
+            llm_exchange_log.record(req_payload.get("model"), req_payload, _content or "",
+                                    int((time.time() - _call_started) * 1000))
             return _content or ""
 
         except Exception as exc:
@@ -207,4 +214,6 @@ async def post_with_retries_async(
             if attempt < MAX_RETRIES:
                 await asyncio.sleep(RETRY_SLEEP_SECONDS * (2 ** (attempt - 1)))
     _record_dep(_host, False, time.time() - _call_started, str(last_error))
+    llm_exchange_log.record(req_payload.get("model"), req_payload, None,
+                            int((time.time() - _call_started) * 1000), error=str(last_error))
     raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")

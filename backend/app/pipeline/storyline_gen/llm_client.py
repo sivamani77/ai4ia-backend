@@ -5,6 +5,7 @@ from typing import Any
 import requests
 
 from app.core.settings import settings
+from app.pipeline import llm_exchange_log
 
 
 OLLAMA_BASE_URL = settings.ollama_base_url
@@ -66,6 +67,7 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
     _host = _dep_host(url)
     last_error = None
     _call_started = time.time()
+    is_generation = not url.endswith(EMBED_ENDPOINT)
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
@@ -75,6 +77,9 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
             _result = response.json()
             log(f"  [llm-timing] model={payload.get('model','?')} latency={int((time.time()-_t0)*1000)}ms")
             _record_dep(_host, True, time.time() - _call_started)
+            if is_generation:
+                llm_exchange_log.record(payload.get("model"), payload, llm_exchange_log.response_content(_result),
+                                        int((time.time() - _call_started) * 1000))
             return _result
         except Exception as exc:
             last_error = exc
@@ -84,6 +89,9 @@ def post_with_retries(url: str, payload: dict[str, Any], timeout: int = REQUEST_
                 time.sleep(RETRY_SLEEP_SECONDS * (2 ** (attempt - 1)))
 
     _record_dep(_host, False, time.time() - _call_started, str(last_error))
+    if is_generation:
+        llm_exchange_log.record(payload.get("model"), payload, None,
+                                int((time.time() - _call_started) * 1000), error=str(last_error))
     raise RuntimeError(f"Request failed after retries: {last_error}")
 
 

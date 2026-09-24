@@ -86,8 +86,29 @@ def _configure_beat_schedule() -> None:
                 "options": {"queue": INGEST_QUEUE},
             }
 
+    if settings.processing_purge_cron.strip():
+        processing_cron = _crontab(settings.processing_purge_cron)
+        if processing_cron is not None:
+            schedule["purge-expired-processing-records"] = {
+                "task": "ai4ia.purge_expired_processing_records",
+                "schedule": processing_cron,
+                "options": {"queue": INGEST_QUEUE},
+            }
+
     if schedule:
         celery_app.conf.beat_schedule = schedule
+
+
+@celery_app.task(name="ai4ia.purge_expired_processing_records", queue=INGEST_QUEUE)
+def purge_expired_processing_records_task() -> dict:
+    """Delete prompt and LLM-exchange records past their expires_at (privacy policy 6)."""
+    import logging
+
+    from app.services import processing_records
+
+    results = processing_records.purge_expired()
+    logging.getLogger("ai4ia.worker.processing_purge").info("Processing-record sweep: %s", results)
+    return results
 
 
 @celery_app.task(name="ai4ia.purge_expired_auth_data", queue=INGEST_QUEUE)

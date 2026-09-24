@@ -59,6 +59,40 @@ def _no_rate_limit_redis(monkeypatch):
     monkeypatch.setattr(rate_limit, "_get_redis", lambda: None)
 
 
+class _FakeRecords:
+    """In-memory stand-in for the prompt_resolutions / llm_call_payloads repositories."""
+
+    def __init__(self):
+        self.resolutions: dict[str, dict] = {}
+        self.payloads: list[dict] = []
+
+    # PromptResolutionRepository
+    def create(self, data):
+        if "request_text" in data:
+            self.payloads.append(dict(data))
+        else:
+            self.resolutions[data["job_id"]] = dict(data)
+
+    def update_by_job(self, job_id, *, fields=None, merge=None, only_if_outcome=None):
+        row = self.resolutions.get(job_id)
+        if row is None or (only_if_outcome and row.get("layer_outcome") != only_if_outcome):
+            return
+        row.update(fields or {})
+        for key, value in (merge or {}).items():
+            row[key] = {**row.get(key, {}), **value}
+
+
+@pytest.fixture(autouse=True)
+def processing_records_store(monkeypatch):
+    """Keep request and LLM-exchange records out of any real Postgres."""
+    from app.services import processing_records
+
+    fake = _FakeRecords()
+    monkeypatch.setattr(processing_records, "_resolutions", lambda: fake)
+    monkeypatch.setattr(processing_records, "_payloads", lambda: fake)
+    return fake
+
+
 # ---------------------------------------------------------------------------
 # mock_settings — patches app.core.settings.settings with safe in-test values
 # ---------------------------------------------------------------------------

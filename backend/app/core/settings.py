@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import date
 from pathlib import Path
 from urllib.parse import quote, urlsplit, urlunsplit
 
@@ -55,6 +56,11 @@ class Settings(BaseSettings):
     auth_data_retention_days: int = 30
     # Blank disables the sweep entirely (Celery beat format, UTC).
     auth_purge_cron: str = "30 3 * * *"  # 03:30 UTC daily
+
+    # Prompt and LLM-exchange records (privacy policy 6: kept for the project's duration)
+    processing_record_retain_until: date = date(2026, 12, 31)
+    record_llm_payloads: bool = True        # store full LLM request/response text
+    processing_purge_cron: str = "45 3 * * *"  # blank disables the expiry sweep
 
     # Login brute-force lockout
     login_max_failed_attempts: int = 5
