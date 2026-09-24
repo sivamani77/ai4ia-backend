@@ -150,6 +150,15 @@ def _quote_starts_cleanly(text: str) -> bool:
     return t[0].isupper()
 
 
+def _measured(values: dict[str, Any], template: str) -> str:
+    """Format a measurement, or say it was not measured. Zeros for a missing
+    measurement read as "unusable audio" and got good clips demoted."""
+    try:
+        return template.format(**values)
+    except (KeyError, ValueError, TypeError):
+        return "not measured (no known audio problem)"
+
+
 def _build_validation_prompt(
     candidate: dict[str, Any],
     context_window: list[dict[str, Any]],
@@ -193,8 +202,8 @@ CANDIDATE FRAGMENT:
   end: {frag_end:.2f}s
   duration: {frag_end - frag_start:.2f}s
   text: {wrap_untrusted(text)}
-  speech_quality: speech_ratio={speech_quality.get("speech_ratio", 0):.2f}, is_usable={speech_quality.get("is_usable_speech", False)}
-  moment_scores: completeness={moment_scores.get("quote_completeness_score", 0):.2f}, final={moment_scores.get("final_moment_score", 0):.2f}
+  speech_quality: {_measured(speech_quality, "speech_ratio={speech_ratio:.2f}, is_usable={is_usable_speech}")}
+  moment_scores: {_measured(moment_scores, "completeness={quote_completeness_score:.2f}, final={final_moment_score:.2f}")}
 
 SURROUNDING TRANSCRIPT (lines marked <<<FRAGMENT>>> are the selected fragment):
 {wrap_untrusted(context_text) if context_text else "  (no transcript available)"}

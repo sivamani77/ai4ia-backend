@@ -142,10 +142,14 @@ def build_corpus_facts(records: list[dict[str, Any]], top_n: int = 5,
     return facts
 
 
+AI4IA_FULL_NAME = "Artificial Intelligence for Information Accessibility"
+
+
 def format_facts_for_prompt(facts: dict[str, Any]) -> str:
     """Plain-text facts block for the storyline LLM. Every figure here is one
     the narration may state; anything absent must not be invented."""
     lines = [
+        f"- AI4IA stands for: {AI4IA_FULL_NAME}",
         f"- Talks in the archive: {facts['video_count']}",
         f"- Speakers: over {(facts.get('registry_speaker_count') or facts['speaker_count_lower_bound']) // 10 * 10}",
         f"- Themes: {facts['theme_count']}",
@@ -153,7 +157,7 @@ def format_facts_for_prompt(facts: dict[str, Any]) -> str:
     ]
     if "year_first" in facts:
         # Range only: some talks lack a year tag (e.g. none carry 2022), so a per-year list would be wrong.
-        lines.append(f"- Years covered: {facts['year_first']}–{facts['year_last']}")
+        lines.append(f"- Years covered: {facts['year_first']}–{facts['year_last']} (state the range; never count the years)")
     if facts["themes"]:
         lines.append("- Themes, most discussed first:")
         lines += [f"    {t['name']}" for t in facts["themes"]]

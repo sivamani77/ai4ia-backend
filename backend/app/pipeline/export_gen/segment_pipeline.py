@@ -423,10 +423,18 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
             f"and refusing to drop it. Fix the manifest timeline."
         )
 
-    source_video = item.get("source_video")
-    role = item.get("role", seg_type or "archive_visual")
-    source_path = find_source_video(source_video, fragment_id)
     item_audio_mode = item.get("audio_mode") or ""
+    is_speech_or_narration = {seg_type, item_type} & {"speaker_clip", "narration_broll"}
+    if not is_speech_or_narration and (
+        seg_type in ("archive_visual", "speaker_visual") or item_audio_mode == "silent" or item.get("muted") is True
+    ):
+        # Archive footage appears only in speaker clips; muted footage is never shown.
+        log(f"  [render] Skipping {seg_type or item_type} {str(fragment_id)[:40]!r}: muted footage is not rendered.")
+        return SegmentPlan(kind="skip", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id)
+
+    source_video = item.get("source_video")
+    role = item.get("role", seg_type or "archive_clip")
+    source_path = find_source_video(source_video, fragment_id)
 
     _has_generated_visual = bool(
         item.get("render_visual_path") or item.get("visual_path") or item.get("asset_path")
@@ -537,16 +545,12 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
             muted=False, visual_mode="generated_asset",
         )
 
-    # ---- archive_visual / speaker_visual / default --------------------------
+    # ---- other archive segments, with their own audio -----------------------
     start = float(item.get("start") or 0)
     end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
     if end <= start:
         end = start + DEFAULT_CLIP_DURATION
-    if seg_type == "archive_visual" or item_audio_mode == "silent" or item.get("muted") is True:
-        audio_mode = "muted"
-        lower_third = None
-    else:
-        audio_mode = "source"
+    audio_mode = "source"
 
     bandaid_note = None
     stream_loop = False

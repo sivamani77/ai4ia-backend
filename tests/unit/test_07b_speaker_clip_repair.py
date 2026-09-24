@@ -54,6 +54,15 @@ class TestRepairShelf:
         assert [c["fragment_id"] for c in shelf] == ["spare", "broll"]
 
 
+def test_speaker_clip_placed_as_narration_is_on_the_shelf():
+    # The overview assembly placed all four approved speaker clips as narration.
+    timeline = [clip("a", kind="narration_broll")]
+    shelf = repair_shelf(timeline, [verdict("a")])
+    assert [c["fragment_id"] for c in shelf] == ["a"]
+    gates = {"has_speaker_clips": False, "final_timeline_approved": False}
+    assert repair_can_help(gates, shelf)
+
+
 class TestRepairCanHelp:
     SPEAKER_FAIL = {"has_speaker_clips": True, "final_timeline_approved": False, "all_sections_covered": True}
 

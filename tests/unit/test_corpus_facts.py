@@ -95,7 +95,7 @@ class TestSpeakerCount:
     def test_years_are_stated_as_a_range_only(self):
         facts = build_corpus_facts([{**frag("v1", "A B"), "video_year": 2021}, {**frag("v2", "C D"), "video_year": 2026}])
         text = format_facts_for_prompt(facts)
-        assert "- Years covered: 2021–2026" in text
+        assert "- Years covered: 2021–2026 (state the range; never count the years)" in text
         assert "years with talks" not in text
 
 

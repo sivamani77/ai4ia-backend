@@ -81,8 +81,10 @@ def repair_shelf(
     timeline: list[dict[str, Any]],
     validated_candidates: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Approved clips not yet in the timeline, speaker clips first."""
-    used = {str(item.get("fragment_id")) for item in timeline if item.get("fragment_id")}
+    """Approved clips not already placed as speaker clips, speaker clips first.
+    A speaker clip the assembly placed as narration counts as available."""
+    used = {str(item.get("fragment_id")) for item in timeline
+            if item.get("fragment_id") and _item_type(item) == "speaker_clip"}
     shelf = [c for c in validated_candidates
              if c.get("approved") and c.get("fragment_id") and str(c["fragment_id"]) not in used]
     return sorted(shelf, key=lambda c: c.get("decision") != "speaker_clip")

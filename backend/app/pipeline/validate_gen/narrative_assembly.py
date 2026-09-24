@@ -48,7 +48,8 @@ def _archive_facts_block(storyline_data: dict[str, Any]) -> str:
         return ""
     return ("\nARCHIVE FACTS (the request is about the archive itself). State figures exactly as given here "
             "(\"309 talks\", never \"more than 309\"), derive no new figures such as a number of years, "
-            "never attribute them to a speaker, and do not expand or define the name AI4IA:\n" + facts + "\n")
+            "never attribute them to a speaker, and expand the name AI4IA only as given here. "
+            "Keep approved speaker clips as speaker_clip items: they are the conference's voices.\n" + facts + "\n")
 
 
 def assemble_narrative_with_llm(
