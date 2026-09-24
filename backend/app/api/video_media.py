@@ -49,6 +49,7 @@ _PRESIGNED_EXPIRY = 3600  # 1 hour
 def _make_presigned_url(object_key: str) -> str:
     """Generate an S3 presigned GET URL for the given object key."""
     import boto3
+    from botocore.config import Config
     kwargs: dict[str, Any] = {
         "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
         "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
@@ -56,6 +57,10 @@ def _make_presigned_url(object_key: str) -> str:
     }
     if _OBJECT_STORAGE_ENDPOINT:
         kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+        kwargs["config"] = Config(signature_version="s3v4")
+    else:
+        # Sign for the regional host: opt-in regions (ap-south-2) reject the global one.
+        kwargs["config"] = Config(signature_version="s3v4", s3={"addressing_style": "virtual"})
     s3 = boto3.client("s3", **kwargs)
     return s3.generate_presigned_url(
         "get_object",
