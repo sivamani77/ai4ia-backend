@@ -476,6 +476,61 @@ The stage 07 script cannot touch Postgres. So:
 
 **Storyline cache:** a cache hit skips stage 07, so coverage does not run again. That is fine, because a cached storyline came from a covered run. **The cache key must include `intent` + `intent_version`**, so a storyline built under an old template is never served for a new one.
 
+### 8.4a Built (phase 6, 2026-09-24)
+
+`storyline_gen/coverage.py`, called by stage 07 right after retrieval. Differences from §8.1–§8.4 above, each driven by a measurement:
+
+- **The rule checks topic terms, not only top-1 similarity.**
+  - Measured on the local corpus: covered prompts scored 0.72–0.81 and off-topic ones 0.62–0.65. But "quantum computing in agriculture" scored 0.77, because "agriculture" matches on its own.
+  - So the rule passes a request as covered only when top-1 ≥ `archive_relevance_floor` **and** every topic term appears in at least one of its **10 best matches**.
+  - Checking the whole retrieved pool was too loose: a single passing mention of "quantum" among ~90 fragments made the prompt look covered.
+  - Below `coverage_judge_low` (0.60) it is not covered. Everything else goes to the judge.
+- **Terms match with normal word endings only.** Topic terms are stems ("deepfake", "indigenou"). The existing whole-word matcher never matched "deepfakes", and a plain prefix match took "roman" for "romance".
+- **The judge answers per subject, and code decides the verdict.**
+  - When asked for covered / partial / not_covered directly, the model changed its answer between identical runs. It also invented sub-topics ("detection", "media literacy") and called them missing.
+  - Now it lists the subjects the request names and says whether each is *discussed* (a sentence or more, not a passing mention or an example). Code maps this: all discussed is covered, none is not covered, a mix is partial.
+  - It runs at `reasoning_effort: medium`, through stage 07's LLM client, so its exchange is recorded in `llm_call_payloads`.
+- **The judge's evidence for each term comes from the whole archive.** For "deepfakes and space law", retrieval leant toward law and space. Its only "deepfake" hits were talk titles, so the judge saw no deepfake discussion and declined. Now, for each term, the judge also sees the fragment whose spoken text mentions it most (Jessica Rose Smith's "Harmful deepfakes", 7 mentions). The snippet is centred on that term. A speaker's evidence stays within their own fragments.
+- **Speaker evidence pool:** the speaker's own fragments, matched by `speaker_match` or by registry name. A prompt that also matched the speaker's talk title carried no `speaker_match` flag.
+- **`coverage_decline_enabled`** (default on) can be switched off for shadow mode: verdicts are recorded, and nothing is declined.
+- **No `resolution.json`:** stage 07 already receives the resolved speaker as `--requested-speaker`. The verdict comes back in a coverage file passed as `--coverage-file`.
+
+**Outcome recording:** the verdict is stored in `prompt_resolutions.coverage`. A completed job ends as `covered` or `partial`, or `completed` when stage 07 was skipped by the storyline cache. A decline ends as `declined`, with `reason_code` and `suggestions`.
+
+**Partial:** the missing subjects become `coverage_gaps`. The storyline payload and the 07b assembly prompt both carry them, with one rule: say once, in general terms, that the archive has no talks on them, and never invent content. The gap text is the judge's short subject phrases, never the raw prompt (§4 of the privacy policy: narration goes to Edge TTS).
+
+**The rule alone did not hold.** In the render of "deepfakes and space law", stage 07's narration invented the missing subject ("experts propose extending existing space-law frameworks…", a made-up satellite-malfunction scenario), and no narration stated the gap. So 07b ends with a deterministic pass, `validate_gen/archive_answer.state_coverage_gaps`:
+- It drops every narration sentence that names a gap subject, or one of its distinctive words (4+ letters, and not part of a subject the archive does cover: "space" for "space law", never "law").
+- It opens the first narration with: "The AI4IA archive has no talks on space law. This film looks at what its speakers said about deepfakes."
+- A section left empty falls back to its neutral default line.
+
+The re-render dropped 3 invented sentences and stated the gap. **Limit:** an invented sentence that never names the subject ("videos that masquerade as real launches") is not caught.
+
+**The hand-written deepfake arc was removed at the same time.** Any prompt containing "deepfake", "misinformation", "AI-generated" or similar got a fixed six-section arc from the prototype, with canned default narration: unsourced claims such as "women targeted with non-consensual intimate images…". Stage 07b spoke those lines whenever a section had no narration. In the first partial render, 5 of 6 sections were these lines. Deepfake prompts now use the `topic` format like any other topic. The remaining fallback lines are thematic, not factual ("Responses are emerging, but the pace and scale remain contested."). The retrieval synonyms for deepfake terms (`prompt_intent`) and the per-topic keyword table for choosing clip windows (`moment_repair`) are search vocabulary, never spoken, and stay.
+
+**End-to-end renders (60 s):**
+
+| Prompt | Result |
+|---|---|
+| Deepfakes and space law | `partial`; gap stated in the opening; invented space-law sentences dropped |
+| What did Cordel Green say about quantum computing? | declined `speaker_topic_not_covered` after 11 s, with suggestion "What did Cordel Green say?" |
+| AI governance and transparency | `covered` by the rule, no judge call |
+| AI in space debris tracking (passes L1) | declined `topic_not_covered` after 9 s, with the nearest themes as suggestions |
+| Deepfakes and elections | `covered`; plain topic arc, real narration, clips from Bettina Berendt and Winston Ng |
+
+Each judged job recorded its judge exchange in `llm_call_payloads`.
+
+**Measured verdicts** (19 prompts, run twice with the same result):
+- The rule marked 7 in-scope topics and speaker+topic prompts covered without a judge call.
+- "Deepfakes and space law" is partial, missing "space law".
+- Cordel Green on quantum computing and Bettina Berendt on football are declined as `speaker_topic_not_covered`.
+- Crypto, cake, Formula 1 and AlphaFold are declined as `topic_not_covered`.
+
+**Layering:**
+- "The history of the Roman empire" and "Quantum computing in agriculture" pass L2b, as covered: the archive does have a quantum computing talk and agriculture talks, separately, and the judge checks subjects rather than their combination.
+- **L1 rejects both as off-topic first**, along with the other off-topic prompts.
+- So L2b's job is the in-scope request the archive cannot answer, not the off-topic one.
+
 ### 8.4b Muted archive footage is never rendered
 
 Archive footage appears only in speaker clips (the rule from the static-slideshow fix). Two leftovers broke it: stage 09's "speaker-visual repair" inserted footage 07b had not vetted when a speaker video had no speaker clip (3 of 15 local exports), and stage 09 still rendered `archive_visual` / `speaker_visual` segments as muted footage (2 renders). The repair now only reports, and stage 09 skips muted or visual-only footage with a log line. The planning code that scores such candidates upstream is unchanged, since removing it would change retrieval and mode choices for every job.
@@ -709,7 +764,7 @@ Each phase ships on its own and is checked before the next.
 | 3 | `stage_resolve` + speaker outcomes + decline path + messages + `suggestions` | resolve rows of the case matrix |
 | 4 | `intents/` package: move `topic`, `speaker`, `speaker_topic`, `title`, `chronological` in **without changing behaviour** | existing golden-set tests unchanged |
 | 5 | new intents: `overview`, `speaker_panel`, `theme_chapter` | one hand-checked render each |
-| 6 | L2b coverage + judge + gap narration | coverage rows of the case matrix; band tuned on recorded `top_similarity` |
+| 6 | L2b coverage + judge + gap narration | coverage rows of the case matrix; band tuned on recorded `top_similarity`. **Built 2026-09-24** (§8.4a). |
 | 7 | LLM router, **only if** recorded `resolution_method = 'fallback'` rows show misrouting | router accuracy on the labelled set |
 | L3 | §8.5: decline speaker intents with no approved clip; ground the repair pass and check its narration | the Cordell Green job above renders real Cordel Green clips or declines; no invented quotes |
 | 8 | §7.4: documentary format per intent, clip policy (required/optional), clips on the AI4IA agenda, clips never at the start or end | §7.4.5 renders. **Built 2026-09-24, before phase 6** (§7.4.6). |
