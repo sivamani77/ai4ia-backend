@@ -29,6 +29,8 @@ from app.core import metrics as _metrics
 from app.core.rate_limit import TokenBucket
 
 from app.schemas.pipeline import JobResponse
+from app.services import processing_records
+from app.services.prompt_rules import check_prompt
 
 from app.services.video_job_runner import (
     STAGE_DEFINITIONS,
@@ -51,7 +53,8 @@ router = APIRouter(prefix="/video-jobs", tags=["video-jobs"])
 # ---------------------------------------------------------------------------
 
 class VideoJobRequest(BaseModel):
-    prompt: str = Field(..., min_length=3, max_length=2000, description="Documentary prompt")
+    # Hard cap only; prompt_rules gives the friendly length and emptiness messages.
+    prompt: str = Field(..., max_length=20000, description="Documentary prompt")
     # Required: the pipeline treats this as a minimum duration (floor) — the final
     # video may run somewhat longer, never shorter. No silent default.
     target_duration: int = Field(..., ge=30, le=600)
@@ -164,6 +167,14 @@ def create_job(request: VideoJobRequest, current_user: CurrentUser = Depends(get
             detail="Too many requests. Please wait before submitting another job.",
         )
 
+    rules = check_prompt(request.prompt)
+    if rules.rejected:
+        processing_records.start_request(
+            None, effective_user_id, request.prompt, outcome="l0_rejected",
+            reason_code=rules.reason_code, user_message=rules.message, flags=rules.flags,
+        )
+        raise HTTPException(status_code=422, detail=rules.message)
+
     all_jobs = list_jobs()
 
     # Per-user quota: 1 running + 3 queued max
@@ -197,7 +208,7 @@ def create_job(request: VideoJobRequest, current_user: CurrentUser = Depends(get
         )
 
     req_dict = request.model_dump()
-    job_id = create_video_job(req_dict, user_id=effective_user_id)
+    job_id = create_video_job(req_dict, user_id=effective_user_id, flags=rules.flags)
     start_video_job_background(job_id, req_dict)
 
     # Queue position — count all queued jobs ahead of this one

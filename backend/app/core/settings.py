@@ -217,6 +217,8 @@ class Settings(BaseSettings):
     # If the LLM call itself fails (timeout, unparsable output), allow the
     # prompt through rather than blocking legitimate users on infra failure.
     prompt_guardrail_fail_open: bool = True
+    # Longest prompt accepted with a friendly message; the request model's hard cap is higher.
+    prompt_max_chars: int = 2000
 
     # ------------------------------------------------------------------
     # Response translation

@@ -8,6 +8,7 @@ from app.core.settings import settings
 from app.pipeline.base import PipelineContext, StageResult
 from app.services import processing_records
 from app.services.guardrail_service import VIDEO_POLICY, classify
+from app.services.prompt_rules import check_prompt
 from app.services.job_store import append_event, load_job
 from app.services.video_job_runner import update_stage
 
@@ -36,6 +37,16 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     routes can share it; this stage only maps the verdict onto job state.
     """
     prompt = (request.get("prompt") or "").strip()
+
+    # L0 backstop for jobs created outside the API route; needs no model.
+    rules = check_prompt(prompt)
+    if rules.rejected:
+        processing_records.record_layer(job_id, outcome="l0_rejected", reason_code=rules.reason_code,
+                                        user_message=rules.message, flags=rules.flags)
+        update_stage(job_id, STAGE_NAME, "failed", 100, rules.message)
+        append_event(job_id, "stage_failed", STAGE_NAME, {"reason_code": rules.reason_code})
+        return StageResult(stage=STAGE_NAME, status="failed", message=rules.message,
+                           data={"reason_code": rules.reason_code})
 
     if not settings.prompt_guardrail_enabled:
         return StageResult(stage=STAGE_NAME, status="skipped", message="Guardrail disabled")

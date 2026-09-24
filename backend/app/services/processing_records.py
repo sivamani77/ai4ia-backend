@@ -36,8 +36,10 @@ def _payloads():
     return LLMPayloadRepository()
 
 
-def start_request(job_id: str, user_id: str | None, prompt: str, surface: str = "video") -> None:
-    """Open the record for a new job."""
+def start_request(job_id: str | None, user_id: str | None, prompt: str, surface: str = "video",
+                  *, outcome: str = "in_progress", reason_code: str | None = None,
+                  user_message: str | None = None, flags: Mapping[str, Any] | None = None) -> None:
+    """Open the record for a request. job_id is None for a prompt rejected before a job exists."""
     try:
         from app.services.speaker_registry import get_registry
 
@@ -47,7 +49,10 @@ def start_request(job_id: str, user_id: str | None, prompt: str, surface: str = 
             "surface": surface,
             "user_id": user_id or None,
             "raw_prompt": prompt or "",
-            "layer_outcome": "in_progress",
+            "flags": dict(flags or {}),
+            "layer_outcome": outcome,
+            "reason_code": reason_code,
+            "user_message": user_message,
             "code_version": code_version(),
             "corpus_version": settings.storyline_corpus_version,
             "registry_version": get_registry().version or None,

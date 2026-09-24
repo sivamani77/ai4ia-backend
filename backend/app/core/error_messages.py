@@ -27,6 +27,17 @@ _BY_ERROR_TYPE: dict[str, str] = {
     ),
 }
 
+# L0 prompt rules (app/services/prompt_rules.py), keyed by reason code.
+PROMPT_RULE_MESSAGES: dict[str, str] = {
+    "prompt_empty": "Please enter a topic or question about the AI4IA archive.",
+    "prompt_too_long": "Your prompt is too long. Please keep it under {max_chars} characters.",
+    "prompt_greeting": (
+        "Hi! Ask about a topic, speaker or theme from the AI4IA archive, for example "
+        "\"What did speakers say about deepfakes?\""
+    ),
+    "prompt_gibberish": "We couldn't read that as a topic or question. Please rephrase it.",
+}
+
 DEFAULT_MESSAGE = (
     "Something went wrong while processing your request. Please try again, and "
     "contact support if the problem continues."

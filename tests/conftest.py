@@ -133,6 +133,7 @@ def mock_settings(tmp_path, monkeypatch):
     # test that hits a gated route without explicitly exercising the gate.
     fake.model_gate_enabled = False
     fake.model_gate_inline_wait_seconds = 0
+    fake.prompt_max_chars = 2000
 
     monkeypatch.setattr(settings_module, "settings", fake)
     return fake

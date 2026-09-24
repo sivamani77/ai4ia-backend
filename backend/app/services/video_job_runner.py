@@ -240,7 +240,7 @@ def _complete_job(job_id: str) -> None:
 # Job creation
 # ---------------------------------------------------------------------------
 
-def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
+def create_video_job(request: dict[str, Any], user_id: str = "", flags: dict[str, Any] | None = None) -> str:
     job_id = f"vjob_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
 
     job: dict[str, Any] = {
@@ -275,7 +275,7 @@ def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
     }
     save_job(job_id, job)
     append_event(job_id, "created", "queued", {"prompt": request.get("prompt", "")})
-    processing_records.start_request(job_id, user_id, request.get("prompt", ""))
+    processing_records.start_request(job_id, user_id, request.get("prompt", ""), flags=flags)
     _metrics.jobs_created_total.inc()
     return job_id
 
