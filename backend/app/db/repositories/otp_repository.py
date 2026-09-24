@@ -78,14 +78,28 @@ class OtpRepository:
             return None
         return OtpRecord(**normalize_value(dict(row)))
 
-    def increment_attempts(self, otp_id: str, attempts: int) -> None:
-        pg_execute(
-            "update otp_codes set attempts = %(attempts)s where id = %(id)s",
-            {"id": otp_id, "attempts": attempts},
+    def claim_attempt(self, otp_id: str, max_attempts: int) -> int | None:
+        """Count one guess against an unused code, in a single statement so
+        parallel guesses cannot exceed the cap. Returns the new attempt count,
+        or None when the code is used up or already at the cap."""
+        row = pg_fetch_one(
+            """
+            update otp_codes set attempts = attempts + 1
+            where id = %(id)s and used_at is null and attempts < %(max)s
+            returning attempts
+            """,
+            {"id": otp_id, "max": max_attempts},
         )
+        return int(row["attempts"]) if row is not None else None
 
-    def mark_used(self, otp_id: str) -> None:
-        pg_execute("update otp_codes set used_at = now() where id = %s", (otp_id,))
+    def mark_used(self, otp_id: str) -> bool:
+        """Consume a code. False if it was already used, so only one request
+        can ever succeed with it."""
+        row = pg_fetch_one(
+            "update otp_codes set used_at = now() where id = %s and used_at is null returning id",
+            (otp_id,),
+        )
+        return row is not None
 
 
 __all__ = ["OtpRepository", "OtpRecord"]

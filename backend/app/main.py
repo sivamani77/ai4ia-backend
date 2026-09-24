@@ -6,13 +6,16 @@ import uuid
 from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, Request
+from fastapi.exception_handlers import http_exception_handler
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from prometheus_fastapi_instrumentator import Instrumentator
 from pythonjsonlogger.json import JsonFormatter
 
-from app.core.auth import get_current_user, require_api_key, require_role
+from app.core.auth import BEARER_CHALLENGE as _BEARER_CHALLENGE, get_current_user, require_api_key, require_role
+from app.core.security import jwt_key_problem
 from app.core.config import API_PREFIX
 from app.core import dependency_state
 from app.core.error_messages import DEFAULT_MESSAGE
@@ -163,6 +166,11 @@ async def lifespan(app: FastAPI):
     for warning in settings.validate_deployment_env():
         logger.warning(warning)
 
+    key_problem = jwt_key_problem()
+    if key_problem:
+        logger.error(key_problem)
+        raise RuntimeError(key_problem)
+
     try:
         await asyncio.to_thread(ensure_pipeline_schema)
     except Exception:
@@ -211,6 +219,15 @@ async def _validation_error_handler(request: Request, exc: RequestValidationErro
         status_code=422,
         content={"detail": "Some of the details provided weren't valid. Please check your input and try again."},
     )
+
+
+@app.exception_handler(StarletteHTTPException)
+async def _http_exception_handler(request: Request, exc: StarletteHTTPException):
+    # RFC 9110 §11.6.1: every 401 must carry a challenge. Routes that raise a
+    # bare 401 (refresh, logout, missing token) get the default one here.
+    if exc.status_code == 401 and not (exc.headers or {}).get("WWW-Authenticate"):
+        exc.headers = {**(exc.headers or {}), "WWW-Authenticate": _BEARER_CHALLENGE}
+    return await http_exception_handler(request, exc)
 
 
 @app.exception_handler(Exception)

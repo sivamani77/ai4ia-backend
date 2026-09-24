@@ -26,6 +26,10 @@ class Settings(BaseSettings):
     # User authentication (JWT access + rotating refresh tokens)
     # ------------------------------------------------------------------
     jwt_signing_key: str = ""
+    # A key shorter than this can be brute-forced offline from any issued
+    # token, so the API refuses to start with one. An empty key is rejected
+    # at signing/verification time instead (auth off, pipeline still usable).
+    jwt_min_key_bytes: int = 32
     jwt_algorithm: str = "HS256"
     jwt_issuer: str = "ai4ia-backend"
     access_token_ttl_seconds: int = 15 * 60          # 15 minutes
@@ -33,6 +37,10 @@ class Settings(BaseSettings):
     refresh_cookie_name: str = "refresh_token"
     refresh_cookie_domain: str = ""   # blank = host-only cookie
     refresh_cookie_secure: bool = True
+    # A refresh token presented again within this many seconds of its rotation
+    # is refused without ending the session: two tabs refreshing at once, not
+    # a stolen token. Later replays still revoke the whole session family.
+    refresh_reuse_grace_seconds: int = 30
 
     # Argon2id password hashing cost parameters
     argon2_time_cost: int = 3
@@ -43,6 +51,30 @@ class Settings(BaseSettings):
     otp_ttl_minutes: int = 10
     otp_max_attempts: int = 5
     otp_resend_cooldown_seconds: int = 60
+    # Limits on code requests and guesses. Per-email limits are the main
+    # control and hold across codes, so asking for a new code does not reset
+    # the guess budget. Per-IP limits are a looser backstop.
+    # Tight limits are keyed on e-mail + IP, so an attacker elsewhere cannot
+    # use them to lock the owner out; the looser e-mail-only ceilings cap an
+    # attacker who rotates IPs. The daily guess cap is the hard bound on
+    # guesses at one account's codes, however many codes are issued.
+    otp_requests_per_email_ip_per_hour: int = 5
+    otp_requests_per_email_per_hour: int = 20
+    otp_requests_per_ip_per_hour: int = 30
+    otp_verifies_per_email_ip_per_hour: int = 10
+    otp_verifies_per_email_per_hour: int = 30
+    otp_verifies_per_ip_per_hour: int = 60
+    otp_codes_per_email_ip_per_day: int = 10
+    otp_codes_per_email_per_day: int = 30
+    otp_verifies_per_email_ip_per_day: int = 20
+    otp_verifies_per_email_per_day: int = 100  # NIST SP 800-63B: at most 100 failures per account
+
+    # Proxies whose X-Forwarded-For entries are trusted when finding the
+    # client IP (Istio sidecar and ingress sit on these ranges).
+    trusted_proxy_cidrs: list[str] = [
+        "127.0.0.0/8", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "100.64.0.0/10",
+        "::1/128", "fc00::/7",
+    ]
 
     # ------------------------------------------------------------------
     # Auth data retention (privacy policy 2.4)

@@ -8,6 +8,7 @@ from fastapi import HTTPException
 import uuid
 
 from app.core import metrics as _metrics
+from app.core.client_ip import is_trusted_proxy
 from app.core.rate_limit import TokenBucket
 from app.core.security import (
     create_access_token,
@@ -47,6 +48,73 @@ _DB_TO_PERSONA = {"user": "general", "researcher": "expert", "admin": "admin"}
 
 _otp_resend_limiter = TokenBucket(rate=1, per=60.0, name="otp_resend")
 _login_limiter = TokenBucket(rate=5, per=60.0, name="login")
+
+# Password-reset and code-guessing limits (C-05); see the settings for how
+# the e-mail+IP, e-mail and IP tiers fit together. The guess limits span
+# codes, so requesting a fresh code does not buy a fresh set of guesses.
+_otp_request_email_ip_limiter = TokenBucket(
+    rate=settings.otp_requests_per_email_ip_per_hour, per=3600.0, name="otp_request_email_ip")
+_otp_request_email_limiter = TokenBucket(
+    rate=settings.otp_requests_per_email_per_hour, per=3600.0, name="otp_request_email")
+_otp_request_ip_limiter = TokenBucket(
+    rate=settings.otp_requests_per_ip_per_hour, per=3600.0, name="otp_request_ip")
+_otp_verify_email_ip_limiter = TokenBucket(
+    rate=settings.otp_verifies_per_email_ip_per_hour, per=3600.0, name="otp_verify_email_ip")
+_otp_verify_email_limiter = TokenBucket(
+    rate=settings.otp_verifies_per_email_per_hour, per=3600.0, name="otp_verify_email")
+_otp_verify_ip_limiter = TokenBucket(
+    rate=settings.otp_verifies_per_ip_per_hour, per=3600.0, name="otp_verify_ip")
+_otp_daily_email_ip_limiter = TokenBucket(
+    rate=settings.otp_codes_per_email_ip_per_day, per=86400.0, name="otp_daily_email_ip")
+_otp_daily_email_limiter = TokenBucket(
+    rate=settings.otp_codes_per_email_per_day, per=86400.0, name="otp_daily_email")
+_otp_verify_daily_email_ip_limiter = TokenBucket(
+    rate=settings.otp_verifies_per_email_ip_per_day, per=86400.0, name="otp_verify_daily_email_ip")
+_otp_verify_daily_limiter = TokenBucket(
+    rate=settings.otp_verifies_per_email_per_day, per=86400.0, name="otp_verify_daily")
+
+
+def _enforce(limiter: TokenBucket, key: str, *, event: str, detail: str) -> None:
+    """Raise 429 with Retry-After when `key` is over `limiter`'s budget."""
+    if limiter.allow(key):
+        return
+    _metrics.rate_limit_rejections_total.labels(limiter=limiter.name).inc()
+    _metrics.auth_events_total.labels(event=event, outcome="rate_limited").inc()
+    raise HTTPException(
+        status_code=429,
+        detail=detail,
+        headers={"Retry-After": str(limiter.retry_after(key))},
+    )
+
+
+def _enforce_tiers(
+    email_ip: TokenBucket, email_only: TokenBucket, ip_only: TokenBucket,
+    *, subject: str, ip: str | None, event: str, detail: str,
+) -> None:
+    """Apply the e-mail+IP, e-mail and IP limits. The IP tiers are skipped when
+    the address is unknown or is a proxy's own, since every caller would then
+    share one key and one caller could block them all."""
+    usable_ip = _usable_ip(ip)
+    if usable_ip:
+        _enforce(email_ip, f"{subject}:{usable_ip}", event=event, detail=detail)
+    _enforce(email_only, subject, event=event, detail=detail)
+    if usable_ip:
+        _enforce(ip_only, usable_ip, event=event, detail=detail)
+
+
+def _enforce_request_limits(email: str, ip: str | None, *, event: str) -> None:
+    _enforce_tiers(
+        _otp_request_email_ip_limiter, _otp_request_email_limiter, _otp_request_ip_limiter,
+        subject=email.lower(), ip=ip, event=event,
+        detail="Too many code requests. Please wait before trying again.",
+    )
+
+
+class _DailyCodeCapReached(HTTPException):
+    """Daily code cap hit. A plain 429 unless the caller hides it (reset paths)."""
+
+    def __init__(self) -> None:
+        super().__init__(status_code=429, detail="Too many codes requested today. Please try again tomorrow.")
 
 
 def _to_ui_persona(db_persona: str | None) -> str:
@@ -107,7 +175,20 @@ def signup(*, username: str, password: str, first_name: str, last_name: str, ema
     return created["id"]
 
 
-def _issue_otp(*, email: str, purpose: str, user_id: str | None) -> None:
+def _usable_ip(ip: str | None) -> str | None:
+    """The IP for limiter keys, or None when it is unknown or a proxy's own
+    (every caller would then share the key)."""
+    return ip if ip and ip != "unknown" and not is_trusted_proxy(ip) else None
+
+
+def _issue_otp(*, email: str, purpose: str, user_id: str | None, ip: str | None = None) -> None:
+    subject = f"{email.lower()}:{purpose}"
+    usable_ip = _usable_ip(ip)
+    if usable_ip and not _otp_daily_email_ip_limiter.allow(f"{subject}:{usable_ip}"):
+        raise _DailyCodeCapReached()
+    if not _otp_daily_email_limiter.allow(subject):
+        raise _DailyCodeCapReached()
+
     otp_repo = get_otp_repository()
     otp_repo.invalidate_active(email, purpose)
 
@@ -131,11 +212,13 @@ def _issue_otp(*, email: str, purpose: str, user_id: str | None) -> None:
         raise HTTPException(status_code=502, detail="Failed to send verification email. Please try again.")
 
 
-def resend_otp(*, email: str, purpose: str) -> None:
+def resend_otp(*, email: str, purpose: str, ip: str | None = None) -> None:
     if not _otp_resend_limiter.allow(f"{email}:{purpose}"):
         _metrics.rate_limit_rejections_total.labels(limiter="otp_resend").inc()
         _metrics.auth_events_total.labels(event="otp_resend", outcome="rate_limited").inc()
         raise HTTPException(status_code=429, detail="Please wait before requesting another code")
+    # Same limits as forgot-password, so resend is not a way around them.
+    _enforce_request_limits(email, ip, event="otp_resend")
 
     users = get_user_repository()
     user = users.get_by_email(email)
@@ -151,7 +234,14 @@ def resend_otp(*, email: str, purpose: str) -> None:
         _metrics.auth_events_total.labels(event="otp_resend", outcome="noop").inc()
         return
 
-    _issue_otp(email=email, purpose=purpose, user_id=user_id)
+    try:
+        _issue_otp(email=email, purpose=purpose, user_id=user_id, ip=ip)
+    except _DailyCodeCapReached:
+        if purpose != "password_reset":
+            raise
+        # Same answer as for an unknown address: no account enumeration.
+        _metrics.auth_events_total.labels(event="otp_resend", outcome="rate_limited").inc()
+        return
     _metrics.auth_events_total.labels(event="otp_resend", outcome="success").inc()
 
 
@@ -174,7 +264,20 @@ def issue_token_pair(
     return to_public_user(user), access_token, refresh_token, session_id
 
 
-def verify_otp(*, email: str, code: str, purpose: str) -> dict:
+def verify_otp(*, email: str, code: str, purpose: str, ip: str | None = None, consume: bool = True) -> dict:
+    """Check a code. consume=False proves it is valid without using it up, so
+    a later call (reset-password) can still redeem it."""
+    subject = f"{email.lower()}:{purpose}"
+    detail = "Too many attempts. Please wait before trying again."
+    _enforce_tiers(
+        _otp_verify_email_ip_limiter, _otp_verify_email_limiter, _otp_verify_ip_limiter,
+        subject=subject, ip=ip, event="otp_verify", detail=detail,
+    )
+    usable_ip = _usable_ip(ip)
+    if usable_ip:
+        _enforce(_otp_verify_daily_email_ip_limiter, f"{subject}:{usable_ip}", event="otp_verify", detail=detail)
+    _enforce(_otp_verify_daily_limiter, subject, event="otp_verify", detail=detail)
+
     otp_repo = get_otp_repository()
     users = get_user_repository()
     audit = get_auth_audit_repository()
@@ -189,17 +292,25 @@ def verify_otp(*, email: str, code: str, purpose: str) -> dict:
         _metrics.auth_events_total.labels(event="otp_verify", outcome="failure").inc()
         raise HTTPException(status_code=400, detail="Verification code expired. Please request a new one.")
 
-    if record["attempts"] >= settings.otp_max_attempts:
+    # Count the guess before checking it, atomically, so parallel requests
+    # cannot get more than otp_max_attempts guesses at one code.
+    if otp_repo.claim_attempt(record["id"], settings.otp_max_attempts) is None:
         _metrics.auth_events_total.labels(event="otp_verify", outcome="failure").inc()
         raise HTTPException(status_code=429, detail="Too many attempts. Please request a new code.")
 
     if not verify_otp_code(code, record["code_hash"]):
-        otp_repo.increment_attempts(record["id"], record["attempts"] + 1)
         audit.log(event="otp_failed", success=False, user_id=record.get("user_id"))
         _metrics.auth_events_total.labels(event="otp_verify", outcome="failure").inc()
         raise HTTPException(status_code=400, detail="Incorrect verification code")
 
-    otp_repo.mark_used(record["id"])
+    if not consume:
+        _metrics.auth_events_total.labels(event="otp_verify", outcome="success").inc()
+        return {"email": email}
+
+    if not otp_repo.mark_used(record["id"]):
+        # Another request redeemed this code first.
+        _metrics.auth_events_total.labels(event="otp_verify", outcome="failure").inc()
+        raise HTTPException(status_code=400, detail="No active verification code for this email")
     audit.log(event="otp_verified", success=True, user_id=record.get("user_id"))
     _metrics.auth_events_total.labels(event="otp_verify", outcome="success").inc()
 
@@ -328,20 +439,29 @@ def _record_failed_attempt(user: dict) -> None:
 # Forgot / reset password
 # ---------------------------------------------------------------------------
 
-def forgot_password(*, email: str) -> None:
+def forgot_password(*, email: str, ip: str | None = None) -> None:
+    # Limits apply before the account lookup, so known and unknown addresses
+    # get the same answers.
+    _enforce_request_limits(email, ip, event="forgot_password")
+
     users = get_user_repository()
     user = users.get_by_email(email)
     if user is None:
         _metrics.auth_events_total.labels(event="forgot_password", outcome="noop").inc()
         return  # no account enumeration
-    _issue_otp(email=email, purpose="password_reset", user_id=user["id"])
+    try:
+        _issue_otp(email=email, purpose="password_reset", user_id=user["id"], ip=ip)
+    except _DailyCodeCapReached:
+        # Answered like success, again so the account is not revealed.
+        _metrics.auth_events_total.labels(event="forgot_password", outcome="rate_limited").inc()
+        return
     _metrics.auth_events_total.labels(event="forgot_password", outcome="success").inc()
 
 
-def reset_password(*, email: str, code: str, new_password: str) -> None:
+def reset_password(*, email: str, code: str, new_password: str, ip: str | None = None) -> None:
     from app.db.repositories import get_refresh_token_repository
 
-    verify_otp(email=email, code=code, purpose="password_reset")
+    verify_otp(email=email, code=code, purpose="password_reset", ip=ip)
 
     users = get_user_repository()
     user = users.get_by_email(email)
@@ -595,7 +715,23 @@ def refresh_access_token(
         _metrics.auth_events_total.labels(event="refresh", outcome="failure").inc()
         raise HTTPException(status_code=401, detail="Session expired. Please log in again.")
 
-    if record.get("used_at"):
+    # mark_used only succeeds for the first request, so a replayed token and a
+    # parallel refresh racing the real one are both caught here.
+    used_at = record.get("used_at")
+    if used_at or not tokens.mark_used(record["id"]):
+        rotated_ago = (
+            (datetime.now(timezone.utc) - parse_timestamp(used_at)).total_seconds() if used_at else 0.0
+        )
+        same_browser = (record.get("user_agent") or "") == (user_agent or "")
+        if rotated_ago <= settings.refresh_reuse_grace_seconds and same_browser:
+            # Rotated moments ago, almost always by another tab of the same
+            # browser. Refuse this one without ending the session; the client
+            # already holds the new cookie and can simply retry.
+            _metrics.auth_events_total.labels(event="refresh", outcome="superseded").inc()
+            raise HTTPException(
+                status_code=401,
+                detail={"code": "refresh_superseded", "message": "Session was just refreshed. Please retry."},
+            )
         # This token was already rotated once — someone is replaying an old
         # token, meaning the whole family may be compromised. Kill it all.
         tokens.revoke_family(record["family_id"])
@@ -604,8 +740,6 @@ def refresh_access_token(
         _metrics.auth_events_total.labels(event="refresh", outcome="failure").inc()
         _metrics.auth_refresh_reuse_detected_total.inc()
         raise HTTPException(status_code=401, detail="Session invalid. Please log in again.")
-
-    tokens.mark_used(record["id"])
 
     user = users.get_by_id(record["user_id"])
     if user is None:

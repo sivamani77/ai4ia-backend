@@ -63,8 +63,18 @@ class RefreshTokenRepository:
             return None
         return RefreshTokenRecord(**normalize_value(dict(row)))
 
-    def mark_used(self, token_id: str) -> None:
-        pg_execute("update refresh_tokens set used_at = now() where id = %s", (token_id,))
+    def mark_used(self, token_id: str) -> bool:
+        """Claim a token for rotation. False if it was already used or revoked,
+        so two parallel refreshes cannot both rotate the same token."""
+        row = pg_fetch_one(
+            """
+            update refresh_tokens set used_at = now()
+            where id = %s and used_at is null and revoked_at is null
+            returning id
+            """,
+            (token_id,),
+        )
+        return row is not None
 
     def revoke(self, token_id: str) -> None:
         pg_execute("update refresh_tokens set revoked_at = now() where id = %s", (token_id,))

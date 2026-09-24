@@ -23,6 +23,7 @@ from __future__ import annotations
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, Response
 
 from app.core.auth import CurrentUser, get_current_user
+from app.core.client_ip import client_ip
 from app.core.settings import settings
 from app.db.repositories import get_user_repository
 from app.schemas.auth import (
@@ -73,7 +74,7 @@ def _clear_refresh_cookie(response: Response) -> None:
 
 
 def _client_ip(request: Request) -> str:
-    return request.client.host if request.client else "unknown"
+    return client_ip(request)
 
 
 def _require_valid_purpose(purpose: str) -> None:
@@ -97,7 +98,14 @@ def signup(payload: SignupRequest):
 @router.post("/verify-otp")
 def verify_otp(payload: VerifyOtpRequest, request: Request, response: Response):
     _require_valid_purpose(payload.purpose)
-    result = auth_service.verify_otp(email=payload.email, code=payload.code, purpose=payload.purpose)
+    # A password-reset code is only checked here; reset-password redeems it.
+    result = auth_service.verify_otp(
+        email=payload.email,
+        code=payload.code,
+        purpose=payload.purpose,
+        ip=_client_ip(request),
+        consume=payload.purpose != "password_reset",
+    )
 
     if payload.purpose == "signup":
         user, access_token, refresh_token, session_id = auth_service.issue_token_pair(
@@ -115,9 +123,9 @@ def verify_otp(payload: VerifyOtpRequest, request: Request, response: Response):
 
 
 @router.post("/resend-otp", response_model=MessageResponse)
-def resend_otp(payload: ResendOtpRequest):
+def resend_otp(payload: ResendOtpRequest, request: Request):
     _require_valid_purpose(payload.purpose)
-    auth_service.resend_otp(email=payload.email, purpose=payload.purpose)
+    auth_service.resend_otp(email=payload.email, purpose=payload.purpose, ip=_client_ip(request))
     return MessageResponse(message="If an account exists, a new code has been sent")
 
 
@@ -167,14 +175,16 @@ def logout(request: Request, response: Response):
 
 
 @router.post("/forgot-password", response_model=MessageResponse)
-def forgot_password(payload: ForgotPasswordRequest):
-    auth_service.forgot_password(email=payload.email)
+def forgot_password(payload: ForgotPasswordRequest, request: Request):
+    auth_service.forgot_password(email=payload.email, ip=_client_ip(request))
     return MessageResponse(message="If an account exists, a reset code has been sent")
 
 
 @router.post("/reset-password", response_model=MessageResponse)
-def reset_password(payload: ResetPasswordRequest):
-    auth_service.reset_password(email=payload.email, code=payload.code, new_password=payload.new_password)
+def reset_password(payload: ResetPasswordRequest, request: Request):
+    auth_service.reset_password(
+        email=payload.email, code=payload.code, new_password=payload.new_password, ip=_client_ip(request)
+    )
     return MessageResponse(message="Password updated. Please log in.")
 
 

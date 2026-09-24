@@ -61,6 +61,10 @@ class TokenBucket:
         self._tokens: dict[str, float] = {}
         self._last: dict[str, float] = {}
 
+    @property
+    def name(self) -> str:
+        return self._name
+
     def allow(self, key: str) -> bool:
         client = _get_redis()
         if client is not None:
@@ -77,6 +81,18 @@ class TokenBucket:
                 _redis_failed_at = time.monotonic()
                 logger.debug("rate_limit: Redis call failed mid-request, falling back")
         return self._allow_local(key)
+
+    def retry_after(self, key: str) -> int:
+        """Seconds until `key` may try again; the whole window if unknown."""
+        client = _get_redis()
+        if client is not None:
+            try:
+                ttl = client.ttl(f"ratelimit:{self._name}:{key}")
+                if ttl and ttl > 0:
+                    return int(ttl)
+            except Exception:  # noqa: BLE001
+                pass
+        return max(1, int(self._per))
 
     def _allow_local(self, key: str) -> bool:
         now = time.monotonic()

@@ -8,6 +8,10 @@ from fastapi.security import APIKeyHeader, HTTPAuthorizationCredentials, HTTPBea
 from app.core.security import TokenExpiredError, TokenInvalidError, decode_access_token
 from app.core.settings import settings
 
+BEARER_CHALLENGE = 'Bearer realm="ai4ia"'
+_EXPIRED_CHALLENGE = BEARER_CHALLENGE + ', error="invalid_token", error_description="The access token expired"'
+_INVALID_CHALLENGE = BEARER_CHALLENGE + ', error="invalid_token"'
+
 _api_key_header = APIKeyHeader(name="X-API-Key", auto_error=False)
 _bearer_scheme = HTTPBearer(auto_error=False)
 
@@ -32,14 +36,20 @@ def get_current_user(
     is missing, malformed, expired, or invalid. user_id always comes from a
     verified token, never from anything client-supplied."""
     if credentials is None or not credentials.credentials:
-        raise HTTPException(status_code=401, detail="Not authenticated")
+        raise HTTPException(status_code=401, detail="Not authenticated", headers={"WWW-Authenticate": BEARER_CHALLENGE})
 
     try:
         claims = decode_access_token(credentials.credentials)
     except TokenExpiredError:
-        raise HTTPException(status_code=401, detail={"code": "token_expired", "message": "Access token expired"})
+        raise HTTPException(
+            status_code=401,
+            detail={"code": "token_expired", "message": "Access token expired"},
+            headers={"WWW-Authenticate": _EXPIRED_CHALLENGE},
+        )
     except TokenInvalidError:
-        raise HTTPException(status_code=401, detail="Invalid access token")
+        raise HTTPException(
+            status_code=401, detail="Invalid access token", headers={"WWW-Authenticate": _INVALID_CHALLENGE}
+        )
 
     return CurrentUser(id=claims["sub"], persona=claims.get("persona", ""))
 

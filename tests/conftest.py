@@ -55,8 +55,15 @@ def _no_rate_limit_redis(monkeypatch):
     patch app.core.rate_limit._get_redis locally instead.
     """
     from app.core import rate_limit
+    from app.services import auth_service
 
     monkeypatch.setattr(rate_limit, "_get_redis", lambda: None)
+    # The in-process buckets are module globals; start every test with them
+    # empty so limits reached in one test never leak into the next.
+    for value in vars(auth_service).values():
+        if isinstance(value, rate_limit.TokenBucket):
+            value._tokens.clear()
+            value._last.clear()
 
 
 class _FakeRecords:
@@ -132,6 +139,20 @@ def mock_settings(tmp_path, monkeypatch):
     fake.ai4ia_storage_backend = "local"
     fake.allowed_origins = ["*"]
     fake.validate_deployment_env.return_value = []
+    # Read at import time by client_ip/auth_service; must be real values, not mocks.
+    from app.core.settings import Settings
+
+    _defaults = Settings.model_fields
+    fake.trusted_proxy_cidrs = list(_defaults["trusted_proxy_cidrs"].default)
+    fake.jwt_min_key_bytes = _defaults["jwt_min_key_bytes"].default
+    for _name in ("otp_requests_per_email_ip_per_hour", "otp_requests_per_email_per_hour",
+                  "otp_requests_per_ip_per_hour", "otp_verifies_per_email_ip_per_hour",
+                  "otp_verifies_per_email_per_hour", "otp_verifies_per_ip_per_hour",
+                  "otp_codes_per_email_ip_per_day", "otp_codes_per_email_per_day",
+                  "otp_verifies_per_email_ip_per_day", "otp_verifies_per_email_per_day",
+                  "otp_max_attempts", "otp_ttl_minutes",
+                  "refresh_reuse_grace_seconds"):
+        setattr(fake, _name, _defaults[_name].default)
     # Interactive-endpoint model gate (api/deps.py's require_models) — off by
     # default so a MagicMock doesn't leak into a real int/bool comparison
     # (e.g. `wait_seconds > 0` against model_gate_inline_wait_seconds) for any
