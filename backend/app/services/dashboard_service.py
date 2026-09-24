@@ -1,3 +1,5 @@
+import logging
+import time
 from pathlib import Path
 
 from app.core.config import (
@@ -21,6 +23,14 @@ from app.core.paths import (
 )
 from app.core.settings import settings
 
+logger = logging.getLogger("ai4ia.services.dashboard")
+
+# The public summary is served to anonymous visitors, so it is cached rather
+# than recounted (S3 listings) on every page load.
+_PUBLIC_SUMMARY_TTL = 300.0  # seconds
+_PUBLIC_SUMMARY_RETRY_TTL = 15.0  # seconds, when a count failed
+_public_summary_cache: tuple[dict | None, float] = (None, 0.0)
+
 
 def count_files(path: Path, pattern: str) -> int:
     if not path.exists():
@@ -30,28 +40,32 @@ def count_files(path: Path, pattern: str) -> int:
 
 def _s3_count(prefix: str, suffix: str) -> int:
     try:
-        from app.services.storage_service import (
-            _OBJECT_STORAGE_BUCKET, _OBJECT_STORAGE_REGION,
-            _OBJECT_STORAGE_ACCESS_KEY, _OBJECT_STORAGE_SECRET_KEY, _OBJECT_STORAGE_ENDPOINT,
-        )
-        import boto3
-        kwargs = {
-            "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
-            "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
-            "region_name": _OBJECT_STORAGE_REGION or None,
-        }
-        if _OBJECT_STORAGE_ENDPOINT:
-            kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
-        s3 = boto3.client("s3", **kwargs)
-        paginator = s3.get_paginator("list_objects_v2")
-        count = 0
-        for page in paginator.paginate(Bucket=_OBJECT_STORAGE_BUCKET, Prefix=prefix):
-            for obj in page.get("Contents", []):
-                if obj["Key"].endswith(suffix):
-                    count += 1
-        return count
+        return _s3_count_or_raise(prefix, suffix)
     except Exception:
         return 0
+
+
+def _s3_count_or_raise(prefix: str, suffix: str) -> int:
+    from app.services.storage_service import (
+        _OBJECT_STORAGE_BUCKET, _OBJECT_STORAGE_REGION,
+        _OBJECT_STORAGE_ACCESS_KEY, _OBJECT_STORAGE_SECRET_KEY, _OBJECT_STORAGE_ENDPOINT,
+    )
+    import boto3
+    kwargs = {
+        "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
+        "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
+        "region_name": _OBJECT_STORAGE_REGION or None,
+    }
+    if _OBJECT_STORAGE_ENDPOINT:
+        kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+    s3 = boto3.client("s3", **kwargs)
+    paginator = s3.get_paginator("list_objects_v2")
+    count = 0
+    for page in paginator.paginate(Bucket=_OBJECT_STORAGE_BUCKET, Prefix=prefix):
+        for obj in page.get("Contents", []):
+            if obj["Key"].endswith(suffix):
+                count += 1
+    return count
 
 
 def _s3_key_exists(key: str) -> bool:
@@ -191,3 +205,62 @@ def get_dashboard() -> dict:
             "exports_dir": str(EXPORTS_DIR),
         }
     }
+
+
+def _raw_video_count() -> int:
+    if settings.ai4ia_storage_backend == "s3":
+        return _s3_count_or_raise("raw/youtube/ai4ia_channel/", ".mp4")
+    return count_files(RAW_VIDEO_DIR, "*.mp4")
+
+
+def _classified_fragment_count() -> int:
+    from app.db.repositories.fragment_repository import FragmentRepository
+    return FragmentRepository().count()
+
+
+def _speaker_count() -> int:
+    from app.services import fragment_store
+    return len(fragment_store.speakers_summary())
+
+
+def _theme_count() -> int:
+    from app.services.archive_service import get_themes_and_chapters
+    return get_themes_and_chapters()["total_themes"]
+
+
+def _count_or_none(count_fn) -> int | None:
+    try:
+        return count_fn()
+    except Exception:
+        logger.warning("Dashboard count %s failed", count_fn.__name__, exc_info=True)
+        return None
+
+
+def get_public_summary() -> dict:
+    """Archive counts for the landing page. Safe to serve without login.
+
+    A count that fails is null, and the result is then cached only briefly so
+    a passing outage doesn't stick on the landing page.
+    """
+    global _public_summary_cache
+    cached, expires_at = _public_summary_cache
+    if cached is not None and time.monotonic() < expires_at:
+        return cached
+    archive = {
+        "raw_videos": _count_or_none(_raw_video_count),
+        "classified_fragments": _count_or_none(_classified_fragment_count),
+        "speakers": _count_or_none(_speaker_count),
+        "themes": _count_or_none(_theme_count),
+    }
+    ttl = _PUBLIC_SUMMARY_TTL if None not in archive.values() else _PUBLIC_SUMMARY_RETRY_TTL
+    summary = {"archive": archive}
+    _public_summary_cache = (summary, time.monotonic() + ttl)
+    return summary
+
+
+def get_admin_dashboard() -> dict:
+    """Full dashboard (storage counts, latest outputs, models) for admins."""
+    dashboard = get_dashboard()
+    dashboard["archive"]["speakers"] = _count_or_none(_speaker_count)
+    dashboard["archive"]["themes"] = _count_or_none(_theme_count)
+    return dashboard

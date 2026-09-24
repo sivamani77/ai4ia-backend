@@ -95,7 +95,8 @@ def _assert_owns(job: dict[str, Any], current_user: CurrentUser) -> None:
     """
     if current_user.persona == "admin":
         return
-    if job.get("user_id") and current_user.id and job["user_id"] != current_user.id:
+    # A job with no owner is treated as someone else's.
+    if not job.get("user_id") or job["user_id"] != current_user.id:
         raise HTTPException(status_code=404, detail=f"Job not found: {job['job_id']}")
 
 

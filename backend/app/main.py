@@ -12,7 +12,7 @@ from fastapi.responses import JSONResponse
 from prometheus_fastapi_instrumentator import Instrumentator
 from pythonjsonlogger.json import JsonFormatter
 
-from app.core.auth import require_api_key, require_role
+from app.core.auth import get_current_user, require_api_key, require_role
 from app.core.config import API_PREFIX
 from app.core import dependency_state
 from app.core.error_messages import DEFAULT_MESSAGE
@@ -30,7 +30,7 @@ from app.services.speaker_repair import start_in_background as start_speaker_rep
 setup_tracing("ai4ia-api")
 
 from app.api.auth import router as auth_router
-from app.api.dashboard import router as dashboard_router
+from app.api.dashboard import admin_router as admin_dashboard_router, router as dashboard_router
 from app.api.archive import router as archive_router
 from app.api.admin import router as admin_router
 from app.api.admin_users import router as admin_users_router
@@ -431,13 +431,16 @@ async def models_status():
 
 _auth_dep = [Depends(require_api_key)]
 _admin_dep = [Depends(require_api_key), Depends(require_role("admin"))]
+_user_dep = [Depends(require_api_key), Depends(get_current_user)]
 
 # No _auth_dep here: signup/login/etc. must be reachable without an API key
 # or an existing session — that's the whole point of the auth endpoints.
 app.include_router(auth_router, prefix=API_PREFIX)
 
+# Public landing-page counts; everything else needs a signed-in user.
 app.include_router(dashboard_router, prefix=API_PREFIX, dependencies=_auth_dep)
-app.include_router(archive_router, prefix=API_PREFIX, dependencies=_auth_dep)
+app.include_router(admin_dashboard_router, prefix=API_PREFIX, dependencies=_admin_dep)
+app.include_router(archive_router, prefix=API_PREFIX, dependencies=_user_dep)
 app.include_router(admin_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(admin_users_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(admin_data_router, prefix=API_PREFIX, dependencies=_admin_dep)

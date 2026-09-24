@@ -42,7 +42,7 @@ def test_api_key_required_when_configured(client, monkeypatch):
     import app.api.dashboard as dashboard_module
 
     monkeypatch.setattr(auth_module.settings, "api_key", "super-secret", raising=False)
-    monkeypatch.setattr(dashboard_module, "get_dashboard", lambda: {"ok": True})
+    monkeypatch.setattr(dashboard_module, "get_public_summary", lambda: {"ok": True})
 
     response = client.get("/api/dashboard")
 
@@ -55,7 +55,7 @@ def test_api_key_allows_authenticated_requests(client, monkeypatch):
     import app.api.dashboard as dashboard_module
 
     monkeypatch.setattr(auth_module.settings, "api_key", "super-secret", raising=False)
-    monkeypatch.setattr(dashboard_module, "get_dashboard", lambda: {"ok": True})
+    monkeypatch.setattr(dashboard_module, "get_public_summary", lambda: {"ok": True})
 
     response = client.get("/api/dashboard", headers={"X-API-Key": "super-secret"})
 

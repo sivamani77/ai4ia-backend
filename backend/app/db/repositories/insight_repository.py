@@ -6,7 +6,7 @@ from typing import Any, Mapping, TypedDict
 import psycopg2.extras
 
 from app.core.settings import settings
-from app.db.postgres import pg_fetch_all, pg_fetch_one
+from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.insights")
@@ -16,6 +16,7 @@ _JSONB_FIELDS = ("filters", "patterns", "contrasts", "recommended_clips", "unsup
 
 class InsightRecord(TypedDict, total=False):
     id: str
+    user_id: str | None
     query: str
     title: str | None
     summary: str | None
@@ -42,10 +43,10 @@ class InsightRepository:
         self._log("insert", payload.get("id"))
         row = pg_fetch_one(
             """
-            insert into insights (id, query, title, summary, filters, patterns, contrasts,
+            insert into insights (id, user_id, query, title, summary, filters, patterns, contrasts,
                                   recommended_clips, unsupported_claims, evidence_pool,
                                   evidence_coverage, models, created_at)
-            values (%(id)s, %(query)s, %(title)s, %(summary)s, %(filters)s, %(patterns)s,
+            values (%(id)s, %(user_id)s, %(query)s, %(title)s, %(summary)s, %(filters)s, %(patterns)s,
                     %(contrasts)s, %(recommended_clips)s, %(unsupported_claims)s,
                     %(evidence_pool)s, %(evidence_coverage)s, %(models)s, coalesce(%(created_at)s, now()))
             returning *
@@ -54,18 +55,37 @@ class InsightRepository:
         )
         return self._from_row(row) if row is not None else payload  # type: ignore[return-value]
 
-    def get(self, insight_id: str) -> InsightRecord | None:
+    def get(self, insight_id: str, user_id: str | None = None) -> InsightRecord | None:
+        """Fetch one insight. With user_id, only that user's insight is returned."""
         self._log("select_one", insight_id)
-        row = pg_fetch_one("select * from insights where id = %s limit 1", (insight_id,))
+        if user_id is None:
+            row = pg_fetch_one("select * from insights where id = %s limit 1", (insight_id,))
+        else:
+            row = pg_fetch_one(
+                "select * from insights where id = %s and user_id = %s limit 1",
+                (insight_id, user_id),
+            )
         return self._from_row(row) if row is not None else None
 
-    def list(self, limit: int = 100) -> list[InsightRecord]:
+    def list(self, limit: int = 100, user_id: str | None = None) -> list[InsightRecord]:
+        """Latest insights. With user_id, only that user's insights are returned."""
         self._log("select_many")
-        rows = pg_fetch_all(
-            "select id, query, title, evidence_coverage, created_at from insights order by created_at desc limit %s",
-            (limit,),
-        )
+        columns = "id, user_id, query, title, evidence_coverage, created_at"
+        if user_id is None:
+            rows = pg_fetch_all(
+                f"select {columns} from insights order by created_at desc limit %s",
+                (limit,),
+            )
+        else:
+            rows = pg_fetch_all(
+                f"select {columns} from insights where user_id = %s order by created_at desc limit %s",
+                (user_id, limit),
+            )
         return [self._from_row(row) for row in rows]
+
+    def delete_by_user(self, user_id: str) -> None:
+        self._log("delete_by_user")
+        pg_execute("delete from insights where user_id = %s", (user_id,))
 
     # -- row shaping ----------------------------------------------------------
 
@@ -74,6 +94,7 @@ class InsightRepository:
         insight_id = d.get("id") or d.get("insight_id")
         return {
             "id": insight_id,
+            "user_id": d.get("user_id"),
             "query": d.get("query", ""),
             "title": d.get("title"),
             "summary": d.get("summary"),
@@ -92,6 +113,7 @@ class InsightRepository:
         d = self._normalize(dict(row))
         return InsightRecord(
             id=d.get("id", ""),
+            user_id=d.get("user_id"),
             query=d.get("query", ""),
             title=d.get("title"),
             summary=d.get("summary"),

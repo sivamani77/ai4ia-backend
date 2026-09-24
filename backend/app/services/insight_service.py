@@ -190,7 +190,7 @@ def generate_insight(
     user_id: str | None = None,
 ) -> dict:
     limit = limit or INSIGHT_DEFAULT_LIMIT
-    insight_id = f"insight_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}"
+    insight_id = f"insight_{uuid.uuid4().hex}"
 
     # Vet before retrieval: a barred query should cost no embedding call and
     # leave no insight row behind. Raises GuardrailRejection.
@@ -241,6 +241,7 @@ def generate_insight(
     insight = {
         "id": insight_id,
         "insight_id": insight_id,
+        "user_id": user_id,
         "outcome": OUTCOME_GENERATED,
         "decline_reason": None,
         "title": raw.get("title") or query[:80],
@@ -289,8 +290,9 @@ def generate_insight(
     return insight
 
 
-def list_insights() -> list[dict]:
-    rows = InsightRepository().list()
+def list_insights(user_id: str | None = None) -> list[dict]:
+    """Latest insights; pass user_id to limit them to one owner."""
+    rows = InsightRepository().list(user_id=user_id)
     return [
         {
             "insight_id": r.get("id"),
@@ -303,8 +305,9 @@ def list_insights() -> list[dict]:
     ]
 
 
-def get_insight(insight_id: str) -> dict | None:
-    row = InsightRepository().get(insight_id)
+def get_insight(insight_id: str, user_id: str | None = None) -> dict | None:
+    """One insight; pass user_id to return it only if that user owns it."""
+    row = InsightRepository().get(insight_id, user_id=user_id)
     if row is None:
         return None
     # Expose insight_id key so callers that expect it still work

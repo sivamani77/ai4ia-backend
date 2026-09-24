@@ -48,15 +48,20 @@ def api_generate_insight(req: GenerateInsightRequest, current_user: CurrentUser 
         raise HTTPException(status_code=502, detail=DEFAULT_MESSAGE)
 
 
+def _owner_scope(current_user: CurrentUser) -> str | None:
+    """User id to filter insights by; None lets an admin see every insight."""
+    return None if current_user.persona == "admin" else current_user.id
+
+
 @router.get("")
 def api_list_insights(current_user: CurrentUser = Depends(get_current_user)):
-    items = insight_service.list_insights()
+    items = insight_service.list_insights(user_id=_owner_scope(current_user))
     return {"count": len(items), "insights": items}
 
 
 @router.get("/{insight_id}")
 def api_get_insight(insight_id: str, current_user: CurrentUser = Depends(get_current_user)):
-    insight = insight_service.get_insight(insight_id)
+    insight = insight_service.get_insight(insight_id, user_id=_owner_scope(current_user))
     if not insight:
         raise HTTPException(status_code=404, detail="Insight not found")
     return insight
@@ -64,7 +69,7 @@ def api_get_insight(insight_id: str, current_user: CurrentUser = Depends(get_cur
 
 @router.get("/{insight_id}/sources")
 def api_insight_sources(insight_id: str, current_user: CurrentUser = Depends(get_current_user)):
-    insight = insight_service.get_insight(insight_id)
+    insight = insight_service.get_insight(insight_id, user_id=_owner_scope(current_user))
     if not insight:
         raise HTTPException(status_code=404, detail="Insight not found")
     return insight_service.build_sources_map(insight)
@@ -77,7 +82,7 @@ def api_insight_provenance(insight_id: str, current_user: CurrentUser = Depends(
     Layer 1 — decision_record: osi-1.0 record (agents, models, evidence coverage).
     Layer 2 — llm_call_traces: per-call rows for the retrieval embedding + LLM synthesis.
     """
-    insight = insight_service.get_insight(insight_id)
+    insight = insight_service.get_insight(insight_id, user_id=_owner_scope(current_user))
     if not insight:
         raise HTTPException(status_code=404, detail="Insight not found")
 
