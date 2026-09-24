@@ -79,6 +79,9 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         # retrieved from 220 of the 309 videos.
         "--corpus-version", settings.storyline_corpus_version,
     ]
+    resolved_speaker = getattr(context, "resolved_speaker", None)
+    if resolved_speaker:
+        cmd += ["--requested-speaker", resolved_speaker]
 
     update_stage(job_id, "07_storyline", "running", 20, "Running storyline generation script")
     with processing_records.exchange_log(job_id, "07_storyline", env_overrides):

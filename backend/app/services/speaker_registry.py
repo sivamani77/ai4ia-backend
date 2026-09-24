@@ -52,6 +52,7 @@ class SpeakerRegistry:
             tokens = norm_key(canonical).split()
             if len(tokens) >= 2:
                 self._by_surname.setdefault(tokens[-1], []).append(canonical)
+        self._recorded = {s["name"] for v in self._videos.values() for s in v.get("speakers") or []}
         # Single-word aliases are left out: they match ordinary words.
         self._alias_lookup = {alias.lower(): canonical for alias, canonical in self.aliases().items()
                               if len(alias.split()) >= 2 and alias != canonical}
@@ -102,6 +103,10 @@ class SpeakerRegistry:
 
     def video_ids(self) -> list[str]:
         return list(self._videos)
+
+    def has_recording(self, canonical: str) -> bool:
+        """True if the speaker appears in at least one registry video."""
+        return canonical in self._recorded
 
     def video(self, video_id: str | None) -> VideoSpeakers | None:
         entry = self._videos.get(video_id or "")

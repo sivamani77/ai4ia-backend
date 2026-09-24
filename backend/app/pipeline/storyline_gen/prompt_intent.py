@@ -244,8 +244,10 @@ def build_prompt_profile(
     prompt: str,
     known_speakers: list[str],
     target_duration_seconds: int | None = None,
+    requested_speaker: str | None = None,
 ) -> dict[str, Any]:
-    requested_speaker = detect_requested_speaker(prompt, known_speakers)
+    """`requested_speaker`, when the resolve stage already found one, replaces detection."""
+    requested_speaker = requested_speaker or detect_requested_speaker(prompt, known_speakers)
     normalized_prompt = normalize_name(prompt)
     all_themes_requested = bool(re.search(r"\ball(?:\s+the)?\s+themes?\b", normalized_prompt))
     topic_terms = sorted(extract_topic_terms(prompt, requested_speaker=requested_speaker))
@@ -489,8 +491,10 @@ def detect_prompt_intent(
     known_speakers: list[str],
     records: list[dict[str, Any]],
     target_duration_seconds: int | None = None,
+    requested_speaker: str | None = None,
 ) -> dict[str, Any]:
-    profile = build_prompt_profile(prompt, known_speakers, target_duration_seconds=target_duration_seconds)
+    profile = build_prompt_profile(prompt, known_speakers, target_duration_seconds=target_duration_seconds,
+                                   requested_speaker=requested_speaker)
     topic_terms = set(profile.get("topic_terms") or [])
     chapter = lookup_requested_chapter(prompt, records)
     theme = lookup_requested_theme(topic_terms, records)

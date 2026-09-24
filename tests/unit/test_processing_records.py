@@ -171,10 +171,13 @@ class TestPipelineHooks:
         monkeypatch.setattr(stage_guardrail.settings, "prompt_guardrail_enabled", True)
         monkeypatch.setattr(stage_guardrail, "classify",
                             lambda *a, **k: GuardrailVerdict(allowed=False, category="off_topic", reason="r"))
-        stage_guardrail.run(job_id, {"prompt": "weather in Kingston"}, context=None)
-        runner._fail_job(job_id, "prompt_guardrail", "guardrail_rejected", "rejected")
+        result = stage_guardrail.run(job_id, {"prompt": "weather in Kingston"}, context=None)
+        runner._fail_job(job_id, result.stage, result.data["error_code"], result.message,
+                         user_message=result.data["user_message"])
 
         row = processing_records_store.resolutions[job_id]
         assert (row["layer_outcome"], row["reason_code"]) == ("l1_rejected", "off_topic")
-        assert row["user_message"] == stage_guardrail.REJECTION_MESSAGE
+        assert row["user_message"] == stage_guardrail.GUARDRAIL_OFF_TOPIC_MESSAGE
+        error = mock_job_store["jobs"][job_id]["error"]
+        assert error["user_message"] == stage_guardrail.GUARDRAIL_OFF_TOPIC_MESSAGE
         assert "l1" in row["timings_ms"]

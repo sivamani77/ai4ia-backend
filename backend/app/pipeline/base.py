@@ -343,6 +343,8 @@ class PipelineContext:
     # disk — it'll be gone. Set this instead, from the same in-memory dict the
     # stage already parsed before cleanup.
     validated_storyline_data: dict[str, Any] | None = None
+    # Canonical speaker found by stage_resolve; stage 07 uses it instead of detecting again.
+    resolved_speaker: str | None = None
     asset_manifest_path: str | None = None
     export_manifest_path: str | None = None
     video_path: str | None = None

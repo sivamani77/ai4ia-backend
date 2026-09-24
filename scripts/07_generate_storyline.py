@@ -94,6 +94,11 @@ def main() -> None:
         help="Number of fragments sent to the storyline model."
     )
     parser.add_argument(
+        "--requested-speaker",
+        default="",
+        help="Canonical speaker already resolved by the resolve stage; skips speaker detection.",
+    )
+    parser.add_argument(
         "--fallback-only",
         action="store_true",
         help="Skip LLM storyline generation and use deterministic fallback."
@@ -155,7 +160,8 @@ def main() -> None:
     known_speakers = load_known_speakers()
     log(f"Loaded {len(known_speakers)} known speakers.")
     all_records = get_filtered_records_or_load()
-    prompt_intent = detect_prompt_intent(args.prompt, known_speakers, all_records, target_duration_seconds=args.duration)
+    prompt_intent = detect_prompt_intent(args.prompt, known_speakers, all_records, target_duration_seconds=args.duration,
+                                         requested_speaker=args.requested_speaker or None)
     log(f"Prompt intent: {json.dumps(prompt_intent, ensure_ascii=False)}")
 
     raw_retrieved = retrieve_candidates(args.prompt, prompt_intent, top_k=args.top_k)

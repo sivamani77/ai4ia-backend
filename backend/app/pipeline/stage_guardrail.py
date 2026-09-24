@@ -7,7 +7,8 @@ from typing import Any
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext, StageResult
 from app.services import processing_records
-from app.services.guardrail_service import VIDEO_POLICY, classify
+from app.core.error_messages import GUARDRAIL_OFF_TOPIC_MESSAGE
+from app.services.guardrail_service import GUARDRAIL_UNAVAILABLE_MESSAGE, VIDEO_POLICY, classify
 from app.services.prompt_rules import check_prompt
 from app.services.job_store import append_event, load_job
 from app.services.video_job_runner import update_stage
@@ -46,7 +47,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
         update_stage(job_id, STAGE_NAME, "failed", 100, rules.message)
         append_event(job_id, "stage_failed", STAGE_NAME, {"reason_code": rules.reason_code})
         return StageResult(stage=STAGE_NAME, status="failed", message=rules.message,
-                           data={"reason_code": rules.reason_code})
+                           data={"reason_code": rules.reason_code, "error_code": "prompt_rejected",
+                                 "user_message": rules.message})
 
     if not settings.prompt_guardrail_enabled:
         return StageResult(stage=STAGE_NAME, status="skipped", message="Guardrail disabled")
@@ -71,25 +73,29 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
                            message="Guardrail check unavailable — allowed by default")
 
     if not verdict.allowed:
+        unavailable = verdict.category == "guardrail_unavailable"
+        if unavailable:
+            user_message = GUARDRAIL_UNAVAILABLE_MESSAGE
+        elif verdict.category == "off_topic":
+            user_message = GUARDRAIL_OFF_TOPIC_MESSAGE
+        else:
+            user_message = REJECTION_MESSAGE
         processing_records.record_layer(
             job_id, outcome="l1_rejected", reason_code=verdict.category or "guardrail_rejected",
-            user_message=REJECTION_MESSAGE, timings_ms=timings,
+            user_message=user_message, timings_ms=timings,
         )
-        if verdict.category == "guardrail_unavailable":
-            update_stage(job_id, STAGE_NAME, "failed", 100, REJECTION_MESSAGE)
-            append_event(job_id, "stage_failed", STAGE_NAME, {"error": "guardrail_unavailable"})
-            return StageResult(stage=STAGE_NAME, status="failed", message=REJECTION_MESSAGE)
-
         logger.info("Prompt guardrail rejected job %s prompt (category=%s, reason=%s)",
                     job_id, verdict.category, verdict.reason)
-        update_stage(job_id, STAGE_NAME, "failed", 100, REJECTION_MESSAGE)
+        update_stage(job_id, STAGE_NAME, "failed", 100, user_message)
         append_event(job_id, "stage_failed", STAGE_NAME,
                      {"category": verdict.category, "reason": verdict.reason})
         return StageResult(
             stage=STAGE_NAME,
             status="failed",
-            message=REJECTION_MESSAGE,
-            data={"category": verdict.category, "reason": verdict.reason},
+            message=user_message,
+            data={"category": verdict.category, "reason": verdict.reason,
+                  "error_code": "guardrail_unavailable" if unavailable else "guardrail_rejected",
+                  "user_message": user_message},
         )
 
     processing_records.record_layer(job_id, timings_ms=timings)

@@ -47,9 +47,10 @@ _stage_start_times: dict[tuple[str, str], float] = {}
 # ---------------------------------------------------------------------------
 STAGE_WEIGHTS: dict[str, int] = {
     "prompt_guardrail": 1,
+    "prompt_resolve": 1,
     "input_validation": 1,
     "07_storyline": 15,
-    "07b_validate_storyline": 35,
+    "07b_validate_storyline": 34,
     "08_assets": 25,
     "09_export": 15,
     "10_validate_export": 5,
@@ -58,6 +59,7 @@ STAGE_WEIGHTS: dict[str, int] = {
 
 STAGE_DEFINITIONS = [
     {"stage": "prompt_guardrail",        "label": "Prompt content check"},
+    {"stage": "prompt_resolve",          "label": "Prompt check against the archive"},
     {"stage": "input_validation",        "label": "Input validation"},
     {"stage": "07_storyline",            "label": "Initial storyline generation"},
     {"stage": "07b_validate_storyline",  "label": "LLM editorial validation"},
@@ -148,7 +150,8 @@ def update_stage(
 
 def _fail_job(
     job_id: str, stage: str, error_type: str, message: str, details: str = "",
-    exc: Exception | None = None,
+    exc: Exception | None = None, *, user_message: str | None = None,
+    reason_code: str | None = None, suggestions: list[str] | None = None,
 ) -> None:
     job = load_job(job_id)
     job["status"] = "failed"
@@ -163,8 +166,11 @@ def _fail_job(
         # user_message is what the client should display. message/details are
         # technical (exception text, tracebacks, ffmpeg output) for logs and
         # support — never render them directly to a user.
-        "user_message": friendly_message(error_type, exc),
+        "user_message": user_message or friendly_message(error_type, exc),
     }
+    if reason_code:
+        job["error"]["reason_code"] = reason_code
+        job["error"]["suggestions"] = suggestions or []
     save_job(job_id, job)
     append_event(job_id, "failed", stage, {
         "error_type": error_type,
@@ -352,6 +358,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
     from app.pipeline import (
         stage_guardrail,
         stage_input_validation,
+        stage_resolve,
         stage_07_storyline,
         stage_07b_validate,
         stage_08_assets,
@@ -415,6 +422,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
 
         stages = [
             stage_guardrail,
+            stage_resolve,
             stage_input_validation,
             stage_07_storyline,
             stage_07b_validate,
@@ -430,7 +438,8 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             cached_storyline = _storyline_cache.get_cached_storyline(request)
             if cached_storyline is not None:
                 _apply_cached_storyline(job_id, ctx, cached_storyline)
-                stages = [stage_guardrail, stage_08_assets, stage_09_export, stage_10_validate, stage_11_subtitles]
+                stages = [stage_guardrail, stage_resolve, stage_08_assets, stage_09_export,
+                          stage_10_validate, stage_11_subtitles]
 
         for stage_mod in stages:
             stage_name = getattr(stage_mod, "STAGE_NAME", stage_mod.__name__.split(".")[-1])
@@ -448,7 +457,10 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
                 return
             if result.status == "failed":
                 stage_log.error("Stage failed: %s", result.message)
-                _fail_job(job_id, result.stage, "pipeline_error", result.message)
+                data = result.data or {}
+                _fail_job(job_id, result.stage, data.get("error_code") or "pipeline_error", result.message,
+                          user_message=data.get("user_message"), reason_code=data.get("reason_code"),
+                          suggestions=data.get("suggestions"))
                 _cleanup_job_tmp_dirs(job_id)
                 return
             stage_log.info("Stage %s", result.status)

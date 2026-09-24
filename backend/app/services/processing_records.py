@@ -70,10 +70,15 @@ def record_layer(
     user_message: str | None = None,
     flags: Mapping[str, Any] | None = None,
     timings_ms: Mapping[str, int] | None = None,
+    slots: Mapping[str, Any] | None = None,
+    dropped_slots: list | None = None,
+    suggestions: list | None = None,
 ) -> None:
     """Record one layer's result for a job."""
     fields = {k: v for k, v in (("layer_outcome", outcome), ("reason_code", reason_code),
-                                ("user_message", user_message)) if v is not None}
+                                ("user_message", user_message), ("slots", slots),
+                                ("dropped_slots", dropped_slots), ("suggestions", suggestions))
+              if v is not None}
     merge = {k: v for k, v in (("flags", flags), ("timings_ms", timings_ms)) if v}
     try:
         _resolutions().update_by_job(job_id, fields=fields, merge=merge)

@@ -46,14 +46,14 @@ class PromptResolutionRepository:
         merge: Mapping[str, Mapping[str, Any]] | None = None,
         only_if_outcome: str | None = None,
     ) -> None:
-        """Set scalar `fields` and shallow-merge `merge` into jsonb columns.
+        """Set `fields` (jsonb ones are replaced) and shallow-merge `merge` into jsonb columns.
         With `only_if_outcome`, rows whose layer_outcome differs are left alone."""
         sets, params = ["updated_at = now()"], {"job_id": job_id}
         for key, value in (fields or {}).items():
-            if key not in _SCALAR_FIELDS:
+            if key not in _SCALAR_FIELDS and key not in _JSONB_FIELDS:
                 raise ValueError(f"not an updatable column: {key}")
             sets.append(f"{key} = %({key})s")
-            params[key] = value
+            params[key] = _param(key, value)
         for key, value in (merge or {}).items():
             if key not in _JSONB_FIELDS:
                 raise ValueError(f"not a jsonb column: {key}")

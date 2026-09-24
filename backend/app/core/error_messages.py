@@ -38,6 +38,23 @@ PROMPT_RULE_MESSAGES: dict[str, str] = {
     "prompt_gibberish": "We couldn't read that as a topic or question. Please rephrase it.",
 }
 
+# Declines from the resolve step (app/services/prompt_resolver.py), keyed by reason code.
+DECLINE_MESSAGES: dict[str, str] = {
+    "speaker_did_you_mean": 'We couldn\'t find a speaker named "{name}". Did you mean {options}?',
+    "speaker_ambiguous": 'More than one speaker matches "{name}". Did you mean {options}?',
+    "speaker_ambiguous_partial": 'More than one speaker matches "{name}", including {options}. Please use the full name.',
+    "speaker_too_many": 'Several speakers match "{name}": {options}. Please use the full name.',
+    "speaker_not_found": '"{name}" isn\'t a speaker in the AI4IA archive.',
+    "speaker_no_recording": "{name} is an AI4IA speaker, but the archive has no recorded talk from them.",
+    "chapter_not_found": "The archive has chapters {first}–{last}; there is no chapter {n}.",
+    "year_out_of_range": "The archive covers talks from {first} to {last}.",
+}
+
+GUARDRAIL_OFF_TOPIC_MESSAGE = (
+    "This platform covers the AI4IA archive: AI, information access, ethics and "
+    "governance. Please ask about one of those."
+)
+
 DEFAULT_MESSAGE = (
     "Something went wrong while processing your request. Please try again, and "
     "contact support if the problem continues."
