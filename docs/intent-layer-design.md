@@ -1,6 +1,6 @@
 # Intent layer and coverage check — design
 
-**Status:** phases 0–1 built · **Branch:** `uat` · **Updated:** 2026-09-24
+**Status:** phases 0–2 built · **Branch:** `uat` · **Updated:** 2026-09-24
 **Builds on:** [speaker-cleanup-plan.md](speaker-cleanup-plan.md) (applied on uat)
 
 ![Request journey](intent-layer-flow.png)
@@ -61,11 +61,15 @@ These are deterministic, cost nothing, and still work when the guardrail model i
 
 | Check | Rule | reason_code |
 |---|---|---|
-| Length | `len(prompt) > settings.prompt_max_chars` (default 1000; check the real maximum in `jobs` first). Also a pydantic `max_length` on the request schema, which has no limit today (`schemas/pipeline.py:18`). | `prompt_too_long` |
-| Empty | empty after stripping whitespace and punctuation | `prompt_empty` |
-| Gibberish | no token is a dictionary word, stopword, known speaker token or archive term, and the letters look random (vowel ratio, longest consonant run) | `prompt_gibberish` |
-| Greeting only | the whole prompt matches a greeting or small-talk pattern (`hi`, `hello there`, `how are you`) with nothing left over | `prompt_greeting` |
-| Injection pattern | `ignore (all\|previous) instructions`, `system prompt`, `you are now`, … | **flag only** (`flags.injection_pattern = true`), never a block |
+| Empty | no letters or digits at all | `prompt_empty` |
+| Length | longer than `settings.prompt_max_chars` (2000, the limit the API already had). The request model keeps a hard cap of 20,000 so the friendly check runs first. | `prompt_too_long` |
+| Greeting only | every word is a greeting or small-talk word (`hi`, `thanks`, `hello there, how are you today?`) | `prompt_greeting` |
+| Gibberish | no token looks like a word: known prompt words and speaker names, acronyms (`LLMs`, `UNESCO`), codes (`AI4IA`), or letters with a vowel and no run of more than 5 consonants | `prompt_gibberish` |
+| Injection pattern | `ignore previous instructions`, `system prompt`, `you are now`, … | **flag only** (`flags.injection_pattern = true`), never a block |
+
+L0 runs in `POST /api/video-jobs` before any job exists (HTTP 422 with the message; a `prompt_resolutions` row with no `job_id`), and again at the start of `stage_guardrail` as a backstop.
+
+**Measured:** 0 false rejections over 5,893 real texts (every fragment summary and talk title, a speaker prompt for all 472 registry names and aliases, and all legitimate prompts in the guardrail matrix). It catches 6 of the matrix's 9 no-subject prompts; the other 3 are keyboard mashes with enough vowels to look like words, and the LLM guardrail still rejects them. The rule favours precision over recall on purpose.
 
 Injection patterns are only flagged because "prompt injection" and "jailbreaking" are real AI topics that the archive may cover. The L1 classifier already rejects real attempts to re-role it. The flag is there for review and for the case matrix.
 
