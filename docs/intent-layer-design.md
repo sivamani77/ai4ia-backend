@@ -1,6 +1,6 @@
 # Intent layer and coverage check — design
 
-**Status:** phases 0–3 built · **Branch:** `uat` · **Updated:** 2026-09-24
+**Status:** phases 0–4 built · **Branch:** `uat` · **Updated:** 2026-09-24
 **Builds on:** [speaker-cleanup-plan.md](speaker-cleanup-plan.md) (applied on uat)
 
 ![Request journey](intent-layer-flow.png)
@@ -183,6 +183,13 @@ INSTRUCTIONS = """..."""                     # added after BASE_PROMPT
 ```
 
 The system prompt is `BASE_PROMPT + INSTRUCTIONS`, and its sha256 is recorded as `template_hash`. The LLM is always called with the same shape. What differs per intent is the instruction block and the payload.
+
+**Built in phase 4** (`storyline_gen/intents/`): `title`, `speaker_topic`, `speaker`, `chronological` and `topic`, each with `NAME`, `VERSION`, `INSTRUCTIONS` and `matches()`. `chronological` also has `prepare_director_plan()`, which keeps the old relay payload shape. `retrieve`, `coverage` and `build_payload` arrive with the phases that need them (5 and 6).
+
+- Only `chronological` has instructions today; for the others the prompt is exactly the base text. The move was verified byte-for-byte: `tests/unit/test_storyline_intents.py` compares the system text and user content for six saved storylines with snapshots captured from the code before the refactor.
+- `chronological` is still selected by the director's `chronological_relay` mode, as before. Selecting it from time-evolution wording is a later behaviour change.
+- Each storyline records `intent` (name, version, template hash), and stage 07 copies it to `prompt_resolutions`.
+- The storyline cache key includes `REGISTRY_VERSION`, built from every intent's name, version and template hash. Changing any intent's instructions stops old cached storylines being served. Adding this field misses every existing cache entry once.
 
 Why Python modules and not .md files:
 
