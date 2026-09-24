@@ -97,7 +97,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
 
     coverage = _read_coverage(coverage_path)
     if coverage:
-        processing_records.record_layer(job_id, coverage=coverage)
+        intent_name, intent_version = coverage.pop("intent", None), coverage.pop("intent_version", None)
+        processing_records.record_layer(job_id, coverage=coverage, intent=intent_name, intent_version=intent_version)
         append_event(job_id, "coverage", "07_storyline", {
             k: coverage.get(k) for k in ("verdict", "method", "top_similarity", "missing_aspects")})
     if coverage.get("verdict") == "not_covered" and settings.coverage_decline_enabled:

@@ -178,14 +178,18 @@ def main() -> None:
     retrieved = annotate_candidate_relevance(raw_retrieved, args.prompt, prompt_intent, known_speakers)
 
     # L2b: can the archive answer this at all? (docs/intent-layer-design.md §8)
+    first_intent = intents.select(prompt_intent, {})
     coverage = coverage_check.assess(
-        intents.select(prompt_intent, {}).NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,
+        first_intent.NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,
         floor=settings.archive_relevance_floor, low=settings.coverage_judge_low, records=all_records,
     )
     log(f"Coverage: {coverage.verdict} ({coverage.method}) top1={coverage.top_similarity} "
         f"pool={coverage.pool_size} missing_terms={coverage.missing_terms} missing={coverage.missing_aspects}")
     if args.coverage_file:
-        Path(args.coverage_file).write_text(json.dumps(coverage.to_dict()), encoding="utf-8")
+        # The intent goes with it, so a declined job still records one.
+        Path(args.coverage_file).write_text(json.dumps(
+            {**coverage.to_dict(), "intent": first_intent.NAME, "intent_version": first_intent.VERSION}),
+            encoding="utf-8")
     if coverage.verdict == "not_covered" and settings.coverage_decline_enabled:
         log(f"Not covered ({coverage.reason_code}) — no storyline generated.")
         return

@@ -56,6 +56,30 @@ class TestStageGuardrail:
         assert result.status == "failed"
         assert result.data["category"] == "harmful"
 
+    @pytest.mark.parametrize("prompt,category,expected", [
+        ("When I asked AI to compose a Haiku", "off_topic", "completed"),   # matrix row 25
+        ("what's the weather in Kingston", "off_topic", "failed"),
+        ("When I asked AI to compose a Haiku", "harmful", "failed"),        # only off_topic is overridden
+    ])
+    def test_archive_talk_title_overrides_off_topic(self, tmp_path, prompt, category, expected):
+        from app.pipeline.stage_guardrail import run
+        from app.services.corpus_catalog import Catalog
+
+        catalog = Catalog(frozenset({1}), 2021, 2026, frozenset({"when i asked ai to compose a haiku"}))
+        with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json",
+                   return_value={"allowed": False, "category": category, "reason": "r"}), \
+             patch("app.services.corpus_catalog.get_catalog", return_value=catalog), \
+             patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
+            mock_settings.prompt_guardrail_enabled = True
+            mock_settings.prompt_guardrail_model = "openai/gpt-oss-120b"
+            mock_settings.prompt_guardrail_fail_open = True
+            result = run("vjob_test", {"prompt": prompt}, _make_context(tmp_path))
+
+        assert result.status == expected
+
     def test_fail_open_when_llm_errors(self, tmp_path):
         from app.pipeline.stage_guardrail import run
         ctx = _make_context(tmp_path)

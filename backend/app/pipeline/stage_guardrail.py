@@ -31,6 +31,13 @@ def _job_user_id(job_id: str) -> str | None:
         return None
 
 
+def _names_talk(prompt: str) -> bool:
+    from app.services.corpus_catalog import get_catalog
+
+    catalog = get_catalog()
+    return bool(catalog and catalog.names_talk(prompt))
+
+
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
     """Classify the job's prompt against the video content policy.
 
@@ -64,6 +71,14 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
                "agent": "prompt_guardrail", "decision_label": "prompt_moderation"},
     )
     timings = {"l1": int((time.monotonic() - started) * 1000)}
+
+    if verdict.category == "off_topic" and _names_talk(prompt):
+        # A talk title is on topic by definition; the classifier cannot know the titles.
+        logger.info("Job %s prompt names an archive talk; off_topic verdict overridden", job_id)
+        processing_records.record_layer(job_id, flags={"l1_title_override": True}, timings_ms=timings)
+        update_stage(job_id, STAGE_NAME, "completed", 100, "Prompt names an archive talk")
+        append_event(job_id, "stage_completed", STAGE_NAME, {"title_override": True})
+        return StageResult(stage=STAGE_NAME, status="completed", message="Prompt names an archive talk")
 
     if verdict.failed_open:
         processing_records.record_layer(job_id, flags={"l1_failed_open": True}, timings_ms=timings)

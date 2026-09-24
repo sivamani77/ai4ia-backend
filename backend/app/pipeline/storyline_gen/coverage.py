@@ -103,9 +103,23 @@ def has_term(candidate: dict[str, Any], term: str) -> bool:
     return bool(pattern and pattern.search(normalize_name(candidate_search_blob(candidate))))
 
 
-def missing_terms(pool: list[dict[str, Any]], terms: list[str]) -> list[str]:
-    """Topic terms that none of the best-matching fragments contains."""
-    return [t for t in terms if not any(has_term(c, t) for c in pool[:TERM_WINDOW])]
+def prompt_phrases(prompt: str, terms: list[str]) -> list[str]:
+    """Topic terms the prompt puts side by side ("space law"): they must match as a phrase."""
+    patterns = [p for p in (term_pattern(t) for t in terms) if p]
+    words = normalize_name(prompt).split()
+    is_term = [any(p.fullmatch(w) for p in patterns) for w in words]
+    return [f"{a} {b}" for a, b, ta, tb in zip(words, words[1:], is_term, is_term[1:]) if ta and tb]
+
+
+def missing_terms(pool: list[dict[str, Any]], terms: list[str], phrases: list[str] = ()) -> list[str]:
+    """Topic terms and phrases that none of the best-matching fragments contains."""
+    window = [normalize_name(candidate_search_blob(c)) for c in pool[:TERM_WINDOW]]
+    missing = [t for t in terms if not any(has_term(c, t) for c in pool[:TERM_WINDOW])]
+    for phrase in phrases:
+        pattern = re.compile(r"\s+".join(term_pattern(w).pattern for w in phrase.split()), re.I)
+        if not any(pattern.search(text) for text in window):
+            missing.append(phrase)
+    return missing
 
 
 def rule_verdict(top1: float | None, missing: list[str], floor: float, low: float) -> str:
@@ -256,7 +270,7 @@ def assess(intent_name: str, profile: dict[str, Any], candidates: list[dict[str,
         result.method = "no_evidence_pool"
         return result
 
-    result.missing_terms = missing_terms(pool, terms)
+    result.missing_terms = missing_terms(pool, terms, prompt_phrases(prompt, terms))
     verdict = rule_verdict(top1, result.missing_terms, floor, low)
     if verdict != "judge":
         result.verdict, result.method = verdict, "rule"

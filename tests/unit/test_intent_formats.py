@@ -296,3 +296,17 @@ class TestRouting:
         profile = {"requested_speaker": "Cordel Green", "intent_type": "speaker_topic_summary",
                    "topic_terms": topic_terms}
         assert intents.select(profile, {}).NAME == expected
+
+    # Case matrix rows 10 and 31 (docs/intent-layer-design.md §13), from the profile the prompt produces.
+    @pytest.mark.parametrize("prompt,speaker,expected", [
+        ("What did Cordell Green say?", "Cordel Green", "speaker"),       # an alias is not a topic
+        ("What did Cordell Green say about regulation?", "Cordel Green", "speaker_topic"),
+        ("Chapter 5", None, "theme_chapter"),                            # not an archive overview
+        ("What is AI4IA?", None, "overview"),
+    ])
+    def test_profile_routes_to(self, prompt, speaker, expected):
+        from app.pipeline.storyline_gen.prompt_intent import detect_prompt_intent
+
+        records = [{"primary_chapter": "Ch 5: Open Data & Information Accessibility"}]
+        profile = detect_prompt_intent(prompt, [], records, requested_speaker=speaker)
+        assert intents.select(profile, {}).NAME == expected

@@ -55,6 +55,21 @@ class TestRule:
         passing_mention = frag("z", 0.6, "a word on quantum")
         assert coverage.missing_terms(best + [passing_mention], ["agriculture", "computing", "quantum"]) == ["quantum"]
 
+    @pytest.mark.parametrize("prompt,terms,phrases", [
+        ("deepfakes and space law", ["deepfake", "law", "space"], ["space law"]),
+        ("deepfakes and elections", ["deepfake", "election"], []),
+        ("AI governance and transparency", ["governance", "transparency"], []),
+    ])
+    def test_prompt_phrases(self, prompt, terms, phrases):
+        assert coverage.prompt_phrases(prompt, terms) == phrases
+
+    def test_adjacent_terms_must_match_as_a_phrase(self):
+        # Matrix row 24: "civic space" and "law" in separate fragments made "space law" look covered.
+        pool = [frag("a", 0.8, "deepfakes erode civic space"), frag("b", 0.8, "the law on deepfakes")]
+        terms = ["deepfake", "law", "space"]
+        assert coverage.missing_terms(pool, terms, ["space law"]) == ["space law"]
+        assert coverage.missing_terms([frag("c", 0.8, "deepfakes and space laws")], terms, ["space law"]) == []
+
 
 class TestAssess:
     def test_covered_by_rule_without_the_judge(self):
@@ -78,7 +93,7 @@ class TestAssess:
         result = assess("topic", profile("Quantum computing in agriculture", ["agriculture", "computing", "quantum"]),
                         pool, call)
         assert (result.verdict, result.method) == ("partial", "judge")
-        assert result.missing_terms == ["quantum"]
+        assert result.missing_terms == ["quantum", "quantum computing"]
         assert (result.addressed_aspects, result.missing_aspects) == (["agriculture"], ["quantum computing"])
         assert result.supporting_ids == ["a"]  # ids it was never shown are dropped
         user, kwargs = call.calls[0]
@@ -236,6 +251,13 @@ class TestStage07Decline:
                                "suggestions": ["AI in Health"]}
         row = processing_records_store.resolutions["vjob_cov"]
         assert row["layer_outcome"] == "declined" and row["coverage"]["verdict"] == "not_covered"
+
+    def test_a_declined_job_records_its_intent(self, tmp_path, processing_records_store):
+        processing_records_store.resolutions["vjob_cov"] = {"job_id": "vjob_cov", "layer_outcome": "in_progress"}
+        self.run_stage(tmp_path, {**self.NOT_COVERED, "intent": "topic", "intent_version": "3"})
+        row = processing_records_store.resolutions["vjob_cov"]
+        assert (row["intent"], row["intent_version"]) == ("topic", "3")
+        assert "intent" not in row["coverage"]
 
     def test_shadow_mode_records_but_renders(self, tmp_path, processing_records_store):
         processing_records_store.resolutions["vjob_cov"] = {"job_id": "vjob_cov", "layer_outcome": "in_progress"}
