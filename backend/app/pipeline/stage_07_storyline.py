@@ -120,6 +120,11 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     if use_s3():
         upload(storyline_path, f"raw/storylines/{storyline_path.name}")
 
+    intent = (sdata.get("storyline") or {}).get("intent") if "sdata" in dir() else None
+    if intent:
+        processing_records.record_layer(job_id, intent=intent.get("name"), intent_version=intent.get("version"),
+                                        template_hash=intent.get("template_hash"))
+
     # Emit post-hoc LLM traces from the storyline JSON (subprocess calls can't be
     # intercepted live, so we reconstruct them from what the script recorded).
     _emit_storyline_traces(job_id, sdata if "sdata" in dir() else {}, request)

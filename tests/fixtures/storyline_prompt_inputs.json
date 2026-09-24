@@ -1,0 +1,2044 @@
+{
+ "chronological_topic": {
+  "user_prompt": "Create a video on deep fake",
+  "duration": 300,
+  "candidates": [
+   {
+    "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0023",
+    "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+    "video_id": "5aoew3DYz7Y",
+    "start": 1358.4,
+    "end": 1434.56,
+    "duration": 76.16,
+    "primary_theme": "Disinformation, Deepfakes & AI Safety",
+    "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+    "summary": "because he shop on the Chinese marketplace demo it was a joke but in reality this video is a high quality deep fake created using AR and also we have...",
+    "keywords": [
+     "deepfakes",
+     "misinformation",
+     "false"
+    ],
+    "clip_usage_candidates": [
+     "evidence_clip"
+    ],
+    "quote_strength": 0.42,
+    "clarity_score": 0.75,
+    "relevance_role": "exact",
+    "speaker": null,
+    "speaker_attribution": null,
+    "speaker_clip_allowed": false,
+    "speaker_soundbite_allowed": false,
+    "speaker_visual_allowed": false,
+    "relevance_reason": "Matched direct terms ['deep', 'fake'], expanded terms ['deepfakes', 'deep fake', 'disinformation'].",
+    "text": "because he shop on the Chinese marketplace demo it was a joke but in reality this video is a high quality deep fake created using AR and also we have seen a generated video and audio Ukrainian...",
+    "video_year": 2025,
+    "audio_quality_status": "",
+    "final_video_allowed": true
+   },
+   {
+    "fragment_id": "0135_72CNhZukwUI_Jessica Rose Smith - Harmful deepfakes_0002",
+    "source_video": "0135_72CNhZukwUI_Jessica Rose Smith - Harmful deepfakes",
+    "video_id": "72CNhZukwUI",
+    "start": 59.94,
+    "end": 115.42,
+    "duration": 55.48,
+    "primary_theme": "Disinformation, Deepfakes & AI Safety",
+    "primary_chapter": "Ch 16: Deepfakes, Synthetic Media & Copyright",
+    "summary": "And we also have a broad range of powers to enforce compliance.",
+    "keywords": [
+     "deepfakes",
+     "deepfake",
+     "fake"
+    ],
+    "clip_usage_candidates": [
+     "speaker_soundbite",
+     "narration_support"
+    ],
+    "quote_strength": 0.5,
+    "clarity_score": 0.95,
+    "relevance_role": "exact",
+    "speaker": "Jessica Rose Smith",
+    "speaker_attribution": "video-level",
+    "speaker_clip_allowed": true,
+    "speaker_soundbite_allowed": true,
+    "speaker_visual_allowed": false,
+    "relevance_reason": "Matched direct terms ['deep', 'fake'], expanded terms ['deepfake', 'deepfakes', 'deep fake'].",
+    "text": "And we also have a broad range of powers to enforce compliance. But why we're interested in deepfakes? Public concern about deepfakes has increased substantially in recent months. These fears have...",
+    "video_year": 2024,
+    "audio_quality_status": "",
+    "final_video_allowed": true
+   },
+   {
+    "fragment_id": "0250_mZ4-BwAq2c8_(7K) M El-Guindy - Malicious Use of AI_0010",
+    "source_video": "0250_mZ4-BwAq2c8_(7K) M El-Guindy - Malicious Use of AI",
+    "video_id": "mZ4-BwAq2c8",
+    "start": 522.2,
+    "end": 574.0,
+    "duration": 51.8,
+    "primary_theme": "Disinformation, Deepfakes & AI Safety",
+    "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+    "summary": "make them say and do thing that support its narrative.",
+    "keywords": [
+     "fake",
+     "learning",
+     "deep"
+    ],
+    "clip_usage_candidates": [
+     "archive_visual"
+    ],
+    "quote_strength": 0.42,
+    "clarity_score": 0.95,
+    "relevance_role": "exact",
+    "speaker": "Mohamed El-Gindi",
+    "speaker_attribution": "video-level",
+    "speaker_clip_allowed": false,
+    "speaker_soundbite_allowed": false,
+    "speaker_visual_allowed": false,
+    "relevance_reason": "Matched direct terms ['deep', 'fake'], expanded terms ['deepfakes', 'deep fake', 'disinformation'].",
+    "text": "make them say and do thing that support its narrative. So if you're saying this is not a fictional scenario. So when we remember deep fakes and deep fake app or fake app this was very popular on the...",
+    "video_year": 2021,
+    "audio_quality_status": "",
+    "final_video_allowed": true
+   }
+  ],
+  "style": "documentary",
+  "director_plan": {
+   "enabled": true,
+   "video_mode": "chronological_relay",
+   "evidence_strength": "high",
+   "exact_clip_count": 22,
+   "related_clip_count": 0,
+   "strong_related_count": 0,
+   "usable_speaker_clip_count": 4,
+   "usable_speaker_visual_count": 0,
+   "rejected_clip_count": 2,
+   "unique_speaker_count": 12,
+   "unique_source_video_count": 14,
+   "theme_coverage": [
+    "AI & Information Access / Media / Journalism",
+    "Disinformation, Deepfakes & AI Safety"
+   ],
+   "chapter_coverage": [
+    "Ch 16: Deepfakes, Synthetic Media & Copyright",
+    "Ch 17: AI-Driven Disinformation & Propaganda",
+    "Ch 18: AI Safety, Cybersecurity & Warfare"
+   ],
+   "average_similarity": 0.649181,
+   "average_quote_strength": 0.452727,
+   "recommended_structure": [
+    {
+     "role": "temporal_context",
+     "section_type": "narration",
+     "narration_guidance": "Establish the historical or multi-year arc — describe how the topic has evolved across conference years.",
+     "evidence_expectation": "clips or narration grounded in the earliest year represented in the candidate pool",
+     "year_slot": 2024,
+     "speaker_soundbites": [],
+     "archive_visual_fragments": []
+    },
+    {
+     "role": "human_problem",
+     "section_type": "speaker_soundbite",
+     "narration_guidance": "A speaker articulates the core human challenge or gap that drives the relay of ideas across time.",
+     "evidence_expectation": "exact-match soundbite from any year that names the problem clearly",
+     "year_slot": 2021,
+     "speaker_soundbites": [],
+     "archive_visual_fragments": [
+      {
+       "fragment_id": "0250_mZ4-BwAq2c8_(7K) M El-Guindy - Malicious Use of AI_0010",
+       "start": 522.2,
+       "end": 574.0,
+       "video_year": 2021,
+       "speaker_name": "Mohamed El-Gindi",
+       "text": "make them say and do thing that support its narrative. So if you're saying this is not a fictional scenario. So when we remember deep fakes and deep fake app or fake app this was very popular on the i",
+       "usage": "evidence_visual"
+      },
+      {
+       "fragment_id": "0250_mZ4-BwAq2c8_(7K) M El-Guindy - Malicious Use of AI_0005",
+       "start": 239.0,
+       "end": 300.32,
+       "video_year": 2021,
+       "speaker_name": "Mohamed El-Gindi",
+       "text": "security, and also political security. When it comes to cyber security, I assure you that we will not be able to defeat a machine without a machine. We are now heading to what we can call AI-powered c",
+       "usage": "evidence_visual"
+      }
+     ]
+    },
+    {
+     "role": "risk_escalation",
+     "section_type": "speaker_soundbite",
+     "narration_guidance": "A voice from a later year escalates the stakes — what has worsened, spread, or gone unaddressed.",
+     "evidence_expectation": "strong-related or exact clip from a more recent year than the human_problem clip",
+     "year_slot": 2024,
+     "speaker_soundbites": [],
+     "archive_visual_fragments": [
+      {
+       "fragment_id": "0135_72CNhZukwUI_Jessica Rose Smith - Harmful deepfakes_0002",
+       "start": 59.94,
+       "end": 115.42,
+       "video_year": 2024,
+       "speaker_name": "Jessica Rose Smith",
+       "text": "And we also have a broad range of powers to enforce compliance. But why we're interested in deepfakes? Public concern about deepfakes has increased substantially in recent months. These fears have bee",
+       "usage": "evidence_visual"
+      },
+      {
+       "fragment_id": "0124_ER7_5jzIrbI_Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes_0009",
+       "start": 441.45,
+       "end": 498.02,
+       "video_year": 2024,
+       "speaker_name": "Jaimee Stuart",
+       "text": "a portamento of the concepts of deep learning and fake content. And it means synthetic media that has manipulated via AI to represent a person's likeness or computer generated content of fake people. ",
+       "usage": "evidence_visual"
+      }
+     ]
+    }
+   ],
+   "fallback_risk": "low",
+   "planning_notes": [
+    "The candidate pool is diverse enough to support a multi-voice documentary structure."
+   ],
+   "requested_speaker": null
+  },
+  "prompt_intent": {
+   "raw_prompt": "Create a video on deep fake",
+   "intent_type": "topic_video",
+   "requested_speaker": null,
+   "speaker_required": false,
+   "topic_terms": [
+    "deep",
+    "fake"
+   ],
+   "expanded_terms": [
+    "deepfake",
+    "deepfakes",
+    "deep fake",
+    "synthetic media",
+    "disinformation",
+    "misinformation",
+    "fabricated",
+    "manipulated media"
+   ],
+   "negative_terms": [],
+   "generic_terms_removed": [],
+   "theme_hint": null,
+   "chapter_hint": null,
+   "scope": "specific_topic",
+   "evidence_requirement": "direct_topic_evidence",
+   "strictness": "medium",
+   "target_duration_seconds": 300
+  },
+  "evidence_package": {
+   "prompt_profile": {
+    "raw_prompt": "Create a video on deep fake",
+    "intent_type": "topic_video",
+    "requested_speaker": null,
+    "speaker_required": false,
+    "topic_terms": [
+     "deep",
+     "fake"
+    ],
+    "expanded_terms": [
+     "deepfake",
+     "deepfakes",
+     "deep fake"
+    ],
+    "negative_terms": [],
+    "generic_terms_removed": [],
+    "theme_hint": null,
+    "chapter_hint": null,
+    "scope": "specific_topic",
+    "evidence_requirement": "direct_topic_evidence",
+    "strictness": "medium",
+    "target_duration_seconds": 300
+   },
+   "selected_evidence": [
+    {
+     "fragment_id": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂_0023",
+     "source_video": "0082_5aoew3DYz7Y_Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂",
+     "video_id": "5aoew3DYz7Y",
+     "start": 1358.4,
+     "end": 1434.56,
+     "duration": 76.16,
+     "primary_theme": "Disinformation, Deepfakes & AI Safety",
+     "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+     "summary": "because he shop on the Chinese marketplace demo it was a joke but in reality this video is a high quality deep fake created using AR and also we have...",
+     "keywords": [
+      "deepfakes",
+      "misinformation",
+      "false"
+     ],
+     "clip_usage_candidates": [
+      "evidence_clip"
+     ],
+     "quote_strength": 0.42,
+     "clarity_score": 0.75,
+     "relevance_role": "exact",
+     "speaker": null,
+     "speaker_attribution": null,
+     "speaker_clip_allowed": false,
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "relevance_reason": "Matched direct terms ['deep', 'fake'], expanded terms ['deepfakes', 'deep fake', 'disinformation'].",
+     "text": "because he shop on the Chinese marketplace demo it was a joke but in reality this video is a high quality deep fake created using AR and also we have seen a generated video and audio Ukrainian...",
+     "video_year": 2025,
+     "audio_quality_status": "",
+     "final_video_allowed": true
+    },
+    {
+     "fragment_id": "0135_72CNhZukwUI_Jessica Rose Smith - Harmful deepfakes_0002",
+     "source_video": "0135_72CNhZukwUI_Jessica Rose Smith - Harmful deepfakes",
+     "video_id": "72CNhZukwUI",
+     "start": 59.94,
+     "end": 115.42,
+     "duration": 55.48,
+     "primary_theme": "Disinformation, Deepfakes & AI Safety",
+     "primary_chapter": "Ch 16: Deepfakes, Synthetic Media & Copyright",
+     "summary": "And we also have a broad range of powers to enforce compliance.",
+     "keywords": [
+      "deepfakes",
+      "deepfake",
+      "fake"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "narration_support"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "exact",
+     "speaker": "Jessica Rose Smith",
+     "speaker_attribution": "video-level",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": false,
+     "relevance_reason": "Matched direct terms ['deep', 'fake'], expanded terms ['deepfake', 'deepfakes', 'deep fake'].",
+     "text": "And we also have a broad range of powers to enforce compliance. But why we're interested in deepfakes? Public concern about deepfakes has increased substantially in recent months. These fears have...",
+     "video_year": 2024,
+     "audio_quality_status": "",
+     "final_video_allowed": true
+    },
+    {
+     "fragment_id": "0250_mZ4-BwAq2c8_(7K) M El-Guindy - Malicious Use of AI_0010",
+     "source_video": "0250_mZ4-BwAq2c8_(7K) M El-Guindy - Malicious Use of AI",
+     "video_id": "mZ4-BwAq2c8",
+     "start": 522.2,
+     "end": 574.0,
+     "duration": 51.8,
+     "primary_theme": "Disinformation, Deepfakes & AI Safety",
+     "primary_chapter": "Ch 19: AI Literacy, Learning & Education Reform",
+     "summary": "make them say and do thing that support its narrative.",
+     "keywords": [
+      "fake",
+      "learning",
+      "deep"
+     ],
+     "clip_usage_candidates": [
+      "archive_visual"
+     ],
+     "quote_strength": 0.42,
+     "clarity_score": 0.95,
+     "relevance_role": "exact",
+     "speaker": "Mohamed El-Gindi",
+     "speaker_attribution": "video-level",
+     "speaker_clip_allowed": false,
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "relevance_reason": "Matched direct terms ['deep', 'fake'], expanded terms ['deepfakes', 'deep fake', 'disinformation'].",
+     "text": "make them say and do thing that support its narrative. So if you're saying this is not a fictional scenario. So when we remember deep fakes and deep fake app or fake app this was very popular on the...",
+     "video_year": 2021,
+     "audio_quality_status": "",
+     "final_video_allowed": true
+    }
+   ],
+   "supporting_context": [
+    {
+     "fragment_id": "0083_UfD8_UVq8p0_Ropafadzo Makaza_0005",
+     "source_video": "0083_UfD8_UVq8p0_Ropafadzo Makaza",
+     "video_id": "UfD8",
+     "start": 236.1,
+     "end": 298.53,
+     "duration": 62.43,
+     "primary_theme": "AI & Information Access / Media / Journalism",
+     "primary_chapter": "Ch 2: AI Governance Models & Oversight",
+     "summary": "we are able to have videos or images generated and these videos will be looking hyper realistic, such that the consumer might not be able to...",
+     "keywords": [
+      "deepfakes",
+      "environment",
+      "content"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "evidence_clip"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "weak_related",
+     "speaker": "Ropafadzo Makaza",
+     "speaker_attribution": "video-level",
+     "speaker_clip_allowed": false,
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "relevance_reason": "Matched expanded terms ['deepfakes'].",
+     "text": "we are able to have videos or images generated and these videos will be looking hyper realistic, such that the consumer might not be able to distinguish between the real and an artificial figure. So...",
+     "video_year": 2025,
+     "audio_quality_status": "",
+     "final_video_allowed": false
+    },
+    {
+     "fragment_id": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age_0069",
+     "source_video": "0052_hzFwSfMpEhE_Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age",
+     "video_id": "hzFwSfMpEhE",
+     "start": 3813.56,
+     "end": 3865.87,
+     "duration": 52.31,
+     "primary_theme": "AI Ethics, Governance & Policy",
+     "primary_chapter": "Ch 4: AI Economics, Competition & Markets",
+     "summary": "So I want to know further, discredit prof's character.",
+     "keywords": [
+      "competition",
+      "content",
+      "same"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.85,
+     "relevance_role": "weak_related",
+     "speaker": null,
+     "speaker_attribution": null,
+     "speaker_clip_allowed": false,
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "relevance_reason": "Matched direct terms ['deep'].",
+     "text": "because we're in a competition, okay? Great. So I want to know further, discredit prof's character. I go a bit further. And I use the slide or the video from here. Maybe a few images from what prof....",
+     "video_year": 2025,
+     "audio_quality_status": "",
+     "final_video_allowed": false
+    },
+    {
+     "fragment_id": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025_0002",
+     "source_video": "0026_pT_ceW13mvc_Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025",
+     "video_id": "pT",
+     "start": 49.54,
+     "end": 103.7,
+     "duration": 54.16,
+     "primary_theme": "AI, Law & Human Rights",
+     "primary_chapter": "Ch 16: Deepfakes, Synthetic Media & Copyright",
+     "summary": "And finally, I will address some of the potential shortcomings of the proposal.",
+     "keywords": [
+      "deepfakes",
+      "law",
+      "copyright"
+     ],
+     "clip_usage_candidates": [
+      "narration_support"
+     ],
+     "quote_strength": 0.42,
+     "clarity_score": 0.95,
+     "relevance_role": "weak_related",
+     "speaker": "Anne-Sofie Kofoe Rasmussen",
+     "speaker_attribution": "video-level",
+     "speaker_clip_allowed": false,
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "relevance_reason": "Matched expanded terms ['deepfakes', 'synthetic media'].",
+     "text": "And finally, I will address some of the potential shortcomings of the proposal. So different countries are adopting different approaches to the dissemination of deepfakes. But as far as I'm aware,...",
+     "video_year": 2025,
+     "audio_quality_status": "",
+     "final_video_allowed": false
+    }
+   ],
+   "evidence_gaps": [],
+   "must_not_claim": []
+  }
+ },
+ "chronological_chapter": {
+  "user_prompt": "The promise and risks of AI in healthcare and medical decision-making",
+  "duration": 150,
+  "candidates": [
+   {
+    "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0006",
+    "source_video": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care",
+    "video_id": "VdgizwSC1jo",
+    "start": 345.55,
+    "end": 419.88,
+    "duration": 74.33,
+    "primary_theme": "AI in Health, Science & Environment",
+    "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+    "summary": "AI is also attracting a lot of startups.",
+    "keywords": [
+     "health",
+     "healthcare",
+     "patient"
+    ],
+    "clip_usage_candidates": [
+     "archive_visual"
+    ],
+    "quote_strength": 0.48,
+    "clarity_score": 0.95,
+    "narration_support_score": 0.5,
+    "semantic_score": 0.73926,
+    "prompt_relevance_score": 0.805178,
+    "final_prompt_score": 0.805178,
+    "selection_score": 0.961468,
+    "relevance_role": "exact",
+    "prompt_keyword_overlap": [
+     "healthcare",
+     "risk"
+    ],
+    "direct_evidence_terms": [
+     "healthcare",
+     "risk"
+    ],
+    "expanded_evidence_terms": [
+     "health",
+     "medicine",
+     "patient"
+    ],
+    "negative_evidence_terms": [],
+    "retrieval_channels": [
+     "semantic",
+     "keyword",
+     "chapter"
+    ],
+    "requested_speaker": null,
+    "speaker_match": true,
+    "speaker_match_reason": "no speaker requested",
+    "speaker_soundbite_allowed": false,
+    "speaker_visual_allowed": false,
+    "speaker_clip_allowed": false,
+    "broll_allowed": true,
+    "relevance_reason": "Matched direct terms ['healthcare', 'risk'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+    "selection_reason": "Matched direct terms ['healthcare', 'risk'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+    "keyword_score": 1.0,
+    "expanded_keyword_score": 1.0,
+    "theme_chapter_score": 1.0,
+    "speaker_score": 0.0,
+    "quote_quality_score": 0.668,
+    "generic_penalty": 0.0,
+    "negative_term_penalty": 0.0,
+    "meaningful_prompt_overlap": [
+     "healthcare",
+     "risk"
+    ],
+    "final_video_allowed": true,
+    "use_as": "archive_visual",
+    "text": "AI is also attracting a lot of startups. So these are the six top startups out of over thousands, which are disrupting the healthcare industry. Alone in year 2023, these 24 startups have already revolutionized the healthcare with AI. AI's role in healthcare can be divided into two ways. One is the clinical application and administrative applications. In clinical application, it helps in monitoring",
+    "source_transcript_version": null,
+    "audio_quality_status": null,
+    "transcript_quality_score": null,
+    "word_timing_available": null,
+    "text_hash": null,
+    "text_truncated_for_embedding": null,
+    "video_year": 2023,
+    "video_upload_date": "20231115"
+   },
+   {
+    "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0008",
+    "source_video": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine",
+    "video_id": "hIzU20n5u8I",
+    "start": 406.15,
+    "end": 454.43,
+    "duration": 48.28,
+    "primary_theme": "AI in Health, Science & Environment",
+    "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+    "summary": "Then the regulatory approvals also like the gaining trust from the both medical and the professionals and the patients and just to conclude my presentation, AI is undeniably transforming medicines from diagnostics and does discovery to...",
+    "keywords": [
+     "policy",
+     "health",
+     "medical"
+    ],
+    "clip_usage_candidates": [
+     "narration_support",
+     "context_visual",
+     "synthesis_candidate"
+    ],
+    "quote_strength": 0.39,
+    "clarity_score": 0.95,
+    "narration_support_score": 0.7,
+    "semantic_score": 0.733387,
+    "prompt_relevance_score": 0.800716,
+    "final_prompt_score": 0.800716,
+    "selection_score": 1.049606,
+    "relevance_role": "exact",
+    "prompt_keyword_overlap": [
+     "healthcare",
+     "medical"
+    ],
+    "direct_evidence_terms": [
+     "healthcare",
+     "medical"
+    ],
+    "expanded_evidence_terms": [
+     "health",
+     "medicine",
+     "patient"
+    ],
+    "negative_evidence_terms": [],
+    "retrieval_channels": [
+     "semantic",
+     "keyword",
+     "chapter"
+    ],
+    "requested_speaker": null,
+    "speaker_match": true,
+    "speaker_match_reason": "no speaker requested",
+    "speaker_soundbite_allowed": false,
+    "speaker_visual_allowed": false,
+    "speaker_clip_allowed": false,
+    "broll_allowed": true,
+    "relevance_reason": "Matched direct terms ['healthcare', 'medical'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+    "selection_reason": "Matched direct terms ['healthcare', 'medical'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+    "keyword_score": 1.0,
+    "expanded_keyword_score": 1.0,
+    "theme_chapter_score": 1.0,
+    "speaker_score": 0.0,
+    "quote_quality_score": 0.614,
+    "generic_penalty": 0.0,
+    "negative_term_penalty": 0.0,
+    "meaningful_prompt_overlap": [
+     "healthcare",
+     "medical"
+    ],
+    "final_video_allowed": true,
+    "use_as": "narration_support",
+    "text": "health care inequalities also. Then the regulatory approvals also like the gaining trust from the both medical and the professionals and the patients and just to conclude my presentation, AI is undeniably transforming medicines from diagnostics and does discovery to personalize care and predictive analytics. While the future of AI promises even more efficient and accessible health care, it is esse",
+    "source_transcript_version": null,
+    "audio_quality_status": null,
+    "transcript_quality_score": null,
+    "word_timing_available": null,
+    "text_hash": null,
+    "text_truncated_for_embedding": null,
+    "video_year": 2024,
+    "video_upload_date": "20241125"
+   },
+   {
+    "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0006",
+    "source_video": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine",
+    "video_id": "hIzU20n5u8I",
+    "start": 295.43,
+    "end": 349.27,
+    "duration": 53.84,
+    "primary_theme": "AI in Health, Science & Environment",
+    "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+    "summary": "approach to the treatment and something that as a clinician, I have often found frustrating AI also aids in predicting an analytics and helping to forecast the disease risk and allowing us to intervene earlier and...",
+    "keywords": [
+     "health",
+     "patient",
+     "disease"
+    ],
+    "clip_usage_candidates": [
+     "speaker_soundbite"
+    ],
+    "quote_strength": 0.52,
+    "clarity_score": 0.95,
+    "narration_support_score": 0.5,
+    "semantic_score": 0.70447,
+    "prompt_relevance_score": 0.795941,
+    "final_prompt_score": 0.795941,
+    "selection_score": 1.034631,
+    "relevance_role": "exact",
+    "prompt_keyword_overlap": [
+     "healthcare",
+     "risk"
+    ],
+    "direct_evidence_terms": [
+     "healthcare",
+     "risk"
+    ],
+    "expanded_evidence_terms": [
+     "health",
+     "medicine",
+     "patient"
+    ],
+    "negative_evidence_terms": [],
+    "retrieval_channels": [
+     "semantic",
+     "keyword",
+     "chapter"
+    ],
+    "requested_speaker": null,
+    "speaker_match": true,
+    "speaker_match_reason": "no speaker requested",
+    "speaker_soundbite_allowed": true,
+    "speaker_visual_allowed": false,
+    "speaker_clip_allowed": true,
+    "broll_allowed": true,
+    "relevance_reason": "Matched direct terms ['healthcare', 'risk'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+    "selection_reason": "Matched direct terms ['healthcare', 'risk'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+    "keyword_score": 1.0,
+    "expanded_keyword_score": 1.0,
+    "theme_chapter_score": 1.0,
+    "speaker_score": 0.0,
+    "quote_quality_score": 0.692,
+    "generic_penalty": 0.0,
+    "negative_term_penalty": 0.0,
+    "meaningful_prompt_overlap": [
+     "healthcare",
+     "risk"
+    ],
+    "final_video_allowed": true,
+    "use_as": "speaker_soundbite",
+    "text": "approach to the treatment and something that as a clinician, I have often found frustrating AI also aids in predicting an analytics and helping to forecast the disease risk and allowing us to intervene earlier and improve the patient outcome. Then we will look at the role of AI in patient monitoring and the management. The continuous patient monitoring is another area where AI has proven invaluabl",
+    "source_transcript_version": null,
+    "audio_quality_status": null,
+    "transcript_quality_score": null,
+    "word_timing_available": null,
+    "text_hash": null,
+    "text_truncated_for_embedding": null,
+    "video_year": 2024,
+    "video_upload_date": "20241125"
+   }
+  ],
+  "style": "documentary",
+  "director_plan": {
+   "enabled": true,
+   "video_mode": "chronological_relay",
+   "evidence_strength": "high",
+   "exact_clip_count": 24,
+   "related_clip_count": 0,
+   "strong_related_count": 0,
+   "usable_speaker_clip_count": 6,
+   "usable_speaker_visual_count": 0,
+   "rejected_clip_count": 0,
+   "unique_speaker_count": 0,
+   "unique_source_video_count": 19,
+   "theme_coverage": [
+    "AI & Information Access / Media / Journalism",
+    "AI Ethics, Governance & Policy",
+    "AI in Health, Science & Environment"
+   ],
+   "chapter_coverage": [
+    "Ch 13: AI in Healthcare & Medicine",
+    "Ch 9: AI Equity in the Global South & Developing Nations"
+   ],
+   "average_similarity": 0.685389,
+   "average_quote_strength": 0.443729,
+   "recommended_structure": [
+    {
+     "role": "temporal_context",
+     "section_type": "narration",
+     "narration_guidance": "Establish the historical or multi-year arc — describe how the topic has evolved across conference years.",
+     "evidence_expectation": "clips or narration grounded in the earliest year represented in the candidate pool"
+    },
+    {
+     "role": "human_problem",
+     "section_type": "speaker_soundbite",
+     "narration_guidance": "A speaker articulates the core human challenge or gap that drives the relay of ideas across time.",
+     "evidence_expectation": "exact-match soundbite from any year that names the problem clearly"
+    },
+    {
+     "role": "risk_escalation",
+     "section_type": "speaker_soundbite",
+     "narration_guidance": "A voice from a later year escalates the stakes — what has worsened, spread, or gone unaddressed.",
+     "evidence_expectation": "strong-related or exact clip from a more recent year than the human_problem clip"
+    }
+   ],
+   "fallback_risk": "low",
+   "planning_notes": [
+    "Speaker diversity is limited, so narration carries more of the connective explanation."
+   ],
+   "requested_speaker": null
+  },
+  "prompt_intent": {
+   "raw_prompt": "The promise and risks of AI in healthcare and medical decision-making",
+   "intent_type": "chapter_video",
+   "requested_speaker": null,
+   "speaker_required": false,
+   "topic_terms": [
+    "decision",
+    "healthcare",
+    "making",
+    "medical",
+    "promise",
+    "risk"
+   ],
+   "expanded_terms": [
+    "health",
+    "medicine",
+    "medical",
+    "patient",
+    "doctor",
+    "hospital",
+    "clinical",
+    "public health"
+   ],
+   "negative_terms": [],
+   "generic_terms_removed": [],
+   "theme_hint": "AI in Health, Science & Environment",
+   "chapter_hint": "Ch 13: AI in Healthcare & Medicine",
+   "scope": "specific_topic",
+   "evidence_requirement": "direct_topic_evidence",
+   "strictness": "medium",
+   "target_duration_seconds": 150
+  },
+  "evidence_package": {
+   "prompt_profile": {
+    "raw_prompt": "The promise and risks of AI in healthcare and medical decision-making",
+    "intent_type": "chapter_video",
+    "requested_speaker": null,
+    "speaker_required": false,
+    "topic_terms": [
+     "decision",
+     "healthcare",
+     "making"
+    ],
+    "expanded_terms": [
+     "health",
+     "medicine",
+     "medical"
+    ],
+    "negative_terms": [],
+    "generic_terms_removed": [],
+    "theme_hint": "AI in Health, Science & Environment",
+    "chapter_hint": "Ch 13: AI in Healthcare & Medicine",
+    "scope": "specific_topic",
+    "evidence_requirement": "direct_topic_evidence",
+    "strictness": "medium",
+    "target_duration_seconds": 150
+   },
+   "selected_evidence": [
+    {
+     "fragment_id": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care_0006",
+     "source_video": "0189_VdgizwSC1jo_Poonam Verma - A.I in Health Care",
+     "video_id": "VdgizwSC1jo",
+     "start": 345.55,
+     "end": 419.88,
+     "duration": 74.33,
+     "primary_theme": "AI in Health, Science & Environment",
+     "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+     "summary": "AI is also attracting a lot of startups.",
+     "keywords": [
+      "health",
+      "healthcare",
+      "patient"
+     ],
+     "clip_usage_candidates": [
+      "archive_visual"
+     ],
+     "quote_strength": 0.48,
+     "clarity_score": 0.95,
+     "narration_support_score": 0.5,
+     "semantic_score": 0.73926,
+     "prompt_relevance_score": 0.805178,
+     "final_prompt_score": 0.805178,
+     "selection_score": 0.961468,
+     "relevance_role": "exact",
+     "prompt_keyword_overlap": [
+      "healthcare",
+      "risk"
+     ],
+     "direct_evidence_terms": [
+      "healthcare",
+      "risk"
+     ],
+     "expanded_evidence_terms": [
+      "health",
+      "medicine",
+      "patient"
+     ],
+     "negative_evidence_terms": [],
+     "retrieval_channels": [
+      "semantic",
+      "keyword",
+      "chapter"
+     ],
+     "requested_speaker": null,
+     "speaker_match": true,
+     "speaker_match_reason": "no speaker requested",
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "speaker_clip_allowed": false,
+     "broll_allowed": true,
+     "relevance_reason": "Matched direct terms ['healthcare', 'risk'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+     "selection_reason": "Matched direct terms ['healthcare', 'risk'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+     "keyword_score": 1.0,
+     "expanded_keyword_score": 1.0,
+     "theme_chapter_score": 1.0,
+     "speaker_score": 0.0,
+     "quote_quality_score": 0.668,
+     "generic_penalty": 0.0,
+     "negative_term_penalty": 0.0,
+     "meaningful_prompt_overlap": [
+      "healthcare",
+      "risk"
+     ],
+     "final_video_allowed": true,
+     "use_as": "archive_visual",
+     "text": "AI is also attracting a lot of startups. So these are the six top startups out of over thousands, which are disrupting the healthcare industry. Alone in year 2023, these 24 startups have already revolutionized the healthcare with AI. AI's role in healthcare can be divided into two ways. One is the clinical application and administrative applications. In clinical application, it helps in monitoring",
+     "source_transcript_version": null,
+     "audio_quality_status": null,
+     "transcript_quality_score": null,
+     "word_timing_available": null,
+     "text_hash": null,
+     "text_truncated_for_embedding": null,
+     "video_year": 2023,
+     "video_upload_date": "20231115"
+    },
+    {
+     "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0008",
+     "source_video": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine",
+     "video_id": "hIzU20n5u8I",
+     "start": 406.15,
+     "end": 454.43,
+     "duration": 48.28,
+     "primary_theme": "AI in Health, Science & Environment",
+     "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+     "summary": "Then the regulatory approvals also like the gaining trust from the both medical and the professionals and the patients and just to conclude my presentation, AI is undeniably transforming medicines from diagnostics and does discovery to...",
+     "keywords": [
+      "policy",
+      "health",
+      "medical"
+     ],
+     "clip_usage_candidates": [
+      "narration_support",
+      "context_visual",
+      "synthesis_candidate"
+     ],
+     "quote_strength": 0.39,
+     "clarity_score": 0.95,
+     "narration_support_score": 0.7,
+     "semantic_score": 0.733387,
+     "prompt_relevance_score": 0.800716,
+     "final_prompt_score": 0.800716,
+     "selection_score": 1.049606,
+     "relevance_role": "exact",
+     "prompt_keyword_overlap": [
+      "healthcare",
+      "medical"
+     ],
+     "direct_evidence_terms": [
+      "healthcare",
+      "medical"
+     ],
+     "expanded_evidence_terms": [
+      "health",
+      "medicine",
+      "patient"
+     ],
+     "negative_evidence_terms": [],
+     "retrieval_channels": [
+      "semantic",
+      "keyword",
+      "chapter"
+     ],
+     "requested_speaker": null,
+     "speaker_match": true,
+     "speaker_match_reason": "no speaker requested",
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "speaker_clip_allowed": false,
+     "broll_allowed": true,
+     "relevance_reason": "Matched direct terms ['healthcare', 'medical'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+     "selection_reason": "Matched direct terms ['healthcare', 'medical'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+     "keyword_score": 1.0,
+     "expanded_keyword_score": 1.0,
+     "theme_chapter_score": 1.0,
+     "speaker_score": 0.0,
+     "quote_quality_score": 0.614,
+     "generic_penalty": 0.0,
+     "negative_term_penalty": 0.0,
+     "meaningful_prompt_overlap": [
+      "healthcare",
+      "medical"
+     ],
+     "final_video_allowed": true,
+     "use_as": "narration_support",
+     "text": "health care inequalities also. Then the regulatory approvals also like the gaining trust from the both medical and the professionals and the patients and just to conclude my presentation, AI is undeniably transforming medicines from diagnostics and does discovery to personalize care and predictive analytics. While the future of AI promises even more efficient and accessible health care, it is esse",
+     "source_transcript_version": null,
+     "audio_quality_status": null,
+     "transcript_quality_score": null,
+     "word_timing_available": null,
+     "text_hash": null,
+     "text_truncated_for_embedding": null,
+     "video_year": 2024,
+     "video_upload_date": "20241125"
+    },
+    {
+     "fragment_id": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine_0006",
+     "source_video": "0104_hIzU20n5u8I_Mukesh Mehra - The role of AI in Medicine",
+     "video_id": "hIzU20n5u8I",
+     "start": 295.43,
+     "end": 349.27,
+     "duration": 53.84,
+     "primary_theme": "AI in Health, Science & Environment",
+     "primary_chapter": "Ch 13: AI in Healthcare & Medicine",
+     "summary": "approach to the treatment and something that as a clinician, I have often found frustrating AI also aids in predicting an analytics and helping to forecast the disease risk and allowing us to intervene earlier and...",
+     "keywords": [
+      "health",
+      "patient",
+      "disease"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite"
+     ],
+     "quote_strength": 0.52,
+     "clarity_score": 0.95,
+     "narration_support_score": 0.5,
+     "semantic_score": 0.70447,
+     "prompt_relevance_score": 0.795941,
+     "final_prompt_score": 0.795941,
+     "selection_score": 1.034631,
+     "relevance_role": "exact",
+     "prompt_keyword_overlap": [
+      "healthcare",
+      "risk"
+     ],
+     "direct_evidence_terms": [
+      "healthcare",
+      "risk"
+     ],
+     "expanded_evidence_terms": [
+      "health",
+      "medicine",
+      "patient"
+     ],
+     "negative_evidence_terms": [],
+     "retrieval_channels": [
+      "semantic",
+      "keyword",
+      "chapter"
+     ],
+     "requested_speaker": null,
+     "speaker_match": true,
+     "speaker_match_reason": "no speaker requested",
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": false,
+     "speaker_clip_allowed": true,
+     "broll_allowed": true,
+     "relevance_reason": "Matched direct terms ['healthcare', 'risk'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+     "selection_reason": "Matched direct terms ['healthcare', 'risk'], expanded terms ['health', 'medicine', 'patient'], chapter match Ch 13: AI in Healthcare & Medicine.",
+     "keyword_score": 1.0,
+     "expanded_keyword_score": 1.0,
+     "theme_chapter_score": 1.0,
+     "speaker_score": 0.0,
+     "quote_quality_score": 0.692,
+     "generic_penalty": 0.0,
+     "negative_term_penalty": 0.0,
+     "meaningful_prompt_overlap": [
+      "healthcare",
+      "risk"
+     ],
+     "final_video_allowed": true,
+     "use_as": "speaker_soundbite",
+     "text": "approach to the treatment and something that as a clinician, I have often found frustrating AI also aids in predicting an analytics and helping to forecast the disease risk and allowing us to intervene earlier and improve the patient outcome. Then we will look at the role of AI in patient monitoring and the management. The continuous patient monitoring is another area where AI has proven invaluabl",
+     "source_transcript_version": null,
+     "audio_quality_status": null,
+     "transcript_quality_score": null,
+     "word_timing_available": null,
+     "text_hash": null,
+     "text_truncated_for_embedding": null,
+     "video_year": 2024,
+     "video_upload_date": "20241125"
+    }
+   ],
+   "supporting_context": [
+    {
+     "fragment_id": "0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy_0005",
+     "source_video": "0252_TUieQkV_9Xc_(7I) G Radwan - Egypt AI Strategy",
+     "video_id": "TUieQkV",
+     "start": 221.56,
+     "end": 267.13,
+     "duration": 45.57,
+     "primary_theme": "AI & Information Access / Media / Journalism",
+     "primary_chapter": "Ch 5: Open Data & Information Accessibility",
+     "summary": "and or acceptable to inform a patient of a certain prognosis based on probabilities?",
+     "keywords": [
+      "media",
+      "content",
+      "information"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "narration_support",
+      "evidence_clip"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "narration_support_score": 0.6,
+     "semantic_score": 0.738459,
+     "prompt_relevance_score": 0.308038,
+     "final_prompt_score": 0.308038,
+     "selection_score": null,
+     "relevance_role": "weak_related",
+     "prompt_keyword_overlap": [],
+     "direct_evidence_terms": [],
+     "expanded_evidence_terms": [
+      "patient"
+     ],
+     "negative_evidence_terms": [],
+     "retrieval_channels": [
+      "semantic"
+     ],
+     "requested_speaker": null,
+     "speaker_match": true,
+     "speaker_match_reason": "no speaker requested",
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "speaker_clip_allowed": false,
+     "broll_allowed": true,
+     "relevance_reason": "Matched expanded terms ['patient'].",
+     "selection_reason": "Matched expanded terms ['patient'].",
+     "keyword_score": 0.0,
+     "expanded_keyword_score": 0.35,
+     "theme_chapter_score": 0.0,
+     "speaker_score": 0.0,
+     "quote_quality_score": 0.68,
+     "generic_penalty": 0.0,
+     "negative_term_penalty": 0.0,
+     "meaningful_prompt_overlap": [],
+     "final_video_allowed": false,
+     "use_as": "narration_support",
+     "text": "and or acceptable to inform a patient of a certain prognosis based on probabilities? And how do we communicate this information? And what right does the patient then have to understand, for example, how the system arrived at that conclusion? And to what extent are they allowed to dispute it? As you can see, this isn't just about information. It's also intricately linked to issues around the explai",
+     "source_transcript_version": null,
+     "audio_quality_status": null,
+     "transcript_quality_score": null,
+     "word_timing_available": null,
+     "text_hash": null,
+     "text_truncated_for_embedding": null,
+     "video_year": 2021,
+     "video_upload_date": "20211017"
+    },
+    {
+     "fragment_id": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times_0003",
+     "source_video": "0161_adepAgpuGOM_Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",
+     "video_id": "adepAgpuGOM",
+     "start": 114.41,
+     "end": 169.96,
+     "duration": 55.55,
+     "primary_theme": "AI, Law & Human Rights",
+     "primary_chapter": "Ch 24: Privacy, Human Rights & Civil Liberties",
+     "summary": "of modifying a person's balances, emotional states, even beliefs, without that person's knowledge or consent, is by its very nature high risk and even dangerous if placed in the wrong hands.",
+     "keywords": [
+      "human rights",
+      "governance",
+      "rights"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "narration_support",
+      "synthesis_candidate"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "narration_support_score": 0.7,
+     "semantic_score": 0.724854,
+     "prompt_relevance_score": 0.376456,
+     "final_prompt_score": 0.376456,
+     "selection_score": null,
+     "relevance_role": "weak_related",
+     "prompt_keyword_overlap": [
+      "risk"
+     ],
+     "direct_evidence_terms": [
+      "risk"
+     ],
+     "expanded_evidence_terms": [],
+     "negative_evidence_terms": [],
+     "retrieval_channels": [
+      "semantic"
+     ],
+     "requested_speaker": null,
+     "speaker_match": true,
+     "speaker_match_reason": "no speaker requested",
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "speaker_clip_allowed": false,
+     "broll_allowed": true,
+     "relevance_reason": "Matched direct terms ['risk'].",
+     "selection_reason": "Matched direct terms ['risk'].",
+     "keyword_score": 0.5,
+     "expanded_keyword_score": 0.0,
+     "theme_chapter_score": 0.0,
+     "speaker_score": 0.0,
+     "quote_quality_score": 0.68,
+     "generic_penalty": 0.0,
+     "negative_term_penalty": 0.0,
+     "meaningful_prompt_overlap": [
+      "risk"
+     ],
+     "final_video_allowed": false,
+     "use_as": "narration_support",
+     "text": "of modifying a person's balances, emotional states, even beliefs, without that person's knowledge or consent, is by its very nature high risk and even dangerous if placed in the wrong hands. As a society, how do we choose who should have control of such risks? The intricacies of subtle complex that is difficult to imagine any individual with the knowledge and wisdom to protect basic human rights. ",
+     "source_transcript_version": null,
+     "audio_quality_status": null,
+     "transcript_quality_score": null,
+     "word_timing_available": null,
+     "text_hash": null,
+     "text_truncated_for_embedding": null,
+     "video_year": 2023,
+     "video_upload_date": "20231115"
+    },
+    {
+     "fragment_id": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1_0060",
+     "source_video": "0002_SvVu6k02Hes_Zimbabwe_-_AI4IA_2025_1",
+     "video_id": "SvVu6k02Hes",
+     "start": 3753.63,
+     "end": 3815.79,
+     "duration": 62.16,
+     "primary_theme": "AI Ethics, Governance & Policy",
+     "primary_chapter": "Ch 1: Foundations of AI Ethics & Philosophy",
+     "summary": "the nation, to even improve ourselves so that we are able to stay relevant.",
+     "keywords": [
+      "accountability",
+      "transparency",
+      "trust"
+     ],
+     "clip_usage_candidates": [
+      "narration_support",
+      "evidence_clip"
+     ],
+     "quote_strength": 0.42,
+     "clarity_score": 0.95,
+     "narration_support_score": 0.6,
+     "semantic_score": 0.717985,
+     "prompt_relevance_score": 0.371995,
+     "final_prompt_score": 0.371995,
+     "selection_score": null,
+     "relevance_role": "weak_related",
+     "prompt_keyword_overlap": [
+      "risk"
+     ],
+     "direct_evidence_terms": [
+      "risk"
+     ],
+     "expanded_evidence_terms": [],
+     "negative_evidence_terms": [],
+     "retrieval_channels": [
+      "semantic"
+     ],
+     "requested_speaker": null,
+     "speaker_match": true,
+     "speaker_match_reason": "no speaker requested",
+     "speaker_soundbite_allowed": false,
+     "speaker_visual_allowed": false,
+     "speaker_clip_allowed": false,
+     "broll_allowed": true,
+     "relevance_reason": "Matched direct terms ['risk'].",
+     "selection_reason": "Matched direct terms ['risk'].",
+     "keyword_score": 0.5,
+     "expanded_keyword_score": 0.0,
+     "theme_chapter_score": 0.0,
+     "speaker_score": 0.0,
+     "quote_quality_score": 0.632,
+     "generic_penalty": 0.0,
+     "negative_term_penalty": 0.0,
+     "meaningful_prompt_overlap": [
+      "risk"
+     ],
+     "final_video_allowed": false,
+     "use_as": "narration_support",
+     "text": "the nation, to even improve ourselves so that we are able to stay relevant. Some of the risks that come with AI, for example, we know that AI helps us with automation of repetitive tasks. So most people are afraid that there's going to be some job displacement. But I think what is important is to be able to transition as we leverage AI. Some of the risks that come with AI, it depends in equalities",
+     "source_transcript_version": null,
+     "audio_quality_status": null,
+     "transcript_quality_score": null,
+     "word_timing_available": null,
+     "text_hash": null,
+     "text_truncated_for_embedding": null,
+     "video_year": 2026,
+     "video_upload_date": "20260112"
+    }
+   ],
+   "evidence_gaps": [],
+   "must_not_claim": []
+  }
+ },
+ "low_evidence_topic": {
+  "user_prompt": "Ai for the Information technology",
+  "duration": 300,
+  "candidates": [],
+  "style": "documentary",
+  "director_plan": {
+   "enabled": true,
+   "video_mode": "low_evidence_brief",
+   "evidence_strength": "low",
+   "exact_clip_count": 0,
+   "related_clip_count": 0,
+   "strong_related_count": 0,
+   "usable_speaker_clip_count": 0,
+   "usable_speaker_visual_count": 0,
+   "rejected_clip_count": 0,
+   "unique_speaker_count": 0,
+   "unique_source_video_count": 0,
+   "theme_coverage": [],
+   "chapter_coverage": [],
+   "average_similarity": null,
+   "average_quote_strength": null,
+   "recommended_structure": [
+    "opening_context",
+    "available_evidence_clip",
+    "evidence_gap_narration"
+   ],
+   "fallback_risk": "high",
+   "planning_notes": [
+    "No direct evidence clips found for this prompt. Direct topic evidence is limited or absent.",
+    "No speaker clips are approved for soundbite or visual use. Narration and b-roll will carry the video.",
+    "No direct evidence clips were found for this prompt. The video should be narration-led and should not present adjacent material as direct evidence."
+   ],
+   "requested_speaker": null
+  },
+  "prompt_intent": {
+   "raw_prompt": "Ai for the Information technology",
+   "intent_type": "topic_video",
+   "requested_speaker": null,
+   "speaker_required": false,
+   "topic_terms": [],
+   "expanded_terms": [],
+   "negative_terms": [],
+   "generic_terms_removed": [],
+   "theme_hint": null,
+   "chapter_hint": null,
+   "scope": "general",
+   "evidence_requirement": "direct_topic_evidence",
+   "strictness": "medium",
+   "target_duration_seconds": 300
+  },
+  "evidence_package": {
+   "prompt_profile": {
+    "raw_prompt": "Ai for the Information technology",
+    "intent_type": "topic_video",
+    "requested_speaker": null,
+    "speaker_required": false,
+    "topic_terms": [],
+    "expanded_terms": [],
+    "negative_terms": [],
+    "generic_terms_removed": [],
+    "theme_hint": null,
+    "chapter_hint": null,
+    "scope": "general",
+    "evidence_requirement": "direct_topic_evidence",
+    "strictness": "medium",
+    "target_duration_seconds": 300
+   },
+   "selected_evidence": [],
+   "supporting_context": [],
+   "evidence_gaps": [
+    "No direct evidence clips were found for this prompt."
+   ],
+   "must_not_claim": []
+  }
+ },
+ "speaker_topic": {
+  "user_prompt": "What did Helberger say about media regulation?",
+  "duration": 60,
+  "candidates": [
+   {
+    "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0074",
+    "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+    "video_id": "xmkczLmiOf0",
+    "start": 4120.29,
+    "end": 4198.06,
+    "duration": 77.77,
+    "primary_theme": "AI & Information Access / Media / Journalism",
+    "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+    "summary": "And how can we, instead of this, build a coherent European an approach that would be, let's say, globally competitive, but at the same time, locally...",
+    "keywords": [
+     "member states",
+     "globally",
+     "competitive"
+    ],
+    "clip_usage_candidates": [
+     "speaker_soundbite",
+     "synthesis_candidate"
+    ],
+    "quote_strength": 0.5,
+    "clarity_score": 0.95,
+    "relevance_role": "exact",
+    "speaker": "",
+    "speaker_attribution": "Multiple speakers",
+    "speaker_clip_allowed": true,
+    "speaker_soundbite_allowed": true,
+    "speaker_visual_allowed": true,
+    "relevance_reason": "Matched direct terms ['media', 'regulation'], theme match AI & Information Access / Media / Journalism, speaker match Natali Helberger.",
+    "text": "different national initiatives? And how can we, instead of this, build a coherent European an approach that would be, let's say, globally competitive, but at the same time, locally responsive. What...",
+    "video_year": 2025,
+    "audio_quality_status": "denoise",
+    "final_video_allowed": true
+   },
+   {
+    "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0086",
+    "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+    "video_id": "xmkczLmiOf0",
+    "start": 4781.06,
+    "end": 4834.51,
+    "duration": 53.45,
+    "primary_theme": "AI in Education & Creative Industries",
+    "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+    "summary": "I mean, Australia, of course, has always had community standards as part of its broadcasting regulation, and I don't know where that has gone.",
+    "keywords": [
+     "media literacy",
+     "regulation",
+     "literacy"
+    ],
+    "clip_usage_candidates": [
+     "speaker_soundbite",
+     "evidence_clip"
+    ],
+    "quote_strength": 0.42,
+    "clarity_score": 0.95,
+    "relevance_role": "exact",
+    "speaker": "",
+    "speaker_attribution": "Multiple speakers",
+    "speaker_clip_allowed": true,
+    "speaker_soundbite_allowed": true,
+    "speaker_visual_allowed": true,
+    "relevance_reason": "Matched direct terms ['media', 'regulation'], speaker match Natali Helberger.",
+    "text": "I think it might be. I mean, Australia, of course, has always had community standards as part of its broadcasting regulation, and I don't know where that has gone. Ofcom, of course, does continue to...",
+    "video_year": 2025,
+    "audio_quality_status": "denoise",
+    "final_video_allowed": true
+   }
+  ],
+  "style": "documentary",
+  "director_plan": {
+   "enabled": true,
+   "video_mode": "speaker_led_theme_summary",
+   "evidence_strength": "high",
+   "exact_clip_count": 2,
+   "related_clip_count": 0,
+   "strong_related_count": 0,
+   "usable_speaker_clip_count": 2,
+   "usable_speaker_visual_count": 2,
+   "rejected_clip_count": 54,
+   "unique_speaker_count": 0,
+   "unique_source_video_count": 1,
+   "theme_coverage": [
+    "AI & Information Access / Media / Journalism",
+    "AI in Education & Creative Industries"
+   ],
+   "chapter_coverage": [
+    "Ch 3: AI Policy, Regulation & Legislation",
+    "Ch 6: AI in Journalism & the Media Landscape"
+   ],
+   "average_similarity": 0.677111,
+   "average_quote_strength": 0.425455,
+   "recommended_structure": [
+    "opening_context",
+    "exact_evidence_clip",
+    "exact_evidence_clip"
+   ],
+   "fallback_risk": "high",
+   "planning_notes": [
+    "Exact prompt evidence was limited, so the plan leans on related theme and chapter evidence with narration bridges.",
+    "Speaker diversity is limited, so narration carries more of the connective explanation."
+   ],
+   "requested_speaker": "Natali Helberger"
+  },
+  "prompt_intent": {
+   "raw_prompt": "What did Helberger say about media regulation?",
+   "intent_type": "speaker_topic_summary",
+   "requested_speaker": "Natali Helberger",
+   "speaker_required": true,
+   "topic_terms": [
+    "media",
+    "regulation"
+   ],
+   "expanded_terms": [],
+   "negative_terms": [],
+   "generic_terms_removed": [],
+   "theme_hint": "AI & Information Access / Media / Journalism",
+   "chapter_hint": null,
+   "scope": "specific_topic",
+   "evidence_requirement": "speaker_source_evidence",
+   "strictness": "high",
+   "target_duration_seconds": 60,
+   "requested_source_video": null,
+   "title_match_ratio": 0.0,
+   "title_matched_terms": []
+  },
+  "evidence_package": {
+   "prompt_profile": {
+    "raw_prompt": "What did Helberger say about media regulation?",
+    "intent_type": "speaker_topic_summary",
+    "requested_speaker": "Natali Helberger",
+    "speaker_required": true,
+    "topic_terms": [
+     "media",
+     "regulation"
+    ],
+    "expanded_terms": [],
+    "negative_terms": [],
+    "generic_terms_removed": [],
+    "theme_hint": "AI & Information Access / Media / Journalism",
+    "chapter_hint": null,
+    "scope": "specific_topic",
+    "evidence_requirement": "speaker_source_evidence",
+    "strictness": "high",
+    "target_duration_seconds": 60,
+    "requested_source_video": null,
+    "title_match_ratio": 0.0,
+    "title_matched_terms": []
+   },
+   "selected_evidence": [
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0074",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 4120.29,
+     "end": 4198.06,
+     "duration": 77.77,
+     "primary_theme": "AI & Information Access / Media / Journalism",
+     "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+     "summary": "And how can we, instead of this, build a coherent European an approach that would be, let's say, globally competitive, but at the same time, locally...",
+     "keywords": [
+      "member states",
+      "globally",
+      "competitive"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "synthesis_candidate"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "exact",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['media', 'regulation'], theme match AI & Information Access / Media / Journalism, speaker match Natali Helberger.",
+     "text": "different national initiatives? And how can we, instead of this, build a coherent European an approach that would be, let's say, globally competitive, but at the same time, locally responsive. What...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    },
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0086",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 4781.06,
+     "end": 4834.51,
+     "duration": 53.45,
+     "primary_theme": "AI in Education & Creative Industries",
+     "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+     "summary": "I mean, Australia, of course, has always had community standards as part of its broadcasting regulation, and I don't know where that has gone.",
+     "keywords": [
+      "media literacy",
+      "regulation",
+      "literacy"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "evidence_clip"
+     ],
+     "quote_strength": 0.42,
+     "clarity_score": 0.95,
+     "relevance_role": "exact",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['media', 'regulation'], speaker match Natali Helberger.",
+     "text": "I think it might be. I mean, Australia, of course, has always had community standards as part of its broadcasting regulation, and I don't know where that has gone. Ofcom, of course, does continue to...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    }
+   ],
+   "supporting_context": [
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0035",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 1915.08,
+     "end": 1977.92,
+     "duration": 62.84,
+     "primary_theme": "AI, Law & Human Rights",
+     "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+     "summary": "The fourth is the skills and talent, surprise, surprise.",
+     "keywords": [
+      "compliance",
+      "surprise",
+      "factories"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "weak_related",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['regulation'], speaker match Natali Helberger.",
+     "text": "The fourth is the skills and talent, surprise, surprise. So where is the human in the loop, so to say? And the fifth one, the regulatory compliance and simplification in line with the famous Draghi...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    },
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0060",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 3301.17,
+     "end": 3360.86,
+     "duration": 59.69,
+     "primary_theme": "Disinformation, Deepfakes & AI Safety",
+     "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+     "summary": "are wrong, but he's talking about their implementation, he's talking about the incomprehensiveness of their implementation.",
+     "keywords": [
+      "security",
+      "safety",
+      "member states"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "weak_related",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['regulation'], speaker match Natali Helberger.",
+     "text": "are wrong, but he's talking about their implementation, he's talking about the incomprehensiveness of their implementation. So why don't we try to take maybe seriously what we have rules and invest...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    },
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0064",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 3562.62,
+     "end": 3624.07,
+     "duration": 61.45,
+     "primary_theme": "AI Ethics, Governance & Policy",
+     "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+     "summary": "I think, well, first of all, it's hard to answer that question, because this should be an answer that is provided by a collective process, what...",
+     "keywords": [
+      "governance",
+      "regulation",
+      "want"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "evidence_clip",
+      "synthesis_candidate"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "weak_related",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['regulation'], speaker match Natali Helberger.",
+     "text": "the whole issue of deregulation, no regulation? I think, well, first of all, it's hard to answer that question, because this should be an answer that is provided by a collective process, what...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    }
+   ],
+   "evidence_gaps": [],
+   "must_not_claim": [
+    "Do not use unrelated speakers as filler."
+   ]
+  }
+ },
+ "speaker_only": {
+  "user_prompt": "What did Helberger say about media regulation?",
+  "duration": 60,
+  "candidates": [
+   {
+    "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0074",
+    "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+    "video_id": "xmkczLmiOf0",
+    "start": 4120.29,
+    "end": 4198.06,
+    "duration": 77.77,
+    "primary_theme": "AI & Information Access / Media / Journalism",
+    "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+    "summary": "And how can we, instead of this, build a coherent European an approach that would be, let's say, globally competitive, but at the same time, locally...",
+    "keywords": [
+     "member states",
+     "globally",
+     "competitive"
+    ],
+    "clip_usage_candidates": [
+     "speaker_soundbite",
+     "synthesis_candidate"
+    ],
+    "quote_strength": 0.5,
+    "clarity_score": 0.95,
+    "relevance_role": "exact",
+    "speaker": "",
+    "speaker_attribution": "Multiple speakers",
+    "speaker_clip_allowed": true,
+    "speaker_soundbite_allowed": true,
+    "speaker_visual_allowed": true,
+    "relevance_reason": "Matched direct terms ['media', 'regulation'], theme match AI & Information Access / Media / Journalism, speaker match Natali Helberger.",
+    "text": "different national initiatives? And how can we, instead of this, build a coherent European an approach that would be, let's say, globally competitive, but at the same time, locally responsive. What...",
+    "video_year": 2025,
+    "audio_quality_status": "denoise",
+    "final_video_allowed": true
+   },
+   {
+    "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0086",
+    "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+    "video_id": "xmkczLmiOf0",
+    "start": 4781.06,
+    "end": 4834.51,
+    "duration": 53.45,
+    "primary_theme": "AI in Education & Creative Industries",
+    "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+    "summary": "I mean, Australia, of course, has always had community standards as part of its broadcasting regulation, and I don't know where that has gone.",
+    "keywords": [
+     "media literacy",
+     "regulation",
+     "literacy"
+    ],
+    "clip_usage_candidates": [
+     "speaker_soundbite",
+     "evidence_clip"
+    ],
+    "quote_strength": 0.42,
+    "clarity_score": 0.95,
+    "relevance_role": "exact",
+    "speaker": "",
+    "speaker_attribution": "Multiple speakers",
+    "speaker_clip_allowed": true,
+    "speaker_soundbite_allowed": true,
+    "speaker_visual_allowed": true,
+    "relevance_reason": "Matched direct terms ['media', 'regulation'], speaker match Natali Helberger.",
+    "text": "I think it might be. I mean, Australia, of course, has always had community standards as part of its broadcasting regulation, and I don't know where that has gone. Ofcom, of course, does continue to...",
+    "video_year": 2025,
+    "audio_quality_status": "denoise",
+    "final_video_allowed": true
+   }
+  ],
+  "style": "documentary",
+  "director_plan": {
+   "enabled": true,
+   "video_mode": "speaker_led_theme_summary",
+   "evidence_strength": "high",
+   "exact_clip_count": 2,
+   "related_clip_count": 0,
+   "strong_related_count": 0,
+   "usable_speaker_clip_count": 2,
+   "usable_speaker_visual_count": 2,
+   "rejected_clip_count": 54,
+   "unique_speaker_count": 0,
+   "unique_source_video_count": 1,
+   "theme_coverage": [
+    "AI & Information Access / Media / Journalism",
+    "AI in Education & Creative Industries"
+   ],
+   "chapter_coverage": [
+    "Ch 3: AI Policy, Regulation & Legislation",
+    "Ch 6: AI in Journalism & the Media Landscape"
+   ],
+   "average_similarity": 0.677111,
+   "average_quote_strength": 0.425455,
+   "recommended_structure": [
+    "opening_context",
+    "exact_evidence_clip",
+    "exact_evidence_clip"
+   ],
+   "fallback_risk": "high",
+   "planning_notes": [
+    "Exact prompt evidence was limited, so the plan leans on related theme and chapter evidence with narration bridges.",
+    "Speaker diversity is limited, so narration carries more of the connective explanation."
+   ],
+   "requested_speaker": "Natali Helberger"
+  },
+  "prompt_intent": {
+   "raw_prompt": "What did Helberger say about media regulation?",
+   "intent_type": "speaker_summary",
+   "requested_speaker": "Natali Helberger",
+   "speaker_required": true,
+   "topic_terms": [],
+   "expanded_terms": [],
+   "negative_terms": [],
+   "generic_terms_removed": [],
+   "theme_hint": "AI & Information Access / Media / Journalism",
+   "chapter_hint": null,
+   "scope": "all_themes",
+   "evidence_requirement": "speaker_source_evidence",
+   "strictness": "high",
+   "target_duration_seconds": 60,
+   "requested_source_video": null,
+   "title_match_ratio": 0.0,
+   "title_matched_terms": []
+  },
+  "evidence_package": {
+   "prompt_profile": {
+    "raw_prompt": "What did Helberger say about media regulation?",
+    "intent_type": "speaker_topic_summary",
+    "requested_speaker": "Natali Helberger",
+    "speaker_required": true,
+    "topic_terms": [
+     "media",
+     "regulation"
+    ],
+    "expanded_terms": [],
+    "negative_terms": [],
+    "generic_terms_removed": [],
+    "theme_hint": "AI & Information Access / Media / Journalism",
+    "chapter_hint": null,
+    "scope": "specific_topic",
+    "evidence_requirement": "speaker_source_evidence",
+    "strictness": "high",
+    "target_duration_seconds": 60,
+    "requested_source_video": null,
+    "title_match_ratio": 0.0,
+    "title_matched_terms": []
+   },
+   "selected_evidence": [
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0074",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 4120.29,
+     "end": 4198.06,
+     "duration": 77.77,
+     "primary_theme": "AI & Information Access / Media / Journalism",
+     "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+     "summary": "And how can we, instead of this, build a coherent European an approach that would be, let's say, globally competitive, but at the same time, locally...",
+     "keywords": [
+      "member states",
+      "globally",
+      "competitive"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "synthesis_candidate"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "exact",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['media', 'regulation'], theme match AI & Information Access / Media / Journalism, speaker match Natali Helberger.",
+     "text": "different national initiatives? And how can we, instead of this, build a coherent European an approach that would be, let's say, globally competitive, but at the same time, locally responsive. What...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    },
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0086",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 4781.06,
+     "end": 4834.51,
+     "duration": 53.45,
+     "primary_theme": "AI in Education & Creative Industries",
+     "primary_chapter": "Ch 6: AI in Journalism & the Media Landscape",
+     "summary": "I mean, Australia, of course, has always had community standards as part of its broadcasting regulation, and I don't know where that has gone.",
+     "keywords": [
+      "media literacy",
+      "regulation",
+      "literacy"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "evidence_clip"
+     ],
+     "quote_strength": 0.42,
+     "clarity_score": 0.95,
+     "relevance_role": "exact",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['media', 'regulation'], speaker match Natali Helberger.",
+     "text": "I think it might be. I mean, Australia, of course, has always had community standards as part of its broadcasting regulation, and I don't know where that has gone. Ofcom, of course, does continue to...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    }
+   ],
+   "supporting_context": [
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0035",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 1915.08,
+     "end": 1977.92,
+     "duration": 62.84,
+     "primary_theme": "AI, Law & Human Rights",
+     "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+     "summary": "The fourth is the skills and talent, surprise, surprise.",
+     "keywords": [
+      "compliance",
+      "surprise",
+      "factories"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "weak_related",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['regulation'], speaker match Natali Helberger.",
+     "text": "The fourth is the skills and talent, surprise, surprise. So where is the human in the loop, so to say? And the fifth one, the regulatory compliance and simplification in line with the famous Draghi...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    },
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0060",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 3301.17,
+     "end": 3360.86,
+     "duration": 59.69,
+     "primary_theme": "Disinformation, Deepfakes & AI Safety",
+     "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+     "summary": "are wrong, but he's talking about their implementation, he's talking about the incomprehensiveness of their implementation.",
+     "keywords": [
+      "security",
+      "safety",
+      "member states"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "weak_related",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['regulation'], speaker match Natali Helberger.",
+     "text": "are wrong, but he's talking about their implementation, he's talking about the incomprehensiveness of their implementation. So why don't we try to take maybe seriously what we have rules and invest...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    },
+    {
+     "fragment_id": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂_0064",
+     "source_video": "0081_xmkczLmiOf0_Europe Satellite Event - Panel 2 ＂Driving European AI＂",
+     "video_id": "xmkczLmiOf0",
+     "start": 3562.62,
+     "end": 3624.07,
+     "duration": 61.45,
+     "primary_theme": "AI Ethics, Governance & Policy",
+     "primary_chapter": "Ch 3: AI Policy, Regulation & Legislation",
+     "summary": "I think, well, first of all, it's hard to answer that question, because this should be an answer that is provided by a collective process, what...",
+     "keywords": [
+      "governance",
+      "regulation",
+      "want"
+     ],
+     "clip_usage_candidates": [
+      "speaker_soundbite",
+      "evidence_clip",
+      "synthesis_candidate"
+     ],
+     "quote_strength": 0.5,
+     "clarity_score": 0.95,
+     "relevance_role": "weak_related",
+     "speaker": "",
+     "speaker_attribution": "Multiple speakers",
+     "speaker_clip_allowed": true,
+     "speaker_soundbite_allowed": true,
+     "speaker_visual_allowed": true,
+     "relevance_reason": "Matched direct terms ['regulation'], speaker match Natali Helberger.",
+     "text": "the whole issue of deregulation, no regulation? I think, well, first of all, it's hard to answer that question, because this should be an answer that is provided by a collective process, what...",
+     "video_year": 2025,
+     "audio_quality_status": "denoise",
+     "final_video_allowed": true
+    }
+   ],
+   "evidence_gaps": [],
+   "must_not_claim": [
+    "Do not use unrelated speakers as filler."
+   ]
+  }
+ },
+ "title": {
+  "user_prompt": "Ai for the Information technology",
+  "duration": 300,
+  "candidates": [],
+  "style": "documentary",
+  "director_plan": {
+   "enabled": true,
+   "video_mode": "low_evidence_brief",
+   "evidence_strength": "low",
+   "exact_clip_count": 0,
+   "related_clip_count": 0,
+   "strong_related_count": 0,
+   "usable_speaker_clip_count": 0,
+   "usable_speaker_visual_count": 0,
+   "rejected_clip_count": 0,
+   "unique_speaker_count": 0,
+   "unique_source_video_count": 0,
+   "theme_coverage": [],
+   "chapter_coverage": [],
+   "average_similarity": null,
+   "average_quote_strength": null,
+   "recommended_structure": [
+    "opening_context",
+    "available_evidence_clip",
+    "evidence_gap_narration"
+   ],
+   "fallback_risk": "high",
+   "planning_notes": [
+    "No direct evidence clips found for this prompt. Direct topic evidence is limited or absent.",
+    "No speaker clips are approved for soundbite or visual use. Narration and b-roll will carry the video.",
+    "No direct evidence clips were found for this prompt. The video should be narration-led and should not present adjacent material as direct evidence."
+   ],
+   "requested_speaker": null
+  },
+  "prompt_intent": {
+   "raw_prompt": "Ai for the Information technology",
+   "intent_type": "topic_video",
+   "requested_speaker": null,
+   "speaker_required": false,
+   "topic_terms": [],
+   "expanded_terms": [],
+   "negative_terms": [],
+   "generic_terms_removed": [],
+   "theme_hint": null,
+   "chapter_hint": null,
+   "scope": "general",
+   "evidence_requirement": "direct_topic_evidence",
+   "strictness": "medium",
+   "target_duration_seconds": 300,
+   "requested_source_video": "0062_VOlpG0QlEbE_Thom_Vaughn_-_Open_Data_for_Open_Models"
+  },
+  "evidence_package": {
+   "prompt_profile": {
+    "raw_prompt": "Ai for the Information technology",
+    "intent_type": "topic_video",
+    "requested_speaker": null,
+    "speaker_required": false,
+    "topic_terms": [],
+    "expanded_terms": [],
+    "negative_terms": [],
+    "generic_terms_removed": [],
+    "theme_hint": null,
+    "chapter_hint": null,
+    "scope": "general",
+    "evidence_requirement": "direct_topic_evidence",
+    "strictness": "medium",
+    "target_duration_seconds": 300
+   },
+   "selected_evidence": [],
+   "supporting_context": [],
+   "evidence_gaps": [
+    "No direct evidence clips were found for this prompt."
+   ],
+   "must_not_claim": []
+  }
+ }
+}

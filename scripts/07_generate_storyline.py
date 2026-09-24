@@ -272,6 +272,7 @@ def main() -> None:
     log(f"Evidence: exact={evidence_metrics['exact_clip_count']} strong={evidence_metrics['strong_related_count']} supporting={evidence_metrics.get('supporting_candidate_count', 0)} usable_speaker={evidence_metrics['usable_speaker_clip_count']}")
 
     storyline = None
+    intent_used = None  # set when the LLM storyline is used; recorded on the job
     generation_mode = "llm"
     llm_parse_error = None
     fallback_reason = None
@@ -292,6 +293,7 @@ def main() -> None:
                 evidence_package=evidence_package,
             )
             storyline["generation_mode"] = "llm"
+            intent_used = storyline.get("intent")
         except RuntimeError as exc:
             error_msg = str(exc)
             if "Could not parse JSON" in error_msg or "parse" in error_msg.lower():
@@ -433,6 +435,8 @@ def main() -> None:
         for issue in validation_issues[:20]:
             log(f"- {issue}")
 
+    if intent_used:
+        storyline["intent"] = intent_used
     output_path = save_storyline(
         storyline=storyline,
         user_prompt=args.prompt,

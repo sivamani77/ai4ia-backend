@@ -38,6 +38,7 @@ from typing import Any
 
 from app.core import settings as _settings_module
 from app.core import metrics as _metrics
+from app.pipeline.storyline_gen import intents
 
 logger = logging.getLogger("ai4ia.services.storyline_cache")
 
@@ -96,6 +97,8 @@ def _relevant_params(request: dict[str, Any]) -> dict[str, Any]:
         # Entries cached while this was "original_v1" were built from 220 of
         # the 309 videos and must not be served now that all 309 are in scope.
         "storyline_corpus_version": _settings_module.settings.storyline_corpus_version,
+        # Any change to an intent's instructions invalidates storylines built with the old ones.
+        "intents_version": intents.REGISTRY_VERSION,
     }
 
 
