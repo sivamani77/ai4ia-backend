@@ -1,6 +1,6 @@
 # Intent layer and coverage check — design
 
-**Status:** phases 0–2 built · **Branch:** `uat` · **Updated:** 2026-09-24
+**Status:** phases 0–3 built · **Branch:** `uat` · **Updated:** 2026-09-24
 **Builds on:** [speaker-cleanup-plan.md](speaker-cleanup-plan.md) (applied on uat)
 
 ![Request journey](intent-layer-flow.png)
@@ -121,7 +121,7 @@ A slot that does not resolve is **dropped and recorded, never passed on**.
 | Situation | Example | reason_code | Message |
 |---|---|---|---|
 | Exact or alias | "Cordell Green" | — | proceed as **Cordel Green** |
-| One clear winner (top ≥ 0.85 and ≥ 0.08 ahead of the next) | "Cordle Grene" | `speaker_did_you_mean` | Did you mean **Cordel Green**? |
+| One clear winner (top ≥ 0.80 and ≥ 0.08 ahead of the next) | "Cordle Grene" | `speaker_did_you_mean` | Did you mean **Cordel Green**? |
 | 2–3 close | "Andrew" | `speaker_ambiguous` | Did you mean **Andrew Knight**, **Andrew Maynard** or **Andrew Smith**? |
 | More than 3 | "Green" (Ben Green, Cordel Green, Kemar E. Green, Pia-Milan Green) | `speaker_too_many` | Several speakers match "Green": … Please use the full name. (at most 5 listed) |
 | A person is mentioned, nothing is close | "John Smith" | `speaker_not_found` | "John Smith" isn't a speaker in the AI4IA archive. |
@@ -131,6 +131,9 @@ Rules:
 
 - **Suggest only `confirmed` names.** A `review` name can match a prompt directly and is then used, but it is never suggested and never shown on screen. A `review` name still counts toward ambiguity. "Singh" matches A Singh (review) and Ashita Singh, so the message is "More than one speaker matches 'Singh', including Ashita Singh. Please use the full name." Suggesting only Ashita Singh would steer the user to the wrong person.
 - **A surname or first name that matches exactly one person** is treated as that person (see open question Q1).
+- "Not a speaker" needs evidence it is a person: a one-word mention with no match ("Nigeria", "NATO") and a longer one sharing no first name or surname with any speaker ("European Union") go on as topics. "John Smith" still declines, because Smith is a registry surname.
+- A mention counts only if it looks like a name: every word capitalised (particles like "de" and "van" allowed), or close (≥ 0.80) to a registry name. "According to the Chinese regulation" is not a person.
+- **Measured:** run over all 5,396 fragment summaries and talk titles, the resolver declines 2, both genuine (registry people with no recorded talk). The legitimate guardrail-matrix prompts: 0 declines.
 - The thresholds are starting values. Tune them on the misspelling rows of the case matrix.
 - Declines return `suggestions: [...]` as structured data, so the frontend can show them as buttons that resubmit the prompt with the corrected name.
 
@@ -141,7 +144,9 @@ Rules:
 | Chapter number does not exist | "chapter 30" | `chapter_not_found` | The archive has chapters 1–25; there is no chapter 30. |
 | Year outside the corpus | "AI talks from 2019" | `year_out_of_range` | The archive covers talks from 2021 to 2026. |
 
-Ranges come from the live catalog, never hardcoded (same rule as `corpus_facts`).
+Ranges come from the live catalog (`services/corpus_catalog.py`, cached for an hour; checks are skipped if Chroma is unreachable), never hardcoded.
+
+A year is only checked when it is tied to the archive ("2019 talks", "talks from 2019"); "predictions for AI in 2030" is a topic, not a request for 2030 talks. Only years outside the range decline. **Data gap:** no fragment has `video_year` 2022, although some talk titles say 2022. It is inside the range, so it never declines, but the year backfill should be checked.
 
 ---
 
@@ -303,9 +308,10 @@ Still open, and part of L3:
 `status = 'failed'` and:
 
 ```json
-"error": {"code": "declined", "reason_code": "speaker_did_you_mean",
-          "message": "Did you mean Cordel Green?",
-          "suggestions": ["Cordel Green"]}
+"error": {"type": "declined", "stage": "prompt_resolve",
+          "reason_code": "speaker_did_you_mean",
+          "user_message": "We couldn't find a speaker named \"Cordle Grene\". Did you mean Cordel Green?",
+          "suggestions": ["Cordel Green"], "message": "...", "details": ""}
 ```
 
 Why not a new `declined` status:
@@ -314,7 +320,9 @@ Why not a new `declined` status:
 - `jobs.status` has a check constraint, and release code and the release frontend do not know a new value.
 - Adding one would show an unknown status in release for jobs created on uat.
 
-Revisit after the release merge. The frontend should read `error.code` and show `suggestions`.
+The code lives in the existing `error.type` field, so nothing new is added to the job shape. Revisit after the release merge. The frontend should show `error.user_message`, and `suggestions` as buttons when present.
+
+Every failed stage can now pass its own `error_code` and `user_message` to the job. Before this, every stage failure became `pipeline_error` with the generic "Something went wrong" message, including guardrail rejections.
 
 ### 9.2 Messages by reason_code
 
