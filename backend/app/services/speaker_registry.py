@@ -104,6 +104,14 @@ class SpeakerRegistry:
     def video_ids(self) -> list[str]:
         return list(self._videos)
 
+    def videos_of(self, canonical: str) -> list[tuple[str, VideoSpeakers]]:
+        """(video_id, speakers) for every registry video the speaker appears in."""
+        return [(vid, v) for vid in self._videos if (v := self.video(vid)) and canonical in v.names]
+
+    def recorded_speaker_count(self) -> int:
+        """Speakers who appear in at least one registry video, panels included."""
+        return len(self._recorded)
+
     def has_recording(self, canonical: str) -> bool:
         """True if the speaker appears in at least one registry video."""
         return canonical in self._recorded

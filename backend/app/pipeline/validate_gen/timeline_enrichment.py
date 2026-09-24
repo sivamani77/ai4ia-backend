@@ -80,6 +80,9 @@ def generate_voiceovers_for_timeline(
 
     # Grounding material: narration may only claim what the selected fragments say
     source_blob, allowed_names = _build_grounding_material(validated_candidates)
+    archive_facts = ((storyline_data or {}).get("storyline") or {}).get("archive_facts")
+    if archive_facts:
+        source_blob += "\n" + archive_facts
 
     # Build ordered narration list from script-07 sections
     sl_narrations: list[str] = []

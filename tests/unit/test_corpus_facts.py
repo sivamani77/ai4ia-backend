@@ -88,6 +88,17 @@ class TestSpeakerCount:
         assert stated <= facts["speaker_count"]
 
 
+    def test_registry_count_is_used_when_given(self):
+        facts = build_corpus_facts([frag("v1", "Cordel Green")], registry_speaker_count=307)
+        assert "Speakers: over 300" in format_facts_for_prompt(facts)
+
+    def test_years_are_stated_as_a_range_only(self):
+        facts = build_corpus_facts([{**frag("v1", "A B"), "video_year": 2021}, {**frag("v2", "C D"), "video_year": 2026}])
+        text = format_facts_for_prompt(facts)
+        assert "- Years covered: 2021–2026" in text
+        assert "years with talks" not in text
+
+
 class TestNamedSpeakers:
     def test_alias_resolved_name_uses_the_canonical_spelling(self):
         facts = build_corpus_facts([frag("v1", "Cordell Green")] * 3)

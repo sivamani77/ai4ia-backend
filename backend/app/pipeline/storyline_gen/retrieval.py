@@ -417,6 +417,51 @@ def merge_candidate_sets(*candidate_sets: list[dict[str, Any]]) -> list[dict[str
     return ordered
 
 
+def rank_panel_fragments(
+    fragments: list[dict[str, Any]], speaker: str, terms: list[str],
+) -> list[dict[str, Any]]:
+    """Panel clips for a speaker who never has a clip of their own.
+
+    Clips where the speaker (or an alias) is named, and the two after them,
+    come first: they are the likeliest to be that speaker's turn. Then topic
+    matches. Ties are spread across each panel's timeline.
+    """
+    import re
+
+    from app.services.speaker_registry import get_registry
+
+    names = [speaker, *(get_registry().speakers.get(speaker, {}).get("aliases") or [])]
+    name_tokens = {t.lower() for n in names for t in re.findall(r"[A-Za-z]{4,}", n)}
+    by_video: dict[str, list[dict[str, Any]]] = {}
+    for item in fragments:
+        by_video.setdefault(str(item.get("source_video") or ""), []).append(item)
+
+    ranked = []
+    for items in by_video.values():
+        items.sort(key=lambda i: float(i.get("start") or 0))
+        mention_at = [i for i, item in enumerate(items)
+                      if name_tokens & set(re.findall(r"[a-z]{4,}", (item.get("text") or "").lower()))]
+        for i, item in enumerate(items):
+            mention = 2 if i in mention_at else 1 if any(0 < i - m <= 2 for m in mention_at) else 0
+            topic = len(match_terms_in_text(candidate_search_blob(item), terms)) if terms else 0
+            third = min(2, 3 * i // max(1, len(items)))  # position in the panel: start, middle, end
+            ranked.append(((-mention, -topic), third, -float(item.get("quote_strength") or 0), item))
+
+    # Within each (mention, topic) level, take the start, middle and end of the panel in turn.
+    ranked.sort(key=lambda r: (r[0], r[2]))
+    levels: dict[tuple, list] = {}
+    for r in ranked:
+        levels.setdefault(r[0], []).append(r)
+    ordered = []
+    for level in sorted(levels):
+        buckets = [[r for r in levels[level] if r[1] == b] for b in range(3)]
+        while any(buckets):
+            for bucket in buckets:
+                if bucket:
+                    ordered.append(bucket.pop(0)[3])
+    return ordered
+
+
 def hybrid_retrieve_candidates(
     profile: dict,
     records: list[dict],
@@ -500,8 +545,9 @@ def hybrid_retrieve_candidates(
     speaker_pool = sorted(with_channel(speaker_pool, "speaker"), key=by_quality, reverse=True)
     # Panel clips are a fallback: used only when the speaker has too few solo
     # clips, and ranked after them.
-    if len(speaker_pool) < settings.speaker_panel_fallback_min_clips:
-        speaker_pool += sorted(with_channel(panel_pool, "speaker_panel"), key=by_quality, reverse=True)
+    if requested_speaker and len(speaker_pool) < settings.speaker_panel_fallback_min_clips:
+        speaker_pool += rank_panel_fragments(with_channel(panel_pool, "speaker_panel"),
+                                             requested_speaker, search_terms)
     speaker_pool = speaker_pool[:top_k]
 
     # The title channel is unbounded on purpose: when the prompt names a

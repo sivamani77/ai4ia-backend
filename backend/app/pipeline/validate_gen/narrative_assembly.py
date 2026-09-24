@@ -41,6 +41,16 @@ OUTPUT: Respond with ONLY a valid JSON object. No markdown, no commentary outsid
 """ + UNTRUSTED_CONTENT_NOTICE
 
 
+def _archive_facts_block(storyline_data: dict[str, Any]) -> str:
+    """Facts for a request about the archive itself; empty for every other request."""
+    facts = (storyline_data.get("storyline") or {}).get("archive_facts")
+    if not facts:
+        return ""
+    return ("\nARCHIVE FACTS (the request is about the archive itself). State figures exactly as given here "
+            "(\"309 talks\", never \"more than 309\"), derive no new figures such as a number of years, "
+            "never attribute them to a speaker, and do not expand or define the name AI4IA:\n" + facts + "\n")
+
+
 def assemble_narrative_with_llm(
     validated_candidates: list[dict[str, Any]],
     narrative_sections: list[dict[str, Any]],
@@ -91,7 +101,7 @@ NARRATIVE SECTIONS:
 
 APPROVED CANDIDATE CLIPS:
 {wrap_untrusted(candidates_json)}
-
+{_archive_facts_block(storyline_data)}
 Build the final documentary timeline.
 
 Return JSON with this exact structure:

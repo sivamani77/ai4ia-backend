@@ -65,9 +65,11 @@ def _year(value: Any) -> int | None:
     return year if 1900 < year < 2100 else None
 
 
-def build_corpus_facts(records: list[dict[str, Any]], top_n: int = 5) -> dict[str, Any]:
+def build_corpus_facts(records: list[dict[str, Any]], top_n: int = 5,
+                       registry_speaker_count: int | None = None) -> dict[str, Any]:
     """Counts and rankings over the active corpus. Omits anything it cannot
-    measure rather than guessing."""
+    measure rather than guessing. `registry_speaker_count` (speakers with a
+    recorded talk, panels included) replaces the fragment-based estimate."""
     from app.pipeline.storyline_gen.prompt_intent import SPEAKER_ALIAS_MAP
 
     videos: set[str] = set()
@@ -131,6 +133,8 @@ def build_corpus_facts(records: list[dict[str, Any]], top_n: int = 5) -> dict[st
         "chapters": [{"name": n, "fragments": c} for n, c in chapters.most_common()],
         "top_speakers": [{"name": display(k), "fragments": c} for k, c in named],
     }
+    if registry_speaker_count:
+        facts["registry_speaker_count"] = registry_speaker_count
     if video_years:
         facts["year_first"] = min(video_years.values())
         facts["year_last"] = max(video_years.values())
@@ -143,16 +147,13 @@ def format_facts_for_prompt(facts: dict[str, Any]) -> str:
     the narration may state; anything absent must not be invented."""
     lines = [
         f"- Talks in the archive: {facts['video_count']}",
-        f"- Speakers: over {(facts['speaker_count_lower_bound'] // 10) * 10}",
+        f"- Speakers: over {(facts.get('registry_speaker_count') or facts['speaker_count_lower_bound']) // 10 * 10}",
         f"- Themes: {facts['theme_count']}",
         f"- Chapters: {facts['chapter_count']}",
     ]
     if "year_first" in facts:
-        years = facts["edition_years"]
-        lines.append(
-            f"- Years covered: {facts['year_first']}–{facts['year_last']} "
-            f"({len(years)} years with talks: {', '.join(map(str, years))})"
-        )
+        # Range only: some talks lack a year tag (e.g. none carry 2022), so a per-year list would be wrong.
+        lines.append(f"- Years covered: {facts['year_first']}–{facts['year_last']}")
     if facts["themes"]:
         lines.append("- Themes, most discussed first:")
         lines += [f"    {t['name']}" for t in facts["themes"]]

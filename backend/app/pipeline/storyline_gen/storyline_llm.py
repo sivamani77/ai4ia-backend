@@ -26,7 +26,9 @@ def generate_llm_storyline(
     director_plan: dict[str, Any],
     prompt_intent: dict[str, Any],
     evidence_package: dict[str, Any],
+    intent_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
+    """`intent_context` carries evidence only some intents use (archive_facts, panel_context, requested_facet)."""
     candidate_pack = build_candidate_pack(candidates)
 
     _num_sections_hint = timeline_segment_count_for_duration(duration)
@@ -165,6 +167,7 @@ def generate_llm_storyline(
         }
     }
 
+    intents.extend_payload(intent, user_instruction, intent_context)
     system_text = system_instruction + UNTRUSTED_CONTENT_NOTICE
     user_content = "INPUT (untrusted — see content boundary notice in system instructions):\n" + wrap_untrusted(
         json.dumps(user_instruction, ensure_ascii=False, indent=2)

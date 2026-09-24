@@ -18,6 +18,7 @@ from app.pipeline.storyline_gen.director import (  # noqa: E402
     compute_evidence_metrics,
     get_selected_candidate_cap,
 )
+from app.pipeline.storyline_gen.intents.context import build_intent_context, speaker_panel_only  # noqa: E402
 from app.pipeline.storyline_gen.llm_client import log, warm_up_ollama  # noqa: E402
 from app.pipeline.storyline_gen.moment_repair import (  # noqa: E402
     repair_or_rebuild_timeline_with_moments,
@@ -162,6 +163,8 @@ def main() -> None:
     all_records = get_filtered_records_or_load()
     prompt_intent = detect_prompt_intent(args.prompt, known_speakers, all_records, target_duration_seconds=args.duration,
                                          requested_speaker=args.requested_speaker or None)
+    prompt_intent["speaker_panel_only"] = speaker_panel_only(prompt_intent.get("requested_speaker"))
+    intent_context = build_intent_context(prompt_intent, all_records)
     log(f"Prompt intent: {json.dumps(prompt_intent, ensure_ascii=False)}")
 
     raw_retrieved = retrieve_candidates(args.prompt, prompt_intent, top_k=args.top_k)
@@ -291,6 +294,7 @@ def main() -> None:
                 director_plan=director_plan,
                 prompt_intent=prompt_intent,
                 evidence_package=evidence_package,
+                intent_context=intent_context,
             )
             storyline["generation_mode"] = "llm"
             intent_used = storyline.get("intent")
@@ -437,6 +441,8 @@ def main() -> None:
 
     if intent_used:
         storyline["intent"] = intent_used
+    if intent_context.get("archive_facts"):
+        storyline["archive_facts"] = intent_context["archive_facts"]  # 07b states figures from it too
     output_path = save_storyline(
         storyline=storyline,
         user_prompt=args.prompt,
