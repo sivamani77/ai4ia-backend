@@ -33,6 +33,7 @@ from app.api.dashboard import router as dashboard_router
 from app.api.archive import router as archive_router
 from app.api.admin import router as admin_router
 from app.api.admin_users import router as admin_users_router
+from app.api.admin_data import router as admin_data_router
 from app.api.insights import router as insights_router
 from app.api.compare import router as compare_router
 from app.api.video_jobs import router as video_jobs_router
@@ -437,6 +438,7 @@ app.include_router(dashboard_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(archive_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(admin_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(admin_users_router, prefix=API_PREFIX, dependencies=_admin_dep)
+app.include_router(admin_data_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(insights_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(compare_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(video_jobs_router, prefix=API_PREFIX, dependencies=_auth_dep)
