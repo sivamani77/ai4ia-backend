@@ -1,6 +1,6 @@
 # Intent layer and coverage check — design
 
-**Status:** phases 0–4 built · **Branch:** `uat` · **Updated:** 2026-09-24
+**Status:** phases 0–5 built · **Branch:** `uat` · **Updated:** 2026-09-24
 **Builds on:** [speaker-cleanup-plan.md](speaker-cleanup-plan.md) (applied on uat)
 
 ![Request journey](intent-layer-flow.png)
@@ -184,6 +184,12 @@ INSTRUCTIONS = """..."""                     # added after BASE_PROMPT
 
 The system prompt is `BASE_PROMPT + INSTRUCTIONS`, and its sha256 is recorded as `template_hash`. The LLM is always called with the same shape. What differs per intent is the instruction block and the payload.
 
+**Built in phase 5:** `overview` (facts block from `corpus_facts`), `speaker_panel` (panel roster; chosen when every registry video of the speaker is a panel) and `theme_chapter` (requested facet; it includes the chronological rules, which handle a missing `year_slot` themselves). Each adds its evidence through `extend_payload()`, from a context built once per job (`intents/context.py`). Order: title, speaker_panel, speaker_topic, speaker, overview, theme_chapter, chronological, topic. Overview retrieval is unchanged: the opening-session clips it already finds describe the conference.
+
+**Overview facts must reach 07b too.** 07b rewrites the narration from its approved clips only, so the first overview render lost every figure (none of its 5 LLM requests contained "309"). Stage 07 now saves `archive_facts` in the storyline; 07b's assembly prompt includes them, and its grounding check accepts them as a source. The first renders also showed the model loosening figures ("more than 309 talks", "in just five years") and inventing an expansion of the name AI4IA, so both prompts now require figures exactly as given and forbid defining the name; the repo does not say what AI4IA stands for. Final render: "309 talks, featuring over 300 speakers… seven key themes across 25 chapters from 2021 to 2026". Overview clips vary (1 clip, then 0): 07b approves the opening-session clips as narration material, as with panels (see §7.3).
+
+Two corrections to the facts, both of which would have put a wrong statement into a narration: the speaker figure now comes from the registry (307 speakers with a recorded talk, so "over 300"; the fragment count gave "over 250" because panel speakers have no fragment-level name), and years are stated as a range only, because no fragment carries 2022.
+
 **Built in phase 4** (`storyline_gen/intents/`): `title`, `speaker_topic`, `speaker`, `chronological` and `topic`, each with `NAME`, `VERSION`, `INSTRUCTIONS` and `matches()`. `chronological` also has `prepare_director_plan()`, which keeps the old relay payload shape. `retrieve`, `coverage` and `build_payload` arrive with the phases that need them (5 and 6).
 
 - Only `chronological` has instructions today; for the others the prompt is exactly the base text. The move was verified byte-for-byte: `tests/unit/test_storyline_intents.py` compares the system text and user content for six saved storylines with snapshots captured from the code before the refactor.
@@ -223,7 +229,11 @@ Panel fragments have `speaker = ""`, `speaker_attribution = "Multiple speakers"`
 1. **Mention windows.** When a fragment names the person (full name, surname, or first name when that first name is unique in the roster), boost it and the next 2–3 fragments. This covers hand-overs ("over to you, Natali") and self-introductions ("I'm Natali Helberger").
 2. **Topic ranking** inside the person's panel videos, when the prompt has a topic.
 3. **Timeline spread.** Split each panel into time buckets and take from each, rather than the first N fragments.
-4. **A larger pool.** About twice the single-talk candidate count, because some picks will be other panellists.
+4. **A larger pool.** About twice the single-talk candidate count, because some picks will be other panellists. *(Not built: the existing candidate cap still applies; revisit if panel videos come out short.)*
+
+**Built** (`retrieval.rank_panel_fragments`, phase 5): steps 1–3, matching the speaker's registry aliases as well as the canonical name. **Measured:** 39 of 55 panel-only speakers are named at least once in their panel transcripts (Dariia Opryshko: 1 mention by her own name, 45 including the alias spellings the transcripts use). 16, including Natali Helberger, are never named, so for them only topic ranking and timeline spread apply.
+
+**Open, found in the phase 5 render** ("What did Natali Helberger say about media regulation?"): the `speaker_panel` instructions and roster reached the LLM and no words were attributed to her, but the video had **no clips**. Stage 07 selected 2 candidates; 07b checked 8 and approved 7, all as `narration_broll`, none as `speaker_clip`, and footage only ever appears in speaker clips. A controlled test on the same 6 fragments gave the same decisions whether the validator saw "Multiple speakers" or the named panel, so the label is not the cause. The validator does not log why it approves a clip as narration; the likely reason (short turns and crosstalk rather than self-contained quotes) is unverified. Next steps: log approval reasons in 07b, and try wider clip windows for panel turns.
 
 Caveat rules, enforced in `INSTRUCTIONS` and checked in 07b:
 
@@ -555,7 +565,7 @@ This is the spec and becomes the test set. Extend it to 100+ rows, adding real p
 | 23 | `quantum computing in agriculture` | topic | quantum, agriculture | `topic_not_covered` *(verify)* | decline with nearest themes |
 | 24 | `deepfakes and space law` | topic | deepfakes, space law | partial *(verify)* | render with gap narration |
 | 25 | *(exact title of an archive talk)* | title | source_video | covered | render from that talk |
-| 26 | `How many speakers are there?` | overview | — | covered | facts block ("over 260" style) |
+| 26 | `How many speakers are there?` | overview | — | covered | facts block ("over 300 speakers") |
 | 27 | `What is AI4IA?` | overview | — | covered | render |
 | 28 | `What are the major themes of AI4IA?` | overview | — | covered | render |
 | 29 | `what did the speakers say about access to information` | topic | access, information | covered | render (not overview) |
