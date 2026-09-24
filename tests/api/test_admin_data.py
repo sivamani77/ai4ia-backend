@@ -46,7 +46,7 @@ def test_list_rows_uses_repository_and_paginates(api_app, mock_settings, monkeyp
     fake_rows = [{"id": f"rec-{i}"} for i in range(5)]
     monkeypatch.setattr(
         decision_record_repository.DecisionRecordRepository, "list_all",
-        lambda self, limit, offset: fake_rows[offset:offset + limit],
+        lambda self, limit, offset: fake_rows[:limit],
     )
 
     api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="admin-1", persona="admin")
@@ -56,9 +56,77 @@ def test_list_rows_uses_repository_and_paginates(api_app, mock_settings, monkeyp
     assert response.status_code == 200
     body = response.json()
     assert body == {
-        "table": "decision_records", "limit": 2, "offset": 2, "count": 2,
+        "table": "decision_records", "limit": 2, "offset": 2, "matched": 4, "count": 2,
         "rows": [{"id": "rec-2"}, {"id": "rec-3"}],
     }
+
+
+def test_search_filters_case_insensitive_substring(api_app, mock_settings, monkeypatch):
+    import app.db.repositories.job_repository as job_repository
+
+    fake_rows = [
+        {"id": "vjob_abc", "status": "completed"},
+        {"id": "vjob_xyz", "status": "failed"},
+        {"id": "other_abc", "status": "completed"},
+    ]
+    monkeypatch.setattr(job_repository.JobRepository, "list_jobs", lambda self: fake_rows)
+
+    api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="admin-1", persona="admin")
+    with TestClient(api_app) as client:
+        response = client.get(
+            "/api/admin/data/tables/jobs",
+            params={"search_field": "id", "search_value": "VJOB"},
+        )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["matched"] == 2
+    assert {r["id"] for r in body["rows"]} == {"vjob_abc", "vjob_xyz"}
+
+
+def test_search_requires_both_params_together(api_app, mock_settings):
+    api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="admin-1", persona="admin")
+    with TestClient(api_app) as client:
+        response = client.get("/api/admin/data/tables/jobs", params={"search_field": "id"})
+    assert response.status_code == 400
+
+
+def test_job_full_joins_events_decision_record_and_traces(api_app, mock_settings, monkeypatch):
+    import app.db.repositories.decision_record_repository as decision_record_repository
+    import app.db.repositories.event_repository as event_repository
+    import app.db.repositories.job_repository as job_repository
+    import app.db.repositories.llm_trace_repository as llm_trace_repository
+
+    monkeypatch.setattr(job_repository.JobRepository, "get_job", lambda self, record_id: {"id": record_id})
+    monkeypatch.setattr(event_repository.EventRepository, "get_events", lambda self, job_id: [{"event": "started"}])
+    monkeypatch.setattr(
+        decision_record_repository.DecisionRecordRepository, "get_by_job",
+        lambda self, job_id: {"id": "rec-1"},
+    )
+    monkeypatch.setattr(llm_trace_repository.LLMTraceRepository, "list_by_job", lambda self, job_id: [{"id": "trace-1"}])
+
+    api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="admin-1", persona="admin")
+    with TestClient(api_app) as client:
+        response = client.get("/api/admin/data/jobs/vjob_123/full")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "job": {"id": "vjob_123"},
+        "events": [{"event": "started"}],
+        "decision_record": {"id": "rec-1"},
+        "llm_traces": [{"id": "trace-1"}],
+    }
+
+
+def test_job_full_404_when_job_missing(api_app, mock_settings, monkeypatch):
+    import app.db.repositories.job_repository as job_repository
+
+    monkeypatch.setattr(job_repository.JobRepository, "get_job", lambda self, record_id: None)
+
+    api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="admin-1", persona="admin")
+    with TestClient(api_app) as client:
+        response = client.get("/api/admin/data/jobs/does-not-exist/full")
+    assert response.status_code == 404
 
 
 def test_get_row_not_supported_for_llm_call_traces(api_app, mock_settings):
