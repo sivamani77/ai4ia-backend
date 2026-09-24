@@ -49,6 +49,8 @@ def _archive_facts_block(storyline_data: dict[str, Any]) -> str:
     return ("\nARCHIVE FACTS (the request is about the archive itself). State figures exactly as given here "
             "(\"309 talks\", never \"more than 309\"), derive no new figures such as a number of years, "
             "never attribute them to a speaker, and expand the name AI4IA only as given here. "
+            "Answer the question asked first: when the USER PROMPT asks for a figure (how many speakers, "
+            "talks, themes, chapters or years), the first narration states that figure. "
             "Keep approved speaker clips as speaker_clip items: they are the conference's voices.\n" + facts + "\n")
 
 

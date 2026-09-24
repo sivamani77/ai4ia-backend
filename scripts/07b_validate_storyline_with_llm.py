@@ -40,6 +40,7 @@ from app.pipeline.timeline_budget import (  # noqa: E402
     fill_timeline_to_target,
     timeline_total_seconds,
 )
+from app.pipeline.validate_gen.archive_answer import ensure_asked_figures  # noqa: E402
 from app.pipeline.validate_gen.fallback_timeline import build_fallback_final_timeline  # noqa: E402
 from app.pipeline.validate_gen.fragment_validation import (  # noqa: E402
     _base_section_id,
@@ -569,6 +570,12 @@ def main() -> None:
 
     # Re-verify quality gates after duration top-up / rescue net
     warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target)
+
+    # An archive overview must answer the figure it was asked for.
+    archive_facts = (data.get("storyline") or {}).get("archive_facts")
+    if archive_facts:
+        for sentence in ensure_asked_figures(enriched_timeline, user_prompt, archive_facts):
+            log(f"Overview: narration did not state an asked figure — added {sentence!r}")
 
     # Registry spellings everywhere, whatever the prompt or the LLM wrote.
     enriched_timeline = canonicalize_speaker_names(enriched_timeline)
