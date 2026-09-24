@@ -11,13 +11,14 @@ NARRATIVE_ASSEMBLY_SYSTEM = """You are an editorial director building a short do
 You have a list of approved candidate clips. Your job is to arrange them into a coherent documentary timeline that directly addresses the user's requested topic.
 
 RULES:
-- Start with the strongest hook that directly addresses the topic from the USER PROMPT.
-- The documentary must flow: hook → context → evidence/impact → challenges → responses → synthesis.
+- Follow the NARRATIVE SECTIONS in order: they are this request's documentary format.
 - Each section must have at least one piece of evidence (speaker clip OR narration_broll).
+- The first and last sections are narration only. Speaker clips go in the middle sections,
+  each after that section's narration. Never open or close the film with a clip.
 - Write specific, evidence-driven voiceover narration grounded in the topic from the USER PROMPT.
 - Voiceover must mention specific claims from the evidence and bridge to the next clip.
 - NEVER write voiceover about a different topic than what the USER PROMPT specifies.
-- Maximum 5 speaker clips, 3-5 narration_broll segments.
+- Use speaker clips as SPEAKER CLIPS below says. Every narration_broll segment is required.
 - Reject redundant or weak clips that duplicate other clips.
 - End with a closing synthesis statement on the USER PROMPT topic.
 - Every narration_broll item's "voiceover_text" is REQUIRED and must be non-empty —
@@ -51,7 +52,30 @@ def _archive_facts_block(storyline_data: dict[str, Any]) -> str:
             "never attribute them to a speaker, and expand the name AI4IA only as given here. "
             "Answer the question asked first: when the USER PROMPT asks for a figure (how many speakers, "
             "talks, themes, chapters or years), the first narration states that figure. "
-            "Keep approved speaker clips as speaker_clip items: they are the conference's voices.\n" + facts + "\n")
+            "A speaker clip you use stays a speaker_clip item: it is one of the conference's voices.\n" + facts + "\n")
+
+
+def _clip_rules(clips_required: bool, speaker_target: int, cap: int) -> str:
+    if clips_required:
+        need = f"at least {speaker_target}, " if speaker_target else ""
+        return (f"SPEAKER CLIPS: this request needs real speaker clips: use {need}at most 5, each a "
+                "complete thought on the AI4IA agenda.")
+    return (f"SPEAKER CLIPS: optional for this request. Use at most {cap}, only where a clip says something "
+            "the narration cannot. A timeline with no speaker clips is fine.")
+
+
+def _context_blocks(storyline_data: dict[str, Any]) -> str:
+    """Panel roster and requested facet, when the intent has them."""
+    storyline = storyline_data.get("storyline") or {}
+    blocks = ""
+    if storyline.get("panel_context"):
+        blocks += ("\nPANEL CONTEXT (the requested speaker appears only on these panels; clip audio may be any "
+                   "panellist, so never attribute a clip's words to the requested speaker):\n"
+                   + wrap_untrusted(json.dumps(storyline["panel_context"], ensure_ascii=False)) + "\n")
+    if storyline.get("requested_facet"):
+        blocks += ("\nREQUESTED FACET (keep every section inside it):\n"
+                   + json.dumps(storyline["requested_facet"], ensure_ascii=False) + "\n")
+    return blocks
 
 
 def assemble_narrative_with_llm(
@@ -60,6 +84,9 @@ def assemble_narrative_with_llm(
     user_prompt: str,
     target_duration: int,
     storyline_data: dict[str, Any],
+    clips_required: bool = True,
+    speaker_target: int = 0,
+    clip_cap: int = 2,
 ) -> dict[str, Any] | None:
     approved = [c for c in validated_candidates if c.get("approved")]
     if not approved:
@@ -78,6 +105,7 @@ def assemble_narrative_with_llm(
             "quote_complete": c.get("quote_complete"),
             "reason": c.get("reason", ""),
             "confidence": c.get("confidence", 0),
+            **({"year": c["video_year"]} if c.get("video_year") else {}),
         }
         for c in approved
     ], indent=2)
@@ -95,6 +123,10 @@ def assemble_narrative_with_llm(
     target_words = max(40, int(per_section_s * 2.5))
     min_sentences = max(3, round(target_words / 15))
 
+    # Examples carry this format's ids; the LLM copies example ids verbatim.
+    first_id = narrative_sections[0]["section_id"] if narrative_sections else "S1"
+    middle_id = narrative_sections[1]["section_id"] if len(narrative_sections) > 2 else first_id
+
     user_text = f"""USER PROMPT: {wrap_untrusted(user_prompt)}
 TARGET DURATION: {target_duration} seconds
 TARGET WORDS PER NARRATION_BROLL SEGMENT: ~{target_words} words (about {min_sentences}-{min_sentences + 2} sentences) — do not undershoot this, thin narration gets replaced downstream.
@@ -104,7 +136,8 @@ NARRATIVE SECTIONS:
 
 APPROVED CANDIDATE CLIPS:
 {wrap_untrusted(candidates_json)}
-{_archive_facts_block(storyline_data)}
+{_clip_rules(clips_required, speaker_target, clip_cap)}
+{_archive_facts_block(storyline_data)}{_context_blocks(storyline_data)}
 Build the final documentary timeline.
 
 Return JSON with this exact structure:
@@ -113,7 +146,7 @@ Return JSON with this exact structure:
   "logline": "one sentence summary of what this documentary reveals",
   "narrative_arc": [
     {{
-      "section_id": "S1_HOOK",
+      "section_id": "{first_id}",
       "purpose": "what this section achieves",
       "card_text": "text for the section card",
       "timeline_items": [
@@ -134,7 +167,7 @@ Return JSON with this exact structure:
     {{"type": "title_card", "title": "...", "duration": 5.0}},
     {{
       "type": "narration_broll",
-      "section_id": "S1_HOOK",
+      "section_id": "{first_id}",
       "voiceover_text": "specific evidence-driven narration relevant to the user prompt topic...",
       "subtitle_text": "same as voiceover_text",
       "subtitle_kind": "voiceover",
@@ -142,7 +175,7 @@ Return JSON with this exact structure:
     }},
     {{
       "type": "speaker_clip",
-      "section_id": "S1_HOOK",
+      "section_id": "{middle_id}",
       "fragment_id": "...",
       "speaker": "...",
       "render_start": 0.0,

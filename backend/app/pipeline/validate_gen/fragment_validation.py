@@ -6,6 +6,7 @@ from typing import Any
 import httpx
 
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
+from app.pipeline.storyline_gen.intents.base import agenda_rule
 from app.pipeline.validate_gen.json_utils import extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries, post_with_retries_async
 from app.pipeline.validate_gen.narrative_templates import DEEPFAKE_VOICEOVER_DEFAULTS, GENERIC_VOICEOVER_DEFAULTS
@@ -46,7 +47,10 @@ RULES:
 - Use narration_broll when: the content is relevant but the speaker quote is unclear, incomplete, or low-quality audio.
 - Use visual_support when: the content provides good background video but the speech itself is not needed.
 - Reject clips that are: generic greetings, off-topic, repetitive of other clips, or have very low informational value.
-- The final video must follow the narrative structure provided: hook → context → evidence/impact → challenges → responses → synthesis.
+- The final video follows the NARRATIVE SECTIONS given with the fragment. Pick the section the fragment serves best.
+- AI4IA AGENDA: set agenda_relevant=true only if the speaker speaks substantively about AI4IA itself or its agenda.
+""" + agenda_rule() + """
+  A fragment with agenda_relevant=false is never a speaker_clip.
 
 OUTPUT: Respond with ONLY a valid JSON object. No markdown, no explanation outside the JSON.
 """ + UNTRUSTED_CONTENT_NOTICE
@@ -184,6 +188,7 @@ def _build_validation_prompt(
 
     context_text = context_window_to_prompt_text(context_window, frag_start, frag_end)
 
+    section_ids = " | ".join(s["section_id"] for s in narrative_sections)
     sections_summary = "\n".join(
         f"  {s['section_id']}: {s['title']} — {s['purpose'][:80]}"
         for s in narrative_sections
@@ -214,8 +219,9 @@ Return JSON with these exact fields:
 {{
   "fragment_id": "{frag_id}",
   "decision": "speaker_clip | narration_broll | visual_support | reject",
-  "section_id": "S1_HOOK | S2_CONTEXT | S3_HUMAN_RISK | S4_PUBLIC_RISK | S5_RESPONSE | S6_SYNTHESIS",
+  "section_id": "{section_ids}",
   "approved": true or false,
+  "agenda_relevant": true or false,
   "reason": "one sentence explanation",
   "quote_complete": true or false,
   "quote_start": {frag_start:.2f},
@@ -297,6 +303,16 @@ async def validate_candidate_with_llm_async(
         except Exception as exc:
             log(f"  [llm] Validation failed for {frag_id[:50]}: {exc}")
             return None
+
+
+def reject_off_agenda(result: dict[str, Any]) -> dict[str, Any]:
+    """A speaker clip the validator judged off the AI4IA agenda is rejected,
+    whatever else it said."""
+    if result.get("decision") == "speaker_clip" and result.get("agenda_relevant") is False:
+        result["decision"] = "reject"
+        result["approved"] = False
+        result["reason"] = "Not on the AI4IA agenda. " + str(result.get("reason") or "")
+    return result
 
 
 def fallback_validation(candidate: dict[str, Any]) -> dict[str, Any]:

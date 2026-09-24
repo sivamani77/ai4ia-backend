@@ -33,6 +33,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
+from app.pipeline.storyline_gen import intents  # noqa: E402
 from app.pipeline.timeline_budget import (  # noqa: E402
     DURATION_FILL_MARGIN,
     _candidate_is_speaker_eligible,
@@ -46,6 +47,7 @@ from app.pipeline.validate_gen.fragment_validation import (  # noqa: E402
     _base_section_id,
     _clean_voiceover_text,
     fallback_validation,
+    reject_off_agenda,
     validate_candidate_with_llm_async,
 )
 from app.pipeline.validate_gen.llm_client import (  # noqa: E402
@@ -64,6 +66,7 @@ from app.pipeline.validate_gen.quality_gates import (  # noqa: E402
     CRITICAL_GATE_NAMES,
     EXTRA_SPEAKER_CHECKS,
     MAX_VALIDATION_ITERATIONS,
+    OPTIONAL_CLIP_CAP,
     SPEAKER_CLIP_TARGET,
     _add_visual_asset_plan,
     _critical_gates_pass,
@@ -72,8 +75,10 @@ from app.pipeline.validate_gen.quality_gates import (  # noqa: E402
     _llm_repair_timeline,
     _llm_vet_topup_items,
     _validate_speaker_quotes,
+    align_section_ids,
     check_quality_gates,
     frame_duration_fill_as_perspectives_section,
+    limit_speaker_clips,
     repair_can_help,
     repair_is_better,
     repair_shelf,
@@ -162,8 +167,14 @@ def main() -> None:
         if item.get("fragment_id") and item.get("type") not in ("title_card", "closing_card")
     ]
 
-    # Detect narrative structure
-    narrative_sections = detect_narrative_sections(user_prompt, topic_terms, target_duration)
+    # The intent decides the documentary format and whether clips are needed.
+    intent = intents.for_storyline(data)
+    clips_required = intents.clips_required(intent, user_prompt)
+    clip_cap = None if clips_required else OPTIONAL_CLIP_CAP
+    narrative_sections = detect_narrative_sections(user_prompt, topic_terms, target_duration,
+                                                   format_sections=intent.SECTIONS)
+    clip_sections = {s["section_id"] for s in narrative_sections[1:-1]} if clips_required else set()
+    log(f"Format: {intent.NAME} | clips {'required' if clips_required else f'optional (max {clip_cap})'}")
     log(f"Narrative structure: {[s['section_id'] for s in narrative_sections]}")
     log(f"Fragment items to validate: {len(fragment_items)}")
 
@@ -210,6 +221,7 @@ def main() -> None:
             result["_fallback_reason"] = "llm_failed"
             log(f"  fallback decision: {result['decision']} | approved={result['approved']}")
         else:
+            result = reject_off_agenda(result)
             log(f"  LLM decision: {result.get('decision')} | approved={result.get('approved')} | section={result.get('section_id')} | confidence={result.get('confidence', 0):.2f}")
             if not result.get("approved"):
                 log(f"  reason: {result.get('reason', '')}")
@@ -218,6 +230,8 @@ def main() -> None:
         result["start"] = merged["start"]
         result["end"] = merged["end"]
         result["text"] = merged.get("text") or merged.get("moment_text") or ""
+        if merged.get("video_year"):
+            result["video_year"] = merged["video_year"]
         return i, result, used_fallback
 
     def _validate_items(items: list[dict]) -> list[tuple[dict, bool]]:
@@ -268,7 +282,7 @@ def main() -> None:
 
     # Too few speaker clips approved: check more of stage 07's shortlist.
     approved_speakers = sum(1 for r, _ in results if r.get("approved") and r.get("decision") == "speaker_clip")
-    if approved_speakers < SPEAKER_CLIP_TARGET:
+    if clips_required and approved_speakers < SPEAKER_CLIP_TARGET:
         extras = unchecked_speaker_candidates(
             selected_candidates + (data.get("supporting_candidates") or []),
             checked_fids={str(item.get("fragment_id")) for item in fragment_items},
@@ -288,7 +302,7 @@ def main() -> None:
     log(f"\nValidation complete: {approved_count} approved, {rejected_count} rejected out of {len(validated_candidates)}")
     if llm_fallback_count:
         log(f"WARNING: {llm_fallback_count}/{len(validated_candidates)} fragments used score-based fallback due to LLM failures — results may be lower quality.")
-    speaker_target = speaker_clip_target(validated_candidates)
+    speaker_target = speaker_clip_target(validated_candidates) if clips_required else 0
     log(f"Speaker clip target: {speaker_target}")
 
     # Full narrative assembly
@@ -302,6 +316,9 @@ def main() -> None:
             user_prompt=user_prompt,
             target_duration=target_duration,
             storyline_data=data,
+            clips_required=clips_required,
+            speaker_target=speaker_target,
+            clip_cap=OPTIONAL_CLIP_CAP,
         )
 
     if assembled is None:
@@ -311,6 +328,7 @@ def main() -> None:
             narrative_sections=narrative_sections,
             storyline_data=data,
             target_duration=target_duration,
+            max_clips=clip_cap,
         )
 
     # Detect topic for defaults — only match actual deepfake terms in the prompt,
@@ -319,6 +337,15 @@ def main() -> None:
         term.lower() in user_prompt.lower()
         for term in DEEPFAKE_TOPIC_TERMS
     )
+    vo_defaults = {
+        **(DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS),
+        **{sec["section_id"]: sec["default_voiceover"] for sec in narrative_sections if sec.get("default_voiceover")},
+    }
+
+    def _place_clips(timeline: list[dict]) -> list[dict]:
+        """Clips inside the film, never at its ends; capped when optional."""
+        timeline = _enforce_section_rhythm(timeline, narrative_sections)
+        return timeline if clip_cap is None else limit_speaker_clips(timeline, clip_cap)
 
     # Build validated_map keyed by fragment_id for speaker resolution
     validated_map: dict[str, dict] = {}
@@ -336,6 +363,7 @@ def main() -> None:
             narrative_sections=narrative_sections,
             storyline_data=data,
             target_duration=target_duration,
+            max_clips=clip_cap,
         )
         raw_timeline = assembled.get("final_timeline") or []
 
@@ -346,6 +374,7 @@ def main() -> None:
         validated_map=validated_map,
         is_deepfake_topic=is_deepfake_topic,
     )
+    enriched_timeline = align_section_ids(enriched_timeline, narrative_sections)
 
     # Assign fragments to narration_broll items that have no fragment_id
     log("\nAssigning fragments to empty narration_broll items...")
@@ -367,7 +396,7 @@ def main() -> None:
             storyline_data=data,
         )
     else:
-        defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
+        defaults = vo_defaults
         for item in enriched_timeline:
             t = item.get("type") or item.get("segment_type") or ""
             if t == "narration_broll" and not (item.get("voiceover_text") or "").strip():
@@ -381,13 +410,14 @@ def main() -> None:
         narrative_sections=narrative_sections,
         validated_candidates=validated_candidates,
         original_timeline=export_timeline,
+        clip_sections=clip_sections,
     )
 
     # Validate speaker quote completeness
     enriched_timeline = _validate_speaker_quotes(enriched_timeline)
 
     # Clean remaining instruction leakage from voiceover texts
-    defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
+    defaults = vo_defaults
     for item in enriched_timeline:
         t = item.get("type") or item.get("segment_type") or ""
         if t == "narration_broll":
@@ -399,8 +429,8 @@ def main() -> None:
             item["voiceover_text"] = cleaned
             item["subtitle_text"] = cleaned
 
-    # Enforce section rhythm: S1 → speaker, all other sections → narration then speaker
-    enriched_timeline = _enforce_section_rhythm(enriched_timeline, narrative_sections)
+    # Narration opens and closes the film; clips sit in the middle sections.
+    enriched_timeline = _place_clips(enriched_timeline)
 
     # Add visual asset plan to all narration_broll items
     enriched_timeline = _add_visual_asset_plan(enriched_timeline, narrative_sections, is_deepfake_topic)
@@ -409,7 +439,7 @@ def main() -> None:
 
     # Iterative quality-gate repair loop
     max_iters = args.max_iterations
-    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target)
+    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target, clips_required)
     repair_iter = 0
     for repair_iter in range(1, max_iters + 1):
         if _critical_gates_pass(quality_gates):
@@ -438,6 +468,7 @@ def main() -> None:
             target_duration=target_duration,
             shelf=shelf,
             speaker_target=speaker_target,
+            clips_required=clips_required,
         )
         if not repaired_tl:
             log("  [repair] LLM returned nothing — keeping current timeline.")
@@ -450,6 +481,7 @@ def main() -> None:
             validated_map=validated_map,
             is_deepfake_topic=is_deepfake_topic,
         )
+        enriched_timeline = align_section_ids(enriched_timeline, narrative_sections)
         enriched_timeline = assign_fragments_to_empty_narration_brolls(
             enriched_timeline, validated_candidates, export_timeline
         )
@@ -459,10 +491,11 @@ def main() -> None:
                 target_duration=target_duration, storyline_data=data,
             )
         enriched_timeline = _fill_missing_sections(
-            enriched_timeline, narrative_sections, validated_candidates, export_timeline
+            enriched_timeline, narrative_sections, validated_candidates, export_timeline,
+            clip_sections=clip_sections,
         )
         enriched_timeline = _validate_speaker_quotes(enriched_timeline)
-        _defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
+        _defaults = vo_defaults
         for _item in enriched_timeline:
             _t = _item.get("type") or _item.get("segment_type") or ""
             if _t == "narration_broll":
@@ -473,9 +506,9 @@ def main() -> None:
                     _cleaned = _defaults.get(_base_section_id(_sid), "")
                 _item["voiceover_text"] = _cleaned
                 _item["subtitle_text"] = _cleaned
-        enriched_timeline = _enforce_section_rhythm(enriched_timeline, narrative_sections)
+        enriched_timeline = _place_clips(enriched_timeline)
         enriched_timeline = _add_visual_asset_plan(enriched_timeline, narrative_sections, is_deepfake_topic)
-        warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target)
+        warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target, clips_required)
         if not repair_is_better(before[:2], (enriched_timeline, quality_gates)):
             log("  [repair] Rejected: it would lose speaker clips or pass fewer gates — keeping the previous timeline.")
             enriched_timeline, quality_gates, warnings = before
@@ -498,7 +531,10 @@ def main() -> None:
     # ------------------------------------------------------------------
     duration_fill_report: dict | None = None
     speaker_clip_count = sum(1 for item in enriched_timeline if (item.get("type") or item.get("segment_type")) == "speaker_clip")
-    if target_duration or speaker_clip_count == 0:
+    if not clips_required:
+        # The top-up only adds speaker clips: never filler for a request that does not need them.
+        log("\nDuration top-up skipped: this request does not need speaker clips.")
+    elif target_duration or speaker_clip_count == 0:
         floor = float(target_duration or 0) * DURATION_FILL_MARGIN
         current_total = timeline_total_seconds(enriched_timeline)
         if current_total < floor or speaker_clip_count == 0:
@@ -560,16 +596,17 @@ def main() -> None:
                     f"{duration_fill_report['total_after_seconds']:.1f}s"
                 )
 
-            n_framed = frame_duration_fill_as_perspectives_section(enriched_timeline)
+            n_framed = frame_duration_fill_as_perspectives_section(
+                enriched_timeline, closing_section_id=narrative_sections[-1]["section_id"])
             if n_framed:
                 log(
                     f"Duration top-up: framed {n_framed} added speaker clip(s) as an "
-                    f"'Additional Perspectives' closing section."
+                    f"'Additional Perspectives' section before the close."
                 )
             assembled["final_timeline"] = enriched_timeline
 
     # Re-verify quality gates after duration top-up / rescue net
-    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target)
+    warnings, quality_gates = check_quality_gates(enriched_timeline, narrative_sections, speaker_target, clips_required)
 
     # An archive overview must answer the figure it was asked for.
     archive_facts = (data.get("storyline") or {}).get("archive_facts")
@@ -636,6 +673,9 @@ def main() -> None:
     _effective_strong_model = STORYLINE_VLLM_MODEL if STORYLINE_LLM_BACKEND == "vllm" else STRONG_LLM_MODEL
     output_data["validated_with"] = _effective_strong_model if not args.skip_llm else "fallback"
     output_data["repair_iterations"] = repair_iter
+    output_data["format"] = intent.NAME
+    output_data["clip_policy"] = "required" if clips_required else "optional"
+    output_data["clips_requested"] = intents.clips_requested(user_prompt)
     output_data["final_timeline"] = enriched_timeline
     output_data["editorial_quality_gates"] = quality_gates
     output_data["validated_narrative"] = {

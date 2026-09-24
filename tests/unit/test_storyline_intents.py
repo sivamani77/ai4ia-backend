@@ -35,7 +35,8 @@ def test_prompt_is_unchanged(case, captured):
 
 
 @pytest.mark.parametrize("case,expected", [
-    ("chronological_topic", "chronological"), ("chronological_chapter", "theme_chapter"),
+    # Relay evidence without time wording in the prompt is a topic (phase 8).
+    ("chronological_topic", "topic"), ("chronological_chapter", "theme_chapter"),
     ("low_evidence_topic", "topic"), ("speaker_topic", "speaker_topic"),
     ("speaker_only", "speaker"), ("title", "title"),
 ])
@@ -48,8 +49,8 @@ def test_storyline_records_the_intent(captured):
     c = INPUTS["chronological_topic"]
     result = storyline_llm.generate_llm_storyline(c["user_prompt"], c["duration"], c["candidates"], c["style"],
                                                   c["director_plan"], c["prompt_intent"], c["evidence_package"])
-    assert result["intent"]["name"] == "chronological"
-    assert result["intent"]["version"] == "1"
+    assert result["intent"]["name"] == "topic"
+    assert result["intent"]["version"] == "2"
     assert len(result["intent"]["template_hash"]) == 12
 
 
@@ -69,8 +70,9 @@ def test_registry_version_changes_with_any_template(monkeypatch):
     ({"video_mode": "chronological_relay", "recommended_structure": ["S1"]}, ["S1"]),
 ])
 def test_chronological_always_sends_a_structure_list(plan, expected):
-    intent = intents.select({}, plan)
-    assert intents.prepare_director_plan(intent, plan)["recommended_structure"] == expected
+    for profile in ({"raw_prompt": "How has it evolved over the years?"}, {}):  # chronological, topic
+        intent = intents.select(profile, plan)
+        assert intents.prepare_director_plan(intent, plan)["recommended_structure"] == expected
     assert "recommended_structure" not in intents.prepare_director_plan(intents.select({}, {}), {})
 
 

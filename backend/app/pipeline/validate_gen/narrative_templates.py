@@ -15,8 +15,8 @@ DEEPFAKE_NARRATIVE_SECTIONS = [
         "section_id": "S1_HOOK",
         "title": "Opening Hook",
         "purpose": (
-            "Start with a direct, alarming real speaker quote about deepfake harm. "
-            "The viewer must immediately understand this is a serious issue."
+            "Open with narration on deepfake harm, so the viewer immediately understands "
+            "this is a serious issue. Narration only: speaker clips come later."
         ),
         "card_text": "When Synthetic Media Becomes Harm",
     },
@@ -71,7 +71,7 @@ GENERIC_NARRATIVE_SECTIONS = [
     {
         "section_id": "S1_HOOK",
         "title": "Opening Hook",
-        "purpose": "Open with the most compelling, direct speaker quote that captures the core issue.",
+        "purpose": "Open with narration that poses the central question and why it matters. Narration only: speaker clips come later.",
         "card_text": "The Central Question",
     },
     {

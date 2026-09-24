@@ -18,6 +18,7 @@ from app.pipeline.storyline_gen.director import (  # noqa: E402
     compute_evidence_metrics,
     get_selected_candidate_cap,
 )
+from app.pipeline.storyline_gen import intents  # noqa: E402
 from app.pipeline.storyline_gen.intents.context import build_intent_context, speaker_panel_only  # noqa: E402
 from app.pipeline.storyline_gen.llm_client import log, warm_up_ollama  # noqa: E402
 from app.pipeline.storyline_gen.moment_repair import (  # noqa: E402
@@ -441,8 +442,12 @@ def main() -> None:
 
     if intent_used:
         storyline["intent"] = intent_used
-    if intent_context.get("archive_facts"):
-        storyline["archive_facts"] = intent_context["archive_facts"]  # 07b states figures from it too
+    # 07b builds the video in this intent's format, even when the LLM storyline failed.
+    storyline["format"] = intents.select(prompt_intent, director_plan).NAME
+    # Evidence 07b needs as well: facts for figures, the panel roster, the requested facet.
+    for key in ("archive_facts", "panel_context", "requested_facet"):
+        if intent_context.get(key):
+            storyline[key] = intent_context[key]
     output_path = save_storyline(
         storyline=storyline,
         user_prompt=args.prompt,

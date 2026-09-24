@@ -9,11 +9,39 @@ from app.pipeline.validate_gen.narrative_templates import (
 )
 
 
+def _fit_format(sections: list[dict[str, Any]], desired_count: int) -> list[dict[str, Any]]:
+    """An intent's format at the duration's section count. First and last stay;
+    a short video keeps the core middle sections, a long one repeats the
+    `repeat` sections, each copy right after its original."""
+    first, middle, last = sections[0], sections[1:-1], sections[-1]
+    slots = max(1, desired_count - 2)
+    if slots < len(middle):
+        core = [s for s in middle if s.get("core")]
+        middle = (core or middle)[:slots]
+    repeatable = [s for s in middle if s.get("repeat")] or middle
+    copies: dict[str, int] = {}
+    for i in range(slots - len(middle)):
+        sid = repeatable[i % len(repeatable)]["section_id"]
+        copies[sid] = copies.get(sid, 0) + 1
+    fitted: list[dict[str, Any]] = []
+    for sec in middle:
+        fitted.append(sec)
+        for n in range(2, copies.get(sec["section_id"], 0) + 2):
+            fitted.append({**sec, "section_id": f"{sec['section_id']}_{n}", "title": f"{sec['title']} (Part {n})"})
+    return [first, *fitted, last]
+
+
 def detect_narrative_sections(
     user_prompt: str,
     topic_terms: list[str],
     target_duration_seconds: int = 120,
+    format_sections: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
+    """The video's sections: the intent's format when it has one, otherwise the
+    generic or deepfake arc."""
+    if format_sections:
+        return _fit_format(format_sections, timeline_segment_count_for_duration(target_duration_seconds))
+
     # Only check hardcoded deepfake terms — topic_terms came FROM the prompt and always match,
     # so including them would make every topic look like deepfake.
     prompt_lower = (user_prompt or "").lower()
