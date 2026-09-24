@@ -150,9 +150,10 @@ the frontend needs:
 
    These need the same retry, and must read the token when each request is made, not when the page loads. For SSE, reconnect with the new token.
 4. **hls.js:** `xhrSetup` in `LiveHlsPlayer.jsx:235-238` already reads `getAccessToken()` per request. Just confirm a refresh during playback is picked up.
-5. **Keep the session id.** `setSession(data)` sets `sessionId = data.session_id || null`. If the refresh response has no `session_id`, keep the existing one instead of dropping `X-Session-ID`.
-6. **Refresh on reload.** `bootstrapFromCache()` (`authApi.js:58-79`) should try `/auth/refresh` before giving up when the cached token is rejected.
-7. Update the comments in `authApi.js:8-18`, `:318-321` and `AuthContext.jsx:55-58` that say tokens never expire.
+5. **Retry once on `refresh_superseded`.** If two tabs refresh at the same moment, the second gets `401 {"detail": {"code": "refresh_superseded"}}`. The first tab's response has already set the new cookie, so retry the refresh once. Don't log out on this code. Only a second failure, or any other 401 from `/auth/refresh`, means the session is over.
+6. **Keep the session id.** `setSession(data)` sets `sessionId = data.session_id || null`. If the refresh response has no `session_id`, keep the existing one instead of dropping `X-Session-ID`.
+7. **Refresh on reload.** `bootstrapFromCache()` (`authApi.js:58-79`) should try `/auth/refresh` before giving up when the cached token is rejected.
+8. Update the comments in `authApi.js:8-18`, `:318-321` and `AuthContext.jsx:55-58` that say tokens never expire.
 
 **Check.** Temporarily set `ACCESS_TOKEN_TTL_SECONDS=60` on a local backend.
 Stay on the Create Video page through a render and confirm there is no
@@ -162,8 +163,10 @@ logout, SSE keeps streaming, and playback continues.
 
 ## F-6: Handle 429 on forgot-password
 
-**Why.** Finding C-05: forgot-password, verify-otp and reset-password will
-be rate-limited and can return 429.
+**Why.** Finding C-05: forgot-password, resend-otp, verify-otp and
+reset-password are now rate-limited and can return 429 with a `Retry-After`
+header in seconds. Hitting the daily code cap on forgot-password is silent:
+the user still sees "If an account exists, a reset code has been sent".
 
 **Where.** `services/authApi.js:287-290` (`forgotPassword` has no
 try/catch) and `pages/Login.jsx:287`, which shows

@@ -37,9 +37,13 @@ Status values: **Open**, **In progress**, **Fixed on develop**, **On uat**, **On
 | C-03 | Medium | Path traversal through `storyline_id` | 1 | Fixed on develop |
 | C-14 | Medium | Ownership check admits jobs with no owner | 1 | Fixed on develop |
 | C-15 | Medium | Insight ids are timestamps | 1 | Fixed on develop |
-| C-05 | High | Password-reset codes can be guessed without limit | 2 | Open |
-| C-06 | High | Signing and API keys fail open when unset | 2 | Open |
-| A-03 | High | 401 responses omit `WWW-Authenticate` | 2 | Open |
+| C-05 | High | Password-reset codes can be guessed without limit | 2 | Fixed on develop |
+| C-06 | High | Signing and API keys fail open when unset | 2 | Fixed on develop (deploy gate) |
+| A-03 | High | 401 responses omit `WWW-Authenticate` | 2 | Fixed on develop |
+| C-13 | Medium | Client IP is the proxy's IP | 2 | Fixed on develop (verify on uat) |
+| C-16 | Medium | OTP attempts and refresh rotation are not atomic | 2 | Fixed on develop |
+| C-26 | Low | Verifying a reset code consumes it before the reset | 2 | Fixed on develop |
+| A-14 | Medium | Production CORS list trusts `http://localhost:8080` | 2 | Repo fixed; cluster variable pending |
 | C-04 | High | Access tokens live 30 days and cannot be revoked | 3 | Open, blocked on frontend |
 | C-08 | High | Signed user tokens committed to the repo | 3 | Open |
 | Q-01 | High | Per-user job quota can be exceeded by concurrent requests | 4 | Open |
@@ -49,8 +53,8 @@ Status values: **Open**, **In progress**, **Fixed on develop**, **On uat**, **On
 | A-05 | High | Errors untyped; no RFC 9457 problem details | later | Open |
 | A-06 | High | No idempotency on unsafe operations | later | Open |
 
-Mediums pulled into the PR that touches the same code: C-13, C-16, C-26 and
-A-14 go in PR 2; Q-03 and Q-04 go in PR 4.
+Mediums and lows pulled into the PR that touches the same code: C-13, C-16,
+C-26 and A-14 went in PR 2; Q-03 and Q-04 go in PR 4.
 
 ---
 
@@ -70,15 +74,9 @@ these tests are what keeps the findings from coming back.
 | 5 | Build and CI gates | C-10, C-11 | None |
 | later | API contract | A-02, A-05, A-06 | Error-shape handling |
 
-### PR 2: Credential paths (planned)
+### PR 2: Credential paths (done)
 
-- **C-05:** rate-limit `forgot-password`, `verify-otp` and `reset-password` per e-mail and per client IP. Cap reset codes per account per day.
-- **C-26:** `verify-otp` must not consume a `password_reset` code. The frontend never calls it for resets, so nothing breaks.
-- **C-16:** make the OTP attempt counter and refresh-token rotation single conditional `UPDATE … RETURNING` statements.
-- **C-06:** refuse to start when `JWT_SIGNING_KEY` is shorter than 32 bytes. Confirm the deployed key length first; see [decision 3](#4-open-decisions).
-- **C-13:** run uvicorn with `--proxy-headers --forwarded-allow-ips=<ingress CIDR>` so per-IP limits see the real client, not the Istio proxy.
-- **A-03:** add `WWW-Authenticate: Bearer realm="ai4ia"` to every 401, with `error="invalid_token"` on expiry.
-- **A-14:** remove `http://localhost:8080` from the deployed `ALLOWED_ORIGINS`. Local development goes through the Vite proxy, so it is unaffected.
+See the fix records in section 3. It has two deploy gates, listed in section 6.
 
 ### PR 3: Token lifetime and revocation (planned, blocked)
 
@@ -248,6 +246,149 @@ list, so no normal flow depends on the old behaviour.
 
 **Tests.** `tests/unit/test_job_ownership.py`.
 
+### C-05: Password-reset codes can be guessed without limit
+
+| | |
+|---|---|
+| Severity | High: CWE-307, OWASP API2/API4:2023 |
+| Status | Fixed on develop |
+| Verified before the fix | Local API: 8 forgot-password calls all returned 200; 8 verify-otp calls all returned 400; no 429 |
+
+**Problem.** forgot-password, verify-otp and reset-password had no limits.
+Each forgot-password call issued a new code with a fresh budget of five
+guesses, so an attacker could loop "new code, five guesses" forever against
+a 10⁶ code space. The endpoint could also be used to flood any inbox.
+
+**Fix.** Three tiers of limits on requests (forgot-password, resend-otp) and
+on guesses (verify-otp, reset-password):
+
+| Tier | Requests / hour | Guesses / hour | Why |
+|---|---|---|---|
+| e-mail + client IP | 5 | 10 | Tight, but an attacker elsewhere can't use it to lock the owner out |
+| e-mail only | 20 | 30 | Caps an attacker who rotates IPs |
+| client IP only | 30 | 60 | Caps one source trying many addresses |
+
+- **Daily limits:** codes are capped at 10 per e-mail+IP and 30 per e-mail each day. Guesses are capped at 20 per e-mail+IP and 100 per e-mail and purpose each day, however many codes or IPs are used. 100 is the NIST SP 800-63B ceiling for failed attempts per account.
+- **Before the account lookup:** the limits apply first, so known and unknown addresses get the same answers.
+- **Silent on reset:** the daily cap looks like success on the reset paths, so it can't reveal an account either. Elsewhere it is a 429.
+- **Retry-After:** every 429 carries it, read from the Redis window's TTL.
+- **Proxy fallback:** if the client IP can't be resolved, or resolves to a proxy address, the IP tiers are skipped rather than shared by everyone.
+- **Settings:** all limits are in `settings.py` (`OTP_*`).
+
+**Known trade-off.** Any per-account limit can be used against the account's
+owner. The tiers make that expensive:
+- **Codes:** using up the daily code cap takes at least three IPs. Every one of those codes is e-mailed to the owner, so the owner can use the latest one while it is valid (10 minutes).
+- **Guesses:** using up the daily guess cap takes 100 wrong guesses from at least five IPs.
+
+The worst case is that the owner waits for the daily window to reset. This
+is accepted: a tighter per-account limit makes lockout easier, and a looser
+one makes guessing easier.
+
+**Files.** `backend/app/services/auth_service.py`, `backend/app/api/auth.py`,
+`backend/app/core/rate_limit.py` (`retry_after`), `backend/app/core/settings.py`.
+
+**Frontend impact.** F-6.
+
+### C-16: OTP attempts and refresh rotation are not atomic
+
+| | |
+|---|---|
+| Severity | Medium: CWE-362, CWE-367 |
+| Status | Fixed on develop |
+
+**Problem.** The attempt counter was read and then written, and "is the code
+or token unused?" was checked separately from marking it used. Parallel
+requests could exceed the attempt cap, redeem one code twice, or rotate one
+refresh token twice.
+
+**Fix.**
+- **OTP attempts:** `OtpRepository.claim_attempt` counts the guess in one conditional `UPDATE … WHERE used_at IS NULL AND attempts < max RETURNING`, before the code is checked.
+- **OTP use:** `mark_used` only succeeds for the first caller.
+- **Refresh tokens:** `RefreshTokenRepository.mark_used` claims the token the same way.
+- **Refresh grace window:** a refresh token presented again within 30 seconds of its rotation, by the same user agent, gets a retryable 401 (`refresh_superseded`) and the session survives. This is the two-tabs case. Any other replay still revokes the whole session family.
+
+**Files.** `backend/app/db/repositories/otp_repository.py`,
+`backend/app/db/repositories/refresh_token_repository.py`,
+`backend/app/services/auth_service.py`.
+
+**Frontend impact.** F-5: retry once on `refresh_superseded`.
+
+### C-26: Verifying a reset code consumes it before the reset
+
+| | |
+|---|---|
+| Severity | Low: CWE-841 |
+| Status | Fixed on develop |
+
+**Fix.** `/verify-otp` with `purpose=password_reset` now checks the code
+without using it up, and `/reset-password` redeems it. A check followed by a
+reset counts as two attempts against the code's five. The frontend doesn't
+call verify-otp for resets, so nothing changes for users.
+
+### C-06: Signing key fails open when unset
+
+| | |
+|---|---|
+| Severity | High: CWE-1188, CWE-636 |
+| Status | Fixed on develop. **Deploy gate:** confirm the key length first |
+
+**What was actually true.** The report said an empty key would let anyone
+sign admin tokens. With the pinned PyJWT 2.13, an empty key is refused
+outright, so auth failed closed, with a 500 rather than a 401. The real risks
+were:
+- **A future library change:** that protection came from the library, not from our code.
+- **A short key:** it can be brute-forced offline from any issued token, including the 100 in `k6/loadtest_users.json`.
+
+**Fix.**
+- `security._signing_key()` refuses an empty key itself.
+- Any JWT library error on a presented token is a 401, never a 500.
+- The API refuses to start when a key is set but shorter than 32 bytes (`JWT_MIN_KEY_BYTES`).
+- An empty key only logs a warning, so local pipeline work without sign-in still runs.
+
+`API_KEY` stays optional on purpose. The frontend would have to ship it in
+the browser bundle, so it protects nothing. Signed-in-user checks (PR 1) are
+the real control.
+
+### C-13: Client IP is the proxy's IP
+
+| | |
+|---|---|
+| Severity | Medium: CWE-348 |
+| Status | Fixed on develop. **Verify on uat after deploy** |
+
+**Fix.** `core/client_ip.py` reads `X-Forwarded-For` from the right and skips
+addresses in `TRUSTED_PROXY_CIDRS` (loopback, private ranges, `100.64/10`).
+The first address that isn't a proxy is the client. Entries a client adds on
+the left are never reached, so they can't spoof it. It is used for the login
+limiter key, session and audit IPs, and the new per-IP limits.
+
+**Verify on uat.** After the deploy, check that new `auth_audit` and
+`user_sessions` rows show public client addresses, not one private address.
+If they all show the same private address, the ingress is not forwarding
+the client address. The per-IP limits then switch themselves off (see
+C-05), and the ingress config needs fixing.
+
+### A-03: 401 responses omit the WWW-Authenticate challenge
+
+| | |
+|---|---|
+| Severity | High: RFC 9110 §11.6.1, RFC 6750 §3 |
+| Status | Fixed on develop |
+
+**Fix.**
+- `get_current_user` sends `Bearer realm="ai4ia"`, adding `error="invalid_token"` for bad or expired tokens.
+- One exception handler adds the default challenge to every other 401.
+
+### A-14: Production CORS list trusts localhost
+
+| | |
+|---|---|
+| Severity | Medium: CWE-942 |
+| Status | Removed from the repo `.env`. **Action for DevOps:** remove `http://localhost:8080` from the `ALLOWED_ORIGINS` cluster variable on uat and release |
+
+The deployed value is a separate cluster variable (185 bytes, which differs
+from the repo copy), so a code change can't fix it.
+
 ---
 
 ## 4. Open decisions
@@ -276,6 +417,7 @@ list, so no normal flow depends on the old behaviour.
 1. Regression tests for the finding (listed in each record) pass, and fail when the fix is reverted.
 2. The full suite passes: `.venv/bin/python -m pytest`.
 3. A supervising review of the PR's diff looks for bypasses, edge cases and regressions. Its findings are fixed and re-checked before the PR moves on.
+   - PR 2 review, 2026-09-25: one deploy gate, four should-fix items, three notes. Fixed: resend-otp bypassed the new limits; per-e-mail limits let an attacker lock the owner out, so limits are now tiered by e-mail+IP; per-IP limits could turn global if IP resolution collapsed, so they are skipped for proxy addresses; the refresh grace window now requires the same user agent. Documented rather than changed: the two-attempt cost of check-then-reset, and existing enumeration signals (C-17).
    - PR 1 review, 2026-09-25: six findings. Fixed: the backfill could give an insight to the wrong user when ids collided; a failed dashboard count was cached as 0 for 5 minutes; the no-id mindmap path was unbounded; three test gaps. Checked and needed no change: archive media playback, because the frontend fetches it with the bearer token.
 4. Local probes run against an API started with local Postgres, Redis and storage only, never against the shared uat/release stores.
 5. After the uat deploy, the anonymous probes from the report are re-run:
@@ -294,3 +436,7 @@ curl -s -o /dev/null -w '%{http_code}\n' $H/api/admin/dashboard   # expect 401
 - **Shared stores.** uat and release share Postgres, ChromaDB, Redis and S3. Schema changes stay additive, so release keeps working while uat runs newer code.
 - **PR 1 order.** Deploy the frontend change F-1 (archive search sends the token) first, then the backend. Deploying the backend first breaks archive search until the frontend catches up.
 - **AdminSettings.** It needs F-3 (switch to `/api/admin/dashboard`). Until then the model names and storage counts on that page are empty. Nothing else breaks.
+- **PR 2 deploy gates:**
+  1. Before pushing to uat, confirm that `JWT_SIGNING_KEY` on uat, and later on release, is at least 32 bytes. A shorter key stops every replica from starting. If it is shorter, rotate it first; this signs all users out.
+  2. After the uat deploy, check the client IPs in `auth_audit` (see C-13).
+- **PR 2 cluster change:** remove `http://localhost:8080` from `ALLOWED_ORIGINS` on uat and release (A-14).
