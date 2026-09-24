@@ -35,7 +35,9 @@ from app.db.repositories.fragment_repository import FragmentRepository
 from app.db.repositories.ingest_job_repository import IngestJobRepository
 from app.db.repositories.insight_repository import InsightRepository
 from app.db.repositories.job_repository import JobRepository
+from app.db.repositories.llm_payload_repository import LLMPayloadRepository
 from app.db.repositories.llm_trace_repository import LLMTraceRepository
+from app.db.repositories.prompt_resolution_repository import PromptResolutionRepository
 from app.db.repositories.storyline_repository import StorylineRepository
 from app.db.repositories.video_repository import VideoRepository
 
@@ -145,9 +147,11 @@ def get_row(table: str, row_id: str) -> dict[str, Any]:
 
 @router.get("/jobs/{job_id}/full")
 def get_job_full(job_id: str) -> dict[str, Any]:
-    """Everything about one video job in a single call — the job row plus
-    its events, decision record, and LLM traces — instead of four separate
-    lookups every time someone debugs a failed job."""
+    """Everything about one video job in a single call — the job row, its
+    events, decision record, LLM call summaries (latency/model/stage), the
+    prompt_resolutions summary row, and the full request/response text of
+    every LLM call — instead of six separate lookups every time someone
+    debugs a failed job or wants to see exactly what a model saw and said."""
     job = JobRepository().get_job(job_id)
     if job is None:
         raise HTTPException(status_code=404, detail=f"No job {job_id!r}")
@@ -156,4 +160,6 @@ def get_job_full(job_id: str) -> dict[str, Any]:
         "events": EventRepository().get_events(job_id),
         "decision_record": DecisionRecordRepository().get_by_job(job_id),
         "llm_traces": LLMTraceRepository().list_by_job(job_id),
+        "prompt_resolution": PromptResolutionRepository().get_by_job(job_id),
+        "llm_payloads": LLMPayloadRepository().list_by_job(job_id),
     }

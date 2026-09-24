@@ -91,11 +91,13 @@ def test_search_requires_both_params_together(api_app, mock_settings):
     assert response.status_code == 400
 
 
-def test_job_full_joins_events_decision_record_and_traces(api_app, mock_settings, monkeypatch):
+def test_job_full_joins_events_decision_record_traces_and_llm_payloads(api_app, mock_settings, monkeypatch):
     import app.db.repositories.decision_record_repository as decision_record_repository
     import app.db.repositories.event_repository as event_repository
     import app.db.repositories.job_repository as job_repository
+    import app.db.repositories.llm_payload_repository as llm_payload_repository
     import app.db.repositories.llm_trace_repository as llm_trace_repository
+    import app.db.repositories.prompt_resolution_repository as prompt_resolution_repository
 
     monkeypatch.setattr(job_repository.JobRepository, "get_job", lambda self, record_id: {"id": record_id})
     monkeypatch.setattr(event_repository.EventRepository, "get_events", lambda self, job_id: [{"event": "started"}])
@@ -104,6 +106,14 @@ def test_job_full_joins_events_decision_record_and_traces(api_app, mock_settings
         lambda self, job_id: {"id": "rec-1"},
     )
     monkeypatch.setattr(llm_trace_repository.LLMTraceRepository, "list_by_job", lambda self, job_id: [{"id": "trace-1"}])
+    monkeypatch.setattr(
+        prompt_resolution_repository.PromptResolutionRepository, "get_by_job",
+        lambda self, job_id: {"prompt": "impact of AI on service sector companies"},
+    )
+    monkeypatch.setattr(
+        llm_payload_repository.LLMPayloadRepository, "list_by_job",
+        lambda self, job_id: [{"request": "...", "response": "..."}],
+    )
 
     api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="admin-1", persona="admin")
     with TestClient(api_app) as client:
@@ -115,6 +125,8 @@ def test_job_full_joins_events_decision_record_and_traces(api_app, mock_settings
         "events": [{"event": "started"}],
         "decision_record": {"id": "rec-1"},
         "llm_traces": [{"id": "trace-1"}],
+        "prompt_resolution": {"prompt": "impact of AI on service sector companies"},
+        "llm_payloads": [{"request": "...", "response": "..."}],
     }
 
 
