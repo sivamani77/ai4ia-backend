@@ -240,6 +240,155 @@ Caveat rules, enforced in `INSTRUCTIONS` and checked in 07b:
 - The narration frames clips as the panel ("in a panel with Stefaan G. Verhulst, Krisztina Rozgonyi and others…").
 - **On-screen labels name the panel or event, never the person.** We cannot prove who is speaking. This is the same principle as "never attribute a statistic to a speaker".
 
+### 7.4 Documentary format and clip policy per intent (phase 8)
+
+Requested on 2026-09-24 after the phase 5 renders.
+
+**Already built (2026-09-24):** an overview answers the figure it was asked for. The overview template and the 07b facts block say so. `validate_gen/archive_answer.py` also checks the first narration and, if an asked figure is missing, opens with it taken from `archive_facts` ("How many speakers?" → "The AI4IA archive brings together over 300 speakers."). This is logged in 07b.
+
+#### 7.4.1 Problems, as measured in the code
+
+| # | Problem | Where it comes from |
+|---|---|---|
+| P1 | **Speaker clips are forced into every video.** | `has_speaker_clips` and `final_timeline_approved` (≥ 1–2 clips) are critical gates for every intent. When too few clips are approved, 07b checks 6 more shortlist clips, and the repair loop is told to add clips. The duration top-up adds **only** speaker clips, and also runs whenever a timeline has 0 clips (`speaker_clip_count == 0`). The LLM-free fallback puts a clip in every section. `_fill_missing_sections` fills an empty section with a speaker clip first. |
+| P2 | **Clips come upfront.** | `_enforce_section_rhythm` puts the first section's speaker clip before its narration. The first-section purpose says "Open with the most compelling, direct speaker quote" (generic) or "Start with a direct, alarming real speaker quote" (deepfake). The assembly prompt says "Start with the strongest hook". |
+| P3 | **Clips come last.** | Top-up clips are appended after the closing synthesis, as an "Additional Perspectives" block. |
+| P4 | **Clips are not checked against the AI4IA agenda.** | The validator rejects "generic greetings, off-topic" only relative to the prompt. A speaker's hand-over, thanks or logistics can pass as a speaker's clip when a speaker is asked for. |
+| P5 | **Every intent gets the same film.** | 07b ignores the intent. `detect_narrative_sections` gives the generic arc (hook → context → evidence → challenge → response → synthesis), or the deepfake arc, to every prompt. The validator's section list is hard-coded to the deepfake ids. In stage 07, `speaker`, `speaker_topic`, `title` and `topic` have no instructions of their own. Stage 07's sections do not survive into the video, because 07b rebuilds the timeline from its own section list. |
+
+#### 7.4.2 Decisions
+
+**D8.1 — Clip policy.** Each intent declares `CLIPS = "required" | "optional"`.
+
+| Intent | Clips | Why |
+|---|---|---|
+| `speaker`, `speaker_topic` | required | the request is for a person's view, and their voice is the evidence |
+| `speaker_panel` | required | panel clips, labelled as the panel (§7.3) |
+| `title` | required | the request names one talk |
+| `overview`, `theme_chapter`, `chronological`, `topic` | optional | narration-led, **unless the prompt asks for clips** |
+
+- **"The prompt asks for clips"** is `intents.clips_requested(prompt)`, a deterministic pattern:
+  - clip, soundbite, quote or excerpt;
+  - "footage", "in their own words", "hear from";
+  - "what did (the) speakers/panellists/experts say" and "what speakers said/argued".
+  - A match turns `optional` into `required`. Examples:
+    - "What did speakers say about deepfakes?" → required.
+    - "Deepfakes and elections" → optional.
+- **Required:** keeps the current flexible target (2, lowered to the number approved). The speaker gates, extra shortlist checks, clip shelf and repair rules apply as today.
+- **Optional:**
+  - speaker target 0;
+  - the speaker gates are not critical;
+  - no extra shortlist checks;
+  - the repair is never asked for clips;
+  - **no duration top-up**: a short timeline ships with the existing honest-shortfall warning, never filler clips;
+  - **cap: 2 clips**, used only when a clip says something the narration cannot;
+  - zero clips is a valid result.
+- **Recorded:** `clip_policy` and `clips_requested` go on the validated storyline and the job.
+
+**D8.2 — Every clip must be on the AI4IA agenda.** This applies to every intent, including clips a speaker intent asked for, and to duration top-up clips.
+- **Accepted:** a clip is kept only if the speaker speaks **substantively about AI4IA itself, or about its agenda**, and about the prompt. The agenda is the seven themes of `config/taxonomy.json`, read through `app.core.taxonomy`, never hard-coded:
+  - AI Ethics, Governance & Policy;
+  - AI & Information Access / Media / Journalism;
+  - AI Equity, Inclusion & Social Justice;
+  - AI in Health, Science & Environment;
+  - Disinformation, Deepfakes & AI Safety;
+  - AI in Education & Creative Industries;
+  - AI, Law & Human Rights.
+- **Rejected:**
+  - greetings, thanks and applause;
+  - introducing or handing over to another speaker ("over to you");
+  - moderator transitions, housekeeping, schedule, logistics;
+  - audio or video checks;
+  - Q&A logistics;
+  - jokes or anecdotes that make no point about the agenda;
+  - self-promotion.
+- **Enforcement:**
+  - The validator returns `agenda_relevant` (true/false) with its reason.
+  - 07b deterministically rejects a `speaker_clip` with `agenda_relevant = false`, whatever `approved` says.
+  - `_llm_vet_topup_items` gets the same criterion.
+- **When nothing passes:**
+  - A **required** intent left with no agenda-relevant clip takes the §8.5 L3 decline `speaker_clips_unusable` ("We found Cordel Green's talks, but no clip passed our quality checks.").
+  - An optional intent renders narration-only.
+- **Hosts and moderators:** a clip about AI4IA itself (its purpose, the initiative, IFAP/UNESCO's role) passes.
+
+**D8.3 — Clips sit inside the film, never at the ends.**
+- **Sections:** the first and last sections are narration only. Clips go in the middle sections, each **after** that section's narration. Every film runs: title card → opening narration → … → closing narration → closing card.
+- **Enforced in code, not only in the prompt:** `_enforce_section_rhythm` moves a clip from the first section to the start of the next section's clips, and one from the last section to the previous section.
+- **Top-up clips:** the "Additional Perspectives" block (required intents only) moves to **before** the closing section.
+- **Short videos:** the shortest film has 4 sections (≤ 60 s), so there are always at least 2 middle sections. The required target of 2 fits.
+
+**D8.4 — Each intent has its own documentary format.**
+- **Where it lives:** each intent module declares `SECTIONS` (id, title, purpose, card text, visual plan, default narration).
+- **Stage 07:** the format is rendered into that intent's `INSTRUCTIONS`, so the storyline plans the same film 07b builds. The template hash changes, so the cache key changes by itself.
+- **Stage 07b:** uses the same `SECTIONS` in place of the generic arc.
+- **Length:** the first and last sections occur once, and the middle is cycled or trimmed to the duration's section count (4 / 6 / 8 / 12 / 15), as `detect_narrative_sections` does today. When trimming to 4, the sections marked `core` stay.
+
+| Intent | Sections, in order (clip sections marked ◆) | Rules specific to the format |
+|---|---|---|
+| `topic` | Opening: the question and why it matters → Context → Evidence ◆ → Challenges ◆ → Responses ◆ → Synthesis | today's arc, with a narrated opening. Deepfake prompts keep the hand-tuned deepfake sections, also with a narrated opening. |
+| `speaker` | Opening: who they are, only as the archive shows it (name, talk titles, years, never an invented biography or job title) → Focus: the questions they bring to AI4IA → Ideas ◆: their key ideas in their own words → Examples ◆: the cases and evidence they use → Synthesis: what they add to the AI4IA conversation | every clip is theirs. Narration never words a line as their quote unless it is their clip. |
+| `speaker_topic` | Opening: the topic, and why this speaker → Position ◆: where they stand → Reasoning ◆: why, with their examples → Implications: what they call for → Synthesis on the topic | stays on the topic. Their other subjects are out, even to fill time. |
+| `speaker_panel` | Opening: the panel (event, title, members from `panel_context`) → Discussion: what the panel set out to address → Exchange ◆: voices from the panel → Their part: what the evidence shows of the requested speaker, or plainly that clips cannot be attributed to one panellist → Synthesis | §7.3 labels and caveats |
+| `title` | Opening: the talk (speaker, event, year) → Question: the problem it takes on → Argument ◆ → Examples ◆ → Takeaway | all clips from this talk only |
+| `overview` | Opening: answer the question asked, figure first, and what AI4IA (Artificial Intelligence for Information Accessibility) is → Scale: talks, speakers, years → Themes: the seven themes → Voices ◆ (optional; without clips, narration on the range of voices) → Synthesis: why the archive matters | figures only from `archive_facts` |
+| `theme_chapter` | Opening: the facet as `requested_facet` names it, and where it sits among the seven themes → Questions it raises → Perspectives ◆ → Tensions: where views differ → Synthesis | never leaves the facet. With a year-based director plan, the chronological anchors apply inside these sections. |
+| `chronological` | Opening: the question and the span of years → Early ◆ (earliest `year_slot`) → Shift ◆ (middle years, cycled) → Recent ◆ (latest) → Synthesis: what changed and what persisted | year anchors only from `year_slot`. Candidates carry `video_year` into 07b so the assembly orders clips by year. No year the data lacks, such as 2022. |
+
+#### 7.4.3 Changes, by file
+
+| File | Change |
+|---|---|
+| `storyline_gen/intents/*.py` | `SECTIONS`, `CLIPS`. `INSTRUCTIONS` gains the rendered format plus the clip rules (D8.1–D8.3). `VERSION` is bumped on each module. |
+| `storyline_gen/intents/base.py` | `format_instructions(sections, clips)`; the agenda list from `app.core.taxonomy` |
+| `storyline_gen/intents/__init__.py` | `for_storyline(data)`: the intent from `storyline.intent.name`, otherwise `select(profile, director_plan)` (the fallback storyline has no LLM intent). Also `clips_requested(prompt)` and `clip_policy(intent, prompt)`. |
+| `scripts/07_generate_storyline.py` | saves `panel_context` and `requested_facet` on the storyline for 07b, as it already does for `archive_facts` |
+| `validate_gen/topic_detection.py` | `detect_narrative_sections(..., format_sections=None)`, with `core` trimming |
+| `validate_gen/fragment_validation.py` | section ids come from the sections list (not the deepfake ids); the D8.2 agenda rule and an `agenda_relevant` field; the flow line comes from the format; `video_year` is kept on results |
+| `validate_gen/narrative_assembly.py` | format block; placement rule; clip policy (required: at least the target; optional: 0–2); `panel_context` / `requested_facet` blocks; `video_year` per candidate |
+| `validate_gen/quality_gates.py` | `check_quality_gates(..., clips_required)`; `_enforce_section_rhythm` puts no clips in the first or last section; perspectives go before the closing section; `_fill_missing_sections` uses a speaker donor only for a middle section of a required intent; the repair prompt gets the placement and agenda rules; top-up vetting gets the agenda rule; visual plan and default narration are read from the section first |
+| `validate_gen/fallback_timeline.py` | clips only in middle sections; the optional cap applies |
+| `scripts/07b_validate_storyline_with_llm.py` | picks the intent and policy; gates the extra checks, repair and top-up on `clips_required`; applies the agenda rejection; records `format` and `clip_policy` |
+
+Not changed: retrieval, candidate selection and stage 07's speaker-first reserve (07b decides use), and stages 08 and 09.
+
+#### 7.4.4 Edge cases
+
+| Case | Behaviour |
+|---|---|
+| Optional intent, prompt asks for clips ("AI governance, with clips from speakers") | required. If no clip passes D8.2, it renders narration-only with an `l3_unapproved` warning, not a decline. Gap narration is phase 6. |
+| Speaker whose only clips are hand-overs or thanks (a moderator) | no agenda-relevant clip → `speaker_clips_unusable` decline |
+| Panel mention windows (§7.3) land on a hand-over ("over to you, Natali") | the hand-over is rejected by D8.2; the content fragments after it remain candidates |
+| 60 s video | 4 sections; clips only in sections 2–3 |
+| Long video (12–15 sections) | middle sections cycled; clips spread across them; first and last still narration |
+| Optional intent ends up short once filler clips are gone | honest shortfall warning. If renders show this often, lengthen the narration per section rather than restore filler clips. |
+| Overview + "show me clips" | required. The Voices section carries the clips; figures are still only from facts. |
+| `theme_chapter` with a year-based director plan | theme format, with year anchors inside its sections |
+| LLM storyline failed (fallback storyline) | 07b still picks the intent and its format through `for_storyline` |
+| Cached storyline from before phase 8 | not served: `REGISTRY_VERSION` changes with every template |
+| Deepfake topic | deepfake sections kept, with a narrated opening |
+
+#### 7.4.5 Tests and gate
+
+- **Unit tests:**
+  - the format per intent, and trimming or cycling at 4 / 6 / 8 / 15 sections;
+  - `clips_requested` positives and negatives;
+  - gates with `clips_required` true and false;
+  - no top-up and no extra checks for optional intents;
+  - placement: no clip in the first or last section, whatever the LLM returns;
+  - perspectives before the closing section;
+  - the agenda rejection is deterministic;
+  - `_fill_missing_sections` donor rules;
+  - fallback placement;
+  - the validator prompt lists the format's section ids.
+- **Existing tests updated:** `test_detect_narrative_sections`, `test_fill_missing_sections`, `test_perspectives_section`, `test_add_visual_asset_plan`, `test_07b_speaker_clip_repair`, `test_panel_clip_and_footage_fixes`, `test_prompt_injection_boundaries`.
+- **Prompt snapshots** are regenerated deliberately, since every template changes.
+- **Gate:** one local render per intent (8), plus "What did speakers say about deepfakes?" (optional → required), each hand-checked:
+  1. The film opens and closes with narration; no clip sits in the first or last section.
+  2. Optional intents have 0–2 clips, all on the agenda. Required intents have at least 1 clip of the right person, talk or panel.
+  3. Section cards follow the intent's format.
+  4. Overview states the asked figure.
+  5. The duration meets the target, or the shortfall warning is honest.
+
 ---
 
 ## 8. L2b — coverage
@@ -535,6 +684,7 @@ Each phase ships on its own and is checked before the next.
 | 6 | L2b coverage + judge + gap narration | coverage rows of the case matrix; band tuned on recorded `top_similarity` |
 | 7 | LLM router, **only if** recorded `resolution_method = 'fallback'` rows show misrouting | router accuracy on the labelled set |
 | L3 | §8.5: decline speaker intents with no approved clip; ground the repair pass and check its narration | the Cordell Green job above renders real Cordel Green clips or declines; no invented quotes |
+| 8 | §7.4: documentary format per intent, clip policy (required/optional), clips on the AI4IA agenda, clips never at the start or end | §7.4.5 renders. Can run before phase 6: gap narration then slots into each format instead of being refitted. |
 
 ---
 
