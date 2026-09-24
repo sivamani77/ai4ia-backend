@@ -1,6 +1,6 @@
 # Intent layer and coverage check — design
 
-**Status:** design, not started · **Branch:** `uat` · **Updated:** 2026-09-23
+**Status:** phases 0–1 built · **Branch:** `uat` · **Updated:** 2026-09-24
 **Builds on:** [speaker-cleanup-plan.md](speaker-cleanup-plan.md) (applied on uat)
 
 ![Request journey](intent-layer-flow.png)
@@ -88,7 +88,7 @@ Registry today: **337 speakers** (332 confirmed, 5 in review), **309 videos** (2
 
 The corpus catalog is built from the Chroma metadata that `activate_corpus` already loads. **Measure the load time** in the worker before relying on it. If it is slow, cache it per process with a TTL.
 
-**Bug to fix first:** `load_known_speakers()` (`prompt_intent.py:159`) still reads `data/metadata/speakers/*.json`, which does not exist in the container image. `SPEAKER_ALIAS_MAP` already reads the registry. Point `load_known_speakers()` at the registry too. Check any UAT stage 07 log for `Loaded N known speakers.` to confirm the current state.
+`load_known_speakers()` now reads the registry (phase 0). It used to read `data/metadata/speakers/*.json`, which the image does not have, but detection was never affected: the alias map already held every multi-word registry name, and all 472 names and aliases resolved the same either way.
 
 ### 6.2 Slots
 
@@ -365,7 +365,7 @@ create table if not exists prompt_resolutions (
     slots             jsonb not null default '{}'::jsonb,
     dropped_slots     jsonb not null default '[]'::jsonb,
 
-    layer_outcome     text,                       -- in_progress | l0_rejected | l1_rejected | declined | partial | covered | failed
+    layer_outcome     text,                       -- in_progress | l0_rejected | l1_rejected | declined | partial | covered | completed | failed | cancelled
     reason_code       text,
     user_message      text,
     suggestions       jsonb not null default '[]'::jsonb,
@@ -388,37 +388,43 @@ create unique index if not exists uq_prompt_resolutions_job_attempt
 
 - **Columns for fields we filter on** (`intent`, `layer_outcome`, `reason_code`). **JSONB for variable-shape data** (`slots`, `coverage`). Queries like "decline rate by intent this week" or "every prompt that fell back to `topic`" are cheap.
 - An L0 rejection has no job, so the row has `job_id = null`.
+- Until L2b exists, a successful job is recorded as `completed`. The coverage phase replaces that with `covered` or `partial`. A layer's own outcome (e.g. `l1_rejected`) is never overwritten by the job's final status.
 
 ### 10.3 `llm_call_payloads` — the full exchange
 
-One row per `llm_call_traces` row, holding exactly what was sent and received.
+One row per LLM call, holding exactly what was sent and received. In-process calls (guardrail, insights, compare) also have an `llm_call_traces` row, linked by `trace_id`. Calls inside the stage 07/07b scripts do not: those stages keep their existing one-row-per-agent traces, which the provenance API shows.
 
 ```sql
 create table if not exists llm_call_payloads (
-    trace_id        text primary key,     -- = llm_call_traces.id; no FK, see 11.2
+    id              text primary key,     -- lt_ (in-process) or lx_ (stage script)
+    trace_id        text,                 -- llm_call_traces.id when one exists; no FK, see 11.2
     job_id          text,
     insight_id      text,
     user_id         text,
-    template_hash   text,                 -- system prompt identity, not its text
-    request_text    text not null,        -- exactly what was sent
+    stage           text,
+    model           text,
+    request_text    text not null,        -- the request body exactly as sent
     response_text   text,                 -- exactly what came back, even if invalid JSON
+    error           text,
+    latency_ms      integer,
     size_bytes      integer not null,
-    created_at      timestamptz not null default now(),
+    called_at       timestamptz not null default now(),
     expires_at      timestamptz
 );
-create index if not exists idx_llm_call_payloads_job_id  on llm_call_payloads (job_id);
-create index if not exists idx_llm_call_payloads_user_id on llm_call_payloads (user_id);
+-- indexes: job_id, user_id, trace_id, expires_at
 ```
 
 Why `text`, not JSONB:
 
 - A malformed LLM response is the most useful thing to debug, and JSONB cannot store invalid JSON.
-- JSONB reorders keys and normalises whitespace, so the stored text would no longer match `prompt_hash`. With `text`, a call can be replayed exactly.
+- JSONB reorders keys and normalises whitespace. With `text`, a call can be replayed exactly.
 - Postgres compresses large text values automatically.
 
-The system prompt is not stored per row. `template_hash` + `code_version` identify it, and git holds the text. The payload *is* stored, because it depends on the corpus at that moment and cannot be rebuilt.
+**Measured (local, 60 s Cordel Green job):** 16 calls, 164 KB of text (stage 07: 3 calls, 62 KB; 07b: 11 calls, 99 KB; guardrail: 3 KB), 81 KB on disk after Postgres compression. That is well within Postgres; S3 is not needed.
 
-**Measure first.** Log `size_bytes` for real stage 07 payloads before relying on Postgres for them. If a job's exchanges run to several MB, store them in S3 (`traces/{job_id}/{trace_id}.json.gz`) and keep only the key in this table.
+Phase 1 stores the whole request body, system prompt included, because no template ids exist yet. Phase 4 can add `template_hash` (an additive column) and drop the system prompt from the stored text if the measured sizes call for it.
+
+How stage scripts reach the table: each script's LLM client appends one JSON line per call to the file named by `AI4IA_LLM_EXCHANGE_LOG` (`app/pipeline/llm_exchange_log.py`). The stage module sets that variable and stores the lines after the script exits, whether or not it succeeded (`processing_records.exchange_log`).
 
 ### 10.4 Who writes what
 
@@ -453,7 +459,7 @@ uat and release share Postgres (see the speaker repair rollout):
 
 ### 11.3 Concurrent startup
 
-Four uvicorn workers, and possibly several pods, run `ensure_pipeline_schema()` at the same moment. Concurrent `CREATE TABLE IF NOT EXISTS` on a table that does not exist yet can fail in Postgres with a duplicate-key error on `pg_type`. It has not been seen here, because until now the tables always existed before new code started. This deploy is the first that creates tables on a live cluster with several workers.
+Four uvicorn workers, and possibly several pods, run `ensure_pipeline_schema()` at the same moment. Concurrent `CREATE TABLE IF NOT EXISTS` on a table that does not exist yet fails in Postgres with duplicate-key errors on `pg_type` and `pg_class`. Measured locally: 8 simultaneous startups on 20 new tables gave 1,400 errors over 5 trials. It has not been seen in production only because the tables always existed before new code started.
 
 Fix: run the schema statements on one connection that holds `pg_advisory_lock(<fixed key>)`. The other workers wait, then find everything already in place. The speaker repair already uses an advisory lock the same way.
 
@@ -476,7 +482,7 @@ Fix: run the schema statements on one connection that holds `pg_advisory_lock(<f
 1. Deploy. The startup log shows `Pipeline Postgres schema ensured (…, prompt_resolutions, llm_call_payloads)`.
 2. `\d prompt_resolutions` and `\d llm_call_payloads` match §10.
 3. Submit one prompt per layer outcome (the L0, L1, decline and covered rows of the case matrix). Each gives exactly one `prompt_resolutions` row with the expected `layer_outcome` and `reason_code`.
-4. The covered job has `llm_call_payloads` rows whose `sha256(request_text)` equals `llm_call_traces.prompt_hash`.
+4. The covered job has `llm_call_payloads` rows for the guardrail (with `trace_id`) and for stages 07 and 07b, and `request_text` parses back to the body that was sent.
 5. Rollback is a code revert. The tables are additive and can stay, empty or unused.
 
 ---
@@ -578,4 +584,4 @@ All defaults below were accepted on 2026-09-23. Any of them can be changed later
 | Q4 | Retention after 31 Dec 2026 (annex A8) | setting, not code |
 | Q5 | `prompt_max_chars` value | 1000, check against the longest real prompt in `jobs` |
 | Q6 | When do the archive surfaces (insight, compare, relay) use resolve + coverage? | tables are ready (`surface`, `insight_id`); wiring comes later |
-| Q7 | Payloads in Postgres or S3 | Postgres, unless the measured size says otherwise |
+| Q7 | Payloads in Postgres or S3 | Postgres: measured at about 164 KB of text (81 KB on disk) per 60 s job (§10.3) |
