@@ -44,8 +44,9 @@ Status values: **Open**, **In progress**, **Fixed on develop**, **On uat**, **On
 | C-16 | Medium | OTP attempts and refresh rotation are not atomic | 2 | Fixed on develop |
 | C-26 | Low | Verifying a reset code consumes it before the reset | 2 | Fixed on develop |
 | A-14 | Medium | Production CORS list trusts `http://localhost:8080` | 2 | Repo fixed; cluster variable pending |
-| C-04 | High | Access tokens live 30 days and cannot be revoked | 3 | Open, blocked on frontend |
-| C-08 | High | Signed user tokens committed to the repo | 3 | Open |
+| C-04 | High | Access tokens live 30 days and cannot be revoked | 3 | Fixed on develop; lifetime change waits for frontend F-5 |
+| C-08 | High | Signed user tokens committed to the repo | 3 | Fixed on develop |
+| NEW-01 | High | Supabase service-role key committed in a k8s example | 3 | Removed on develop; **rotation needed in Supabase** |
 | Q-01 | High | Per-user job quota can be exceeded by concurrent requests | 4 | Open |
 | C-10 | High | Unpinned dependencies, stale lockfile, no scanning | 5 | Open |
 | C-11 | High | CI has no quality gates; branch conditions wrong | 5 | Open |
@@ -78,11 +79,11 @@ these tests are what keeps the findings from coming back.
 
 See the fix records in section 3. It has two deploy gates, listed in section 6.
 
-### PR 3: Token lifetime and revocation (planned, blocked)
+### PR 3: Token lifetime and revocation (done)
 
-- **C-04:** set `ACCESS_TOKEN_TTL_SECONDS` to 900. Add a `token_version` claim, checked against the user row and bumped on persona change, deactivation, password change and logout-all.
-- **C-08:** delete `k6/loadtest_users.json`, generate load-test users at run time, and rotate the signing key.
-- **Blocked on:** the frontend refresh work (see the frontend doc, item F-5). Rotating the key signs every user out, so the rotation time must be agreed.
+See the fix records in section 3. The code is on `develop`. Merge to uat
+only after frontend F-5 is live, because every existing session is asked to
+refresh at deploy.
 
 ### PR 4: Job quota (planned)
 
@@ -389,6 +390,90 @@ C-05), and the ingress config needs fixing.
 The deployed value is a separate cluster variable (185 bytes, which differs
 from the repo copy), so a code change can't fix it.
 
+### C-04: Access tokens live 30 days and cannot be revoked
+
+| | |
+|---|---|
+| Severity | High: CWE-613, OWASP API2:2023 |
+| Status | Fixed on develop. The lifetime change is a cluster setting, made after frontend F-5 ships |
+
+**Problem.**
+- Access tokens lived 30 days (`ACCESS_TOKEN_TTL_SECONDS=2592000` on the cluster) and carried no version.
+- `get_current_user` trusted the token's persona claim without reading the account.
+- Demotion, deactivation, password reset and logout revoked only refresh tokens, so an access token kept working until it expired.
+
+**Fix.**
+- **Versioned tokens:** `app_users.token_version` is a new column, and every access token carries the version it was minted with (`ver`).
+- **Checked on every request:** `get_current_user` compares `ver` with the account, and also rejects deleted or deactivated accounts. The account row is cached per process for 15 seconds, so revocation reaches every replica within 15 seconds without a database read on every request.
+- **Newer tokens are re-read:** a token whose version is newer than the cached one (minted after a change another replica made) causes a fresh read instead of a rejection. A load that started before a revocation never caches the stale result.
+- **Persona from the account:** persona now comes from the account, not the token, so a demoted admin loses admin rights immediately.
+- **Retryable rejection:** a stale or version-less token gets `401 token_expired`, the same code as expiry, so the frontend refreshes.
+- **Database outage:** returns 503, not 401, so users aren't signed out.
+- **What bumps the version** (ending every access token the user holds, on every device):
+  - password reset or change
+  - persona upgrade (the response carries the new token)
+  - admin persona change
+  - admin password reset
+  - deactivation
+- **Refresh:** now also refuses deactivated accounts.
+- **Lifetime:** the code default is 15 minutes. Startup logs a warning when `ACCESS_TOKEN_TTL_SECONDS` is over an hour.
+
+**Not covered.** Logging out one session doesn't end that session's access
+token; it expires within the token lifetime (15 minutes once the cluster
+setting changes). "Log out everywhere" events do end all tokens.
+
+**Files.** `backend/app/core/auth.py`, `backend/app/core/security.py`,
+`backend/app/db/schema.py`, `backend/app/db/repositories/user_repository.py`,
+`backend/app/services/auth_service.py`, `backend/app/services/admin_user_service.py`,
+`backend/app/core/settings.py`.
+
+**Tests.** `tests/unit/test_token_revocation.py`.
+
+**Rollout.**
+1. Frontend F-5 (global refresh on 401) goes live.
+2. Deploy this backend. Every token minted before it lacks `ver`, so each open session makes one silent refresh.
+3. Set `ACCESS_TOKEN_TTL_SECONDS=900` on uat, then release, or remove the variable to use the default.
+
+If the backend deploys before F-5, each signed-in user is sent back to the
+login page once. Nothing else breaks.
+
+### C-08: Signed user tokens committed to the repository
+
+| | |
+|---|---|
+| Severity | High: CWE-798, CWE-540 |
+| Status | Fixed on develop |
+
+**Fix.**
+- `k6/loadtest_users.json` (100 signed tokens) is no longer tracked, and `k6/loadtest_users*.json` is git-ignored. `k6/k6.js` reads the file named by `USERS_FILE`.
+- The tokens remain in git history, but they have no `ver` claim, so C-04 makes every one of them invalid. The signing key doesn't need rotating, provided it is at least 32 bytes and random (PR 2 gate).
+
+### NEW-01: Supabase service-role key committed in a k8s example
+
+| | |
+|---|---|
+| Severity | High: CWE-798. **Not in the report**; found while fixing C-08 |
+| Status | Removed on develop. **Action: rotate the key in Supabase, or shut the project down** |
+
+**Problem.** `examples/local-dev/k8s/02-secret.yaml.example`, tracked since
+2026-07-02, contained:
+- a real service-role key for Supabase project `rzcaziwizcektrlrdujr`, valid until 2036;
+- a 10-character `API_KEY` value.
+
+A service-role key bypasses row-level security and gives full access to that
+project, which was the backend's pipeline and auth database before the move
+to Postgres.
+
+**Fix.** Both values are replaced with placeholders. The key is still in git
+history, so the real fix is outside the repo: rotate the service-role key in
+the Supabase dashboard, or delete the project if nothing uses it any more.
+The frontend uses a different project (`yiwycwaziewmyenfruyg`), so this
+doesn't affect it.
+
+A scan of all tracked files for other key patterns (AWS, private keys, API
+tokens, JWTs) found nothing else. The only hit was the fake key used in
+`tests/unit/test_presigned_url.py`.
+
 ---
 
 ## 4. Open decisions
@@ -396,9 +481,10 @@ from the repo copy), so a code change can't fix it.
 | # | Decision | Needed for | Owner |
 |---|---|---|---|
 | 1 | The landing page's speaker count changes from the hard-coded 71 to the real count (about 307). Confirm this is the definition wanted: speakers with footage in the archive. | PR 1 frontend | Product |
-| 2 | When to shorten the access-token lifetime, after the frontend refresh work (F-5) is live. | PR 3 | Backend + frontend |
+| 2 | When to set `ACCESS_TOKEN_TTL_SECONDS=900` on the cluster. It follows the frontend refresh work (F-5); the code side is done. | PR 3 | Backend + frontend |
 | 3 | `JWT_SIGNING_KEY` is set on uat (confirmed from the startup log). Still to confirm: where it comes from, its length (≥ 32 bytes for the C-06 check), and the same for release. | PR 2 (C-06), PR 3 (rotation) | DevOps |
-| 4 | When to rotate the signing key. Rotating signs every user out. | PR 3 | Backend + frontend |
+| 4 | Signing-key rotation is not needed for C-08 (old tokens die through `ver`), unless the key turns out to be under 32 bytes. | PR 2 gate | DevOps |
+| 5 | Rotate the Supabase service-role key for project `rzcaziwizcektrlrdujr`, or shut the project down (NEW-01). | Now, independent of deploys | Whoever owns the Supabase account |
 
 **Note on decision 3: how tokens are signed today.**
 - `JWT_SIGNING_KEY` is not in the uat/release variable list, but it must be set somewhere.
@@ -417,6 +503,7 @@ from the repo copy), so a code change can't fix it.
 1. Regression tests for the finding (listed in each record) pass, and fail when the fix is reverted.
 2. The full suite passes: `.venv/bin/python -m pytest`.
 3. A supervising review of the PR's diff looks for bypasses, edge cases and regressions. Its findings are fixed and re-checked before the PR moves on.
+   - PR 3 review, 2026-09-25: no blockers. Fixed: a token newer than another replica's cache was rejected for up to 15 seconds; a load racing a revocation could cache stale state; the real account-row mapping had no test. Also fixed a test that failed at random: it tampered with the signature's last base64 character, which can carry only padding bits.
    - PR 2 review, 2026-09-25: one deploy gate, four should-fix items, three notes. Fixed: resend-otp bypassed the new limits; per-e-mail limits let an attacker lock the owner out, so limits are now tiered by e-mail+IP; per-IP limits could turn global if IP resolution collapsed, so they are skipped for proxy addresses; the refresh grace window now requires the same user agent. Documented rather than changed: the two-attempt cost of check-then-reset, and existing enumeration signals (C-17).
    - PR 1 review, 2026-09-25: six findings. Fixed: the backfill could give an insight to the wrong user when ids collided; a failed dashboard count was cached as 0 for 5 minutes; the no-id mindmap path was unbounded; three test gaps. Checked and needed no change: archive media playback, because the frontend fetches it with the bearer token.
 4. Local probes run against an API started with local Postgres, Redis and storage only, never against the shared uat/release stores.
@@ -440,3 +527,5 @@ curl -s -o /dev/null -w '%{http_code}\n' $H/api/admin/dashboard   # expect 401
   1. Before pushing to uat, confirm that `JWT_SIGNING_KEY` on uat, and later on release, is at least 32 bytes. A shorter key stops every replica from starting. If it is shorter, rotate it first; this signs all users out.
   2. After the uat deploy, check the client IPs in `auth_audit` (see C-13).
 - **PR 2 cluster change:** remove `http://localhost:8080` from `ALLOWED_ORIGINS` on uat and release (A-14).
+- **PR 3 order:** frontend F-5 goes live, then this backend, then `ACCESS_TOKEN_TTL_SECONDS=900` on the cluster. At deploy, every open session refreshes once.
+- **PR 3 schema:** `app_users.token_version` is additive. Release's old code ignores it and keeps working on the shared Postgres until it is upgraded.

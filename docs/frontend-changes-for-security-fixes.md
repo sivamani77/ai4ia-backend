@@ -155,6 +155,11 @@ the frontend needs:
 7. **Refresh on reload.** `bootstrapFromCache()` (`authApi.js:58-79`) should try `/auth/refresh` before giving up when the cached token is rejected.
 8. Update the comments in `authApi.js:8-18`, `:318-321` and `AuthContext.jsx:55-58` that say tokens never expire.
 
+**What the backend now does** (PR 3, on `develop`):
+- Every access token carries a version. A password change, persona change or deactivation makes all of the user's existing tokens return `401 token_expired`. For a password change or deactivation the refresh also fails, so the user must sign in again. For a persona change the refresh succeeds and returns a token with the new role.
+- When this backend deploys, every token issued before it returns `token_expired` once. With this interceptor in place, users won't notice.
+- Persona upgrade already swaps in the returned token (`authApi.js:205`), which stays correct.
+
 **Check.** Temporarily set `ACCESS_TOKEN_TTL_SECONDS=60` on a local backend.
 Stay on the Create Video page through a render and confirm there is no
 logout, SSE keeps streaming, and playback continues.
