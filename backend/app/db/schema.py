@@ -346,6 +346,22 @@ _STATEMENTS = [
     )
     """,
     "create index if not exists idx_app_notifications_user_id on app_notifications (user_id, created_at desc)",
+    # ------------------------------------------------------------------
+    # user_seen_tours — the one remaining direct-Supabase call
+    # (notificationsApi.js's listSeenTours/markTourSeen, backed by
+    # user_notifications where type='tour_seen'). Frontend handover spec:
+    # unique (user_id, page_id) so marking a tour seen twice is a no-op.
+    # ------------------------------------------------------------------
+    """
+    create table if not exists user_seen_tours (
+        id text primary key,
+        user_id text not null,
+        page_id text not null,
+        created_at timestamptz not null default now(),
+        constraint uq_user_seen_tours_user_page unique (user_id, page_id)
+    )
+    """,
+    "create index if not exists idx_user_seen_tours_user_id on user_seen_tours (user_id)",
 ]
 
 

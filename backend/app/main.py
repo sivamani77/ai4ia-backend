@@ -47,6 +47,7 @@ from app.api.ingest import router as ingest_router
 from app.api.provenance import router as provenance_router
 from app.api.feedback import router as feedback_router
 from app.api.notifications import router as notifications_router
+from app.api.tours import router as tours_router
 
 
 class _PipelineLogFilter(logging.Filter):
@@ -472,3 +473,4 @@ app.include_router(ingest_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(provenance_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(feedback_router, prefix=API_PREFIX, dependencies=_user_dep)
 app.include_router(notifications_router, prefix=API_PREFIX, dependencies=_user_dep)
+app.include_router(tours_router, prefix=API_PREFIX, dependencies=_user_dep)
