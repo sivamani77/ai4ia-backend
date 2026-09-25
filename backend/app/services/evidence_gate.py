@@ -1,16 +1,15 @@
-"""Relevance check for archive queries.
+"""Evidence check for archive queries.
 
-ANN search always returns its top-k however poor the match, so the query
-services' `if not fragments` checks never fire. This is the gate that makes
-them fire. Gibberish is out of scope — it scores like a genuine query and is
-handled by the guardrail's no-subject rule.
+Declines only when retrieval returns nothing. A similarity floor used to
+decline weak matches too, but it refused genuine queries ("youth
+empowerment by AI"), so it was removed. Top-1 is still logged. Gibberish
+is the guardrail's job (its no-subject rule).
 """
 from __future__ import annotations
 
 import logging
 from typing import Any, Mapping, Sequence
 
-from app.core.settings import settings
 
 logger = logging.getLogger("ai4ia.services.evidence_gate")
 
@@ -38,15 +37,11 @@ def evidence_is_sufficient(
     fragments: Sequence[Mapping[str, Any]],
     *,
     surface: str,
-    floor: float | None = None,
 ) -> tuple[bool, dict[str, Any]]:
-    """(sufficient, diagnostics). Logs top-1 either way so the floor is tunable."""
-    threshold = settings.archive_relevance_floor if floor is None else floor
+    """(sufficient, diagnostics). Logs top-1 so retrieval quality stays visible."""
     best = top_similarity(fragments)
-
     diagnostics: dict[str, Any] = {
         "top_similarity": best,
-        "relevance_floor": threshold,
         "fragments_considered": len(fragments or []),
     }
 
@@ -55,19 +50,9 @@ def evidence_is_sufficient(
         logger.info("Evidence gate: %s retrieved nothing", surface)
         return False, diagnostics
 
-    # An unscored pool can't be judged, so let it through rather than block a
-    # caller that retrieved by facet instead of similarity.
-    if best is None:
-        diagnostics["reason"] = "no_similarity_scores_to_judge"
-        return True, diagnostics
-
-    sufficient = best >= threshold
-    diagnostics["reason"] = "above_floor" if sufficient else "below_floor"
-    logger.info(
-        "Evidence gate: %s top_similarity=%.4f floor=%.2f -> %s",
-        surface, best, threshold, "pass" if sufficient else "decline",
-    )
-    return sufficient, diagnostics
+    diagnostics["reason"] = "fragments_retrieved"
+    logger.info("Evidence gate: %s top_similarity=%s -> pass", surface, best)
+    return True, diagnostics
 
 
 __all__ = ["evidence_is_sufficient", "top_similarity"]
