@@ -203,6 +203,15 @@ celery_app.conf.update(
     # Do not prefetch more than one task at a time
     worker_prefetch_multiplier=1,
 
+    # How long an unacknowledged task waits before the broker hands it to
+    # another worker. Must exceed the video task's time limit; the same Redis
+    # database shares one window across every environment's workers.
+    broker_transport_options={"visibility_timeout": settings.celery_visibility_timeout_seconds},
+
+    # On a broker blip, keep running tasks going; a redelivered copy loses
+    # the job lease and is dropped (app.services.job_lease).
+    worker_cancel_long_running_tasks_on_connection_loss=False,
+
     # Route all tasks to a dedicated queue so we can scale workers independently
     # later, and so environments sharing one Redis do not consume each other's
     # jobs. See settings.worker_queue.

@@ -93,6 +93,26 @@ _STATEMENTS = [
     # null are visible to admins only.
     "alter table insights add column if not exists user_id text",
     "create index if not exists idx_insights_user_created on insights (user_id, created_at desc)",
+    # Video job recovery (docs/job-recovery-plan.md). jobs is created by
+    # db/init/001_schema.sql, so these are guarded on it existing.
+    """
+    do $$
+    begin
+        if to_regclass('jobs') is not null then
+            alter table jobs add column if not exists dispatch_id text;
+            alter table jobs add column if not exists dispatched_at timestamptz;
+            alter table jobs add column if not exists worker_queue text;
+            alter table jobs add column if not exists lease_owner text;
+            alter table jobs add column if not exists heartbeat_at timestamptz;
+            alter table jobs add column if not exists attempts integer not null default 0;
+            create index if not exists idx_jobs_running_heartbeat
+                on jobs (worker_queue, heartbeat_at) where status = 'running';
+            create index if not exists idx_jobs_queued_dispatched
+                on jobs (worker_queue, dispatched_at) where status = 'queued';
+        end if;
+    end
+    $$
+    """,
     """
     do $$
     begin

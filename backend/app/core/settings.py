@@ -402,6 +402,20 @@ class Settings(BaseSettings):
     embed_celery_worker: bool = False
     worker_concurrency: int = 1
     worker_queue: str = "video_jobs"
+
+    # Video job recovery (docs/job-recovery-plan.md). The worker stamps a
+    # heartbeat while it runs a job; the API's sweeper fails jobs whose worker
+    # has gone quiet, jobs past the runtime cap, and jobs stuck in the queue.
+    job_heartbeat_interval_seconds: int = 30
+    job_stale_after_seconds: int = 300
+    job_max_runtime_seconds: int = 35 * 60
+    job_queued_max_age_seconds: int = 30 * 60
+    job_sweep_interval_seconds: int = 60
+    job_sweeper_enabled: bool = True
+    # Broker redelivery window for unacknowledged tasks. Must stay above the
+    # task's hard time limit (job_max_runtime_seconds + 300) so a running job
+    # is never handed to a second worker.
+    celery_visibility_timeout_seconds: int = 3600
     worker_loglevel: str = "info"
 
     # ------------------------------------------------------------------
@@ -526,6 +540,16 @@ class Settings(BaseSettings):
             warnings.append("API_KEY is not set — running in open dev mode, no auth enforced")
         if not self.jwt_signing_key:
             warnings.append("JWT_SIGNING_KEY is not set — user auth tokens cannot be issued")
+        if self.job_stale_after_seconds < 5 * self.job_heartbeat_interval_seconds:
+            warnings.append(
+                "JOB_STALE_AFTER_SECONDS should be at least 5x JOB_HEARTBEAT_INTERVAL_SECONDS; "
+                "live jobs may be failed as stale"
+            )
+        if self.celery_visibility_timeout_seconds <= self.job_max_runtime_seconds + 300:
+            warnings.append(
+                "CELERY_VISIBILITY_TIMEOUT_SECONDS must exceed JOB_MAX_RUNTIME_SECONDS + 300; "
+                "long jobs could be delivered to a second worker"
+            )
         if self.access_token_ttl_seconds > 3600:
             warnings.append(
                 f"ACCESS_TOKEN_TTL_SECONDS is {self.access_token_ttl_seconds}; access tokens should "

@@ -167,6 +167,12 @@ def mock_settings(tmp_path, monkeypatch):
     _defaults = Settings.model_fields
     fake.trusted_proxy_cidrs = list(_defaults["trusted_proxy_cidrs"].default)
     fake.jwt_min_key_bytes = _defaults["jwt_min_key_bytes"].default
+    fake.job_sweeper_enabled = False
+    fake.worker_queue = "video_jobs_test"
+    for _name in ("job_heartbeat_interval_seconds", "job_stale_after_seconds", "job_max_runtime_seconds",
+                  "job_queued_max_age_seconds", "job_sweep_interval_seconds",
+                  "celery_visibility_timeout_seconds"):
+        setattr(fake, _name, _defaults[_name].default)
     fake.video_job_max_running_per_user = 1
     fake.video_job_max_queued_per_user = 3
     fake.video_job_max_active = 50
@@ -235,7 +241,8 @@ def mock_job_store(monkeypatch):
         job["status"] = "cancelled"
         return True
 
-    def _create_job_within_quota(job_id, data, *, user_id, max_running, max_queued, max_active):
+    def _create_job_within_quota(job_id, data, *, user_id, max_running, max_queued, max_active,
+                                 dispatch_id=None, worker_queue=None):
         active = [j for j in jobs.values() if j.get("status") in ("queued", "running")]
         mine = [j for j in active if j.get("user_id") == user_id]
         if sum(j["status"] == "running" for j in mine) >= max_running:
@@ -245,7 +252,47 @@ def mock_job_store(monkeypatch):
         if len(active) >= max_active:
             return "active"
         jobs[job_id] = copy.deepcopy(data)
+        jobs[job_id].update(dispatch_id=dispatch_id, worker_queue=worker_queue, attempts=0)
         return None
+
+    def _finish_job(job_id, status, owner):
+        job = jobs.get(job_id)
+        if job is None:
+            return False
+        if job.get("status") not in ("queued", "running", status) or job.get("lease_owner") != owner:
+            return job.get("dispatch_id") is None
+        job["status"] = status
+        job["lease_owner"] = None
+        return True
+
+    def _claim_job(job_id, *, dispatch_id, owner, worker_queue):
+        job = jobs.get(job_id)
+        if (job is None or job.get("status") != "queued" or job.get("attempts", 0) != 0
+                or job.get("dispatch_id") != dispatch_id):
+            return False
+        job.update(status="running", lease_owner=owner, attempts=1, heartbeat_age=0.0,
+                   worker_queue=job.get("worker_queue") or worker_queue)
+        return True
+
+    def _job_lease_state(job_id):
+        job = jobs.get(job_id)
+        if job is None:
+            return None
+        return {"status": job.get("status"), "dispatch_id": job.get("dispatch_id"),
+                "lease_owner": job.get("lease_owner"), "attempts": job.get("attempts", 0),
+                "heartbeat_age": job.get("heartbeat_age"), "active_pid": job.get("active_pid"),
+                "active_host": job.get("active_host")}
+
+    def _heartbeat_job(job_id, owner):
+        job = jobs.get(job_id)
+        return bool(job and job.get("lease_owner") == owner and job.get("status") == "running")
+
+    def _fail_job_if_lease(job_id, *, expected_owner, error):
+        job = jobs.get(job_id)
+        if not job or job.get("status") != "running" or job.get("lease_owner") != expected_owner:
+            return False
+        job.update(status="failed", lease_owner=None, error=error)
+        return True
 
     def _list_user_jobs(user_id, limit, offset):
         mine = sorted((j for j in jobs.values() if j.get("user_id") == user_id),
@@ -261,6 +308,11 @@ def mock_job_store(monkeypatch):
     import app.services.media_registry as media_registry
 
     monkeypatch.setattr(js, "create_job_within_quota", _create_job_within_quota)
+    for _name, _fn in (("finish_job", _finish_job), ("claim_job", _claim_job),
+                       ("job_lease_state", _job_lease_state), ("heartbeat_job", _heartbeat_job),
+                       ("fail_job_if_lease", _fail_job_if_lease)):
+        monkeypatch.setattr(js, _name, _fn)
+    monkeypatch.setattr(vjr, "finish_job", _finish_job)
     monkeypatch.setattr(js, "list_user_jobs", _list_user_jobs)
     monkeypatch.setattr(js, "queue_position", _queue_position)
 

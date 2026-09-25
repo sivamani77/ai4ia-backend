@@ -74,8 +74,13 @@ def api_app(mock_settings, mock_job_store, monkeypatch):
     import app.api.archive as archive_mod
     import app.api.deps as deps_mod
 
-    monkeypatch.setattr(main, "_reap_orphaned_jobs", lambda: None)
     monkeypatch.setattr(main, "_reap_orphaned_ingest_jobs", lambda: None)
+
+    async def _no_sweeper():
+        return None
+
+    import app.services.job_sweeper as job_sweeper
+    monkeypatch.setattr(job_sweeper, "run_forever", _no_sweeper)
     monkeypatch.setattr(video_jobs, "_create_limiter", video_jobs.TokenBucket(rate=5, per=60.0))
 
     # app.api.video_jobs did `from app.services.video_job_runner import load_job,

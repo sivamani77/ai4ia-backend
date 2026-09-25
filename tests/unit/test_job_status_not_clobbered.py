@@ -91,9 +91,16 @@ class TestNonTerminalWritesAreUnaffected:
         assert "else excluded.status" in sql
 
     def test_other_columns_remain_plain_overwrites(self):
-        """The guard is scoped to status/metadata; everything else in a
-        snapshot save still overwrites, including progress and completed_at."""
+        """The guard is scoped to status/metadata, plus how a leased job ended;
+        everything else in a snapshot save still overwrites."""
         sql = _captured_upsert_sql()
-        for column in ("progress", "started_at", "completed_at", "error",
-                       "job_type", "worker_id", "retry_count"):
+        for column in ("progress", "started_at", "job_type", "worker_id", "retry_count"):
             assert f"{column} = excluded.{column}" in sql
+
+    def test_finished_leased_jobs_keep_their_error_and_completion_time(self):
+        """A late snapshot from a worker the sweeper already failed must not
+        erase the failure (docs/job-recovery-plan.md)."""
+        sql = " ".join(_captured_upsert_sql().split())
+        for column in ("completed_at", "error"):
+            assert (f"{column} = case when jobs.dispatch_id is not null and jobs.status in "
+                    f"('cancelled', 'completed', 'failed') then jobs.{column} else excluded.{column} end") in sql

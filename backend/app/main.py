@@ -103,38 +103,6 @@ def _reap_orphaned_ingest_jobs() -> None:
         logger.exception("Failed to reap orphaned ingest jobs on startup")
 
 
-def _reap_orphaned_jobs() -> None:
-    """Mark any jobs still in 'running'/'queued' state as failed.
-
-    These are local-thread jobs whose owning API process was restarted.
-    Celery-backed jobs are left alone because workers may still be running.
-    """
-    try:
-        from app.services.video_job_runner import _redis_reachable
-
-        if _redis_reachable():
-            logger.info("Redis is reachable; skipping local-thread orphan job reaping")
-            return
-
-        from datetime import datetime, timezone
-        from app.db.repositories.job_repository import JobRepository
-        repo = JobRepository()
-        all_jobs = repo.list_jobs()
-        orphaned = [j for j in all_jobs if j.get("status") in ("running", "queued")]
-        for job in orphaned:
-            jid = job.get("id")
-            repo.update_job(jid, {
-                "status": "failed",
-                "completed_at": datetime.now(timezone.utc).isoformat(),
-                "error": "Server restarted while job was in progress",
-            })
-            logger.info("Reaped orphaned job id=%s status=%s", jid, job.get("status"))
-        if orphaned:
-            _metrics.jobs_orphan_reaped_total.inc(len(orphaned))
-    except Exception:
-        logger.exception("Failed to reap orphaned jobs on startup")
-
-
 _DEPENDENCY_CHECK_INTERVAL_SECONDS = 60
 
 
@@ -191,18 +159,24 @@ async def lifespan(app: FastAPI):
     except Exception:
         logger.exception("Failed to start the speaker repair")
 
-    await asyncio.to_thread(_reap_orphaned_jobs)
+    # Video jobs are recovered by the sweeper below, not on startup; ingest
+    # jobs still have a thread fallback and keep their startup reaper.
     await asyncio.to_thread(_reap_orphaned_ingest_jobs)
 
-    dependency_metrics_task = asyncio.create_task(_dependency_metrics_loop())
+    background = [asyncio.create_task(_dependency_metrics_loop())]
+    if settings.job_sweeper_enabled:
+        from app.services import job_sweeper
+
+        background.append(asyncio.create_task(job_sweeper.run_forever()))
 
     yield
 
-    dependency_metrics_task.cancel()
-    try:
-        await dependency_metrics_task
-    except asyncio.CancelledError:
-        pass
+    for task in background:
+        task.cancel()
+        try:
+            await task
+        except asyncio.CancelledError:
+            pass
 
 
 app = FastAPI(

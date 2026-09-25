@@ -43,22 +43,28 @@ def _ingest_job_row(status: str = "running", delivery_attempts: int = 0, saves: 
         yield row
 
 
+@contextlib.contextmanager
+def _lease(outcome: str = "run", calls: list | None = None):
+    """Patch job_lease around a video task call: claim returns `outcome`."""
+    calls = calls if calls is not None else []
+
+    def _claim(job_id, dispatch_id, owner):
+        calls.append(("claim", job_id, dispatch_id, owner))
+        return outcome
+
+    with patch("app.services.job_lease.claim", side_effect=_claim), \
+         patch("app.services.job_lease.start", side_effect=lambda j, o: calls.append(("start", j, o))), \
+         patch("app.services.job_lease.release", side_effect=lambda j: calls.append(("release", j))):
+        yield calls
+
+
 class TestRunVideoJobTask:
     def test_calls_run_video_job(self):
         from app.worker.tasks import run_video_job_task
-        with _job_row(), patch("app.worker.tasks.run_video_job") as mock_run:
+        with _lease(), _job_row(), patch("app.worker.tasks.run_video_job") as mock_run:
             # Call via .run() to bypass Celery machinery
             run_video_job_task.run("vjob_abc123", {"key": "val"})
         mock_run.assert_called_once_with("vjob_abc123", {"key": "val"})
-
-    def test_passes_job_id_and_request(self):
-        from app.worker.tasks import run_video_job_task
-        received = []
-        with _job_row(), \
-             patch("app.worker.tasks.run_video_job",
-                   side_effect=lambda jid, req: received.append((jid, req))):
-            run_video_job_task.run("vjob_test_456", {"prompt": "test"})
-        assert received == [("vjob_test_456", {"prompt": "test"})]
 
     def test_returns_status_from_job_row(self):
         from app.worker.tasks import run_video_job_task
@@ -66,79 +72,54 @@ class TestRunVideoJobTask:
         def _complete(jid, req):
             row["status"] = "completed"
 
-        with _job_row() as row, patch("app.worker.tasks.run_video_job", side_effect=_complete):
+        with _lease(), _job_row() as row, patch("app.worker.tasks.run_video_job", side_effect=_complete):
             result = run_video_job_task.run("vjob_ok", {})
-        assert result["status"] == "completed"
-        assert result["job_id"] == "vjob_ok"
+        assert result == {"job_id": "vjob_ok", "status": "completed"}
 
-    def test_exception_propagates(self):
+    def test_exception_propagates_and_the_lease_is_released(self):
         from app.worker.tasks import run_video_job_task
-        with _job_row(), patch("app.worker.tasks.run_video_job", side_effect=RuntimeError("fail")):
+        with _lease() as calls, _job_row(), \
+             patch("app.worker.tasks.run_video_job", side_effect=RuntimeError("fail")):
             with pytest.raises(RuntimeError, match="fail"):
                 run_video_job_task.run("vjob_bad", {})
+        assert calls[-1] == ("release", "vjob_bad")
 
 
-class TestDeliveryGuard:
-    """acks_late + task_reject_on_worker_lost redeliver a task whose worker
-    died. Without a bound, an OOM-killing job loops forever."""
+class TestLeaseClaim:
+    """A delivery runs only when it wins the job's lease (job_lease.claim)."""
 
-    def test_first_delivery_runs_and_records_attempt(self):
+    def test_winning_delivery_heartbeats_while_it_runs(self):
         from app.worker.tasks import run_video_job_task
-        saves = []
-        with _job_row(saves=saves), patch("app.worker.tasks.run_video_job") as mock_run:
-            run_video_job_task.run("vjob_1", {})
-        mock_run.assert_called_once()
-        assert saves[0]["delivery_attempts"] == 1
+        with _lease() as calls, _job_row(), patch("app.worker.tasks.run_video_job"):
+            run_video_job_task.run("vjob_1", {}, dispatch_id="d1")
+        kinds = [c[0] for c in calls]
+        assert kinds == ["claim", "start", "release"]
+        assert calls[0][2] == "d1"
+        assert calls[0][3] == calls[1][2]  # the heartbeat uses the claiming owner
 
-    def test_second_delivery_still_runs(self):
+    @pytest.mark.parametrize("outcome", ["terminal", "superseded", "leased", "worker_lost", "missing"])
+    def test_losing_delivery_does_not_run(self, outcome):
         from app.worker.tasks import run_video_job_task
-        saves = []
-        with _job_row(delivery_attempts=1, saves=saves), \
-             patch("app.worker.tasks.run_video_job") as mock_run:
-            run_video_job_task.run("vjob_2", {})
-        mock_run.assert_called_once()
-        assert saves[0]["delivery_attempts"] == 2
-
-    def test_third_delivery_is_abandoned_without_running_pipeline(self):
-        from app.worker.tasks import run_video_job_task
-        with _job_row(delivery_attempts=2), \
-             patch("app.worker.tasks.run_video_job") as mock_run, \
-             patch("app.services.video_job_runner._fail_job") as mock_fail:
-            result = run_video_job_task.run("vjob_poison", {})
-
+        with _lease(outcome) as calls, patch("app.worker.tasks.run_video_job") as mock_run:
+            result = run_video_job_task.run("vjob_2", {}, dispatch_id="d1")
         mock_run.assert_not_called()
-        assert result == {"job_id": "vjob_poison", "status": "abandoned"}
-        mock_fail.assert_called_once()
-        assert mock_fail.call_args.args[0] == "vjob_poison"
-        assert mock_fail.call_args.args[2] == "poison_pill"
+        assert result == {"job_id": "vjob_2", "status": outcome}
+        assert [c[0] for c in calls] == ["claim"]
 
-    def test_terminal_job_is_not_rerun(self):
+    def test_messages_from_before_leases_claim_without_an_id(self):
         from app.worker.tasks import run_video_job_task
-        for status in ("cancelled", "completed", "failed"):
-            with _job_row(status=status), patch("app.worker.tasks.run_video_job") as mock_run:
-                result = run_video_job_task.run("vjob_term", {})
-            mock_run.assert_not_called()
-            assert result["status"] == "abandoned"
+        with _lease() as calls, _job_row(), patch("app.worker.tasks.run_video_job"):
+            run_video_job_task.run("vjob_3", {})
+        assert calls[0][2] is None
 
-    def test_unreadable_job_row_does_not_block_the_pipeline(self):
-        """The counter is a safety net, not a gate — a store blip on the
-        guard's read must not strand a legitimate job."""
+    def test_task_has_a_hard_time_limit_below_the_visibility_timeout(self):
+        from app.core.settings import settings
+        from app.worker.celery_app import celery_app
         from app.worker.tasks import run_video_job_task
 
-        # Fail only the guard's read; the post-run status read succeeds.
-        reads = [RuntimeError("db down"), {"status": "completed"}]
-
-        def _load(jid):
-            result = reads.pop(0)
-            if isinstance(result, Exception):
-                raise result
-            return result
-
-        with patch("app.services.job_store.load_job", side_effect=_load), \
-             patch("app.services.job_store.save_job"), \
-             patch("app.worker.tasks.run_video_job") as mock_run:
-            run_video_job_task.run("vjob_dbdown", {})
-        mock_run.assert_called_once()
+        assert run_video_job_task.time_limit == settings.job_max_runtime_seconds + 300
+        visibility = celery_app.conf.broker_transport_options["visibility_timeout"]
+        assert visibility > run_video_job_task.time_limit
 
 
 class TestRunIngestJobTask:

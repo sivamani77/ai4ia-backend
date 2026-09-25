@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import signal
+import socket
 import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -43,6 +44,30 @@ class JobCancelledException(Exception):
         self.job_id = job_id
         self.stage_name = stage_name
         super().__init__(f"Job {job_id} cancelled during stage {stage_name}")
+
+
+class JobSupersededException(Exception):
+    """Raised when this run no longer holds the job's lease (another delivery
+    or the sweeper took it, or heartbeats kept failing). The runner stops
+    without recording anything, since the job is no longer this run's."""
+
+    def __init__(self, job_id: str, stage_name: str, reason: str) -> None:
+        self.job_id = job_id
+        self.stage_name = stage_name
+        self.reason = reason
+        super().__init__(f"Job {job_id} stopped during stage {stage_name}: {reason}")
+
+
+class JobDeadlineExceeded(Exception):
+    """Raised when a job passes settings.job_max_runtime_seconds."""
+
+    def __init__(self, job_id: str, stage_name: str) -> None:
+        self.job_id = job_id
+        self.stage_name = stage_name
+        super().__init__(f"Job {job_id} exceeded its time limit during stage {stage_name}")
+
+
+_STOP_EXCEPTIONS = (JobCancelledException, JobSupersededException, JobDeadlineExceeded)
 
 
 # ---------------------------------------------------------------------------
@@ -152,10 +177,12 @@ def run_script(
             preexec_fn=os.setsid,  # own process group so we can kill the whole tree
         )
 
-        # Store PID so cancellation can kill the process group
+        # Store PID (and host) so cancellation, or a later delivery on this
+        # host after a worker death, can kill the process group
         try:
             job = load_job(job_id)
             job["active_pid"] = process.pid
+            job["active_host"] = socket.gethostname()
             save_job(job_id, job)
         except Exception:
             pass
@@ -199,7 +226,10 @@ def run_script(
         # so a mid-stage cancellation (status flipped to "cancelled" by the API)
         # is detected and the subprocess group killed promptly — from WITHIN the
         # worker, where process.pid is valid.
+        from app.services import job_lease
+
         cancelled = False
+        stop_exc: Exception | None = None
         deadline = time.monotonic() + timeout
         # Wake every few seconds to check the deadline; only hit the store
         # (load_job) for the cancel check every ~10s to keep DB load low.
@@ -225,6 +255,15 @@ def run_script(
                     append_event(job_id, "script_error", stage_name, {"error": msg})
                     return -1, "", msg
 
+                # The lease's stop signal is in memory, so check it every slice.
+                try:
+                    job_lease.raise_if_stopped(job_id, stage_name)
+                except _STOP_EXCEPTIONS as exc:
+                    _kill_process_group(process.pid)
+                    process.wait()
+                    stop_exc = exc
+                    break
+
                 now = time.monotonic()
                 if now >= next_cancel_check:
                     next_cancel_check = now + _CANCEL_CHECK_INTERVAL
@@ -233,11 +272,17 @@ def run_script(
                         process.wait()  # reap after kill
                         cancelled = True
                         break
+        except BaseException:
+            # Anything else ending the wait (Celery's soft time limit, worker
+            # shutdown) must not leave the script group running.
+            _kill_process_group(process.pid)
+            raise
         finally:
             # Clear PID once the process is no longer running
             try:
                 job = load_job(job_id)
                 job.pop("active_pid", None)
+                job.pop("active_host", None)
                 save_job(job_id, job)
             except Exception:
                 pass
@@ -247,10 +292,12 @@ def run_script(
         stop_flush.set()
         _flush()
 
-        if cancelled:
+        if cancelled or isinstance(stop_exc, JobCancelledException):
             append_event(job_id, "script_cancelled", stage_name,
                          {"message": f"Stage {stage_name} cancelled by user"})
             raise JobCancelledException(job_id, stage_name)
+        if stop_exc is not None:
+            raise stop_exc
 
         stdout = "".join(stdout_lines)
         stderr = "".join(stderr_lines)
@@ -260,9 +307,11 @@ def run_script(
             "stderr": stderr[-4000:],
         })
         return process.returncode, stdout, stderr
-    except JobCancelledException:
-        raise  # cancellation must propagate to the pipeline runner, not be swallowed
+    except _STOP_EXCEPTIONS:
+        raise  # stop signals must reach the pipeline runner, not be swallowed
     except Exception as exc:
+        if type(exc).__name__ == "SoftTimeLimitExceeded":
+            raise
         append_event(job_id, "script_error", stage_name, {"error": str(exc)})
         return -1, "", str(exc)
 

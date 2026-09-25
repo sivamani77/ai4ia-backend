@@ -39,14 +39,32 @@ job_stage_duration_seconds = Histogram(
     ["stage"],
 )
 
-jobs_orphan_reaped_total = Counter(
-    "jobs_orphan_reaped_total",
-    "Jobs marked failed on startup because their owning process was gone",
-)
-
 jobs_abandoned_total = Counter(
     "jobs_abandoned_total",
     "Jobs refused as poison pills after repeated broker redelivery (worker loss)",
+)
+
+job_claims_total = Counter(
+    "job_claims_total",
+    "Video job deliveries by claim outcome",
+    ["outcome"],  # run, terminal, superseded, leased, worker_lost
+)
+
+jobs_failed_by_sweeper_total = Counter(
+    "jobs_failed_by_sweeper_total",
+    "Video jobs failed by the recovery sweeper",
+    ["reason"],  # worker_lost, deadline_exceeded, queue_expired, expired
+)
+
+jobs_redispatched_total = Counter(
+    "jobs_redispatched_total",
+    "Queued video jobs re-sent because their queue message was lost",
+)
+
+job_sweeper_runs_total = Counter(
+    "job_sweeper_runs_total",
+    "Recovery sweeper passes",
+    ["outcome"],  # swept, not_leader, error
 )
 
 job_queue_position = Histogram(

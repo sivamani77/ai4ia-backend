@@ -28,12 +28,14 @@ from app.pipeline.base import PipelineContext
 
 _tracer = get_tracer("ai4ia.pipeline")
 from app.services import model_gate, processing_records
+from app.services import job_lease
 from app.services.job_store import (
     save_job,
     load_job,
     append_event,
     load_events,
     list_jobs,
+    finish_job,
 )
 
 # Process-local stage start times for job_stage_duration_seconds — not
@@ -153,6 +155,7 @@ def _fail_job(
     exc: Exception | None = None, *, user_message: str | None = None,
     reason_code: str | None = None, suggestions: list[str] | None = None,
 ) -> None:
+    owner = job_lease.release(job_id)
     job = load_job(job_id)
     job["status"] = "failed"
     job["current_stage"] = stage
@@ -172,6 +175,9 @@ def _fail_job(
         job["error"]["reason_code"] = reason_code
         job["error"]["suggestions"] = suggestions or []
     save_job(job_id, job)
+    if not finish_job(job_id, "failed", owner):
+        logger.warning("[%s] Not recording failure: the job is no longer this run's", job_id)
+        return
     append_event(job_id, "failed", stage, {
         "error_type": error_type,
         "message": message,
@@ -181,6 +187,7 @@ def _fail_job(
 
 
 def _cancel_job(job_id: str, message: str = "", *, kill_pid: bool = True) -> None:
+    job_lease.release(job_id)
     job = load_job(job_id)
     job["status"] = "cancelled"
     job["completed_at"] = _utc_now()
@@ -222,7 +229,11 @@ def _cleanup_job_tmp_dirs(job_id: str) -> None:
             shutil.rmtree(p, ignore_errors=True)
 
 
-def _complete_job(job_id: str) -> None:
+def _complete_job(job_id: str) -> bool:
+    """Mark the job completed; False if the job is no longer this run's."""
+    # Stop the heartbeat first, so a finished job never raises a stop signal
+    # that would cut the post-completion housekeeping short.
+    owner = job_lease.release(job_id)
     job = load_job(job_id)
     job["status"] = "completed"
     job["current_stage"] = "completed"
@@ -231,6 +242,9 @@ def _complete_job(job_id: str) -> None:
     job["completed_at"] = _utc_now()
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
+    if not finish_job(job_id, "completed", owner):
+        logger.warning("[%s] Not marking completed: the job is no longer this run's", job_id)
+        return False
     _metrics.job_completions_total.labels(status="completed").inc()
     processing_records.finish(job_id, "completed")
     created_at = job.get("created_at")
@@ -240,6 +254,7 @@ def _complete_job(job_id: str) -> None:
             _metrics.job_duration_seconds.observe(duration)
         except (ValueError, TypeError):
             logger.warning("Could not compute job_duration_seconds for job_id=%s", job_id)
+    return True
 
 
 # ---------------------------------------------------------------------------
@@ -298,12 +313,17 @@ def create_video_job(
     if enforce_quota:
         from app.services import job_store
 
+        # The dispatch id marks the one queue message allowed to run this job
+        # (docs/job-recovery-plan.md); the queue name marks the environment.
+        job["dispatch_id"] = uuid.uuid4().hex
         limit = job_store.create_job_within_quota(
             job_id, job,
             user_id=user_id,
             max_running=settings.video_job_max_running_per_user,
             max_queued=settings.video_job_max_queued_per_user,
             max_active=settings.video_job_max_active,
+            dispatch_id=job["dispatch_id"],
+            worker_queue=settings.worker_queue,
         )
         if limit is not None:
             raise JobQuotaExceeded(limit)
@@ -479,7 +499,9 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             stage_11_subtitles,
         ]
 
-        from app.pipeline.base import JobCancelledException
+        from celery.exceptions import SoftTimeLimitExceeded
+
+        from app.pipeline.base import JobCancelledException, JobDeadlineExceeded, JobSupersededException
 
         if not request.get("force_refresh"):
             cached_storyline = _storyline_cache.get_cached_storyline(request)
@@ -493,8 +515,26 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             stage_log = _job_logger(job_id, stage_name)
             stage_log.info("Stage starting")
             try:
+                job_lease.raise_if_stopped(job_id, stage_name)
                 with _tracer.start_as_current_span(stage_name, attributes={"job_id": job_id}):
                     result = stage_mod.run(job_id, request, ctx)
+            except JobSupersededException as exc:
+                # The job belongs to another run now (or will be failed by the
+                # sweeper); record nothing.
+                stage_log.warning("Run stopped during %s: %s", stage_name, exc.reason)
+                job_lease.release(job_id)
+                _cleanup_job_tmp_dirs(job_id)
+                return
+            except (JobDeadlineExceeded, SoftTimeLimitExceeded):
+                stage_log.error("Job passed its %ss limit during %s", settings.job_max_runtime_seconds, stage_name)
+                _fail_job(
+                    job_id, stage_name, "deadline_exceeded",
+                    f"Job exceeded {settings.job_max_runtime_seconds}s during {stage_name}",
+                    user_message="Your video took too long to generate and was stopped. "
+                                 "Please try again, or choose a shorter duration.",
+                )
+                _cleanup_job_tmp_dirs(job_id)
+                return
             except JobCancelledException:
                 # Cancelled mid-stage: the subprocess was already killed inside
                 # run_script. Finalize as cancelled (not failed) and stop.
@@ -528,7 +568,8 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
                 _cleanup_job_tmp_dirs(job_id)
                 return
 
-        _complete_job(job_id)
+        if not _complete_job(job_id):
+            return
         log.info("Pipeline completed")
 
         # ------------------------------------------------------------------
@@ -735,8 +776,9 @@ def _redis_reachable() -> bool:
     return result
 
 
-def start_video_job_background(job_id: str, request: dict[str, Any]) -> None:
-    """Dispatch to Celery. Raises HTTP 503 if Redis is unreachable — no thread fallback."""
+def start_video_job_background(job_id: str, request: dict[str, Any], dispatch_id: str | None = None) -> None:
+    """Dispatch to Celery. Raises HTTP 503 if Redis is unreachable — no thread fallback.
+    The message carries the job's dispatch id; only a matching message may run it."""
     from fastapi import HTTPException
 
     if not (settings.redis_url and _redis_reachable()):
@@ -746,7 +788,10 @@ def start_video_job_background(job_id: str, request: dict[str, Any]) -> None:
         )
     try:
         from app.worker.tasks import run_video_job_task
-        run_video_job_task.delay(job_id, request)
+        if dispatch_id is None:
+            dispatch_id = load_job(job_id).get("dispatch_id")
+        kwargs = {"dispatch_id": dispatch_id} if dispatch_id else {}
+        run_video_job_task.apply_async(args=[job_id, request], kwargs=kwargs)
     except Exception as exc:
         logger.error("Celery dispatch failed for job %s: %s", job_id, exc, exc_info=True)
         raise HTTPException(
