@@ -1,4 +1,4 @@
-"""Chapter numbers and year range of the active corpus, for the resolve step."""
+"""Chapter numbers, year range and talk titles of the active corpus, for the resolve step."""
 from __future__ import annotations
 
 import logging
@@ -17,6 +17,26 @@ class Catalog:
     chapter_numbers: frozenset[int]
     first_year: int
     last_year: int
+    titles: frozenset[str] = frozenset()  # normalized talk titles, without the speaker prefix
+
+    def names_talk(self, prompt: str) -> bool:
+        """The prompt is a talk title, or quotes one of four words or more."""
+        text = _normalize(prompt)
+        return bool(text) and any(text == t or (len(t.split()) >= 4 and t in text) for t in self.titles)
+
+
+def _normalize(text: str) -> str:
+    from app.pipeline.storyline_gen.text_utils import normalize_name
+
+    return " ".join(normalize_name(text).split())
+
+
+def talk_title(source_video: str) -> str:
+    """The talk's own title: '0117_<id>_Speaker - Title' gives 'Title'."""
+    from app.services.video_naming import parse_source_video
+
+    _, title = parse_source_video(source_video)
+    return title.split(" - ", 1)[-1].strip()
 
 
 def build_catalog(records: list[dict]) -> Catalog | None:
@@ -32,7 +52,8 @@ def build_catalog(records: list[dict]) -> Catalog | None:
             years.add(year)
     if not chapters or not years:
         return None
-    return Catalog(frozenset(chapters), min(years), max(years))
+    titles = {_normalize(talk_title(str(r.get("source_video") or ""))) for r in records}
+    return Catalog(frozenset(chapters), min(years), max(years), frozenset(t for t in titles if t))
 
 
 def get_catalog() -> Catalog | None:

@@ -84,12 +84,36 @@ class TestOtpRepository:
         assert "set used_at = now()" in q
         assert "used_at is null" in q
 
-    def test_mark_used_uses_db_clock(self):
+    def test_mark_used_uses_db_clock_and_only_consumes_once(self):
+        """C-16: a single conditional UPDATE, so only one request can redeem a code."""
         captured = {}
-        with patch("app.db.repositories.otp_repository.pg_execute",
-                   side_effect=lambda q, p: captured.update(q=q)):
-            OtpRepository().mark_used("otp-1")
-        assert "now()" in _norm(captured["q"])
+        with patch("app.db.repositories.otp_repository.pg_fetch_one",
+                   side_effect=lambda q, p: captured.update(q=q) or {"id": "otp-1"}):
+            assert OtpRepository().mark_used("otp-1") is True
+        q = _norm(captured["q"])
+        assert "now()" in q
+        assert "used_at is null" in q
+        assert "returning" in q
+
+    def test_mark_used_reports_an_already_used_code(self):
+        with patch("app.db.repositories.otp_repository.pg_fetch_one", return_value=None):
+            assert OtpRepository().mark_used("otp-1") is False
+
+    def test_claim_attempt_increments_in_sql_under_the_cap(self):
+        """C-16: attempts are counted in one statement, never read-then-write."""
+        captured = {}
+        with patch("app.db.repositories.otp_repository.pg_fetch_one",
+                   side_effect=lambda q, p: captured.update(q=q, p=p) or {"attempts": 3}):
+            assert OtpRepository().claim_attempt("otp-1", 5) == 3
+        q = _norm(captured["q"])
+        assert "attempts = attempts + 1" in q
+        assert "attempts < %(max)s" in q
+        assert "used_at is null" in q
+        assert captured["p"] == {"id": "otp-1", "max": 5}
+
+    def test_claim_attempt_returns_none_at_the_cap(self):
+        with patch("app.db.repositories.otp_repository.pg_fetch_one", return_value=None):
+            assert OtpRepository().claim_attempt("otp-1", 5) is None
 
 
 # ---------------------------------------------------------------------------
@@ -97,6 +121,18 @@ class TestOtpRepository:
 # ---------------------------------------------------------------------------
 
 class TestRefreshTokenRepository:
+    def test_mark_used_claims_only_an_unused_unrevoked_token(self):
+        """C-16: two parallel refreshes cannot both rotate one token."""
+        captured = {}
+        with patch("app.db.repositories.refresh_token_repository.pg_fetch_one",
+                   side_effect=lambda q, p: captured.update(q=q) or {"id": "t1"}):
+            assert RefreshTokenRepository().mark_used("t1") is True
+        q = _norm(captured["q"])
+        assert "used_at is null" in q and "revoked_at is null" in q and "returning" in q
+
+        with patch("app.db.repositories.refresh_token_repository.pg_fetch_one", return_value=None):
+            assert RefreshTokenRepository().mark_used("t1") is False
+
     def test_create_only_names_known_columns(self):
         captured = {}
 

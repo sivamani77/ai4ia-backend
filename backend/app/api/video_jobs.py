@@ -27,23 +27,28 @@ from pydantic import BaseModel, Field
 from app.core.auth import CurrentUser, get_current_user
 from app.core import metrics as _metrics
 from app.core.rate_limit import TokenBucket
+from app.core.settings import settings
 
 from app.schemas.pipeline import JobResponse
 from app.services import processing_records
 from app.services.prompt_rules import check_prompt
 
+from app.services import job_store
 from app.services.video_job_runner import (
     STAGE_DEFINITIONS,
+    JobQuotaExceeded,
     create_video_job,
+    fail_undispatched_job,
     load_job,
     load_events,
-    list_jobs,
     start_video_job_background,
     _cancel_job,
     _redis_reachable,
     _utc_now,
 )
 from app.services.job_store import load_events_after
+
+logger = logging.getLogger("ai4ia.api.video_jobs")
 
 router = APIRouter(prefix="/video-jobs", tags=["video-jobs"])
 
@@ -73,11 +78,6 @@ class VideoJobRequest(BaseModel):
 # Helpers
 # ---------------------------------------------------------------------------
 
-_MAX_RUNNING_PER_USER = 1   # only 1 active render per user at a time
-_MAX_QUEUED_PER_USER  = 3   # up to 3 more waiting behind it
-_MAX_GLOBAL_QUEUED    = 50  # hard cap on total active+queued jobs
-
-
 # ---------------------------------------------------------------------------
 # In-process rate limiter for job creation (no external dependency)
 # ---------------------------------------------------------------------------
@@ -95,7 +95,8 @@ def _assert_owns(job: dict[str, Any], current_user: CurrentUser) -> None:
     """
     if current_user.persona == "admin":
         return
-    if job.get("user_id") and current_user.id and job["user_id"] != current_user.id:
+    # A job with no owner is treated as someone else's.
+    if not job.get("user_id") or job["user_id"] != current_user.id:
         raise HTTPException(status_code=404, detail=f"Job not found: {job['job_id']}")
 
 
@@ -175,46 +176,38 @@ def create_job(request: VideoJobRequest, current_user: CurrentUser = Depends(get
         )
         raise HTTPException(status_code=422, detail=rules.message)
 
-    all_jobs = list_jobs()
-
-    # Per-user quota: 1 running + 3 queued max
-    if effective_user_id:
-        user_running = [
-            j for j in all_jobs
-            if j.get("user_id") == effective_user_id and j.get("status") == "running"
-        ]
-        user_queued = [
-            j for j in all_jobs
-            if j.get("user_id") == effective_user_id and j.get("status") == "queued"
-        ]
-        if len(user_running) >= _MAX_RUNNING_PER_USER:
+    req_dict = request.model_dump()
+    # The quota (settings.video_job_max_*) is checked and the job inserted in
+    # one transaction, so parallel submissions cannot slip past it.
+    try:
+        job_id = create_video_job(req_dict, user_id=effective_user_id, flags=rules.flags, enforce_quota=True)
+    except JobQuotaExceeded as exc:
+        if exc.limit == "user_running":
             raise HTTPException(
                 status_code=429,
                 detail="You already have a job running. Wait for it to complete before submitting another.",
             )
-        if len(user_queued) >= _MAX_QUEUED_PER_USER:
+        if exc.limit == "user_queued":
             raise HTTPException(
                 status_code=429,
-                detail=f"You already have {len(user_queued)} job(s) queued. "
+                detail=f"You already have {settings.video_job_max_queued_per_user} job(s) queued. "
                        "Wait for one to complete before submitting another.",
             )
-
-    # Global queue cap — prevent VM overload
-    global_active = [j for j in all_jobs if j.get("status") in ("queued", "running")]
-    if len(global_active) >= _MAX_GLOBAL_QUEUED:
+        if exc.limit == "busy":
+            raise HTTPException(status_code=503, detail="The system is busy. Please try again in a moment.")
         raise HTTPException(
             status_code=503,
             detail="System is at capacity. Please try again in a few minutes.",
         )
 
-    req_dict = request.model_dump()
-    job_id = create_video_job(req_dict, user_id=effective_user_id, flags=rules.flags)
-    start_video_job_background(job_id, req_dict)
+    try:
+        start_video_job_background(job_id, req_dict)
+    except HTTPException as exc:
+        # Not queued: fail the row so it stops counting against the quota.
+        fail_undispatched_job(job_id, f"Dispatch failed: {exc.detail}")
+        raise
 
-    # Queue position — count all queued jobs ahead of this one
-    all_jobs = list_jobs()
-    queued = [j for j in all_jobs if j.get("status") == "queued"]
-    queue_position = len(queued)  # this job is already in the list
+    queue_position = job_store.queue_position(job_id)
     _metrics.job_queue_position.observe(queue_position)
 
     return {
@@ -231,9 +224,7 @@ def list_video_jobs(
     limit: int = Query(50, ge=1, le=100),
     offset: int = Query(0, ge=0),
 ):
-    jobs = [j for j in list_jobs() if j.get("user_id") == current_user.id]
-    total = len(jobs)
-    page = jobs[offset: offset + limit]
+    page, total = job_store.list_user_jobs(current_user.id, limit, offset)
     return {
         "jobs": [_job_response(j).model_dump() for j in page],
         "total": total,

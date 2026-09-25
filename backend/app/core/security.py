@@ -126,29 +126,53 @@ class TokenInvalidError(TokenError):
     pass
 
 
-def create_access_token(*, user_id: str, persona: str) -> str:
+def _signing_key() -> str:
+    """The JWT key. Refuses an empty one here rather than relying on the JWT
+    library to, since an empty HMAC key would let anyone sign tokens."""
+    if not settings.jwt_signing_key:
+        raise TokenInvalidError("JWT_SIGNING_KEY is not set")
+    return settings.jwt_signing_key
+
+
+def jwt_key_problem() -> str | None:
+    """Why the configured key is unsafe to start with, or None. A missing key
+    only disables sign-in; a short one can be brute-forced from any token."""
+    key = settings.jwt_signing_key
+    if key and len(key.encode("utf-8")) < settings.jwt_min_key_bytes:
+        return (
+            f"JWT_SIGNING_KEY is shorter than {settings.jwt_min_key_bytes} bytes; "
+            "use a longer random key"
+        )
+    return None
+
+
+def create_access_token(*, user_id: str, persona: str, token_version: int = 0) -> str:
     now = datetime.now(timezone.utc)
     payload: dict[str, Any] = {
         "sub": user_id,
         "persona": persona,
+        "ver": token_version,
         "iss": settings.jwt_issuer,
         "iat": now,
         "exp": now + timedelta(seconds=settings.access_token_ttl_seconds),
     }
-    return jwt.encode(payload, settings.jwt_signing_key, algorithm=settings.jwt_algorithm)
+    return jwt.encode(payload, _signing_key(), algorithm=settings.jwt_algorithm)
 
 
 def decode_access_token(token: str) -> dict[str, Any]:
+    key = _signing_key()
     try:
         return jwt.decode(
             token,
-            settings.jwt_signing_key,
+            key,
             algorithms=[settings.jwt_algorithm],
             issuer=settings.jwt_issuer,
         )
     except jwt.ExpiredSignatureError as exc:
         raise TokenExpiredError("access token expired") from exc
-    except jwt.InvalidTokenError as exc:
+    except jwt.PyJWTError as exc:
+        # Any other library error (bad signature, bad key, malformed) is a
+        # rejected token, never a 500.
         raise TokenInvalidError("access token invalid") from exc
 
 

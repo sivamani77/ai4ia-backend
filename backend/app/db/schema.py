@@ -87,6 +87,32 @@ _STATEMENTS = [
     )
     """,
     "create index if not exists idx_insights_created_at on insights (created_at desc)",
+    # Owner of each insight. Rows made before this column existed get their
+    # owner from the decision record, but only when exactly one user has a
+    # record for that id (old second-resolution ids can collide). Rows left
+    # null are visible to admins only.
+    "alter table insights add column if not exists user_id text",
+    "create index if not exists idx_insights_user_created on insights (user_id, created_at desc)",
+    """
+    do $$
+    begin
+        if to_regclass('agent_decision_records') is not null then
+            update insights i
+               set user_id = d.user_id
+              from (
+                    select insight_id, min(user_id) as user_id
+                      from agent_decision_records
+                     where insight_id is not null
+                       and user_id is not null
+                     group by insight_id
+                    having count(distinct user_id) = 1
+                   ) d
+             where d.insight_id = i.id
+               and i.user_id is null;
+        end if;
+    end
+    $$
+    """,
     """
     create table if not exists ingest_jobs (
         id text primary key,
@@ -339,6 +365,9 @@ _AUTH_STATEMENTS = [
         )
     )
     """,
+    # Bumped to revoke every access token the user holds (password, persona
+    # or account changes); tokens carry the version they were minted with.
+    "alter table app_users add column if not exists token_version integer not null default 0",
     # Case-insensitive uniqueness. UserRepository.username_exists/email_exists
     # are a TOCTOU pre-check only — these indexes are the real backstop, and
     # the repository maps their 23505 to DuplicateUserError.

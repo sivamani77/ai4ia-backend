@@ -4,9 +4,10 @@ import json
 import logging
 from typing import Any, Mapping, TypedDict
 
+import psycopg2.errors
 import psycopg2.extras
 
-from app.db.postgres import pg_execute, pg_fetch_one, pg_fetch_all
+from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one, pg_transaction
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.jobs")
@@ -27,6 +28,20 @@ class JobRecord(TypedDict, total=False):
     job_type: str | None
     worker_id: str | None
     retry_count: int
+
+
+# Serialises quota checks for video-job creation across every replica.
+_JOB_QUOTA_LOCK_KEY = 0x6A6F6271  # "jobq"
+
+_INSERT_JOB_SQL = """
+    insert into jobs (id, status, source_type, source_value, progress, user_id,
+                      created_at, started_at, completed_at, error, metadata,
+                      job_type, worker_id, retry_count)
+    values (%(id)s, %(status)s, %(source_type)s, %(source_value)s, %(progress)s, %(user_id)s,
+            coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s,
+            %(error)s, %(metadata)s, %(job_type)s, %(worker_id)s, %(retry_count)s)
+    returning *
+"""
 
 
 class JobRepository:
@@ -53,21 +68,86 @@ class JobRepository:
         record_id = payload.get("id")
         self._log("insert", record_id)
 
-        row = pg_fetch_one(
-            """
-            insert into jobs (id, status, source_type, source_value, progress, user_id,
-                              created_at, started_at, completed_at, error, metadata,
-                              job_type, worker_id, retry_count)
-            values (%(id)s, %(status)s, %(source_type)s, %(source_value)s, %(progress)s, %(user_id)s,
-                    coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s,
-                    %(error)s, %(metadata)s, %(job_type)s, %(worker_id)s, %(retry_count)s)
-            returning *
-            """,
-            self._to_row_params(payload),
-        )
+        row = pg_fetch_one(_INSERT_JOB_SQL, self._to_row_params(payload))
         if row is not None:
             return self._normalize_output(row)
         return self.get_job(str(record_id))
+
+    def create_job_within_quota(
+        self, data: Mapping[str, Any], *, user_id: str, max_running: int, max_queued: int, max_active: int,
+    ) -> str | None:
+        """Insert a job only while its owner and the platform are under their
+        limits. The count and the insert share one transaction under an
+        advisory lock, so parallel submissions cannot all pass the check.
+        Returns None when the job was created, otherwise the limit that was hit:
+        "user_running", "user_queued" or "active", or "busy" when the lock
+        could not be taken in time."""
+        payload = self._normalize_input(data)
+        self._log("insert_within_quota", payload.get("id"))
+        try:
+            return self._create_within_quota(payload, user_id, max_running, max_queued, max_active)
+        except psycopg2.errors.LockNotAvailable:
+            return "busy"
+
+    def _create_within_quota(
+        self, payload: dict[str, Any], user_id: str, max_running: int, max_queued: int, max_active: int,
+    ) -> str | None:
+        with pg_transaction() as cur:
+            # Waiting requests each hold a pool connection; give up rather than
+            # queue long enough to drain the pool.
+            cur.execute("set local lock_timeout = '5s'")
+            cur.execute("select pg_advisory_xact_lock(%s)", (_JOB_QUOTA_LOCK_KEY,))
+            cur.execute(
+                """
+                select count(*) filter (where user_id = %(user_id)s and status = 'running') as user_running,
+                       count(*) filter (where user_id = %(user_id)s and status = 'queued') as user_queued,
+                       count(*) as active
+                from jobs
+                where status in ('queued', 'running')
+                """,
+                {"user_id": user_id},
+            )
+            counts = cur.fetchone()
+            if counts["user_running"] >= max_running:
+                return "user_running"
+            if counts["user_queued"] >= max_queued:
+                return "user_queued"
+            if counts["active"] >= max_active:
+                return "active"
+            cur.execute(_INSERT_JOB_SQL, self._to_row_params(payload))
+        return None
+
+    def list_by_user_page(self, user_id: str, limit: int, offset: int) -> tuple[list[JobRecord], int]:
+        """One page of a user's jobs, newest first, with the user's total."""
+        rows = pg_fetch_all(
+            """
+            select *, count(*) over () as total_count
+            from jobs where user_id = %s
+            order by created_at desc
+            limit %s offset %s
+            """,
+            (user_id, limit, offset),
+        )
+        if rows:
+            total = int(rows[0]["total_count"])
+        else:
+            count_row = pg_fetch_one("select count(*) as n from jobs where user_id = %s", (user_id,))
+            total = int(count_row["n"]) if count_row else 0
+        for row in rows:
+            row.pop("total_count", None)
+        return [self._normalize_output(row) for row in rows], total
+
+    def queue_position(self, record_id: str) -> int:
+        """How many queued jobs were created no later than this one (itself included)."""
+        row = pg_fetch_one(
+            """
+            select count(*) as n from jobs
+            where status = 'queued'
+              and created_at <= (select created_at from jobs where id = %s)
+            """,
+            (record_id,),
+        )
+        return int(row["n"]) if row else 0
 
     def get_job(self, record_id: str) -> JobRecord | None:
         self._log("select_one", record_id)

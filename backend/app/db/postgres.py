@@ -129,6 +129,16 @@ def pg_fetch_one(query: str, params: tuple | dict | None = None) -> dict[str, An
     return _with_retry("fetch_one", _run)
 
 
+@contextmanager
+def pg_transaction() -> Iterator[Any]:
+    """One connection and one transaction for several statements; commits on
+    success, rolls back on error. Yields a dict-row cursor. Not retried: a
+    transaction cannot be safely replayed halfway."""
+    with _connection() as conn:
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+            yield cur
+
+
 def pg_fetch_all(query: str, params: tuple | dict | None = None) -> list[dict[str, Any]]:
     def _run() -> list[dict[str, Any]]:
         with _connection() as conn:

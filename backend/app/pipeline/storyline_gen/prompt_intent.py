@@ -252,7 +252,13 @@ def build_prompt_profile(
     all_themes_requested = bool(re.search(r"\ball(?:\s+the)?\s+themes?\b", normalized_prompt))
     topic_terms = sorted(extract_topic_terms(prompt, requested_speaker=requested_speaker))
     if requested_speaker:
-        speaker_name_tokens = {normalize_plural(tok) for tok in re.findall(r"[a-z0-9]+", normalize_name(requested_speaker))}
+        # The prompt may use an alias ("Cordell Green"), so strip those tokens too.
+        from app.services.speaker_registry import get_registry
+
+        entry = get_registry().speakers.get(requested_speaker) or {}
+        names = [requested_speaker, *(entry.get("aliases") or [])]
+        speaker_name_tokens = {normalize_plural(tok) for name in names
+                               for tok in re.findall(r"[a-z0-9]+", normalize_name(name))}
         topic_terms = [term for term in topic_terms if term not in speaker_name_tokens]
     if requested_speaker and all_themes_requested:
         topic_terms = []
@@ -506,7 +512,8 @@ def detect_prompt_intent(
     profile["title_match_ratio"] = round(title_ratio, 4)
     profile["title_matched_terms"] = title_terms
 
-    if detect_archive_overview(
+    # A named chapter is a chapter video, even with no other topic words.
+    if not chapter and detect_archive_overview(
         prompt,
         topic_terms,
         requested_speaker=profile.get("requested_speaker"),

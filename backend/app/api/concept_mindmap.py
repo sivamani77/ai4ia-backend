@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
@@ -6,6 +8,8 @@ from app.core import metrics as _metrics
 from app.core.rate_limit import TokenBucket
 from app.services.concept_mindmap_service import generate_concept_mindmap
 
+
+_log = logging.getLogger("ai4ia.api.concept_mindmap")
 
 router = APIRouter(prefix="/v1", tags=["Concept Mindmap"])
 
@@ -34,8 +38,10 @@ def create_concept_mindmap(
             query=request.query,
             storyline_id=request.storyline_id,
             mode="legacy",
+            user_id=None if current_user.persona == "admin" else current_user.id,
         )
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
     except Exception as exc:
-        raise HTTPException(status_code=500, detail=f"Failed to build concept mindmap: {exc}") from exc
+        _log.exception("Concept mindmap failed")
+        raise HTTPException(status_code=500, detail="Failed to build concept mindmap") from exc

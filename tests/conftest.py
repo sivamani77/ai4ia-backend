@@ -55,8 +55,37 @@ def _no_rate_limit_redis(monkeypatch):
     patch app.core.rate_limit._get_redis locally instead.
     """
     from app.core import rate_limit
+    from app.services import auth_service
 
     monkeypatch.setattr(rate_limit, "_get_redis", lambda: None)
+    # The in-process buckets are module globals; start every test with them
+    # empty so limits reached in one test never leak into the next.
+    for value in vars(auth_service).values():
+        if isinstance(value, rate_limit.TokenBucket):
+            value._tokens.clear()
+            value._last.clear()
+
+
+@pytest.fixture(autouse=True)
+def user_states(monkeypatch):
+    """Stand-in for the account row get_current_user checks tokens against.
+
+    Unknown users are an active "general" account at token version 0, which
+    matches a token minted with the defaults. Tests that need an admin, a
+    bumped version or a deactivated account set an entry here.
+    """
+    from app.core import auth
+
+    states: dict = {}
+    monkeypatch.setattr(
+        auth, "_load_user_state",
+        lambda user_id: states.get(user_id, auth.UserState(token_version=0, persona="general", active=True)),
+    )
+    auth._user_state_cache.clear()
+    auth._user_state_generation.clear()
+    yield states
+    auth._user_state_cache.clear()
+    auth._user_state_generation.clear()
 
 
 class _FakeRecords:
@@ -132,6 +161,23 @@ def mock_settings(tmp_path, monkeypatch):
     fake.ai4ia_storage_backend = "local"
     fake.allowed_origins = ["*"]
     fake.validate_deployment_env.return_value = []
+    # Read at import time by client_ip/auth_service; must be real values, not mocks.
+    from app.core.settings import Settings
+
+    _defaults = Settings.model_fields
+    fake.trusted_proxy_cidrs = list(_defaults["trusted_proxy_cidrs"].default)
+    fake.jwt_min_key_bytes = _defaults["jwt_min_key_bytes"].default
+    fake.video_job_max_running_per_user = 1
+    fake.video_job_max_queued_per_user = 3
+    fake.video_job_max_active = 50
+    for _name in ("otp_requests_per_email_ip_per_hour", "otp_requests_per_email_per_hour",
+                  "otp_requests_per_ip_per_hour", "otp_verifies_per_email_ip_per_hour",
+                  "otp_verifies_per_email_per_hour", "otp_verifies_per_ip_per_hour",
+                  "otp_codes_per_email_ip_per_day", "otp_codes_per_email_per_day",
+                  "otp_verifies_per_email_ip_per_day", "otp_verifies_per_email_per_day",
+                  "otp_max_attempts", "otp_ttl_minutes",
+                  "refresh_reuse_grace_seconds"):
+        setattr(fake, _name, _defaults[_name].default)
     # Interactive-endpoint model gate (api/deps.py's require_models) — off by
     # default so a MagicMock doesn't leak into a real int/bool comparison
     # (e.g. `wait_seconds > 0` against model_gate_inline_wait_seconds) for any
@@ -189,9 +235,34 @@ def mock_job_store(monkeypatch):
         job["status"] = "cancelled"
         return True
 
+    def _create_job_within_quota(job_id, data, *, user_id, max_running, max_queued, max_active):
+        active = [j for j in jobs.values() if j.get("status") in ("queued", "running")]
+        mine = [j for j in active if j.get("user_id") == user_id]
+        if sum(j["status"] == "running" for j in mine) >= max_running:
+            return "user_running"
+        if sum(j["status"] == "queued" for j in mine) >= max_queued:
+            return "user_queued"
+        if len(active) >= max_active:
+            return "active"
+        jobs[job_id] = copy.deepcopy(data)
+        return None
+
+    def _list_user_jobs(user_id, limit, offset):
+        mine = sorted((j for j in jobs.values() if j.get("user_id") == user_id),
+                      key=lambda j: j.get("created_at") or "", reverse=True)
+        return [copy.deepcopy(j) for j in mine[offset:offset + limit]], len(mine)
+
+    def _queue_position(job_id):
+        created = jobs[job_id].get("created_at") or ""
+        return sum(1 for j in jobs.values() if j.get("status") == "queued" and (j.get("created_at") or "") <= created)
+
     import app.services.job_store as js
     import app.services.video_job_runner as vjr
     import app.services.media_registry as media_registry
+
+    monkeypatch.setattr(js, "create_job_within_quota", _create_job_within_quota)
+    monkeypatch.setattr(js, "list_user_jobs", _list_user_jobs)
+    monkeypatch.setattr(js, "queue_position", _queue_position)
 
     monkeypatch.setattr(js, "save_job", _save_job)
     monkeypatch.setattr(js, "load_job", _load_job)

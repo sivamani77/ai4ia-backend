@@ -4,7 +4,7 @@ request_email_change_otp, change_email."""
 from __future__ import annotations
 
 import uuid
-from unittest.mock import MagicMock, patch
+from unittest.mock import ANY, MagicMock, patch
 
 import pytest
 from fastapi import HTTPException
@@ -446,7 +446,9 @@ class TestUpgradePersona:
         mock_verify.assert_called_once_with(email=email, code="123456", purpose="persona_upgrade")
         mock_users.update_user.assert_called_once_with(user_id, {"persona": "researcher"})
         # The new token must carry the upgraded role, not the old one.
-        mock_token.assert_called_once_with(user_id=user_id, persona="expert")
+        mock_token.assert_called_once_with(user_id=user_id, persona="expert", token_version=ANY)
+        # ...and every token minted before the upgrade is revoked.
+        mock_users.bump_token_version.assert_called_once_with(user_id)
         assert user["persona"] == "expert"
         assert access_token == "tok"
 
