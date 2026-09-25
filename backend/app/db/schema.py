@@ -302,6 +302,44 @@ _STATEMENTS = [
     "create index if not exists idx_llm_call_payloads_trace_id on llm_call_payloads (trace_id)",
     "create index if not exists idx_llm_call_payloads_expires_at on llm_call_payloads (expires_at)",
     "create index if not exists idx_prompt_resolutions_expires_at on prompt_resolutions (expires_at)",
+    # ------------------------------------------------------------------
+    # feedbacks / notifications — the frontend's feedbackApi.js and
+    # notificationsApi.js were switched from direct Supabase calls to this
+    # backend's API during the security remediation (frontend commit
+    # "minor fixes", 2026-09-21 — see docs/frontend-changes-for-security-
+    # fixes.md F-5, which already lists both as needing the auth-refresh
+    # interceptor), but the backend side was never actually built until now.
+    # ------------------------------------------------------------------
+    """
+    create table if not exists feedbacks (
+        id text primary key,
+        user_id text not null,
+        username text not null,
+        email text not null,
+        feedback text not null,
+        status text not null default 'open',
+        resolution_message text,
+        resolved_at timestamptz,
+        resolved_by text,
+        created_at timestamptz not null default now(),
+        constraint feedbacks_status_check check (status in ('open', 'resolved'))
+    )
+    """,
+    "create index if not exists idx_feedbacks_status on feedbacks (status)",
+    "create index if not exists idx_feedbacks_user_id on feedbacks (user_id)",
+    """
+    create table if not exists notifications (
+        id text primary key,
+        user_id text not null,
+        message text not null,
+        type text not null default 'info',
+        redirect_page text,
+        meta jsonb not null default '{}'::jsonb,
+        read boolean not null default false,
+        created_at timestamptz not null default now()
+    )
+    """,
+    "create index if not exists idx_notifications_user_id on notifications (user_id, created_at desc)",
 ]
 
 

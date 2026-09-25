@@ -45,6 +45,8 @@ from app.api.video_media import router as video_media_router
 from app.api.concept_mindmap import router as concept_mindmap_router
 from app.api.ingest import router as ingest_router
 from app.api.provenance import router as provenance_router
+from app.api.feedback import router as feedback_router
+from app.api.notifications import router as notifications_router
 
 
 class _PipelineLogFilter(logging.Filter):
@@ -468,3 +470,5 @@ app.include_router(video_media_router, prefix=API_PREFIX, dependencies=_auth_dep
 app.include_router(concept_mindmap_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(ingest_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(provenance_router, prefix=API_PREFIX, dependencies=_admin_dep)
+app.include_router(feedback_router, prefix=API_PREFIX, dependencies=_user_dep)
+app.include_router(notifications_router, prefix=API_PREFIX, dependencies=_user_dep)
