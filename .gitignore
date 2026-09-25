@@ -116,3 +116,6 @@ docs/archive-overview-prompts-handoff.md
 # Local rehearsal backups (speaker cleanup)
 backups/
 
+
+# Load-test users carry real signed tokens (C-08)
+k6/loadtest_users*.json

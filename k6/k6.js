@@ -68,7 +68,11 @@ const FULL_COVERAGE = (__ENV.FULL_COVERAGE || 'true') !== 'false';
 const INGEST_SYNC = __ENV.INGEST_SYNC === 'true';
 const VERBOSE = __ENV.VERBOSE === 'true';
 
-const users = new SharedArray('loadtest_users', () => JSON.parse(open('./loadtest_users.json')));
+// Load-test users hold real signed tokens, so the file is never committed
+// (k6/loadtest_users*.json is git-ignored). Generate it right before a run
+// and point USERS_FILE at it if it lives elsewhere.
+const USERS_FILE = __ENV.USERS_FILE || './loadtest_users.json';
+const users = new SharedArray('loadtest_users', () => JSON.parse(open(USERS_FILE)));
 
 // --- Metrics ---------------------------------------------------------------
 const errorRate = new Rate('failed_requests');
