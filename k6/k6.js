@@ -21,8 +21,11 @@
 //
 // Auth: Authorization: Bearer <jwt> per user. X-API-Key only if -e API_KEY set.
 // NOTE: JWTs expire ~15 min after minting — but a 30s render takes ~20 min, so
-//       the token WILL expire mid-poll. Polling tolerates 401 by design, but
-//       regenerate loadtest_users.json right before running for clean results.
+//       the token WILL expire mid-poll. The poll loop refreshes it via
+//       /auth/refresh (using the refresh_token captured in loadtest_users.json)
+//       the first time a poll gets a 401, mirroring how the real frontend now
+//       stays signed in through a long render. Still regenerate
+//       loadtest_users.json right before running — see mint_loadtest_users.py.
 //
 // VU count comes from -e VUS (NOT --vus: a scenarios block makes k6 ignore
 // --vus/--duration). Run length comes from -e MAX_DURATION.
@@ -118,10 +121,39 @@ export const options = {
 function url(path) { return `${BASE_URL}${API_PREFIX}${path}`; }
 function currentUser() { return users[(__VU - 1) % users.length]; }
 
+// Access tokens are short-lived (15 min default) but a real video render
+// takes 15-25+ min, so every VU's token expires mid-poll. liveAccessToken
+// overrides the token baked into loadtest_users.json once refreshAccessToken()
+// mints a new one — it's a plain module-level var, not the SharedArray users
+// object itself, since SharedArray entries are meant to stay read-only.
+let liveAccessToken = null;
+
 function headers(user, extra) {
-  const h = { Authorization: `Bearer ${user.access_token}`, Accept: 'application/json' };
+  const h = { Authorization: `Bearer ${liveAccessToken || user.access_token}`, Accept: 'application/json' };
   if (API_KEY) h['X-API-Key'] = API_KEY;
   return Object.assign(h, extra || {});
+}
+
+// POST /auth/refresh using the refresh_token captured at mint time (an
+// httpOnly cookie in the real login flow, so it's sent back the same way
+// here — see mint_loadtest_users.py). Updates liveAccessToken in place;
+// every subsequent headers() call picks it up automatically.
+function refreshAccessToken(user) {
+  if (!user.refresh_token) return false;
+  const res = http.post(url('/auth/refresh'), null, {
+    headers: { Cookie: `refresh_token=${user.refresh_token}` },
+    tags: { name: 'auth_refresh_poll' },
+  });
+  if (res.status !== 200) {
+    if (VERBOSE) console.warn(`refresh failed for ${user.username} -> ${res.status}`);
+    return false;
+  }
+  try {
+    liveAccessToken = JSON.parse(res.body).access_token;
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 function hit(method, path, opts) {
@@ -339,7 +371,10 @@ function doVideoGeneration(data, u) {
   let terminal = null;
   for (let i = 0; i < maxPolls; i++) {
     sleep(POLL_INTERVAL);
-    const pr = http.get(url(`/video-jobs/${jobId}`), { headers: headers(u), tags: { name: 'video_job_poll' } });
+    let pr = http.get(url(`/video-jobs/${jobId}`), { headers: headers(u), tags: { name: 'video_job_poll' } });
+    if (pr.status === 401 && refreshAccessToken(u)) {
+      pr = http.get(url(`/video-jobs/${jobId}`), { headers: headers(u), tags: { name: 'video_job_poll' } });
+    }
     if (pr.status !== 200) {
       if (VERBOSE) console.warn(`poll ${jobId} -> ${pr.status}`);
       continue;
