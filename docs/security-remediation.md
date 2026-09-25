@@ -47,7 +47,10 @@ Status values: **Open**, **In progress**, **Fixed on develop**, **On uat**, **On
 | C-04 | High | Access tokens live 30 days and cannot be revoked | 3 | Fixed on develop; lifetime change waits for frontend F-5 |
 | C-08 | High | Signed user tokens committed to the repo | 3 | Fixed on develop |
 | NEW-01 | High | Supabase service-role key committed in a k8s example | 3 | Removed on develop; **rotation needed in Supabase** |
-| Q-01 | High | Per-user job quota can be exceeded by concurrent requests | 4 | Open |
+| Q-01 | High | Per-user job quota can be exceeded by concurrent requests | 4 | Fixed on develop |
+| Q-03 | Medium | A failed dispatch leaves a queued job that uses quota forever | 4 | Fixed on develop |
+| Q-04 | Medium | Quota evaluation scans the whole jobs table on every request | 4 | Fixed on develop |
+| Q-06 | Low | Quota limits are hard-coded | 4 | Fixed on develop (limits are settings) |
 | C-10 | High | Unpinned dependencies, stale lockfile, no scanning | 5 | Open |
 | C-11 | High | CI has no quality gates; branch conditions wrong | 5 | Open |
 | A-02 | High | Secured operations document no 401/403 | later | Open |
@@ -85,11 +88,9 @@ See the fix records in section 3. The code is on `develop`. Merge to uat
 only after frontend F-5 is live, because every existing session is asked to
 refresh at deploy.
 
-### PR 4: Job quota (planned)
+### PR 4: Job quota (done)
 
-- **Q-01:** take `pg_advisory_xact_lock(hashtext(user_id))`, then count and insert in one transaction.
-- **Q-04:** count in SQL (`where user_id = %s and status in ('queued','running')`) instead of `list_jobs()` loading every row.
-- **Q-03:** if dispatch fails, mark the job failed before re-raising, so it stops counting against the quota.
+See the fix records in section 3. It doesn't depend on the frontend.
 
 ### PR 5: Build and CI (planned)
 
@@ -474,6 +475,35 @@ A scan of all tracked files for other key patterns (AWS, private keys, API
 tokens, JWTs) found nothing else. The only hit was the fake key used in
 `tests/unit/test_presigned_url.py`.
 
+### Q-01, Q-03, Q-04, Q-06: Video job quota
+
+| | |
+|---|---|
+| Severity | High (Q-01: CWE-367, OWASP API4:2023); Medium (Q-03, Q-04); Low (Q-06) |
+| Status | Fixed on develop |
+
+**Problem.**
+- **Q-01:** the quota (1 running and 3 queued per user, 50 active on the platform) was a read followed by an insert, with nothing in between, so parallel submissions all passed the check.
+- **Q-04:** each submission loaded every job on the platform twice (`select * from jobs`, with full JSON metadata), and the job list loaded it again, then filtered and paged in Python.
+- **Q-03:** if the job queue was unreachable, the job row stayed `queued` forever and counted against its owner. Three failed submissions locked the user out.
+
+**Fix.**
+- **Atomic quota (Q-01):** `JobRepository.create_job_within_quota` runs the count and the insert in one transaction, under a Postgres advisory lock shared by every replica. The count is one `count(*) FILTER` over queued and running jobs, which uses the existing `status` index.
+- **SQL paging (Q-04):** the job list pages in SQL (`LIMIT/OFFSET` plus a window count), and the queue position is a SQL count.
+- **Dispatch rollback (Q-03):** if dispatch fails, or the job's bookkeeping fails after the insert, the job goes through the normal failure path (`completed_at`, a "failed" event, a user message, and the processing record closed) before the error is returned, so it no longer counts.
+- **Lock timeout:** a submission waits at most 5 seconds for the quota lock, then gets 503 "busy", so a burst can't drain the connection pool.
+- **Limits in settings (Q-06):** `VIDEO_JOB_MAX_RUNNING_PER_USER`, `VIDEO_JOB_MAX_QUEUED_PER_USER` and `VIDEO_JOB_MAX_ACTIVE`.
+- **New helper:** `db/postgres.py` gained `pg_transaction()` for multi-statement transactions.
+
+**Tests.**
+- `tests/integration/test_job_quota_postgres.py`: 8 parallel submissions against real Postgres; exactly 3 are accepted.
+- `tests/api/test_video_jobs_and_media.py`: each limit, dispatch rollback, paging.
+
+**Before release.** The job list now filters on the `user_id` column. Rows whose owner sits only in metadata would drop out of their owner's list. There are none locally; confirm on uat:
+`select count(*) from jobs where coalesce(user_id,'') = '' and coalesce(metadata->>'user_id','') <> ''` should return 0.
+
+**Not included.** Q-02 (`Retry-After` on these 429/503s), Q-05 (daily model budgets) and Q-07 (the fixed-window limiter) are still open.
+
 ---
 
 ## 4. Open decisions
@@ -482,8 +512,8 @@ tokens, JWTs) found nothing else. The only hit was the fake key used in
 |---|---|---|---|
 | 1 | The landing page's speaker count changes from the hard-coded 71 to the real count (about 307). Confirm this is the definition wanted: speakers with footage in the archive. | PR 1 frontend | Product |
 | 2 | When to set `ACCESS_TOKEN_TTL_SECONDS=900` on the cluster. It follows the frontend refresh work (F-5); the code side is done. | PR 3 | Backend + frontend |
-| 3 | `JWT_SIGNING_KEY` is set on uat (confirmed from the startup log). Still to confirm: where it comes from, its length (≥ 32 bytes for the C-06 check), and the same for release. | PR 2 (C-06), PR 3 (rotation) | DevOps |
-| 4 | Signing-key rotation is not needed for C-08 (old tokens die through `ver`), unless the key turns out to be under 32 bytes. | PR 2 gate | DevOps |
+| 3 | `JWT_SIGNING_KEY` on uat is 64 characters, which clears the PR 2 gate (confirmed 2026-09-25). Release still needs the same check. Most of the key was pasted into a chat, so rotate it with the PR 3 deploy (decision 4). | PR 2 gate (release) | DevOps |
+| 4 | Rotate `JWT_SIGNING_KEY` when PR 3 deploys (`openssl rand -base64 48`, written straight into the cluster Secret). Only access tokens depend on it; refresh tokens are random values checked in the database. Once frontend F-5 is live, rotation costs each user one silent refresh, and PR 3 already causes one at that moment. | PR 3 deploy | DevOps |
 | 5 | Rotate the Supabase service-role key for project `rzcaziwizcektrlrdujr`, or shut the project down (NEW-01). | Now, independent of deploys | Whoever owns the Supabase account |
 
 **Note on decision 3: how tokens are signed today.**
@@ -503,6 +533,7 @@ tokens, JWTs) found nothing else. The only hit was the fake key used in
 1. Regression tests for the finding (listed in each record) pass, and fail when the fix is reverted.
 2. The full suite passes: `.venv/bin/python -m pytest`.
 3. A supervising review of the PR's diff looks for bypasses, edge cases and regressions. Its findings are fixed and re-checked before the PR moves on.
+   - PR 4 review, 2026-09-25: no blockers. Fixed: a failed dispatch skipped the normal failure bookkeeping; a bookkeeping error after the insert left a job holding a queued slot; the lock wait had no timeout. Pre-release check added for legacy owner rows.
    - PR 3 review, 2026-09-25: no blockers. Fixed: a token newer than another replica's cache was rejected for up to 15 seconds; a load racing a revocation could cache stale state; the real account-row mapping had no test. Also fixed a test that failed at random: it tampered with the signature's last base64 character, which can carry only padding bits.
    - PR 2 review, 2026-09-25: one deploy gate, four should-fix items, three notes. Fixed: resend-otp bypassed the new limits; per-e-mail limits let an attacker lock the owner out, so limits are now tiered by e-mail+IP; per-IP limits could turn global if IP resolution collapsed, so they are skipped for proxy addresses; the refresh grace window now requires the same user agent. Documented rather than changed: the two-attempt cost of check-then-reset, and existing enumeration signals (C-17).
    - PR 1 review, 2026-09-25: six findings. Fixed: the backfill could give an insight to the wrong user when ids collided; a failed dashboard count was cached as 0 for 5 minutes; the no-id mindmap path was unbounded; three test gaps. Checked and needed no change: archive media playback, because the frontend fetches it with the bearer token.
