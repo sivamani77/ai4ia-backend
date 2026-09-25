@@ -48,6 +48,7 @@ Status values: **Open**, **In progress**, **Fixed on develop**, **On uat**, **On
 | C-08 | High | Signed user tokens committed to the repo | 3 | Fixed on develop |
 | NEW-01 | High | Supabase service-role key committed in a k8s example | 3 | Removed on develop; **rotation needed in Supabase** |
 | Q-01 | High | Per-user job quota can be exceeded by concurrent requests | 4 | Fixed on develop |
+| C-23 | Medium | Startup reaper fails live jobs when Redis is unreachable at boot | recovery | Fixed on develop (the video startup reaper is replaced by the heartbeat sweeper; see `docs/job-recovery-plan.md`) |
 | Q-03 | Medium | A failed dispatch leaves a queued job that uses quota forever | 4 | Fixed on develop |
 | Q-04 | Medium | Quota evaluation scans the whole jobs table on every request | 4 | Fixed on develop |
 | Q-06 | Low | Quota limits are hard-coded | 4 | Fixed on develop (limits are settings) |
