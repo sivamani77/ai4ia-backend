@@ -151,6 +151,7 @@ class TestValidateDeploymentEnv:
             mail_smtp_host="smtp.example.com",
             mail_smtp_user="user",
             mail_smtp_password="pw",
+            access_token_ttl_seconds=900,
         )
         warnings = s.validate_deployment_env()
         assert warnings == []

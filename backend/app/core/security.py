@@ -146,11 +146,12 @@ def jwt_key_problem() -> str | None:
     return None
 
 
-def create_access_token(*, user_id: str, persona: str) -> str:
+def create_access_token(*, user_id: str, persona: str, token_version: int = 0) -> str:
     now = datetime.now(timezone.utc)
     payload: dict[str, Any] = {
         "sub": user_id,
         "persona": persona,
+        "ver": token_version,
         "iss": settings.jwt_issuer,
         "iat": now,
         "exp": now + timedelta(seconds=settings.access_token_ttl_seconds),

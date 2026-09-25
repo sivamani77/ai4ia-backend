@@ -71,8 +71,11 @@ def test_admin_dashboard_requires_admin(client):
     assert client.get("/api/admin/dashboard", headers=_auth_headers("general")).status_code == 403
 
 
-def test_admin_dashboard_returns_full_details(client, monkeypatch):
+def test_admin_dashboard_returns_full_details(client, monkeypatch, user_states):
     import app.api.dashboard as dashboard_module
+    from app.core.auth import UserState
+
+    user_states["550e8400-e29b-41d4-a716-446655440000"] = UserState(token_version=0, persona="admin", active=True)
 
     monkeypatch.setattr(dashboard_module, "get_admin_dashboard", lambda: {"models": {"tts": "edge-tts"}})
 

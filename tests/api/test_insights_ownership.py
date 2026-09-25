@@ -79,7 +79,10 @@ def test_owner_can_read_their_insight(insights_client):
     assert response.json()["insight_id"] == "insight_owned"
 
 
-def test_admin_sees_every_insight(insights_client):
+def test_admin_sees_every_insight(insights_client, user_states):
+    from app.core.auth import UserState
+
+    user_states[ADMIN_ID] = UserState(token_version=0, persona="admin", active=True)
     headers = _auth_headers(ADMIN_ID, persona="admin")
 
     listed = insights_client.get("/api/insights", headers=headers)

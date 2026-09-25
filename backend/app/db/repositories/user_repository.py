@@ -259,6 +259,14 @@ class UserRepository:
         )
         return [self._record(row) for row in rows], total  # type: ignore[misc]
 
+    def bump_token_version(self, user_id: str) -> int:
+        """Invalidate every access token the user holds; returns the new version."""
+        row = pg_fetch_one(
+            "update app_users set token_version = token_version + 1 where id = %s returning token_version",
+            (user_id,),
+        )
+        return int(row["token_version"]) if row is not None else 0
+
     def deactivate(self, user_id: str) -> None:
         self.update_user(user_id, {"status": "deactivated"})
 

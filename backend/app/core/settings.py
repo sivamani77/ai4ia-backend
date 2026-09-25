@@ -522,6 +522,11 @@ class Settings(BaseSettings):
             warnings.append("API_KEY is not set — running in open dev mode, no auth enforced")
         if not self.jwt_signing_key:
             warnings.append("JWT_SIGNING_KEY is not set — user auth tokens cannot be issued")
+        if self.access_token_ttl_seconds > 3600:
+            warnings.append(
+                f"ACCESS_TOKEN_TTL_SECONDS is {self.access_token_ttl_seconds}; access tokens should "
+                "live at most an hour (default 900) and be renewed through /api/auth/refresh"
+            )
         if not self.mail_smtp_host or not self.mail_smtp_user or not self.mail_smtp_password:
             warnings.append("MAIL_SMTP_* is not fully configured — OTP emails cannot be sent")
         return warnings

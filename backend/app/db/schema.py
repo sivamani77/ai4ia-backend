@@ -365,6 +365,9 @@ _AUTH_STATEMENTS = [
         )
     )
     """,
+    # Bumped to revoke every access token the user holds (password, persona
+    # or account changes); tokens carry the version they were minted with.
+    "alter table app_users add column if not exists token_version integer not null default 0",
     # Case-insensitive uniqueness. UserRepository.username_exists/email_exists
     # are a TOCTOU pre-check only — these indexes are the real backstop, and
     # the repository maps their 23505 to DuplicateUserError.

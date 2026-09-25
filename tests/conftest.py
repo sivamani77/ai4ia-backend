@@ -66,6 +66,28 @@ def _no_rate_limit_redis(monkeypatch):
             value._last.clear()
 
 
+@pytest.fixture(autouse=True)
+def user_states(monkeypatch):
+    """Stand-in for the account row get_current_user checks tokens against.
+
+    Unknown users are an active "general" account at token version 0, which
+    matches a token minted with the defaults. Tests that need an admin, a
+    bumped version or a deactivated account set an entry here.
+    """
+    from app.core import auth
+
+    states: dict = {}
+    monkeypatch.setattr(
+        auth, "_load_user_state",
+        lambda user_id: states.get(user_id, auth.UserState(token_version=0, persona="general", active=True)),
+    )
+    auth._user_state_cache.clear()
+    auth._user_state_generation.clear()
+    yield states
+    auth._user_state_cache.clear()
+    auth._user_state_generation.clear()
+
+
 class _FakeRecords:
     """In-memory stand-in for the prompt_resolutions / llm_call_payloads repositories."""
 

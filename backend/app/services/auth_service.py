@@ -117,6 +117,19 @@ class _DailyCodeCapReached(HTTPException):
         super().__init__(status_code=429, detail="Too many codes requested today. Please try again tomorrow.")
 
 
+def _token_version(user: dict) -> int:
+    return int(user.get("token_version") or 0)
+
+
+def revoke_access_tokens(user_id: str) -> None:
+    """End every access token the user holds, on every device. Takes effect
+    on this replica at once and on the others within the user-state cache TTL."""
+    from app.core.auth import forget_user_state
+
+    get_user_repository().bump_token_version(user_id)
+    forget_user_state(user_id)
+
+
 def _to_ui_persona(db_persona: str | None) -> str:
     return _DB_TO_PERSONA.get(db_persona or "", db_persona or "")
 
@@ -256,7 +269,7 @@ def issue_token_pair(
     if user is None:
         raise HTTPException(status_code=404, detail="Account not found")
     persona = _to_ui_persona(user.get("persona"))
-    access_token = create_access_token(user_id=user_id, persona=persona)
+    access_token = create_access_token(user_id=user_id, persona=persona, token_version=_token_version(user))
     refresh_token, session_id = _issue_refresh_token(user_id=user_id, user_agent=user_agent, ip=ip)
     session_service.create_session(
         session_id=session_id, user_id=user_id, user_agent=user_agent, ip=ip
@@ -416,7 +429,7 @@ def login(
     _metrics.auth_events_total.labels(event="login", outcome="success").inc()
 
     persona = _to_ui_persona(user.get("persona"))
-    access_token = create_access_token(user_id=user["id"], persona=persona)
+    access_token = create_access_token(user_id=user["id"], persona=persona, token_version=_token_version(user))
     refresh_token, session_id = _issue_refresh_token(user_id=user["id"], user_agent=user_agent, ip=ip)
     session_service.create_session(
         session_id=session_id, user_id=user["id"], user_agent=user_agent, ip=ip
@@ -473,6 +486,7 @@ def reset_password(*, email: str, code: str, new_password: str, ip: str | None =
     users.reset_login_attempts(user["id"])
 
     get_refresh_token_repository().revoke_all_for_user(user["id"])
+    revoke_access_tokens(user["id"])
     session_service.end_all_sessions_for_user(user["id"], reason="password_reset")
     get_auth_audit_repository().log(event="password_reset", success=True, user_id=user["id"])
     _metrics.auth_events_total.labels(event="password_reset", outcome="success").inc()
@@ -544,6 +558,7 @@ def change_password(user_id: str, *, current_password: str, code: str, new_passw
     users.reset_login_attempts(user_id)
 
     get_refresh_token_repository().revoke_all_for_user(user_id)
+    revoke_access_tokens(user_id)
     session_service.end_all_sessions_for_user(user_id, reason="password_change")
     get_auth_audit_repository().log(event="password_change", success=True, user_id=user_id)
 
@@ -600,13 +615,17 @@ def upgrade_persona(user_id: str, *, code: str) -> tuple[dict, str]:
     verify_otp(email=email, code=code, purpose="persona_upgrade")
 
     users.update_user(user_id, {"persona": _PERSONA_TO_DB["expert"]})
+    # The old token carries the old role; the one returned below replaces it.
+    revoke_access_tokens(user_id)
 
     get_auth_audit_repository().log(event="persona_upgrade", success=True, user_id=user_id)
     _metrics.auth_events_total.labels(event="persona_upgrade", outcome="success").inc()
 
     updated = users.get_by_id(user_id)
     public_user = to_public_user(updated)
-    access_token = create_access_token(user_id=user_id, persona=public_user["persona"])
+    access_token = create_access_token(
+        user_id=user_id, persona=public_user["persona"], token_version=_token_version(updated)
+    )
     return public_user, access_token
 
 
@@ -745,9 +764,16 @@ def refresh_access_token(
     if user is None:
         _metrics.auth_events_total.labels(event="refresh", outcome="failure").inc()
         raise HTTPException(status_code=401, detail="Account no longer exists")
+    if user.get("status") == "deactivated":
+        tokens.revoke_family(record["family_id"])
+        _metrics.auth_events_total.labels(event="refresh", outcome="failure").inc()
+        raise HTTPException(
+            status_code=401,
+            detail={"code": "account_deactivated", "message": "This account has been deactivated."},
+        )
 
     persona = _to_ui_persona(user.get("persona"))
-    access_token = create_access_token(user_id=user["id"], persona=persona)
+    access_token = create_access_token(user_id=user["id"], persona=persona, token_version=_token_version(user))
     new_refresh_token, session_id = _issue_refresh_token(
         user_id=user["id"], family_id=record["family_id"], user_agent=user_agent, ip=ip
     )
