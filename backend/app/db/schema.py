@@ -327,8 +327,14 @@ _STATEMENTS = [
     """,
     "create index if not exists idx_feedbacks_status on feedbacks (status)",
     "create index if not exists idx_feedbacks_user_id on feedbacks (user_id)",
+    # Named app_notifications, not notifications: a table called "notifications"
+    # already exists on the UAT database with a different, unknown schema
+    # (predates this repo — git history has zero commits ever touching it), so
+    # CREATE TABLE IF NOT EXISTS silently no-op'd against it and every query
+    # here failed with psycopg2.errors.UndefinedColumn. Left that table alone
+    # rather than inspect/alter something with no history or known owner.
     """
-    create table if not exists notifications (
+    create table if not exists app_notifications (
         id text primary key,
         user_id text not null,
         message text not null,
@@ -339,7 +345,7 @@ _STATEMENTS = [
         created_at timestamptz not null default now()
     )
     """,
-    "create index if not exists idx_notifications_user_id on notifications (user_id, created_at desc)",
+    "create index if not exists idx_app_notifications_user_id on app_notifications (user_id, created_at desc)",
 ]
 
 

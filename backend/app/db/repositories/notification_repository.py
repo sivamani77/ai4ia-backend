@@ -22,13 +22,16 @@ class NotificationRecord(TypedDict, total=False):
 
 
 class NotificationRepository:
-    table_name = "notifications"
+    # Not "notifications" — that name already exists on UAT's Postgres with
+    # an unrelated, unknown schema (no git history, no known owner). See the
+    # comment in schema.py next to app_notifications for the full story.
+    table_name = "app_notifications"
 
     def create(self, data: Mapping[str, Any]) -> NotificationRecord:
         payload = self._to_row(data)
         row = pg_fetch_one(
             """
-            insert into notifications (id, user_id, message, type, redirect_page, meta, read)
+            insert into app_notifications (id, user_id, message, type, redirect_page, meta, read)
             values (%(id)s, %(user_id)s, %(message)s, %(type)s, %(redirect_page)s, %(meta)s, %(read)s)
             returning *
             """,
@@ -47,23 +50,23 @@ class NotificationRepository:
 
     def list_by_user(self, user_id: str, limit: int = 50) -> list[NotificationRecord]:
         rows = pg_fetch_all(
-            "select * from notifications where user_id = %s order by created_at desc limit %s",
+            "select * from app_notifications where user_id = %s order by created_at desc limit %s",
             (user_id, limit),
         )
         return [self._from_row(row) for row in rows]
 
     def mark_read(self, notification_id: str, user_id: str) -> bool:
         row = pg_fetch_one(
-            "update notifications set read = true where id = %s and user_id = %s returning id",
+            "update app_notifications set read = true where id = %s and user_id = %s returning id",
             (notification_id, user_id),
         )
         return row is not None
 
     def mark_all_read(self, user_id: str) -> None:
-        pg_execute("update notifications set read = true where user_id = %s and read = false", (user_id,))
+        pg_execute("update app_notifications set read = true where user_id = %s and read = false", (user_id,))
 
     def delete_all_for_user(self, user_id: str) -> None:
-        pg_execute("delete from notifications where user_id = %s", (user_id,))
+        pg_execute("delete from app_notifications where user_id = %s", (user_id,))
 
     def _to_row(self, data: Mapping[str, Any]) -> dict[str, Any]:
         d = normalize_value(dict(data))
