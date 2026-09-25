@@ -188,6 +188,19 @@ function hitSSE(path, opts) {
 
 const TERMS = ['climate', 'energy', 'policy', 'ai ethics', 'water', 'governance', 'economy', 'regulation'];
 
+// Real video-job prompts must match the archive's actual coverage, or the
+// new archive-coverage check declines the job before any rendering happens
+// (topic_not_covered) — a correct rejection that would still look like a
+// load-test failure. TERMS above is fine for search/analytics calls (those
+// don't reject on no-match), but doVideoGeneration needs topics confirmed
+// covered — these three are the exact themes a live coverage-check error
+// reported the archive has (see vjob_20260925_062708_29feee74's decline).
+const VIDEO_TOPICS = [
+  'AI ethics, governance and policy',
+  'AI in health, science and environment',
+  'AI and information access, media and journalism',
+];
+
 // ===========================================================================
 // The single per-user journey.
 // ===========================================================================
@@ -240,22 +253,27 @@ function doReads(data, u) {
     }
   });
 
-  group('provenance', () => hit('GET', '/provenance/feed', { user: u, name: 'provenance_feed', trend: tReads }));
+  // provenance/feed and every /ingest/* read are admin-only now (see "Close
+  // anonymous and cross-user data access") — a general load-test user
+  // correctly gets 403 here. Accept it alongside 200 so it's not counted as
+  // a failure; still exercises the route and still catches a real 5xx.
+  const ADMIN_ONLY = [200, 401, 403];
+  group('provenance', () => hit('GET', '/provenance/feed', { user: u, name: 'provenance_feed', trend: tReads, expect: ADMIN_ONLY }));
 
   group('video-jobs-list', () => hit('GET', '/video-jobs', { user: u, name: 'video_jobs_list', trend: tReads }));
 
   group('ingest-read', () => {
-    hit('GET', '/ingest/jobs', { user: u, name: 'ingest_jobs', trend: tReads });
-    hit('GET', '/ingest/videos', { user: u, name: 'ingest_videos', trend: tReads });
-    if (data.videoId) hit('GET', `/ingest/videos/${data.videoId}`, { user: u, name: 'ingest_video_detail', expect: [200, 404] });
+    hit('GET', '/ingest/jobs', { user: u, name: 'ingest_jobs', trend: tReads, expect: ADMIN_ONLY });
+    hit('GET', '/ingest/videos', { user: u, name: 'ingest_videos', trend: tReads, expect: ADMIN_ONLY });
+    if (data.videoId) hit('GET', `/ingest/videos/${data.videoId}`, { user: u, name: 'ingest_video_detail', expect: [200, 404, 401, 403] });
     const ij = data.ingestJobId;
     if (ij) {
-      hit('GET', `/ingest/jobs/${ij}`, { user: u, name: 'ingest_job_detail', expect: [200, 404] });
-      hit('GET', `/ingest/jobs/${ij}/provenance`, { user: u, name: 'ingest_job_provenance', expect: [200, 404] });
-      hit('GET', `/ingest/jobs/${ij}/logs`, { user: u, name: 'ingest_job_logs', expect: [200, 404] });
+      hit('GET', `/ingest/jobs/${ij}`, { user: u, name: 'ingest_job_detail', expect: [200, 404, 401, 403] });
+      hit('GET', `/ingest/jobs/${ij}/provenance`, { user: u, name: 'ingest_job_provenance', expect: [200, 404, 401, 403] });
+      hit('GET', `/ingest/jobs/${ij}/logs`, { user: u, name: 'ingest_job_logs', expect: [200, 404, 401, 403] });
       hitSSE(`/ingest/jobs/${ij}/events`, { user: u, name: 'ingest_job_events' });
       if (data.ingestStage) {
-        hit('GET', `/ingest/jobs/${ij}/logs/${data.ingestStage}`, { user: u, name: 'ingest_job_log_stage', expect: [200, 404] });
+        hit('GET', `/ingest/jobs/${ij}/logs/${data.ingestStage}`, { user: u, name: 'ingest_job_log_stage', expect: [200, 404, 401, 403] });
         hitSSE(`/ingest/jobs/${ij}/logs/${data.ingestStage}/stream`, { user: u, name: 'ingest_job_log_stream' });
       }
     }
@@ -339,7 +357,7 @@ function doAdmin(data, u) {
 function doVideoGeneration(data, u) {
   const startedAt = Date.now();
   const body = JSON.stringify({
-    prompt: `A ${TARGET_DURATION}-second documentary about ${randomItem(TERMS)} in agriculture and AI.`,
+    prompt: `A ${TARGET_DURATION}-second documentary about ${randomItem(VIDEO_TOPICS)}.`,
     target_duration: TARGET_DURATION,
     style: 'documentary',
     validation_mode: 'iterative_llm',
