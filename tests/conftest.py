@@ -167,6 +167,9 @@ def mock_settings(tmp_path, monkeypatch):
     _defaults = Settings.model_fields
     fake.trusted_proxy_cidrs = list(_defaults["trusted_proxy_cidrs"].default)
     fake.jwt_min_key_bytes = _defaults["jwt_min_key_bytes"].default
+    fake.video_job_max_running_per_user = 1
+    fake.video_job_max_queued_per_user = 3
+    fake.video_job_max_active = 50
     for _name in ("otp_requests_per_email_ip_per_hour", "otp_requests_per_email_per_hour",
                   "otp_requests_per_ip_per_hour", "otp_verifies_per_email_ip_per_hour",
                   "otp_verifies_per_email_per_hour", "otp_verifies_per_ip_per_hour",
@@ -232,9 +235,34 @@ def mock_job_store(monkeypatch):
         job["status"] = "cancelled"
         return True
 
+    def _create_job_within_quota(job_id, data, *, user_id, max_running, max_queued, max_active):
+        active = [j for j in jobs.values() if j.get("status") in ("queued", "running")]
+        mine = [j for j in active if j.get("user_id") == user_id]
+        if sum(j["status"] == "running" for j in mine) >= max_running:
+            return "user_running"
+        if sum(j["status"] == "queued" for j in mine) >= max_queued:
+            return "user_queued"
+        if len(active) >= max_active:
+            return "active"
+        jobs[job_id] = copy.deepcopy(data)
+        return None
+
+    def _list_user_jobs(user_id, limit, offset):
+        mine = sorted((j for j in jobs.values() if j.get("user_id") == user_id),
+                      key=lambda j: j.get("created_at") or "", reverse=True)
+        return [copy.deepcopy(j) for j in mine[offset:offset + limit]], len(mine)
+
+    def _queue_position(job_id):
+        created = jobs[job_id].get("created_at") or ""
+        return sum(1 for j in jobs.values() if j.get("status") == "queued" and (j.get("created_at") or "") <= created)
+
     import app.services.job_store as js
     import app.services.video_job_runner as vjr
     import app.services.media_registry as media_registry
+
+    monkeypatch.setattr(js, "create_job_within_quota", _create_job_within_quota)
+    monkeypatch.setattr(js, "list_user_jobs", _list_user_jobs)
+    monkeypatch.setattr(js, "queue_position", _queue_position)
 
     monkeypatch.setattr(js, "save_job", _save_job)
     monkeypatch.setattr(js, "load_job", _load_job)

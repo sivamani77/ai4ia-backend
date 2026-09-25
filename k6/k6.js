@@ -12,11 +12,11 @@
 //
 // ┌──────────────────────────────────────────────────────────────────────┐
 // │ ⚠ IMPORTANT — GLOBAL JOB CAP OF 20                                     │
-// │ backend/app/api/video_jobs.py sets _MAX_GLOBAL_QUEUED = 20. With 50    │
+// │ The server caps active jobs at VIDEO_JOB_MAX_ACTIVE (default 50). With 50 │
 // │ users creating jobs at once, only ~20 will be accepted (202); the rest │
 // │ get 503 "System is at capacity." The script treats 503 as EXPECTED and │
 // │ counts it (video_rejected_503). To truly test 50 concurrent renders,   │
-// │ raise _MAX_GLOBAL_QUEUED to >=50 on the server first.                  │
+// │ raise VIDEO_JOB_MAX_ACTIVE above 50 on the server first.               │
 // └──────────────────────────────────────────────────────────────────────┘
 //
 // Auth: Authorization: Bearer <jwt> per user. X-API-Key only if -e API_KEY set.
@@ -412,7 +412,7 @@ export function setup() {
   console.log(`Target: ${BASE_URL}${API_PREFIX}`);
   console.log(`Model: ${VUS} VUs x ${ITERATIONS} iteration | 30s video per user | maxDuration ${MAX_DURATION}`);
   console.log(`FULL_COVERAGE=${FULL_COVERAGE} INGEST_SYNC=${INGEST_SYNC} POLL_TIMEOUT=${POLL_TIMEOUT}s`);
-  console.log('⚠ Server _MAX_GLOBAL_QUEUED=20: only ~20 of 50 video jobs will be accepted unless you raise it.');
+  console.log('⚠ Server VIDEO_JOB_MAX_ACTIVE caps accepted video jobs; raise it for a full concurrent run.');
 
   const health = http.get(url('/health'), h);
   if (health.status !== 200) throw new Error(`Health check failed (${health.status}) — check BASE_URL.`);

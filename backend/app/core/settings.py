@@ -94,6 +94,11 @@ class Settings(BaseSettings):
     record_llm_payloads: bool = True        # store full LLM request/response text
     processing_purge_cron: str = "45 3 * * *"  # blank disables the expiry sweep
 
+    # Video job quota: enforced atomically at submission (api/video_jobs.py).
+    video_job_max_running_per_user: int = 1
+    video_job_max_queued_per_user: int = 3
+    video_job_max_active: int = 50  # queued + running, whole platform
+
     # Login brute-force lockout
     login_max_failed_attempts: int = 5
     login_lockout_seconds: int = 15 * 60  # 15 minutes

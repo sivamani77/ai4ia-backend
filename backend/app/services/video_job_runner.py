@@ -246,7 +246,23 @@ def _complete_job(job_id: str) -> None:
 # Job creation
 # ---------------------------------------------------------------------------
 
-def create_video_job(request: dict[str, Any], user_id: str = "", flags: dict[str, Any] | None = None) -> str:
+class JobQuotaExceeded(Exception):
+    """A submission was refused by the job quota; `limit` names which one."""
+
+    def __init__(self, limit: str) -> None:
+        super().__init__(limit)
+        self.limit = limit
+
+
+def create_video_job(
+    request: dict[str, Any],
+    user_id: str = "",
+    flags: dict[str, Any] | None = None,
+    *,
+    enforce_quota: bool = False,
+) -> str:
+    """Create a queued job. With enforce_quota, the quota check and the insert
+    are one atomic step and JobQuotaExceeded is raised when a limit is hit."""
     job_id = f"vjob_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
 
     job: dict[str, Any] = {
@@ -279,11 +295,42 @@ def create_video_job(request: dict[str, Any], user_id: str = "", flags: dict[str
         "warnings": [],
         "error": None,
     }
-    save_job(job_id, job)
-    append_event(job_id, "created", "queued", {"prompt": request.get("prompt", "")})
-    processing_records.start_request(job_id, user_id, request.get("prompt", ""), flags=flags)
+    if enforce_quota:
+        from app.services import job_store
+
+        limit = job_store.create_job_within_quota(
+            job_id, job,
+            user_id=user_id,
+            max_running=settings.video_job_max_running_per_user,
+            max_queued=settings.video_job_max_queued_per_user,
+            max_active=settings.video_job_max_active,
+        )
+        if limit is not None:
+            raise JobQuotaExceeded(limit)
+    else:
+        save_job(job_id, job)
+    try:
+        append_event(job_id, "created", "queued", {"prompt": request.get("prompt", "")})
+        processing_records.start_request(job_id, user_id, request.get("prompt", ""), flags=flags)
+    except Exception as exc:
+        # The row exists but will never be dispatched; fail it so it does not
+        # hold one of the owner's queued slots.
+        fail_undispatched_job(job_id, f"Job setup failed: {exc}")
+        raise
     _metrics.jobs_created_total.inc()
     return job_id
+
+
+def fail_undispatched_job(job_id: str, message: str) -> None:
+    """Fail a job that was created but never reached the worker. Best effort:
+    a failure here is logged, never raised over the original error."""
+    try:
+        _fail_job(
+            job_id, "queued", "dispatch_failed", message,
+            user_message="The job could not be queued. Please try again.",
+        )
+    except Exception:  # noqa: BLE001
+        logger.exception("Could not mark undispatched job %s failed", job_id)
 
 
 # ---------------------------------------------------------------------------

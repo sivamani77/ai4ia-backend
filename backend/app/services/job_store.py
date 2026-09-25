@@ -53,6 +53,30 @@ def save_job(job_id: str, data: dict[str, Any]) -> None:
     logger.info("Job persisted id=%s status=%s", job_id, data.get("status", "unknown"))
 
 
+def create_job_within_quota(
+    job_id: str, data: dict[str, Any], *, user_id: str, max_running: int, max_queued: int, max_active: int,
+) -> str | None:
+    """Save a new job only if the quota allows it; None on success, otherwise
+    the limit that was hit (see JobRepository.create_job_within_quota)."""
+    row = _to_job_row(job_id, data)
+    reason = get_job_repo().create_job_within_quota(
+        row, user_id=user_id, max_running=max_running, max_queued=max_queued, max_active=max_active,
+    )
+    if reason is None:
+        logger.info("Job persisted id=%s status=%s", job_id, data.get("status", "unknown"))
+    return reason
+
+
+def list_user_jobs(user_id: str, limit: int, offset: int) -> tuple[list[dict[str, Any]], int]:
+    """One page of a user's jobs (newest first) and the user's total."""
+    rows, total = get_job_repo().list_by_user_page(user_id, limit, offset)
+    return [_row_to_metadata(row) for row in rows], total
+
+
+def queue_position(job_id: str) -> int:
+    return get_job_repo().queue_position(job_id)
+
+
 def load_job(job_id: str) -> dict[str, Any]:
     repo = get_job_repo()
 

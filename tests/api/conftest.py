@@ -91,9 +91,6 @@ def api_app(mock_settings, mock_job_store, monkeypatch):
             raise FileNotFoundError(f"Job not found: {job_id}")
         return copy.deepcopy(mock_job_store["jobs"][job_id])
 
-    def _vj_list_jobs():
-        return [copy.deepcopy(j) for j in mock_job_store["jobs"].values()]
-
     def _vj_load_events(job_id):
         return list(mock_job_store["events"].get(job_id, []))
 
@@ -101,7 +98,6 @@ def api_app(mock_settings, mock_job_store, monkeypatch):
         return [e for e in mock_job_store["events"].get(job_id, []) if e["id"] > after_id]
 
     monkeypatch.setattr(video_jobs, "load_job", _vj_load_job)
-    monkeypatch.setattr(video_jobs, "list_jobs", _vj_list_jobs)
     monkeypatch.setattr(video_jobs, "load_events", _vj_load_events)
     monkeypatch.setattr(video_jobs, "load_events_after", _vj_load_events_after)
     # app.api.video_media has the same `from app.services.video_job_runner
