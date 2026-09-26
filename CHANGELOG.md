@@ -8,6 +8,7 @@ Each PR adds a line under `Unreleased`. At release time, rename `Unreleased` to 
 ### Added
 ### Changed
 ### Fixed
+- Speaker prompts use the speaker's own clips: a name alone no longer rejects their fragments, and a name plus topic keeps their closest fragments without the exact word (#10).
 
 ## [1.0.0] - baseline
 

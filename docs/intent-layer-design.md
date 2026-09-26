@@ -240,6 +240,16 @@ Caveat rules, enforced in `INSTRUCTIONS` and checked in 07b:
 - The narration frames clips as the panel ("in a panel with Stefaan G. Verhulst, Krisztina Rozgonyi and others…").
 - **On-screen labels name the panel or event, never the person.** We cannot prove who is speaking. This is the same principle as "never attribute a statistic to a speaker".
 
+### 7.3a A speaker's own fragments (issue #10)
+
+Speaker names are not in the embedded text, so a speaker prompt scores the speaker's own talk low: "What did Cordell Green say?" gave his fragments 0.58–0.64, under the 0.65 floor for prompts without topic words, and all were rejected. With a topic, fragments without the literal word stopped at `contextual`, which is never a clip. Rules in `candidate_scoring.py`:
+
+- **Name only:** the speaker's own fragments go through the existing "all themes" rule, so they are usable; the best are chosen later.
+- **Name + topic:** the speaker's own fragments in the top third by similarity, at least 0.55, count as `strong_related`.
+- **Own voice only:** other speakers and panel fragments are never promoted, unless the speaker appears only on panels (§7.3).
+
+Measured: usable fragments went from 0 of 17 to 17 of 17 (Cordel Green, name only), 0 of 9 to 9 of 9 (David Daou) and 1 of 17 to 7 of 17 (Cordel Green on regulation). Topic prompts without a speaker are unchanged. We did not put speaker names in the embeddings: the name is already an exact field, and embedding it would blur similar names and skew topic scores.
+
 ### 7.4 Documentary format and clip policy per intent (phase 8)
 
 Requested on 2026-09-24 after the phase 5 renders.
