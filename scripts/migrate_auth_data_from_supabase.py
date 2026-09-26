@@ -18,6 +18,10 @@ Usage
 
     # Re-check counts on both sides after the fact:
     python scripts/migrate_auth_data_from_supabase.py --verify-only
+
+    # Copy what changed in Supabase since the first copy (the API also runs
+    # this on startup while AUTH_SUPABASE_CATCHUP is on):
+    python scripts/migrate_auth_data_from_supabase.py --catch-up
 """
 from __future__ import annotations
 
@@ -32,6 +36,7 @@ from app.core.settings import settings  # noqa: E402
 from app.db.schema import ensure_auth_schema  # noqa: E402
 from app.services.auth_data_migration import (  # noqa: E402
     already_completed,
+    catch_up_once,
     mark_completed,
     migrate,
     verify,
@@ -51,6 +56,9 @@ def main() -> int:
     parser.add_argument("--force", action="store_true",
                         help="Run again even though the completion marker is present. "
                              "Safe (inserts are ON CONFLICT DO NOTHING) but normally unnecessary.")
+    parser.add_argument("--catch-up", action="store_true",
+                        help="Copy rows that changed in Supabase since the first copy "
+                             "(the same pass the API runs on startup), then verify.")
     args = parser.parse_args()
 
     if not settings.auth_supabase_url or not settings.auth_supabase_service_key:
@@ -69,6 +77,11 @@ def main() -> int:
     ensure_auth_schema()
 
     if args.verify_only:
+        return 0 if verify() else 1
+
+    if args.catch_up:
+        if catch_up_once("manual") != "done":
+            return 1
         return 0 if verify() else 1
 
     marker = already_completed()

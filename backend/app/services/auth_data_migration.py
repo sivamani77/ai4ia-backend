@@ -23,6 +23,9 @@ constraints, all deliberate:
 Order matters: app_users must land before the tables whose foreign keys
 reference it, or those inserts are rejected.
 
+catch_up() copies what changed in Supabase after the one-time copy. It runs
+on every API startup while AUTH_SUPABASE_CATCHUP is on (the v1.0.0 cutover).
+
 Used by scripts/migrate_auth_data_from_supabase.py (manual dry-run/verify/
 force CLI) and by app.main's startup lifespan (automatic one-time run on
 deploy, guarded by the completion marker).
@@ -31,12 +34,15 @@ from __future__ import annotations
 
 import json
 import logging
+import threading
+import time
 from typing import Any, Iterator
 
+import psycopg2
 import requests
 
 from app.core.settings import settings
-from app.db.postgres import pg_execute, pg_fetch_one
+from app.db.postgres import pg_execute, pg_fetch_one, pg_session
 from app.db.schema import ensure_auth_schema
 
 log = logging.getLogger("ai4ia.auth_migration")
@@ -259,3 +265,112 @@ def run_once() -> None:
         log.error("Supabase auth data migration finished but verification found "
                    "Postgres missing rows relative to Supabase — investigate; "
                    "re-run scripts/migrate_auth_data_from_supabase.py --verify-only.")
+
+
+# --------------------------------------------------------------------------
+# Catch-up (v1.0.0 cutover)
+# --------------------------------------------------------------------------
+# The one-time copy ran from uat, which shares Postgres with production, while
+# production still wrote to Supabase. The catch-up copies what changed since:
+# missing rows are inserted, and existing rows only ever move forward.
+
+CATCH_UP_LOCK = "auth_catch_up"
+# Second pass after the rolling deploy, for writes from old production pods.
+CATCH_UP_RERUN_SECONDS = 600
+
+# What to do when a row's id already exists. Tables not listed keep the row.
+_ON_CONFLICT: dict[str, str] = {
+    # The newer edit wins. Both old and new code stamp updated_at on every edit.
+    "app_users": "do update set {assign} where app_users.updated_at is null "
+                 "or excluded.updated_at > app_users.updated_at",
+    # A token used or revoked in Supabase stays used or revoked; never reopened.
+    "refresh_tokens": (
+        "do update set used_at = coalesce(refresh_tokens.used_at, excluded.used_at), "
+        "revoked_at = coalesce(refresh_tokens.revoked_at, excluded.revoked_at) "
+        "where (refresh_tokens.used_at is null and excluded.used_at is not null) "
+        "or (refresh_tokens.revoked_at is null and excluded.revoked_at is not null)"
+    ),
+}
+
+
+def _catch_up_row(table: str, columns: list[str], row: dict[str, Any]) -> str:
+    """Write one row. Returns inserted, updated, unchanged or skipped."""
+    column_sql = ", ".join(f'"{c}"' for c in columns)
+    placeholders = ", ".join(f"%({c})s" for c in columns)
+    action = _ON_CONFLICT.get(table)
+    if action is None:
+        conflict = "do nothing"
+    else:
+        assign = ", ".join(f'"{c}" = excluded."{c}"' for c in columns if c != "id")
+        conflict = action.format(assign=assign)
+    params = {c: row.get(c) for c in columns}
+    if table == "app_users" and params.get("password") is None:
+        params["password"] = ""  # not null in Postgres; signup writes '' too
+    try:
+        result = pg_fetch_one(
+            f"insert into {table} ({column_sql}) values ({placeholders}) "
+            f"on conflict (id) {conflict} returning (xmax = 0) as inserted",
+            params,
+        )
+    except psycopg2.IntegrityError as exc:
+        # A clash on another unique key (email, username, token hash) or a
+        # missing parent row. Left for a person to review.
+        log.warning("auth catch-up: skipped %s id=%s (%s)", table, row.get("id"),
+                    type(exc).__name__)
+        return "skipped"
+    if result is None:
+        return "unchanged"
+    return "inserted" if result["inserted"] else "updated"
+
+
+def catch_up() -> dict[str, dict[str, int]]:
+    """One pass over every auth table. Read-only against Supabase."""
+    report: dict[str, dict[str, int]] = {}
+    for table, columns in TABLES:
+        counts = {"inserted": 0, "updated": 0, "unchanged": 0, "skipped": 0}
+        for page in fetch_table(table, columns):
+            for row in page:
+                counts[_catch_up_row(table, columns, row)] += 1
+        report[table] = counts
+    return report
+
+
+def _summary(report: dict[str, dict[str, int]]) -> str:
+    total = {k: sum(c[k] for c in report.values()) for k in ("inserted", "updated", "skipped")}
+    return (f"inserted {total['inserted']}, updated {total['updated']}, "
+            f"skipped {total['skipped']} {report}")
+
+
+def catch_up_once(pass_name: str) -> str:
+    """Run one pass unless another process holds the lock.
+    Returns done, busy or error."""
+    try:
+        with pg_session() as cur:
+            cur.execute("select pg_try_advisory_lock(hashtext(%s)) as locked", (CATCH_UP_LOCK,))
+            if not cur.fetchone()["locked"]:
+                log.info("auth catch-up (%s): another process is running it — skipping.", pass_name)
+                return "busy"
+            try:
+                report = catch_up()
+            finally:
+                cur.execute("select pg_advisory_unlock(hashtext(%s))", (CATCH_UP_LOCK,))
+    except Exception:  # noqa: BLE001
+        log.exception("auth catch-up (%s) failed", pass_name)
+        return "error"
+    log.info("auth catch-up (%s): %s", pass_name, _summary(report))
+    return "done"
+
+
+def start_catch_up_in_background() -> None:
+    """Called from API startup. Runs a pass now and one more later."""
+    if not settings.auth_supabase_catchup:
+        return
+    if not settings.auth_supabase_url or not settings.auth_supabase_service_key:
+        return
+
+    def _target() -> None:
+        catch_up_once("startup")
+        time.sleep(CATCH_UP_RERUN_SECONDS)
+        catch_up_once("rerun")
+
+    threading.Thread(target=_target, name="auth-catch-up", daemon=True).start()

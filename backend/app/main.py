@@ -26,6 +26,7 @@ from app.core import metrics as _metrics
 from app.core.code_version import code_version
 from app.db.schema import ensure_pipeline_schema
 from app.services.auth_data_migration import run_once as run_auth_data_migration_once
+from app.services.auth_data_migration import start_catch_up_in_background as start_auth_catch_up
 from app.services.speaker_repair import start_in_background as start_speaker_repair
 from app.services.corpus_fix import start_in_background as start_corpus_fix
 
@@ -152,6 +153,12 @@ async def lifespan(app: FastAPI):
         await asyncio.to_thread(run_auth_data_migration_once)
     except Exception:
         logger.exception("Failed to run one-time Supabase auth data migration on startup")
+
+    # Copies auth rows that changed in Supabase since the one-time copy.
+    try:
+        start_auth_catch_up()
+    except Exception:
+        logger.exception("Failed to start the Supabase auth catch-up")
 
     # One-off speaker repair; runs in a background thread only when its switch
     # in app/services/speaker_repair.py is on.
