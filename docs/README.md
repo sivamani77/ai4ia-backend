@@ -6,7 +6,7 @@
 | [github-templates/](github-templates/) | PR and issue templates (copy into `.github/` to turn them on) |
 | [design/](design/) | Design docs: intent layer, ingest storage, job recovery |
 | [security/](security/) | Security remediation and the frontend changes it needed |
-| [runbooks/](runbooks/) | Step-by-step operational plans (speaker cleanup) |
+| [runbooks/](runbooks/) | Step-by-step operational plans: [delivery stage guides](runbooks/delivery/), speaker cleanup |
 | [reference/](reference/) | Database schemas, video inventory, speaker registry data |
 
 Spreadsheets, test plans and other non-technical working files are not kept in git.

@@ -43,7 +43,7 @@ Two properties of the real setup drive everything below:
 
 ## The corpus, measured
 
-From [docs/inventory/videos_inventory_detailed.csv](../reference/inventory/videos_inventory_detailed.csv) —
+From [docs/reference/inventory/videos_inventory_detailed.csv](../reference/inventory/videos_inventory_detailed.csv) —
 309 videos catalogued, 211 with local size data:
 
 | Metric | Value |
