@@ -26,6 +26,7 @@ First tagged release. It covers everything merged since the last production depl
 
 ### Changed
 - Auth runs on Postgres instead of Supabase. Existing users are copied once on startup; the `supabase` dependency is removed.
+- Auth rows added or changed in Supabase after that copy are caught up on every startup while `AUTH_SUPABASE_CATCHUP` is on, so production users who signed up since are not locked out (#16).
 - Access tokens are short-lived and revocable; clients renew them through `/api/auth/refresh`.
 - Storylines are retrieved from all 309 videos.
 - Speaker prompts use the speaker's own clips (#10).

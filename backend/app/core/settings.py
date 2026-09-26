@@ -146,15 +146,18 @@ class Settings(BaseSettings):
     # pipeline read-fallback was removed with them. The `supabase` SDK is no
     # longer a dependency at all.
     #
-    # They survive here for exactly one consumer:
-    # scripts/migrate_auth_data_from_supabase.py, the one-time data copy,
-    # which reads the Supabase auth project over PostgREST using plain
-    # `requests`. The Supabase project is retained read-only as the backup
+    # They survive here for the data copy in app.services.auth_data_migration
+    # (the one-time copy, the startup catch-up and
+    # scripts/migrate_auth_data_from_supabase.py), which reads the Supabase
+    # auth project over PostgREST using plain `requests`. The Supabase project is retained read-only as the backup
     # of record, so these stay set in the deployment secret rather than
     # being deleted after cutover.
     # ------------------------------------------------------------------
     auth_supabase_url: str = ""
     auth_supabase_service_key: str = ""
+    # Copy auth rows that changed in Supabase after the one-time copy, on every
+    # API startup (v1.0.0 cutover). Turn off once production reads Postgres.
+    auth_supabase_catchup: bool = True
 
     # ------------------------------------------------------------------
     # vLLM (unused by the video pipeline as of the gpt-oss:120b/Ollama
