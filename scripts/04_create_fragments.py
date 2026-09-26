@@ -13,6 +13,7 @@ _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
 from app.core.settings import settings  # noqa: E402
+from app.services.conference_year import conference_year  # noqa: E402
 from app.services.video_naming import parse_source_video  # noqa: E402
 
 TRANSCRIPT_DIR = PROJECT_ROOT / "data" / "transcripts"
@@ -121,7 +122,8 @@ def make_fragment(
         if segment.get("id") is not None
     ]
 
-    video_year, video_upload_date = lookup_video_year(transcript_stem)
+    upload_year, video_upload_date = lookup_video_year(transcript_stem)
+    video_year = conference_year(video_id, transcript_stem, upload_year)
 
     return {
         "fragment_id": f"{transcript_stem}_{fragment_index:04d}",

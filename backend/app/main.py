@@ -27,6 +27,7 @@ from app.core.code_version import code_version
 from app.db.schema import ensure_pipeline_schema
 from app.services.auth_data_migration import run_once as run_auth_data_migration_once
 from app.services.speaker_repair import start_in_background as start_speaker_repair
+from app.services.corpus_fix import start_in_background as start_corpus_fix
 
 # Must run before the httpx/requests/psycopg2 instrumentors below patch
 # their clients, and before the app is constructed.
@@ -158,6 +159,13 @@ async def lifespan(app: FastAPI):
         start_speaker_repair()
     except Exception:
         logger.exception("Failed to start the speaker repair")
+
+    # One-off corpus fix in Postgres; runs in a background thread only when its
+    # switch in app/services/corpus_fix.py is on.
+    try:
+        start_corpus_fix()
+    except Exception:
+        logger.exception("Failed to start the corpus fix")
 
     # Video jobs are recovered by the sweeper below, not on startup; ingest
     # jobs still have a thread fallback and keep their startup reaper.

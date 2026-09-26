@@ -260,6 +260,18 @@ _STATEMENTS = [
         primary key (repair_name, store, fragment_id)
     )
     """,
+    # Original rows changed or deleted by app/services/corpus_fix.py, for its rollback.
+    """
+    create table if not exists corpus_fix_backup (
+        fix_name text not null,
+        table_name text not null,
+        row_id text not null,
+        action text not null,
+        before jsonb not null,
+        captured_at timestamptz not null default now(),
+        primary key (fix_name, table_name, row_id)
+    )
+    """,
     # One row per request: what was asked and what each layer decided.
     # See docs/intent-layer-design.md §10.
     """

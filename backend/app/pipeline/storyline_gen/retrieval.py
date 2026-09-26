@@ -7,6 +7,7 @@ import numpy as np
 
 from app.core.paths import PROJECT_ROOT
 from app.core.settings import settings
+from app.services.conference_year import conference_year
 from app.pipeline.storyline_gen.candidate_scoring import (
     candidate_search_blob,
     match_terms_in_text,
@@ -123,6 +124,7 @@ def _load_corpus_from_chroma() -> list[dict[str, Any]]:
         for fid, meta in zip(result["ids"], result["metadatas"]):
             row = dict(meta or {})
             row["fragment_id"] = fid
+            row["video_year"] = conference_year(row.get("video_id"), row.get("source_video"), row.get("video_year"))
             all_records.append(row)
         offset += batch_size
 
@@ -387,6 +389,8 @@ def load_embedding_records() -> list[dict[str, Any]]:
                 record = json.loads(line)
                 record.pop("embedding", None)
                 record.pop("embedding_text", None)
+                record["video_year"] = conference_year(record.get("video_id"), record.get("source_video"),
+                                                       record.get("video_year"))
                 records.append(record)
     return records
 
