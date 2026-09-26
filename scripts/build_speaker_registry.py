@@ -3,19 +3,19 @@
 the speakers of every corpus video.
 
 Dev-time tool. Reads local files only and writes nothing but its outputs.
-See docs/speaker-cleanup-plan.md (Phase 2).
+See docs/runbooks/speaker-cleanup-plan.md (Phase 2).
 
 Inputs:
-  - docs/AI4IA Speaker Register_updated.html (the register)
-  - docs/AI4IA_speaker_cleanup.csv (name-level renames)
+  - docs/reference/speaker-registry/AI4IA Speaker Register_updated.html (the register)
+  - docs/reference/speaker-registry/AI4IA_speaker_cleanup.csv (name-level renames)
   - data/chroma/chroma.sqlite3 (current corpus speakers, read-only)
   - data/raw/youtube/ai4ia_channel/*.info.json (titles and descriptions)
   - the decisions below
 
 Outputs:
   - config/speaker_registry.json
-  - docs/speaker_registry_videos.csv   (one row per video, for review)
-  - docs/speaker_registry_speakers.csv (one row per speaker, for review)
+  - docs/reference/speaker-registry/speaker_registry_videos.csv   (one row per video, for review)
+  - docs/reference/speaker-registry/speaker_registry_speakers.csv (one row per speaker, for review)
 
 Usage:
     python scripts/build_speaker_registry.py
@@ -41,17 +41,18 @@ sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJ
 from app.services.speaker_names import description_roster, fold, norm_key, title_names  # noqa: E402
 from app.services.video_naming import parse_source_video  # noqa: E402
 
-REGISTER_HTML = PROJECT_ROOT / "docs" / "AI4IA Speaker Register_updated.html"
-CLEANUP_CSV = PROJECT_ROOT / "docs" / "AI4IA_speaker_cleanup.csv"
+SPEAKER_REGISTRY_DIR = PROJECT_ROOT / "docs" / "reference" / "speaker-registry"
+REGISTER_HTML = SPEAKER_REGISTRY_DIR / "AI4IA Speaker Register_updated.html"
+CLEANUP_CSV = SPEAKER_REGISTRY_DIR / "AI4IA_speaker_cleanup.csv"
 CHROMA_SQLITE = PROJECT_ROOT / "data" / "chroma" / "chroma.sqlite3"
 RAW_DIR = PROJECT_ROOT / "data" / "raw" / "youtube" / "ai4ia_channel"
 REGISTRY_JSON = PROJECT_ROOT / "config" / "speaker_registry.json"
-VIDEOS_CSV = PROJECT_ROOT / "docs" / "speaker_registry_videos.csv"
-SPEAKERS_CSV = PROJECT_ROOT / "docs" / "speaker_registry_speakers.csv"
+VIDEOS_CSV = SPEAKER_REGISTRY_DIR / "speaker_registry_videos.csv"
+SPEAKERS_CSV = SPEAKER_REGISTRY_DIR / "speaker_registry_speakers.csv"
 
 REGISTRY_VERSION = "speaker_registry_v1"
 
-# --- Decisions (docs/speaker-cleanup-plan.md, "Decisions already made") -----
+# --- Decisions (docs/runbooks/speaker-cleanup-plan.md, "Decisions already made") -----
 
 # Register spelling -> our canonical spelling (register typos, confirmed names).
 CANONICAL_OVERRIDES = {

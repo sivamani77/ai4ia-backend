@@ -1,7 +1,7 @@
 # Intent layer and coverage check — design
 
 **Status:** phases 0–5 built · **Branch:** `uat` · **Updated:** 2026-09-24
-**Builds on:** [speaker-cleanup-plan.md](speaker-cleanup-plan.md) (applied on uat)
+**Builds on:** [speaker-cleanup-plan.md](../runbooks/speaker-cleanup-plan.md) (applied on uat)
 
 ![Request journey](intent-layer-flow.png)
 

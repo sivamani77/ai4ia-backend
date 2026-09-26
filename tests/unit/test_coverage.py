@@ -1,4 +1,4 @@
-"""Phase 6: L2b coverage — rule, evidence judge, outcomes (docs/intent-layer-design.md §8)."""
+"""Phase 6: L2b coverage — rule, evidence judge, outcomes (docs/design/intent-layer-design.md §8)."""
 from __future__ import annotations
 
 import json

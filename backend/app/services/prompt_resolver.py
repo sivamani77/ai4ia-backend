@@ -1,6 +1,6 @@
 """L2a resolve: check the people, chapters and years a prompt names against the archive.
 
-See docs/intent-layer-design.md §6. Declines only when the prompt clearly
+See docs/design/intent-layer-design.md §6. Declines only when the prompt clearly
 refers to something the archive does not have; anything else passes on.
 """
 from __future__ import annotations

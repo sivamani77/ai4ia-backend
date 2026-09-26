@@ -2,7 +2,7 @@
 propagates to ChromaDB and Postgres, not just S3, and that a Chroma failure
 aborts before Postgres/S3 are touched (fail-closed).
 
-See docs/AI4IA_Production_Readiness_Audit.xlsx, Checklist 4.2.
+See local/reports/AI4IA_Production_Readiness_Audit.xlsx, Checklist 4.2.
 """
 from __future__ import annotations
 

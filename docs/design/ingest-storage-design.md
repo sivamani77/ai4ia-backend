@@ -8,7 +8,7 @@
 Two things forced this design:
 
 1. **S3 mode never worked end to end.** Each ingest stage uploads its outputs and deletes the
-   local copies (`delete_after=True` at [ingest_job_runner.py:621, 675, 737, 790](../backend/app/services/ingest_job_runner.py#L621)),
+   local copies (`delete_after=True` at [ingest_job_runner.py:621, 675, 737, 790](../../backend/app/services/ingest_job_runner.py#L621)),
    but the runner has only upload and list helpers — nothing ever downloads inputs back, and the
    stage scripts glob local directories exclusively. So `extract_audio` deletes the WAVs, then
    `03_transcribe.py` globs an empty folder and finds nothing to do.
@@ -29,8 +29,8 @@ Current deployment, as configured:
 | API container | 1 CPU, 1536 Mi |
 | Worker container | 4 CPU, 8 Gi |
 
-Do **not** size against [examples/local-dev/k8s/11-worker.yaml](../examples/local-dev/k8s/11-worker.yaml),
-which shows 60Gi ephemeral / 20Gi requested. Per [CLAUDE.md](../CLAUDE.md) the manifests under
+Do **not** size against [examples/local-dev/k8s/11-worker.yaml](../../examples/local-dev/k8s/11-worker.yaml),
+which shows 60Gi ephemeral / 20Gi requested. Per [CLAUDE.md](../../CLAUDE.md) the manifests under
 `examples/local-dev/` "deploy nothing and describe a superseded topology". An earlier draft of
 this document sized against those figures and was wrong by 2×.
 
@@ -43,7 +43,7 @@ Two properties of the real setup drive everything below:
 
 ## The corpus, measured
 
-From [docs/inventory/videos_inventory_detailed.csv](inventory/videos_inventory_detailed.csv) —
+From [docs/inventory/videos_inventory_detailed.csv](../reference/inventory/videos_inventory_detailed.csv) —
 309 videos catalogued, 211 with local size data:
 
 | Metric | Value |
@@ -59,7 +59,7 @@ From [docs/inventory/videos_inventory_detailed.csv](inventory/videos_inventory_d
 | Mean WAV | 34 MB |
 | **Max single WAV** | **444 MB** (a 231-minute video) |
 
-WAV size is exact, not estimated: [02_extract_audio.py](../scripts/02_extract_audio.py) encodes
+WAV size is exact, not estimated: [02_extract_audio.py](../../scripts/02_extract_audio.py) encodes
 `pcm_s16le -ar 16000 -ac 1`, which is 32,000 bytes/sec = **115.2 MB per hour**, always.
 
 The small-file working set is negligible by comparison — fragments 24 MB, classified 15 MB,
@@ -105,7 +105,7 @@ truth and deleting them destroys data. Every cleanup call sits behind the existi
 `_ingest_use_s3()` guard, exactly as the rehydration does.
 
 This mirrors what the video pipeline already does with `tmp_dir` / `cleanup_tmp_dir` in
-[pipeline/s3_helpers.py](../backend/app/pipeline/s3_helpers.py).
+[pipeline/s3_helpers.py](../../backend/app/pipeline/s3_helpers.py).
 
 ### 2. Byte-budgeted chunking for the media stages
 
@@ -143,7 +143,7 @@ writers merge rather than truncate.
 ### 4. Never clean `data/metadata/`
 
 `data/metadata/youtube/download_archive.txt` is yt-dlp's dedup record and
-[`_stage_discover`](../backend/app/services/ingest_job_runner.py#L411) calls it "most
+[`_stage_discover`](../../backend/app/services/ingest_job_runner.py#L411) calls it "most
 authoritative — survives local deletes". Deleting it makes the next sync re-download the entire
 channel — ~31 GB onto a 32.2 GB volume. Cleanup must be scoped to the media directories by
 explicit allow-list, never by sweeping `data/`.
@@ -160,7 +160,7 @@ those directories hold nothing authoritative.
 
 - **Free-space check before each chunk.** Fail the job with a clear error rather than filling the
   shared volume — which would take the API's media serving down with it, not just the worker.
-- **`INGEST_BATCH_BYTES` as a typed setting** in [core/settings.py](../backend/app/core/settings.py)
+- **`INGEST_BATCH_BYTES` as a typed setting** in [core/settings.py](../../backend/app/core/settings.py)
   with a conservative default, per the project convention of never reading `os.environ` at a call
   site.
 - **Log reclaimed bytes per stage** so the space behaviour is observable in job events rather than
@@ -194,11 +194,11 @@ before fixing the default.
 
 | File | Change |
 |---|---|
-| [`services/ingest_job_runner.py`](../backend/app/services/ingest_job_runner.py) | `_s3_cleanup_dir` alongside `_s3_download_dir`; chunk loop in `_stage_extract_audio` and `_stage_transcribe`; free-space check; orphan media sweep in `reap_orphaned_ingest_jobs` |
-| [`core/settings.py`](../backend/app/core/settings.py) | `ingest_batch_bytes` typed field with default |
+| [`services/ingest_job_runner.py`](../../backend/app/services/ingest_job_runner.py) | `_s3_cleanup_dir` alongside `_s3_download_dir`; chunk loop in `_stage_extract_audio` and `_stage_transcribe`; free-space check; orphan media sweep in `reap_orphaned_ingest_jobs` |
+| [`core/settings.py`](../../backend/app/core/settings.py) | `ingest_batch_bytes` typed field with default |
 | `tests/unit/test_ingest_s3_relay.py` | extend: cleanup runs in S3 mode, **never** in local mode; `data/metadata` never swept; chunking respects the budget; an oversized video still forms its own chunk |
 
-The existing `GET /api/admin/storage/space` ([api/admin.py:186](../backend/app/api/admin.py#L186))
+The existing `GET /api/admin/storage/space` ([api/admin.py:186](../../backend/app/api/admin.py#L186))
 reports S3 usage per prefix. Nothing measures the *volume*, which is the thing that actually fills
 — and because it is shared, filling it degrades API media serving too, not just ingest. A local
 free-space figure on that endpoint would be cheap and is worth doing alongside this.
@@ -210,7 +210,7 @@ free-space figure on that endpoint would be cheap and is worth doing alongside t
   review.
 - **The `data/subtitles` and embedding `.npy`/`.json` upload gaps** — stage 03's subtitles and two
   of the three embedding artifacts are never uploaded to S3, yet
-  [stage_07_storyline.py:20-24](../backend/app/pipeline/stage_07_storyline.py#L20) requires all
+  [stage_07_storyline.py:20-24](../../backend/app/pipeline/stage_07_storyline.py#L20) requires all
   three. Separate bug.
 - **Ingest job resume.** Tracked separately; depends on this landing first.
 

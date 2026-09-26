@@ -1,4 +1,4 @@
-"""Recovery sweeper for video jobs (docs/job-recovery-plan.md, section 6).
+"""Recovery sweeper for video jobs (docs/design/job-recovery-plan.md, section 6).
 
 Runs in the API. Each pass takes a per-environment advisory lock, so one API
 process acts at a time, and handles only jobs dispatched to this

@@ -1,4 +1,4 @@
-"""L2b coverage: can the archive answer this prompt? (docs/intent-layer-design.md §8)
+"""L2b coverage: can the archive answer this prompt? (docs/design/intent-layer-design.md §8)
 
 A rule decides the clear cases from the retrieved fragments; the self-hosted
 judge decides the rest. A judge failure never blocks a render.

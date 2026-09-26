@@ -1,7 +1,7 @@
 """Feedback and notifications: auth gating, and that submitting feedback
 notifies admins while resolving it notifies the submitter — the behavior
 the original (removed) direct-Supabase implementation had, now rebuilt
-server-side (see docs/frontend-changes-for-security-fixes.md F-5)."""
+server-side (see docs/security/frontend-changes-for-security-fixes.md F-5)."""
 from __future__ import annotations
 
 import pytest

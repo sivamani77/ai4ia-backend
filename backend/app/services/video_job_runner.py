@@ -314,7 +314,7 @@ def create_video_job(
         from app.services import job_store
 
         # The dispatch id marks the one queue message allowed to run this job
-        # (docs/job-recovery-plan.md); the queue name marks the environment.
+        # (docs/design/job-recovery-plan.md); the queue name marks the environment.
         job["dispatch_id"] = uuid.uuid4().hex
         limit = job_store.create_job_within_quota(
             job_id, job,

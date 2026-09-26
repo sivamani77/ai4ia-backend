@@ -1,4 +1,4 @@
-"""Recovery sweeper decisions (docs/job-recovery-plan.md, section 6)."""
+"""Recovery sweeper decisions (docs/design/job-recovery-plan.md, section 6)."""
 from __future__ import annotations
 
 from contextlib import contextmanager

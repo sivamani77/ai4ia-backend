@@ -321,7 +321,7 @@ class Settings(BaseSettings):
     # Measured: genuine queries 0.735-0.815, off-topic 0.564-0.658.
     archive_relevance_floor: float = Field(default=0.68, ge=0.0, le=1.0)
 
-    # Stage 07 coverage check (docs/intent-layer-design.md §8). Top-1 below
+    # Stage 07 coverage check (docs/design/intent-layer-design.md §8). Top-1 below
     # this is not covered; between it and archive_relevance_floor the evidence
     # judge decides. Measured 2026-09-24: covered prompts 0.72-0.81, off-topic
     # 0.62-0.65, but "quantum computing in agriculture" 0.77, so topic terms
@@ -403,7 +403,7 @@ class Settings(BaseSettings):
     worker_concurrency: int = 1
     worker_queue: str = "video_jobs"
 
-    # Video job recovery (docs/job-recovery-plan.md). The worker stamps a
+    # Video job recovery (docs/design/job-recovery-plan.md). The worker stamps a
     # heartbeat while it runs a job; the API's sweeper fails jobs whose worker
     # has gone quiet, jobs past the runtime cap, and jobs stuck in the queue.
     job_heartbeat_interval_seconds: int = 30

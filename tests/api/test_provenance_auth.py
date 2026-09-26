@@ -3,7 +3,7 @@ aggregate view (see the module docstring on provenance.py). Previously
 gated only by the optional shared API key, not admin role, letting any
 caller holding that key see every user's job_id/user_id/decision records.
 
-See docs/AI4IA_Production_Readiness_Audit.xlsx, Critical Finding #6.
+See local/reports/AI4IA_Production_Readiness_Audit.xlsx, Critical Finding #6.
 """
 from __future__ import annotations
 

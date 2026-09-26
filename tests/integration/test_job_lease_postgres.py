@@ -1,5 +1,5 @@
 """Job leases and the recovery sweeper against a real Postgres, in a
-throwaway schema (docs/job-recovery-plan.md).
+throwaway schema (docs/design/job-recovery-plan.md).
 
 Skips unless the local infra Postgres (docker-compose.infra.yml, :15432) is up.
 """

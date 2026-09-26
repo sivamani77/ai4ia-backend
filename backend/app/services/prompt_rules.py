@@ -1,4 +1,4 @@
-"""L0 prompt rules: cheap checks that need no LLM (docs/intent-layer-design.md §4).
+"""L0 prompt rules: cheap checks that need no LLM (docs/design/intent-layer-design.md §4).
 
 They reject only prompts with no usable subject. Anything doubtful passes on
 to the LLM guardrail, which judges subject matter.

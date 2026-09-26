@@ -177,7 +177,7 @@ def main() -> None:
     raw_retrieved = retrieve_candidates(args.prompt, prompt_intent, top_k=args.top_k)
     retrieved = annotate_candidate_relevance(raw_retrieved, args.prompt, prompt_intent, known_speakers)
 
-    # L2b: can the archive answer this at all? (docs/intent-layer-design.md §8)
+    # L2b: can the archive answer this at all? (docs/design/intent-layer-design.md §8)
     first_intent = intents.select(prompt_intent, {})
     coverage = coverage_check.assess(
         first_intent.NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,

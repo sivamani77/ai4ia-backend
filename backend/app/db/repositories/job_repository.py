@@ -126,7 +126,7 @@ class JobRepository:
                 )
         return None
 
-    # -- leases (docs/job-recovery-plan.md) -----------------------------------
+    # -- leases (docs/design/job-recovery-plan.md) -----------------------------------
 
     def claim(self, record_id: str, *, dispatch_id: str | None, owner: str, worker_queue: str) -> bool:
         """Take the lease on a job that has never run. Only a queued job with
