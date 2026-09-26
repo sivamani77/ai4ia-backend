@@ -80,7 +80,22 @@ DECISION_ALIASES = {
 
 # Per-video rosters that override every other source.
 DECISION_VIDEOS = {
-    "QP_5ovm6wn8": ("single", [("Samridhi Arora", "Speaker")], "decision: register speaker, not Cordel Green"),
+    "QP_5ovm6wn8": ("panel", [("Samridhi Arora", "Moderator"), ("Cordel Green", "Speaker")],
+                    "decision: moderated event with performers; from the transcript"),
+    "srXR5cfLK4I": ("panel", [("Cordel Green", "Chair"), ("Anna Paolini", "Speaker"),
+                              ("Andrea Millwood Hargrave", "Moderator"), ("Trisha Rae", "Speaker"),
+                              ("Monica Desai", "Speaker"), ("Samridhi Arora", "Speaker")],
+                    "decision: 2022 opening session; from the transcript; one more panelist unconfirmed"),
+    "B-B0ilBRyLo": ("panel", [("Cordel Green", "Chair"), ("Andrea Millwood Hargrave", "Moderator"),
+                              ("Anna Paolini", "Speaker"), ("Marielza Oliveira", "Speaker"),
+                              ("Dana Morris-Dixon", "Keynote"), ("Nisha", "Speaker")],
+                    "decision: 2023 opening session; from the transcript"),
+    "llAJjuaCCVE": ("panel", [("Chris Taylor", "Speaker"), ("Andrea Millwood Hargrave", "Moderator")],
+                    "decision: interview; from the transcript"),
+    "wSKcjA2uFfw": ("panel", [("Meena D. Lysko", "Speaker"), ("Shamira Ahmed", "Speaker")],
+                    "decision: joint talk; from the transcript"),
+    "Fp4NLQAOLms": ("panel", [("Mike Johns", "Speaker"), ("Vinnie Brown", "Speaker")],
+                    "decision: conversation; from the transcript"),
     "zJLv8sreIiQ": ("single", [("A Singh", "Keynote")], "decision: title 'Keynote 2: Mr A Singh'; not Ashita Singh"),
     "jpfE9ULuv9M": ("single", [("David Daou", "Speaker")], "decision: title; not in register"),
     "_c244n-7nd0": ("panel", [("Hibaq Warsame", "Speaker"), ("M Ekotto", "Speaker")], "decision: both names from title"),

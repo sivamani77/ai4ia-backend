@@ -17,6 +17,7 @@ CATALOG = Catalog(frozenset(range(1, 26)), 2021, 2026)
     ("Dario Prishko on AI in Europe", "Dariia Opryshko"),           # alias of a panel moderator
     ("What did David Daou say?", "David Daou"),                      # review name: used, not suggested
     ("What did Helberger say about media?", "Natali Helberger"),     # unique surname
+    ("What did Anna Paolini say?", "Anna Paolini"),                 # opening-session panels only
 ])
 def test_resolves_speaker(prompt, speaker):
     result = resolve(prompt, CATALOG)
@@ -31,7 +32,7 @@ def test_resolves_speaker(prompt, speaker):
     ("What did Andrew say about AI?", "speaker_ambiguous", ["Andrew Knight", "Andrew Maynard", "Andrew Smith"]),
     ("What did Singh say?", "speaker_ambiguous_partial", ["Ashita Singh"]),   # A Singh is in review
     ("What did John Smith say about AI?", "speaker_not_found", []),
-    ("What did Anna Paolini say?", "speaker_no_recording", []),
+    ("What did Ashok Jhunjhunwala say?", "speaker_no_recording", []),
     ("Chapter 30", "chapter_not_found", []),
     ("AI talks from 2019", "year_out_of_range", []),
 ])

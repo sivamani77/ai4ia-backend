@@ -792,7 +792,7 @@ This is the spec and becomes the test set. Extend it to 100+ rows, adding real p
 | 13 | `What did Andrew say about AI?` | — | — | `speaker_ambiguous` | Andrew Knight, Andrew Maynard or Andrew Smith? |
 | 14 | `What did Singh say?` | — | — | `speaker_ambiguous` | "…including Ashita Singh. Please use the full name." (A Singh is in review, so not suggested) |
 | 15 | `What did John Smith say about AI?` | — | — | `speaker_not_found` | not a speaker in the archive |
-| 16 | `What did Anna Paolini say?` | — | — | `speaker_no_recording` | no recorded talk |
+| 16 | `What did Ashok Jhunjhunwala say?` | — | — | `speaker_no_recording` | no recorded talk (Anna Paolini, the earlier example, speaks in both opening sessions) |
 | 17 | `What did Natali Helberger say about media regulation?` | speaker_panel | Natali Helberger (panel only); media regulation | covered or partial *(verify)* | render with panel caveat |
 | 18 | `Dario Prishko on AI in Europe` | speaker_panel | Dariia Opryshko (alias, panel only) | covered *(verify)* | render with panel caveat |
 | 19 | `What did David Daou say?` | speaker | David Daou (review) | covered | render; name not shown on screen |

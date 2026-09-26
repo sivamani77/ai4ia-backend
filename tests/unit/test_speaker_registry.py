@@ -174,7 +174,12 @@ class TestShippedRegistry:
 
     def test_decisions(self):
         registry = get_registry()
-        assert registry.video("QP_5ovm6wn8").names == ["Samridhi Arora"]
+        assert registry.video("QP_5ovm6wn8").names == ["Samridhi Arora", "Cordel Green"]
+        # Multi-speaker sessions once filed as one speaker's talk (case matrix row 39).
+        for video_id in ("srXR5cfLK4I", "B-B0ilBRyLo", "QP_5ovm6wn8", "llAJjuaCCVE", "wSKcjA2uFfw", "Fp4NLQAOLms"):
+            assert registry.video(video_id).kind == "panel"
+        # Duplicate uploads are out of the corpus.
+        assert registry.video("ea96KAytzSg") is None and registry.video("iuNzi9HZGWk") is None
         assert registry.canonical("Kodel Green") == "Cordel Green"
         assert registry.canonical("Dario Pryshko") == "Dariia Opryshko"
         assert registry.canonical("Nancy Kwangwa") == "Nancy Nkwanga"

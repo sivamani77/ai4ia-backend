@@ -2445,6 +2445,13 @@
       "register_name": "Toneo Toneo",
       "affiliation": "Founder, TechnoMag; President, ZOCC"
     },
+    "Trisha Rae": {
+      "aliases": [],
+      "status": "review",
+      "source": "decision",
+      "register_name": null,
+      "affiliation": null
+    },
     "Trudy Bell": {
       "aliases": [
         "T Bell"
@@ -2549,6 +2556,13 @@
       "status": "confirmed",
       "source": "register",
       "register_name": "Vincent Obia",
+      "affiliation": null
+    },
+    "Vinnie Brown": {
+      "aliases": [],
+      "status": "review",
+      "source": "decision",
+      "register_name": null,
       "affiliation": null
     },
     "Virginia Pardo": {
@@ -3172,14 +3186,34 @@
       "source": "register"
     },
     "B-B0ilBRyLo": {
-      "kind": "single",
+      "kind": "panel",
       "speakers": [
         {
           "name": "Cordel Green",
+          "role": "Chair"
+        },
+        {
+          "name": "Andrea Millwood Hargrave",
+          "role": "Moderator"
+        },
+        {
+          "name": "Anna Paolini",
+          "role": "Speaker"
+        },
+        {
+          "name": "Marielza Oliveira",
+          "role": "Speaker"
+        },
+        {
+          "name": "Dana Morris-Dixon",
+          "role": "Keynote"
+        },
+        {
+          "name": "Nisha",
           "role": "Speaker"
         }
       ],
-      "source": "corpus"
+      "source": "decision"
     },
     "BIBLKSoYa5A": {
       "kind": "single",
@@ -3482,14 +3516,18 @@
       "source": "register"
     },
     "Fp4NLQAOLms": {
-      "kind": "single",
+      "kind": "panel",
       "speakers": [
         {
           "name": "Mike Johns",
           "role": "Speaker"
+        },
+        {
+          "name": "Vinnie Brown",
+          "role": "Speaker"
         }
       ],
-      "source": "register"
+      "source": "decision"
     },
     "Fr6xJrMW8EU": {
       "kind": "single",
@@ -4045,10 +4083,14 @@
       "source": "register"
     },
     "QP_5ovm6wn8": {
-      "kind": "single",
+      "kind": "panel",
       "speakers": [
         {
           "name": "Samridhi Arora",
+          "role": "Moderator"
+        },
+        {
+          "name": "Cordel Green",
           "role": "Speaker"
         }
       ],
@@ -4856,16 +4898,6 @@
       ],
       "source": "register"
     },
-    "ea96KAytzSg": {
-      "kind": "single",
-      "speakers": [
-        {
-          "name": "Ntsibane Ntlatlapa",
-          "role": "Speaker"
-        }
-      ],
-      "source": "title"
-    },
     "eg6Ol4iIM7I": {
       "kind": "single",
       "speakers": [
@@ -5112,16 +5144,6 @@
       ],
       "source": "register"
     },
-    "iuNzi9HZGWk": {
-      "kind": "single",
-      "speakers": [
-        {
-          "name": "Colton Bishop",
-          "role": "Speaker"
-        }
-      ],
-      "source": "register"
-    },
     "jQW465WMHZY": {
       "kind": "single",
       "speakers": [
@@ -5251,14 +5273,18 @@
       "source": "register"
     },
     "llAJjuaCCVE": {
-      "kind": "single",
+      "kind": "panel",
       "speakers": [
         {
           "name": "Chris Taylor",
           "role": "Speaker"
+        },
+        {
+          "name": "Andrea Millwood Hargrave",
+          "role": "Moderator"
         }
       ],
-      "source": "register"
+      "source": "decision"
     },
     "m8n_eJwYJtw": {
       "kind": "single",
@@ -5527,14 +5553,34 @@
       "source": "register"
     },
     "srXR5cfLK4I": {
-      "kind": "single",
+      "kind": "panel",
       "speakers": [
         {
           "name": "Cordel Green",
+          "role": "Chair"
+        },
+        {
+          "name": "Anna Paolini",
+          "role": "Speaker"
+        },
+        {
+          "name": "Andrea Millwood Hargrave",
+          "role": "Moderator"
+        },
+        {
+          "name": "Trisha Rae",
+          "role": "Speaker"
+        },
+        {
+          "name": "Monica Desai",
+          "role": "Speaker"
+        },
+        {
+          "name": "Samridhi Arora",
           "role": "Speaker"
         }
       ],
-      "source": "corpus"
+      "source": "decision"
     },
     "t1Z0D2-Qcu0": {
       "kind": "single",
@@ -5697,14 +5743,18 @@
       "source": "register"
     },
     "wSKcjA2uFfw": {
-      "kind": "single",
+      "kind": "panel",
       "speakers": [
         {
           "name": "Meena D. Lysko",
           "role": "Speaker"
+        },
+        {
+          "name": "Shamira Ahmed",
+          "role": "Speaker"
         }
       ],
-      "source": "register"
+      "source": "decision"
     },
     "wT3zdfIIeUw": {
       "kind": "single",
