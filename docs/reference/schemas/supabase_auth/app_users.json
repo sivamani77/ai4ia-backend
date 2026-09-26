@@ -1,0 +1,184 @@
+{
+  "database": "supabase_auth",
+  "table": "app_users",
+  "source": "backend/app/db/repositories/user_repository.py + db/migrations/0003_admin_user_management.sql",
+  "schema_confidence": "derived_from_code_and_migrations",
+  "description": "User accounts. Lives in the SEPARATE auth Supabase project (AUTH_SUPABASE_URL), never the pipeline project.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "nullable": false,
+      "default": "gen_random_uuid()",
+      "description": "A non-UUID lookup value raises Postgres 22P02 and is treated as not-found."
+    },
+    {
+      "name": "username",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Case-insensitively unique via a unique index on lower(username).",
+      "unique_ci": true
+    },
+    {
+      "name": "password_hash",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Argon2id hash. Authoritative for all new accounts."
+    },
+    {
+      "name": "password",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Legacy plaintext column, NOT NULL in the existing schema; blanked ('') on hash upgrade and for new signups.",
+      "deprecated": true
+    },
+    {
+      "name": "first_name",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "last_name",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "email_id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Case-insensitively unique via a unique index on lower(email_id).",
+      "unique_ci": true
+    },
+    {
+      "name": "persona",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "DB value; the UI maps user->general, researcher->expert, admin->admin.",
+      "enum": [
+        "user",
+        "researcher",
+        "admin"
+      ]
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "nullable": true,
+      "default": "'pending_verification'",
+      "description": "Constrained by app_users_status_check (migration 0003 added 'deactivated').",
+      "enum": [
+        "pending_verification",
+        "active",
+        "locked",
+        "deactivated"
+      ]
+    },
+    {
+      "name": "email_verified",
+      "type": "boolean",
+      "nullable": true,
+      "default": "false",
+      "description": ""
+    },
+    {
+      "name": "failed_login_count",
+      "type": "integer",
+      "nullable": true,
+      "default": "0",
+      "description": "Reset on successful login, unlock, and reactivate."
+    },
+    {
+      "name": "locked_until",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": "Lockout expiry after repeated failed logins."
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": "now()",
+      "description": ""
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": "now()",
+      "description": "Set explicitly by UserRepository.update_user on every write."
+    }
+  ],
+  "check_constraints": [
+    {
+      "name": "app_users_status_check",
+      "expression": "status in ('pending_verification', 'active', 'locked', 'deactivated')"
+    }
+  ],
+  "indexes": [
+    {
+      "name": "app_users_username_lower_key",
+      "columns": [
+        "lower(username)"
+      ],
+      "unique": true
+    },
+    {
+      "name": "app_users_email_id_lower_key",
+      "columns": [
+        "lower(email_id)"
+      ],
+      "unique": true
+    }
+  ],
+  "relationships": [
+    {
+      "type": "referenced_by",
+      "table": "refresh_tokens",
+      "column": "user_id",
+      "on_delete": "cascade"
+    },
+    {
+      "type": "referenced_by",
+      "table": "otp_codes",
+      "column": "user_id",
+      "on_delete": "cascade"
+    },
+    {
+      "type": "referenced_by",
+      "table": "auth_audit",
+      "column": "user_id",
+      "on_delete": "set null"
+    },
+    {
+      "type": "logical",
+      "table": "user_sessions",
+      "database": "postgres_pipeline",
+      "via": "user_id",
+      "enforced": false
+    },
+    {
+      "type": "logical",
+      "table": "jobs",
+      "database": "postgres_pipeline",
+      "via": "user_id",
+      "enforced": false
+    }
+  ],
+  "notes": [
+    "Hard delete cascades within the auth project only; pipeline rows (jobs/insights/traces) must be cleaned up separately.",
+    "username/email lookups use ILIKE with % and _ escaped so exact matches are not treated as patterns."
+  ]
+}

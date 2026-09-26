@@ -114,14 +114,29 @@ def _strip_json_wrapping(raw: str) -> str:
     return text.strip()
 
 
-def _emit_trace(trace: dict) -> None:
-    """Fire-and-forget: write one llm_call_traces row. Never raises."""
+def _emit_trace(trace: dict, request_body: dict | None = None, response_text: str | None = None) -> None:
+    """Fire-and-forget: write one llm_call_traces row, plus its llm_call_payloads
+    row when the request body is given. Never raises."""
     def _insert() -> None:
         try:
             from app.db.repositories.llm_trace_repository import LLMTraceRepository
             LLMTraceRepository().create(trace)
         except Exception:  # noqa: BLE001
             logger.debug("llm trace emit failed (non-fatal): %s", trace.get("id"))
+        if request_body is None:
+            return
+        try:
+            from app.services import processing_records
+            processing_records.store_llm_exchange({
+                "id": trace["id"], "trace_id": trace["id"], "job_id": trace.get("job_id"),
+                "insight_id": trace.get("insight_id"), "user_id": trace.get("user_id"),
+                "stage": trace.get("stage"), "model": trace.get("model"),
+                "request_text": json.dumps(request_body), "response_text": response_text,
+                "error": trace.get("error"), "latency_ms": trace.get("latency_ms"),
+                "called_at": trace.get("called_at"),
+            })
+        except Exception:  # noqa: BLE001
+            logger.debug("llm payload emit failed (non-fatal): %s", trace.get("id"))
 
     threading.Thread(target=_insert, daemon=True).start()
 
@@ -248,18 +263,16 @@ def generate_text(
 
     messages = [{"role": "system", "content": system}] if system else []
     messages.append({"role": "user", "content": prompt})
+    body = {
+        "model": resolved_model,
+        "messages": messages,
+        "temperature": temperature,
+        "max_completion_tokens": 4096,
+        "stream": False,
+    }
 
     try:
-        data, retry_count = _post_with_retries(
-            f"{base_url}{VLLM_CHAT_ENDPOINT}",
-            {
-                "model": resolved_model,
-                "messages": messages,
-                "temperature": temperature,
-                "max_completion_tokens": 4096,
-                "stream": False,
-            },
-        )
+        data, retry_count = _post_with_retries(f"{base_url}{VLLM_CHAT_ENDPOINT}", body)
         response_text = data["choices"][0]["message"]["content"]
         return response_text
     except Exception as exc:
@@ -273,7 +286,7 @@ def generate_text(
                 response_text, latency_ms, retry_count, temperature, error_str,
             )
             if trace:
-                _emit_trace(trace)
+                _emit_trace(trace, body, response_text)
 
 
 def generate_json(
@@ -301,20 +314,21 @@ def generate_json(
     retry_count = 0
     response_text = ""
     error_str: str | None = None
+    body: dict[str, Any] | None = None
 
     try:
         if use_vllm:
             messages = [{"role": "system", "content": system}] if system else []
             messages.append({"role": "user", "content": prompt})
+            body = {
+                "model": resolved_model,
+                "messages": messages,
+                "temperature": temperature,
+                "max_completion_tokens": 4096,
+                "stream": False,
+            }
             data, retry_count = _post_with_retries(
-                f"{_VLLM_BASE_URL_BY_MODEL[resolved_model]}{VLLM_CHAT_ENDPOINT}",
-                {
-                    "model": resolved_model,
-                    "messages": messages,
-                    "temperature": temperature,
-                    "max_completion_tokens": 4096,
-                    "stream": False,
-                },
+                f"{_VLLM_BASE_URL_BY_MODEL[resolved_model]}{VLLM_CHAT_ENDPOINT}", body,
             )
             raw = (data["choices"][0]["message"]["content"] or "").strip()
         else:
@@ -327,6 +341,7 @@ def generate_json(
             }
             if system:
                 ollama_payload["system"] = system
+            body = ollama_payload
             data, retry_count = _post_with_retries(
                 f"{OLLAMA_BASE_URL}/api/generate",
                 ollama_payload,
@@ -357,7 +372,7 @@ def generate_json(
                 response_text, latency_ms, retry_count, temperature, error_str,
             )
             if trace:
-                _emit_trace(trace)
+                _emit_trace(trace, body, response_text)
 
 
 __all__ = [

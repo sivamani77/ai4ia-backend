@@ -35,7 +35,7 @@ sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJ
 from app.db.repositories.fragment_repository import FragmentRepository
 from app.pipeline import s3_helpers
 from app.services.enrichment import derive_facets
-from app.services.speaker_aliases import canonicalize as canonicalize_speaker
+from app.services.speaker_registry import MULTIPLE_SPEAKERS, get_registry
 from app.services.video_naming import parse_source_video
 
 PAGE_SIZE = 1000
@@ -131,20 +131,22 @@ def _to_row(fragment_id: str, meta: dict) -> dict:
 
     speaker = meta.get("speaker") or None
     speaker_attribution = meta.get("speaker_attribution") or None
-    if not speaker:
+    if not speaker and speaker_attribution != MULTIPLE_SPEAKERS:
         roster_speaker = _lookup_roster_speaker(video_id)
         if roster_speaker:
             speaker = roster_speaker
             speaker_attribution = speaker_attribution or "video-level"
-    speaker = canonicalize_speaker(speaker)
+    # The speaker registry has the final say (roster for known videos,
+    # canonical spellings otherwise).
+    fields = get_registry().speaker_fields(source_video, speaker, speaker_attribution, video_id)
 
     return {
         "fragment_id": fragment_id,
         "source_video": source_video,
-        "video_id": video_id,
+        "video_id": fields["video_id"] or None,
         "video_title": video_title or None,
-        "speaker": speaker,
-        "speaker_attribution": speaker_attribution,
+        "speaker": fields["speaker"] or None,
+        "speaker_attribution": fields["speaker_attribution"] or None,
         "text": meta.get("text") or "",
         "summary": meta.get("summary") or None,
         "start": start,
@@ -161,7 +163,7 @@ def _to_row(fragment_id: str, meta: dict) -> dict:
         "edition": facets.get("edition"),
         "session_type": facets.get("session_type"),
         "keywords": _parse_json_field(meta.get("keywords"), []),
-        "extra": {},
+        "extra": {"speaker_roster": fields["speaker_roster"]},
     }
 
 

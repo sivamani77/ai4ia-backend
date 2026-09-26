@@ -4,9 +4,10 @@ import json
 import logging
 from typing import Any, Mapping, TypedDict
 
+import psycopg2.errors
 import psycopg2.extras
 
-from app.db.postgres import pg_execute, pg_fetch_one, pg_fetch_all
+from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one, pg_transaction
 from app.db.utils import normalize_value
 
 logger = logging.getLogger("ai4ia.db.repositories.jobs")
@@ -27,6 +28,28 @@ class JobRecord(TypedDict, total=False):
     job_type: str | None
     worker_id: str | None
     retry_count: int
+
+
+# Serialises quota checks for video-job creation across every replica.
+_JOB_QUOTA_LOCK_KEY = 0x6A6F6271  # "jobq"
+
+_INSERT_JOB_SQL = """
+    insert into jobs (id, status, source_type, source_value, progress, user_id,
+                      created_at, started_at, completed_at, error, metadata,
+                      job_type, worker_id, retry_count)
+    values (%(id)s, %(status)s, %(source_type)s, %(source_value)s, %(progress)s, %(user_id)s,
+            coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s,
+            %(error)s, %(metadata)s, %(job_type)s, %(worker_id)s, %(retry_count)s)
+    returning *
+"""
+
+
+# Resets a job's progress when it restarts after a lost worker. Needs a
+# "status" parameter.
+_RESTART_METADATA = """metadata = metadata || jsonb_build_object(
+                       'status', %(status)s, 'current_stage', 'queued', 'stage_status', '{}'::jsonb,
+                       'progress_percent', 0, 'stage_progress_percent', 0,
+                       'message', 'Restarting after a server interruption')"""
 
 
 class JobRepository:
@@ -53,21 +76,282 @@ class JobRepository:
         record_id = payload.get("id")
         self._log("insert", record_id)
 
-        row = pg_fetch_one(
-            """
-            insert into jobs (id, status, source_type, source_value, progress, user_id,
-                              created_at, started_at, completed_at, error, metadata,
-                              job_type, worker_id, retry_count)
-            values (%(id)s, %(status)s, %(source_type)s, %(source_value)s, %(progress)s, %(user_id)s,
-                    coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s,
-                    %(error)s, %(metadata)s, %(job_type)s, %(worker_id)s, %(retry_count)s)
-            returning *
-            """,
-            self._to_row_params(payload),
-        )
+        row = pg_fetch_one(_INSERT_JOB_SQL, self._to_row_params(payload))
         if row is not None:
             return self._normalize_output(row)
         return self.get_job(str(record_id))
+
+    def create_job_within_quota(
+        self, data: Mapping[str, Any], *, user_id: str, max_running: int, max_queued: int, max_active: int,
+        dispatch_id: str | None = None, worker_queue: str | None = None,
+    ) -> str | None:
+        """Insert a job only while its owner and the platform are under their
+        limits. The count and the insert share one transaction under an
+        advisory lock, so parallel submissions cannot all pass the check.
+        Returns None when the job was created, otherwise the limit that was hit:
+        "user_running", "user_queued" or "active", or "busy" when the lock
+        could not be taken in time."""
+        payload = self._normalize_input(data)
+        self._log("insert_within_quota", payload.get("id"))
+        try:
+            return self._create_within_quota(
+                payload, user_id, max_running, max_queued, max_active, dispatch_id, worker_queue,
+            )
+        except psycopg2.errors.LockNotAvailable:
+            return "busy"
+
+    def _create_within_quota(
+        self, payload: dict[str, Any], user_id: str, max_running: int, max_queued: int, max_active: int,
+        dispatch_id: str | None, worker_queue: str | None,
+    ) -> str | None:
+        with pg_transaction() as cur:
+            # Waiting requests each hold a pool connection; give up rather than
+            # queue long enough to drain the pool.
+            cur.execute("set local lock_timeout = '5s'")
+            cur.execute("select pg_advisory_xact_lock(%s)", (_JOB_QUOTA_LOCK_KEY,))
+            cur.execute(
+                """
+                select count(*) filter (where user_id = %(user_id)s and status = 'running') as user_running,
+                       count(*) filter (where user_id = %(user_id)s and status = 'queued') as user_queued,
+                       count(*) as active
+                from jobs
+                where status in ('queued', 'running')
+                """,
+                {"user_id": user_id},
+            )
+            counts = cur.fetchone()
+            if counts["user_running"] >= max_running:
+                return "user_running"
+            if counts["user_queued"] >= max_queued:
+                return "user_queued"
+            if counts["active"] >= max_active:
+                return "active"
+            cur.execute(_INSERT_JOB_SQL, self._to_row_params(payload))
+            if dispatch_id is not None:
+                cur.execute(
+                    "update jobs set dispatch_id = %s, worker_queue = %s, dispatched_at = now() where id = %s",
+                    (dispatch_id, worker_queue, payload["id"]),
+                )
+        return None
+
+    # -- leases (docs/design/job-recovery-plan.md) -----------------------------------
+
+    def claim(self, record_id: str, *, dispatch_id: str | None, owner: str, worker_queue: str,
+              max_retries: int = 0) -> bool:
+        """Take the lease on a queued job. Only a message carrying the job's
+        current dispatch id can claim it, and only while it has retries left,
+        so any duplicate or late delivery loses. The runtime cap counts from
+        this claim, so a retried job gets a full run."""
+        row = pg_fetch_one(
+            """
+            update jobs
+               set status = 'running', lease_owner = %(owner)s, heartbeat_at = now(),
+                   attempts = attempts + 1, started_at = now(),
+                   worker_queue = coalesce(worker_queue, %(queue)s),
+                   metadata = metadata || jsonb_build_object('status', 'running')
+             where id = %(id)s
+               and status = 'queued'
+               and attempts <= %(max_retries)s
+               and dispatch_id is not distinct from %(dispatch_id)s
+            returning id
+            """,
+            {"id": record_id, "owner": owner, "queue": worker_queue, "dispatch_id": dispatch_id,
+             "max_retries": max_retries},
+        )
+        return row is not None
+
+    def take_over(self, record_id: str, *, dispatch_id: str | None, dead_owner: str | None, owner: str,
+                  max_retries: int) -> bool:
+        """Rerun a running job whose lease holder is dead, from the start,
+        while it has retries left."""
+        row = pg_fetch_one(
+            f"""
+            update jobs
+               set lease_owner = %(owner)s, heartbeat_at = now(), attempts = attempts + 1,
+                   started_at = now(), progress = 0, {_RESTART_METADATA}
+             where id = %(id)s and status = 'running'
+               and lease_owner is not distinct from %(dead_owner)s
+               and dispatch_id is not distinct from %(dispatch_id)s
+               and attempts <= %(max_retries)s
+            returning id
+            """,
+            {"id": record_id, "owner": owner, "dead_owner": dead_owner, "dispatch_id": dispatch_id,
+             "max_retries": max_retries, "status": "running"},
+        )
+        return row is not None
+
+    def lease_state(self, record_id: str) -> dict[str, Any] | None:
+        """The fields a claim or heartbeat needs to explain why it lost, with
+        the heartbeat's age measured on the database clock."""
+        return pg_fetch_one(
+            """
+            select status, dispatch_id, lease_owner, attempts,
+                   extract(epoch from now() - heartbeat_at) as heartbeat_age,
+                   coalesce(metadata->>'current_stage', 'unknown') as current_stage,
+                   metadata->>'active_pid' as active_pid,
+                   metadata->>'active_host' as active_host
+              from jobs where id = %s
+            """,
+            (record_id,),
+        )
+
+    def heartbeat(self, record_id: str, owner: str) -> bool:
+        row = pg_fetch_one(
+            """
+            update jobs set heartbeat_at = now()
+             where id = %s and lease_owner = %s and status = 'running'
+            returning id
+            """,
+            (record_id, owner),
+        )
+        return row is not None
+
+    def finish(self, record_id: str, status: str, owner: str | None) -> bool:
+        """Move a job to a terminal status if the caller still holds it (or,
+        with owner None, if nobody does). Rows from before leases existed are
+        finished by the snapshot save as before, so they report True."""
+        row = pg_fetch_one(
+            """
+            update jobs
+               set status = %(status)s, lease_owner = null,
+                   completed_at = coalesce(completed_at, now()),
+                   metadata = metadata || jsonb_build_object('status', %(status)s)
+             where id = %(id)s
+               and status in ('queued', 'running')
+               and lease_owner is not distinct from %(owner)s
+            returning id
+            """,
+            {"id": record_id, "status": status, "owner": owner},
+        )
+        if row is not None:
+            return True
+        state = pg_fetch_one("select dispatch_id from jobs where id = %s", (record_id,))
+        return state is not None and state["dispatch_id"] is None
+
+    def fail_if_lease(self, record_id: str, *, expected_owner: str | None, error: dict[str, Any]) -> bool:
+        """Fail a running job whose lease holder is known to be gone."""
+        row = pg_fetch_one(
+            """
+            update jobs
+               set status = 'failed', lease_owner = null, completed_at = now(), error = %(error)s::jsonb,
+                   metadata = metadata || jsonb_build_object(
+                       'status', 'failed', 'error', %(error)s::jsonb, 'completed_at', now())
+             where id = %(id)s and status = 'running'
+               and lease_owner is not distinct from %(owner)s
+            returning id
+            """,
+            {"id": record_id, "owner": expected_owner, "error": psycopg2.extras.Json(error)},
+        )
+        return row is not None
+
+    # -- sweeper queries --------------------------------------------------------
+
+    def fail_where(self, where_sql: str, params: dict[str, Any], *, error: dict[str, Any]) -> list[dict[str, Any]]:
+        """Fail every job matching a sweeper rule in one statement; returns
+        the ids and stages of the rows it changed. where_sql is a fixed
+        fragment from the sweeper, never user input."""
+        return pg_fetch_all(
+            f"""
+            update jobs
+               set status = 'failed', lease_owner = null, completed_at = now(), error = %(error)s::jsonb,
+                   metadata = metadata || jsonb_build_object(
+                       'status', 'failed',
+                       'error', %(error)s::jsonb || jsonb_build_object('stage', coalesce(metadata->>'current_stage', 'unknown')),
+                       'completed_at', now())
+             where {where_sql}
+            returning id, user_id, coalesce(metadata->>'current_stage', 'unknown') as stage
+            """,
+            {**params, "error": psycopg2.extras.Json(error)},
+        )
+
+    def lost_worker_candidates(self, worker_queue: str, stale_seconds: int) -> list[dict[str, Any]]:
+        """Running jobs of this queue whose heartbeat has gone stale."""
+        return pg_fetch_all(
+            """
+            select id, lease_owner, attempts, metadata->'request' as request,
+                   coalesce(metadata->>'current_stage', 'unknown') as stage
+              from jobs
+             where worker_queue = %s and status = 'running'
+               and heartbeat_at < now() - make_interval(secs => %s)
+            """,
+            (worker_queue, stale_seconds),
+        )
+
+    def requeue_lost(self, record_id: str, *, worker_queue: str, expected_owner: str | None,
+                     stale_seconds: int, new_dispatch_id: str) -> bool:
+        """Put a job whose worker was lost back in the queue under a new
+        dispatch id, if its heartbeat is still stale."""
+        row = pg_fetch_one(
+            f"""
+            update jobs
+               set status = 'queued', lease_owner = null, dispatch_id = %(new)s, dispatched_at = now(),
+                   progress = 0, {_RESTART_METADATA} || jsonb_build_object('dispatch_id', %(new)s, 'requeued_at', now())
+             where id = %(id)s and worker_queue = %(queue)s and status = 'running'
+               and lease_owner is not distinct from %(owner)s
+               and heartbeat_at < now() - make_interval(secs => %(stale)s)
+            returning id
+            """,
+            {"id": record_id, "queue": worker_queue, "owner": expected_owner, "stale": stale_seconds,
+             "new": new_dispatch_id, "status": "queued"},
+        )
+        return row is not None
+
+    def lost_queue_candidates(self, worker_queue: str, grace_seconds: int, max_retries: int = 0) -> list[dict[str, Any]]:
+        return pg_fetch_all(
+            """
+            select id, dispatch_id, metadata->'request' as request from jobs
+             where worker_queue = %s and status = 'queued' and attempts <= %s
+               and dispatched_at < now() - make_interval(secs => %s)
+            """,
+            (worker_queue, max_retries, grace_seconds),
+        )
+
+    def redispatch(self, record_id: str, *, old_dispatch_id: str | None, new_dispatch_id: str,
+                   max_retries: int = 0) -> bool:
+        row = pg_fetch_one(
+            """
+            update jobs
+               set dispatch_id = %(new)s, dispatched_at = now(),
+                   metadata = metadata || jsonb_build_object('dispatch_id', %(new)s)
+             where id = %(id)s and status = 'queued' and attempts <= %(max_retries)s
+               and dispatch_id is not distinct from %(old)s
+            returning id
+            """,
+            {"id": record_id, "old": old_dispatch_id, "new": new_dispatch_id, "max_retries": max_retries},
+        )
+        return row is not None
+
+    def list_by_user_page(self, user_id: str, limit: int, offset: int) -> tuple[list[JobRecord], int]:
+        """One page of a user's jobs, newest first, with the user's total."""
+        rows = pg_fetch_all(
+            """
+            select *, count(*) over () as total_count
+            from jobs where user_id = %s
+            order by created_at desc
+            limit %s offset %s
+            """,
+            (user_id, limit, offset),
+        )
+        if rows:
+            total = int(rows[0]["total_count"])
+        else:
+            count_row = pg_fetch_one("select count(*) as n from jobs where user_id = %s", (user_id,))
+            total = int(count_row["n"]) if count_row else 0
+        for row in rows:
+            row.pop("total_count", None)
+        return [self._normalize_output(row) for row in rows], total
+
+    def queue_position(self, record_id: str) -> int:
+        """How many queued jobs were created no later than this one (itself included)."""
+        row = pg_fetch_one(
+            """
+            select count(*) as n from jobs
+            where status = 'queued'
+              and created_at <= (select created_at from jobs where id = %s)
+            """,
+            (record_id,),
+        )
+        return int(row["n"]) if row else 0
 
     def get_job(self, record_id: str) -> JobRecord | None:
         self._log("select_one", record_id)
@@ -75,6 +359,22 @@ class JobRepository:
         return self._normalize_output(row) if row is not None else None
 
     def upsert_job(self, data: Mapping[str, Any]) -> None:
+        """Write a full job snapshot, except that a terminal status is sticky.
+
+        Callers build `data` from an earlier load_job() read, so this is a
+        read-modify-write. Cancellation does NOT go through here — it lands via
+        the atomic update_job_partial() — so a save whose snapshot predates a
+        cancellation would otherwise write the stale status back and silently
+        un-cancel the job. update_stage() runs on every progress tick, so that
+        window is hit easily during a long render.
+
+        Once the row is cancelled/completed/failed, no snapshot may move it out
+        of that state: the decision is made inside this single statement against
+        the row's committed value, so there is no window between check and write.
+        The metadata blob is still replaced wholesale (job dicts legitimately
+        drop keys, e.g. active_pid), but its status key is re-pinned to the
+        preserved value so the blob cannot contradict the column.
+        """
         payload = self._normalize_input(data)
         self._log("upsert", payload.get("id"))
 
@@ -87,15 +387,48 @@ class JobRepository:
                     coalesce(%(created_at)s, now()), %(started_at)s, %(completed_at)s,
                     %(error)s, %(metadata)s, %(job_type)s, %(worker_id)s, %(retry_count)s)
             on conflict (id) do update set
-                status = excluded.status,
+                status = case
+                    when jobs.status in ('cancelled', 'completed', 'failed') then jobs.status
+                    -- Leased jobs (dispatch_id set) change status only through
+                    -- claim / finish / the sweeper, so a lagging snapshot can't
+                    -- undo a requeue or failure. Cancellation is always allowed.
+                    when jobs.dispatch_id is not null and excluded.status <> 'cancelled' then jobs.status
+                    else excluded.status
+                end,
                 source_type = excluded.source_type,
                 source_value = excluded.source_value,
                 progress = excluded.progress,
                 user_id = excluded.user_id,
-                started_at = excluded.started_at,
-                completed_at = excluded.completed_at,
-                error = excluded.error,
-                metadata = excluded.metadata,
+                -- The claim sets started_at on leased jobs; a late snapshot
+                -- from an earlier attempt must not move it back.
+                started_at = case
+                    when jobs.dispatch_id is not null then jobs.started_at
+                    else excluded.started_at
+                end,
+                -- A finished leased job keeps the error and completion time it
+                -- ended with; a late snapshot from its worker can't erase them.
+                completed_at = case
+                    when jobs.dispatch_id is not null and jobs.status in ('cancelled', 'completed', 'failed')
+                        then jobs.completed_at
+                    else excluded.completed_at
+                end,
+                error = case
+                    when jobs.dispatch_id is not null and jobs.status in ('cancelled', 'completed', 'failed')
+                        then jobs.error
+                    else excluded.error
+                end,
+                metadata = case
+                    when jobs.dispatch_id is not null and jobs.status in ('cancelled', 'completed', 'failed')
+                        then excluded.metadata || jsonb_strip_nulls(jsonb_build_object(
+                            'status', jobs.status,
+                            'error', jobs.metadata->'error',
+                            'completed_at', jobs.metadata->'completed_at'))
+                    when jobs.status in ('cancelled', 'completed', 'failed')
+                        then excluded.metadata || jsonb_build_object('status', jobs.status)
+                    when jobs.dispatch_id is not null and excluded.status <> 'cancelled'
+                        then excluded.metadata || jsonb_build_object('status', jobs.status)
+                    else excluded.metadata
+                end,
                 job_type = excluded.job_type,
                 worker_id = excluded.worker_id,
                 retry_count = excluded.retry_count

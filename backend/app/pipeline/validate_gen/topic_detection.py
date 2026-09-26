@@ -1,27 +1,41 @@
-"""Narrative-structure selection for Step 07b — deepfake vs. generic arc, scaled to duration."""
+"""Narrative-structure selection for Step 07b: the intent's format or the topic arc, scaled to duration."""
 from typing import Any
 
 from app.pipeline.timeline_budget import timeline_segment_count_for_duration
-from app.pipeline.validate_gen.narrative_templates import (
-    DEEPFAKE_NARRATIVE_SECTIONS,
-    DEEPFAKE_TOPIC_TERMS,
-    GENERIC_NARRATIVE_SECTIONS,
-)
+from app.pipeline.validate_gen.narrative_templates import GENERIC_NARRATIVE_SECTIONS
+
+
+def _fit_format(sections: list[dict[str, Any]], desired_count: int) -> list[dict[str, Any]]:
+    """An intent's format at the duration's section count. First and last stay;
+    a short video keeps the core middle sections, a long one repeats the
+    `repeat` sections, each copy right after its original."""
+    first, middle, last = sections[0], sections[1:-1], sections[-1]
+    slots = max(1, desired_count - 2)
+    if slots < len(middle):
+        core = [s for s in middle if s.get("core")]
+        middle = (core or middle)[:slots]
+    repeatable = [s for s in middle if s.get("repeat")] or middle
+    copies: dict[str, int] = {}
+    for i in range(slots - len(middle)):
+        sid = repeatable[i % len(repeatable)]["section_id"]
+        copies[sid] = copies.get(sid, 0) + 1
+    fitted: list[dict[str, Any]] = []
+    for sec in middle:
+        fitted.append(sec)
+        for n in range(2, copies.get(sec["section_id"], 0) + 2):
+            fitted.append({**sec, "section_id": f"{sec['section_id']}_{n}", "title": f"{sec['title']} (Part {n})"})
+    return [first, *fitted, last]
 
 
 def detect_narrative_sections(
-    user_prompt: str,
-    topic_terms: list[str],
     target_duration_seconds: int = 120,
+    format_sections: list[dict[str, Any]] | None = None,
 ) -> list[dict[str, Any]]:
-    # Only check hardcoded deepfake terms — topic_terms came FROM the prompt and always match,
-    # so including them would make every topic look like deepfake.
-    prompt_lower = (user_prompt or "").lower()
+    """The video's sections: the intent's format when it has one, otherwise the
+    topic arc, scaled to the duration."""
+    if format_sections:
+        return _fit_format(format_sections, timeline_segment_count_for_duration(target_duration_seconds))
     base = GENERIC_NARRATIVE_SECTIONS
-    for term in DEEPFAKE_TOPIC_TERMS:
-        if term in prompt_lower:
-            base = DEEPFAKE_NARRATIVE_SECTIONS
-            break
 
     # timeline_segment_count_for_duration(120) == len(base) == 6, so short/
     # default requests are unaffected. Longer requests previously stayed
@@ -30,19 +44,31 @@ def detect_narrative_sections(
     # (same helper), but 07b rebuilt its narrative structure from this
     # hardcoded, unscaled template, silently discarding everything upstream
     # wrote past section 6 and capping the whole pipeline's output duration
-    # regardless of what was requested. Repeat the hook→...→synthesis arc
-    # cyclically to reach the same segment count 07 already targets.
+    # regardless of what was requested.
     desired_count = timeline_segment_count_for_duration(target_duration_seconds)
     if desired_count <= len(base):
         return base
 
-    sections: list[dict[str, Any]] = []
-    for i in range(desired_count):
-        src = base[i % len(base)]
-        pass_num = i // len(base) + 1
+    # Fill extra slots by cycling only the middle of the arc (evidence/
+    # challenge/response), never the opening (hook, context) or closing
+    # (synthesis). The previous fix repeated the *whole* arc cyclically,
+    # which put a second "opening hook" and "context" section mid/late video
+    # — e.g. on an 8-section video: hook, context, ..., synthesis, hook(2),
+    # context(2), rendering as a second open right before the end. A longer
+    # video needs more depth in the middle, not a second open or close.
+    opening = base[:2]   # hook, context — exactly once, always first
+    closing = base[-1:]  # synthesis — exactly once, always last
+    middle = base[2:-1]  # evidence/challenge/response — cycled to fill extra slots
+    extra_needed = desired_count - len(opening) - len(closing)
+
+    cycled: list[dict[str, Any]] = []
+    for i in range(extra_needed):
+        src = middle[i % len(middle)]
+        pass_num = i // len(middle) + 1
         sec = dict(src)
         if pass_num > 1:
             sec["section_id"] = f"{src['section_id']}_{pass_num}"
             sec["title"] = f"{src['title']} (Part {pass_num})"
-        sections.append(sec)
-    return sections
+        cycled.append(sec)
+
+    return list(opening) + cycled + list(closing)

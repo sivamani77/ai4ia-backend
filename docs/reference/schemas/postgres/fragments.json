@@ -1,0 +1,212 @@
+{
+  "database": "postgres_pipeline",
+  "table": "fragments",
+  "source": "backend/app/db/schema.py (source of truth); mirrored in db/init/001_schema.sql",
+  "description": "Transcript fragments extracted from videos; the retrieval corpus mirrored into ChromaDB for embeddings.",
+  "primary_key": [
+    "fragment_id"
+  ],
+  "columns": [
+    {
+      "name": "fragment_id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "source_video",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Original video filename/identifier."
+    },
+    {
+      "name": "video_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "videos.video_id."
+    },
+    {
+      "name": "video_title",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "speaker",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Canonicalized speaker name (see speaker_aliases)."
+    },
+    {
+      "name": "speaker_attribution",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "text",
+      "type": "text",
+      "nullable": false,
+      "default": "''",
+      "description": "Fragment transcript text."
+    },
+    {
+      "name": "summary",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "start",
+      "type": "double precision",
+      "nullable": true,
+      "default": null,
+      "description": "Start offset in seconds."
+    },
+    {
+      "name": "end",
+      "type": "double precision",
+      "nullable": true,
+      "default": null,
+      "description": "End offset in seconds (quoted identifier - reserved word)."
+    },
+    {
+      "name": "duration",
+      "type": "double precision",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "primary_theme",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "primary_chapter",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "theme_tags",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "chapter_tags",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "clip_usage_candidates",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "quote_strength",
+      "type": "double precision",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "clarity_score",
+      "type": "double precision",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "year",
+      "type": "integer",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "edition",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "session_type",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "keywords",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "extra",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_fragments_speaker",
+      "columns": [
+        "speaker"
+      ]
+    },
+    {
+      "name": "idx_fragments_primary_chapter",
+      "columns": [
+        "primary_chapter"
+      ]
+    },
+    {
+      "name": "idx_fragments_source_video",
+      "columns": [
+        "source_video"
+      ]
+    },
+    {
+      "name": "idx_fragments_video_id",
+      "columns": [
+        "video_id"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "videos",
+      "column": "video_id",
+      "enforced": false
+    },
+    {
+      "type": "references",
+      "table": "speakers",
+      "column": "speaker",
+      "enforced": false
+    }
+  ]
+}

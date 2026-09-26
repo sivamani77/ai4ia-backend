@@ -10,6 +10,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
+from app.core.settings import settings  # noqa: E402
 from app.pipeline.storyline_gen.candidate_scoring import annotate_candidate_relevance  # noqa: E402
 from app.pipeline.storyline_gen.director import (  # noqa: E402
     bucket_candidates,
@@ -17,7 +18,10 @@ from app.pipeline.storyline_gen.director import (  # noqa: E402
     compute_evidence_metrics,
     get_selected_candidate_cap,
 )
-from app.pipeline.storyline_gen.llm_client import log, warm_up_ollama  # noqa: E402
+from app.pipeline.storyline_gen import coverage as coverage_check  # noqa: E402
+from app.pipeline.storyline_gen import intents  # noqa: E402
+from app.pipeline.storyline_gen.intents.context import build_intent_context, speaker_panel_only  # noqa: E402
+from app.pipeline.storyline_gen.llm_client import call_strong_llm, log, warm_up_ollama  # noqa: E402
 from app.pipeline.storyline_gen.moment_repair import (  # noqa: E402
     repair_or_rebuild_timeline_with_moments,
     timeline_requires_moment_repair,
@@ -93,6 +97,11 @@ def main() -> None:
         help="Number of fragments sent to the storyline model."
     )
     parser.add_argument(
+        "--requested-speaker",
+        default="",
+        help="Canonical speaker already resolved by the resolve stage; skips speaker detection.",
+    )
+    parser.add_argument(
         "--fallback-only",
         action="store_true",
         help="Skip LLM storyline generation and use deterministic fallback."
@@ -104,8 +113,11 @@ def main() -> None:
     )
     parser.add_argument(
         "--corpus-version",
-        default="original_v1",
-        help="Filter to a specific source_transcript_version (e.g. cleaned_v2, original_v1). Default: original_v1"
+        default=settings.storyline_corpus_version,
+        help="Filter to a specific source_transcript_version, or 'mixed_cleaned_v2' for no "
+             "filtering. source_transcript_version is per-video provenance and the label sets "
+             "are disjoint, so filtering to one label hides every video carrying the other — "
+             f"see settings.storyline_corpus_version. Default: {settings.storyline_corpus_version}"
     )
     parser.add_argument(
         "--min-transcript-quality",
@@ -117,6 +129,11 @@ def main() -> None:
         "--exclude-manual-review",
         action="store_true",
         help="Exclude fragments with audio_quality_status == 'manual_review'."
+    )
+    parser.add_argument(
+        "--coverage-file",
+        default="",
+        help="Where to write the coverage verdict (JSON), for the stage module to read.",
     )
     parser.add_argument(
         "--job-id",
@@ -151,11 +168,33 @@ def main() -> None:
     known_speakers = load_known_speakers()
     log(f"Loaded {len(known_speakers)} known speakers.")
     all_records = get_filtered_records_or_load()
-    prompt_intent = detect_prompt_intent(args.prompt, known_speakers, all_records, target_duration_seconds=args.duration)
+    prompt_intent = detect_prompt_intent(args.prompt, known_speakers, all_records, target_duration_seconds=args.duration,
+                                         requested_speaker=args.requested_speaker or None)
+    prompt_intent["speaker_panel_only"] = speaker_panel_only(prompt_intent.get("requested_speaker"))
+    intent_context = build_intent_context(prompt_intent, all_records)
     log(f"Prompt intent: {json.dumps(prompt_intent, ensure_ascii=False)}")
 
     raw_retrieved = retrieve_candidates(args.prompt, prompt_intent, top_k=args.top_k)
     retrieved = annotate_candidate_relevance(raw_retrieved, args.prompt, prompt_intent, known_speakers)
+
+    # L2b: can the archive answer this at all? (docs/design/intent-layer-design.md §8)
+    first_intent = intents.select(prompt_intent, {})
+    coverage = coverage_check.assess(
+        first_intent.NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,
+        floor=settings.archive_relevance_floor, low=settings.coverage_judge_low, records=all_records,
+    )
+    log(f"Coverage: {coverage.verdict} ({coverage.method}) top1={coverage.top_similarity} "
+        f"pool={coverage.pool_size} missing_terms={coverage.missing_terms} missing={coverage.missing_aspects}")
+    if args.coverage_file:
+        # The intent goes with it, so a declined job still records one.
+        Path(args.coverage_file).write_text(json.dumps(
+            {**coverage.to_dict(), "intent": first_intent.NAME, "intent_version": first_intent.VERSION}),
+            encoding="utf-8")
+    if coverage.verdict == "not_covered" and settings.coverage_decline_enabled:
+        log(f"Not covered ({coverage.reason_code}) — no storyline generated.")
+        return
+    if coverage.verdict == "partial":
+        intent_context["coverage_gaps"] = coverage.missing_aspects
 
     buckets = bucket_candidates(retrieved, prompt_intent)
     selected = buckets["selected_candidates"]
@@ -165,7 +204,19 @@ def main() -> None:
 
     log(f"Retrieved: {len(retrieved)} | Selected: {len(selected)} | Supporting: {len(supporting)} | Context: {len(context)} | Rejected: {len(rejected_cands)}")
 
-    selected = select_balanced_candidates(selected, limit=min(args.final_candidates, len(selected))) if selected else []
+    requested_source_video = prompt_intent.get("requested_source_video")
+    if requested_source_video:
+        log(
+            f"Prompt names a source video by title: {requested_source_video} "
+            f"(ratio={prompt_intent.get('title_match_ratio')}, "
+            f"terms={prompt_intent.get('title_matched_terms')})"
+        )
+
+    selected = select_balanced_candidates(
+        selected,
+        limit=min(args.final_candidates, len(selected)),
+        requested_source_video=requested_source_video,
+    ) if selected else []
     buckets["selected_candidates"] = selected
 
     selected, selection_issues = validate_speaker_selection(selected, prompt_intent)
@@ -187,6 +238,7 @@ def main() -> None:
         target_duration_seconds=args.duration,
         cap=cap,
         requested_speaker=prompt_intent.get("requested_speaker"),
+        requested_source_video=requested_source_video,
     )
     if evidence_strength == "low":
         cap_reason = "evidence_strength=low"
@@ -249,6 +301,7 @@ def main() -> None:
     log(f"Evidence: exact={evidence_metrics['exact_clip_count']} strong={evidence_metrics['strong_related_count']} supporting={evidence_metrics.get('supporting_candidate_count', 0)} usable_speaker={evidence_metrics['usable_speaker_clip_count']}")
 
     storyline = None
+    intent_used = None  # set when the LLM storyline is used; recorded on the job
     generation_mode = "llm"
     llm_parse_error = None
     fallback_reason = None
@@ -267,8 +320,10 @@ def main() -> None:
                 director_plan=director_plan,
                 prompt_intent=prompt_intent,
                 evidence_package=evidence_package,
+                intent_context=intent_context,
             )
             storyline["generation_mode"] = "llm"
+            intent_used = storyline.get("intent")
         except RuntimeError as exc:
             error_msg = str(exc)
             if "Could not parse JSON" in error_msg or "parse" in error_msg.lower():
@@ -410,6 +465,15 @@ def main() -> None:
         for issue in validation_issues[:20]:
             log(f"- {issue}")
 
+    if intent_used:
+        storyline["intent"] = intent_used
+    # 07b builds the video in this intent's format, even when the LLM storyline failed.
+    storyline["format"] = intents.select(prompt_intent, director_plan).NAME
+    storyline["coverage"] = coverage.to_dict()
+    # Evidence 07b needs as well: facts for figures, the panel roster, the requested facet, archive gaps.
+    for key in ("archive_facts", "panel_context", "requested_facet", "coverage_gaps"):
+        if intent_context.get(key):
+            storyline[key] = intent_context[key]
     output_path = save_storyline(
         storyline=storyline,
         user_prompt=args.prompt,

@@ -51,8 +51,11 @@ def derive_session_type(title: str, source_video: str) -> str:
 
 
 def derive_facets(title: str, source_video: str) -> dict[str, Any]:
+    from app.services.conference_year import conference_year
+
+    year = conference_year(None, source_video, derive_year(title, source_video))
     return {
-        "year": derive_year(title, source_video),
-        "edition": derive_edition(title, source_video),
+        "year": year,
+        "edition": f"AI4IA {year}" if year else None,
         "session_type": derive_session_type(title, source_video),
     }

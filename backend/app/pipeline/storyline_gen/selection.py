@@ -1,6 +1,7 @@
 from typing import Any
 
 from app.core.settings import settings
+from app.services.conference_year import as_year
 from app.pipeline.timeline_budget import (
     classify_timeline_segment_type,
     normalize_candidate_time_bounds,
@@ -48,11 +49,29 @@ def sort_final_video_candidates(candidates: list[dict[str, Any]]) -> list[dict[s
     return sorted(candidates, key=sort_key, reverse=True)
 
 
+def source_video_cap(
+    source_video: str,
+    default_cap: int,
+    requested_source_video: str | None = None,
+) -> int:
+    """Per-source clip cap, relaxed for a video the prompt asked for by title.
+
+    The default cap exists so no single talk dominates a topic video. When the
+    prompt *is* a video's title that reasoning inverts — capping the requested
+    video at 2 clips and filling the rest of the runtime from elsewhere is the
+    opposite of what was asked for.
+    """
+    if requested_source_video and source_video == requested_source_video:
+        return max(default_cap, settings.max_uses_per_requested_source_video)
+    return default_cap
+
+
 def apply_diversity_cap(
     candidates: list[dict[str, Any]],
     max_per_source: int = 2,
     max_per_speaker: int = 2,
     requested_speaker: str | None = None,
+    requested_source_video: str | None = None,
 ) -> list[dict[str, Any]]:
     source_counts: dict[str, int] = {}
     speaker_counts: dict[str, int] = {}
@@ -60,10 +79,19 @@ def apply_diversity_cap(
     for c in candidates:
         source = str(c.get("source_video") or "unknown")
         speaker = str(c.get("speaker") or "unknown")
-        if source_counts.get(source, 0) >= max_per_source:
+        if source_counts.get(source, 0) >= source_video_cap(source, max_per_source, requested_source_video):
             continue
-        # Speaker cap only applies when no speaker is specifically requested
-        if not requested_speaker and speaker != "unknown" and speaker_counts.get(speaker, 0) >= max_per_speaker:
+        # Speaker cap only applies when no speaker is specifically requested,
+        # and not to the video the prompt named — one talk is usually one
+        # speaker, so the speaker cap would re-impose the source cap the line
+        # above just relaxed.
+        from_requested_video = bool(requested_source_video and source == requested_source_video)
+        if (
+            not requested_speaker
+            and not from_requested_video
+            and speaker != "unknown"
+            and speaker_counts.get(speaker, 0) >= max_per_speaker
+        ):
             continue
         result.append(c)
         source_counts[source] = source_counts.get(source, 0) + 1
@@ -121,6 +149,7 @@ def select_documentary_candidates(
     target_duration_seconds: int,
     cap: int,
     requested_speaker: str | None = None,
+    requested_source_video: str | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     """Speaker-first selection.
 
@@ -143,6 +172,7 @@ def select_documentary_candidates(
         max_per_source=2,
         max_per_speaker=2,
         requested_speaker=requested_speaker,
+        requested_source_video=requested_source_video,
     )
 
     n_sections = estimate_section_count(target_duration_seconds)
@@ -230,6 +260,10 @@ def build_export_timeline_from_candidates(
     desired_segment_count = min(timeline_segment_count_for_duration(target_duration_seconds), len(ranked_candidates))
     chosen: list[dict[str, Any]] = []
     source_counts: dict[str, int] = {}
+    requested_source_video = prompt_profile.get("requested_source_video")
+
+    def source_limit(source_video: str) -> int:
+        return source_video_cap(source_video, 2, requested_source_video)
 
     if video_mode == "chronological_relay":
         # Per-year cap: prevent one over-represented year from filling all slots.
@@ -249,7 +283,7 @@ def build_export_timeline_from_candidates(
                 break
             source_video = str(candidate.get("source_video") or "unknown")
             year = candidate.get("video_year")
-            if source_counts.get(source_video, 0) >= 2:
+            if source_counts.get(source_video, 0) >= source_limit(source_video):
                 continue
             if year is not None and year_counts.get(year, 0) >= year_cap:
                 continue
@@ -268,7 +302,7 @@ def build_export_timeline_from_candidates(
                 if fragment_id in chosen_ids:
                     continue
                 source_video = str(candidate.get("source_video") or "unknown")
-                if source_counts.get(source_video, 0) >= 2:
+                if source_counts.get(source_video, 0) >= source_limit(source_video):
                     continue
                 chosen.append(candidate)
                 chosen_ids.add(fragment_id)
@@ -278,7 +312,7 @@ def build_export_timeline_from_candidates(
             if len(chosen) >= desired_segment_count:
                 break
             source_video = str(candidate.get("source_video") or "unknown")
-            if source_counts.get(source_video, 0) >= 2:
+            if source_counts.get(source_video, 0) >= source_limit(source_video):
                 continue
             chosen.append(candidate)
             source_counts[source_video] = source_counts.get(source_video, 0) + 1
@@ -550,12 +584,12 @@ def _assign_relay_sections_by_year(
     if not candidates:
         return recommended_structure
 
-    # Bucket by year; discard year=None for slot assignment
+    # Bucket by year; skip candidates without a usable year
     by_year: dict[int, list[dict[str, Any]]] = {}
     for c in candidates:
-        y = c.get("video_year")
+        y = as_year(c.get("video_year"))
         if y is not None:
-            by_year.setdefault(int(y), []).append(c)
+            by_year.setdefault(y, []).append(c)
 
     distinct_years = sorted(by_year.keys())
     if not distinct_years:
@@ -639,10 +673,19 @@ def _assign_relay_sections_by_year(
     return enriched
 
 
-def select_balanced_candidates(retrieved: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
+def select_balanced_candidates(
+    retrieved: list[dict[str, Any]],
+    limit: int,
+    requested_source_video: str | None = None,
+) -> list[dict[str, Any]]:
     for record in retrieved:
         record["selection_score"] = round(
-            float(record.get("final_prompt_score") or record.get("prompt_relevance_score") or record["semantic_score"]) + utility_boost(record),
+            float(
+                record.get("final_prompt_score")
+                or record.get("prompt_relevance_score")
+                or record.get("semantic_score")
+                or 0.0
+            ) + utility_boost(record),
             6,
         )
 
@@ -700,7 +743,11 @@ def select_balanced_candidates(retrieved: list[dict[str, Any]], limit: int) -> l
         year_key = record.get("video_year")  # int or None
         year_count = year_counts.get(year_key, 0)
 
-        if used_count >= MAX_SOURCE_VIDEO_OCCURRENCES:
+        from_requested_video = bool(requested_source_video and source_video == requested_source_video)
+
+        if used_count >= source_video_cap(
+            source_video, MAX_SOURCE_VIDEO_OCCURRENCES, requested_source_video
+        ):
             continue
 
         if requested_speaker and source_video == "unknown" and record.get("speaker_match") is not True:
@@ -709,10 +756,13 @@ def select_balanced_candidates(retrieved: list[dict[str, Any]], limit: int) -> l
         if theme_count >= (2 if requested_speaker else 10):
             continue
 
-        if speaker != "unknown" and speaker_count >= MAX_SPEAKER_OCCURRENCES:
+        if not from_requested_video and speaker != "unknown" and speaker_count >= MAX_SPEAKER_OCCURRENCES:
             continue
 
-        if year_count >= MAX_PER_YEAR_BUCKET:
+        # Same reasoning for the year bucket: every clip of the named video
+        # shares its upload year, so a 3-per-year cap would silently undo the
+        # relaxed source cap above.
+        if not from_requested_video and year_count >= MAX_PER_YEAR_BUCKET:
             continue
 
         selected.append(record)

@@ -3,6 +3,7 @@ import re
 from typing import Any
 
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
+from app.pipeline.storyline_gen import intents
 from app.pipeline.timeline_budget import timeline_segment_count_for_duration
 from app.pipeline.storyline_gen.llm_client import (
     STORYLINE_LLM_BACKEND,
@@ -17,6 +18,15 @@ from app.pipeline.storyline_gen.selection import (
 )
 
 
+COVERAGE_GAP_RULE = ("The archive has no talks on these parts of the request. Say so once, plainly and in "
+                     "general terms, in the opening or context narration. Never invent content about them.")
+
+
+def coverage_gap_block(gaps: list[str]) -> dict[str, Any]:
+    """What a partly covered request tells the storyline and assembly LLMs."""
+    return {"not_in_archive": list(gaps), "rule": COVERAGE_GAP_RULE}
+
+
 def generate_llm_storyline(
     user_prompt: str,
     duration: int,
@@ -25,60 +35,21 @@ def generate_llm_storyline(
     director_plan: dict[str, Any],
     prompt_intent: dict[str, Any],
     evidence_package: dict[str, Any],
+    intent_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
+    """`intent_context` carries evidence only some intents use (archive_facts, panel_context, requested_facet)."""
     candidate_pack = build_candidate_pack(candidates)
 
     _num_sections_hint = timeline_segment_count_for_duration(duration)
     _per_section_s_hint = round(max(1, duration - 10) / _num_sections_hint)
     _words_per_section_hint = max(30, round(_per_section_s_hint * 2.5))
 
-    system_instruction = f"""
-You are a senior documentary producer and AI research editor.
-
-Create a production-ready storyline blueprint for a documentary-style video.
-The source archive contains conference footage, speaker clips, panel discussions, and event visuals.
-The final video should feel like a National Geographic / premium explainer documentary:
-- narrator-led
-- evidence-backed
-- visually planned
-- speaker soundbites used selectively
-- generated or internet B-roll used where conference footage is insufficient
-
-=== NARRATION LENGTH — CRITICAL REQUIREMENT ===
-The video is {duration} seconds long with {_num_sections_hint} sections.
-Each section narration MUST be at least {_words_per_section_hint} words long.
-At 2.5 words/second TTS pace, {_words_per_section_hint} words = {_per_section_s_hint} seconds of voiceover per section.
-NEVER write a narration shorter than {_words_per_section_hint} words. One or two sentences is NOT acceptable.
-Write full, substantive paragraphs. Each narration should be a complete passage of {_words_per_section_hint}+ words.
-===============================================
-
-Important rules:
-1. Do not invent speaker names unless they are visible in source_video text.
-2. Use only fragment_id values from the provided candidate fragments.
-3. Do not assign a permanent storyline_role to fragments.
-4. Decide how each fragment is used only for this specific user prompt.
-5. Separate real archive clips from generated/internet assets.
-6. Keep narration cinematic but factual.
-7. Return valid JSON only. No markdown. No backticks.
-8. Respect evidence_gaps and must_not_claim. Never upgrade supporting/context clips into direct claims.
-"""
-
-    video_mode = director_plan.get("video_mode", "")
-    if video_mode == "chronological_relay":
-        system_instruction = system_instruction.rstrip() + """
-
-TEMPORAL ARC RULES (chronological_relay mode):
-- Each section corresponds to a distinct time period. The year_slot for each section is provided in the director_plan.
-- Every section narration MUST open with a temporal anchor sentence: "In [year]..." or "By [year], ..." or "As early as [year]...".
-- Do NOT invent years — use only the year_slot value provided for that section.
-- The narration must reflect the intellectual/historical progression: context → problem → risk → solution → synthesis.
-- Voice-over bridges between sections must reference the time gap: "Three years later...", "By the following decade...", etc.
-- If year_slot is null for a section, omit the temporal anchor and write a thematic bridge instead.
-"""
-        relay_plan = dict(director_plan)
-        relay_structure = relay_plan.get("recommended_structure") or []
-        relay_plan["recommended_structure"] = relay_structure
-        director_plan = relay_plan
+    intent = intents.select(prompt_intent, director_plan)
+    system_instruction = intents.system_prompt(
+        intent.INSTRUCTIONS, duration=duration, num_sections=_num_sections_hint,
+        words_per_section=_words_per_section_hint, per_section_s=_per_section_s_hint,
+    )
+    director_plan = intents.prepare_director_plan(intent, director_plan)
 
     # Compute word budget so the LLM writes narration proportional to the target duration.
     # Cards take ~10s; remaining content split equally across sections. ~2.5 words/sec for TTS.
@@ -205,7 +176,10 @@ TEMPORAL ARC RULES (chronological_relay mode):
         }
     }
 
-    system_text = system_instruction.strip() + UNTRUSTED_CONTENT_NOTICE
+    intents.extend_payload(intent, user_instruction, intent_context)
+    if (intent_context or {}).get("coverage_gaps"):
+        user_instruction["coverage_gaps"] = coverage_gap_block(intent_context["coverage_gaps"])
+    system_text = system_instruction + UNTRUSTED_CONTENT_NOTICE
     user_content = "INPUT (untrusted — see content boundary notice in system instructions):\n" + wrap_untrusted(
         json.dumps(user_instruction, ensure_ascii=False, indent=2)
     )
@@ -219,6 +193,7 @@ TEMPORAL ARC RULES (chronological_relay mode):
 
     if parsed is None:
         raise RuntimeError("Could not parse JSON from strong LLM response")
+    parsed["intent"] = intents.describe(intent)
 
     # Strip empty fragment_id values from export_timeline (LLMs often emit "" for narration/card entries)
     for item in parsed.get("export_timeline") or []:

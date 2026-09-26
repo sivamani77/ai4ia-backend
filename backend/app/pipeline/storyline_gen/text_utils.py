@@ -2,6 +2,8 @@ import json
 import re
 from typing import Any
 
+from app.services.video_naming import parse_source_video
+
 
 def clean_text(text: str) -> str:
     return " ".join((text or "").split()).strip()
@@ -90,3 +92,43 @@ def normalize_name(value: str) -> str:
     lowered = (value or "").lower().replace("_", " ").replace("-", " ")
     lowered = re.sub(r"[^a-z0-9\s]+", " ", lowered)
     return re.sub(r"\s+", " ", lowered).strip()
+
+
+def video_title_from_source(record: dict[str, Any]) -> str:
+    """Best available human title for the video a fragment came from.
+
+    Fragment records carry the title only inside `source_video` (the download
+    filename stem) — `video_title` is defined on FragmentRecord but is not
+    populated in the embedding/Chroma metadata, so it is tried first and
+    falls back to the stem with its index/id prefix stripped.
+
+    Splitting the stem is delegated to video_naming.parse_source_video rather
+    than re-derived here: that module exists because three earlier copies used
+    split("_") and mis-parsed the 42 of 309 videos whose YouTube id itself
+    contains an underscore.
+    """
+    explicit = clean_text(str(record.get("video_title") or ""))
+    if explicit:
+        return explicit
+    stem = str(record.get("source_video") or "")
+    if not stem:
+        return ""
+    _, title = parse_source_video(stem)
+    return clean_text(title.replace("_", " "))
+
+
+def title_term_overlap(title: str, topic_terms: list[str] | set[str]) -> tuple[list[str], float]:
+    """(matched terms, matched fraction) for topic_terms against a video title.
+
+    Both sides are singularized before comparison. match_terms_in_text, which
+    the keyword channel uses, normalizes only the search terms — so a prompt
+    term like "algorithm" (extract_topic_terms singularizes it) misses the
+    literal "Algorithms" in a title. Titles are short enough that the looser
+    match costs nothing here.
+    """
+    terms = [t for t in (topic_terms or []) if t]
+    if not terms:
+        return [], 0.0
+    title_tokens = {normalize_plural(tok) for tok in re.findall(r"[a-z0-9]+", normalize_name(title))}
+    matched = [term for term in terms if normalize_plural(normalize_name(term)) in title_tokens]
+    return matched, len(matched) / len(terms)

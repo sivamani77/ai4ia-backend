@@ -52,7 +52,8 @@ class TestJobPipelineMetrics:
         before_total = _counter_value(metrics.job_completions_total, status="completed")
         before_hist = _histogram_count(metrics.job_duration_seconds)
         with patch("app.services.video_job_runner.load_job", return_value=job), \
-             patch("app.services.video_job_runner.save_job"):
+             patch("app.services.video_job_runner.save_job"), \
+             patch("app.services.video_job_runner.finish_job", return_value=True):
             from app.services.video_job_runner import _complete_job
             _complete_job("j1")
         assert _counter_value(metrics.job_completions_total, status="completed") == before_total + 1
@@ -63,6 +64,7 @@ class TestJobPipelineMetrics:
         before = _counter_value(metrics.job_completions_total, status="failed")
         with patch("app.services.video_job_runner.load_job", return_value=job), \
              patch("app.services.video_job_runner.save_job"), \
+             patch("app.services.video_job_runner.finish_job", return_value=True), \
              patch("app.services.video_job_runner.append_event"):
             from app.services.video_job_runner import _fail_job
             _fail_job("j2", "08_assets", "pipeline_error", "boom")

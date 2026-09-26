@@ -22,11 +22,13 @@ class TestBuildWhere:
 
     def test_single_theme_filter(self):
         result = self._build({"theme": "T1"})
-        assert result == {"theme": {"$eq": "T1"}}
+        # Chroma metadata field is "primary_theme" (verbatim from
+        # fragments_classified), the caller-facing key stays "theme".
+        assert result == {"primary_theme": {"$eq": "T1"}}
 
     def test_single_chapter_filter(self):
         result = self._build({"chapter": "Ch 5"})
-        assert result == {"chapter": {"$eq": "Ch 5"}}
+        assert result == {"primary_chapter": {"$eq": "Ch 5"}}
 
     def test_single_audio_quality_filter(self):
         result = self._build({"audio_quality_status": "good"})
@@ -58,9 +60,10 @@ class TestBuildWhere:
         assert result is None
 
     def test_combined_valid_and_invalid_keys(self):
-        result = self._build({"theme": "T1", "speaker": "Alice"})
-        # Only "theme" is a valid Chroma metadata key
-        assert result == {"theme": {"$eq": "T1"}}
+        result = self._build({"theme": "T1", "not_a_real_filter": "Alice"})
+        # "speaker" is now a valid Chroma metadata key too (see field_map),
+        # so use a genuinely unknown key to keep this a single-clause case.
+        assert result == {"primary_theme": {"$eq": "T1"}}
 
 
 # ---------------------------------------------------------------------------
@@ -80,7 +83,8 @@ class TestEmbeddingIndexLoad:
         mock_client = MagicMock()
         mock_client.get_collection.return_value = mock_collection
 
-        with patch("app.services.embedding_index._make_client", return_value=mock_client):
+        with patch("app.services.embedding_index.settings.chroma_mode", "local"), \
+             patch("app.services.embedding_index._make_client", return_value=mock_client):
             result = idx.load()
 
         assert idx._loaded is True
@@ -102,7 +106,8 @@ class TestEmbeddingIndexLoad:
         mock_client = MagicMock()
         mock_client.get_collection.return_value = mock_collection
 
-        with patch("app.services.embedding_index._make_client", return_value=mock_client):
+        with patch("app.services.embedding_index.settings.chroma_mode", "local"), \
+             patch("app.services.embedding_index._make_client", return_value=mock_client):
             result = idx.load()
 
         assert result["fragments"] == 42
@@ -121,7 +126,8 @@ class TestEmbeddingIndexAvailable:
         mock_client = MagicMock()
         mock_client.get_collection.return_value = mock_collection
 
-        with patch("app.services.embedding_index._make_client", return_value=mock_client):
+        with patch("app.services.embedding_index.settings.chroma_mode", "local"), \
+             patch("app.services.embedding_index._make_client", return_value=mock_client):
             assert idx.available() is True
 
     def test_available_false_when_collection_none(self):
@@ -166,7 +172,8 @@ class TestEmbeddingIndexReload:
         mock_collection.count.return_value = 7
         mock_client.get_collection.return_value = mock_collection
 
-        with patch("app.services.embedding_index._make_client", return_value=mock_client):
+        with patch("app.services.embedding_index.settings.chroma_mode", "local"), \
+             patch("app.services.embedding_index._make_client", return_value=mock_client):
             result = idx.reload()
 
         assert idx._loaded is True
@@ -181,7 +188,8 @@ class TestEmbeddingIndexReload:
         mock_collection.count.return_value = 99
         mock_client.get_collection.return_value = mock_collection
 
-        with patch("app.services.embedding_index._make_client", return_value=mock_client):
+        with patch("app.services.embedding_index.settings.chroma_mode", "local"), \
+             patch("app.services.embedding_index._make_client", return_value=mock_client):
             result = idx.reload()
 
         assert result["fragments"] == 99

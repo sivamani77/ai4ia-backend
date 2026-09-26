@@ -5,7 +5,21 @@ from pathlib import Path
 
 
 def test_ingest_sync_jobs_and_video_inventory(client, mock_settings, monkeypatch):
+    import app.main as main
+    from app.core.auth import CurrentUser, get_current_user
     import app.api.ingest as ingest_module
+
+    # /api/ingest/* is registered with _admin_dep (API key + admin role) —
+    # override the auth dependency instead of crafting a real admin JWT.
+    monkeypatch.setitem(
+        main.app.dependency_overrides, get_current_user,
+        lambda: CurrentUser(id="admin-user", persona="admin"),
+    )
+    # _trigger_limiter (rate=3/300s, keyed by user id) is a process-wide
+    # singleton shared with every other test using the same "admin-user" id
+    # — reset it so this test's own calls don't inherit exhausted tokens
+    # from (or leak them into) another test in the same session.
+    monkeypatch.setattr(ingest_module, "_trigger_limiter", ingest_module.TokenBucket(rate=3, per=300.0))
 
     jobs: list[dict] = []
     ingest_jobs: dict[str, dict] = {}
@@ -83,9 +97,12 @@ def test_ingest_sync_jobs_and_video_inventory(client, mock_settings, monkeypatch
     assert response.status_code == 200
     assert "event: completed" in response.text
 
-    response = client.get(f"/api/ingest/jobs/{ingest_job_id}/explainability")
+    # /explainability was folded into /provenance (see ingest.py's
+    # get_ingest_provenance docstring); the response is now flat rather than
+    # wrapped in an "overview" key.
+    response = client.get(f"/api/ingest/jobs/{ingest_job_id}/provenance")
     assert response.status_code == 200
-    assert response.json()["overview"]["job_id"] == ingest_job_id
+    assert response.json()["job_id"] == ingest_job_id
 
     response = client.get(f"/api/ingest/jobs/{ingest_job_id}/logs")
     assert response.status_code == 200
@@ -107,10 +124,23 @@ def test_ingest_sync_jobs_and_video_inventory(client, mock_settings, monkeypatch
 
 
 def test_ingest_conflict_and_admin_validation(client, mock_settings, monkeypatch):
+    import app.main as main
+    from app.core.auth import CurrentUser, get_current_user
     import app.api.ingest as ingest_module
     import app.api.admin as admin_module
     import app.services.fragment_store as fragment_store
     import app.services.embedding_index as embedding_index
+
+    # /api/admin/* now requires require_role("admin") on top of the API key —
+    # override the auth dependency instead of crafting a real admin JWT.
+    # monkeypatch.setitem reverts this (deleting the key) at test teardown.
+    monkeypatch.setitem(
+        main.app.dependency_overrides, get_current_user,
+        lambda: CurrentUser(id="admin-user", persona="admin"),
+    )
+    # See test_ingest_sync_jobs_and_video_inventory — _trigger_limiter is a
+    # process-wide singleton shared across tests using the same user id.
+    monkeypatch.setattr(ingest_module, "_trigger_limiter", ingest_module.TokenBucket(rate=3, per=300.0))
 
     monkeypatch.setattr(ingest_module, "list_ingest_jobs", lambda limit=10: [
         {"job_id": "active_1", "status": "running"}
@@ -143,9 +173,120 @@ def test_ingest_conflict_and_admin_validation(client, mock_settings, monkeypatch
     response = client.delete("/api/admin/storage/directories/videos")
     assert response.status_code == 400
 
-    response = client.delete("/api/admin/storage/object", json={"key": ""})
+    # httpx's TestClient.delete() no longer takes a `json=` body kwarg (this
+    # endpoint's DELETE genuinely expects one) — use .request() instead.
+    response = client.request("DELETE", "/api/admin/storage/object", json={"key": ""})
     assert response.status_code == 400
 
     response = client.post("/api/admin/cleanup/local-exports")
     assert response.status_code == 200
     assert response.json()["dry_run"] is True
+
+
+def test_ingest_resume_and_single_video_retrigger(client, mock_settings, monkeypatch, tmp_path):
+    """POST /jobs/{id}/resume and the already-downloaded branch of
+    POST /videos/{id}/sync, which used to reset 5 ingest_status rows to
+    "pending" and then start a plain job that begins at discover and never
+    reads them -- both now route through create_resume_job."""
+    import app.main as main
+    from app.core.auth import CurrentUser, get_current_user
+    import app.api.ingest as ingest_module
+    import app.core.paths as paths_module
+
+    monkeypatch.setitem(
+        main.app.dependency_overrides, get_current_user,
+        lambda: CurrentUser(id="admin-user", persona="admin"),
+    )
+    monkeypatch.setattr(ingest_module, "_trigger_limiter", ingest_module.TokenBucket(rate=10, per=300.0))
+    monkeypatch.setattr(ingest_module, "list_ingest_jobs", lambda limit=10: [])
+
+    jobs = {
+        "ijob_missing": None,
+        # current_stage/stage_status deliberately valid and resumable, so this
+        # case is caught ONLY by the status check — otherwise it would also
+        # get rejected by resolve_resume_candidates for an unrelated reason
+        # and the test would prove nothing about the status check itself.
+        "ijob_completed": {
+            "job_id": "ijob_completed", "status": "completed",
+            "current_stage": "classify",
+            "stage_status": {"classify": {"succeeded": [], "failed": ["v1"]}},
+        },
+        "ijob_download_failed": {
+            "job_id": "ijob_download_failed", "status": "failed",
+            "current_stage": "download", "stage_status": {},
+        },
+        "ijob_classify_failed": {
+            "job_id": "ijob_classify_failed", "status": "failed",
+            "current_stage": "classify",
+            "stage_status": {
+                "create_fragments": {"succeeded": ["v1", "v2"]},
+                "classify": {"status": "failed", "succeeded": [], "failed": ["v1", "v2"]},
+            },
+        },
+    }
+
+    def fake_load(job_id):
+        job = jobs.get(job_id)
+        if job is None:
+            raise FileNotFoundError(job_id)
+        return job
+
+    monkeypatch.setattr(ingest_module, "load_ingest_job", fake_load)
+
+    # Unknown job -> 404
+    response = client.post("/api/ingest/jobs/ijob_missing/resume")
+    assert response.status_code == 404
+
+    # Not a failed job -> 400
+    response = client.post("/api/ingest/jobs/ijob_completed/resume")
+    assert response.status_code == 400
+
+    # Failed at a non-resumable stage -> 400 (a plain sync already retries these)
+    response = client.post("/api/ingest/jobs/ijob_download_failed/resume")
+    assert response.status_code == 400
+
+    # Happy path: failed at classify with 2 failed videos recorded
+    resume_calls = []
+
+    def fake_create_resume_job(*, resume_from_stage, resume_video_ids, channel_url=None,
+                               resumed_from_job_id=None):
+        resume_calls.append({
+            "resume_from_stage": resume_from_stage,
+            "resume_video_ids": resume_video_ids,
+            "resumed_from_job_id": resumed_from_job_id,
+        })
+        return "ijob_new"
+
+    monkeypatch.setattr(ingest_module, "create_resume_job", fake_create_resume_job)
+    monkeypatch.setattr(ingest_module, "start_ingest_job_background", lambda job_id: None)
+
+    response = client.post("/api/ingest/jobs/ijob_classify_failed/resume")
+    assert response.status_code == 202
+    body = response.json()
+    assert body["job_id"] == "ijob_new"
+    assert body["resumed_from_job_id"] == "ijob_classify_failed"
+    assert body["from_stage"] == "classify"
+    assert body["video_count"] == 2
+    assert resume_calls[-1]["resume_from_stage"] == "classify"
+    assert resume_calls[-1]["resume_video_ids"] == ["v1", "v2"]
+    assert resume_calls[-1]["resumed_from_job_id"] == "ijob_classify_failed"
+
+    # A job already running -> 409
+    monkeypatch.setattr(ingest_module, "list_ingest_jobs",
+                        lambda limit=10: [{"job_id": "active_1", "status": "running"}])
+    response = client.post("/api/ingest/jobs/ijob_classify_failed/resume")
+    assert response.status_code == 409
+    monkeypatch.setattr(ingest_module, "list_ingest_jobs", lambda limit=10: [])
+
+    # Single-video retrigger, already-downloaded branch
+    raw_video_dir = tmp_path / "raw" / "youtube" / "ai4ia_channel"
+    raw_video_dir.mkdir(parents=True)
+    (raw_video_dir / "0001_retrig123_Some Title.mp4").touch()
+    monkeypatch.setattr(paths_module, "RAW_VIDEO_DIR", raw_video_dir)
+
+    response = client.post("/api/ingest/videos/retrig123/sync")
+    assert response.status_code == 202
+    assert response.json()["already_downloaded"] is True
+    assert resume_calls[-1]["resume_from_stage"] == "extract_audio"
+    assert resume_calls[-1]["resume_video_ids"] == ["retrig123"]
+    assert resume_calls[-1]["resumed_from_job_id"] is None

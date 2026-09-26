@@ -1,4 +1,4 @@
-"""Regression test: archive_visual / speaker_visual / generic segments whose
+"""Regression test: generic archive segments whose
 requested window starts past the source video's real stream length must have
 their window shifted onto real footage, not seek past it and produce an
 empty/zero-duration file (ffprobe reports N/A, then get_media_duration raises
@@ -35,9 +35,7 @@ class TestArchiveVisualWindowGuard:
 
         item = {
             "type": "archive_clip",
-            "segment_type": "archive_visual",
-            "audio_mode": "silent",
-            "muted": True,
+            "audio_mode": "source",
             "fragment_id": "0082_5aoew3DYz7Y_0010",
             "source_video": "0082_5aoew3DYz7Y",
             "start": 1358.4,
@@ -55,7 +53,7 @@ class TestArchiveVisualWindowGuard:
              patch.object(export_video, "get_video_stream_duration", return_value=295.2), \
              patch.object(export_video, "render_archive_clip", side_effect=fake_render_archive_clip), \
              patch.object(export_video, "get_media_duration", return_value=19.4):
-            idx, path, info = export_video._render_one_segment(1, item, tmp_path / "out", 0.0)
+            idx, path, info = export_video._render_one_segment(1, item, tmp_path / "out")
 
         assert path is not None and path.exists()
         assert info["duration"] == 19.4
@@ -73,9 +71,7 @@ class TestArchiveVisualWindowGuard:
 
         item = {
             "type": "archive_clip",
-            "segment_type": "archive_visual",
-            "audio_mode": "silent",
-            "muted": True,
+            "audio_mode": "source",
             "fragment_id": "f1",
             "source_video": "v1",
             "start": 10.0,
@@ -93,7 +89,30 @@ class TestArchiveVisualWindowGuard:
              patch.object(export_video, "get_video_stream_duration", return_value=295.2), \
              patch.object(export_video, "render_archive_clip", side_effect=fake_render_archive_clip), \
              patch.object(export_video, "get_media_duration", return_value=20.0):
-            export_video._render_one_segment(1, item, tmp_path / "out", 0.0)
+            export_video._render_one_segment(1, item, tmp_path / "out")
 
         assert captured_calls[0]["start"] == 10.0
         assert captured_calls[0]["end"] == 30.0
+
+
+class TestMutedFootageIsNotRendered:
+    @pytest.mark.parametrize("item", [
+        {"segment_type": "archive_visual", "muted": True},
+        {"segment_type": "speaker_visual"},
+        {"audio_mode": "silent"},
+    ])
+    def test_skipped_without_touching_the_source(self, export_video, tmp_path, item):
+        item = {"type": "archive_clip", "fragment_id": "f1", "source_video": "v1", "start": 0, "end": 10, **item}
+        with patch.object(export_video, "find_source_video", side_effect=AssertionError("must not look up footage")):
+            plan = export_video._plan_segment(1, item, tmp_path / "out")
+        assert plan.kind == "skip"
+
+    def test_speaker_clip_is_still_rendered(self, export_video, tmp_path):
+        source = tmp_path / "source.mp4"
+        source.write_bytes(b"fake video")
+        item = {"type": "speaker_clip", "segment_type": "speaker_clip", "fragment_id": "f1", "source_video": "v1",
+                "start": 0, "end": 10, "render_start": 0, "render_end": 10}
+        with patch.object(export_video, "find_source_video", return_value=source), \
+             patch.object(export_video, "get_video_stream_duration", return_value=100.0):
+            plan = export_video._plan_segment(1, item, tmp_path / "out")
+        assert plan.kind == "archive" and plan.audio_mode == "source"

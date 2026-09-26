@@ -99,7 +99,8 @@ class TestBuildMediaRegistry:
         from app.services.media_registry import build_media_registry
         job = self._job_with_paths(tmp_path)
         with patch("app.services.media_registry.load_job", return_value=job), \
-             patch("app.services.media_registry.save_registry", MagicMock()):
+             patch("app.services.media_registry.save_registry", MagicMock()), \
+             patch("app.services.job_store.save_job", MagicMock()):
             result = build_media_registry("vjob_test")
         assert isinstance(result, dict)
         assert "objects" in result
@@ -112,7 +113,8 @@ class TestBuildMediaRegistry:
         job["paths"]["video_path"] = str(video)
         with patch("app.services.media_registry.load_job", return_value=job), \
              patch("app.services.media_registry.save_registry", MagicMock()), \
-             patch("app.services.media_registry._safe_path", return_value=video):
+             patch("app.services.media_registry._safe_path", return_value=video), \
+             patch("app.services.job_store.save_job", MagicMock()):
             result = build_media_registry("vjob_test")
         assert "video" in result.get("objects", {})
 
@@ -120,7 +122,8 @@ class TestBuildMediaRegistry:
         from app.services.media_registry import build_media_registry
         job = self._job_with_paths(tmp_path)
         with patch("app.services.media_registry.load_job", return_value=job), \
-             patch("app.services.media_registry.save_registry", MagicMock()):
+             patch("app.services.media_registry.save_registry", MagicMock()), \
+             patch("app.services.job_store.save_job", MagicMock()):
             result = build_media_registry("vjob_test")
         assert result.get("objects") == {} or isinstance(result.get("objects"), dict)
 
@@ -130,6 +133,7 @@ class TestBuildMediaRegistry:
         saved = []
         with patch("app.services.media_registry.load_job", return_value=job), \
              patch("app.services.media_registry.save_registry",
-                   side_effect=lambda jid, reg: saved.append((jid, reg))):
+                   side_effect=lambda jid, reg: saved.append((jid, reg))), \
+             patch("app.services.job_store.save_job", MagicMock()):
             build_media_registry("vjob_test")
         assert saved  # at least one save call

@@ -30,6 +30,9 @@ sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJ
 from app.pipeline import s3_helpers  # noqa: E402
 from app.services.llm_service import generate_json, SPEAKER_EXTRACTION_MODEL  # noqa: E402
 from app.services.speaker_aliases import canonicalize as canonicalize_speaker  # noqa: E402
+from app.services.speaker_names import description_roster  # noqa: E402
+from app.services.speaker_registry import get_registry  # noqa: E402
+from app.services.video_naming import parse_source_video  # noqa: E402
 
 import os
 
@@ -100,7 +103,7 @@ def extract_one(fpath: Path, model: str) -> tuple[str, str]:
     """Process one classified file. Returns (status, message). Writes the roster JSON."""
     payload = json.loads(fpath.read_text(encoding="utf-8"))
     source_video = payload.get("source_video") or fpath.stem.replace(".classified", "")
-    video_id = payload.get("video_id") or source_video
+    video_id = parse_source_video(source_video)[0] or payload.get("video_id") or source_video
     out_path = SPEAKERS_DIR / f"{video_id}.json"
 
     info_path = RAW_DIR / f"{source_video}.info.json"
@@ -142,6 +145,25 @@ def extract_one(fpath: Path, model: str) -> tuple[str, str]:
     primary = canonicalize_speaker(primary)
     for s in speakers:
         s["name"] = canonicalize_speaker(s.get("name"))
+    speakers = [s for s in speakers if s.get("name")]
+
+    # The speaker registry wins for known videos. For new videos, speakers
+    # listed in the description are taken as given, not left to the LLM.
+    registry = get_registry()
+    method = "llm+title"
+    entry = registry.video(video_id)
+    described = description_roster(description)
+    if entry is not None:
+        speakers = [{"name": n, "role": r, "affiliation": None, "confidence": 1.0} for n, r in entry.speakers]
+        primary = entry.speakers[0][0] if entry.kind == "single" and entry.speakers else None
+        method = "registry"
+    elif len(described) >= 2:
+        speakers = [{"name": registry.canonicalize(n) or n, "role": r, "affiliation": None, "confidence": 0.95}
+                    for n, r in described]
+        primary = None
+        method = "description"
+    # Names the registry does not know yet: review before adding them.
+    unresolved = sorted({s["name"] for s in speakers if s["name"] not in registry.speakers})
 
     record = {
         "video_id": video_id,
@@ -150,8 +172,9 @@ def extract_one(fpath: Path, model: str) -> tuple[str, str]:
         "speakers": speakers,
         "primary_speaker": primary,
         "title_name_hint": title_hint,
-        "attribution": "video-level",
-        "method": "llm+title",
+        "attribution": "Multiple speakers" if len(speakers) > 1 else "video-level",
+        "method": method,
+        "unresolved_names": unresolved,
         "model": model,
         "extracted_at": datetime.now().isoformat(),
     }

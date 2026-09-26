@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1960" viewBox="0 0 1500 1960">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#52606d"/></marker></defs>
+<rect width="1500" height="1960" fill="#ffffff"/>
+<text x="40" y="48" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="40" dy="0">AI4IA — request journey with the intent layer</tspan></text>
+<text x="40" y="74" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="40" dy="0">Every prompt, every outcome. L0–L2 are new; L1 and L3 exist today.</tspan></text>
+<rect x="340" y="100" width="440" height="56" rx="10" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6"/>
+<text x="560.0" y="126" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">User submits a prompt</tspan></text>
+<text x="560.0" y="146" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="middle"><tspan x="560.0" dy="0">video job · insight · compare / relay / mindmap</tspan></text>
+<path d="M560.0,156 L560.0,190" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="340" y="190" width="440" height="104" rx="10" fill="#eaf2fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="560.0" y="216" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">L0  Rules  (API, no LLM)</tspan></text>
+<text x="560.0" y="240" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="middle"><tspan x="560.0" dy="0">length · empty · gibberish · greeting-only</tspan><tspan x="560.0" dy="18">injection pattern → flag only, continue</tspan></text>
+<rect x="736" y="266" width="22.4" height="20" rx="10" fill="#6b46c1"/>
+<text x="747.2" y="280" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="747.2" dy="0">DB</tspan></text>
+<rect x="900" y="194" width="570" height="96" rx="10" fill="#fdecea" stroke="#c53030" stroke-width="1.6"/>
+<text x="916" y="220" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="916" dy="0">Rejected instantly — HTTP 422, no job created</tspan></text>
+<text x="916" y="244" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="916" dy="0">prompt_too_long · prompt_empty · prompt_gibberish · prompt_greeting</tspan><tspan x="916" dy="18">specific message (greeting gets an example prompt)</tspan></text>
+<path d="M780,242 L900,242" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="794" y="234" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="794" dy="0">fails</tspan></text>
+<path d="M560.0,294 L560.0,330" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="570.0" y="314" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="570.0" dy="0">passes</tspan></text>
+<rect x="340" y="330" width="440" height="56" rx="10" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6"/>
+<text x="560.0" y="356" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Job created and queued (Redis)</tspan></text>
+<rect x="900" y="334" width="570" height="48" rx="10" fill="#eef0f2" stroke="#7b8794" stroke-width="1.6"/>
+<text x="916" y="360" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="916" dy="0">HTTP 503 — Redis unreachable, no job</tspan></text>
+<path d="M780,358 L900,358" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<path d="M560.0,386 L560.0,420" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="570.0" y="406" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="570.0" dy="0">worker picks up (terminal-state guard)</tspan></text>
+<rect x="340" y="420" width="440" height="104" rx="10" fill="#eaf2fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="560.0" y="446" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">L1  Safety guardrail  (existing)</tspan></text>
+<text x="560.0" y="470" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="middle"><tspan x="560.0" dy="0">harmful · abusive · illegal · sexual · re-role attempt</tspan><tspan x="560.0" dy="18">no subject · not about AI / the archive</tspan></text>
+<rect x="736" y="496" width="22.4" height="20" rx="10" fill="#6b46c1"/>
+<text x="747.2" y="510" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="747.2" dy="0">DB</tspan></text>
+<rect x="688" y="496" width="29.6" height="20" rx="10" fill="#b7791f"/>
+<text x="702.8" y="510" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="702.8" dy="0">LLM</tspan></text>
+<rect x="900" y="414" width="570" height="72" rx="10" fill="#fdecea" stroke="#c53030" stroke-width="1.6"/>
+<text x="916" y="440" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="916" dy="0">Rejected — job failed</tspan></text>
+<text x="916" y="464" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="916" dy="0">guardrail_rejected · off_topic  →  policy / off-topic message</tspan></text>
+<rect x="900" y="496" width="570" height="60" rx="10" fill="#eef0f2" stroke="#7b8794" stroke-width="1.6"/>
+<text x="916" y="522" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="916" dy="0">Model down</tspan></text>
+<text x="916" y="546" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="916" dy="0">fail-open → continue (recorded)   ·   fail-closed → &quot;try again&quot;</tspan></text>
+<path d="M780,456 L900,450" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="794" y="446" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="794" dy="0">rejected</tspan></text>
+<path d="M780,500 L900,524" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="794" y="524" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="794" dy="0">unavailable</tspan></text>
+<path d="M560.0,524 L560.0,560" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="570.0" y="544" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="570.0" dy="0">allowed</tspan></text>
+<rect x="340" y="560" width="440" height="48" rx="10" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6"/>
+<text x="560.0" y="586" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Model warm-up (blocks until ready)</tspan></text>
+<path d="M560.0,608 L560.0,640" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="340" y="640" width="440" height="128" rx="10" fill="#eaf2fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="560.0" y="666" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">L2a  Resolve  (stage_resolve)</tspan></text>
+<text x="560.0" y="690" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="middle"><tspan x="560.0" dy="0">slots checked against speaker registry + corpus:</tspan><tspan x="560.0" dy="18">speakers · topic · theme · chapter · years · title</tspan><tspan x="560.0" dy="18">unresolved slots dropped and recorded</tspan></text>
+<rect x="736" y="740" width="22.4" height="20" rx="10" fill="#6b46c1"/>
+<text x="747.2" y="754" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="747.2" dy="0">DB</tspan></text>
+<rect x="900" y="630" width="570" height="170" rx="10" fill="#fff4e0" stroke="#c05621" stroke-width="1.6"/>
+<text x="916" y="656" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="916" dy="0">Declined — job failed, error.code = declined</tspan></text>
+<text x="916" y="680" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="916" dy="0">speaker_did_you_mean   &quot;Did you mean Cordel Green?&quot;</tspan><tspan x="916" dy="18">speaker_ambiguous      &quot;Andrew Knight, Andrew Maynard or …?&quot;</tspan><tspan x="916" dy="18">speaker_too_many        &quot;Several speakers match &#x27;Green&#x27; …&quot;</tspan><tspan x="916" dy="18">speaker_not_found  ·  speaker_no_recording</tspan><tspan x="916" dy="18">chapter_not_found  ·  year_out_of_range</tspan><tspan x="916" dy="18">suggestions[] returned for one-click resubmit</tspan></text>
+<path d="M780,704 L900,704" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="794" y="696" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="794" dy="0">cannot resolve</tspan></text>
+<path d="M560.0,768 L560.0,810" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="570.0" y="788" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="570.0" dy="0">resolved</tspan></text>
+<rect x="340" y="810" width="440" height="132" rx="10" fill="#eaf2fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="560.0" y="836" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Intent  (first match wins)</tspan></text>
+<rect x="413.3" y="854" width="53.0" height="22" rx="11" fill="#ffffff" stroke="#2b6cb0"/>
+<text x="439.8" y="870" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#2b6cb0" text-anchor="middle"><tspan x="439.8" dy="0">title</tspan></text>
+<rect x="474.3" y="854" width="112.2" height="22" rx="11" fill="#ffffff" stroke="#2b6cb0"/>
+<text x="530.4" y="870" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#2b6cb0" text-anchor="middle"><tspan x="530.4" dy="0">speaker_topic</tspan></text>
+<rect x="594.5" y="854" width="112.2" height="22" rx="11" fill="#ffffff" stroke="#2b6cb0"/>
+<text x="650.6" y="870" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#2b6cb0" text-anchor="middle"><tspan x="650.6" dy="0">speaker_panel</tspan></text>
+<rect x="424.4" y="882" width="67.80000000000001" height="22" rx="11" fill="#ffffff" stroke="#2b6cb0"/>
+<text x="458.29999999999995" y="898" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#2b6cb0" text-anchor="middle"><tspan x="458.29999999999995" dy="0">speaker</tspan></text>
+<rect x="500.2" y="882" width="75.2" height="22" rx="11" fill="#ffffff" stroke="#2b6cb0"/>
+<text x="537.8" y="898" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#2b6cb0" text-anchor="middle"><tspan x="537.8" dy="0">overview</tspan></text>
+<rect x="583.4" y="882" width="112.2" height="22" rx="11" fill="#ffffff" stroke="#2b6cb0"/>
+<text x="639.5" y="898" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#2b6cb0" text-anchor="middle"><tspan x="639.5" dy="0">theme_chapter</tspan></text>
+<rect x="432.7" y="910" width="112.2" height="22" rx="11" fill="#ffffff" stroke="#2b6cb0"/>
+<text x="488.8" y="926" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#2b6cb0" text-anchor="middle"><tspan x="488.8" dy="0">chronological</tspan></text>
+<rect x="552.9" y="910" width="134.4" height="22" rx="11" fill="#ffffff" stroke="#2b6cb0"/>
+<text x="620.1" y="926" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#2b6cb0" text-anchor="middle"><tspan x="620.1" dy="0">topic (fallback)</tspan></text>
+<rect x="900" y="820" width="570" height="112" rx="10" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="916" y="846" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="916" dy="0">Each intent = one module, VERSION recorded</tspan></text>
+<text x="916" y="870" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="916" dy="0">retrieve() · coverage() · build_payload() · INSTRUCTIONS</tspan><tspan x="916" dy="18">system prompt = BASE_PROMPT + INSTRUCTIONS</tspan><tspan x="916" dy="18">panel speakers: mention windows, timeline spread,</tspan><tspan x="916" dy="18">larger pool; on-screen label = panel, never the person</tspan></text>
+<path d="M780,876 L900,876" fill="none" stroke="#52606d" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<path d="M560.0,942 L560.0,990" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<polygon points="560.0,992.0 710.0,1030 560.0,1068.0 410.0,1030" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6"/>
+<text x="560.0" y="1035" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Storyline cache hit?</tspan></text>
+<text x="720.0" y="1000" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="720.0" dy="0">key includes intent + intent_version</tspan></text>
+<path d="M560.0,1068 L560.0,1110" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="570.0" y="1090" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="570.0" dy="0">miss</tspan></text>
+<rect x="340" y="1110" width="440" height="56" rx="10" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6"/>
+<text x="560.0" y="1136" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Stage 07 — retrieval by intent strategy</tspan></text>
+<path d="M560.0,1166 L560.0,1200" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="340" y="1200" width="440" height="104" rx="10" fill="#eaf2fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="560.0" y="1226" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">L2b  Coverage — deterministic</tspan></text>
+<text x="560.0" y="1250" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="middle"><tspan x="560.0" dy="0">top similarity vs floor (0.68) + topic words present</tspan><tspan x="560.0" dy="18">speaker+topic: checked on the speaker&#x27;s own clips</tspan></text>
+<rect x="736" y="1276" width="22.4" height="20" rx="10" fill="#6b46c1"/>
+<text x="747.2" y="1290" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="747.2" dy="0">DB</tspan></text>
+<rect x="900" y="1204" width="570" height="110" rx="10" fill="#fff4e0" stroke="#c05621" stroke-width="1.6"/>
+<text x="916" y="1230" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="916" dy="0">Declined — job failed, error.code = declined</tspan></text>
+<text x="916" y="1254" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="916" dy="0">topic_not_covered   &quot;The archive doesn&#x27;t have talks on …&quot;</tspan><tspan x="916" dy="18">   + nearest themes it does cover</tspan><tspan x="916" dy="18">speaker_topic_not_covered   &quot;Cordel Green spoke at AI4IA,</tspan><tspan x="916" dy="18">   but not about …&quot;</tspan></text>
+<path d="M780,1240 L900,1240" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="792" y="1232" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="792" dy="0">clearly not covered</tspan></text>
+<path d="M560.0,1304 L560.0,1350" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="570.0" y="1324" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="570.0" dy="0">unclear band (0.60–0.68)</tspan></text>
+<rect x="340" y="1350" width="440" height="96" rx="10" fill="#eaf2fb" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="560.0" y="1376" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Evidence judge  (self-hosted LLM)</tspan></text>
+<text x="560.0" y="1400" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="middle"><tspan x="560.0" dy="0">covered · partial · not_covered + missing_aspects</tspan><tspan x="560.0" dy="18">on failure → deterministic result</tspan></text>
+<rect x="736" y="1406" width="22.4" height="20" rx="10" fill="#6b46c1"/>
+<text x="747.2" y="1420" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="747.2" dy="0">DB</tspan></text>
+<rect x="688" y="1406" width="29.6" height="20" rx="10" fill="#b7791f"/>
+<text x="702.8" y="1420" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="702.8" dy="0">LLM</tspan></text>
+<path d="M780,1370 L940,1370 L940,1314" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="792" y="1362" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="792" dy="0">not_covered</tspan></text>
+<rect x="900" y="1390" width="570" height="70" rx="10" fill="#e8f0fe" stroke="#2b6cb0" stroke-width="1.6"/>
+<text x="916" y="1416" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="start"><tspan x="916" dy="0">Partial — render and narrate the gap</tspan></text>
+<text x="916" y="1440" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="916" dy="0">stated once, in general terms; never quotes the prompt</tspan></text>
+<path d="M780,1414 L900,1420" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="792" y="1434" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="792" dy="0">partial</tspan></text>
+<path d="M1185.0,1460 L1185.0,1510 L780,1510" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<path d="M560.0,1446 L560.0,1480" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="570.0" y="1464" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="570.0" dy="0">covered</tspan></text>
+<path d="M340,1252 L300,1252 L300,1500 L340,1500" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="292" y="1244" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="end"><tspan x="292" dy="0">clearly covered</tspan></text>
+<rect x="340" y="1480" width="440" height="64" rx="10" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6"/>
+<text x="560.0" y="1506" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Storyline LLM</tspan></text>
+<text x="560.0" y="1528" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="middle"><tspan x="560.0" dy="0">BASE_PROMPT + intent INSTRUCTIONS + intent payload</tspan></text>
+<rect x="736" y="1516" width="29.6" height="20" rx="10" fill="#b7791f"/>
+<text x="750.8" y="1530" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="750.8" dy="0">LLM</tspan></text>
+<path d="M560.0,1544 L560.0,1580" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="340" y="1580" width="440" height="48" rx="10" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6"/>
+<text x="560.0" y="1606" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">L3  Output check — stage 07b (existing)</tspan></text>
+<rect x="736" y="1600" width="29.6" height="20" rx="10" fill="#b7791f"/>
+<text x="750.8" y="1614" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="750.8" dy="0">LLM</tspan></text>
+<path d="M560.0,1628 L560.0,1660" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="340" y="1660" width="440" height="48" rx="10" fill="#f5f7fa" stroke="#7b8794" stroke-width="1.6"/>
+<text x="560.0" y="1686" font-family="Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Render — stages 08 → 11</tspan></text>
+<path d="M560.0,1708 L560.0,1740" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<path d="M410.0,1030 L150,1030 L150,1684 L340,1684" fill="none" stroke="#52606d" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="158" y="1022" font-family="Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="158" dy="0">hit — skip 07 / 07b</tspan></text>
+<rect x="340" y="1740" width="440" height="56" rx="10" fill="#e6f4ea" stroke="#2f855a" stroke-width="1.6"/>
+<text x="560.0" y="1766" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2933" text-anchor="middle"><tspan x="560.0" dy="0">Completed — video + provenance</tspan></text>
+<rect x="736" y="1768" width="22.4" height="20" rx="10" fill="#6b46c1"/>
+<text x="747.2" y="1782" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="747.2" dy="0">DB</tspan></text>
+<line x1="40" y1="1820" x2="1460" y2="1820" stroke="#d9dee3"/>
+<rect x="40" y="1830" width="22.4" height="20" rx="10" fill="#6b46c1"/>
+<text x="51.2" y="1844" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="51.2" dy="0">DB</tspan></text>
+<text x="86" y="1845" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2933" text-anchor="start"><tspan x="86" dy="0">writes prompt_resolutions — one row per request, updated by each layer (intent, VERSION, slots, outcome, reason_code, message)</tspan></text>
+<rect x="40" y="1860" width="29.6" height="20" rx="10" fill="#b7791f"/>
+<text x="54.8" y="1874" font-family="Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle"><tspan x="54.8" dy="0">LLM</tspan></text>
+<text x="86" y="1875" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#1f2933" text-anchor="start"><tspan x="86" dy="0">self-hosted model call — writes llm_call_traces + llm_call_payloads (exact request and response text)</tspan></text>
+<text x="40" y="1910" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#52606d" text-anchor="start"><tspan x="40" dy="0">Cancel (DELETE /api/video-jobs/{id}) at any point after queueing → status cancelled.   Red = rejected · Amber = declined (not in archive) · Blue = partial · Green = completed</tspan></text>
+</svg>

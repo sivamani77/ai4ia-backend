@@ -12,6 +12,7 @@ from app.core.paths import DATA_DIR, SCRIPTS_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script
 from app.pipeline.s3_helpers import use_s3, download_if_missing, download_prefix, tmp_dir, cleanup_tmp_dir, upload
 from app.pipeline.timeline_budget import SOURCE_DURATION_INDEX_S3_KEY
+from app.services import processing_records
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage, _utc_now
 
@@ -67,6 +68,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     storyline_path = context.storyline_path
     update_stage(job_id, "07b_validate_storyline", "running", 5, "Starting LLM editorial validation")
     append_event(job_id, "stage_started", "07b_validate_storyline", {"storyline_path": storyline_path})
+    # A rerun after a lost worker must not reuse the lost run's partial files.
+    cleanup_tmp_dir(f"07b_{job_id}")
 
     if use_s3():
         update_stage(job_id, "07b_validate_storyline", "running", 8, "Downloading inputs from S3")
@@ -86,7 +89,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     ]
 
     update_stage(job_id, "07b_validate_storyline", "running", 15, "Validating fragments with LLM")
-    code, stdout, stderr = run_script(job_id, "07b_validate_storyline", cmd, extra_env=env_overrides or None)
+    with processing_records.exchange_log(job_id, "07b_validate_storyline", env_overrides):
+        code, stdout, stderr = run_script(job_id, "07b_validate_storyline", cmd, extra_env=env_overrides)
 
     if code != 0:
         raise RuntimeError(f"07b_validate_storyline_with_llm.py exited {code}: {stderr[-1000:]}")

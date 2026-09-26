@@ -68,10 +68,17 @@ _TERM_SYNONYMS = {
 }
 
 
+# Storyline ids are job ids or storyline file stems; nothing else is accepted.
+_STORYLINE_ID_RE = re.compile(r"^[A-Za-z0-9_-]+$")
+# How many of a user's newest storylines are ranked when no id is given.
+_OWNED_STORYLINE_CANDIDATES = 20
+
+
 def generate_concept_mindmap(
     query: str,
     storyline_id: str | None = None,
     mode: str = "legacy",
+    user_id: str | None = None,
 ) -> dict[str, Any]:
     """Build a mindmap for a generated documentary video.
 
@@ -82,8 +89,16 @@ def generate_concept_mindmap(
     (its ideas, arguments, evidence, and how the narrative unfolds), with
     themes/chapters and speakers as supporting branches. Falls back to the
     legacy theme-centric map if the LLM extraction fails.
+
+    user_id limits the storyline to that user's own jobs. None searches every
+    storyline and is only for admins.
     """
-    payload, source_path = _resolve_storyline(query, storyline_id)
+    if storyline_id is not None and not _STORYLINE_ID_RE.match(storyline_id):
+        raise FileNotFoundError(f"Storyline '{storyline_id}' not found")
+    if user_id is None:
+        payload, source_path = _resolve_storyline(query, storyline_id)
+    else:
+        payload, source_path = _resolve_owned_storyline(query, storyline_id, user_id)
     if mode == "video":
         try:
             return _generate_video_mindmap(query, payload, source_path)
@@ -581,7 +596,6 @@ def _assemble_video_mindmap(
         "statistics": statistics,
         "storyline": {
             "storyline_id": source_path.stem,
-            "path": str(source_path),
             "title": story.get("title"),
             "logline": story.get("logline"),
             "user_prompt": payload.get("user_prompt"),
@@ -801,7 +815,6 @@ def _generate_theme_mindmap(query: str, payload: dict[str, Any], source_path: Pa
         "statistics": statistics,
         "storyline": {
             "storyline_id": source_path.stem,
-            "path": str(source_path),
             "title": story.get("title"),
             "logline": story.get("logline"),
             "user_prompt": payload.get("user_prompt"),
@@ -840,7 +853,10 @@ def _resolve_storyline_from_job(job_id: str) -> tuple[dict[str, Any], Path] | No
         job = load_job(job_id)
     except FileNotFoundError:
         return None
+    return _storyline_from_job(job)
 
+
+def _storyline_from_job(job: dict[str, Any]) -> tuple[dict[str, Any], Path] | None:
     paths = job.get("paths") or {}
     storyline_path = paths.get("validated_storyline_path") or paths.get("storyline_path")
     if storyline_path:
@@ -862,6 +878,67 @@ def _resolve_storyline_from_job(job_id: str) -> tuple[dict[str, Any], Path] | No
             pass
 
     return None
+
+
+def _score_storyline(payload: dict[str, Any], name: str, query_tokens: set, query_norm: str) -> float:
+    """How well a storyline matches the query; higher is better."""
+    story = payload.get("storyline") or payload
+    fields = [
+        payload.get("user_prompt", ""),
+        story.get("title", ""),
+        story.get("logline", ""),
+        story.get("central_question", ""),
+    ]
+    haystack = " ".join(clean_text(f).lower() for f in fields if f)
+    if not haystack:
+        return -1.0
+    score = 0.0
+    if query_norm and query_norm in haystack:
+        score += 5.0
+    overlap = query_tokens.intersection(_tokenize(haystack))
+    if query_tokens:
+        score += len(overlap) / max(len(query_tokens), 1)
+    if name.endswith("_validated.json"):
+        score += 0.25
+    return score
+
+
+def _storyline_stems(job: dict[str, Any]) -> set[str]:
+    paths = job.get("paths") or {}
+    keys = ("validated_storyline_path", "storyline_path", "validated_storyline_s3_key", "storyline_s3_key")
+    return {Path(paths[k]).stem for k in keys if paths.get(k)}
+
+
+def _resolve_owned_storyline(query: str, storyline_id: str | None, user_id: str) -> tuple[dict[str, Any], Path]:
+    """Resolve a storyline only through jobs the user owns."""
+    from app.services.job_store import list_by_user
+
+    jobs = list_by_user(user_id)
+    if storyline_id:
+        for job in jobs:
+            job_id = job.get("job_id") or job.get("id")
+            if job_id == storyline_id or storyline_id in _storyline_stems(job):
+                found = _storyline_from_job(job)
+                if found:
+                    return found
+        raise FileNotFoundError(f"Storyline '{storyline_id}' not found")
+
+    query_tokens = set(_tokenize(query))
+    query_norm = clean_text(query).lower()
+    best: tuple[dict[str, Any], Path] | None = None
+    best_score = -1.0
+    # Newest first; each candidate may be an S3 read, so only recent ones.
+    with_storyline = [j for j in jobs if _storyline_stems(j)][:_OWNED_STORYLINE_CANDIDATES]
+    for job in with_storyline:
+        found = _storyline_from_job(job)
+        if not found:
+            continue
+        score = _score_storyline(found[0], found[1].name, query_tokens, query_norm)
+        if best is None or score > best_score:
+            best, best_score = found, score
+    if best:
+        return best
+    raise FileNotFoundError("No storyline found in your videos. Generate a video first or pass storyline_id.")
 
 
 def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, Any], Path]:
@@ -888,24 +965,7 @@ def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, 
     best_score = -1.0
     for path in candidates:
         payload = json.loads(path.read_text(encoding="utf-8"))
-        story = payload.get("storyline") or payload
-        fields = [
-            payload.get("user_prompt", ""),
-            story.get("title", ""),
-            story.get("logline", ""),
-            story.get("central_question", ""),
-        ]
-        haystack = " ".join(clean_text(f).lower() for f in fields if f)
-        if not haystack:
-            continue
-        score = 0.0
-        if query_norm and query_norm in haystack:
-            score += 5.0
-        overlap = query_tokens.intersection(_tokenize(haystack))
-        if query_tokens:
-            score += len(overlap) / max(len(query_tokens), 1)
-        if path.name.endswith("_validated.json"):
-            score += 0.25
+        score = _score_storyline(payload, path.name, query_tokens, query_norm)
         if score > best_score:
             best_score = score
             best_path = path
@@ -922,22 +982,7 @@ def _resolve_storyline(query: str, storyline_id: str | None) -> tuple[dict[str, 
         best_score = -1.0
         for item in s3_items:
             payload = _read_s3_storyline(item["key"])
-            story = payload.get("storyline") or payload
-            fields = [
-                payload.get("user_prompt", ""),
-                story.get("title", ""),
-                story.get("logline", ""),
-                story.get("central_question", ""),
-            ]
-            haystack = " ".join(clean_text(f).lower() for f in fields if f)
-            score = 0.0
-            if query_norm and query_norm in haystack:
-                score += 5.0
-            overlap = query_tokens.intersection(_tokenize(haystack))
-            if query_tokens:
-                score += len(overlap) / max(len(query_tokens), 1)
-            if item["name"].endswith("_validated.json"):
-                score += 0.25
+            score = _score_storyline(payload, item["name"], query_tokens, query_norm)
             if score > best_score:
                 best_score = score
                 best_s3 = {"payload": payload, "name": item["name"]}
@@ -1008,6 +1053,7 @@ def _resolve_section_sources(section: dict[str, Any], by_fragment: dict[str, dic
         seen.add(fragment_id)
         frag = fragment_store.get(fragment_id) or {}
         candidate = by_fragment.get(fragment_id) or {}
+        source_video = frag.get("source_video") or candidate.get("source_video")
         text = clean_text(
             frag.get("text")
             or candidate.get("text")
@@ -1019,7 +1065,7 @@ def _resolve_section_sources(section: dict[str, Any], by_fragment: dict[str, dic
                 "fragment_id": fragment_id,
                 "speaker": frag.get("speaker") or candidate.get("speaker"),
                 "speaker_attribution": frag.get("speaker_attribution"),
-                "source_video": frag.get("source_video") or candidate.get("source_video"),
+                "source_video": source_video,
                 "video_title": frag.get("video_title"),
                 "primary_theme": frag.get("primary_theme") or candidate.get("primary_theme"),
                 "primary_chapter": frag.get("primary_chapter") or candidate.get("primary_chapter"),
@@ -1029,7 +1075,7 @@ def _resolve_section_sources(section: dict[str, Any], by_fragment: dict[str, dic
                 "text": text,
                 "summary": clean_text(candidate.get("summary") or text),
                 "keywords": candidate.get("keywords") or frag.get("keywords") or [],
-                "stream_url": frag.get("stream_url"),
+                "stream_url": fragment_store.stream_url_for(source_video),
             }
         )
 

@@ -70,53 +70,53 @@ def patched_store():
 
 
 # ---------------------------------------------------------------------------
-# _to_supabase_job
+# _to_job_row
 # ---------------------------------------------------------------------------
 
 class TestToSupabaseJob:
     def test_basic_mapping(self):
-        from app.services.job_store import _to_supabase_job
+        from app.services.job_store import _to_job_row
         data = {"status": "queued", "request": {"prompt": "test"}}
-        row = _to_supabase_job("j1", data)
+        row = _to_job_row("j1", data)
         assert row["id"] == "j1"
         assert row["status"] == "queued"
         assert row["source_value"] == "test"
 
     def test_prompt_from_payload_fallback(self):
-        from app.services.job_store import _to_supabase_job
+        from app.services.job_store import _to_job_row
         data = {"status": "queued", "payload": {"prompt": "from payload"}}
-        row = _to_supabase_job("j1", data)
+        row = _to_job_row("j1", data)
         assert row["source_value"] == "from payload"
 
     def test_empty_prompt_when_missing(self):
-        from app.services.job_store import _to_supabase_job
+        from app.services.job_store import _to_job_row
         data = {"status": "queued"}
-        row = _to_supabase_job("j1", data)
+        row = _to_job_row("j1", data)
         assert row["source_value"] == ""
 
     def test_source_type_always_prompt(self):
-        from app.services.job_store import _to_supabase_job
-        row = _to_supabase_job("j1", {})
+        from app.services.job_store import _to_job_row
+        row = _to_job_row("j1", {})
         assert row["source_type"] == "prompt"
 
     def test_metadata_contains_full_data(self):
-        from app.services.job_store import _to_supabase_job
+        from app.services.job_store import _to_job_row
         data = {"status": "running", "extra_field": "extra"}
-        row = _to_supabase_job("j1", data)
+        row = _to_job_row("j1", data)
         assert row["metadata"] == data
 
     def test_progress_defaults_to_zero(self):
-        from app.services.job_store import _to_supabase_job
-        row = _to_supabase_job("j1", {})
+        from app.services.job_store import _to_job_row
+        row = _to_job_row("j1", {})
         assert row["progress"] == 0
 
     def test_request_prompt_takes_priority_over_payload(self):
-        from app.services.job_store import _to_supabase_job
+        from app.services.job_store import _to_job_row
         data = {
             "request": {"prompt": "from request"},
             "payload": {"prompt": "from payload"},
         }
-        row = _to_supabase_job("j1", data)
+        row = _to_job_row("j1", data)
         assert row["source_value"] == "from request"
 
 

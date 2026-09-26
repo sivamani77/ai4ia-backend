@@ -6,6 +6,8 @@ from typing import Any
 import numpy as np
 
 from app.core.paths import PROJECT_ROOT
+from app.core.settings import settings
+from app.services.conference_year import conference_year
 from app.pipeline.storyline_gen.candidate_scoring import (
     candidate_search_blob,
     match_terms_in_text,
@@ -122,12 +124,101 @@ def _load_corpus_from_chroma() -> list[dict[str, Any]]:
         for fid, meta in zip(result["ids"], result["metadatas"]):
             row = dict(meta or {})
             row["fragment_id"] = fid
+            row["video_year"] = conference_year(row.get("video_id"), row.get("source_video"), row.get("video_year"))
             all_records.append(row)
         offset += batch_size
 
     _CHROMA_RECORDS = all_records
     log(f"ChromaDB corpus metadata loaded: {len(all_records)} records")
     return all_records
+
+
+_QUERY_VECTOR_CACHE: dict[str, Any] = {}
+
+
+def _query_vector(prompt: str) -> np.ndarray:
+    """embed_query, memoized for the life of the job.
+
+    Retrieval embeds the same prompt twice — once for the ANN query, once for
+    the score backfill below — and the embedding host is a remote HTTP call.
+    """
+    cached = _QUERY_VECTOR_CACHE.get(prompt)
+    if cached is None:
+        cached = embed_query(prompt)
+        _QUERY_VECTOR_CACHE[prompt] = cached
+    return cached
+
+
+def _backfill_semantic_scores(candidates: list[dict[str, Any]], prompt: str) -> int:
+    """Give every candidate a real semantic_score, not just the ANN winners.
+
+    score_all_records only scores Chroma's top-N ANN hits; everything else is
+    returned as bare metadata. Candidates that reach the merged set through
+    the keyword/theme/speaker/title channels therefore arrived with no
+    semantic_score at all, which read as 0.0 downstream — and since
+    semantic_score carries 0.30 of final_prompt_score and gates every role
+    branch in classify_candidate_relevance_v2, that silently capped them at
+    weak_related no matter how well they matched. bucket_candidates then files
+    weak_related under supporting_candidates, which the export timeline never
+    reads, so those clips could not appear in the rendered video.
+
+    Fetching the stored vectors and scoring them directly reproduces exactly
+    what the ANN query would have returned: the collection is cosine-space
+    with unit-norm vectors, so a dot product of normalized vectors is the same
+    number as Chroma's own `1 - distance`.
+
+    Returns the number of candidates scored.
+    """
+    missing = [c for c in candidates if c.get("semantic_score") is None]
+    if not missing:
+        return 0
+
+    by_id: dict[str, list[dict[str, Any]]] = {}
+    for candidate in missing:
+        fragment_id = str(candidate.get("fragment_id") or "")
+        if fragment_id:
+            by_id.setdefault(fragment_id, []).append(candidate)
+    if not by_id:
+        return 0
+
+    query_vector = _query_vector(prompt)
+    norm = float(np.linalg.norm(query_vector))
+    if norm > 0:
+        query_vector = query_vector / norm
+
+    collection = _get_chroma_collection()
+    ids = list(by_id)
+    scored = 0
+    batch_size = 200
+    for offset in range(0, len(ids), batch_size):
+        batch = ids[offset: offset + batch_size]
+        try:
+            fetched = collection.get(ids=batch, include=["embeddings"])
+        except Exception as exc:
+            log(f"Semantic backfill failed for {len(batch)} fragments: {exc}")
+            continue
+        embeddings = fetched.get("embeddings")
+        if embeddings is None or len(embeddings) == 0:
+            continue
+        for fragment_id, vector in zip(fetched["ids"], embeddings):
+            vector = np.asarray(vector, dtype=np.float32)
+            vector_norm = float(np.linalg.norm(vector))
+            if vector_norm > 0:
+                vector = vector / vector_norm
+            score = round(float(vector @ query_vector), 6)
+            for candidate in by_id.get(fragment_id, []):
+                candidate["semantic_score"] = score
+                candidate["semantic_score_backfilled"] = True
+                scored += 1
+
+    # Anything the fetch could not cover still needs the key present:
+    # select_balanced_candidates reads record["semantic_score"] directly and
+    # would raise KeyError on a candidate whose other scores are all zero.
+    for candidate in missing:
+        if candidate.get("semantic_score") is None:
+            candidate["semantic_score"] = 0.0
+
+    return scored
 
 
 def _semantic_rank_via_chroma(
@@ -143,7 +234,7 @@ def _semantic_rank_via_chroma(
     quality-gated set activate_corpus() computed still leaves top_k results.
     """
     collection = _get_chroma_collection()
-    query_vector = embed_query(prompt)
+    query_vector = _query_vector(prompt)
 
     n_results = top_k * 5 if allowed_ids is not None else top_k
     n_results = max(1, min(n_results, collection.count()))
@@ -164,6 +255,8 @@ def _semantic_rank_via_chroma(
             continue
         record = dict(meta or {})
         record["fragment_id"] = fid
+        record["video_year"] = conference_year(record.get("video_id"), record.get("source_video"),
+                                               record.get("video_year"))
         record["semantic_score"] = round(1.0 - float(dist), 6)
         ranked.append(record)
         if len(ranked) >= top_k:
@@ -298,6 +391,8 @@ def load_embedding_records() -> list[dict[str, Any]]:
                 record = json.loads(line)
                 record.pop("embedding", None)
                 record.pop("embedding_text", None)
+                record["video_year"] = conference_year(record.get("video_id"), record.get("source_video"),
+                                                       record.get("video_year"))
                 records.append(record)
     return records
 
@@ -328,6 +423,51 @@ def merge_candidate_sets(*candidate_sets: list[dict[str, Any]]) -> list[dict[str
     return ordered
 
 
+def rank_panel_fragments(
+    fragments: list[dict[str, Any]], speaker: str, terms: list[str],
+) -> list[dict[str, Any]]:
+    """Panel clips for a speaker who never has a clip of their own.
+
+    Clips where the speaker (or an alias) is named, and the two after them,
+    come first: they are the likeliest to be that speaker's turn. Then topic
+    matches. Ties are spread across each panel's timeline.
+    """
+    import re
+
+    from app.services.speaker_registry import get_registry
+
+    names = [speaker, *(get_registry().speakers.get(speaker, {}).get("aliases") or [])]
+    name_tokens = {t.lower() for n in names for t in re.findall(r"[A-Za-z]{4,}", n)}
+    by_video: dict[str, list[dict[str, Any]]] = {}
+    for item in fragments:
+        by_video.setdefault(str(item.get("source_video") or ""), []).append(item)
+
+    ranked = []
+    for items in by_video.values():
+        items.sort(key=lambda i: float(i.get("start") or 0))
+        mention_at = [i for i, item in enumerate(items)
+                      if name_tokens & set(re.findall(r"[a-z]{4,}", (item.get("text") or "").lower()))]
+        for i, item in enumerate(items):
+            mention = 2 if i in mention_at else 1 if any(0 < i - m <= 2 for m in mention_at) else 0
+            topic = len(match_terms_in_text(candidate_search_blob(item), terms)) if terms else 0
+            third = min(2, 3 * i // max(1, len(items)))  # position in the panel: start, middle, end
+            ranked.append(((-mention, -topic), third, -float(item.get("quote_strength") or 0), item))
+
+    # Within each (mention, topic) level, take the start, middle and end of the panel in turn.
+    ranked.sort(key=lambda r: (r[0], r[2]))
+    levels: dict[tuple, list] = {}
+    for r in ranked:
+        levels.setdefault(r[0], []).append(r)
+    ordered = []
+    for level in sorted(levels):
+        buckets = [[r for r in levels[level] if r[1] == b] for b in range(3)]
+        while any(buckets):
+            for bucket in buckets:
+                if bucket:
+                    ordered.append(bucket.pop(0)[3])
+    return ordered
+
+
 def hybrid_retrieve_candidates(
     profile: dict,
     records: list[dict],
@@ -340,6 +480,7 @@ def hybrid_retrieve_candidates(
     search_terms = list(dict.fromkeys(topic_terms + expanded_terms))
     theme_hint = profile.get("theme_hint")
     chapter_hint = profile.get("chapter_hint")
+    requested_source_video = profile.get("requested_source_video")
 
     def with_channel(items: list[dict[str, Any]], channel: str) -> list[dict[str, Any]]:
         result = []
@@ -354,9 +495,13 @@ def hybrid_retrieve_candidates(
     keyword_pool: list[dict[str, Any]] = []
     theme_pool: list[dict[str, Any]] = []
     speaker_pool: list[dict[str, Any]] = []
+    panel_pool: list[dict[str, Any]] = []
+    title_pool: list[dict[str, Any]] = []
 
     for record in records:
         blob = candidate_search_blob(record)
+        if requested_source_video and str(record.get("source_video") or "") == requested_source_video:
+            title_pool.append(dict(record))
         if search_terms:
             direct_hits = match_terms_in_text(blob, topic_terms)
             expanded_hits = match_terms_in_text(blob, expanded_terms)
@@ -373,6 +518,14 @@ def hybrid_retrieve_candidates(
                 candidate["speaker_match"] = True
                 candidate["speaker_match_reason"] = speaker_reason
                 speaker_pool.append(candidate)
+            else:
+                panel_match, panel_reason = candidate_speaker_matches(record, requested_speaker, allow_panel=True)
+                if panel_match:
+                    candidate = dict(record)
+                    candidate["speaker_match"] = True
+                    candidate["speaker_match_panel"] = True
+                    candidate["speaker_match_reason"] = panel_reason
+                    panel_pool.append(candidate)
 
     keyword_pool = sorted(
         with_channel(keyword_pool, "keyword"),
@@ -388,19 +541,37 @@ def hybrid_retrieve_candidates(
         key=lambda item: float(item.get("semantic_score") or 0.0),
         reverse=True,
     )[: max(10, top_k // 3)]
-    speaker_pool = sorted(
-        with_channel(speaker_pool, "speaker"),
-        key=lambda item: (
+    def by_quality(item: dict[str, Any]) -> tuple[float, float, float]:
+        return (
             float(item.get("quote_strength") or 0.0),
             float(item.get("clarity_score") or 0.0),
             float(item.get("semantic_score") or 0.0),
+        )
+
+    speaker_pool = sorted(with_channel(speaker_pool, "speaker"), key=by_quality, reverse=True)
+    # Panel clips are a fallback: used only when the speaker has too few solo
+    # clips, and ranked after them.
+    if requested_speaker and len(speaker_pool) < settings.speaker_panel_fallback_min_clips:
+        speaker_pool += rank_panel_fragments(with_channel(panel_pool, "speaker_panel"),
+                                             requested_speaker, search_terms)
+    speaker_pool = speaker_pool[:top_k]
+
+    # The title channel is unbounded on purpose: when the prompt names a
+    # specific video, every fragment of that video is in scope and the
+    # diversity caps downstream decide how many are actually used. Capping it
+    # here would hand that decision to whatever arbitrary slice sorted first.
+    title_pool = sorted(
+        with_channel(title_pool, "title"),
+        key=lambda item: (
+            float(item.get("quote_strength") or 0.0),
+            float(item.get("clarity_score") or 0.0),
         ),
         reverse=True,
-    )[:top_k]
+    )
 
     if requested_speaker:
-        return merge_candidate_sets(speaker_pool, keyword_pool, theme_pool)
-    return merge_candidate_sets(semantic_pool, keyword_pool, theme_pool)
+        return merge_candidate_sets(title_pool, speaker_pool, keyword_pool, theme_pool)
+    return merge_candidate_sets(title_pool, semantic_pool, keyword_pool, theme_pool)
 
 
 def compute_retrieval_diagnostics(profile: dict[str, Any], retrieved: list[dict[str, Any]], buckets: dict[str, list[dict[str, Any]]], top_k: int) -> dict[str, Any]:
@@ -429,6 +600,10 @@ def retrieve_candidates(
 ) -> list[dict[str, Any]]:
     scored = score_all_records(prompt, semantic_k=max(top_k, DEFAULT_TOP_K))
     hybrid = hybrid_retrieve_candidates(intent, scored, scored, top_k=top_k)
+    if _chroma_mode():
+        backfilled = _backfill_semantic_scores(hybrid, prompt)
+        if backfilled:
+            log(f"Backfilled semantic_score for {backfilled} non-ANN candidates")
     return hybrid[: max(top_k, len(hybrid))]
 
 

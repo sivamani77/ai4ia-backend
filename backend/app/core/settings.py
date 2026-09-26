@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import date
 from pathlib import Path
 from urllib.parse import quote, urlsplit, urlunsplit
 
@@ -12,6 +13,8 @@ class Settings(BaseSettings):
     # Application metadata
     # ------------------------------------------------------------------
     app_name: str = "AI4IA Video Studio Backend"
+    # Recorded on every job. Blank = git commit locally, code hash in the image.
+    code_version: str = ""
 
     # ------------------------------------------------------------------
     # Security
@@ -23,6 +26,10 @@ class Settings(BaseSettings):
     # User authentication (JWT access + rotating refresh tokens)
     # ------------------------------------------------------------------
     jwt_signing_key: str = ""
+    # A key shorter than this can be brute-forced offline from any issued
+    # token, so the API refuses to start with one. An empty key is rejected
+    # at signing/verification time instead (auth off, pipeline still usable).
+    jwt_min_key_bytes: int = 32
     jwt_algorithm: str = "HS256"
     jwt_issuer: str = "ai4ia-backend"
     access_token_ttl_seconds: int = 15 * 60          # 15 minutes
@@ -30,6 +37,10 @@ class Settings(BaseSettings):
     refresh_cookie_name: str = "refresh_token"
     refresh_cookie_domain: str = ""   # blank = host-only cookie
     refresh_cookie_secure: bool = True
+    # A refresh token presented again within this many seconds of its rotation
+    # is refused without ending the session: two tabs refreshing at once, not
+    # a stolen token. Later replays still revoke the whole session family.
+    refresh_reuse_grace_seconds: int = 30
 
     # Argon2id password hashing cost parameters
     argon2_time_cost: int = 3
@@ -40,6 +51,53 @@ class Settings(BaseSettings):
     otp_ttl_minutes: int = 10
     otp_max_attempts: int = 5
     otp_resend_cooldown_seconds: int = 60
+    # Limits on code requests and guesses. Per-email limits are the main
+    # control and hold across codes, so asking for a new code does not reset
+    # the guess budget. Per-IP limits are a looser backstop.
+    # Tight limits are keyed on e-mail + IP, so an attacker elsewhere cannot
+    # use them to lock the owner out; the looser e-mail-only ceilings cap an
+    # attacker who rotates IPs. The daily guess cap is the hard bound on
+    # guesses at one account's codes, however many codes are issued.
+    otp_requests_per_email_ip_per_hour: int = 5
+    otp_requests_per_email_per_hour: int = 20
+    otp_requests_per_ip_per_hour: int = 30
+    otp_verifies_per_email_ip_per_hour: int = 10
+    otp_verifies_per_email_per_hour: int = 30
+    otp_verifies_per_ip_per_hour: int = 60
+    otp_codes_per_email_ip_per_day: int = 10
+    otp_codes_per_email_per_day: int = 30
+    otp_verifies_per_email_ip_per_day: int = 20
+    otp_verifies_per_email_per_day: int = 100  # NIST SP 800-63B: at most 100 failures per account
+
+    # Proxies whose X-Forwarded-For entries are trusted when finding the
+    # client IP (Istio sidecar and ingress sit on these ranges).
+    trusted_proxy_cidrs: list[str] = [
+        "127.0.0.0/8", "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16", "100.64.0.0/10",
+        "::1/128", "fc00::/7",
+    ]
+
+    # ------------------------------------------------------------------
+    # Auth data retention (privacy policy 2.4)
+    # ------------------------------------------------------------------
+    # user_sessions / refresh_tokens / auth_audit all store the client IP and
+    # user-agent. Every end-of-life operation on those rows is an UPDATE
+    # (ended_at / revoked_at), so without this sweep they would accumulate
+    # indefinitely. Rows are deleted once they have been finished for longer
+    # than this window; counted from ended_at/expires_at, not created_at, so
+    # a long-lived active session is never cut off mid-use.
+    auth_data_retention_days: int = 30
+    # Blank disables the sweep entirely (Celery beat format, UTC).
+    auth_purge_cron: str = "30 3 * * *"  # 03:30 UTC daily
+
+    # Prompt and LLM-exchange records (privacy policy 6: kept for the project's duration)
+    processing_record_retain_until: date = date(2026, 12, 31)
+    record_llm_payloads: bool = True        # store full LLM request/response text
+    processing_purge_cron: str = "45 3 * * *"  # blank disables the expiry sweep
+
+    # Video job quota: enforced atomically at submission (api/video_jobs.py).
+    video_job_max_running_per_user: int = 1
+    video_job_max_queued_per_user: int = 3
+    video_job_max_active: int = 50  # queued + running, whole platform
 
     # Login brute-force lockout
     login_max_failed_attempts: int = 5
@@ -82,27 +140,24 @@ class Settings(BaseSettings):
     database_url: str = "postgresql://ai4ia:ai4ia_local_dev@localhost:5432/ai4ia"
 
     # ------------------------------------------------------------------
-    # Supabase — pipeline project, LEGACY. Every pipeline table (fragments,
-    # storylines, insights, ingest_jobs, ingest_status, ingest_job_events)
-    # now lives in Postgres (app.db.schema.ensure_pipeline_schema) plus
-    # Chroma for fragment vectors. These two settings are kept only so the
-    # repositories can fall back to reading rows that predate the Postgres
-    # cutover — nothing writes through this project anymore. Safe to leave
-    # unset once a cluster's Postgres holds all pipeline data.
-    # ------------------------------------------------------------------
-    supabase_url: str = ""
-    supabase_service_key: str = ""
-
-    # ------------------------------------------------------------------
-    # Supabase — auth project (app_users, otp_codes, refresh_tokens,
-    # auth_audit). This is a SEPARATE Supabase project from the one above —
-    # app_users already existed there before the backend owned auth, and the
-    # frontend's anon/publishable key for it must never be used server-side.
-    # The backend needs that project's service-role key to hash/verify
-    # passwords and manage tokens.
+    # Supabase — MIGRATION ONLY. Nothing in the running application reads
+    # these any more: app_users/otp_codes/refresh_tokens/auth_audit moved to
+    # Postgres (see app.db.schema.ensure_auth_schema), and the legacy
+    # pipeline read-fallback was removed with them. The `supabase` SDK is no
+    # longer a dependency at all.
+    #
+    # They survive here for the data copy in app.services.auth_data_migration
+    # (the one-time copy, the startup catch-up and
+    # scripts/migrate_auth_data_from_supabase.py), which reads the Supabase
+    # auth project over PostgREST using plain `requests`. The Supabase project is retained read-only as the backup
+    # of record, so these stay set in the deployment secret rather than
+    # being deleted after cutover.
     # ------------------------------------------------------------------
     auth_supabase_url: str = ""
     auth_supabase_service_key: str = ""
+    # Copy auth rows that changed in Supabase after the one-time copy, on every
+    # API startup (v1.0.0 cutover). Turn off once production reads Postgres.
+    auth_supabase_catchup: bool = True
 
     # ------------------------------------------------------------------
     # vLLM (unused by the video pipeline as of the gpt-oss:120b/Ollama
@@ -202,6 +257,8 @@ class Settings(BaseSettings):
     # If the LLM call itself fails (timeout, unparsable output), allow the
     # prompt through rather than blocking legitimate users on infra failure.
     prompt_guardrail_fail_open: bool = True
+    # Longest prompt accepted with a friendly message; the request model's hard cap is higher.
+    prompt_max_chars: int = 2000
 
     # ------------------------------------------------------------------
     # Response translation
@@ -229,6 +286,53 @@ class Settings(BaseSettings):
     max_uses_per_source_video: int = Field(default=2, gt=0)
     max_uses_per_speaker: int = Field(default=2, gt=0)
 
+    # Title-targeted prompts. When the prompt is (or closely paraphrases) a
+    # source video's title, that video is what the user asked for, so the
+    # generic diversity cap above would be wrong — it would let at most
+    # max_uses_per_source_video clips of the requested video through and fill
+    # the rest of the runtime with other material.
+    # title_match_min_ratio: fraction of the prompt's topic terms that must
+    # appear in a video's title before the prompt counts as title-targeted.
+    # max_uses_per_requested_source_video: the relaxed per-source cap that
+    # then applies to that one video only; every other source keeps the
+    # normal cap.
+    title_match_min_ratio: float = Field(default=0.6, gt=0, le=1.0)
+    max_uses_per_requested_source_video: int = Field(default=6, gt=0)
+
+    # Which fragments stage 07 retrieves from, passed through to
+    # 07_generate_storyline.py's --corpus-version. activate_corpus() treats
+    # "original_v1"/"cleaned_v2" as an exact-match filter on a fragment's
+    # source_transcript_version and "mixed_cleaned_v2" as no filtering at all.
+    #
+    # This must stay "mixed_cleaned_v2". source_transcript_version is
+    # per-video provenance, not a corpus generation: find_transcript() in
+    # scripts/04_regenerate_fragments_from_clean_transcripts.py picks ONE
+    # transcript per video (aligned > cleaned > original) and stamps whichever
+    # it used, so each video carries exactly one label and the label sets are
+    # disjoint — 220 videos are original_v1, a different 89 are cleaned_v2,
+    # 220 + 89 = 309. Filtering to either label therefore makes the other set
+    # unreachable to every video job rather than merely deprioritized. Stage 07
+    # used to pass no flag at all and inherit the script's "original_v1"
+    # default, which silently hid 89 of the 309 videos from retrieval.
+    #
+    # find_transcript can also emit "cleaned_v2_aligned", which neither
+    # single-label filter admits — a third reason to keep this unfiltered.
+    storyline_corpus_version: str = "mixed_cleaned_v2"
+
+    # Top-1 similarity below this marks a weak match: the archive search flag
+    # and the stage 07 coverage rule. Query surfaces no longer decline on it.
+    # Measured: genuine queries 0.735-0.815, off-topic 0.564-0.658.
+    archive_relevance_floor: float = Field(default=0.68, ge=0.0, le=1.0)
+
+    # Stage 07 coverage check (docs/design/intent-layer-design.md §8). Top-1 below
+    # this is not covered; between it and archive_relevance_floor the evidence
+    # judge decides. Measured 2026-09-24: covered prompts 0.72-0.81, off-topic
+    # 0.62-0.65, but "quantum computing in agriculture" 0.77, so topic terms
+    # missing from the evidence also go to the judge.
+    coverage_judge_low: float = Field(default=0.60, ge=0.0, le=1.0)
+    # False records the verdict but never declines (shadow mode).
+    coverage_decline_enabled: bool = True
+
     # Fragmenting rules — how transcript segments are grouped into fragments.
     fragment_min_duration_seconds: float = Field(default=35, gt=0)
     fragment_target_duration_seconds: float = Field(default=75, gt=0)
@@ -250,7 +354,10 @@ class Settings(BaseSettings):
     # Bump this after re-ingesting new source videos — it's part of the L1/L2
     # cache key, so every cached entry is implicitly invalidated by a version
     # change without needing a manual purge.
-    storyline_cache_corpus_version: str = "v1"
+    storyline_cache_corpus_version: str = "v2_speaker_registry"
+    # A prompt naming a speaker uses their panel clips only when they have
+    # fewer than this many solo clips (panel clips carry no per-clip name).
+    speaker_panel_fallback_min_clips: int = 6
     # L2: semantic/paraphrase match via embedding similarity + an LLM
     # confirmation gate on candidate hits. Off by default — a false-positive
     # hit here serves the wrong topic's video, not just a slow one, so this
@@ -274,10 +381,23 @@ class Settings(BaseSettings):
     # YouTube ingestion
     # ------------------------------------------------------------------
     youtube_channel_url: str = "https://www.youtube.com/@ai4iaconference861/videos"
+    # Path to a Netscape-format cookies.txt (exported from a logged-in YouTube
+    # session) mounted into the worker. Without it, yt-dlp on cloud/datacenter
+    # IPs gets blocked by YouTube's "Sign in to confirm you're not a bot" wall
+    # and every download fails. See scripts/01_download_videos.py.
+    youtube_cookies_file: str | None = None
     # Set to true only in deployed environments to enable periodic auto-sync
     enable_auto_sync: bool = False
     # Cron schedule for auto-sync (Celery beat format, UTC)
     auto_sync_cron: str = "0 2 * * *"  # 02:00 UTC daily
+    # Bytes of video/audio an ingest stage may hold on local disk at once. In
+    # s3 mode the media stages pull their inputs down in chunks under this
+    # budget and delete them again after uploading results, so peak disk stays
+    # flat however large the channel grows. Budgeted in bytes rather than a
+    # count of videos because sizes vary ~28x (median 46MB, max 1.3GB), so a
+    # fixed count has wildly unpredictable disk cost. Default 1 GiB -> ~1.5GB
+    # peak, under 5% of the 30GiB volume the API also serves media from.
+    ingest_batch_bytes: int = 1_073_741_824
 
     # ------------------------------------------------------------------
     # Celery worker configuration (used by worker startup, not the API)
@@ -285,6 +405,24 @@ class Settings(BaseSettings):
     embed_celery_worker: bool = False
     worker_concurrency: int = 1
     worker_queue: str = "video_jobs"
+
+    # Video job recovery (docs/design/job-recovery-plan.md). The worker stamps a
+    # heartbeat while it runs a job; the API's sweeper fails jobs whose worker
+    # has gone quiet, jobs past the runtime cap, and jobs stuck in the queue.
+    job_heartbeat_interval_seconds: int = 30
+    job_stale_after_seconds: int = 300
+    job_max_runtime_seconds: int = 35 * 60
+    job_queued_max_age_seconds: int = 30 * 60
+    job_sweep_interval_seconds: int = 60
+    job_sweeper_enabled: bool = True
+    # Times a job is rerun after its worker is lost (OOM kill, deploy, node
+    # drain). Stage errors, cancellation and the runtime cap are never
+    # retried. 0 fails the job on the first loss.
+    job_max_worker_loss_retries: int = 3
+    # Broker redelivery window for unacknowledged tasks. Must stay above the
+    # task's hard time limit (job_max_runtime_seconds + 300) so a running job
+    # is never handed to a second worker.
+    celery_visibility_timeout_seconds: int = 3600
     worker_loglevel: str = "info"
 
     # ------------------------------------------------------------------
@@ -400,18 +538,30 @@ class Settings(BaseSettings):
             warnings.append(
                 "Redis is localhost — jobs will not survive restarts in a cloud deployment"
             )
-        # SUPABASE_URL/SUPABASE_SERVICE_KEY are now optional: the pipeline
-        # runs on Postgres + Chroma (see app.db.schema), and these only
-        # enable a legacy read fallback for rows not yet backfilled — no
-        # warning needed when they're unset.
-        if not self.auth_supabase_url:
-            warnings.append("AUTH_SUPABASE_URL is not set — user auth (app_users) unavailable")
-        if not self.auth_supabase_service_key:
-            warnings.append("AUTH_SUPABASE_SERVICE_KEY is not set — user auth (app_users) unavailable")
+        # No Supabase warnings here any more. Auth runs on Postgres via
+        # DATABASE_URL (checked above), and AUTH_SUPABASE_* is needed only by
+        # the one-time migration script, never by the running app — warning
+        # about it at startup would be telling operators to configure
+        # something the server does not use.
         if not self.api_key:
             warnings.append("API_KEY is not set — running in open dev mode, no auth enforced")
         if not self.jwt_signing_key:
             warnings.append("JWT_SIGNING_KEY is not set — user auth tokens cannot be issued")
+        if self.job_stale_after_seconds < 5 * self.job_heartbeat_interval_seconds:
+            warnings.append(
+                "JOB_STALE_AFTER_SECONDS should be at least 5x JOB_HEARTBEAT_INTERVAL_SECONDS; "
+                "live jobs may be failed as stale"
+            )
+        if self.celery_visibility_timeout_seconds <= self.job_max_runtime_seconds + 300:
+            warnings.append(
+                "CELERY_VISIBILITY_TIMEOUT_SECONDS must exceed JOB_MAX_RUNTIME_SECONDS + 300; "
+                "long jobs could be delivered to a second worker"
+            )
+        if self.access_token_ttl_seconds > 3600:
+            warnings.append(
+                f"ACCESS_TOKEN_TTL_SECONDS is {self.access_token_ttl_seconds}; access tokens should "
+                "live at most an hour (default 900) and be renewed through /api/auth/refresh"
+            )
         if not self.mail_smtp_host or not self.mail_smtp_user or not self.mail_smtp_password:
             warnings.append("MAIL_SMTP_* is not fully configured — OTP emails cannot be sent")
         return warnings

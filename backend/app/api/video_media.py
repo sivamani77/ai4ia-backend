@@ -49,6 +49,7 @@ _PRESIGNED_EXPIRY = 3600  # 1 hour
 def _make_presigned_url(object_key: str) -> str:
     """Generate an S3 presigned GET URL for the given object key."""
     import boto3
+    from botocore.config import Config
     kwargs: dict[str, Any] = {
         "aws_access_key_id": _OBJECT_STORAGE_ACCESS_KEY or None,
         "aws_secret_access_key": _OBJECT_STORAGE_SECRET_KEY or None,
@@ -56,6 +57,10 @@ def _make_presigned_url(object_key: str) -> str:
     }
     if _OBJECT_STORAGE_ENDPOINT:
         kwargs["endpoint_url"] = _OBJECT_STORAGE_ENDPOINT
+        kwargs["config"] = Config(signature_version="s3v4")
+    else:
+        # Sign for the regional host: opt-in regions (ap-south-2) reject the global one.
+        kwargs["config"] = Config(signature_version="s3v4", s3={"addressing_style": "virtual"})
     s3 = boto3.client("s3", **kwargs)
     return s3.generate_presigned_url(
         "get_object",
@@ -86,7 +91,8 @@ def _assert_owns(job: dict[str, Any], current_user: CurrentUser) -> None:
     """
     if current_user.persona == "admin":
         return
-    if job.get("user_id") and current_user.id and job["user_id"] != current_user.id:
+    # A job with no owner is treated as someone else's.
+    if not job.get("user_id") or job["user_id"] != current_user.id:
         raise HTTPException(status_code=404, detail=f"Job not found: {job['job_id']}")
 
 
@@ -150,6 +156,35 @@ def _file_response(obj: StorageObject, disposition: str = "inline") -> Response:
     )
 
 
+def parse_byte_range(range_header: str, file_size: int) -> tuple[int, int]:
+    """Return the inclusive (start, end) of a single byte range, or raise 416."""
+    unsatisfiable = HTTPException(
+        status_code=416,
+        detail="Range Not Satisfiable",
+        headers={"Content-Range": f"bytes */{file_size}"},
+    )
+    try:
+        unit, rng = range_header.split("=", 1)
+        if unit.strip().lower() != "bytes":
+            raise ValueError("unsupported unit")
+        start_str, end_str = (s.strip() for s in rng.split("-", 1))
+        if not start_str:
+            # Suffix range: the last N bytes.
+            suffix = int(end_str)
+            if suffix <= 0:
+                raise unsatisfiable
+            return max(file_size - suffix, 0), file_size - 1
+        start = int(start_str)
+        end = int(end_str) if end_str else file_size - 1
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=416, detail="Invalid Range header")
+    if start < 0 or start >= file_size or start > end:
+        raise unsatisfiable
+    return start, min(end, file_size - 1)
+
+
 def _s3_range_response(obj: StorageObject, request: Request) -> Response:
     """Stream an S3 object with proper HTTP Range support."""
     from app.services.storage_service import (
@@ -178,14 +213,7 @@ def _s3_range_response(obj: StorageObject, request: Request) -> Response:
 
     range_header = request.headers.get("range")
     if range_header:
-        try:
-            unit, rng = range_header.split("=", 1)
-            start_str, end_str = rng.split("-", 1)
-            start = int(start_str) if start_str.strip() else 0
-            end = int(end_str) if end_str.strip() else file_size - 1
-        except Exception:
-            raise HTTPException(status_code=416, detail="Invalid Range header")
-        end = min(end, file_size - 1)
+        start, end = parse_byte_range(range_header, file_size)
         length = end - start + 1
 
         def _stream():
@@ -265,24 +293,7 @@ def _range_response(obj: StorageObject, request: Request) -> Response:
             },
         )
 
-    # Parse "bytes=start-end"
-    try:
-        unit, ranges = range_header.split("=", 1)
-        if unit.strip() != "bytes":
-            raise ValueError("unsupported unit")
-        start_str, end_str = ranges.split("-", 1)
-        start = int(start_str) if start_str.strip() else 0
-        end = int(end_str) if end_str.strip() else file_size - 1
-    except Exception:
-        raise HTTPException(status_code=416, detail="Invalid Range header")
-
-    if start > end or end >= file_size:
-        raise HTTPException(
-            status_code=416,
-            detail="Range Not Satisfiable",
-            headers={"Content-Range": f"bytes */{file_size}"},
-        )
-
+    start, end = parse_byte_range(range_header, file_size)
     length = end - start + 1
 
     def _iter():

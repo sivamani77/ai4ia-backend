@@ -10,10 +10,11 @@ from app.db.repositories import (
     get_event_repository,
     get_job_repository,
     get_refresh_token_repository,
+    get_session_repository,
     get_user_repository,
 )
 from app.db.repositories.user_repository import DuplicateUserError
-from app.services.auth_service import _PERSONA_TO_DB, _to_ui_persona, to_public_user
+from app.services.auth_service import _PERSONA_TO_DB, _to_ui_persona, revoke_access_tokens, to_public_user
 
 logger = logging.getLogger("ai4ia.services.admin_users")
 
@@ -117,11 +118,16 @@ def update_user(
         if users.email_exists(email):
             raise HTTPException(status_code=409, detail="Email already registered")
         updates["email_id"] = email
+    persona_changed = False
     if persona is not None:
         updates["persona"] = _ADMIN_PERSONA_TO_DB[persona]
+        persona_changed = updates["persona"] != existing.get("persona")
 
     if updates:
         users.update_user(user_id, updates)
+    if persona_changed:
+        # A demoted admin must lose admin rights now, not when the token expires.
+        revoke_access_tokens(user_id)
 
     get_auth_audit_repository().log(event="admin_update_user", success=True, user_id=user_id)
     return to_admin_record(users.get_by_id(user_id))
@@ -135,6 +141,7 @@ def admin_reset_password(user_id: str, new_password: str) -> None:
     users.update_user(user_id, {"password_hash": hash_password(new_password), "password": ""})
     users.reset_login_attempts(user_id)
     get_refresh_token_repository().revoke_all_for_user(user_id)
+    revoke_access_tokens(user_id)
     get_auth_audit_repository().log(event="admin_reset_password", success=True, user_id=user_id)
 
 
@@ -155,6 +162,7 @@ def deactivate_user(user_id: str) -> dict:
         raise HTTPException(status_code=404, detail="User not found")
     users.deactivate(user_id)
     get_refresh_token_repository().revoke_all_for_user(user_id)
+    revoke_access_tokens(user_id)
     get_auth_audit_repository().log(event="admin_deactivate_user", success=True, user_id=user_id)
     return to_admin_record(users.get_by_id(user_id))
 
@@ -170,16 +178,21 @@ def reactivate_user(user_id: str) -> dict:
 
 def hard_delete_user(user_id: str) -> dict:
     """Full cascade delete — 'right to be forgotten'. Removes the account
-    AND everything attributable to it across BOTH Supabase projects:
+    AND everything attributable to it. Both groups now live in the same
+    Postgres database (DATABASE_URL), but they are still deleted in two
+    steps because only the second group is covered by FK cascades:
 
-      pipeline project: the user's jobs (+ S3/local export artifacts),
-                         job_events, llm_call_traces, agent_decision_records
-      auth project:      app_users row (cascades refresh_tokens/otp_codes/
-                         auth_audit via FK ON DELETE CASCADE)
+      pipeline tables: the user's jobs (+ S3/local export artifacts),
+                       job_events, llm_call_traces, agent_decision_records,
+                       prompt_resolutions, llm_call_payloads
+      auth tables:     user_sessions (deleted explicitly — that table has no
+                       FK to app_users, so nothing cascades to it and its
+                       stored ip/user_agent would outlive the account), then
+                       the app_users row (cascades refresh_tokens/otp_codes
+                       and nulls auth_audit.user_id via FK ON DELETE rules)
 
-    Insights are NOT covered — the insights table has no user attribution
-    today (a separate, larger schema change), so there is nothing to delete
-    there for a specific user.
+    Insights are deleted by owner. Insights made before owners were
+    recorded, and never backfilled, have no owner and are not covered.
 
     Order matters: delete children before the app_users row, since once the
     account is gone there is no way to look up "this user's jobs" again.
@@ -194,6 +207,8 @@ def hard_delete_user(user_id: str) -> dict:
 
     from app.db.repositories.llm_trace_repository import LLMTraceRepository
     from app.db.repositories.decision_record_repository import DecisionRecordRepository
+    from app.db.repositories.insight_repository import InsightRepository
+    from app.services import processing_records
 
     llm_traces = LLMTraceRepository()
     decision_records = DecisionRecordRepository()
@@ -207,22 +222,33 @@ def hard_delete_user(user_id: str) -> dict:
             continue
         deleted_storage_objects += _delete_job_storage(job_id)
         llm_traces.delete_by_job(job_id)
+        processing_records.delete_for_job(job_id)
         events_repo.delete_by_job(job_id)
         jobs_repo.delete_job(job_id)
 
     llm_traces.delete_by_user(user_id)
     decision_records.delete_by_user(user_id)
+    InsightRepository().delete_by_user(user_id)
+    processing_records.delete_for_user(user_id)
+
+    # Must precede delete_user: user_sessions has no FK to app_users, so this
+    # is the only thing that removes the session rows' ip/user_agent.
+    deleted_sessions = get_session_repository().delete_all_for_user(user_id)
 
     users.delete_user(user_id)  # cascades refresh_tokens/otp_codes/auth_audit (auth project FK)
+    from app.core.auth import forget_user_state
+
+    forget_user_state(user_id)
 
     logger.info(
-        "Hard-deleted user %s: %d jobs, %d storage objects",
-        user_id, len(user_jobs), deleted_storage_objects,
+        "Hard-deleted user %s: %d jobs, %d storage objects, %d sessions",
+        user_id, len(user_jobs), deleted_storage_objects, deleted_sessions,
     )
 
     return {
         "deleted_jobs": len(user_jobs),
         "deleted_storage_objects": deleted_storage_objects,
+        "deleted_sessions": deleted_sessions,
     }
 
 

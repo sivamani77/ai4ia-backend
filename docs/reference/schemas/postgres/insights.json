@@ -1,0 +1,118 @@
+{
+  "database": "postgres_pipeline",
+  "table": "insights",
+  "source": "backend/app/db/schema.py",
+  "description": "Result of an insight/analysis query over the fragment corpus, with its evidence pool and coverage score.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "query",
+      "type": "text",
+      "nullable": false,
+      "default": "''",
+      "description": ""
+    },
+    {
+      "name": "title",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "summary",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "filters",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "patterns",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "contrasts",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "recommended_clips",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "unsupported_claims",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": "Claims the evidence did not support."
+    },
+    {
+      "name": "evidence_pool",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": "Fragment ids used as evidence."
+    },
+    {
+      "name": "evidence_coverage",
+      "type": "double precision",
+      "nullable": false,
+      "default": "0",
+      "description": ""
+    },
+    {
+      "name": "models",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_insights_created_at",
+      "columns": [
+        "created_at desc"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "referenced_by",
+      "table": "agent_decision_records",
+      "column": "insight_id",
+      "enforced": false
+    }
+  ]
+}

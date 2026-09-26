@@ -1,16 +1,31 @@
-"""Fragment store — reads from Supabase fragments table.
+"""Fragment store — reads the fragments table from Postgres (DATABASE_URL).
 
 Public API is identical to the previous filesystem/in-memory version so all
 callers (embedding_index, insight_service, archive_service) require no changes.
 """
 import time
 from typing import Any
+from urllib.parse import quote
 
 from app.db.repositories.fragment_repository import FragmentRepository
 
 _CACHE_TTL = 60.0  # seconds
 
 _speakers_cache: tuple[list, float] = ([], 0.0)
+
+
+def stream_url_for(source_video: str | None) -> str | None:
+    """Build a fragment's archive stream URL from its source video.
+
+    Fragment rows have no stream_url column — it's derived, the same way
+    archive_service/archive.py build it for video listings and fragment
+    previews. Callers that build a fragment/clip dict for a citation or
+    evidence pool must compute it here rather than reading a "stream_url"
+    key off the raw fragment row, which is never set.
+    """
+    if not source_video:
+        return None
+    return f"/api/archive/videos/{quote(source_video, safe='')}/stream"
 
 
 def reload() -> dict[str, int]:

@@ -387,6 +387,55 @@ def create_year_stamp_card(
     return output_path
 
 
+def _fit_node_label(
+    draw: ImageDraw.ImageDraw,
+    text: str,
+    max_width: int,
+    base_size: int,
+    bold: bool = True,
+    min_size: int = 12,
+) -> tuple[ImageFont.FreeTypeFont, str]:
+    """Return a (font, text) pair that fits within max_width.
+
+    Node labels used to be sized by blind character-count truncation
+    (lbl[:10]) drawn at a fixed font size — neither step measures real pixel
+    width, so a long or wide word still overflows its circle/box while a
+    short one wastes the space. This shrinks the font first (matching the
+    measure-then-size pattern concept_card's keyword pills already use via
+    draw.textbbox), and only truncates — at a word boundary, with an
+    ellipsis — if the label still doesn't fit at the smallest acceptable size.
+    """
+    text = (text or "").strip()
+    if not text:
+        return find_font(min_size, bold=bold), ""
+
+    for size in range(base_size, min_size - 1, -2):
+        font = find_font(size, bold=bold)
+        bbox = draw.textbbox((0, 0), text, font=font)
+        if bbox[2] - bbox[0] <= max_width:
+            return font, text
+
+    font = find_font(min_size, bold=bold)
+    words = text.split()
+    while len(words) > 1:
+        words = words[:-1]
+        candidate = " ".join(words) + "…"
+        bbox = draw.textbbox((0, 0), candidate, font=font)
+        if bbox[2] - bbox[0] <= max_width:
+            return font, candidate
+
+    # Single word still too wide even at min_size — hard character clamp,
+    # shrinking one character at a time so it's always <= max_width.
+    candidate = text
+    while len(candidate) > 1:
+        probe = candidate[:-1] + "…"
+        bbox = draw.textbbox((0, 0), probe, font=font)
+        if bbox[2] - bbox[0] <= max_width:
+            return font, probe
+        candidate = candidate[:-1]
+    return font, candidate
+
+
 def create_narration_visual_asset(
     output_path: Path,
     visual_title: str,
@@ -420,7 +469,6 @@ def create_narration_visual_asset(
     }.get(visual_asset_type, "NARRATION")
 
     draw.text((110, 86), type_label, font=label_font, fill=GOLD_ACCENT)
-    draw.text((110, 110), section_id, font=small_font, fill=MUTED_TEXT_COLOR)
 
     # Main title
     y = draw_wrapped_text(draw, visual_title, (110, 195), title_font, TEXT_COLOR, max_width=1400, line_spacing=14)
@@ -448,17 +496,21 @@ def create_narration_visual_asset(
 
     elif visual_asset_type == "diagram":
         cx, cy = W // 2, y + 190
-        r_c, r_n = 44, 30
+        r_c, r_n = 52, 40
         draw.ellipse((cx - r_c, cy - r_c, cx + r_c, cy + r_c), outline=ACCENT_COLOR, width=3, fill=(18, 38, 65))
-        center_txt = (kws[0] if kws else "AI").upper()[:8]
-        draw.text((cx - 32, cy - 12), center_txt, font=find_font(17, bold=True), fill=TEXT_COLOR)
+        center_font, center_txt = _fit_node_label(draw, (kws[0] if kws else "AI").upper(), max_width=int(r_c * 1.7), base_size=17)
+        cbbox = draw.textbbox((0, 0), center_txt, font=center_font)
+        draw.text((cx - (cbbox[2] - cbbox[0]) // 2, cy - 12), center_txt, font=center_font, fill=TEXT_COLOR)
         offsets = [(-370, -10), (0, -155), (370, -10)]
         branch_labels = (kws[1:] if len(kws) > 1 else kws) + ["concept A", "concept B", "concept C"]
+        node_label_max_width = int(r_n * 1.8)
         for (dx, dy_), lbl in zip(offsets, branch_labels[:3]):
             nx, ny = cx + dx, cy + dy_
             draw.line((cx, cy, nx, ny), fill=MUTED_TEXT_COLOR, width=2)
             draw.ellipse((nx - r_n, ny - r_n, nx + r_n, ny + r_n), outline=GOLD_ACCENT, width=2, fill=(22, 42, 68))
-            draw.text((nx - 32, ny - 10), lbl[:10].upper(), font=find_font(16, bold=True), fill=TEXT_COLOR)
+            node_font, node_txt = _fit_node_label(draw, lbl.upper(), max_width=node_label_max_width, base_size=16)
+            nbbox = draw.textbbox((0, 0), node_txt, font=node_font)
+            draw.text((nx - (nbbox[2] - nbbox[0]) // 2, ny - 10), node_txt, font=node_font, fill=TEXT_COLOR)
 
     elif visual_asset_type == "risk_map":
         cx, cy = W // 2, y + 170
@@ -466,11 +518,15 @@ def create_narration_visual_asset(
         draw.text((cx - 26, cy - 12), "HARM", font=find_font(22, bold=True), fill=(255, 120, 100))
         ao = [(-290, -120), (-290, 120), (0, -175), (290, -120), (290, 120)]
         risk_kws = kws[:5] or ["identity", "consent", "reputation", "harm", "safety"]
+        risk_r = 38
+        risk_max_width = int(risk_r * 1.8)
         for (dx, dy_), lbl in zip(ao, risk_kws):
             nx, ny = cx + dx, cy + dy_
             draw.line((cx, cy, nx, ny), fill=(110, 55, 55), width=2)
-            draw.ellipse((nx - 28, ny - 28, nx + 28, ny + 28), outline=(200, 80, 60), width=2, fill=(38, 12, 12))
-            draw.text((nx - 26, ny - 10), lbl[:10].upper(), font=find_font(14, bold=True), fill=(220, 160, 150))
+            draw.ellipse((nx - risk_r, ny - risk_r, nx + risk_r, ny + risk_r), outline=(200, 80, 60), width=2, fill=(38, 12, 12))
+            risk_font, risk_txt = _fit_node_label(draw, lbl.upper(), max_width=risk_max_width, base_size=14)
+            rbbox = draw.textbbox((0, 0), risk_txt, font=risk_font)
+            draw.text((nx - (rbbox[2] - rbbox[0]) // 2, ny - 10), risk_txt, font=risk_font, fill=(220, 160, 150))
 
     elif visual_asset_type == "mindmap":
         cx, cy = W // 2, y + 150
@@ -479,11 +535,14 @@ def create_narration_visual_asset(
         draw.text((cx - 42, cy - 12), center_txt, font=find_font(18, bold=True), fill=TEXT_COLOR)
         branch_kws = kws[1:6] if len(kws) > 1 else kws * 4
         bxs = [cx - 460, cx - 230, cx, cx + 230, cx + 460]
+        mindmap_box_max_width = 116
         for bx, kw in zip(bxs, branch_kws[:5]):
             by = cy + 130
             draw.line((cx, cy + 30, bx, by - 20), fill=MUTED_TEXT_COLOR, width=1)
             draw.rectangle((bx - 68, by - 20, bx + 68, by + 20), outline=GOLD_ACCENT, width=1, fill=(18, 32, 52))
-            draw.text((bx - 58, by - 8), kw[:12].upper(), font=find_font(14, bold=True), fill=GOLD_ACCENT)
+            box_font, box_txt = _fit_node_label(draw, kw.upper(), max_width=mindmap_box_max_width, base_size=14)
+            bxbbox = draw.textbbox((0, 0), box_txt, font=box_font)
+            draw.text((bx - (bxbbox[2] - bxbbox[0]) // 2, by - 8), box_txt, font=box_font, fill=GOLD_ACCENT)
 
     elif visual_asset_type == "policy_card":
         pillars = kws[:4] or ["transparency", "accountability", "detection", "literacy"]
@@ -521,20 +580,22 @@ def generate_visual_assets_for_timeline(
     final_timeline: list,
     visuals_dir: Path,
 ) -> list:
-    """Generate PIL visual assets for narration_broll items with visual_mode='generated_asset'.
+    """Generate a PIL visual asset for EVERY narration_broll item.
 
-    Sets visual_path, render_visual_path, asset_path on each qualifying item.
+    Sets visual_path, render_visual_path, asset_path on each narration item.
     Returns the updated list.
+
+    This used to skip items that had a source_video, on the assumption the
+    renderer would fall back to archive footage for those. It no longer does:
+    archive footage is reserved exclusively for speaker_clip segments, so
+    narration always needs its own visual and Step 09 hard-fails without one.
     """
     visuals_dir.mkdir(parents=True, exist_ok=True)
     result = []
     for item in final_timeline:
         item = dict(item)
         t = item.get("type") or item.get("segment_type") or ""
-        # A narration item without archive footage MUST have a generated visual,
-        # otherwise the renderer has nothing to put on screen for it.
-        needs_visual = item.get("visual_mode") == "generated_asset" or not item.get("source_video")
-        if t == "narration_broll" and needs_visual:
+        if t == "narration_broll":
             sid = item.get("section_id") or "S_UNKNOWN"
             vtype = item.get("visual_asset_type") or "concept_card"
             vtitle = item.get("visual_title") or sid.replace("_", " ").title()

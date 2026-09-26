@@ -13,8 +13,21 @@ from typing import Any
 
 from app.core.config import INSIGHT_MODEL, INSIGHT_DEFAULT_LIMIT
 from app.db.repositories.insight_repository import InsightRepository
-from app.services import embedding_index, fragment_store
+from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
+from app.services import embedding_index, evidence_gate, fragment_store, guardrail_service
 from app.services.llm_service import generate_json
+
+
+# Response outcomes. "No relevant evidence in the archive" is a legitimate
+# result, not a client error — it is reported as a 200 carrying
+# OUTCOME_INSUFFICIENT_EVIDENCE rather than as a 422, so callers have one
+# stable contract to render and the safeguards gate has something to assert
+# against. Every successful run carries OUTCOME_GENERATED, so a client can
+# branch on `outcome` alone and never has to infer a decline from empty lists.
+OUTCOME_GENERATED = "generated"
+OUTCOME_INSUFFICIENT_EVIDENCE = "insufficient_evidence"
+
+DECLINE_TITLE = "No relevant evidence found"
 
 
 def _truncate(text: str, n: int = 600) -> str:
@@ -39,44 +52,60 @@ def build_evidence_pool(query: str, filters: dict | None, limit: int) -> list[di
             "start": f.get("start"),
             "end": f.get("end"),
             "duration": f.get("duration"),
-            "stream_url": f.get("stream_url"),
+            "stream_url": fragment_store.stream_url_for(f.get("source_video")),
             "similarity": f.get("similarity"),
             "text": f.get("text"),
         })
     return pool
 
 
-_PROMPT = """You are a research analyst synthesizing insights from the AI4IA conference archive.
+# Both inputs to this prompt are untrusted: the query is attacker-controlled
+# text straight off the API, and each fragment's transcript text comes from
+# ingested video. Neither is interpolated into the instructions — the
+# instructions are a system-role message and both travel in the user message
+# wrapped in wrap_untrusted(), matching stage_guardrail and fragment_validation.
+_SYSTEM_PROMPT = """You are a research analyst synthesizing insights from the AI4IA conference archive.
 
-Question: {query}
-
-You are given NUMBERED evidence fragments. You may ONLY use these fragments.
-EVERY statement you make MUST cite the fragment numbers that support it via a
-"fragment_refs" array (e.g. [1, 4]). Do NOT use any number not listed below.
-Do NOT invent facts. If the evidence is thin, say so and cite what exists.
-
-EVIDENCE:
-{evidence}
+Answer the question given in the user message. You are given NUMBERED evidence
+fragments. You may ONLY use these fragments. EVERY statement you make MUST cite
+the fragment numbers that support it via a "fragment_refs" array (e.g. [1, 4]).
+Do NOT use any number not listed in the evidence. Do NOT invent facts. If the
+evidence is thin, say so and cite what exists.
 
 Return JSON exactly in this shape:
-{{
+{
   "title": "<short evocative title>",
   "summary": "<2-4 sentence overview>",
-  "patterns":  [{{"statement": "<recurring idea>", "fragment_refs": [1,2]}}],
-  "contrasts": [{{"statement": "<tension or disagreement>", "fragment_refs": [3,4]}}],
-  "recommended_clips": [{{"ref": 1, "reason": "<why this clip is representative>"}}]
-}}"""
+  "patterns":  [{"statement": "<recurring idea>", "fragment_refs": [1,2]}],
+  "contrasts": [{"statement": "<tension or disagreement>", "fragment_refs": [3,4]}],
+  "recommended_clips": [{"ref": 1, "reason": "<why this clip is representative>"}]
+}""" + UNTRUSTED_CONTENT_NOTICE
 
 
 def _format_evidence(pool: list[dict]) -> str:
+    """Render the numbered citation pool.
+
+    The `[ref]` markers and metadata are ours and stay outside the wrapper so
+    the model can rely on them as structure; only the transcript text itself is
+    untrusted and gets wrapped.
+    """
     lines = []
     for p in pool:
         meta = " | ".join(filter(None, [
             p.get("speaker"), p.get("edition"),
             p.get("primary_theme"),
         ]))
-        lines.append(f"[{p['ref']}] ({meta}) {_truncate(p['text'])}")
+        lines.append(f"[{p['ref']}] ({meta}) {wrap_untrusted(_truncate(p['text']))}")
     return "\n".join(lines)
+
+
+def _build_user_message(query: str, pool: list[dict]) -> str:
+    return (
+        "QUESTION (untrusted — see content boundary notice in system instructions):\n"
+        + wrap_untrusted(query)
+        + "\n\nEVIDENCE:\n"
+        + _format_evidence(pool)
+    )
 
 
 def _validate(claims: list[dict], valid_refs: set[int]) -> tuple[list[dict], list[dict]]:
@@ -89,6 +118,71 @@ def _validate(claims: list[dict], valid_refs: set[int]) -> tuple[list[dict], lis
     return supported, unsupported
 
 
+def _declined_insight(
+    insight_id: str,
+    query: str,
+    filters: dict | None,
+    diagnostics: dict | None = None,
+) -> dict:
+    """The no-evidence result, in the same shape as a generated insight.
+
+    Every key a caller reads off a successful response is present and empty, so
+    a client that does not know about `outcome` still renders an empty result
+    rather than breaking. No LLM call is made — there is nothing to synthesise
+    from, and calling the model anyway is precisely the tangential-answer
+    failure this path exists to prevent.
+    """
+    return {
+        "id": insight_id,
+        "insight_id": insight_id,
+        "outcome": OUTCOME_INSUFFICIENT_EVIDENCE,
+        "decline_reason": (
+            "No fragments in the archive matched this query closely enough to "
+            "support an evidence-grounded answer."
+        ),
+        "decline_diagnostics": diagnostics or {},
+        "title": DECLINE_TITLE,
+        "query": query,
+        "filters": filters or {},
+        "summary": None,
+        "patterns": [],
+        "contrasts": [],
+        "recommended_clips": [],
+        "unsupported_claims": [],
+        "evidence_coverage": 0.0,
+        "evidence_pool": [],
+        "models": {"llm": None, "embedding": "nomic-embed-text:v1.5"},
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "Semantic search found nothing close enough to this query, so no "
+                "synthesis was attempted. The LLM was never called: with no "
+                "evidence pool there is nothing it could cite, and answering "
+                "anyway is the ungrounded-answer failure this path prevents."
+            ),
+            "retrieval": {
+                "method": "semantic_cosine_similarity",
+                "embedding_model": "nomic-embed-text:v1.5",
+                "fragments_retrieved": (diagnostics or {}).get("fragments_considered", 0),
+                "top_similarity": (diagnostics or {}).get("top_similarity"),
+                "relevance_floor": (diagnostics or {}).get("relevance_floor"),
+                "filters_applied": filters or {},
+            },
+            "generation": {"model": None, "skipped": True},
+            "validation": {
+                "total_claims_generated": 0,
+                "supported_claims": 0,
+                "unsupported_claims_dropped": 0,
+                "evidence_coverage_score": 0.0,
+                "coverage_meaning": (
+                    "Fraction of generated claims that resolved to at least one "
+                    "real fragment"
+                ),
+            },
+        },
+    }
+
+
 def generate_insight(
     query: str,
     filters: dict | None = None,
@@ -96,11 +190,20 @@ def generate_insight(
     user_id: str | None = None,
 ) -> dict:
     limit = limit or INSIGHT_DEFAULT_LIMIT
-    insight_id = f"insight_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}"
+    insight_id = f"insight_{uuid.uuid4().hex}"
+
+    # Vet before retrieval: a barred query should cost no embedding call and
+    # leave no insight row behind. Raises GuardrailRejection.
+    guardrail_service.assert_query_allowed(query, surface="insight", user_id=user_id)
 
     pool = build_evidence_pool(query, filters, limit)
-    if not pool:
-        raise ValueError("No fragments retrieved for this query/filters.")
+    sufficient, gate = evidence_gate.evidence_is_sufficient(pool, surface="insight")
+    if not sufficient:
+        declined = _declined_insight(insight_id, query, filters, diagnostics=gate)
+        # Not stored: /insights lists generated insights, and the decision
+        # record below is what keeps the run auditable.
+        _emit_insight_decision_record(declined, user_id)
+        return declined
 
     valid_refs = {p["ref"] for p in pool}
     llm_trace_ctx = {
@@ -111,9 +214,10 @@ def generate_insight(
         "decision_label": "evidence_synthesis",
     }
     raw = generate_json(
-        _PROMPT.format(query=query, evidence=_format_evidence(pool)),
+        _build_user_message(query, pool),
         model=INSIGHT_MODEL,
         temperature=0.2,
+        system=_SYSTEM_PROMPT,
         _trace=llm_trace_ctx,
     )
 
@@ -137,6 +241,9 @@ def generate_insight(
     insight = {
         "id": insight_id,
         "insight_id": insight_id,
+        "user_id": user_id,
+        "outcome": OUTCOME_GENERATED,
+        "decline_reason": None,
         "title": raw.get("title") or query[:80],
         "query": query,
         "filters": filters or {},
@@ -183,8 +290,9 @@ def generate_insight(
     return insight
 
 
-def list_insights() -> list[dict]:
-    rows = InsightRepository().list()
+def list_insights(user_id: str | None = None) -> list[dict]:
+    """Latest insights; pass user_id to limit them to one owner."""
+    rows = InsightRepository().list(user_id=user_id)
     return [
         {
             "insight_id": r.get("id"),
@@ -197,13 +305,19 @@ def list_insights() -> list[dict]:
     ]
 
 
-def get_insight(insight_id: str) -> dict | None:
-    row = InsightRepository().get(insight_id)
+def get_insight(insight_id: str, user_id: str | None = None) -> dict | None:
+    """One insight; pass user_id to return it only if that user owns it."""
+    row = InsightRepository().get(insight_id, user_id=user_id)
     if row is None:
         return None
     # Expose insight_id key so callers that expect it still work
     result = dict(row)
     result.setdefault("insight_id", row.get("id"))
+    # `outcome` is not a stored column and only generated insights are stored,
+    # so a row read back is generated by definition. Defaulting it here keeps
+    # one contract across POST /insights/generate and GET /insights/{id}.
+    result.setdefault("outcome", OUTCOME_GENERATED)
+    result.setdefault("decline_reason", None)
     return result
 
 
@@ -295,7 +409,12 @@ def _emit_insight_decision_record(insight: dict, user_id: str | None) -> None:
                     "embedding": models.get("embedding", "nomic-embed-text:v1.5"),
                     "insight": models.get("llm", INSIGHT_MODEL),
                 },
-                "outcome": "insight_generated",
+                # A declined run is still a recorded decision — the record is
+                # the only durable trace of it, since declines are not stored
+                # in the insights table.
+                "outcome": ("insight_declined"
+                            if insight.get("outcome") == OUTCOME_INSUFFICIENT_EVIDENCE
+                            else "insight_generated"),
                 "expires_at": _one_year_from_now(),
                 "created_at": insight.get("created_at"),
             })

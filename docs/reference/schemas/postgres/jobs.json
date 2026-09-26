@@ -1,0 +1,151 @@
+{
+  "database": "postgres_pipeline",
+  "table": "jobs",
+  "source": "db/init/001_schema.sql",
+  "description": "One row per storyline/pipeline job. Written by the API on submit and by the worker as it progresses.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "Job id (application-generated)."
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Lifecycle state.",
+      "enum": [
+        "queued",
+        "running",
+        "completed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    {
+      "name": "source_type",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Kind of input the job was created from."
+    },
+    {
+      "name": "source_value",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "The input itself (prompt, url, id)."
+    },
+    {
+      "name": "progress",
+      "type": "integer",
+      "nullable": false,
+      "default": "0",
+      "description": "0-100 progress percentage."
+    },
+    {
+      "name": "user_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "app_users.id of the submitter (cross-database reference, no FK)."
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    },
+    {
+      "name": "started_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "completed_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "error",
+      "type": "jsonb",
+      "nullable": true,
+      "default": null,
+      "description": "Structured failure detail when status='failed'."
+    },
+    {
+      "name": "metadata",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": "Free-form job payload; shallow-merged by update_job_partial."
+    },
+    {
+      "name": "job_type",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "worker_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Worker that claimed the job."
+    },
+    {
+      "name": "retry_count",
+      "type": "integer",
+      "nullable": false,
+      "default": "0",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_jobs_user_id",
+      "columns": [
+        "user_id"
+      ]
+    },
+    {
+      "name": "idx_jobs_status",
+      "columns": [
+        "status"
+      ]
+    },
+    {
+      "name": "idx_jobs_created_at",
+      "columns": [
+        "created_at desc"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "referenced_by",
+      "table": "job_events",
+      "column": "job_id",
+      "enforced": false
+    },
+    {
+      "type": "logical",
+      "table": "app_users",
+      "database": "supabase_auth",
+      "via": "user_id",
+      "enforced": false
+    }
+  ]
+}

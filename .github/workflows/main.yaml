@@ -1,7 +1,7 @@
 name: Mobius Caller Workflow
 on:
   push:
-    branches: [ dev, release, master, nexusconnects ]
+    branches: [ dev, release, master, nexusconnects, uat  ]
 jobs:
   dev_job:
     if: github.ref == 'refs/heads/dev'
@@ -21,6 +21,15 @@ jobs:
     with:
       SERVICE_CODE: ai4ia-backend
     secrets: inherit
+
+  uat_job:
+    if: github.ref == 'refs/heads/uat'
+    uses: gaiangroup/access/.github/workflows/ai4ia-backend-test-ci.yml@config
+    with:
+      SERVICE_CODE: ai4ia-backend-test
+    secrets: inherit
+
+
   release_job:
     if: github.ref == 'refs/heads/release'
     uses: gaiangroup/access/.github/workflows/python-mobius-graph-operations-release-config.yaml@config

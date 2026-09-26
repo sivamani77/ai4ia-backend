@@ -101,8 +101,8 @@ def to_postgres_row(row: dict, facets_cache: dict) -> dict:
         "source_video": row.get("source_video"),
         "video_id": row.get("video_id"),
         "video_title": row.get("video_title"),
-        "speaker": row.get("speaker"),
-        "speaker_attribution": row.get("speaker_attribution"),
+        "speaker": row.get("speaker") or None,
+        "speaker_attribution": row.get("speaker_attribution") or None,
         "text": row.get("text") or "",
         "summary": row.get("summary"),
         "start": start,
@@ -119,8 +119,18 @@ def to_postgres_row(row: dict, facets_cache: dict) -> dict:
         "edition": facets.get("edition"),
         "session_type": facets.get("session_type"),
         "keywords": row.get("keywords") or [],
-        "extra": {},
+        "extra": {"speaker_roster": row.get("speaker_roster") or ""},
     }
+
+
+def _apply_speaker_registry(row: dict) -> dict:
+    """Correct speaker fields from the speaker registry, so a rebuild from an
+    older JSONL cannot bring back old names."""
+    from app.services.speaker_registry import get_registry
+
+    row.update(get_registry().speaker_fields(
+        row.get("source_video"), row.get("speaker"), row.get("speaker_attribution"), row.get("video_id")))
+    return row
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -131,7 +141,7 @@ def load_jsonl(path: Path) -> list[dict]:
             if not line:
                 continue
             try:
-                rows.append(json.loads(line))
+                rows.append(_apply_speaker_registry(json.loads(line)))
             except json.JSONDecodeError as e:
                 print(f"  [warn] skipping line {i}: {e}")
     return rows

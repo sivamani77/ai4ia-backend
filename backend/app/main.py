@@ -6,28 +6,40 @@ import uuid
 from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI, Request
+from fastapi.exception_handlers import http_exception_handler
+from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from prometheus_fastapi_instrumentator import Instrumentator
 from pythonjsonlogger.json import JsonFormatter
 
-from app.core.auth import require_api_key, require_role
+from app.core.auth import BEARER_CHALLENGE as _BEARER_CHALLENGE, get_current_user, require_api_key, require_role
+from app.core.security import jwt_key_problem
 from app.core.config import API_PREFIX
 from app.core import dependency_state
+from app.core.error_messages import DEFAULT_MESSAGE
 from app.core.otel import is_enabled as _otel_enabled, setup_tracing
 from app.core.paths import ensure_runtime_dirs
 from app.core.settings import settings
 from app.core import metrics as _metrics
+from app.core.code_version import code_version
 from app.db.schema import ensure_pipeline_schema
+from app.services.auth_data_migration import run_once as run_auth_data_migration_once
+from app.services.auth_data_migration import start_catch_up_in_background as start_auth_catch_up
+from app.services.speaker_repair import start_in_background as start_speaker_repair
+from app.services.corpus_fix import start_in_background as start_corpus_fix
 
 # Must run before the httpx/requests/psycopg2 instrumentors below patch
 # their clients, and before the app is constructed.
 setup_tracing("ai4ia-api")
 
 from app.api.auth import router as auth_router
-from app.api.dashboard import router as dashboard_router
+from app.api.dashboard import admin_router as admin_dashboard_router, router as dashboard_router
 from app.api.archive import router as archive_router
 from app.api.admin import router as admin_router
 from app.api.admin_users import router as admin_users_router
+from app.api.admin_data import router as admin_data_router
 from app.api.insights import router as insights_router
 from app.api.compare import router as compare_router
 from app.api.video_jobs import router as video_jobs_router
@@ -35,6 +47,9 @@ from app.api.video_media import router as video_media_router
 from app.api.concept_mindmap import router as concept_mindmap_router
 from app.api.ingest import router as ingest_router
 from app.api.provenance import router as provenance_router
+from app.api.feedback import router as feedback_router
+from app.api.notifications import router as notifications_router
+from app.api.tours import router as tours_router
 
 
 class _PipelineLogFilter(logging.Filter):
@@ -90,38 +105,6 @@ def _reap_orphaned_ingest_jobs() -> None:
         logger.exception("Failed to reap orphaned ingest jobs on startup")
 
 
-def _reap_orphaned_jobs() -> None:
-    """Mark any jobs still in 'running'/'queued' state as failed.
-
-    These are local-thread jobs whose owning API process was restarted.
-    Celery-backed jobs are left alone because workers may still be running.
-    """
-    try:
-        from app.services.video_job_runner import _redis_reachable
-
-        if _redis_reachable():
-            logger.info("Redis is reachable; skipping local-thread orphan job reaping")
-            return
-
-        from datetime import datetime, timezone
-        from app.db.repositories.job_repository import JobRepository
-        repo = JobRepository()
-        all_jobs = repo.list_jobs()
-        orphaned = [j for j in all_jobs if j.get("status") in ("running", "queued")]
-        for job in orphaned:
-            jid = job.get("id")
-            repo.update_job(jid, {
-                "status": "failed",
-                "completed_at": datetime.now(timezone.utc).isoformat(),
-                "error": "Server restarted while job was in progress",
-            })
-            logger.info("Reaped orphaned job id=%s status=%s", jid, job.get("status"))
-        if orphaned:
-            _metrics.jobs_orphan_reaped_total.inc(len(orphaned))
-    except Exception:
-        logger.exception("Failed to reap orphaned jobs on startup")
-
-
 _DEPENDENCY_CHECK_INTERVAL_SECONDS = 60
 
 
@@ -132,7 +115,7 @@ async def _dependency_metrics_loop() -> None:
     per-request."""
     while True:
         for name, check_fn in (
-            ("supabase", _check_supabase),
+            ("postgres", _check_postgres),
             ("chroma", _check_chroma),
         ):
             start = time.perf_counter()
@@ -151,27 +134,64 @@ async def _dependency_metrics_loop() -> None:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     ensure_runtime_dirs()
+    logger.info("Code version: %s", await asyncio.to_thread(code_version))
 
     for warning in settings.validate_deployment_env():
         logger.warning(warning)
+
+    key_problem = jwt_key_problem()
+    if key_problem:
+        logger.error(key_problem)
+        raise RuntimeError(key_problem)
 
     try:
         await asyncio.to_thread(ensure_pipeline_schema)
     except Exception:
         logger.exception("Failed to ensure pipeline Postgres schema on startup")
 
-    await asyncio.to_thread(_reap_orphaned_jobs)
+    try:
+        await asyncio.to_thread(run_auth_data_migration_once)
+    except Exception:
+        logger.exception("Failed to run one-time Supabase auth data migration on startup")
+
+    # Copies auth rows that changed in Supabase since the one-time copy.
+    try:
+        start_auth_catch_up()
+    except Exception:
+        logger.exception("Failed to start the Supabase auth catch-up")
+
+    # One-off speaker repair; runs in a background thread only when its switch
+    # in app/services/speaker_repair.py is on.
+    try:
+        start_speaker_repair()
+    except Exception:
+        logger.exception("Failed to start the speaker repair")
+
+    # One-off corpus fix in Postgres; runs in a background thread only when its
+    # switch in app/services/corpus_fix.py is on.
+    try:
+        start_corpus_fix()
+    except Exception:
+        logger.exception("Failed to start the corpus fix")
+
+    # Video jobs are recovered by the sweeper below, not on startup; ingest
+    # jobs still have a thread fallback and keep their startup reaper.
     await asyncio.to_thread(_reap_orphaned_ingest_jobs)
 
-    dependency_metrics_task = asyncio.create_task(_dependency_metrics_loop())
+    background = [asyncio.create_task(_dependency_metrics_loop())]
+    if settings.job_sweeper_enabled:
+        from app.services import job_sweeper
+
+        background.append(asyncio.create_task(job_sweeper.run_forever()))
 
     yield
 
-    dependency_metrics_task.cancel()
-    try:
-        await dependency_metrics_task
-    except asyncio.CancelledError:
-        pass
+    for task in background:
+        task.cancel()
+        try:
+            await task
+        except asyncio.CancelledError:
+            pass
 
 
 app = FastAPI(
@@ -180,6 +200,37 @@ app = FastAPI(
     description="Backend API wrapper for AI4IA Demo Video Studio pipeline.",
     lifespan=lifespan,
 )
+
+
+@app.exception_handler(RequestValidationError)
+async def _validation_error_handler(request: Request, exc: RequestValidationError):
+    # Default FastAPI 422 body exposes pydantic internals (loc/msg/type) — keep
+    # that in logs, give the client one plain-English sentence instead.
+    logger.info("Validation error on %s %s: %s", request.method, request.url.path, exc.errors())
+    return JSONResponse(
+        status_code=422,
+        content={"detail": "Some of the details provided weren't valid. Please check your input and try again."},
+    )
+
+
+@app.exception_handler(StarletteHTTPException)
+async def _http_exception_handler(request: Request, exc: StarletteHTTPException):
+    # RFC 9110 §11.6.1: every 401 must carry a challenge. Routes that raise a
+    # bare 401 (refresh, logout, missing token) get the default one here.
+    if exc.status_code == 401 and not (exc.headers or {}).get("WWW-Authenticate"):
+        exc.headers = {**(exc.headers or {}), "WWW-Authenticate": _BEARER_CHALLENGE}
+    return await http_exception_handler(request, exc)
+
+
+@app.exception_handler(Exception)
+async def _unhandled_exception_handler(request: Request, exc: Exception):
+    # Floor-level safety net for anything a route didn't already convert to an
+    # HTTPException with a friendly detail. Full exception goes to logs only.
+    logger.exception("Unhandled exception on %s %s", request.method, request.url.path)
+    return JSONResponse(
+        status_code=500,
+        content={"detail": DEFAULT_MESSAGE},
+    )
 
 # RED metrics (request rate/error/duration by method+path+status) served at
 # /metrics for Prometheus scraping — unauthenticated, same as /api/health.
@@ -306,7 +357,10 @@ app.add_middleware(
 )
 
 
-def _check_supabase() -> dict:
+def _check_postgres() -> dict:
+    """Round-trips a real query against DATABASE_URL. Named for Supabase until
+    the auth migration; the pipeline tables it touches have been on Postgres
+    since well before that, so the old name described nothing."""
     try:
         from app.db.repositories.job_repository import JobRepository
         JobRepository().list_jobs()
@@ -342,8 +396,8 @@ async def health():
     # snapshot() reads Redis, so it goes through to_thread like the other
     # two — it is a blocking client, and /api/health is hit by every probe
     # on every pod. Never let it stall the event loop.
-    supabase, chroma, llm_hosts = await asyncio.gather(
-        asyncio.to_thread(_check_supabase),
+    postgres, chroma, llm_hosts = await asyncio.gather(
+        asyncio.to_thread(_check_postgres),
         asyncio.to_thread(_check_chroma),
         asyncio.to_thread(dependency_state.snapshot),
     )
@@ -353,14 +407,14 @@ async def health():
     # state — folding that into readiness would mark every API pod unready
     # whenever the GPU was correctly scaled down, and crash-loop the
     # deployment. llm_hosts below is reported for humans, never gated on.
-    all_ok = redis_up and supabase["ok"] and chroma["ok"]
+    all_ok = redis_up and postgres["ok"] and chroma["ok"]
 
     return {
         "status": "ok" if all_ok else "degraded",
         "service": settings.app_name,
         "checks": {
             "redis": {"ok": redis_up},
-            "supabase": supabase,
+            "postgres": postgres,
             "chroma": chroma,
         },
         # Last known state of vLLM/Ollama, recorded by whichever process
@@ -386,15 +440,19 @@ async def models_status():
 
 _auth_dep = [Depends(require_api_key)]
 _admin_dep = [Depends(require_api_key), Depends(require_role("admin"))]
+_user_dep = [Depends(require_api_key), Depends(get_current_user)]
 
 # No _auth_dep here: signup/login/etc. must be reachable without an API key
 # or an existing session — that's the whole point of the auth endpoints.
 app.include_router(auth_router, prefix=API_PREFIX)
 
+# Public landing-page counts; everything else needs a signed-in user.
 app.include_router(dashboard_router, prefix=API_PREFIX, dependencies=_auth_dep)
-app.include_router(archive_router, prefix=API_PREFIX, dependencies=_auth_dep)
+app.include_router(admin_dashboard_router, prefix=API_PREFIX, dependencies=_admin_dep)
+app.include_router(archive_router, prefix=API_PREFIX, dependencies=_user_dep)
 app.include_router(admin_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(admin_users_router, prefix=API_PREFIX, dependencies=_admin_dep)
+app.include_router(admin_data_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(insights_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(compare_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(video_jobs_router, prefix=API_PREFIX, dependencies=_auth_dep)
@@ -402,3 +460,6 @@ app.include_router(video_media_router, prefix=API_PREFIX, dependencies=_auth_dep
 app.include_router(concept_mindmap_router, prefix=API_PREFIX, dependencies=_auth_dep)
 app.include_router(ingest_router, prefix=API_PREFIX, dependencies=_admin_dep)
 app.include_router(provenance_router, prefix=API_PREFIX, dependencies=_admin_dep)
+app.include_router(feedback_router, prefix=API_PREFIX, dependencies=_user_dep)
+app.include_router(notifications_router, prefix=API_PREFIX, dependencies=_user_dep)
+app.include_router(tours_router, prefix=API_PREFIX, dependencies=_user_dep)

@@ -58,6 +58,30 @@ class _HttpCollection:
         with urllib.request.urlopen(req, timeout=30) as r:
             return _json.loads(r.read())
 
+    def _post(self, path: str, body: dict, timeout: int = 60) -> Any:
+        import urllib.request, json as _json
+        req = urllib.request.Request(f"{self._col_url}/{path}", data=_json.dumps(body).encode(),
+                                     headers={**self._headers, "Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            raw = r.read()
+        return _json.loads(raw) if raw else None
+
+    def get(self, ids: list | None = None, limit: int | None = None, offset: int | None = None,
+            include: list | None = None, where: dict | None = None) -> dict:
+        body: dict = {"include": include if include is not None else ["metadatas"]}
+        if ids is not None:
+            body["ids"] = ids
+        if limit is not None:
+            body["limit"] = limit
+        if offset is not None:
+            body["offset"] = offset
+        if where:
+            body["where"] = where
+        return self._post("get", body)
+
+    def update(self, ids: list, metadatas: list) -> None:
+        self._post("update", {"ids": ids, "metadatas": metadatas})
+
     def delete(self, ids: list) -> None:
         import urllib.request, json as _json
         body = {"ids": ids}

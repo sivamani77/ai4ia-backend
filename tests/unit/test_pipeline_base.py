@@ -1,20 +1,13 @@
 """Unit tests for app.pipeline.base — StageResult, PipelineContext, CONTRACTS,
-run_script, and kill_running_stage."""
+and run_script."""
 from __future__ import annotations
 
-import os
-import signal
-import subprocess
-from pathlib import Path
 from unittest.mock import MagicMock, patch
-
-import pytest
 
 from app.pipeline.base import (
     CONTRACTS,
     PipelineContext,
     StageResult,
-    kill_running_stage,
     run_script,
 )
 
@@ -138,70 +131,69 @@ class TestContracts:
 # ---------------------------------------------------------------------------
 
 class TestRunScript:
-    def test_successful_script(self, tmp_path):
-        logs_dir = tmp_path / "jobs" / "test_job" / "logs"
-        logs_dir.mkdir(parents=True)
+    """run_script no longer writes log files to a per-job logs dir or a pid
+    file on disk. It stores the subprocess pid on the job dict via
+    job_store.load_job/save_job (so cancellation can find it) and reports
+    stdout/stderr via job_store.append_event, all imported lazily inside the
+    function body — so tests patch the functions on app.services.job_store
+    directly rather than names on app.pipeline.base."""
 
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("app.pipeline.base.PROJECT_ROOT", tmp_path):
-                code, out, err = run_script("test_job", "mystage", ["echo", "hello"])
+    def _patches(self, job=None):
+        job = job if job is not None else {}
+        return (
+            patch("app.services.job_store.load_job", side_effect=lambda jid: dict(job)),
+            patch("app.services.job_store.save_job", MagicMock()),
+            patch("app.services.job_store.append_event", MagicMock()),
+        )
+
+    def test_successful_script(self):
+        p_load, p_save, p_event = self._patches()
+        with p_load, p_save, p_event:
+            code, out, err = run_script("test_job", "mystage", ["echo", "hello"])
 
         assert code == 0
         assert "hello" in out
 
-    def test_failing_script_returns_nonzero(self, tmp_path):
-        logs_dir = tmp_path / "jobs" / "fail_job" / "logs"
-        logs_dir.mkdir(parents=True)
-
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("app.pipeline.base.PROJECT_ROOT", tmp_path):
-                code, out, err = run_script("fail_job", "mystage", ["false"])
+    def test_failing_script_returns_nonzero(self):
+        p_load, p_save, p_event = self._patches()
+        with p_load, p_save, p_event:
+            code, out, err = run_script("fail_job", "mystage", ["false"])
 
         assert code != 0
 
-    def test_stdout_log_written(self, tmp_path):
-        logs_dir = tmp_path / "jobs" / "log_job" / "logs"
-        logs_dir.mkdir(parents=True)
+    def test_stdout_captured(self):
+        p_load, p_save, p_event = self._patches()
+        with p_load, p_save, p_event:
+            code, out, err = run_script("log_job", "mystage", ["echo", "hello world"])
 
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("app.pipeline.base.PROJECT_ROOT", tmp_path):
-                run_script("log_job", "mystage", ["echo", "hello world"])
+        assert "hello world" in out
 
-        log_file = logs_dir / "mystage.stdout.log"
-        assert log_file.exists()
-        assert "hello world" in log_file.read_text()
+    def test_stderr_captured(self):
+        p_load, p_save, p_event = self._patches()
+        with p_load, p_save, p_event:
+            code, out, err = run_script(
+                "err_job", "mystage", ["sh", "-c", "echo errline >&2"]
+            )
 
-    def test_stderr_log_written(self, tmp_path):
-        logs_dir = tmp_path / "jobs" / "err_job" / "logs"
-        logs_dir.mkdir(parents=True)
+        assert "errline" in err
 
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("app.pipeline.base.PROJECT_ROOT", tmp_path):
-                run_script("err_job", "mystage",
-                           ["sh", "-c", "echo errline >&2"])
+    def test_active_pid_stored_then_cleared(self):
+        job = {"id": "pid_job"}
+        p_load, p_save, p_event = self._patches(job)
+        with p_load, p_save as mock_save, p_event:
+            run_script("pid_job", "mystage", ["true"])
 
-        log_file = logs_dir / "mystage.stderr.log"
-        assert log_file.exists()
-        assert "errline" in log_file.read_text()
+        # First save sets active_pid, second (in the finally block) clears it.
+        assert mock_save.call_count == 2
+        first_call_job = mock_save.call_args_list[0].args[1]
+        second_call_job = mock_save.call_args_list[1].args[1]
+        assert "active_pid" in first_call_job
+        assert "active_pid" not in second_call_job
 
-    def test_pid_file_cleaned_up_after_success(self, tmp_path):
-        logs_dir = tmp_path / "jobs" / "pid_job" / "logs"
-        logs_dir.mkdir(parents=True)
-
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("app.pipeline.base.PROJECT_ROOT", tmp_path):
-                run_script("pid_job", "mystage", ["true"])
-
-        pid_file = logs_dir / "mystage.pid"
-        assert not pid_file.exists()
-
-    def test_returns_tuple_of_three(self, tmp_path):
-        logs_dir = tmp_path / "jobs" / "t3_job" / "logs"
-        logs_dir.mkdir(parents=True)
-
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("app.pipeline.base.PROJECT_ROOT", tmp_path):
-                result = run_script("t3_job", "mystage", ["true"])
+    def test_returns_tuple_of_three(self):
+        p_load, p_save, p_event = self._patches()
+        with p_load, p_save, p_event:
+            result = run_script("t3_job", "mystage", ["true"])
 
         assert len(result) == 3
         code, out, err = result
@@ -209,76 +201,21 @@ class TestRunScript:
         assert isinstance(out, str)
         assert isinstance(err, str)
 
-    def test_exception_returns_minus_one(self, tmp_path):
-        logs_dir = tmp_path / "jobs" / "exc_job" / "logs"
-        logs_dir.mkdir(parents=True)
-
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("app.pipeline.base.PROJECT_ROOT", tmp_path):
-                # Command that doesn't exist
-                code, out, err = run_script("exc_job", "mystage",
-                                            ["/nonexistent/binary/xyz"])
+    def test_exception_returns_minus_one(self):
+        p_load, p_save, p_event = self._patches()
+        with p_load, p_save, p_event as mock_event:
+            # Command that doesn't exist
+            code, out, err = run_script(
+                "exc_job", "mystage", ["/nonexistent/binary/xyz"]
+            )
 
         assert code == -1
         assert err != ""
+        assert any(c.args[1] == "script_error" for c in mock_event.call_args_list)
 
+    def test_append_event_called_on_success(self):
+        p_load, p_save, p_event = self._patches()
+        with p_load, p_save, p_event as mock_event:
+            run_script("evt_job", "mystage", ["echo", "hi"])
 
-# ---------------------------------------------------------------------------
-# kill_running_stage
-# ---------------------------------------------------------------------------
-
-class TestKillRunningStage:
-    def test_no_pid_file_returns_false(self, tmp_path):
-        logs_dir = tmp_path / "logs"
-        logs_dir.mkdir()
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            result = kill_running_stage("job1", "mystage")
-        assert result is False
-
-    def test_valid_pid_sends_sigterm(self, tmp_path):
-        logs_dir = tmp_path / "logs"
-        logs_dir.mkdir()
-        pid_file = logs_dir / "mystage.pid"
-        pid_file.write_text("99999")  # use an unlikely-to-exist PID
-
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("os.kill") as mock_kill:
-                result = kill_running_stage("job1", "mystage")
-
-        mock_kill.assert_called_once_with(99999, signal.SIGTERM)
-        assert result is True
-
-    def test_process_not_found_returns_false(self, tmp_path):
-        logs_dir = tmp_path / "logs"
-        logs_dir.mkdir()
-        pid_file = logs_dir / "mystage.pid"
-        pid_file.write_text("99999")
-
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("os.kill", side_effect=ProcessLookupError):
-                result = kill_running_stage("job1", "mystage")
-
-        assert result is False
-
-    def test_corrupt_pid_file_returns_false(self, tmp_path):
-        logs_dir = tmp_path / "logs"
-        logs_dir.mkdir()
-        pid_file = logs_dir / "mystage.pid"
-        pid_file.write_text("not-a-number")
-
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            result = kill_running_stage("job1", "mystage")
-
-        assert result is False
-
-    def test_pid_file_deleted_after_kill(self, tmp_path):
-        logs_dir = tmp_path / "logs"
-        logs_dir.mkdir()
-        pid_file = logs_dir / "mystage.pid"
-        pid_file.write_text("99999")
-
-        with patch("app.pipeline.base._logs_dir", return_value=logs_dir):
-            with patch("os.kill"):
-                kill_running_stage("job1", "mystage")
-
-        assert not pid_file.exists()
+        assert any(c.args[1] == "script_output" for c in mock_event.call_args_list)

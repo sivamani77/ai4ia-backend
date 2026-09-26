@@ -28,8 +28,9 @@ class TestPostWithRetries:
     def test_success_first_attempt(self):
         resp = self._mock_response({"result": "ok"})
         with patch("app.services.llm_service.requests.post", return_value=resp) as mock_post:
-            result = llm._post_with_retries("http://ollama/api/test", {"key": "val"})
+            result, retry_count = llm._post_with_retries("http://ollama/api/test", {"key": "val"})
         assert result == {"result": "ok"}
+        assert retry_count == 0
         mock_post.assert_called_once()
 
     def test_retries_on_exception(self):
@@ -37,8 +38,9 @@ class TestPostWithRetries:
         with patch("app.services.llm_service.requests.post",
                    side_effect=[Exception("conn refused"), good]) as mock_post, \
              patch("app.services.llm_service.time.sleep"):
-            result = llm._post_with_retries("http://x", {})
+            result, retry_count = llm._post_with_retries("http://x", {})
         assert result == {"result": "ok"}
+        assert retry_count == 1
         assert mock_post.call_count == 2
 
     def test_raises_after_max_retries(self):
@@ -65,8 +67,9 @@ class TestPostWithRetries:
         with patch("app.services.llm_service.requests.post",
                    side_effect=[bad_resp, good_resp]), \
              patch("app.services.llm_service.time.sleep"):
-            result = llm._post_with_retries("http://x", {})
+            result, retry_count = llm._post_with_retries("http://x", {})
         assert result == {"ok": True}
+        assert retry_count == 1
 
 
 # ---------------------------------------------------------------------------
@@ -79,34 +82,34 @@ class TestEmbedQuery:
 
     def test_adds_search_query_prefix(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"embedding": self._vec()}) as mock_post:
+                          return_value=({"embedding": self._vec()}, 0)) as mock_post:
             llm.embed_query("AI ethics")
         call_kwargs = mock_post.call_args[0][1]
         assert call_kwargs["input"].startswith("search_query:")
 
     def test_no_double_prefix(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"embedding": self._vec()}) as mock_post:
+                          return_value=({"embedding": self._vec()}, 0)) as mock_post:
             llm.embed_query("search_query: already prefixed")
         call_kwargs = mock_post.call_args[0][1]
         assert not call_kwargs["input"].startswith("search_query: search_query:")
 
     def test_returns_embedding_from_new_endpoint(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"embedding": self._vec()}):
+                          return_value=({"embedding": self._vec()}, 0)):
             result = llm.embed_query("test")
         assert result == self._vec()
 
     def test_returns_embeddings_array_from_new_endpoint(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"embeddings": [self._vec()]}):
+                          return_value=({"embeddings": [self._vec()]}, 0)):
             result = llm.embed_query("test")
         assert result == self._vec()
 
     def test_falls_back_to_old_endpoint(self):
         responses = [
             Exception("new endpoint down"),
-            {"embedding": self._vec()},
+            ({"embedding": self._vec()}, 0),
         ]
         with patch.object(llm, "_post_with_retries", side_effect=responses):
             result = llm.embed_query("test")
@@ -118,13 +121,13 @@ class TestEmbedQuery:
                 llm.embed_query("test")
 
     def test_raises_when_no_embedding_key(self):
-        with patch.object(llm, "_post_with_retries", return_value={"unexpected": "keys"}):
+        with patch.object(llm, "_post_with_retries", return_value=({"unexpected": "keys"}, 0)):
             with pytest.raises(RuntimeError, match="Embedding failed"):
                 llm.embed_query("test")
 
     def test_strips_whitespace_from_query(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"embedding": self._vec()}) as mock_post:
+                          return_value=({"embedding": self._vec()}, 0)) as mock_post:
             llm.embed_query("  whitespace  ")
         call_kwargs = mock_post.call_args[0][1]
         assert "whitespace" in call_kwargs["input"]
@@ -136,34 +139,38 @@ class TestEmbedQuery:
 # ---------------------------------------------------------------------------
 
 class TestGenerateText:
+    def _chat_response(self, content: str) -> dict:
+        return {"choices": [{"message": {"content": content}}]}
+
     def test_returns_response_string(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"response": "Here is my answer."}):
+                          return_value=(self._chat_response("Here is my answer."), 0)):
             result = llm.generate_text("tell me about AI")
         assert result == "Here is my answer."
 
     def test_empty_response_returns_empty_string(self):
-        with patch.object(llm, "_post_with_retries", return_value={}):
+        with patch.object(llm, "_post_with_retries",
+                          return_value=(self._chat_response(""), 0)):
             result = llm.generate_text("prompt")
         assert result == ""
 
     def test_uses_custom_model(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"response": "ok"}) as mock_post:
+                          return_value=(self._chat_response("ok"), 0)) as mock_post:
             llm.generate_text("prompt", model="custom-model")
         payload = mock_post.call_args[0][1]
         assert payload["model"] == "custom-model"
 
     def test_uses_custom_temperature(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"response": "ok"}) as mock_post:
+                          return_value=(self._chat_response("ok"), 0)) as mock_post:
             llm.generate_text("prompt", temperature=0.9)
         payload = mock_post.call_args[0][1]
-        assert payload["options"]["temperature"] == 0.9
+        assert payload["temperature"] == 0.9
 
     def test_stream_false_in_payload(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"response": "ok"}) as mock_post:
+                          return_value=(self._chat_response("ok"), 0)) as mock_post:
             llm.generate_text("prompt")
         payload = mock_post.call_args[0][1]
         assert payload["stream"] is False
@@ -176,49 +183,49 @@ class TestGenerateText:
 class TestGenerateJson:
     def test_parses_valid_json(self):
         raw = json.dumps({"key": "value"})
-        with patch.object(llm, "_post_with_retries", return_value={"response": raw}):
+        with patch.object(llm, "_post_with_retries", return_value=({"response": raw}, 0)):
             result = llm.generate_json("prompt")
         assert result == {"key": "value"}
 
     def test_salvages_json_from_surrounding_text(self):
         raw = 'Some preamble {"key": "value"} and trailing text'
-        with patch.object(llm, "_post_with_retries", return_value={"response": raw}):
+        with patch.object(llm, "_post_with_retries", return_value=({"response": raw}, 0)):
             result = llm.generate_json("prompt")
         assert result == {"key": "value"}
 
     def test_raises_on_unparseable_response(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"response": "not json at all"}):
+                          return_value=({"response": "not json at all"}, 0)):
             with pytest.raises(json.JSONDecodeError):
                 llm.generate_json("prompt")
 
     def test_format_json_in_payload(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"response": "{}"}) as mock_post:
+                          return_value=({"response": "{}"}, 0)) as mock_post:
             llm.generate_json("prompt")
         payload = mock_post.call_args[0][1]
         assert payload.get("format") == "json"
 
     def test_uses_custom_model(self):
         with patch.object(llm, "_post_with_retries",
-                          return_value={"response": "{}"}) as mock_post:
+                          return_value=({"response": "{}"}, 0)) as mock_post:
             llm.generate_json("prompt", model="special-model")
         payload = mock_post.call_args[0][1]
         assert payload["model"] == "special-model"
 
     def test_empty_response_raises(self):
-        with patch.object(llm, "_post_with_retries", return_value={"response": ""}):
+        with patch.object(llm, "_post_with_retries", return_value=({"response": ""}, 0)):
             with pytest.raises(json.JSONDecodeError):
                 llm.generate_json("prompt")
 
     def test_whitespace_only_response_raises(self):
-        with patch.object(llm, "_post_with_retries", return_value={"response": "  "}):
+        with patch.object(llm, "_post_with_retries", return_value=({"response": "  "}, 0)):
             with pytest.raises(json.JSONDecodeError):
                 llm.generate_json("prompt")
 
     def test_nested_json_parsed(self):
         data = {"outer": {"inner": [1, 2, 3]}}
         with patch.object(llm, "_post_with_retries",
-                          return_value={"response": json.dumps(data)}):
+                          return_value=({"response": json.dumps(data)}, 0)):
             result = llm.generate_json("prompt")
         assert result["outer"]["inner"] == [1, 2, 3]

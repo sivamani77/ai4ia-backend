@@ -12,17 +12,20 @@
 //
 // ┌──────────────────────────────────────────────────────────────────────┐
 // │ ⚠ IMPORTANT — GLOBAL JOB CAP OF 20                                     │
-// │ backend/app/api/video_jobs.py sets _MAX_GLOBAL_QUEUED = 20. With 50    │
+// │ The server caps active jobs at VIDEO_JOB_MAX_ACTIVE (default 50). With 50 │
 // │ users creating jobs at once, only ~20 will be accepted (202); the rest │
 // │ get 503 "System is at capacity." The script treats 503 as EXPECTED and │
 // │ counts it (video_rejected_503). To truly test 50 concurrent renders,   │
-// │ raise _MAX_GLOBAL_QUEUED to >=50 on the server first.                  │
+// │ raise VIDEO_JOB_MAX_ACTIVE above 50 on the server first.               │
 // └──────────────────────────────────────────────────────────────────────┘
 //
 // Auth: Authorization: Bearer <jwt> per user. X-API-Key only if -e API_KEY set.
 // NOTE: JWTs expire ~15 min after minting — but a 30s render takes ~20 min, so
-//       the token WILL expire mid-poll. Polling tolerates 401 by design, but
-//       regenerate loadtest_users.json right before running for clean results.
+//       the token WILL expire mid-poll. The poll loop refreshes it via
+//       /auth/refresh (using the refresh_token captured in loadtest_users.json)
+//       the first time a poll gets a 401, mirroring how the real frontend now
+//       stays signed in through a long render. Still regenerate
+//       loadtest_users.json right before running — see mint_loadtest_users.py.
 //
 // VU count comes from -e VUS (NOT --vus: a scenarios block makes k6 ignore
 // --vus/--duration). Run length comes from -e MAX_DURATION.
@@ -68,7 +71,11 @@ const FULL_COVERAGE = (__ENV.FULL_COVERAGE || 'true') !== 'false';
 const INGEST_SYNC = __ENV.INGEST_SYNC === 'true';
 const VERBOSE = __ENV.VERBOSE === 'true';
 
-const users = new SharedArray('loadtest_users', () => JSON.parse(open('./loadtest_users.json')));
+// Load-test users hold real signed tokens, so the file is never committed
+// (k6/loadtest_users*.json is git-ignored). Generate it right before a run
+// and point USERS_FILE at it if it lives elsewhere.
+const USERS_FILE = __ENV.USERS_FILE || './loadtest_users.json';
+const users = new SharedArray('loadtest_users', () => JSON.parse(open(USERS_FILE)));
 
 // --- Metrics ---------------------------------------------------------------
 const errorRate = new Rate('failed_requests');
@@ -114,10 +121,45 @@ export const options = {
 function url(path) { return `${BASE_URL}${API_PREFIX}${path}`; }
 function currentUser() { return users[(__VU - 1) % users.length]; }
 
+// Access tokens are short-lived (15 min default) but a real video render
+// takes 15-25+ min, so every VU's token expires mid-poll. liveAccessToken
+// overrides the token baked into loadtest_users.json once refreshAccessToken()
+// mints a new one — it's a plain module-level var, not the SharedArray users
+// object itself, since SharedArray entries are meant to stay read-only.
+let liveAccessToken = null;
+// /auth/refresh rotates the refresh token, and replaying an old one revokes
+// the whole session, so later refreshes must send the latest one.
+let liveRefreshToken = null;
+
 function headers(user, extra) {
-  const h = { Authorization: `Bearer ${user.access_token}`, Accept: 'application/json' };
+  const h = { Authorization: `Bearer ${liveAccessToken || user.access_token}`, Accept: 'application/json' };
   if (API_KEY) h['X-API-Key'] = API_KEY;
   return Object.assign(h, extra || {});
+}
+
+// POST /auth/refresh using the refresh_token captured at mint time (an
+// httpOnly cookie in the real login flow, so it's sent back the same way
+// here — see mint_loadtest_users.py). Updates liveAccessToken in place;
+// every subsequent headers() call picks it up automatically.
+function refreshAccessToken(user) {
+  const refreshToken = liveRefreshToken || user.refresh_token;
+  if (!refreshToken) return false;
+  const res = http.post(url('/auth/refresh'), null, {
+    headers: { Cookie: `refresh_token=${refreshToken}` },
+    tags: { name: 'auth_refresh_poll' },
+  });
+  if (res.status !== 200) {
+    if (VERBOSE) console.warn(`refresh failed for ${user.username} -> ${res.status}`);
+    return false;
+  }
+  try {
+    liveAccessToken = JSON.parse(res.body).access_token;
+    const rotated = res.cookies.refresh_token;
+    if (rotated && rotated.length) liveRefreshToken = rotated[0].value;
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
 function hit(method, path, opts) {
@@ -151,6 +193,71 @@ function hitSSE(path, opts) {
 }
 
 const TERMS = ['climate', 'energy', 'policy', 'ai ethics', 'water', 'governance', 'economy', 'regulation'];
+
+// Real video-job prompts must match the archive's actual coverage, or the
+// new archive-coverage check declines the job before any rendering happens
+// (topic_not_covered) — a correct rejection that would still look like a
+// load-test failure. TERMS above is fine for search/analytics calls (those
+// don't reject on no-match), but doVideoGeneration needs topics confirmed
+// covered — these three are the exact themes a live coverage-check error
+// reported the archive has (see vjob_20260925_062708_29feee74's decline).
+// One distinct prompt per VU, all inside the covered themes, so no two jobs
+// share a storyline. force_refresh also skips the storyline cache lookup.
+const VIDEO_PROMPTS = [
+  'how governments are drafting rules for artificial intelligence',
+  'the ethical risks of algorithmic bias in public services',
+  'AI helping doctors diagnose disease earlier',
+  'using AI to monitor climate change and protect the environment',
+  'how AI is changing newsrooms and the work of journalists',
+  'AI-generated misinformation and the fight for trustworthy information',
+  'universal access to information in the age of AI',
+  'international cooperation on AI governance and human rights',
+  'AI accelerating scientific research and discovery',
+  'transparency and accountability for AI systems',
+  'AI tools that help fact-checkers verify content',
+  'protecting privacy and personal data as AI spreads',
+  'AI in public health planning and pandemic response',
+  'the role of UNESCO in shaping ethical AI',
+  'media literacy for citizens living with AI',
+  'AI and water, energy and sustainable development',
+  'who should be held responsible when AI causes harm',
+  'AI and inclusion for people with disabilities',
+  'freedom of expression and content moderation by AI',
+  'AI in agriculture and food security',
+  'regulating AI without stifling innovation',
+  'AI supporting researchers in developing countries',
+  'algorithms deciding what news people see',
+  'building public trust in artificial intelligence',
+  'AI safety and the precautionary principle in policy',
+  'AI in hospitals and the future of patient care',
+  'deepfakes and the threat to democratic elections',
+  'libraries and archives opening knowledge with AI',
+  'gender bias in artificial intelligence',
+  'AI and the rights of indigenous communities',
+  'national AI strategies and public sector adoption',
+  'AI for disaster early warning and climate resilience',
+  'the right to information and open government data',
+  'AI in medical research and drug discovery',
+  'social media platforms, algorithms and public debate',
+  'fairness and equity in automated decision-making',
+  'AI ethics education for the next generation',
+  'journalism ethics when newsrooms use generative AI',
+  'AI for biodiversity and ocean conservation',
+  'global standards for trustworthy AI',
+  'AI chatbots in mental health support',
+  'protecting journalists and sources in the digital age',
+  'human oversight of automated government decisions',
+  'AI for early detection of cancer',
+  'open science and sharing research data with AI',
+  'combating hate speech online with AI moderation',
+  'AI and the future of public broadcasting',
+  'children, education and the ethics of AI',
+  'AI in climate modelling and weather forecasting',
+  'surveillance, facial recognition and civil liberties',
+];
+const NO_CACHE = (__ENV.NO_CACHE || 'true') !== 'false';
+// Shifts which prompts the VUs get, so a repeat run uses new ones.
+const PROMPT_OFFSET = parseInt(__ENV.PROMPT_OFFSET || '0', 10);
 
 // ===========================================================================
 // The single per-user journey.
@@ -198,28 +305,34 @@ function doReads(data, u) {
   group('insights-read', () => {
     hit('GET', '/insights', { user: u, name: 'insights_list', trend: tReads });
     if (data.insightId) {
-      hit('GET', `/insights/${data.insightId}`, { user: u, name: 'insight_detail' });
-      hit('GET', `/insights/${data.insightId}/sources`, { user: u, name: 'insight_sources' });
-      hit('GET', `/insights/${data.insightId}/provenance`, { user: u, name: 'insight_provenance' });
+      // Insights are owner-scoped and setup() picks user 1's, so others get 404.
+      hit('GET', `/insights/${data.insightId}`, { user: u, name: 'insight_detail', expect: [200, 404] });
+      hit('GET', `/insights/${data.insightId}/sources`, { user: u, name: 'insight_sources', expect: [200, 404] });
+      hit('GET', `/insights/${data.insightId}/provenance`, { user: u, name: 'insight_provenance', expect: [200, 404] });
     }
   });
 
-  group('provenance', () => hit('GET', '/provenance/feed', { user: u, name: 'provenance_feed', trend: tReads }));
+  // provenance/feed and every /ingest/* read are admin-only now (see "Close
+  // anonymous and cross-user data access") — a general load-test user
+  // correctly gets 403 here. Accept it alongside 200 so it's not counted as
+  // a failure; still exercises the route and still catches a real 5xx.
+  const ADMIN_ONLY = [200, 401, 403];
+  group('provenance', () => hit('GET', '/provenance/feed', { user: u, name: 'provenance_feed', trend: tReads, expect: ADMIN_ONLY }));
 
   group('video-jobs-list', () => hit('GET', '/video-jobs', { user: u, name: 'video_jobs_list', trend: tReads }));
 
   group('ingest-read', () => {
-    hit('GET', '/ingest/jobs', { user: u, name: 'ingest_jobs', trend: tReads });
-    hit('GET', '/ingest/videos', { user: u, name: 'ingest_videos', trend: tReads });
-    if (data.videoId) hit('GET', `/ingest/videos/${data.videoId}`, { user: u, name: 'ingest_video_detail', expect: [200, 404] });
+    hit('GET', '/ingest/jobs', { user: u, name: 'ingest_jobs', trend: tReads, expect: ADMIN_ONLY });
+    hit('GET', '/ingest/videos', { user: u, name: 'ingest_videos', trend: tReads, expect: ADMIN_ONLY });
+    if (data.videoId) hit('GET', `/ingest/videos/${data.videoId}`, { user: u, name: 'ingest_video_detail', expect: [200, 404, 401, 403] });
     const ij = data.ingestJobId;
     if (ij) {
-      hit('GET', `/ingest/jobs/${ij}`, { user: u, name: 'ingest_job_detail', expect: [200, 404] });
-      hit('GET', `/ingest/jobs/${ij}/provenance`, { user: u, name: 'ingest_job_provenance', expect: [200, 404] });
-      hit('GET', `/ingest/jobs/${ij}/logs`, { user: u, name: 'ingest_job_logs', expect: [200, 404] });
+      hit('GET', `/ingest/jobs/${ij}`, { user: u, name: 'ingest_job_detail', expect: [200, 404, 401, 403] });
+      hit('GET', `/ingest/jobs/${ij}/provenance`, { user: u, name: 'ingest_job_provenance', expect: [200, 404, 401, 403] });
+      hit('GET', `/ingest/jobs/${ij}/logs`, { user: u, name: 'ingest_job_logs', expect: [200, 404, 401, 403] });
       hitSSE(`/ingest/jobs/${ij}/events`, { user: u, name: 'ingest_job_events' });
       if (data.ingestStage) {
-        hit('GET', `/ingest/jobs/${ij}/logs/${data.ingestStage}`, { user: u, name: 'ingest_job_log_stage', expect: [200, 404] });
+        hit('GET', `/ingest/jobs/${ij}/logs/${data.ingestStage}`, { user: u, name: 'ingest_job_log_stage', expect: [200, 404, 401, 403] });
         hitSSE(`/ingest/jobs/${ij}/logs/${data.ingestStage}/stream`, { user: u, name: 'ingest_job_log_stream' });
       }
     }
@@ -258,9 +371,9 @@ function doAuthSafe(u) {
       body: JSON.stringify({ username: `noone_${rnd}`, password: 'Wrong#Pass123' }) });
     hit('POST', '/auth/refresh', { user: u, name: 'auth_refresh', expect: [401] });
     hit('POST', '/auth/logout', { user: u, name: 'auth_logout', expect: [200] });
-    hit('POST', '/auth/forgot-password', { user: u, name: 'auth_forgot', expect: [200],
+    hit('POST', '/auth/forgot-password', { user: u, name: 'auth_forgot', expect: [200, 429],
       body: JSON.stringify({ email: `noone_${rnd}@example.com` }) });
-    hit('POST', '/auth/resend-otp', { user: u, name: 'auth_resend_otp', expect: [200, 400, 404],
+    hit('POST', '/auth/resend-otp', { user: u, name: 'auth_resend_otp', expect: [200, 400, 404, 429],
       body: JSON.stringify({ email: `noone_${rnd}@example.com`, purpose: 'signup' }) });
     hit('POST', '/auth/verify-otp', { user: u, name: 'auth_verify_otp', expect: [400, 404, 422],
       body: JSON.stringify({ email: `noone_${rnd}@example.com`, code: '000000', purpose: 'signup' }) });
@@ -303,7 +416,8 @@ function doAdmin(data, u) {
 function doVideoGeneration(data, u) {
   const startedAt = Date.now();
   const body = JSON.stringify({
-    prompt: `A ${TARGET_DURATION}-second documentary about ${randomItem(TERMS)} in agriculture and AI.`,
+    prompt: `A ${TARGET_DURATION}-second documentary about ${VIDEO_PROMPTS[(__VU - 1 + PROMPT_OFFSET) % VIDEO_PROMPTS.length]}.`,
+    force_refresh: NO_CACHE,
     target_duration: TARGET_DURATION,
     style: 'documentary',
     validation_mode: 'iterative_llm',
@@ -335,7 +449,10 @@ function doVideoGeneration(data, u) {
   let terminal = null;
   for (let i = 0; i < maxPolls; i++) {
     sleep(POLL_INTERVAL);
-    const pr = http.get(url(`/video-jobs/${jobId}`), { headers: headers(u), tags: { name: 'video_job_poll' } });
+    let pr = http.get(url(`/video-jobs/${jobId}`), { headers: headers(u), tags: { name: 'video_job_poll' } });
+    if (pr.status === 401 && refreshAccessToken(u)) {
+      pr = http.get(url(`/video-jobs/${jobId}`), { headers: headers(u), tags: { name: 'video_job_poll' } });
+    }
     if (pr.status !== 200) {
       if (VERBOSE) console.warn(`poll ${jobId} -> ${pr.status}`);
       continue;
@@ -408,7 +525,7 @@ export function setup() {
   console.log(`Target: ${BASE_URL}${API_PREFIX}`);
   console.log(`Model: ${VUS} VUs x ${ITERATIONS} iteration | 30s video per user | maxDuration ${MAX_DURATION}`);
   console.log(`FULL_COVERAGE=${FULL_COVERAGE} INGEST_SYNC=${INGEST_SYNC} POLL_TIMEOUT=${POLL_TIMEOUT}s`);
-  console.log('⚠ Server _MAX_GLOBAL_QUEUED=20: only ~20 of 50 video jobs will be accepted unless you raise it.');
+  console.log('⚠ Server VIDEO_JOB_MAX_ACTIVE caps accepted video jobs; raise it for a full concurrent run.');
 
   const health = http.get(url('/health'), h);
   if (health.status !== 200) throw new Error(`Health check failed (${health.status}) — check BASE_URL.`);

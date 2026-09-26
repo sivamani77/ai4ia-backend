@@ -129,6 +129,42 @@ def pg_fetch_one(query: str, params: tuple | dict | None = None) -> dict[str, An
     return _with_retry("fetch_one", _run)
 
 
+@contextmanager
+def pg_session() -> Iterator[Any]:
+    """A pooled connection in autocommit mode, held for the whole block — for
+    session-level state such as an advisory lock that must outlive several
+    statements. Yields a dict-row cursor."""
+    pool = get_pool()
+    conn = pool.getconn()
+    discard = False
+    try:
+        conn.autocommit = True
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+            yield cur
+    except Exception as exc:
+        discard = _is_transient_connection_error(exc)
+        raise
+    finally:
+        try:
+            conn.autocommit = False
+        except Exception:  # noqa: BLE001
+            discard = True
+        try:
+            pool.putconn(conn, close=discard)
+        except pg_pool.PoolError:
+            logger.warning("Pool already closed while returning connection")
+
+
+@contextmanager
+def pg_transaction() -> Iterator[Any]:
+    """One connection and one transaction for several statements; commits on
+    success, rolls back on error. Yields a dict-row cursor. Not retried: a
+    transaction cannot be safely replayed halfway."""
+    with _connection() as conn:
+        with conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor) as cur:
+            yield cur
+
+
 def pg_fetch_all(query: str, params: tuple | dict | None = None) -> list[dict[str, Any]]:
     def _run() -> list[dict[str, Any]]:
         with _connection() as conn:

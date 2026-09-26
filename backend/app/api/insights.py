@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field
 
@@ -6,12 +8,14 @@ from app.core.auth import CurrentUser, get_current_user
 from app.core.config import INSIGHT_DEFAULT_LIMIT
 from app.core import metrics as _metrics
 from app.core.rate_limit import TokenBucket
+from app.core.error_messages import DEFAULT_MESSAGE
 from app.services import insight_service, model_gate
+from app.services.guardrail_service import GuardrailRejection
 
 router = APIRouter(prefix="/insights", tags=["Insights"])
 
 # 10 generation requests per user per 60 seconds
-_insight_limiter = TokenBucket(rate=10, per=60.0)
+_insight_limiter = TokenBucket(rate=10, per=60.0, name="insights_generate")
 
 
 class GenerateInsightRequest(BaseModel):
@@ -33,21 +37,31 @@ def api_generate_insight(req: GenerateInsightRequest, current_user: CurrentUser 
         )
     try:
         return insight_service.generate_insight(req.query, req.filters, req.limit, user_id=current_user.id)
+    except GuardrailRejection as exc:
+        # Ahead of the blanket handler below, which would report a policy
+        # rejection as a 502 generation failure.
+        raise HTTPException(status_code=400, detail=exc.message)
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc))
     except Exception as exc:  # noqa: BLE001
-        raise HTTPException(status_code=502, detail=f"Insight generation failed: {exc}")
+        logging.getLogger("ai4ia.api.insights").exception("Insight generation failed")
+        raise HTTPException(status_code=502, detail=DEFAULT_MESSAGE)
+
+
+def _owner_scope(current_user: CurrentUser) -> str | None:
+    """User id to filter insights by; None lets an admin see every insight."""
+    return None if current_user.persona == "admin" else current_user.id
 
 
 @router.get("")
 def api_list_insights(current_user: CurrentUser = Depends(get_current_user)):
-    items = insight_service.list_insights()
+    items = insight_service.list_insights(user_id=_owner_scope(current_user))
     return {"count": len(items), "insights": items}
 
 
 @router.get("/{insight_id}")
 def api_get_insight(insight_id: str, current_user: CurrentUser = Depends(get_current_user)):
-    insight = insight_service.get_insight(insight_id)
+    insight = insight_service.get_insight(insight_id, user_id=_owner_scope(current_user))
     if not insight:
         raise HTTPException(status_code=404, detail="Insight not found")
     return insight
@@ -55,7 +69,7 @@ def api_get_insight(insight_id: str, current_user: CurrentUser = Depends(get_cur
 
 @router.get("/{insight_id}/sources")
 def api_insight_sources(insight_id: str, current_user: CurrentUser = Depends(get_current_user)):
-    insight = insight_service.get_insight(insight_id)
+    insight = insight_service.get_insight(insight_id, user_id=_owner_scope(current_user))
     if not insight:
         raise HTTPException(status_code=404, detail="Insight not found")
     return insight_service.build_sources_map(insight)
@@ -68,7 +82,7 @@ def api_insight_provenance(insight_id: str, current_user: CurrentUser = Depends(
     Layer 1 — decision_record: osi-1.0 record (agents, models, evidence coverage).
     Layer 2 — llm_call_traces: per-call rows for the retrieval embedding + LLM synthesis.
     """
-    insight = insight_service.get_insight(insight_id)
+    insight = insight_service.get_insight(insight_id, user_id=_owner_scope(current_user))
     if not insight:
         raise HTTPException(status_code=404, detail="Insight not found")
 

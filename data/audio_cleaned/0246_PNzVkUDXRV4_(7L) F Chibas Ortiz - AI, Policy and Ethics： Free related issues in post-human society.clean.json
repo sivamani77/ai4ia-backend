@@ -1,9 +1,0 @@
-{
-  "video_id": "0246_PNzVkUDXRV4_(7L) F Chibas Ortiz - AI, Policy and Ethics： Free related issues in post-human society",
-  "source_audio": "/home/ash/ai4ia-demo-pipeline/data/raw/youtube/ai4ia_channel/0246_PNzVkUDXRV4_(7L) F Chibas Ortiz - AI, Policy and Ethics： Free related issues in post-human society.mp4",
-  "clean_audio": "/home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0246_PNzVkUDXRV4_(7L) F Chibas Ortiz - AI, Policy and Ethics： Free related issues in post-human society.clean.wav",
-  "cleaning_profile": "voice_norm_denoise",
-  "af_filter": "highpass=f=80,lowpass=f=8000,afftdn=nf=-25,loudnorm=I=-16:TP=-1.5:LRA=11",
-  "created_at": "2026-06-19T12:16:14.791027",
-  "ffmpeg_command": "ffmpeg -y -i /home/ash/ai4ia-demo-pipeline/data/raw/youtube/ai4ia_channel/0246_PNzVkUDXRV4_(7L) F Chibas Ortiz - AI, Policy and Ethics： Free related issues in post-human society.mp4 -vn -acodec pcm_s16le -ar 16000 -ac 1 -af highpass=f=80,lowpass=f=8000,afftdn=nf=-25,loudnorm=I=-16:TP=-1.5:LRA=11 /home/ash/ai4ia-demo-pipeline/data/audio_cleaned/0246_PNzVkUDXRV4_(7L) F Chibas Ortiz - AI, Policy and Ethics： Free related issues in post-human society.clean.wav"
-}

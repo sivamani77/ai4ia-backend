@@ -3,10 +3,12 @@ import json
 from typing import Any
 
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
-from app.pipeline.validate_gen.fragment_validation import _quote_ends_completely, _quote_starts_cleanly
+from app.pipeline.storyline_gen.intents.base import agenda_rule
+from app.pipeline.timeline_budget import _candidate_is_speaker_eligible
+from app.pipeline.validate_gen.fragment_validation import _base_section_id, _quote_ends_completely, _quote_starts_cleanly
 from app.pipeline.validate_gen.json_utils import extract_json_array, extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries
-from app.pipeline.validate_gen.narrative_templates import DEEPFAKE_VISUAL_ASSET_PLANS, GENERIC_VISUAL_ASSET_PLANS
+from app.pipeline.validate_gen.narrative_templates import GENERIC_VISUAL_ASSET_PLANS
 
 # Fixed instructional preamble for the timeline-repair LLM call — kept
 # separate from the (untrusted) user_prompt/current-timeline content that
@@ -18,7 +20,8 @@ _TOPUP_VET_SYSTEM = (
     "You are validating archive clips for topical relevance to a documentary. "
     "These clips were added to reach the requested video duration. For EACH "
     "clip decide whether its excerpt is topically relevant enough to include "
-    "(related themes are acceptable; only reject clearly off-topic content)."
+    "(related themes are acceptable; only reject clearly off-topic content). "
+    "Also reject any clip that is not on the AI4IA agenda:\n" + agenda_rule()
 ) + UNTRUSTED_CONTENT_NOTICE
 
 # Maximum iterations for the narrative quality-gate repair loop
@@ -34,6 +37,125 @@ CRITICAL_GATE_NAMES = frozenset({
     # script-07's fallback narration uses common AI openers that are still on-topic
     "final_timeline_approved",
 })
+
+# Speaker clips an approved timeline aims for, when that many were approved.
+SPEAKER_CLIP_TARGET = 2
+# Extra shortlist clips to check when too few speaker clips were approved.
+EXTRA_SPEAKER_CHECKS = 6
+# Most speaker clips a video may use when the request does not need clips.
+OPTIONAL_CLIP_CAP = 2
+# Gates a repair can only fix by adding speaker clips.
+_SPEAKER_COUNT_GATES = frozenset({"has_speaker_clips", "final_timeline_approved"})
+
+
+def _item_type(item: dict[str, Any]) -> str:
+    return item.get("type") or item.get("segment_type") or ""
+
+
+def count_speaker_clips(timeline: list[dict[str, Any]]) -> int:
+    return sum(1 for item in timeline if _item_type(item) == "speaker_clip")
+
+
+def speaker_clip_target(validated_candidates: list[dict[str, Any]]) -> int:
+    """SPEAKER_CLIP_TARGET, lowered to the number of approved speaker clips."""
+    approved = sum(1 for c in validated_candidates
+                   if c.get("approved") and c.get("decision") == "speaker_clip")
+    return min(SPEAKER_CLIP_TARGET, approved)
+
+
+def unchecked_speaker_candidates(
+    shortlist: list[dict[str, Any]],
+    checked_fids: set[str],
+    limit: int,
+) -> list[dict[str, Any]]:
+    """Speaker-eligible shortlist clips not yet checked, in stage 07's rank order."""
+    picked: list[dict[str, Any]] = []
+    seen = set(checked_fids)
+    for candidate in shortlist:
+        fid = str(candidate.get("fragment_id") or "")
+        if fid and fid not in seen and _candidate_is_speaker_eligible(candidate):
+            picked.append(candidate)
+            seen.add(fid)
+        if len(picked) >= limit:
+            break
+    return picked
+
+
+def repair_shelf(
+    timeline: list[dict[str, Any]],
+    validated_candidates: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Approved clips not already placed as speaker clips, speaker clips first.
+    A speaker clip the assembly placed as narration counts as available."""
+    used = {str(item.get("fragment_id")) for item in timeline
+            if item.get("fragment_id") and _item_type(item) == "speaker_clip"}
+    shelf = [c for c in validated_candidates
+             if c.get("approved") and c.get("fragment_id") and str(c["fragment_id"]) not in used]
+    return sorted(shelf, key=lambda c: c.get("decision") != "speaker_clip")
+
+
+def repair_can_help(quality_gates: dict[str, Any], shelf: list[dict[str, Any]]) -> bool:
+    """False when the only failures need speaker clips that do not exist."""
+    failed = {k for k in CRITICAL_GATE_NAMES if quality_gates.get(k) is False}
+    if failed - _SPEAKER_COUNT_GATES:
+        return True
+    return any(c.get("decision") == "speaker_clip" for c in shelf)
+
+
+def repair_is_better(
+    before: tuple[list[dict[str, Any]], dict[str, Any]],
+    after: tuple[list[dict[str, Any]], dict[str, Any]],
+) -> bool:
+    """A repair may not lose speaker clips or pass fewer critical gates."""
+    def passing(gates: dict[str, Any]) -> int:
+        return sum(1 for k in CRITICAL_GATE_NAMES if gates.get(k) is not False)
+
+    (tl_before, gates_before), (tl_after, gates_after) = before, after
+    return (count_speaker_clips(tl_after) >= count_speaker_clips(tl_before)
+            and passing(gates_after) >= passing(gates_before))
+
+
+_OPENING_WORDS = ("HOOK", "OPENING", "INTRO")
+_CLOSING_WORDS = ("SYNTHESIS", "TAKEAWAY", "CLOSING", "CONCLUSION")
+
+
+def align_section_ids(
+    timeline: list[dict[str, Any]],
+    narrative_sections: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Map a section id the LLM invented or copied from an example ("S1_HOOK")
+    onto this format: opening and closing words by meaning, others by number."""
+    ids = [s["section_id"] for s in narrative_sections]
+    if not ids:
+        return timeline
+    by_number: dict[str, str] = {}
+    for sid in ids:
+        by_number.setdefault(sid.split("_", 1)[0], sid)
+    for item in timeline:
+        sid = str(item.get("section_id") or "")
+        if not sid or sid in ids or sid == "S_PERSPECTIVES":
+            continue
+        upper = sid.upper()
+        if any(word in upper for word in _OPENING_WORDS):
+            item["section_id"] = ids[0]
+        elif any(word in upper for word in _CLOSING_WORDS):
+            item["section_id"] = ids[-1]
+        elif upper.split("_", 1)[0] in by_number:
+            item["section_id"] = by_number[upper.split("_", 1)[0]]
+    return timeline
+
+
+def limit_speaker_clips(timeline: list[dict[str, Any]], cap: int) -> list[dict[str, Any]]:
+    """Keep the first `cap` speaker clips; drop the rest."""
+    kept = 0
+    result = []
+    for item in timeline:
+        if _item_type(item) == "speaker_clip":
+            kept += 1
+            if kept > cap:
+                continue
+        result.append(item)
+    return result
 
 
 def _validate_speaker_quotes(
@@ -74,10 +196,8 @@ def _enforce_section_rhythm(
     final_timeline: list[dict[str, Any]],
     narrative_sections: list[dict[str, Any]],
 ) -> list[dict[str, Any]]:
-    """Reorder items within each section so narration_broll precedes speaker_clip.
-
-    Exception: S1_HOOK should open with a speaker_clip (no narration before first clip).
-    """
+    """Narration first in every section, then its speaker clips. The first and
+    last sections are narration only: their clips move to the nearest middle section."""
     # Separate cards from fragment items
     ordered_sections = [s["section_id"] for s in narrative_sections]
     card_items: list[dict[str, Any]] = []
@@ -94,6 +214,20 @@ def _enforce_section_rhythm(
         else:
             unassigned.append(item)
 
+    # Clips never open or close the film.
+    middle = ordered_sections[1:-1]
+    if middle:
+        def take_clips(sid: str) -> list[dict[str, Any]]:
+            clips = [x for x in section_buckets[sid] if x.get("type") == "speaker_clip"]
+            section_buckets[sid] = [x for x in section_buckets[sid] if x.get("type") != "speaker_clip"]
+            return clips
+
+        opening, closing = take_clips(ordered_sections[0]), take_clips(ordered_sections[-1])
+        after_opening, before_closing = middle[0], middle[-1]
+        section_buckets[after_opening] = (
+            [{**x, "section_id": after_opening} for x in opening] + section_buckets[after_opening])
+        section_buckets[before_closing] += [{**x, "section_id": before_closing} for x in closing]
+
     result: list[dict[str, Any]] = []
     # title_card always first
     title_cards = [x for x in card_items if x.get("type") == "title_card"]
@@ -104,18 +238,8 @@ def _enforce_section_rhythm(
         items = section_buckets.get(sid, [])
         if not items:
             continue
-        if sid == "S1_HOOK":
-            # S1: speaker_clip first, then any narration
-            speaker = [x for x in items if x.get("type") == "speaker_clip"]
-            narration = [x for x in items if x.get("type") == "narration_broll"]
-            result.extend(speaker)
-            result.extend(narration)
-        else:
-            # All other sections: narration_broll first, then speaker_clip
-            narration = [x for x in items if x.get("type") == "narration_broll"]
-            speaker = [x for x in items if x.get("type") == "speaker_clip"]
-            result.extend(narration)
-            result.extend(speaker)
+        result.extend(x for x in items if x.get("type") != "speaker_clip")
+        result.extend(x for x in items if x.get("type") == "speaker_clip")
 
     result.extend(unassigned)
     result.extend(closing_cards)
@@ -127,8 +251,11 @@ def _fill_missing_sections(
     narrative_sections: list[dict[str, Any]],
     validated_candidates: list[dict[str, Any]],
     original_timeline: list[dict[str, Any]],
+    clip_sections: set[str] | None = None,
 ) -> list[dict[str, Any]]:
     """Ensure every narrative section has at least one item.
+
+    `clip_sections` limits where a speaker-clip donor may go (None: anywhere).
 
     Donor priority: an approved speaker_clip candidate first (preserves real
     speaker audio the LLM already vetted — this is content the narrative
@@ -174,7 +301,7 @@ def _fill_missing_sections(
     inserts = []
     for sec in missing:
         sid = sec["section_id"]
-        donor = _take_speaker_donor()
+        donor = _take_speaker_donor() if clip_sections is None or sid in clip_sections else None
         is_speaker = donor is not None
         if donor is None:
             donor = _take_broll_donor()
@@ -243,17 +370,21 @@ def _critical_gates_pass(quality_gates: dict) -> bool:
 def _add_visual_asset_plan(
     final_timeline: list,
     narrative_sections: list,
-    is_deepfake_topic: bool = True,
 ) -> list:
     """Add visual_mode/visual_asset_type/visual_asset_prompt/visual_title/visual_keywords to narration_broll items."""
-    plans = DEEPFAKE_VISUAL_ASSET_PLANS if is_deepfake_topic else GENERIC_VISUAL_ASSET_PLANS
+    # An intent's format carries its own plan per section.
+    plans = {**GENERIC_VISUAL_ASSET_PLANS, **{s["section_id"]: s["visual"] for s in narrative_sections if s.get("visual")}}
     result = []
     for item in final_timeline:
         item = dict(item)
         t = item.get("type") or item.get("segment_type") or ""
         if t == "narration_broll" and not item.get("visual_mode"):
             sid = item.get("section_id") or ""
-            plan = plans.get(sid)
+            # A repeated section on a long video (e.g. "S3_EVIDENCE_2") isn't
+            # in the plan table — only the base ids are. Without stripping the
+            # pass suffix, the lookup misses and falls to the raw-slug
+            # fallback below ("S3 Evidence 2" as a literal card headline).
+            plan = plans.get(sid) or plans.get(_base_section_id(sid))
             if plan:
                 item["visual_mode"] = plan["visual_mode"]
                 item["visual_asset_type"] = plan["visual_asset_type"]
@@ -277,6 +408,9 @@ def _build_repair_prompt(
     user_prompt: str,
     iteration: int,
     target_duration: int = 120,
+    shelf: list | None = None,
+    speaker_target: int = SPEAKER_CLIP_TARGET,
+    clips_required: bool = True,
 ) -> tuple[str, str]:
     """Build a structured LLM repair prompt describing failing gates and repair
     rules. Returns (system, user) — user_prompt and the current timeline
@@ -284,6 +418,14 @@ def _build_repair_prompt(
     via wrap_untrusted() rather than concatenated raw into the instructions."""
     failed_gates = [k for k, v in quality_gates.items() if isinstance(v, bool) and not v]
     offending = quality_gates.get("offending_items", {})
+    shelf = shelf or []
+    n_speakers = count_speaker_clips(current_timeline)
+    speaker_rule = (f"The timeline has {n_speakers} speaker clip(s) and needs at least {speaker_target}. "
+                    "Add speaker clips from AVAILABLE CLIPS.")
+    first_id = narrative_sections[0]["section_id"] if narrative_sections else "S1"
+    middle_id = narrative_sections[1]["section_id"] if len(narrative_sections) > 2 else first_id
+    clip_use = ("" if clips_required else
+                f"   Speaker clips are optional for this request: use at most {OPTIONAL_CLIP_CAP}.\n")
 
     n_sections = max(1, len(narrative_sections))
     per_section_s = max(8, (target_duration - 10) // n_sections)
@@ -295,7 +437,8 @@ def _build_repair_prompt(
         "all_speaker_quotes_complete": "Some speaker clips have incomplete quotes — demote them to narration_broll.",
         "no_instruction_leakage_in_voiceover": "Some voiceover texts start with instruction phrases instead of viewer-facing narration.",
         "all_voiceovers_topic_specific": "Some voiceover texts are generic boilerplate, not specific to the documentary topic.",
-        "final_timeline_approved": "The overall timeline does not pass minimum quality standards.",
+        "final_timeline_approved": speaker_rule,
+        "has_speaker_clips": speaker_rule,
         "all_narration_broll_have_visual_asset_prompt": "Some narration_broll items are missing visual_asset_prompt.",
     }
 
@@ -316,7 +459,8 @@ def _build_repair_prompt(
             {
                 "type": item.get("type") or item.get("segment_type"),
                 "section_id": item.get("section_id"),
-                "fragment_id": (item.get("fragment_id") or "")[:50],
+                # Full id: the repair must copy it exactly or the clip is discarded.
+                "fragment_id": item.get("fragment_id") or "",
                 "speaker": item.get("speaker", ""),
                 "quote_complete": item.get("quote_complete"),
                 "quote_text": (item.get("quote_text") or "")[:100],
@@ -328,6 +472,20 @@ def _build_repair_prompt(
         indent=2,
     )
 
+    shelf_json = json.dumps(
+        [
+            {
+                "fragment_id": c.get("fragment_id"),
+                "decision": c.get("decision"),
+                "section_id": c.get("section_id"),
+                "speaker": c.get("speaker", ""),
+                "quote_text": (c.get("quote_text") or c.get("text") or "")[:400],
+            }
+            for c in shelf
+        ],
+        indent=2,
+    )
+
     user = (
         f"The validated timeline (iteration {iteration}) failed these quality gates:\n"
         f"{failure_report}\n\n"
@@ -335,8 +493,11 @@ def _build_repair_prompt(
         f"TARGET DURATION: {target_duration} seconds\n\n"
         f"REQUIRED NARRATIVE SECTIONS (all must be present):\n{sections_json}\n\n"
         f"CURRENT TIMELINE:\n{wrap_untrusted(current_tl_summary)}\n\n"
+        "AVAILABLE CLIPS (approved, not yet used; decision=speaker_clip means real speaker audio):\n"
+        f"{wrap_untrusted(shelf_json)}\n\n"
         "REPAIR RULES:\n"
-        "1. Demote any speaker_clip with quote_complete=false to narration_broll.\n"
+        "1. Demote a speaker_clip to narration_broll only if quote_complete=false. Never demote a\n"
+        "   speaker_clip whose quote_complete=true, and never remove one.\n"
         "2. Ensure all narrative sections are present.\n"
         "3. Every narration_broll voiceover_text must be viewer-facing narration — never start with\n"
         "   'Explain', 'Mention', 'Show how', 'End with', 'Start with', 'Open with', 'Describe', 'Close with', etc.\n"
@@ -346,17 +507,20 @@ def _build_repair_prompt(
         "7. The final video must meaningfully answer the original prompt.\n"
         "8. PRESERVE existing voiceover_text if it is long and correct — only rewrite the offending items.\n"
         "9. CRITICAL: every \"fragment_id\" value must be copied EXACTLY, character-for-character,\n"
-        "   from a fragment_id already present in CURRENT TIMELINE above. Never invent, abbreviate,\n"
+        "   from CURRENT TIMELINE or AVAILABLE CLIPS above. Never invent, abbreviate,\n"
         "   or make up a fragment_id (e.g. \"hook_001\") — fabricated ones will be discarded. If an\n"
-        "   item has no real clip behind it, OMIT the \"fragment_id\" field entirely.\n\n"
+        "   item has no real clip behind it, OMIT the \"fragment_id\" field entirely.\n"
+        "10. The first and last sections are narration only. Speaker clips go in the middle sections,\n"
+        "   each after that section's narration.\n" + clip_use +
+        "11. Speaker clips must be on the AI4IA agenda:\n" + agenda_rule() + "\n\n"
         "Return a repaired final_timeline as a JSON array. Include only the array (no extra keys).\n"
         "Example structure:\n"
         '[\n'
-        '  {"type": "speaker_clip", "section_id": "S1_HOOK", "fragment_id": "...", "speaker": "...", '
-        '"render_start": 0.0, "render_end": 0.0, "quote_text": "...", "quote_complete": true},\n'
-        '  {"type": "narration_broll", "section_id": "S2_CONTEXT", "fragment_id": "...", '
+        f'  {{"type": "narration_broll", "section_id": "{middle_id}", "fragment_id": "...", '
         '"voiceover_text": "evidence-driven narration about the topic...", "visual_asset_prompt": "...", '
-        '"visual_title": "Context: Key Concepts", "visual_asset_type": "diagram"}\n'
+        '"visual_title": "Context: Key Concepts", "visual_asset_type": "diagram"},\n'
+        f'  {{"type": "speaker_clip", "section_id": "{middle_id}", "fragment_id": "...", "speaker": "...", '
+        '"render_start": 0.0, "render_end": 0.0, "quote_text": "...", "quote_complete": true}\n'
         "]\n"
     )
     return _REPAIR_SYSTEM, user
@@ -369,10 +533,14 @@ def _llm_repair_timeline(
     user_prompt: str,
     iteration: int,
     target_duration: int = 120,
+    shelf: list | None = None,
+    speaker_target: int = SPEAKER_CLIP_TARGET,
+    clips_required: bool = True,
 ) -> "list | None":
     """Ask LLM to repair a failed timeline. Returns new timeline list or None on failure."""
     system_text, user_text = _build_repair_prompt(
-        current_timeline, quality_gates, narrative_sections, user_prompt, iteration, target_duration
+        current_timeline, quality_gates, narrative_sections, user_prompt, iteration, target_duration,
+        shelf=shelf, speaker_target=speaker_target, clips_required=clips_required,
     )
     try:
         raw = post_with_retries({
@@ -402,8 +570,11 @@ def _llm_repair_timeline(
 def check_quality_gates(
     final_timeline: list[dict[str, Any]],
     narrative_sections: list[dict[str, Any]],
+    speaker_target: int = SPEAKER_CLIP_TARGET,
+    clips_required: bool = True,
 ) -> tuple[list[str], dict[str, Any]]:
-    """Return (warnings_list, editorial_quality_gates_dict)."""
+    """Return (warnings_list, editorial_quality_gates_dict). A request that does
+    not need clips passes the speaker-count gates with none."""
     warnings: list[str] = []
     offending_items: dict[str, list[str]] = {}
 
@@ -431,7 +602,7 @@ def check_quality_gates(
             _flag("all_speaker_labels_present", fid, f"GATE FAIL: speaker_clip {fid!r} has no speaker label.")
             gate_speakers = False
 
-    gate_has_speakers = len(speaker_clips) > 0
+    gate_has_speakers = len(speaker_clips) > 0 or not clips_required
     if not gate_has_speakers:
         _flag("has_speaker_clips", "timeline", "GATE FAIL: Final timeline contains 0 speaker clips — zero speaker footage.")
 
@@ -486,7 +657,8 @@ def check_quality_gates(
                     break
 
     # 6. Final timeline approved overall
-    gate_approved = gate_sections and gate_speakers and len(speaker_clips) >= 2
+    enough_clips = len(speaker_clips) >= max(1, speaker_target) if clips_required else True
+    gate_approved = gate_sections and gate_speakers and enough_clips
 
     # 7. All narration_broll items have visual_asset_prompt
     gate_visual = True
@@ -515,7 +687,10 @@ def check_quality_gates(
     return warnings, gates
 
 
-def frame_duration_fill_as_perspectives_section(enriched_timeline: list[dict[str, Any]]) -> int:
+def frame_duration_fill_as_perspectives_section(
+    enriched_timeline: list[dict[str, Any]],
+    closing_section_id: str | None = None,
+) -> int:
     """Group every clip added by duration_fill into an explicit, labeled
     "Additional Perspectives" closing section instead of leaving them as
     anonymous tail items.
@@ -542,7 +717,22 @@ def frame_duration_fill_as_perspectives_section(enriched_timeline: list[dict[str
     enriched_timeline.insert(first_added_idx, divider)
     for item in fill_added:
         item["section_id"] = "S_PERSPECTIVES"
+    if closing_section_id:
+        _move_before_closing_section(enriched_timeline, [divider, *fill_added], closing_section_id)
     return len(fill_added)
+
+
+def _move_before_closing_section(
+    timeline: list[dict[str, Any]],
+    block: list[dict[str, Any]],
+    closing_section_id: str,
+) -> None:
+    """Move `block` in front of the closing section, so the film still ends on narration."""
+    rest = [item for item in timeline if not any(item is b for b in block)]
+    at = next((i for i, item in enumerate(rest) if item.get("section_id") == closing_section_id), None)
+    if at is None:
+        return
+    timeline[:] = rest[:at] + block + rest[at:]
 
 
 def _llm_vet_topup_items(items: list[dict[str, Any]], user_prompt: str) -> set[str]:

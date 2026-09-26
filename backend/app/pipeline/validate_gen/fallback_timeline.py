@@ -7,10 +7,13 @@ def build_fallback_final_timeline(
     narrative_sections: list[dict[str, Any]],
     storyline_data: dict[str, Any],
     target_duration: int = 120,
+    max_clips: int | None = None,
 ) -> dict[str, Any]:
-    """Build a minimal final_timeline from scored candidates when LLM fails."""
+    """Build a minimal final_timeline from scored candidates when LLM fails.
+    Clips go only in middle sections; `max_clips` caps them (None: no cap)."""
     approved = [c for c in validated_candidates if c.get("approved")]
-    speaker_clips = [c for c in approved if c.get("decision") == "speaker_clip"]
+    speaker_clips = [c for c in approved if c.get("decision") == "speaker_clip"][:max_clips]
+    clip_sections = {s["section_id"] for s in narrative_sections[1:-1]}
     brolls = [c for c in approved if c.get("decision") in ("narration_broll", "visual_support")]
 
     title = storyline_data.get("storyline", {}).get("title") or "AI4IA Documentary"
@@ -70,7 +73,7 @@ def build_fallback_final_timeline(
         sections_used.add(sid)
 
         # Assign a speaker_clip to this section if available
-        sc_cand = speaker_clips[sc_idx] if sc_idx < len(speaker_clips) else None
+        sc_cand = speaker_clips[sc_idx] if sc_idx < len(speaker_clips) and sid in clip_sections else None
         if sc_cand:
             fragment_id = sc_cand.get("fragment_id")
             source_video = sc_cand.get("source_video") or (

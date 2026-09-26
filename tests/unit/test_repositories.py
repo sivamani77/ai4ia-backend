@@ -158,7 +158,12 @@ class TestJobRepositoryNormalize:
 
 
 # ---------------------------------------------------------------------------
-# FragmentRepository — Postgres primary, legacy Supabase fallback disabled
+# FragmentRepository — Postgres only.
+#
+# The read-only legacy Supabase fallback was removed with the auth migration:
+# it was already inert (guarded on SUPABASE_URL, which is unset), and keeping
+# it would have held the `supabase` package in the dependency tree. An empty
+# Postgres result is now simply an empty result.
 # ---------------------------------------------------------------------------
 
 class TestFragmentRepository:
@@ -168,29 +173,31 @@ class TestFragmentRepository:
 
     def test_get_returns_none_on_empty(self):
         repo = self._repo()
-        with patch("app.db.repositories.fragment_repository.pg_fetch_one", return_value=None), \
-             patch.object(repo, "_legacy_table", return_value=None):
+        with patch("app.db.repositories.fragment_repository.pg_fetch_one", return_value=None):
             result = repo.get("frag_xyz")
         assert result is None
 
     def test_list_all_returns_list(self):
         repo = self._repo()
-        with patch("app.db.repositories.fragment_repository.pg_fetch_one", return_value={"has_data": True}), \
-             patch("app.db.repositories.fragment_repository.pg_fetch_all",
+        with patch("app.db.repositories.fragment_repository.pg_fetch_all",
                    return_value=[{"fragment_id": "f1", "text": "hello"}]):
             result = repo.list_all()
         assert isinstance(result, list)
         assert len(result) == 1
         assert result[0]["fragment_id"] == "f1"
 
-    def test_list_all_falls_back_to_legacy_when_postgres_empty(self):
+    def test_list_all_empty_postgres_returns_empty_not_fallback(self):
+        """Previously this fell through to Supabase. There is nowhere else to
+        look now, so an empty database must yield an empty list."""
         repo = self._repo()
-        legacy_rows = [{"fragment_id": "legacy1", "text": "old row"}]
-        with patch("app.db.repositories.fragment_repository.pg_fetch_one", return_value={"has_data": False}), \
-             patch.object(repo, "_legacy_list_all", return_value=[repo._from_row(r) for r in legacy_rows]) as legacy:
-            result = repo.list_all()
-        legacy.assert_called_once()
-        assert result[0]["fragment_id"] == "legacy1"
+        with patch("app.db.repositories.fragment_repository.pg_fetch_all", return_value=[]):
+            assert repo.list_all() == []
+
+    def test_repository_has_no_legacy_surface(self):
+        repo = self._repo()
+        for attr in ("_legacy_table", "_legacy_get", "_legacy_list_all",
+                     "_legacy_search", "_legacy_count", "_pg_has_data"):
+            assert not hasattr(repo, attr), f"FragmentRepository still has {attr}"
 
 
 # ---------------------------------------------------------------------------

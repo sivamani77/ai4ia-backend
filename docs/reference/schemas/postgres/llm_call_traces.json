@@ -1,0 +1,151 @@
+{
+  "database": "postgres_pipeline",
+  "table": "llm_call_traces",
+  "source": "db/init/001_schema.sql",
+  "description": "One row per LLM call: which agent/model, latency, and hashed prompt/response for audit without storing content.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "job_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "insight_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "user_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "stage",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Pipeline stage the call belongs to."
+    },
+    {
+      "name": "agent",
+      "type": "text",
+      "nullable": false,
+      "default": "''",
+      "description": ""
+    },
+    {
+      "name": "model",
+      "type": "text",
+      "nullable": false,
+      "default": "''",
+      "description": ""
+    },
+    {
+      "name": "call_type",
+      "type": "text",
+      "nullable": false,
+      "default": "''",
+      "description": ""
+    },
+    {
+      "name": "decision_label",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "prompt_hash",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "response_hash",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "latency_ms",
+      "type": "integer",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "temperature",
+      "type": "double precision",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "retry_count",
+      "type": "integer",
+      "nullable": false,
+      "default": "0",
+      "description": ""
+    },
+    {
+      "name": "error",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "called_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_llm_traces_job_id",
+      "columns": [
+        "job_id"
+      ]
+    },
+    {
+      "name": "idx_llm_traces_insight_id",
+      "columns": [
+        "insight_id"
+      ]
+    },
+    {
+      "name": "idx_llm_traces_agent",
+      "columns": [
+        "agent"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "jobs",
+      "column": "job_id",
+      "enforced": false
+    }
+  ]
+}

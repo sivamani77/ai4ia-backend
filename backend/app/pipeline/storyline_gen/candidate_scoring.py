@@ -2,10 +2,7 @@ import re
 from typing import Any
 
 from app.pipeline.storyline_gen.llm_client import log
-from app.pipeline.storyline_gen.prompt_intent import (
-    candidate_speaker_matches,
-    load_known_speakers,
-)
+from app.pipeline.storyline_gen.prompt_intent import candidate_speaker_matches
 from app.pipeline.storyline_gen.text_utils import (
     SIDE_TOPIC_TERMS,
     clean_text,
@@ -23,6 +20,12 @@ GENERIC_ONLY_TERMS = {"inclusion", "equity", "access", "diversity", "accessibili
 # used to promote a candidate to strong_related in that case instead of
 # discarding it outright. Provisional value; tune against real reruns.
 NO_TOPIC_TERMS_SEMANTIC_FLOOR = 0.65
+
+# Speaker + topic prompts: the speaker's own fragments closest to the topic count
+# as strong evidence even without the literal topic word (measured: Cordel Green
+# never says "regulation" but speaks about policy and oversight).
+SPEAKER_TOPIC_SHARE = 1 / 3
+SPEAKER_TOPIC_FLOOR = 0.55
 
 
 CRYPTO_TERMS = {"crypto", "cryptocurrency", "blockchain", "web3", "digital currency", "token", "defi", "nft", "exchange", "wallet", "satoshi", "bitcoin", "ethereum"}
@@ -335,6 +338,19 @@ def score_candidate_for_prompt(candidate: dict[str, Any], profile: dict[str, Any
     else:
         speaker_match, speaker_match_reason = True, "no speaker requested"
 
+    # The prompt named this fragment's video by title (see
+    # lookup_requested_source_video). Keyword overlap alone cannot express
+    # that: keyword_score saturates at 1.0 after two matched terms and
+    # contributes only 0.25, so even a word-for-word title match landed well
+    # under the 0.48 `exact` gate and was filed as weak_related — which
+    # bucket_candidates drops from the video entirely.
+    requested_source_video = profile.get("requested_source_video")
+    title_match = bool(
+        requested_source_video
+        and str(enriched.get("source_video") or "") == requested_source_video
+    )
+    title_score = 1.0 if title_match else 0.0
+
     keyword_score = min(1.0, len(direct_terms) * 0.5)
     expanded_keyword_score = min(1.0, len(non_generic_expanded) * 0.35)
     theme_chapter_score = 1.0 if chapter_match else (0.8 if theme_match else 0.0)
@@ -362,6 +378,7 @@ def score_candidate_for_prompt(candidate: dict[str, Any], profile: dict[str, Any
         + 0.15 * theme_chapter_score
         + 0.10 * speaker_score
         + 0.05 * quote_quality_score
+        + 0.25 * title_score
         - generic_penalty
         - negative_term_penalty
     )
@@ -377,6 +394,8 @@ def score_candidate_for_prompt(candidate: dict[str, Any], profile: dict[str, Any
         reasons.append(f"theme match {enriched.get('primary_theme')}")
     if requested_speaker and speaker_match:
         reasons.append(f"speaker match {requested_speaker}")
+    if title_match:
+        reasons.append("prompt names this video's title")
     if not reasons:
         reasons.append(f"semantic similarity {semantic_score:.3f}")
     if negative_terms:
@@ -388,6 +407,8 @@ def score_candidate_for_prompt(candidate: dict[str, Any], profile: dict[str, Any
             "expanded_keyword_score": round(expanded_keyword_score, 6),
             "theme_chapter_score": round(theme_chapter_score, 6),
             "speaker_score": round(speaker_score, 6),
+            "title_score": round(title_score, 6),
+            "title_match": title_match,
             "quote_quality_score": round(quote_quality_score, 6),
             "generic_penalty": round(generic_penalty, 6),
             "negative_term_penalty": round(negative_term_penalty, 6),
@@ -450,11 +471,27 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     generic_terms = enriched.get("generic_evidence_terms") or []
 
     semantic_only_match = False
+    own_voice = _own_voice(enriched, profile)
 
     if reject:
         role = "reject"
         reason = reject_reason
-    elif requested_speaker and scope == "all_themes":
+    elif enriched.get("title_match"):
+        # The user asked for this video by name. Its fragments are direct
+        # evidence by definition, whatever their transcripts happen to say —
+        # a title is about the video, not repeated inside every clip of it,
+        # so the keyword/semantic gates below systematically under-rate them.
+        role = "exact"
+        reason = (
+            f"Prompt names this video's title "
+            f"({profile.get('title_match_ratio')} of prompt terms matched)."
+        )
+    elif enriched.get("speaker_topic_rank") and own_voice:
+        role = "strong_related"
+        reason = f"Among the speaker's own fragments closest to the topic. {enriched.get('selection_reason')}"
+    elif requested_speaker and own_voice and (scope == "all_themes" or not profile.get("topic_terms")):
+        # A name and no topic: the speaker's own talk is the answer. The name
+        # is not in the embedded text, so similarity to the prompt says little.
         if enriched.get("speaker_match") and (semantic_score >= 0.45 or quote_strength >= 0.55 or clarity_score >= 0.9):
             role = "exact"
             reason = f"Requested speaker match with strong archive evidence across themes. {enriched.get('selection_reason')}"
@@ -497,7 +534,7 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
         role = "reject"
         reason = f"Low topic evidence. {enriched.get('selection_reason')}"
 
-    if generic_terms and not direct_terms and role == "exact":
+    if generic_terms and not direct_terms and role == "exact" and not enriched.get("title_match"):
         role = "strong_related"
         reason = f"Generic-only evidence cannot be exact. {enriched.get('selection_reason')}"
 
@@ -558,6 +595,32 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     return enriched
 
 
+def _own_voice(candidate: dict[str, Any], profile: dict[str, Any]) -> bool:
+    """The requested speaker's own words: never another panelist's, unless the
+    speaker appears only on panels (their clips are then framed as the panel)."""
+    if not (profile.get("requested_speaker") and candidate.get("speaker_match")):
+        return False
+    panel = candidate.get("speaker_match_panel") or str(candidate.get("speaker_match_reason") or "").startswith("panel")
+    return not panel or bool(profile.get("speaker_panel_only"))
+
+
+def rank_speaker_topic(annotated: list[dict[str, Any]], profile: dict[str, Any]) -> list[dict[str, Any]]:
+    """Speaker + topic: re-classify the speaker's own fragments closest to the topic as strong."""
+    if not (profile.get("requested_speaker") and profile.get("topic_terms")):
+        return annotated
+    own = [c for c in annotated if _own_voice(c, profile)
+           and not str(c.get("relevance_reason") or "").startswith("Rejected:")]
+    own.sort(key=lambda c: float(c.get("semantic_score") or 0.0), reverse=True)
+    keep = max(1, round(len(own) * SPEAKER_TOPIC_SHARE)) if own else 0
+    chosen = {id(c) for c in own[:keep] if float(c.get("semantic_score") or 0.0) >= SPEAKER_TOPIC_FLOOR
+              and c.get("relevance_role") not in ("exact", "strong_related")}
+    if not chosen:
+        return annotated
+    log(f"Speaker topic rank: {len(chosen)} of the speaker's {len(own)} fragments promoted to strong_related")
+    return [classify_candidate_relevance_v2({**c, "speaker_topic_rank": True}, profile) if id(c) in chosen else c
+            for c in annotated]
+
+
 def annotate_candidate_relevance(
     records: list[dict[str, Any]],
     prompt: str,
@@ -566,9 +629,6 @@ def annotate_candidate_relevance(
 ) -> list[dict[str, Any]]:
     if not records:
         return []
-
-    if known_speakers is None:
-        known_speakers = load_known_speakers()
 
     requested_speaker = intent.get("requested_speaker")
 
@@ -586,7 +646,7 @@ def annotate_candidate_relevance(
         enriched = classify_candidate_relevance_v2(record, intent)
         annotated.append(enriched)
 
-    return annotated
+    return rank_speaker_topic(annotated, intent)
 
 
 def theme_coverage(records: list[dict[str, Any]]) -> list[str]:

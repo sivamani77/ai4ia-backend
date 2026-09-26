@@ -1,0 +1,110 @@
+{
+  "database": "postgres_pipeline",
+  "table": "ingest_jobs",
+  "source": "backend/app/db/schema.py",
+  "description": "One row per channel-ingest run (download -> extract -> transcribe -> embed).",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "status",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "channel_url",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "video_limit",
+      "type": "integer",
+      "nullable": true,
+      "default": null,
+      "description": "Max videos to pull in this run."
+    },
+    {
+      "name": "progress",
+      "type": "integer",
+      "nullable": false,
+      "default": "0",
+      "description": ""
+    },
+    {
+      "name": "message",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Human-readable current step."
+    },
+    {
+      "name": "error",
+      "type": "jsonb",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "metadata",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    },
+    {
+      "name": "started_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "completed_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_ingest_jobs_status",
+      "columns": [
+        "status"
+      ]
+    },
+    {
+      "name": "idx_ingest_jobs_created_at",
+      "columns": [
+        "created_at desc"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "referenced_by",
+      "table": "ingest_job_events",
+      "column": "job_id",
+      "enforced": false
+    }
+  ]
+}

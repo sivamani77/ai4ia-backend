@@ -1,0 +1,27 @@
+{
+  "database": "postgres_pipeline",
+  "table": "speakers",
+  "source": "backend/app/db/schema.py",
+  "description": "Canonical speaker names. Seeded at startup from app/services/speaker_aliases.ALIASES (ON CONFLICT DO NOTHING).",
+  "primary_key": [
+    "canonical_name"
+  ],
+  "columns": [
+    {
+      "name": "canonical_name",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    }
+  ],
+  "indexes": [],
+  "relationships": [
+    {
+      "type": "referenced_by",
+      "table": "speaker_aliases",
+      "column": "canonical_name",
+      "enforced": true
+    }
+  ]
+}

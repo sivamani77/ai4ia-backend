@@ -1,0 +1,71 @@
+{
+  "database": "supabase_auth",
+  "table": "auth_audit",
+  "source": "backend/app/db/repositories/auth_audit_repository.py",
+  "schema_confidence": "derived_from_code",
+  "description": "Best-effort audit trail of auth events. Write failures are logged, never raised, so auditing cannot break auth.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "uuid",
+      "nullable": false,
+      "default": "gen_random_uuid()",
+      "description": ""
+    },
+    {
+      "name": "event",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "e.g. signup, login, logout, password_reset."
+    },
+    {
+      "name": "success",
+      "type": "boolean",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "user_id",
+      "type": "uuid",
+      "nullable": true,
+      "default": null,
+      "description": "app_users.id; null when unknown.",
+      "on_delete": "set null"
+    },
+    {
+      "name": "ip",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "user_agent",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "indexes": [],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "app_users",
+      "column": "user_id",
+      "on_delete": "set null"
+    }
+  ]
+}

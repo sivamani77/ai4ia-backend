@@ -18,20 +18,24 @@ from typing import Any
 logger = logging.getLogger("ai4ia.services.video_job_runner")
 
 from app.core import metrics as _metrics
+from app.core.code_version import code_version
 from app.core.config import VLLM_MODEL
+from app.core.error_messages import friendly_message
 from app.core.otel import get_tracer
 from app.core.security import parse_timestamp
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext
 
 _tracer = get_tracer("ai4ia.pipeline")
-from app.services import model_gate
+from app.services import model_gate, processing_records
+from app.services import job_lease
 from app.services.job_store import (
     save_job,
     load_job,
     append_event,
     load_events,
     list_jobs,
+    finish_job,
 )
 
 # Process-local stage start times for job_stage_duration_seconds — not
@@ -45,9 +49,10 @@ _stage_start_times: dict[tuple[str, str], float] = {}
 # ---------------------------------------------------------------------------
 STAGE_WEIGHTS: dict[str, int] = {
     "prompt_guardrail": 1,
+    "prompt_resolve": 1,
     "input_validation": 1,
     "07_storyline": 15,
-    "07b_validate_storyline": 35,
+    "07b_validate_storyline": 34,
     "08_assets": 25,
     "09_export": 15,
     "10_validate_export": 5,
@@ -56,6 +61,7 @@ STAGE_WEIGHTS: dict[str, int] = {
 
 STAGE_DEFINITIONS = [
     {"stage": "prompt_guardrail",        "label": "Prompt content check"},
+    {"stage": "prompt_resolve",          "label": "Prompt check against the archive"},
     {"stage": "input_validation",        "label": "Input validation"},
     {"stage": "07_storyline",            "label": "Initial storyline generation"},
     {"stage": "07b_validate_storyline",  "label": "LLM editorial validation"},
@@ -144,7 +150,12 @@ def update_stage(
     })
 
 
-def _fail_job(job_id: str, stage: str, error_type: str, message: str, details: str = "") -> None:
+def _fail_job(
+    job_id: str, stage: str, error_type: str, message: str, details: str = "",
+    exc: Exception | None = None, *, user_message: str | None = None,
+    reason_code: str | None = None, suggestions: list[str] | None = None,
+) -> None:
+    owner = job_lease.release(job_id)
     job = load_job(job_id)
     job["status"] = "failed"
     job["current_stage"] = stage
@@ -155,16 +166,28 @@ def _fail_job(job_id: str, stage: str, error_type: str, message: str, details: s
         "stage": stage,
         "message": message,
         "details": details[:2000],
+        # user_message is what the client should display. message/details are
+        # technical (exception text, tracebacks, ffmpeg output) for logs and
+        # support — never render them directly to a user.
+        "user_message": user_message or friendly_message(error_type, exc),
     }
+    if reason_code:
+        job["error"]["reason_code"] = reason_code
+        job["error"]["suggestions"] = suggestions or []
     save_job(job_id, job)
+    if not finish_job(job_id, "failed", owner):
+        logger.warning("[%s] Not recording failure: the job is no longer this run's", job_id)
+        return
     append_event(job_id, "failed", stage, {
         "error_type": error_type,
         "message": message,
     })
     _metrics.job_completions_total.labels(status="failed").inc()
+    processing_records.finish(job_id, "failed")
 
 
 def _cancel_job(job_id: str, message: str = "", *, kill_pid: bool = True) -> None:
+    job_lease.release(job_id)
     job = load_job(job_id)
     job["status"] = "cancelled"
     job["completed_at"] = _utc_now()
@@ -173,6 +196,7 @@ def _cancel_job(job_id: str, message: str = "", *, kill_pid: bool = True) -> Non
     save_job(job_id, job)
     append_event(job_id, "cancelled", job.get("current_stage", "unknown"), {"message": message})
     _metrics.job_completions_total.labels(status="cancelled").inc()
+    processing_records.finish(job_id, "cancelled")
 
     # PID kill is only valid in the WORKER process (where the subprocess and its
     # active_pid actually live). The API's DELETE handler runs in a different
@@ -199,13 +223,17 @@ def _is_cancelling(job_id: str) -> bool:
 
 def _cleanup_job_tmp_dirs(job_id: str) -> None:
     """Delete all pipeline /tmp stage directories for a job (safe, ignore_errors)."""
-    for prefix in (f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
+    for prefix in (f"07_{job_id}", f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
         p = Path(f"/tmp/ai4ia_pipeline/{prefix}")
         if p.exists():
             shutil.rmtree(p, ignore_errors=True)
 
 
-def _complete_job(job_id: str) -> None:
+def _complete_job(job_id: str) -> bool:
+    """Mark the job completed; False if the job is no longer this run's."""
+    # Stop the heartbeat first, so a finished job never raises a stop signal
+    # that would cut the post-completion housekeeping short.
+    owner = job_lease.release(job_id)
     job = load_job(job_id)
     job["status"] = "completed"
     job["current_stage"] = "completed"
@@ -214,7 +242,11 @@ def _complete_job(job_id: str) -> None:
     job["completed_at"] = _utc_now()
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
+    if not finish_job(job_id, "completed", owner):
+        logger.warning("[%s] Not marking completed: the job is no longer this run's", job_id)
+        return False
     _metrics.job_completions_total.labels(status="completed").inc()
+    processing_records.finish(job_id, "completed")
     created_at = job.get("created_at")
     if created_at:
         try:
@@ -222,13 +254,30 @@ def _complete_job(job_id: str) -> None:
             _metrics.job_duration_seconds.observe(duration)
         except (ValueError, TypeError):
             logger.warning("Could not compute job_duration_seconds for job_id=%s", job_id)
+    return True
 
 
 # ---------------------------------------------------------------------------
 # Job creation
 # ---------------------------------------------------------------------------
 
-def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
+class JobQuotaExceeded(Exception):
+    """A submission was refused by the job quota; `limit` names which one."""
+
+    def __init__(self, limit: str) -> None:
+        super().__init__(limit)
+        self.limit = limit
+
+
+def create_video_job(
+    request: dict[str, Any],
+    user_id: str = "",
+    flags: dict[str, Any] | None = None,
+    *,
+    enforce_quota: bool = False,
+) -> str:
+    """Create a queued job. With enforce_quota, the quota check and the insert
+    are one atomic step and JobQuotaExceeded is raised when a limit is hit."""
     job_id = f"vjob_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
 
     job: dict[str, Any] = {
@@ -246,6 +295,7 @@ def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
         "updated_at": _utc_now(),
         "completed_at": None,
         "request": request,
+        "api_code_version": code_version(),
         "paths": {
             "storyline_path": None,
             "validated_storyline_path": None,
@@ -260,10 +310,47 @@ def create_video_job(request: dict[str, Any], user_id: str = "") -> str:
         "warnings": [],
         "error": None,
     }
-    save_job(job_id, job)
-    append_event(job_id, "created", "queued", {"prompt": request.get("prompt", "")})
+    if enforce_quota:
+        from app.services import job_store
+
+        # The dispatch id marks the one queue message allowed to run this job
+        # (docs/design/job-recovery-plan.md); the queue name marks the environment.
+        job["dispatch_id"] = uuid.uuid4().hex
+        limit = job_store.create_job_within_quota(
+            job_id, job,
+            user_id=user_id,
+            max_running=settings.video_job_max_running_per_user,
+            max_queued=settings.video_job_max_queued_per_user,
+            max_active=settings.video_job_max_active,
+            dispatch_id=job["dispatch_id"],
+            worker_queue=settings.worker_queue,
+        )
+        if limit is not None:
+            raise JobQuotaExceeded(limit)
+    else:
+        save_job(job_id, job)
+    try:
+        append_event(job_id, "created", "queued", {"prompt": request.get("prompt", "")})
+        processing_records.start_request(job_id, user_id, request.get("prompt", ""), flags=flags)
+    except Exception as exc:
+        # The row exists but will never be dispatched; fail it so it does not
+        # hold one of the owner's queued slots.
+        fail_undispatched_job(job_id, f"Job setup failed: {exc}")
+        raise
     _metrics.jobs_created_total.inc()
     return job_id
+
+
+def fail_undispatched_job(job_id: str, message: str) -> None:
+    """Fail a job that was created but never reached the worker. Best effort:
+    a failure here is logged, never raised over the original error."""
+    try:
+        _fail_job(
+            job_id, "queued", "dispatch_failed", message,
+            user_message="The job could not be queued. Please try again.",
+        )
+    except Exception:  # noqa: BLE001
+        logger.exception("Could not mark undispatched job %s failed", job_id)
 
 
 # ---------------------------------------------------------------------------
@@ -286,15 +373,25 @@ def _apply_cached_storyline(
     validated_path = STORYLINES_DIR / f"storyline_cache_{job_id}_validated.json"
     validated_path.write_text(json.dumps(cached_storyline), encoding="utf-8")
 
+    s3_key = f"raw/storylines/{validated_path.name}"
     if use_s3():
-        upload(validated_path, f"raw/storylines/{validated_path.name}")
+        upload(validated_path, s3_key)
 
     ctx.storyline_path = str(validated_path)
     ctx.validated_storyline_path = str(validated_path)
+    ctx.validated_storyline_data = cached_storyline
 
     job = load_job(job_id)
     job["paths"]["storyline_path"] = str(validated_path)
     job["paths"]["validated_storyline_path"] = str(validated_path)
+    if use_s3():
+        # Mirrors stage_07_storyline.py / stage_07b_validate.py: without this,
+        # a mindmap/decision-record lookup on a different pod (or after this
+        # worker restarts) can't resolve the file via S3 key and falls back to
+        # a full bucket listing + substring match on job_id — fragile, and the
+        # cause of "mind map not displayed" for cache-served jobs.
+        job["paths"]["storyline_s3_key"] = s3_key
+        job["paths"]["validated_storyline_s3_key"] = s3_key
     job["updated_at"] = _utc_now()
     save_job(job_id, job)
 
@@ -328,6 +425,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
     from app.pipeline import (
         stage_guardrail,
         stage_input_validation,
+        stage_resolve,
         stage_07_storyline,
         stage_07b_validate,
         stage_08_assets,
@@ -358,8 +456,10 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         job["status"] = "running"
         job["started_at"] = _utc_now()
         job["updated_at"] = _utc_now()
+        # The worker's version, which can differ from the API that queued it.
+        job["code_version"] = code_version()
         save_job(job_id, job)
-        log.info("Pipeline started")
+        log.info("Pipeline started (code %s)", job["code_version"])
 
         ctx = PipelineContext(job_id=job_id, request=request)
 
@@ -389,6 +489,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
 
         stages = [
             stage_guardrail,
+            stage_resolve,
             stage_input_validation,
             stage_07_storyline,
             stage_07b_validate,
@@ -398,21 +499,44 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             stage_11_subtitles,
         ]
 
-        from app.pipeline.base import JobCancelledException
+        from celery.exceptions import SoftTimeLimitExceeded
+
+        from app.pipeline.base import JobCancelledException, JobDeadlineExceeded, JobSupersededException
 
         if not request.get("force_refresh"):
             cached_storyline = _storyline_cache.get_cached_storyline(request)
             if cached_storyline is not None:
                 _apply_cached_storyline(job_id, ctx, cached_storyline)
-                stages = [stage_guardrail, stage_08_assets, stage_09_export, stage_10_validate, stage_11_subtitles]
+                stages = [stage_guardrail, stage_resolve, stage_08_assets, stage_09_export,
+                          stage_10_validate, stage_11_subtitles]
 
         for stage_mod in stages:
             stage_name = getattr(stage_mod, "STAGE_NAME", stage_mod.__name__.split(".")[-1])
             stage_log = _job_logger(job_id, stage_name)
             stage_log.info("Stage starting")
             try:
+                job_lease.raise_if_stopped(job_id, stage_name)
                 with _tracer.start_as_current_span(stage_name, attributes={"job_id": job_id}):
                     result = stage_mod.run(job_id, request, ctx)
+            except JobSupersededException as exc:
+                # The job belongs to another run now (or will be failed by the
+                # sweeper); record nothing.
+                stage_log.warning("Run stopped during %s: %s", stage_name, exc.reason)
+                job_lease.release(job_id)
+                if exc.reason != job_lease.STOP_SUPERSEDED:
+                    # A superseded run's temp dirs may be the new run's.
+                    _cleanup_job_tmp_dirs(job_id)
+                return
+            except (JobDeadlineExceeded, SoftTimeLimitExceeded):
+                stage_log.error("Job passed its %ss limit during %s", settings.job_max_runtime_seconds, stage_name)
+                _fail_job(
+                    job_id, stage_name, "deadline_exceeded",
+                    f"Job exceeded {settings.job_max_runtime_seconds}s during {stage_name}",
+                    user_message="Your video took too long to generate and was stopped. "
+                                 "Please try again, or choose a shorter duration.",
+                )
+                _cleanup_job_tmp_dirs(job_id)
+                return
             except JobCancelledException:
                 # Cancelled mid-stage: the subprocess was already killed inside
                 # run_script. Finalize as cancelled (not failed) and stop.
@@ -422,7 +546,10 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
                 return
             if result.status == "failed":
                 stage_log.error("Stage failed: %s", result.message)
-                _fail_job(job_id, result.stage, "pipeline_error", result.message)
+                data = result.data or {}
+                _fail_job(job_id, result.stage, data.get("error_code") or "pipeline_error", result.message,
+                          user_message=data.get("user_message"), reason_code=data.get("reason_code"),
+                          suggestions=data.get("suggestions"))
                 _cleanup_job_tmp_dirs(job_id)
                 return
             stage_log.info("Stage %s", result.status)
@@ -443,7 +570,8 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
                 _cleanup_job_tmp_dirs(job_id)
                 return
 
-        _complete_job(job_id)
+        if not _complete_job(job_id):
+            return
         log.info("Pipeline completed")
 
         # ------------------------------------------------------------------
@@ -479,7 +607,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             if STORAGE_BACKEND == "s3":
                 upload_job_outputs_to_s3(job_id)
                 from app.pipeline.s3_helpers import cleanup_tmp_dir
-                for stage_prefix in (f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
+                for stage_prefix in (f"07_{job_id}", f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
                     cleanup_tmp_dir(stage_prefix)
         except Exception:
             log.warning("S3 upload failed for job %s — outputs remain on local disk", job_id, exc_info=True)
@@ -505,7 +633,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
         except Exception:
             pass
         log.exception("Pipeline error at stage %s: %s", stage, exc)
-        _fail_job(job_id, stage, "pipeline_error", str(exc), tb)
+        _fail_job(job_id, stage, "pipeline_error", str(exc), tb, exc=exc)
         _cleanup_job_tmp_dirs(job_id)
 
 
@@ -581,6 +709,7 @@ def _emit_job_decision_record(job_id: str, outcome: str) -> None:
                 "subject": "documentary_generation",
                 "user_prompt": job.get("prompt"),
                 "accountability": "ai4ia-pipeline-v2",
+                "pipeline_version": job.get("code_version"),
                 "agents_executed": [
                     "intent", "retrieval", "classification",
                     "director", "synthesis", "storyline", "validation",
@@ -649,8 +778,9 @@ def _redis_reachable() -> bool:
     return result
 
 
-def start_video_job_background(job_id: str, request: dict[str, Any]) -> None:
-    """Dispatch to Celery. Raises HTTP 503 if Redis is unreachable — no thread fallback."""
+def start_video_job_background(job_id: str, request: dict[str, Any], dispatch_id: str | None = None) -> None:
+    """Dispatch to Celery. Raises HTTP 503 if Redis is unreachable — no thread fallback.
+    The message carries the job's dispatch id; only a matching message may run it."""
     from fastapi import HTTPException
 
     if not (settings.redis_url and _redis_reachable()):
@@ -660,7 +790,10 @@ def start_video_job_background(job_id: str, request: dict[str, Any]) -> None:
         )
     try:
         from app.worker.tasks import run_video_job_task
-        run_video_job_task.delay(job_id, request)
+        if dispatch_id is None:
+            dispatch_id = load_job(job_id).get("dispatch_id")
+        kwargs = {"dispatch_id": dispatch_id} if dispatch_id else {}
+        run_video_job_task.apply_async(args=[job_id, request], kwargs=kwargs)
     except Exception as exc:
         logger.error("Celery dispatch failed for job %s: %s", job_id, exc, exc_info=True)
         raise HTTPException(

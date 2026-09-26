@@ -26,7 +26,8 @@ class TestStageGuardrail:
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
-             patch("app.pipeline.stage_guardrail.generate_json",
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json",
                    return_value={"allowed": True, "category": None, "reason": "fine"}), \
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
@@ -42,7 +43,8 @@ class TestStageGuardrail:
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
-             patch("app.pipeline.stage_guardrail.generate_json",
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json",
                    return_value={"allowed": False, "category": "harmful", "reason": "violent content"}), \
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
@@ -54,12 +56,37 @@ class TestStageGuardrail:
         assert result.status == "failed"
         assert result.data["category"] == "harmful"
 
+    @pytest.mark.parametrize("prompt,category,expected", [
+        ("When I asked AI to compose a Haiku", "off_topic", "completed"),   # matrix row 25
+        ("what's the weather in Kingston", "off_topic", "failed"),
+        ("When I asked AI to compose a Haiku", "harmful", "failed"),        # only off_topic is overridden
+    ])
+    def test_archive_talk_title_overrides_off_topic(self, tmp_path, prompt, category, expected):
+        from app.pipeline.stage_guardrail import run
+        from app.services.corpus_catalog import Catalog
+
+        catalog = Catalog(frozenset({1}), 2021, 2026, frozenset({"when i asked ai to compose a haiku"}))
+        with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json",
+                   return_value={"allowed": False, "category": category, "reason": "r"}), \
+             patch("app.services.corpus_catalog.get_catalog", return_value=catalog), \
+             patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
+             patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
+            mock_settings.prompt_guardrail_enabled = True
+            mock_settings.prompt_guardrail_model = "openai/gpt-oss-120b"
+            mock_settings.prompt_guardrail_fail_open = True
+            result = run("vjob_test", {"prompt": prompt}, _make_context(tmp_path))
+
+        assert result.status == expected
+
     def test_fail_open_when_llm_errors(self, tmp_path):
         from app.pipeline.stage_guardrail import run
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
-             patch("app.pipeline.stage_guardrail.generate_json", side_effect=RuntimeError("timeout")), \
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json", side_effect=RuntimeError("timeout")), \
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
             mock_settings.prompt_guardrail_enabled = True
@@ -74,7 +101,8 @@ class TestStageGuardrail:
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_guardrail.settings") as mock_settings, \
-             patch("app.pipeline.stage_guardrail.generate_json", side_effect=RuntimeError("timeout")), \
+             patch("app.services.guardrail_service.settings", mock_settings), \
+             patch("app.services.guardrail_service.generate_json", side_effect=RuntimeError("timeout")), \
              patch("app.pipeline.stage_guardrail.update_stage", MagicMock()), \
              patch("app.pipeline.stage_guardrail.append_event", MagicMock()):
             mock_settings.prompt_guardrail_enabled = True
@@ -140,9 +168,12 @@ class TestStageInputValidation:
              patch("app.pipeline.stage_input_validation.EXPORTS_DIR", tmp_path), \
              patch("app.pipeline.stage_input_validation.DATA_DIR", tmp_path), \
              patch("app.pipeline.stage_input_validation.SCRIPTS_DIR", tmp_path), \
+             patch("app.pipeline.stage_input_validation.settings.ai4ia_storage_backend", "local"), \
              patch("app.pipeline.stage_input_validation.update_stage", MagicMock()), \
              patch("app.pipeline.stage_input_validation.append_event", MagicMock()), \
              patch("pathlib.Path.exists", side_effect=lambda p=None: Path(p if p else "").exists() if p else False):
+            # Directory checks only run for the "local" storage backend
+            # (they're skipped entirely in "s3" mode — see stage_input_validation.run).
             # Let only the missing dir fail
             with pytest.raises(RuntimeError, match="Directory not found"):
                 run("vjob_test", {"prompt": "valid prompt"}, ctx)
@@ -162,6 +193,8 @@ class TestStage07Storyline:
         job = {"job_id": "vjob_test", "paths": {}}
         with patch("app.pipeline.stage_07_storyline.run_script", return_value=(0, "", "")), \
              patch("app.pipeline.stage_07_storyline._newest_file_after", return_value=storyline_file), \
+             patch("app.pipeline.stage_07_storyline.download_if_missing", return_value={}), \
+             patch("app.pipeline.stage_07_storyline.use_s3", return_value=False), \
              patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
              patch("app.pipeline.stage_07_storyline.append_event", MagicMock()), \
              patch("app.pipeline.stage_07_storyline.load_job", return_value=job), \
@@ -174,6 +207,7 @@ class TestStage07Storyline:
         ctx = _make_context(tmp_path)
 
         with patch("app.pipeline.stage_07_storyline.run_script", return_value=(1, "", "error output")), \
+             patch("app.pipeline.stage_07_storyline.download_if_missing", return_value={}), \
              patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
              patch("app.pipeline.stage_07_storyline.append_event", MagicMock()):
             with pytest.raises(RuntimeError, match="07_generate_storyline"):
@@ -183,7 +217,8 @@ class TestStage07Storyline:
         from app.pipeline.stage_07_storyline import run
         ctx = _make_context(tmp_path)
 
-        with patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
+        with patch("app.pipeline.stage_07_storyline.download_if_missing", return_value={}), \
+             patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
              patch("app.pipeline.stage_07_storyline.append_event", MagicMock()):
             with pytest.raises(ValueError, match="target_duration is required"):
                 run("vjob_test", {"prompt": "AI film"}, ctx)
@@ -194,6 +229,7 @@ class TestStage07Storyline:
 
         with patch("app.pipeline.stage_07_storyline.run_script", return_value=(0, "", "")), \
              patch("app.pipeline.stage_07_storyline._newest_file_after", return_value=None), \
+             patch("app.pipeline.stage_07_storyline.download_if_missing", return_value={}), \
              patch("app.pipeline.stage_07_storyline.update_stage", MagicMock()), \
              patch("app.pipeline.stage_07_storyline.append_event", MagicMock()):
             with pytest.raises(RuntimeError, match="No storyline JSON"):
@@ -229,9 +265,11 @@ class TestStage10Validate:
             result = run("vjob_test", {}, ctx)
         assert result.status == "completed"
 
-    def test_non_zero_exit_adds_warning(self, tmp_path):
+    def test_non_zero_exit_raises(self, tmp_path):
+        """A non-zero exit is now a hard failure, not a soft warning added to
+        the job (see commit 5a9dca4, "A/V sync drift, export consistency
+        validation & zero-speaker clip handling")."""
         from app.pipeline.stage_10_validate import run
-        jobs = {"vjob_test": {"job_id": "vjob_test", "warnings": []}}
         ctx = _make_context(tmp_path)
         manifest = tmp_path / "export_manifest.json"
         manifest.write_text('{"clips": []}')
@@ -240,11 +278,6 @@ class TestStage10Validate:
         with patch("app.pipeline.stage_10_validate.run_script", return_value=(1, "", "validation warning")), \
              patch("app.pipeline.stage_10_validate.update_stage", MagicMock()), \
              patch("app.pipeline.stage_10_validate.append_event", MagicMock()), \
-             patch("app.pipeline.stage_10_validate.load_job", side_effect=lambda jid: dict(jobs[jid])), \
-             patch("app.pipeline.stage_10_validate.save_job", side_effect=lambda jid, d: jobs.update({jid: d})), \
              patch("pathlib.Path.exists", return_value=True):
-            result = run("vjob_test", {}, ctx)
-
-        assert result is not None
-        # Warning added to job
-        assert any("10_validate_export" in str(w) for w in jobs["vjob_test"].get("warnings", []))
+            with pytest.raises(RuntimeError, match="10_validate_video_export.py failed"):
+                run("vjob_test", {}, ctx)

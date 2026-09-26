@@ -31,8 +31,9 @@ class StorylineRecord(TypedDict, total=False):
 
 
 class StorylineRepository:
-    """Storylines live in Postgres; reads fall back to the legacy Supabase
-    pipeline project for rows not yet backfilled. Writes go to Postgres only."""
+    """Storylines live in Postgres (DATABASE_URL). Reads and writes both go
+    there; the legacy Supabase read fallback was removed once the pipeline
+    project was fully backfilled."""
 
     table_name = "storylines"
 
@@ -89,9 +90,7 @@ class StorylineRepository:
     def get(self, storyline_id: str) -> StorylineRecord | None:
         self._log("select_one", storyline_id)
         row = pg_fetch_one("select * from storylines where id = %s limit 1", (storyline_id,))
-        if row is not None:
-            return self._from_row(row)
-        return self._legacy_get(storyline_id)
+        return self._from_row(row) if row is not None else None
 
     def list(self, limit: int = 100) -> list[StorylineRecord]:
         self._log("select_many")
@@ -100,66 +99,12 @@ class StorylineRepository:
             "is_validated, created_at from storylines order by created_at desc limit %s",
             (limit,),
         )
-        if rows:
-            return [self._from_row(row) for row in rows]
-        return self._legacy_list(limit)
+        return [self._from_row(row) for row in rows]
 
     def get_latest(self) -> StorylineRecord | None:
         self._log("select_latest")
         row = pg_fetch_one("select * from storylines order by created_at desc limit 1")
-        if row is not None:
-            return self._from_row(row)
-        return self._legacy_get_latest()
-
-    # -- legacy Supabase fallback (read-only) --------------------------------
-
-    def _legacy_table(self):
-        if not settings.supabase_url or not settings.supabase_service_key:
-            return None
-        try:
-            from app.db.supabase import get_supabase_client
-            return get_supabase_client().table(self.table_name)
-        except Exception:
-            logger.exception("Legacy Supabase storylines client unavailable")
-            return None
-
-    def _legacy_get(self, storyline_id: str) -> StorylineRecord | None:
-        table = self._legacy_table()
-        if table is None:
-            return None
-        try:
-            response = table.select("*").eq("id", storyline_id).limit(1).execute()
-        except Exception:
-            logger.exception("Legacy storylines select failed id=%s", storyline_id)
-            return None
-        return self._from_row(response.data[0]) if response.data else None
-
-    def _legacy_list(self, limit: int) -> list[StorylineRecord]:
-        table = self._legacy_table()
-        if table is None:
-            return []
-        try:
-            response = (
-                table.select("id,job_id,title,logline,user_prompt,target_duration_seconds,is_validated,created_at")
-                .order("created_at", desc=True)
-                .limit(limit)
-                .execute()
-            )
-        except Exception:
-            logger.exception("Legacy storylines list failed")
-            return []
-        return [self._from_row(row) for row in response.data or []]
-
-    def _legacy_get_latest(self) -> StorylineRecord | None:
-        table = self._legacy_table()
-        if table is None:
-            return None
-        try:
-            response = table.select("*").order("created_at", desc=True).limit(1).execute()
-        except Exception:
-            logger.exception("Legacy storylines get_latest failed")
-            return None
-        return self._from_row(response.data[0]) if response.data else None
+        return self._from_row(row) if row is not None else None
 
     # -- row shaping ----------------------------------------------------------
 

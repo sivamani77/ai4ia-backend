@@ -291,24 +291,84 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
     log(f"  [phase-timing] concat phase done (elapsed so far: {time.time() - _export_t0:.1f}s)")
 
     # Fix 6: A/V ending balance — harmonize audio and video stream durations cleanly
-    # NOTE: we use get_media_duration (format=duration) rather than ffprobe
-    # stream=duration because concat-produced MP4 files often report stream=duration
-    # as "N/A" (the stream header has no explicit duration field, only the moov atom
-    # does). That causes the stream probe to return 0.0, which triggers the trim
-    # branch and chops the entire 8-minute video down to match a short audio stream.
+    #
+    # This MUST compare the video STREAM against the audio STREAM. It previously
+    # used get_media_duration (format=duration) as the video side, but the format
+    # duration is max(all streams) — which is normally the audio stream — so the
+    # check was comparing audio against itself and reported delta≈0 for every file
+    # ever produced. It could not detect A/V desync by construction, which is how
+    # a 41 ms offset shipped with the guard reporting "within tolerance".
+    #
+    # A concat-produced MP4 can report stream=duration as "N/A". The video side
+    # must NOT fall back to the format duration when that happens: format
+    # duration is max(all streams), i.e. the audio duration, so the fallback
+    # makes the check compare audio against itself and report delta=0 —
+    # reinstating the exact always-zero blindness this block was written to fix.
+    # That is not theoretical: on vjob_20260922_055243_22d757dd the video probe
+    # returned nothing, the guard logged "video=241.15s audio=241.15s delta=0.00s
+    # — within tolerance", and a file with 59.53s of picture against 241.15s of
+    # sound shipped as completed. Count frames instead; that works on any
+    # container and cannot silently degrade into the audio duration.
+    def _probe_stream_duration(stream: str) -> float:
+        try:
+            raw = run_cmd_capture([
+                "ffprobe", "-v", "error", "-select_streams", stream,
+                "-show_entries", "stream=duration",
+                "-of", "default=noprint_wrappers=1:nokey=1",
+                str(output_path),
+            ]).strip()
+            return float(raw)
+        except (RuntimeError, ValueError, TypeError):
+            return 0.0
+
+    def _probe_video_duration() -> float:
+        """Video duration that never degrades into the audio duration."""
+        direct = _probe_stream_duration("v:0")
+        if direct > 0.0:
+            return direct
+        try:
+            raw = run_cmd_capture([
+                "ffprobe", "-v", "error", "-select_streams", "v:0",
+                "-count_packets", "-show_entries", "stream=nb_read_packets",
+                "-of", "csv=p=0", str(output_path),
+            ]).strip()
+            return int(raw) / 30.0 if raw else 0.0
+        except (RuntimeError, ValueError, TypeError):
+            return 0.0
+
     try:
-        _vid_dur_check = get_media_duration(output_path)
-        _aud_dur_check = float(run_cmd_capture([
-            "ffprobe", "-v", "error", "-select_streams", "a:0",
-            "-show_entries", "stream=duration",
-            "-of", "default=noprint_wrappers=1:nokey=1",
-            str(output_path),
-        ]).strip() or "0") or _vid_dur_check
+        _format_dur = get_media_duration(output_path)
+        _vid_dur_check = _probe_video_duration()
+        _aud_dur_check = _probe_stream_duration("a:0") or _format_dur
+        if _vid_dur_check <= 0.0:
+            raise ExportIntegrityError(
+                f"Could not determine the video stream duration of {output_path.name} by "
+                f"either stream probe or frame count. Refusing to declare A/V balance "
+                f"healthy on an unmeasurable video track."
+            )
         _av_delta = _aud_dur_check - _vid_dur_check
         log(f"  A/V balance probe: video={_vid_dur_check:.2f}s audio={_aud_dur_check:.2f}s delta={_av_delta:.2f}s")
+        # Audio running LONG past the video is not a trailing-audio overhang, it
+        # means the video track is missing frames — and trimming the audio to
+        # match "fixes" the container while leaving every picture ahead of its
+        # sound. That is exactly what shipped on vjob_20260921_131232_4285690c:
+        # video=484.27s vs audio=489.16s, trimmed to 484.27s, after which
+        # duration_delta read 0.02s and the job reported no warnings at all,
+        # while every visual sat ~4.8s ahead of its narration for 8 minutes.
+        # Sub-second overhangs are ordinary tail rounding and still get trimmed;
+        # anything larger is a defect that must not be silently normalised away.
+        _SHORT_VIDEO_LIMIT = 1.0
+        if _av_delta > _SHORT_VIDEO_LIMIT:
+            raise ExportIntegrityError(
+                f"Video track is {_av_delta:.2f}s shorter than the audio track "
+                f"(video={_vid_dur_check:.2f}s, audio={_aud_dur_check:.2f}s). Frames went "
+                f"missing during concat, so the picture runs ahead of the sound for the "
+                f"whole export. Refusing to trim the audio and ship a desynced video."
+            )
+
         if abs(_av_delta) > 0.15:
             if _av_delta > 0:
-                # Audio stream longer than video — trim trailing audio to video duration
+                # Sub-second trailing-audio overhang — trim to the video duration.
                 log(f"  A/V balance: audio ({_aud_dur_check:.2f}s) exceeds video ({_vid_dur_check:.2f}s) by {_av_delta:.2f}s — trimming trailing audio")
                 _trimmed = output_path.parent / (output_path.stem + "_avtrim.mp4")
                 run_cmd([
@@ -336,8 +396,21 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
                 log(f"  A/V balance: audio stream padded — final duration ≈ {_vid_dur_check:.2f}s")
         else:
             log(f"  A/V balance: streams within tolerance ({abs(_av_delta):.2f}s) — no correction needed")
+
+        # Record the measured offset so a regression is visible in QA instead of
+        # only in a log line. Audio LATE past ~125 ms (or EARLY past ~45 ms) is
+        # where a viewer starts seeing it against a speaker's lips (ITU-R BT.1359).
+        quality_checks["av_sync_offset_ms"] = round(_av_delta * 1000, 1)
+        quality_checks["av_sync_within_perceptual_limit"] = -0.045 <= _av_delta <= 0.125
+    except ExportIntegrityError:
+        # Must escape. This block's own `except Exception` used to swallow the
+        # short-video raise above and log it as "non-fatal", so the guard fired
+        # and the desynced export shipped anyway.
+        raise
     except Exception as _av_exc:
         log(f"  A/V balance check failed (non-fatal): {_av_exc}")
+        quality_checks["av_sync_offset_ms"] = None
+        quality_checks["av_sync_within_perceptual_limit"] = None
 
     if hls_writer is not None:
         hls_writer.finalize(success=True)
@@ -455,6 +528,13 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
             "year": _year,
             "speaker": _speaker,
             "topic": _ti.get("primary_chapter"),
+            # The real narrative section (S1_HOOK, S2_CONTEXT, ...) — several
+            # rendered segments (a narration bridge + its speaker_clip) can
+            # belong to the same section_id; the frontend groups consecutive
+            # events sharing this id into one chapter chip. section_role is a
+            # separate, older per-candidate classifier field (only set on
+            # speaker_clip items) kept for backward compatibility only.
+            "section_id": _ti.get("section_id"),
             "section_role": _ti.get("section_role"),
             "clip_start": _ti.get("start"),
             "clip_end": _ti.get("end"),
@@ -500,6 +580,17 @@ def export_video(manifest_path: Path, output_name: str | None, burn_subs: bool, 
         log(f"  video_stream_duration: {vid_dur:.2f}s")
         log(f"  audio_stream_duration: {aud_dur:.2f}s")
         log(f"  duration_delta:        {dur_delta:.2f}s")
+        if dur_delta > 1.0:
+            # Last line of defence, and the only check that actually caught
+            # vjob_20260922_055243_22d757dd (video 59.53s vs audio 241.15s,
+            # delta 181.62s) — where it logged a WARNING and the job still
+            # finished as `completed` with a 4-minute video carrying 1 minute of
+            # picture. A whole-second A/V duration gap is never cosmetic.
+            raise ExportIntegrityError(
+                f"Final video/audio duration mismatch of {dur_delta:.2f}s "
+                f"(video={vid_dur:.2f}s, audio={aud_dur:.2f}s). The export is desynced; "
+                f"refusing to mark it completed."
+            )
         if dur_delta > 0.2:
             log(f"WARNING: duration_delta ({dur_delta:.2f}s) exceeds 0.2s — possible A/V sync issue.")
         _target = float(_manifest_target_dur) if _manifest_target_dur else 0.0

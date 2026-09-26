@@ -1,0 +1,69 @@
+{
+  "database": "postgres_pipeline",
+  "table": "job_events",
+  "source": "db/init/001_schema.sql",
+  "description": "Append-only event stream per job; drives SSE progress updates.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigserial",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "job_id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": "jobs.id (not FK-enforced)."
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    },
+    {
+      "name": "event_type",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "payload",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_job_events_job_id",
+      "columns": [
+        "job_id"
+      ]
+    },
+    {
+      "name": "idx_job_events_job_id_id",
+      "columns": [
+        "job_id",
+        "id"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "jobs",
+      "column": "job_id",
+      "enforced": false
+    }
+  ]
+}

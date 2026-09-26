@@ -80,6 +80,9 @@ def generate_voiceovers_for_timeline(
 
     # Grounding material: narration may only claim what the selected fragments say
     source_blob, allowed_names = _build_grounding_material(validated_candidates)
+    archive_facts = ((storyline_data or {}).get("storyline") or {}).get("archive_facts")
+    if archive_facts:
+        source_blob += "\n" + archive_facts
 
     # Build ordered narration list from script-07 sections
     sl_narrations: list[str] = []
@@ -178,12 +181,25 @@ def assign_fragments_to_empty_narration_brolls(
     return final_timeline
 
 
+def canonicalize_speaker_names(final_timeline: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Use registry spellings in speaker labels and in shown or spoken text."""
+    from app.services.speaker_registry import get_registry
+
+    registry = get_registry()
+    for item in final_timeline:
+        if item.get("speaker"):
+            item["speaker"] = registry.canonical(item["speaker"]) or item["speaker"]
+        for key in ("voiceover_text", "subtitle_text", "visual_title", "title"):
+            if item.get(key):
+                item[key] = registry.fix_names_in_text(item[key])
+    return final_timeline
+
+
 def enrich_final_timeline(
     final_timeline: list[dict[str, Any]],
     candidate_map: dict[str, dict[str, Any]],
     original_timeline: list[dict[str, Any]],
     validated_map: dict[str, dict[str, Any]] | None = None,
-    is_deepfake_topic: bool = False,
 ) -> list[dict[str, Any]]:
     """Fill in missing fields on final_timeline items from candidate_map / original timeline."""
     orig_by_fid: dict[str, dict[str, Any]] = {}
@@ -278,18 +294,18 @@ def enrich_final_timeline(
             item["render_end"] = re_
             item["render_duration"] = round(re_ - rs, 3)
 
-            # Fill speaker — multi-source fallback chain
-            if not item.get("speaker"):
-                sv = item.get("source_video") or ""
-                item["speaker"] = (
-                    validated.get("speaker_label")
-                    or validated.get("speaker")
-                    or cand.get("speaker")
-                    or cand.get("speaker_attribution")
-                    or orig.get("speaker")
-                    or _extract_speaker_from_video_title(sv)
-                    or "AI4IA conference speaker"
-                )
+            # Speaker label: the clip's own data wins over the LLM's spelling.
+            sv = item.get("source_video") or ""
+            item["speaker"] = (
+                validated.get("speaker_label")
+                or validated.get("speaker")
+                or cand.get("speaker")
+                or orig.get("speaker")
+                or cand.get("speaker_attribution")
+                or item.get("speaker")
+                or _extract_speaker_from_video_title(sv)
+                or "AI4IA conference speaker"
+            )
 
             # Fill quote_text / subtitle_text
             if not item.get("quote_text"):
@@ -317,7 +333,7 @@ def enrich_final_timeline(
             # Clean voiceover text (remove instruction leakage)
             sid = item.get("section_id") or ""
             raw_vo = item.get("voiceover_text") or ""
-            item["voiceover_text"] = _clean_voiceover_text(raw_vo, sid, is_deepfake_topic)
+            item["voiceover_text"] = _clean_voiceover_text(raw_vo, sid)
             item["subtitle_text"] = item["voiceover_text"]
 
         result.append(item)

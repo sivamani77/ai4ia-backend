@@ -37,6 +37,22 @@ class TestPoolFromFragments:
         assert len(pool) == 1
         assert pool[0]["ref"] == 1
 
+    def test_stream_url_computed_from_source_video(self):
+        """GAP-014 regression: fragment rows have no stream_url column, so it
+        must be derived from source_video, not read from a field that's
+        never set on the raw fragment."""
+        from app.services.comparison_service import _pool_from_fragments
+        frag = make_fragment("f1", source_video="0001_abc123_speaker")
+        pool = _pool_from_fragments([frag])
+        assert pool[0]["stream_url"] == "/api/archive/videos/0001_abc123_speaker/stream"
+
+    def test_stream_url_none_when_source_video_missing(self):
+        from app.services.comparison_service import _pool_from_fragments
+        frag = make_fragment("f1")
+        frag.pop("source_video", None)
+        pool = _pool_from_fragments([frag])
+        assert pool[0]["stream_url"] is None
+
 
 # ---------------------------------------------------------------------------
 # _format_pool
@@ -86,7 +102,12 @@ class TestClip:
                          "primary_theme", "video_stream_url", "start", "end", "duration", "text"}
         assert expected_keys.issubset(result.keys())
 
-    def test_stream_url_from_stream_url(self):
+    def test_stream_url_passed_through_from_pool_entry(self):
+        """_clip itself just passes through whatever "stream_url" key its
+        input already carries — the actual computation happens upstream in
+        _pool_from_fragments (see TestPoolFromFragments.test_stream_url_
+        computed_from_source_video), which is what real callers always route
+        through before _clip sees a dict."""
         from app.services.comparison_service import _clip
         frag = make_fragment("f1")
         frag["stream_url"] = "/api/stream/abc"
@@ -171,11 +192,17 @@ class TestCompareSpeakers:
 # ---------------------------------------------------------------------------
 
 class TestSynthesizeTheme:
-    def test_raises_when_no_fragments(self):
+    def test_declines_when_no_fragments(self):
+        """Used to raise ValueError, which the router surfaced as a 422. Now
+        returns the same declined shape as insights so clients branch on one
+        field — see tests/unit/test_evidence_gate.py."""
         from app.services.comparison_service import synthesize_theme
-        with patch("app.services.comparison_service.embedding_index.search", return_value=[]):
-            with pytest.raises(ValueError, match="No fragments found"):
-                synthesize_theme("AI Ethics")
+        with patch("app.services.comparison_service.embedding_index.search", return_value=[]), \
+             patch("app.services.comparison_service.generate_json") as llm:
+            result = synthesize_theme("AI Ethics")
+        assert result["outcome"] == "insufficient_evidence"
+        assert result["key_points"] == []
+        llm.assert_not_called()
 
     def test_returns_dict_with_expected_keys(self):
         from app.services.comparison_service import synthesize_theme
@@ -202,11 +229,17 @@ class TestSynthesizeTheme:
 # ---------------------------------------------------------------------------
 
 class TestBuildRelay:
-    def test_raises_when_no_fragments(self):
+    def test_declines_when_no_fragments(self):
+        """Used to raise ValueError, which the router surfaced as a 422. Now
+        returns the same declined shape as insights — see
+        tests/unit/test_evidence_gate.py."""
         from app.services.comparison_service import build_relay
-        with patch("app.services.comparison_service.embedding_index.search", return_value=[]):
-            with pytest.raises(ValueError, match="No fragments found"):
-                build_relay("some topic")
+        with patch("app.services.comparison_service.embedding_index.search", return_value=[]), \
+             patch("app.services.comparison_service.generate_json") as llm:
+            result = build_relay("some topic")
+        assert result["outcome"] == "insufficient_evidence"
+        assert result["relay_steps"] == []
+        llm.assert_not_called()
 
     def test_returns_dict_with_expected_keys(self):
         from app.services.comparison_service import build_relay

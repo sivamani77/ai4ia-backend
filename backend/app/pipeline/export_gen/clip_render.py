@@ -21,8 +21,32 @@ LOWER_THIRD_DURATION = 3.8
 
 FADE_DURATION = 0.45
 
+# Fraction a card/generated-visual is zoomed in over its own length (Ken Burns).
+# This filter used to be a plain scale+crop with a FIXED centre offset, which is
+# the same pixels every frame — every narration segment was a literally frozen
+# image for its whole 26-41s, and freezedetect confirmed 270s of a 277s export
+# had zero motion. The crop filter only animates with eval=frame, which needs
+# ffmpeg 5+; this runs on 4.4, so zoompan is the portable way to get real
+# motion. zoompan steps in integer pixels, so the source is upscaled first
+# (ZOOM_SUPERSAMPLE) or the pan visibly stair-steps.
+KEN_BURNS_ZOOM = 0.08
+ZOOM_SUPERSAMPLE = 2
+
 ARCHIVE_AUDIO_VOLUME = 1.0
 SECTION_VOICEOVER_VOLUME = 1.0
+
+# Intermediate segments carry LOSSLESS audio; AAC is encoded exactly once, by
+# concat_segments. AAC is a block codec: every encode adds priming samples at
+# the head and padding at the tail, and the container records them in an edit
+# list so a player can trim them. The concat demuxer ignores that edit list and
+# decodes raw frames, so each per-segment AAC encode leaked ~7 ms of audio into
+# the join while the video side stayed exact (setpts rebuilds it from frame
+# count). Lip sync therefore drifted by roughly 7 ms x segment_count — 141 ms
+# over 18 segments, past the point a viewer sees it against a talking face.
+# Measured on real footage: 7.15 ms/segment before, 0.21 ms/segment after.
+SEGMENT_AUDIO_CODEC = "pcm_s16le"
+# MP4 is a poor PCM carrier; these files are throwaway inputs to concat.
+SEGMENT_CONTAINER_SUFFIX = ".mkv"
 
 
 def _first_present(*vals: Any, default: float = 0.0) -> float:
@@ -140,17 +164,34 @@ def make_card_video_with_optional_voiceover(
 
     duration = max(min_duration, audio_duration + 0.8)
 
-    # scale+crop is ~5× faster than zoompan (no per-frame computation) while still
-    # giving a slightly zoomed-in cinematic look with fade in/out.
+    # Slow centred zoom over the segment's full length. Centred (rather than a
+    # diagonal pan) because these are text cards: panning drifts the headline
+    # and eyebrow off the edge, while a centred zoom only ever loses
+    # KEN_BURNS_ZOOM/2 from each side, which the card's margins absorb.
+    zoom_frames = max(1, round(duration * FPS))
     zoom_filter = (
-        f"scale={OUTPUT_WIDTH + 120}:{OUTPUT_HEIGHT + 68}:flags=lanczos,"
-        f"crop={OUTPUT_WIDTH}:{OUTPUT_HEIGHT}:(iw-ow)/2:(ih-oh)/2,"
+        f"scale={OUTPUT_WIDTH * ZOOM_SUPERSAMPLE}:{OUTPUT_HEIGHT * ZOOM_SUPERSAMPLE}:flags=lanczos,"
+        f"zoompan="
+        f"z='min(1+{KEN_BURNS_ZOOM}*on/{zoom_frames},{1 + KEN_BURNS_ZOOM})':"
+        f"d=1:"
+        f"x='iw/2-(iw/zoom/2)':"
+        f"y='ih/2-(ih/zoom/2)':"
+        f"s={OUTPUT_WIDTH}x{OUTPUT_HEIGHT}:fps={FPS},"
         f"setsar=1,"
-        f"fps={FPS},"
         f"fade=t=in:st=0:d={FADE_DURATION},"
         f"fade=t=out:st={max(duration - FADE_DURATION, 0)}:d={FADE_DURATION},"
         f"format=yuv420p"
     )
+
+    # -frames:v, NOT -shortest. `-shortest` ends the file when the shortest
+    # INPUT ends and silently overrides `-t`: asked for 40s and for 60s of the
+    # same card over a 33.2s voiceover, it produced an identical 34.767s both
+    # times. The card then carries less picture than the timeline allocated it,
+    # and the gap is only discovered (if at all) once everything is concatenated.
+    # An explicit frame count is a demand rather than a hope, and `apad` with
+    # `-t` holds the audio to the same length, so both streams land on exactly
+    # `duration` by construction instead of by inference.
+    frames_v = str(zoom_frames)
 
     if audio_path and audio_path.exists():
         cmd = [
@@ -161,10 +202,10 @@ def make_card_video_with_optional_voiceover(
             "-i", str(audio_path),
             "-t", str(duration),
             "-vf", zoom_filter,
-            "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.6",
-            "-shortest",
+            "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad",
+            "-frames:v", frames_v,
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -179,9 +220,9 @@ def make_card_video_with_optional_voiceover(
             "-i", "anullsrc=channel_layout=stereo:sample_rate=48000",
             "-t", str(duration),
             "-vf", zoom_filter,
-            "-shortest",
+            "-frames:v", frames_v,
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -303,10 +344,13 @@ def render_archive_clip(
             "-vf", vf,
             "-map", "0:v:0",
             "-map", "1:a:0",
-            "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad=pad_dur=0.4",
-            "-shortest",
+            # Same reasoning as make_card_video_with_optional_voiceover: an
+            # explicit frame count instead of -shortest, so the segment is
+            # exactly as long as the timeline says it is.
+            "-filter:a", f"volume={SECTION_VOICEOVER_VOLUME},afade=t=in:st=0:d=0.2,afade=t=out:st={max(audio_duration - 0.25, 0)}:d=0.25,apad",
+            "-frames:v", str(max(1, round(duration * FPS))),
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -332,7 +376,7 @@ def render_archive_clip(
             "-map", "0:v:0",
             "-map", "1:a:0",
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -355,7 +399,7 @@ def render_archive_clip(
             "-vf", vf,
             "-af", af,
             *_vcodec_flags(threads=2),
-            "-c:a", "aac",
+            "-c:a", SEGMENT_AUDIO_CODEC,
             "-ar", "48000",
             "-ac", "2",
             str(output_path),
@@ -384,7 +428,21 @@ def concat_segments(segment_paths: list[Path], output_path: Path, subtitle_path:
         for path in segment_paths:
             f.write(f"file '{path.resolve()}'\n")
 
-    vf_chain = "fps=30,setpts=N/(30*TB),format=yuv420p"
+    # NO setpts here. `setpts=N/(30*TB)` rebuilds every video PTS from the
+    # OUTPUT FRAME INDEX, which throws away the concat demuxer's timeline: the
+    # video track then lasts exactly (frames / 30) regardless of how long the
+    # segments actually were. The audio side does the opposite — aresample
+    # honours timestamps and fills gaps with silence — so the two disagree the
+    # moment any segment's video stream is shorter than its container duration.
+    # Every frame missing anywhere pulls ALL later picture earlier while the
+    # sound stays put, and the error is permanent.
+    #
+    # Measured on job vjob_20260921_131232_4285690c: concat emitted video=484.27s
+    # against audio=489.16s, and every visual landed ~4.8s ahead of its narration
+    # for the whole 8-minute export. Keeping the demuxer's timestamps lets
+    # `fps=30` + `-vsync cfr` duplicate frames across a gap instead, which is
+    # what CFR output is for.
+    vf_chain = "fps=30,format=yuv420p"
     if subtitle_path is not None:
         subtitle_filter_path = str(subtitle_path.resolve()).replace(":", "\\:")
         vf_chain += (

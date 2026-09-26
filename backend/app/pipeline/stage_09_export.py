@@ -4,11 +4,13 @@ import sys
 import json
 import logging
 import re
+import shutil
 import threading
 import time
 from pathlib import Path
 from typing import Any
 
+from app.core.error_messages import ExportSubprocessError
 from app.core.paths import EXPORTS_DIR, SCRIPTS_DIR, RAW_VIDEO_DIR, GENERATED_ASSETS_DIR
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext, StageResult, run_script
@@ -100,6 +102,12 @@ def _prepare_assets_for_export(manifest_path: str, job_id: str) -> Path:
         mdata = json.loads(manifest_local.read_text(encoding="utf-8"))
     except Exception:
         mdata = {}
+
+    # This job's own assets may be left from a lost run, which the cache
+    # below would reuse. Assets shared across jobs are kept.
+    storyline_id = str(mdata.get("storyline_id") or "")
+    if job_id in storyline_id:
+        shutil.rmtree(GENERATED_ASSETS_DIR / storyline_id, ignore_errors=True)
 
     _download_referenced_assets_cached(mdata)
     _download_source_videos_cached(mdata)
@@ -346,6 +354,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     manifest_path = context.asset_manifest_path
     update_stage(job_id, "09_export", "running", 5, "Starting final video export")
     append_event(job_id, "stage_started", "09_export", {"manifest_path": manifest_path})
+    # A rerun after a lost worker must not reuse the lost run's partial files.
+    shutil.rmtree(EXPORTS_DIR / "hls" / job_id, ignore_errors=True)
 
     if use_s3():
         update_stage(job_id, "09_export", "running", 8, "Downloading assets and source videos from S3")
@@ -406,10 +416,10 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
             watcher_thread.join(timeout=5)
 
     if code != 0:
-        raise RuntimeError(f"09_export_video.py exited {code}: {stderr[-4000:]}")
+        raise ExportSubprocessError(f"09_export_video.py exited {code}: {stderr[-4000:]}")
 
     if not video_path.exists():
-        raise RuntimeError(f"Expected export video not found: {video_path}")
+        raise ExportSubprocessError(f"Expected export video not found: {video_path}")
 
     export_manifest_path = EXPORTS_DIR / f"{video_path.stem}_export_manifest.json"
     timeline_metadata_path = EXPORTS_DIR / f"{video_path.stem}_timeline_metadata.json"

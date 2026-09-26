@@ -20,7 +20,7 @@ def get_event_repo() -> EventRepository:
     return EventRepository()
 
 
-def _to_supabase_job(job_id: str, data: dict[str, Any]) -> dict[str, Any]:
+def _to_job_row(job_id: str, data: dict[str, Any]) -> dict[str, Any]:
     payload = data.get("payload", {})
     request = data.get("request", {})
 
@@ -48,9 +48,68 @@ def _to_supabase_job(job_id: str, data: dict[str, Any]) -> dict[str, Any]:
 
 def save_job(job_id: str, data: dict[str, Any]) -> None:
     repo = get_job_repo()
-    row = _to_supabase_job(job_id, data)
+    row = _to_job_row(job_id, data)
     repo.upsert_job(row)
     logger.info("Job persisted id=%s status=%s", job_id, data.get("status", "unknown"))
+
+
+def create_job_within_quota(
+    job_id: str, data: dict[str, Any], *, user_id: str, max_running: int, max_queued: int, max_active: int,
+    dispatch_id: str | None = None, worker_queue: str | None = None,
+) -> str | None:
+    """Save a new job only if the quota allows it; None on success, otherwise
+    the limit that was hit (see JobRepository.create_job_within_quota)."""
+    row = _to_job_row(job_id, data)
+    reason = get_job_repo().create_job_within_quota(
+        row, user_id=user_id, max_running=max_running, max_queued=max_queued, max_active=max_active,
+        dispatch_id=dispatch_id, worker_queue=worker_queue,
+    )
+    if reason is None:
+        logger.info("Job persisted id=%s status=%s", job_id, data.get("status", "unknown"))
+    return reason
+
+
+def claim_job(job_id: str, *, dispatch_id: str | None, owner: str, worker_queue: str, max_retries: int = 0) -> bool:
+    return get_job_repo().claim(job_id, dispatch_id=dispatch_id, owner=owner, worker_queue=worker_queue,
+                                max_retries=max_retries)
+
+
+def take_over_job(job_id: str, *, dispatch_id: str | None, dead_owner: str | None, owner: str,
+                  max_retries: int) -> bool:
+    return get_job_repo().take_over(job_id, dispatch_id=dispatch_id, dead_owner=dead_owner, owner=owner,
+                                    max_retries=max_retries)
+
+
+def interrupted_stages(job_id: str) -> list[str]:
+    """The stages in which the job's earlier runs lost their worker."""
+    return get_event_repo().payload_stages(job_id, "interrupted")
+
+
+def job_lease_state(job_id: str) -> dict[str, Any] | None:
+    return get_job_repo().lease_state(job_id)
+
+
+def heartbeat_job(job_id: str, owner: str) -> bool:
+    return get_job_repo().heartbeat(job_id, owner)
+
+
+def finish_job(job_id: str, status: str, owner: str | None) -> bool:
+    """Set a terminal status if the caller still holds the job (see JobRepository.finish)."""
+    return get_job_repo().finish(job_id, status, owner)
+
+
+def fail_job_if_lease(job_id: str, *, expected_owner: str | None, error: dict[str, Any]) -> bool:
+    return get_job_repo().fail_if_lease(job_id, expected_owner=expected_owner, error=error)
+
+
+def list_user_jobs(user_id: str, limit: int, offset: int) -> tuple[list[dict[str, Any]], int]:
+    """One page of a user's jobs (newest first) and the user's total."""
+    rows, total = get_job_repo().list_by_user_page(user_id, limit, offset)
+    return [_row_to_metadata(row) for row in rows], total
+
+
+def queue_position(job_id: str) -> int:
+    return get_job_repo().queue_position(job_id)
 
 
 def load_job(job_id: str) -> dict[str, Any]:

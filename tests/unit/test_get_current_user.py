@@ -16,6 +16,15 @@ def _bearer(token: str) -> HTTPAuthorizationCredentials:
 
 
 class TestGetCurrentUser:
+    @pytest.fixture(autouse=True)
+    def _jwt_signing_key(self, monkeypatch):
+        """create_access_token needs a non-empty HMAC key; settings.jwt_signing_key
+        defaults to "" with no .env present in this environment. Pin one here —
+        see the identical fixture in test_core_security.py."""
+        from app.core import security as security_module
+
+        monkeypatch.setattr(security_module.settings, "jwt_signing_key", "test-signing-key-that-is-at-least-32-bytes-long", raising=False)
+
     def test_valid_token_resolves_user(self):
         token = create_access_token(user_id="user-123", persona="general")
         user = get_current_user(credentials=_bearer(token))
@@ -53,7 +62,12 @@ class TestGetCurrentUser:
 
     def test_tampered_token_raises_401(self):
         token = create_access_token(user_id="user-123", persona="general")
-        tampered = token[:-1] + ("x" if token[-1] != "x" else "y")
+        # Change a character inside the signature: the last one carries unused
+        # base64 padding bits, so swapping it can decode to the same bytes.
+        head, _, signature = token.rpartition(".")
+        mid = len(signature) // 2
+        swapped = "A" if signature[mid] != "A" else "B"
+        tampered = f"{head}.{signature[:mid]}{swapped}{signature[mid + 1:]}"
         with pytest.raises(HTTPException) as exc_info:
             get_current_user(credentials=_bearer(tampered))
         assert exc_info.value.status_code == 401

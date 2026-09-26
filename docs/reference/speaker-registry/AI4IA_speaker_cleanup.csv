@@ -1,0 +1,289 @@
+action,corpus_speaker,set_to,confidence,fragments,videos,sample_video,evidence
+REMOVE_JUNK,I,,,68,1,New York⧸Carnegie Satellite Event,"extractor placeholder, not a person"
+REMOVE_JUNK,null,,,6,1,UNESCO Caribbean AI Policy Roadmap,"extractor placeholder, not a person"
+RENAME,Cordell Green,Cordel Green,high,196,3,Canada Regional Event,spelling ~0.96; title names them=False; topic overlap=0.40
+RENAME,Christina Williams,Christena Williams,high,145,2,Christina Williams - Technology on our Terms： How to Empower Future Generations for A Futu,speaker and title agree (surname)
+RENAME,Jeffrey Rockwell,Geoffrey Rockwell,high,103,1,Canada_Satellite_Event_-_AI_and_Administrative_Intelligence,spelling ~0.91; title names them=False; topic overlap=0.80
+RENAME,Paul Hector,Paul G. C. Hector,high,47,2,Paul_Hector_-_How_Is_AI_Impacting_Caribbean_Authors_Poets,from video title 'Paul Hector' (surname); speaker field is a mis-transcription
+RENAME,Francois Boldoc,Francois Bolduc,high,38,1,Francois Boldoc - Chatbot for knowledge mobilization for individuals with complex medical ,speaker and title agree (fuzzy 0.93)
+RENAME,Y Poullet,Yves Poullet,high,31,2,Y Poullet - Gatekeepers and Universal Service - The Need for a Specific Regulation,speaker and title agree (initials)
+RENAME,Scott David,Scott L David,high,28,2,Scott David - First Contact： Meeting of the Minds in the Global Intelligence Agora,spelling ~0.92; title names them=True; topic overlap=1.00
+RENAME,Lt Gen V Nair,Velu Nair,high,28,1,(1A) Lt Gen V Nair - AI and Healthcare,speaker and title agree (initials)
+RENAME,Kodel Green,Cordel Green,high,27,1,India_Event_-_AI4IA_2025,listed in SPEAKER_ALIAS_MAP
+RENAME,K Fisher,Keith Fisher,high,23,1,K Fisher - Artificial Intelligence Performing Judicial Functions,speaker and title agree (initials)
+RENAME,Jill Kowalchuk,Jillian Kowalchuk,high,22,1,Jill Kowalchuk - Educators as Ethical Guides： Understanding Moral Agency in the AI Era,speaker and title agree (surname)
+RENAME,Kemar Green,Kemar E. Green,high,21,1,Kemar_Green_-_AI4IA_2025,speaker and title agree (surname)
+RENAME,Shermon Osepa,Shernon Osepa,high,20,1,Shermon_Osepa_-,speaker and title agree (surname)
+RENAME,Jan Framielin,Jan Vermeulen,high,20,1,"(8G) J Vermeulen - Technology, Media & Right to Know in 2021",from video title 'J Vermeulen' (initials); speaker field is a mis-transcription
+RENAME,N Ramanthan,Nithya Ramanathan,high,20,1,(6C) N Ramanthan - Decolonizing Data,speaker and title agree (initials)
+RENAME,Madeline Nolan,Madeline Noland,high,19,1,How AI Can Help Bring Educational Content to Everyone,spelling ~0.97; title names them=False; topic overlap=0.83
+RENAME,D Linna,Daniel W. Linna Jr.,high,19,1,D Linna - AI for Law： A Multidisciplinary Approach to Scale Access to Justice for Everyone,title 'D Linna - AI for Law'
+RENAME,Daniel Sikasvi,Daniel Sikazwe,high,19,1,(8I) - D Sikazwe： AI and Journalism,from video title 'D Sikazwe' (initials); speaker field is a mis-transcription
+RENAME,D Shefet,Dan Shefet,high,19,1,(5J) D Shefet - AI and Justice,speaker and title agree (initials)
+RENAME,Dr. Karen Nelson,Claire Nelson,high,18,1,(6N)： C Nelson - XYNOGENY？ How We Share Decision-Making,from video title 'C Nelson' (initials); speaker field is a mis-transcription
+RENAME,E Orozco Orozco,Ernesto Orozco Orozco,high,18,1,(8F) E Orozco Orozco - Media and the right to information (Regulator perspective),from video title 'E Orozco Orozco' (surname); speaker field is a mis-transcription
+RENAME,Ibrahim Kusju,Ibrahim Kushchu,high,18,1,(9G) I Kushchu - Implications of Brain-Machine Interfaces (BMI) for “our right (not) to kn,from video title 'I Kushchu' (initials); speaker field is a mis-transcription
+RENAME,Kristin Schurnischoff,Kristen Tcherneschoff,high,18,1,(8H) K Tcherneschoff - Digital language activism,from video title 'K Tcherneschoff' (initials); speaker field is a mis-transcription
+RENAME,Hibak,Hibaq Warsame,high,17,1,"H Warsame & M Ekotto - Curated Realities AI, Personalized Narratives & Fragmentation of Sh",title 'H Warsame & M Ekotto'; co-presenter M Ekotto not credited
+RENAME,R Kushwah,Rahul Kushwah,high,17,1,R Kushwah - Geo.AI Platform for Sustainable Development in Education,speaker and title agree (initials)
+RENAME,Cara Brisson-Boyden,Kara Brisson-Boivin,high,17,1,(8C) Dr  K Brisson Boivin - MediaSmarts Algorithmic Awareness Presentation,from video title 'Dr  K Brisson Boivin' (surname); speaker field is a mis-transcription
+RENAME,J Angwin,Julia Angwin,high,16,1,J Angwin - Investigating AI,speaker and title agree (initials)
+RENAME,J Velásquez,Juan Velásquez,high,16,1,J Velásquez - Artificial Intelligence as an Enabling Factor for the Future Medicine,title 'J Velásquez'; register Juan Velasquez (accent stripped)
+RENAME,James Sheer,James Sherer,high,16,1,(5E) J Sherer - Ethics in Artificial Intelligence and a Practical Approach to Presentation,speaker and title agree (initials)
+RENAME,Justice Sikri,A.K. Sikri,high,16,1,(5I) Justice Sikri - AI ： Growing Threat to Privacy.,"register 'AK Sikri', same 2021 topic"
+RENAME,S Verhulst,Stefaan G. Verhulst,high,15,1,S Verhulst - Governing Artificial Intelligence at the City Level： AI Localism,speaker and title agree (initials)
+RENAME,Tori Somaloka,Thoriso Maloka,high,15,1,(8J) T Maloka - Role of the media in creating access to information,speaker and title agree (initials)
+RENAME,Jason Edward Lewis,Jason Lewis,high,15,1,(6G) J Lewis - Future Imaginaries Through Indigenous AI,from video title 'J Lewis' (initials); speaker field is a mis-transcription
+RENAME,Sandhu Namrita,Namrita Sandhu,high,14,1,Sandhu Namrita - Role of Artificial intelligence in health care especially Obstetrics & Gy,first/last name swapped
+RENAME,Émile Torres,Émile P. Torres,high,14,1,Émile Torres - What Is the TESCREAL Bundle？,register strips accent
+RENAME,A Maynard,Andrew Maynard,high,14,1,A Maynard - Do we need to learn to be better parents of artificial intelligence？,speaker and title agree (initials)
+RENAME,A Cooke,Adelina Cooke,high,14,1,A Cooke - AI Principles in Practice,speaker and title agree (initials)
+RENAME,T Philbeck,Thomas Philbeck,high,14,1,T Philbeck - Ethics and AI,register typo corrected; speaker and title agree (initials)
+RENAME,D Paredes,Diana Paredes,high,14,1,(6J) D Paredes - Access to data in finance,speaker and title agree (initials)
+RENAME,Brad Mustard,Brad Mostert,high,14,1,(9D) B Mostert - AI in Small to Medium Business,from video title 'B Mostert' (initials); speaker field is a mis-transcription
+RENAME,Gene Togan,Gene Kogan,high,14,1,(4A) G Kogan - AI Arts and Creative Intelligence,speaker and title agree (initials)
+RENAME,Sizad Pita D'Souza,Siddharth Peter de Souza,high,13,1,Siddharth Peter de Souza  - Data silences： the practice of managing what we measure,from video title 'Siddharth Peter de Souza' (exact); speaker field is a mis-transcription
+RENAME,Alexandre Sayad,Alexandre Le Voci Sayad,high,13,1,Alexandre Sayad  - AI as a Local Technology,from video title 'Alexandre Sayad' (surname); speaker field is a mis-transcription
+RENAME,Md  Sayeed Al Zaman,Sayeed Al-Zaman,high,13,1,Md  Sayeed Al Zaman - Information Poverty in Bangladesh,speaker and title agree (fuzzy 0.91)
+RENAME,Emma Ruttkamp,Emma Ruttkamp-Bloem,high,13,1,Emma Ruttkamp - Building Global AI ethics through cultural collaboration,same person as 'E Ruttkamp-Bloem'
+RENAME,Paul Thompson,Paul G. Thompson,high,13,1,Paul Thompson - How Autonomous Reasoning Agents are Paving the Way for Ethical AI Governan,speaker and title agree (surname)
+RENAME,A Salles,Arleen Salles,high,13,1,A Salles - How Can Neuroethics Contribute to AI Ethics？,speaker and title agree (initials)
+RENAME,B Green,Ben Green,high,13,1,B Green - The Flaws of Policies Requiring Human Oversight of Government Algorithms,speaker and title agree (initials)
+RENAME,A Knight,Andrew Knight,high,13,1,A Knight - AI Across the Built and Natural Environment,speaker and title agree (initials)
+RENAME,R Adams,Rachel Adams,high,13,1,R Adams - Landscape Study of AI Policies and Use in Southern Africa,speaker and title agree (initials)
+RENAME,Mohamed El-Gindi,Mohammed El-Guindy,high,13,1,(7K) M El-Guindy - Malicious Use of AI,speaker and title agree (initials)
+RENAME,J Brusseau,James Brusseau,high,13,1,(7E) J Brusseau - AI Ethics Decentralized and Accelerated,speaker and title agree (initials)
+RENAME,Suzanne Changi,Suzanne Ciani,high,13,1,"(4D) S Ciani - Music, Composition and Artificial Intelligence",speaker and title agree (initials)
+RENAME,Anna Wiengai,Seynabou Ndiaye,high,13,1,"(6E) S Ndiaye - AI, a tool to bridge equality gaps？",from video title 'S Ndiaye' (initials); speaker field is a mis-transcription
+RENAME,Galit Welner,Galit Wellner,high,13,1,(4C) Dr G Wellner - Can AI Algorithms be Creative,speaker and title agree (initials)
+RENAME,Andrew Bruce Smith,Andrew Smith,high,13,1,"(8A) A Smith - The Impact of AI on PR, Communications and Reputation Management",from video title 'A Smith' (initials); speaker field is a mis-transcription
+RENAME,Anne-Sofie Kofoe Rasmussen,Anne-Sophie Kofoed Rasmussen,high,12,1,Anne-Sofie_Kofoe_Rasmussen_-_Tackling_deepfakes_through_copyright_law_ASKR_2025,speaker and title agree (surname)
+RENAME,Shamarla Graham,Shamarla Graham Barnes,high,12,1,Shamarla Graham - AI & Ordinary People,register full name
+RENAME,M Oliver,Marilene Oliver,high,12,1,M Oliver - Holding My Data Body,from video title 'M Oliver' (surname); speaker field is a mis-transcription
+RENAME,S Gupta,Smita Gupta,high,12,1,S Gupta - Open AI for Law and Justice,speaker and title agree (initials)
+RENAME,G Radwan,Golestan Sally Radwan,high,12,1,(7I) G Radwan - Egypt AI Strategy,speaker and title agree (initials)
+RENAME,Chuck Out,Chuck Howell,high,12,1,(6K) C Howell - The need for early STS considerations,from video title 'C Howell' (initials); speaker field is a mis-transcription
+RENAME,Maria Hermosea,Maria Paz Hermosilla,high,12,1,(9E) M Paz Hermosilla - Algorithmic Transparency in the public sector,from video title 'M Paz Hermosilla' (surname); speaker field is a mis-transcription
+RENAME,E Ruttkamp-Bloem,Emma Ruttkamp-Bloem,high,12,1,(7D) E Ruttkamp-Bloem - Actionable Meaningful AI Ethics Policy,speaker and title agree (surname)
+RENAME,Shalab Bhupad,Shalabh Upadhyay,high,12,1,(8B) S Upadhyay - AI's Battle with Fake News,from video title 'S Upadhyay' (initials); speaker field is a mis-transcription
+RENAME,Gissella M. Bejarano Nicho,Gisella Bejarano Nicho,high,11,1,Gissella_M._Bejarano_Nicho_-_Sign_language_processing_for_accessibility,speaker and title agree (surname)
+RENAME,R Anderson,Ricardo Anderson,high,11,1,R Anderson - AI for a Positive Planet： Personalized Learning to Empower Positive Behavior ,speaker and title agree (initials)
+RENAME,A Melguizo,Angel Melguizo,high,11,1,A Melguizo - Ethical AI,speaker and title agree (initials)
+RENAME,I Ferrari,Isabela Ferrari,high,11,1,I Ferrari - Impossible task？ Psyche’s lessons for the regulation of AI,speaker and title agree (initials)
+RENAME,S GK,Sapni G.K.,high,11,1,S GK  - Avoiding the traps of AI Hype,register full name
+RENAME,N Pope,Nikki Pope,high,11,1,N Pope - AI & Law Enforcement,speaker and title agree (initials)
+RENAME,Dariusia Wilkinson,Daricia Wilkinson,high,11,1,(3F) D Wilkinson - Pushing forward,speaker and title agree (initials)
+RENAME,Sheila Belladinoja,Sheila Beladinejad,high,11,1,(6F) S Beladinejad - Women In AI & Robotics,speaker and title agree (initials)
+RENAME,Dr V Chauthaiwale,Vijay Chauthaiwale,high,11,1,(6B) Dr V Chauthaiwale - Can Transparency Restore Accountability？,speaker and title agree (initials)
+RENAME,Gary Marchins,Gary Marchant,high,11,1,(5D) G Marchant - Soft Law Governance of AI and the Right to Know,from video title 'G Marchant' (initials); speaker field is a mis-transcription
+RENAME,Amin Johar,Ameen Jauhar,high,11,1,(5C) A Jauhar - Using AI to enhance legislative administrative efficiency in India,from video title 'A Jauhar' (initials); speaker field is a mis-transcription
+RENAME,M Ngwenya,Marjorie Ngwenya,high,11,1,(7G) M Ngwenya - Ethical AI and Consumer Protection,speaker and title agree (initials)
+RENAME,S ARORA,Samridhi Arora,high,11,1,(5B) S ARORA - AI & Cyber Terrorism,speaker and title agree (initials)
+RENAME,Caleb Levy,Caleb Michael Levy,high,10,1,Caleb_Levy_-_Beyond_the_Buzzword_-_Responsibility_of_Platforms_in_the_Age_of_Artificial_in,from video title 'Caleb Levy' (surname); speaker field is a mis-transcription
+RENAME,Prof. Dr. Svitlana Mazepa,Svitlana Mazepa,high,10,1,Prof._Dr._Svitlana_Mazepa_-_GenAI_Cyberwarfare_and_Participatory_Propaganda,register typo corrected; speaker and title agree (surname)
+RENAME,Thom Vaughn,Thom Vaughan,high,10,1,Thom_Vaughn_-_Open_Data_for_Open_Models_-_Building_AI_on_Language_Community_and_Culture,speaker and title agree (fuzzy 0.96)
+RENAME,Siva Prasad Rambhatla,Siva Rambhatla,high,10,1,Siva Prasad Rambhatla - AI and Accessing Indigenous Knowledge Systems for Sustainable Deve,from video title 'Siva Prasad Rambhatla' (surname); speaker field is a mis-transcription
+RENAME,Ntsibane Nntllapa,Ntsibane Ntlatlapa,high,10,1,Ntsibane Nntllapa -  How can public accounts committees harness digital transformation？,speaker and title agree (fuzzy 0.91)
+RENAME,Ntsibane Ntatlapa,Ntsibane Ntlatlapa,high,10,1,Ntsibane Ntatlapa - How the Public Accounts Committee can harness the Digital Transformati,speaker and title agree (fuzzy 0.97)
+RENAME,S P Rambhatla,Siva Rambhatla,high,10,1,"S P Rambhatla - Information Accessibility, Marginality and Localised AI",from video title 'S P Rambhatla' (surname); speaker field is a mis-transcription
+RENAME,N Bontridder,Noemi Bontridder,high,10,1,N Bontridder - Capitalism Online as a Detriment to Civilisation,speaker and title agree (initials)
+RENAME,Ufulu Chisaleye,Ufulu Martha-Junior Chisale,high,10,1,(3E) U Chisale - AI and ICTs in a developing nation,from video title 'U Chisale' (initials); speaker field is a mis-transcription
+RENAME,Prof  V Shepherd,Verene Shepherd,high,10,1,(6A) Prof  V Shepherd - AI and Racial Profiling,register misspells as 'Sheppard'; title says Shepherd
+RENAME,Melanie Stutz,Melanie Stuetz,high,10,1,(9B) M Stuetz - Democratizing the knowledge of successful venture capitalists,speaker and title agree (initials)
+RENAME,Tyler James,Tyler Jaynes,high,10,1,(3A) T Jaynes - The Question of Algorithmic Personhood and Being,speaker and title agree (initials)
+RENAME,Tyler Janes,Tyler Jaynes,high,9,1,Tyler_Janes_-_AI4IA_2025,speaker and title agree (fuzzy 0.96)
+RENAME,Poonam Verma,Poonam Mehrotra Verma,high,9,1,Poonam Verma - A.I in Health Care,from video title 'Poonam Verma' (surname); speaker field is a mis-transcription
+RENAME,E Langer,Erik Langner,high,9,1,E Langer - Is Universal Information Access Far Closer Than We Think？,speaker and title agree (initials)
+RENAME,C Bonas,Carter Bonas,high,9,1,C Bonas - How has AI affected golf？,speaker and title agree (initials)
+RENAME,A Primeau,Addison Primeau,high,9,1,A Primeau - Vinyl Manor： A StyleGAN Art Project,speaker and title agree (initials)
+RENAME,K Kinyanjui,Kui Kinyanjui,high,9,1,K Kinyanjui - Artificial Intelligence for Information Accessibility,speaker and title agree (initials)
+RENAME,M Oliveira,Marielza Oliveira,high,9,1,"M Oliveira - Artificial Intelligence, e Governance and Access to Information",from video title 'M Oliveira' (surname); speaker field is a mis-transcription
+RENAME,N Gervasius,Nashilongo Gervasius,high,9,1,N Gervasius - AI and The Rights of Unconnected,speaker and title agree (initials)
+RENAME,Zabel Ferrari,Isabela Ferrari,high,9,1,(5F) I Ferrari - The Honorable AI risks & possibilities of algorithmic decision making in ,from video title 'I Ferrari' (initials); speaker field is a mis-transcription
+RENAME,Maxineira,Marco Schneider,high,9,1,(8D) M Schneider - The right to know what？,from video title 'M Schneider' (initials); speaker field is a mis-transcription
+RENAME,W Wallach,Wendell Wallach,high,9,1,"(7A) W Wallach -  Ethics, Engineering and Oversight",speaker and title agree (initials)
+RENAME,Tetyana Olesksiyuk,Tetyana Oleksiyuk,high,8,1,Tetyana_Olesksiyuk_-_Artificial_Intelligence_for_Unlocking_Public_Access_to_Information,speaker and title agree (fuzzy 0.97)
+RENAME,Niza Zulu,Niza Aritha Zulu,high,8,1,Niza Zulu - Harnessing AI for Sustainable Agriculture and Food Security in Zambia,from video title 'Niza Zulu' (surname); speaker field is a mis-transcription
+RENAME,Paul Alain ZIBI,Paul-Alain Zibi Fama,high,8,1,Paul Alain ZIBI - AI as a lever for Access to Legal Information & the Protection of Human ,register full name
+RENAME,P Reyes,Patricia Reyes,high,8,1,"P Reyes - Algorithms, Transparency and ethical standards",speaker and title agree (initials)
+RENAME,L Karvalics,Laszlo Z. Karvalics,high,8,1,L Karvalics - Beyond Personal Digital Assistants： The Vision of Artificial Individual Life,speaker and title agree (initials)
+RENAME,Adriana La Bardini,Adriana Labardini,high,8,1,(6G) A Labardini - Cognitive justice,speaker and title agree (initials)
+RENAME,Arthur Kuhilubizeha,Arthur Coelho Bezerra,high,8,1,"(7B) A Bezerra - Artificial intelligence, class, gender and race",from video title 'A Bezerra' (initials); speaker field is a mis-transcription
+RENAME,Caroline Talk,Caroline Tauk,high,8,1,(5A) C Tauk - Can AI be an inventor,speaker and title agree (initials)
+RENAME,Mukund,Mukund Trivedi,high,8,1,(3D) M Trivedi -  AI & Design,from video title 'M Trivedi' (initials); speaker field is a mis-transcription
+RENAME,D Ramesh,Dilip Ramesh,high,7,1,D Ramesh - Supporting Braille Literacy with the Use of AI,speaker and title agree (initials)
+RENAME,M Frishkopf,Michael Frishkopf,high,7,1,"M Frishkopf - AI-generated soundscapes for creativity, mental health and wellbeing",speaker and title agree (initials)
+RENAME,Susan Julieta Guan,Susan Agwang,high,7,1,(6M) S Agwang - Access to information and Artificial Intelligence,from video title 'S Agwang' (initials); speaker field is a mis-transcription
+RENAME,Felipe Medon,Filipe Medon,high,7,1,(5G) F Medon - Civil Liability and AI,speaker and title agree (initials)
+RENAME,Shanti Williams,Shanti Harjani-Williams,high,6,1,Shanti Williams - When I asked AI to compose a Haiku,from video title 'Shanti Williams' (surname); speaker field is a mis-transcription
+RENAME,J Elwes,Jake Elwes,high,6,1,J Elwes - Making of The Zizi Show,speaker and title agree (initials)
+RENAME,S Chhuneja,Shivranshu Chhuneja,high,6,1,S Chhuneja - How AI is revolutionizing prosthetics,speaker and title agree (initials)
+RENAME,Felipe Chivas Ortiz,Felipe Chibas Ortiz,high,6,1,"(7L) F Chibas Ortiz - AI, Policy and Ethics： Free related issues in post-human society",speaker and title agree (surname)
+RENAME,Al Arik Yusuph,Al Amin Yusuph,high,5,1,Al_Arik_Yusuph_-_AI4IA_2025,from video title 'Al Arik Yusuph' (surname); speaker field is a mis-transcription
+RENAME,F Roumate,Fatima Roumate,high,5,1,F Roumate - Rethinking International Law for the AI Era,speaker and title agree (initials)
+FILL_MISSING,(none),Jorge Alberto Hidalgo,high,9,1,Jorge_Alberto_Hidalgo,register; title is the name
+FILL_MISSING,(none),Adv Tlakula,medium,9,1,Keynote： Adv Tlakula,from title; not in register
+FILL_MISSING,(none),Marco Schneider,high,8,1,M Schneider   Information Ethics and Critique of the Political Economy of Algorithms,register Marco Schneider 2021/2022
+FILL_MISSING,(none),N Rahubir,medium,5,1,(8E) N Rahubir   What AI means for media in the region in the midst of challenging times,from title; not in register
+ADD_CO_PRESENTER,,Erica Simmons,high,,1,Paul Hector and Erica Simmons,co-presented talk credited to one speaker only
+ADD_CO_PRESENTER,,Kobi Leins,high,,1,K  Leins and A Cameron,co-presented talk credited to one speaker only
+ADD_CO_PRESENTER,,M Ekotto,medium,,1,H Warsame & M Ekotto,co-presented talk credited to one speaker only
+REVIEW,(none),,low,164,1,Zimbabwe_-_AI4IA_2025_1,multi-speaker event video; speaker must be set per fragment
+REVIEW,Dario Prishko,,low,149,1,Europe Satellite Event Panel 1,Europe Satellite Panel 1 (149 frags); probably same person as Dario Pryshko; not in register
+REVIEW,Kelly,,low,145,1,Botswana Satellite event,first name only; Botswana satellite event (145 frags); not in register
+REVIEW,Daria Pryshko,,low,125,1,Europe Satellite Event  Panel 2,register Dariia Opryshko is on a 2024 New York panel; this is a Europe panel
+REVIEW,Dario Pryshko,,low,96,1,Europe Satellite Event - Panel 1 ＂Challenges to Information Integrity＂,Europe Satellite Panel 1 (96 frags); see Dario Prishko
+REVIEW,(none),,low,89,1,Europe Satellite Event - Panel 2 ＂Driving European AI＂,multi-speaker event video; speaker must be set per fragment
+REVIEW,Mr A Singh,,low,13,1,Keynote 2： Mr A Singh,only register match is Ashita Singh 'India satellite: welcome'; 'Mr' makes it doubtful
+REVIEW,Dr. Zhu Zhai Zhang,,low,12,1,China Satellite Event,"China satellite event, not in register — likely mis-transcribed"
+REVIEW,(none),,low,12,1,Zimbabwe_-_AI4IA_2025_2,multi-speaker event video; speaker must be set per fragment
+REVIEW,Nancy Nkwanga,,low,11,1,Nancy_Nkwanga_-_AI4IA_2025,"title says Nkwanga, register says Kwangwa, same 2025 topic — which spelling is right?"
+REVIEW,David Daou,,low,9,1,"David Daou - AI： Environment & Climate Change - Costs, regulations, applications and benef","single-speaker talk, not in register"
+REVIEW,(none),,low,1,1,Cordel Green AI4IA 2025 Satellite Events,multi-speaker event video; speaker must be set per fragment
+NORMALIZE,Prof. Denise Eldemire-Shearer,Denise Eldemire-Shearer,high,140,1,Jamaica_Event_-_From_Airwaves_to_Algorithms_-_Empowering_senior_citizens_in_a_digital_age,exact match (honorific/case/punctuation)
+NORMALIZE,Stefaan G Verhulst,Stefaan G. Verhulst,high,23,1,Stefaan_G_Verhulst_-_A_Fourth_Wave_of_Open_Data_-_Harnessing_AI_for_Information_Accessibil,exact match (honorific/case/punctuation)
+NORMALIZE,Mary Ruth Mendel,Mary-Ruth Mendel,high,20,2,Mary_Ruth_Mendel_-_AI4IA_2025_Presentation_2,exact match (honorific/case/punctuation)
+NORMALIZE,Professor Daniel Coore,Daniel Coore,high,18,1,Professor_Daniel_Coore_-_The_Unseen_Threat_of_Generative_AI_to_Human_Capital,exact match (honorific/case/punctuation)
+NORMALIZE,Prof. Dr. Jan Oster,Jan Oster,high,17,1,Prof. Dr. Jan Oster - AI and competition,exact match (honorific/case/punctuation)
+NORMALIZE,Lovely Tembani Fundisi,Lovely Tembani-Fundisi,high,12,1,Lovely Tembani Fundisi - AI4IA 2025,exact match (honorific/case/punctuation)
+NORMALIZE,Dr. Giulia Ajmone Marsan,Giulia Ajmone Marsan,high,12,1,Dr._Giulia_Ajmone_Marsan_-_The_importance_of_inclusivity_economic_benefits,exact match (honorific/case/punctuation)
+NORMALIZE,Eleonore Fournier Tombs,Eleonore Fournier-Tombs,high,11,1,Eleonore Fournier Tombs - Dimensions of Gender Inclusion in the AI Economy,exact match (honorific/case/punctuation)
+NORMALIZE,Dr Meena D. Lysko,Meena D. Lysko,high,10,1,Dr_Meena_D._Lysko_-_Justice_and_inclusivity_as_crucial_enablers,exact match (honorific/case/punctuation)
+NORMALIZE,Pia Milan Green,Pia-Milan Green,high,10,1,"(3C) P Green - Artificial Intelligence, Health and Law A Snapshot of Emerging Legal Issues",exact match (honorific/case/punctuation)
+NORMALIZE,Dr Tabani Moyo,Tabani Moyo,high,8,1,Dr_Tabani_Moyo_-_AI4AI_Conference,exact match (honorific/case/punctuation)
+NORMALIZE,Eduardo Villanueva Mansilla,Eduardo Villanueva-Mansilla,high,7,1,Eduardo Villanueva Mansilla - AI and Globalization,exact match (honorific/case/punctuation)
+NORMALIZE,Dr. Jonathan Gandari,Jonathan Gandari,high,5,1,Dr._Jonathan_Gandari_-_AI4IA_2025,exact match (honorific/case/punctuation)
+NORMALIZE,J Prabhakar Rao,J. Prabhakar Rao,high,5,1,J Prabhakar Rao - Information Accessibility and Indigenous Languages,exact match (honorific/case/punctuation)
+OK,Sebastian Waisbrot,Sebastian Waisbrot,high,84,1,Latin_America_Event_-_Between_Algorithms_and_Citizenship_-_Youth_Facing_AI,exact match
+OK,Maria Dolores Souza,Maria Dolores Souza,high,83,3,Chile Event - “Discussion on the International Day for Universal Access to Information wit,exact match
+OK,Ashita Singh,Ashita Singh,high,61,1,India Satellite Event,exact match
+OK,James Sherer,James Sherer,high,42,3,James_Sherer_-_AI4IA_2025,exact match
+OK,Caleb Gichuhi,Caleb Gichuhi,high,39,2,Caleb Gichuhi - Deliberative technologies for Democratic processes,exact match
+OK,Tshiamo Motshegwa,Tshiamo Motshegwa,high,39,2,Tshiamo Motshegwa - African Open Science Platform： Implementing the African Open Science &,exact match
+OK,Samantha-Kaye Johnston,Samantha-Kaye Johnston,high,38,1,Samantha-Kaye Johnston - Project Amplify： Metaverse Ethics Through the Eyes of Jamaican Yo,exact match
+OK,Aaron Cameron,Aaron Cameron,high,27,1,K  Leins and A Cameron - A Conversation with Kobi Leins and Aaron Cameron,exact match
+OK,Jeff Greenberg,Jeff Greenberg,high,25,2,Jeff Greenberg - Democratizing Creativity： AI's Role in Inclusive and Ethical Content Crea,exact match
+OK,Katrina Ingram,Katrina Ingram,high,24,2,Katrina Ingram - AI Affective Labour,exact match
+OK,Mike Johns,Mike Johns,high,24,1,Mike Johns - AI what's all the hype really about,exact match
+OK,Colton Bishop,Colton Bishop,high,22,2,(2A) C Bishop - Google Accessibility Demonstration - Cam Switches,exact match
+OK,Winston Ng,Winston Ng,high,21,2,Winston Ng -  AI Deepfake,exact match
+OK,Mark Higgins,Mark Higgins,high,21,1,Mark Higgins - The Many Faces Of Equality,exact match
+OK,Alyssa Lefaivre Škopac,Alyssa Lefaivre Škopac,high,20,1,Alyssa_Lefaivre_kopac_-_AI4IA_2025,correct accented form; register strips accents
+OK,Elliot Arledge,Elliot Arledge,high,20,1,Elliot Arledge - Transformer Architecture High Level,exact match
+OK,David Leslie,David Leslie,high,20,1,David Leslie - Advancing Data Justice Research and Practice,exact match
+OK,May Ann Lim,May Ann Lim,high,19,1,May Ann Lim - Implications of AI： risks and opportunities for information accessibility,exact match
+OK,Tugba Yoldas,Tugba Yoldas,high,19,1,Tugba Yoldas - Thinking About Future Artificial Moral Patients,exact match
+OK,Andres Burbano,Andres Burbano,high,18,2,Andres_Burbano_-_AI4IA_2025,exact match
+OK,Stella Njogo,Stella Njogo,high,18,1,Stella_Njogo_-_Building_Inclusive_AI_Systems_Through_Cultural_Awareness_1,exact match
+OK,Webster Gumindoga,Webster Gumindoga,high,18,2,Webster_Gumindoga_-_AI-Driven_Satellite_Hydrology_for_Sustainable_Futures_Environmental_Im,exact match
+OK,Fatima Roumate,Fatima Roumate,high,18,2,Fatima Roumate - How is the weaponization of AGI and information is reshaping the Global D,exact match
+OK,Chris Taylor,Chris Taylor,high,17,1,"Chris Taylor - Bridging environmental concerns, digital rights, and digital inclusion",exact match
+OK,Jason Mars,Jason Mars,high,17,1,(9A) J Mars - Transformative and disruptive implications of AI,exact match
+OK,Adam White,Adam White,high,16,1,Adam_White_-_AI4IA_2025,exact match
+OK,Cordel Green,Cordel Green,high,16,3,Cordel_Green-_Trouble_in_the_Code_1,exact match
+OK,Ropafadzo Makaza,Ropafadzo Makaza,high,16,2,Ropafadzo_Makaza_-_Emerging_risks_to_the_quality_and_dependability_of_AI_generated_informa,exact match
+OK,Felipe Tobar,Felipe Tobar,high,16,1,Felipe Tobar - Aligned algorithms： Understanding and addressing the challenge,exact match
+OK,Monica Desai,Monica Desai,high,16,1,(2B) M Desai - Facebook Demonstration,exact match
+OK,Sandrea Maynard,Sandrea Maynard,high,15,1,Sandrea_Maynard_-_AI4IA_2025,exact match
+OK,Matias Karlsson,Matias Karlsson,high,15,2,Matias_Karlsson_-_Representation_Is_a_Right_-_Equitable_AI_in_Health.,exact match
+OK,Ihor Samokhodskyi,Ihor Samokhodskyi,high,15,1,Ihor Samokhodskyi - AI & Open Data for Public Policy： Turning Access into Use,exact match
+OK,Aradhana Khowala,Aradhana Khowala,high,15,1,Aradhana Khowala - Empowering the Many： AI's Role in Transforming Industries for Collectiv,exact match
+OK,Krishna Sunkara,Krishna Sunkara,high,14,1,Krishna_Sunkara_-_THE_MIRROR_THAT_THINKS,exact match
+OK,Matthew Stone,Matthew Stone,high,14,1,Matthew_Stone_-_Sovereign_AI_Jamaica_s_Path_Forward,exact match
+OK,Pierrette Renée Dagg,Pierrette Renée Dagg,high,14,1,Pierrette_Renee_Dagg_-_Ethical_AI_in_Education_-_Building_Transparent_Frameworks_for_the_F,correct accented form; register strips accents
+OK,Mohamed Abdalla,Mohamed Abdalla,high,14,1,Mohamed_Abdalla_-_AI4IA_2025,exact match
+OK,Virginia Pardo,Virginia Pardo,high,14,1,Virginia_Pardo_-_Artificial_Intelligence_and_Accessibility,exact match
+OK,Celine Caruso Dixon,Celine Caruso Dixon,high,14,1,Celine Caruso Dixon - Can We Use AI for Inclusion Work？,exact match
+OK,Jaimee Stuart,Jaimee Stuart,high,14,1,"Jaimee Stuart  - Women, Peace, Cybersecurity, and AI： The rise of deepfakes",exact match
+OK,Karsten Mundel,Karsten Mundel,high,14,1,Karsten Mundel - Generative AI and Academic Citizenship： A Call to Action,exact match
+OK,Kilian Gross,Kilian Gross,high,14,1,Kilian Gross - The AI act,exact match
+OK,Geoff Mulgan,Geoff Mulgan,high,14,1,"Geoff Mulgan - AI, governance and innovation for the public good",exact match
+OK,Christena Williams,Christena Williams,high,14,1,Christena Williams - Intersection of AI on Art and Human Creativity： Can AI Imitate me？,exact match
+OK,Dionne Jackson Miller,Dionne Jackson Miller,high,14,1,"Dionne Jackson Miller - Journalism, AI and ATI",exact match
+OK,Hero Laird,Hero Laird,high,14,1,"(6L) H Laird - Ethics, AI & the Law： A truth about stories",exact match
+OK,Denise Eldemire-Shearer,Denise Eldemire-Shearer,high,13,1,Denise_Eldemire-Shearer_-_Artificial_Intelligence,exact match
+OK,Barbara Glover,Barbara Glover,high,13,1,Barbara_Glover_-_AI4IA_Presentation,exact match
+OK,Laura Kupe,Laura Kupe,high,13,1,Laura_Kupe_-_Unleashing_Africa_s_AI_Potential_-_From_Minerals_to_Innovation,exact match
+OK,Alvaro Soto,Alvaro Soto,high,13,1,Alvaro Soto - Chilean National Center for AI,exact match
+OK,Jessica Rose Smith,Jessica Rose Smith,high,13,1,Jessica Rose Smith - Harmful deepfakes,exact match
+OK,Bettina Berendt,Bettina Berendt,high,13,1,Bettina Berendt - Consensual counterfeit people,exact match
+OK,Abhishek Gupta,Abhishek Gupta,high,13,1,(9C) A Gupta - A roadmap to more sustainable AI systems,exact match
+OK,Dominique Varela,Dominique Varela,high,12,1,Dominique_Varela_-_How_AI_Promotes_Public_Access_to_Government_Information,exact match
+OK,Faith Majekolagbe,Faith Majekolagbe,high,12,1,Faith_Majekolagbe_-_Generative_AI_Intellectual_Property_Public_Trust,exact match
+OK,Michael Markovitz,Michael Markovitz,high,12,1,Michael Markovitz - AI4IA 2025,exact match
+OK,Jan Oster,Jan Oster,high,12,1,Jan Oster - AI and Diversity of Opinion,exact match
+OK,Suvarna Mandal,Suvarna Mandal,high,12,1,Suvarna Mandal - Regulatory Trends relating to AI and Information Access in India,exact match
+OK,Yasmeen Abu-Laban,Yasmeen Abu-Laban,high,12,1,Yasmeen Abu-Laban - Human Rights Centered Migration and the Question of AI,exact match
+OK,Emad Mousavi,Emad Mousavi,high,12,1,Emad Mousavi - A Look at the State of AI Through the Lens of Conversational AIs,exact match
+OK,Sacha-Renée Todd,Sacha-Renée Todd,high,12,1,Sacha-Renée Todd - The AI Oasis： A Technological Blueprint  to Combat Water Scarcity and S,correct accented form; register strips accents
+OK,David Harel,David Harel,high,12,1,David Harel - The Human or Machine Issue,exact match
+OK,Doaa Abu Elyounes,Doaa Abu Elyounes,high,12,1,Doaa Abu Elyounes - Information Accessibility through the UNESCO recommendation on the eth,exact match
+OK,Natalie Pang,Natalie Pang,high,12,1,Natalie Pang - Pivoting AI for Digital Inclusion,exact match
+OK,Vincent Obia,Vincent Obia,high,12,1,Vincent Obia - Who Makes AI Decisions,exact match
+OK,Colin Clark,Colin Clark,high,12,1,(4B) C Clark - Decisions of Our Own,exact match
+OK,Lloyd Laing,Lloyd Laing,high,11,1,Lloyd_Laing_-_UNESCO_AI4IA_2025,exact match
+OK,Azizi Seixas,Azizi Seixas,high,11,1,Azizi_Seixas_-_AI_the_Great_Equalizer_for_the_Global_South,exact match
+OK,Megan Roberts,Megan Roberts,high,11,1,Megan_Roberts_-_Bending_the_Arc_of_AI_Equity,exact match
+OK,Pramit Bhargava,Pramit Bhargava,high,11,1,Pramit_Bhargava_-_LOUIE_VOICE_SDK_-_AN_AI-DRIVEN_VOICE_INTERFACE_FOR_APPS_WEBSITES,exact match
+OK,Utsav Patel,Utsav Patel,high,11,1,Utsav_Patel_-_AI_to_Reduce_Medicine_Waste,exact match
+OK,Byeongjo Kong,Byeongjo Kong,high,11,1,Byeongjo_Kong_-_AI4IA_2025,exact match
+OK,Stuart Hylton,Stuart Hylton,high,11,1,Stuart Hylton - Generative AI： Reshaping the Landscape of Information,exact match
+OK,Judit Bayer,Judit Bayer,high,11,1,Judit Bayer - Legal Implications of using Generative AI in the media,exact match
+OK,Marco Ricceri,Marco Ricceri,high,11,1,Marco Ricceri - Open the doors to a shared digital progress,exact match
+OK,Afari Darfoor,Afari Darfoor,high,11,1,Afari Darfoor - Privacy and AI driven Bionic Limbs,exact match
+OK,Camille Stewart Gloster,Camille Stewart Gloster,high,11,1,Camille Stewart Gloster  -  Values Align Innovation Requires Long Term Investment,exact match
+OK,Dushyant Savadia,Dushyant Savadia,high,11,1,Dushyant Savadia - Bridging the Gap： How Generative AI is Transforming Information,exact match
+OK,Angelo Ferraro,Angelo Ferraro,high,11,1,"Angelo Ferraro - AI New Worlds, Great Explorations, Great Treasures of Our Times",exact match
+OK,Martha White,Martha White,high,11,1,Martha White - Continually Learning Agents for Smarter Systems,exact match
+OK,Okan Bulut,Okan Bulut,high,10,1,Okan_Bulut-_AI_Literacy_as_the_New_Assessment_Literacy_-_Bridging_Gaps_in_Education,exact match
+OK,Ana Bárbara Gomes Pereira,Ana Bárbara Gomes Pereira,high,10,1,Ana_Barbara_Gomes_Pereira_-_Brazil_and_governance,correct accented form; register strips accents
+OK,Ivan Kotuliak,Ivan Kotuliak,high,10,1,Ivan_Kotuliak_-_Coexistence_of_AI_and_Humanity,exact match
+OK,Ripple Nagpal,Ripple Nagpal,high,10,1,Ripple_Nagpal_-_Bridging_the_Gap_-_How_Artificial_Intelligence_Makes_Law_and_Compliance_Ac,exact match
+OK,Deepak Maheshwari,Deepak Maheshwari,high,10,1,Deepak_Maheshwari_-_Grassroots_Innovation_for_Universal_Access_to_Information,exact match
+OK,Tabani Moyo,Tabani Moyo,high,10,1,"Tabani Moyo - Affordances of Generative AI, Devaluation of Truth and Vulnerability",exact match
+OK,Theo Chambers,Theo Chambers,high,10,1,Theo Chambers - AI Presentation,exact match
+OK,Paulina Assmann,Paulina Assmann,high,10,1,Paulina Assmann - Protecting Digital Freedom： Quantum Innovation in the Age of AI,exact match
+OK,Xianhong Hu,Xianhong Hu,high,10,1,Xianhong Hu - Steering AI for Knowledge Societies,exact match
+OK,Nadeen Matthews Blair,Nadeen Matthews Blair,high,10,1,Nadeen Matthews Blair - The importance of the Caribbean topping the AI medal table. Why an,exact match
+OK,Ivana Stepanovic,Ivana Stepanovic,high,10,1,Ivana Stepanovic - What is the role of education for human in machine learning era？,exact match
+OK,Kate Sonka,Kate Sonka,high,10,1,Kate Sonka - Can Artificial Become Assistive？ navigating AI in Accessibility and Education,exact match
+OK,Louise Pryor,Louise Pryor,high,10,1,(7F) L Pryor - Ethical Data Science,exact match
+OK,Chayan Kanti Ray,Chayan Kanti Ray,high,9,1,Chayan_Kanti_Ray_-_AI4IA_2025,exact match
+OK,Debra Berlyn,Debra Berlyn,high,9,1,Debra_Berlyn_-_Technology_Innovations_-_AI_and_Aging,exact match
+OK,Gabriel Okafor,Gabriel Okafor,high,9,1,Gabriel Okafor  - AI to the Rescue： Uprooting Challenges in Traditional Lecture Delivery,exact match
+OK,Tanja Kerševan,Tanja Kerševan,high,9,1,Tanja Kerševan - Epistemic authority of journalism in the era of Al-powered newsrooms,correct accented form; register strips accents
+OK,Ashwini Kotaru,Ashwini Kotaru,high,9,1,Ashwini Kotaru - Implications of Large Language Models,exact match
+OK,Jose Hernandez-Orallo,Jose Hernandez-Orallo,high,9,1,"Jose Hernandez-Orallo - AI, Education and Work： Remarks from an augmentation perspective",exact match
+OK,Kevin Lee,Kevin Lee,high,9,1,Kevin Lee - Sign Language Translation Tech  and Information Accessibility,exact match
+OK,Lynn Rowe,Lynn Rowe,high,9,1,"Lynn Rowe - The Internet, AI and Accessibility",exact match
+OK,Pavel Vega,Pavel Vega,high,8,1,Pavel_Vega_-_AI4IA_2025,exact match
+OK,Tendai Zengeni,Tendai Zengeni,high,8,1,Tendai_Zengeni_-_AI_and_the_Youth,exact match
+OK,Lwandle Simelane,Lwandle Simelane,high,8,1,Lwandle_Simelane_-_AI4IA_2025,exact match
+OK,Anamaria Corca,Anamaria Corca,high,8,1,Anamaria_Corca_-_Artificial_Intelligence_for_Information_Accessibility,exact match
+OK,Karam Saify,Karam Saify,high,8,1,"Karam Saify - Accessible, explainable forecasting for smallholders using minimal local dat",exact match
+OK,Mukesh Mehra,Mukesh Mehra,high,8,1,Mukesh Mehra - The role of AI in Medicine,exact match
+OK,Esther Ngamba,Esther Ngamba,high,8,1,Esther Ngamba - The impact of AI usage base on the digital rights of children between 6-12,exact match
+OK,María José Labrador Blanes,María José Labrador Blanes,high,8,1,María José Labrador Blanes - Ethical challenges and vulnerabilities of women in relation A,correct accented form; register strips accents
+OK,Sri Kumar,Sri Kumar,high,8,1,Sri Kumar - AI in war,exact match
+OK,David Aguacheiro,David Aguacheiro,high,8,1,David Aguacheiro - Curated information,exact match
+OK,Isabela Ferrari,Isabela Ferrari,high,8,1,"Isabela Ferrari - The Machine of Chaos： Data analysis, cheap dopamine and our daily lives",exact match
+OK,So Young Kim,So Young Kim,high,8,1,So Young Kim - AI for Healthcare： Creating a Guide for All to Use in Healthcare Decisions,exact match
+OK,Danielle Davis,Danielle Davis,high,8,1,"7(H) D Davis -  AI, decision-making and the role of human judgment",exact match
+OK,Trudy Bell,Trudy Bell,high,8,1,(C2) T Bell - Comedy,exact match
+OK,Joshua Burgess,Joshua Burgess,high,8,1,(3B) J Burgess - Openness and Inclusivity for Disabled Communities in A New Era,exact match
+OK,Augustine Farinola,Augustine Farinola,high,7,1,Augustine_Farinola_-_AI_as_Mediator_Not_Source,exact match
+OK,Felipe Chibas Ortiz,Felipe Chibas Ortiz,high,7,1,Felipe_Chibas_Ortiz_-_2025,exact match
+OK,Claudio Pinhanez,Claudio Pinhanez,high,7,1,Claudio_Pinhanez_-_The_Yegatu_Digital_Project,exact match
+OK,Haizheng Fu,Haizheng Fu,high,7,1,Haizheng_Fu_-_Artificial_Intelligence_for_Inclusive_Information_Accessibility,exact match
+OK,Jan Christopher Kalbhenn,Jan Christopher Kalbhenn,high,7,1,Jan Christopher Kalbhenn - AI ⧸ Information Access： Importance of media law,exact match
+OK,Rodrigo Balbontin,Rodrigo Balbontin,high,7,1,Rodrigo Balbontin - Challenges for AI Adoption in Emerging Asia,exact match
+OK,Shamira Ahmed,Shamira Ahmed,high,7,1,"Shamira Ahmed - Responsible AI Governance, Structural Ineq. & Sustainability in the Global",exact match
+OK,Illes Katona,Illes Katona,high,7,1,Illes Katona - Furthest end of Automation and how to prevent it from devastating the world,exact match
+OK,Changfeng Chen,Changfeng Chen,high,7,1,Changfeng Chen - The challenges of Information Accessibility： regionalisation of AI values,exact match
+OK,Paul Ash,Paul Ash,high,6,1,Paul_Ash_-_AI4IA_2025,exact match
+OK,Guilherme Canela,Guilherme Canela,high,6,1,Guilherme Canela -IFAP Secretary Mr. Guilherme Canela’s address to the 6th AI4IA Conferenc,exact match
+OK,Patrick Lafayette,Patrick Lafayette,high,6,1,Patrick Lafayette - The Pros and Cons of AI disabling disabilities,exact match
+OK,Viktoriia Romaniuk,Viktoriia Romaniuk,high,6,1,Viktoriia Romaniuk - The Application of AI in Manufacturing and Disseminating Disinformati,exact match
+OK,Shafika Isaacs,Shafika Isaacs,high,4,1,Shafika Isaacs - Towards Critical Human Agency in relation to Generative AI,exact match
+OK,Ricardo Neil,Ricardo Neil,high,3,1,Ricardo Neil - Governing AI,exact match
+OK,Nisha,Nisha,high,2,1,Ms_Nisha_AI4IA_2025,exact match

@@ -234,72 +234,24 @@ def normalize_canonical_timeline_item(
 
 
 def ensure_requested_speaker(manifest: dict[str, Any], timeline: list[dict[str, Any]]) -> list[str]:
-    """If the prompt requested a specific speaker, ensure the timeline shows them.
+    """Report when a speaker was requested but the timeline has no clip of them.
 
-    When the timeline has no speaker_clip/speaker_visual segment and a
-    speaker_visual_allowed candidate exists, the best candidate is inserted
-    after the title card. Runs on both the canonical and legacy timeline paths.
-    Returns validation messages for quality_checks.
+    Only reports: footage is never inserted here, since archive footage appears
+    only in speaker clips that 07b has vetted. Returns messages for quality_checks.
     """
     story = manifest.get("storyline") or {}
     prompt_intent = manifest.get("prompt_intent") or story.get("prompt_intent") or story.get("prompt_profile") or {}
     requested_speaker = prompt_intent.get("requested_speaker")
-    issues: list[str] = []
     if not requested_speaker:
-        return issues
-
-    selected_candidates = manifest.get("selected_candidates") or story.get("selected_candidates") or []
-    speaker_visual_candidates = [
-        c for c in selected_candidates
-        if c.get("speaker_visual_allowed") is True and c.get("final_video_allowed") is True
-    ]
+        return []
     timeline_has_speaker = any(
-        item.get("segment_type") in ("speaker_clip", "speaker_visual")
-        for item in timeline
-        if item.get("type") == "archive_clip"
+        item.get("segment_type") == "speaker_clip" for item in timeline if item.get("type") == "archive_clip"
     )
-    if not timeline_has_speaker and speaker_visual_candidates:
-        # Repair: insert best speaker_visual candidate after title card
-        best = speaker_visual_candidates[0]
-        fragment_id = best.get("fragment_id")
-        source_video = best.get("source_video") or best.get("video_id")
-        repair_item = {
-            "type": "archive_clip",
-            "segment_type": "speaker_visual",
-            "label": f"repaired_speaker_visual_{fragment_id}",
-            "fragment_id": fragment_id,
-            "source_video": source_video,
-            "start": best.get("start", 0),
-            "end": best.get("end", 0),
-            "duration": best.get("duration"),
-            "role": best.get("relevance_role", "exact"),
-            "speaker": best.get("speaker") or best.get("speaker_name"),
-            "subtitle_text": best.get("summary", ""),
-            "selection_reason": "repair_speaker_visual_missing",
-            "fallback_reason": None,
-            "muted": False,
-            "lower_third": None,
-            "section_id": "REPAIR",
-        }
-        # Insert after title card (index 1)
-        insert_pos = 1 if len(timeline) > 1 else len(timeline)
-        timeline.insert(insert_pos, repair_item)
-        msg = (
-            f"[speaker-visual-repair] Timeline had no speaker segments for requested speaker "
-            f"'{requested_speaker}'. Inserted speaker_visual fragment {fragment_id}."
-        )
-        log(msg)
-        issues.append(msg)
-    elif not timeline_has_speaker and not speaker_visual_candidates:
-        msg = (
-            f"[speaker-visual-validation] No speaker segments in timeline and no "
-            f"speaker_visual_allowed candidates available for '{requested_speaker}'. "
-            f"Narration-only output is expected."
-        )
-        log(msg)
-        issues.append(msg)
-
-    return issues
+    if timeline_has_speaker:
+        return []
+    msg = f"[speaker-validation] No speaker clip for requested speaker '{requested_speaker}'; narration-only output."
+    log(msg)
+    return [msg]
 
 
 def build_refined_timeline(manifest: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any]]:

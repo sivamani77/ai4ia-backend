@@ -1,0 +1,157 @@
+{
+  "database": "postgres_pipeline",
+  "table": "agent_decision_records",
+  "source": "db/init/001_schema.sql",
+  "description": "OSI-style provenance record: what agents ran for a job/insight and what they decided.",
+  "primary_key": [
+    "id"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "job_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "insight_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "user_id",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "app_users.id (cross-database)."
+    },
+    {
+      "name": "schema_version",
+      "type": "text",
+      "nullable": false,
+      "default": "'osi-1.0'",
+      "description": ""
+    },
+    {
+      "name": "subject",
+      "type": "text",
+      "nullable": false,
+      "default": "''",
+      "description": ""
+    },
+    {
+      "name": "user_prompt",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "accountability",
+      "type": "text",
+      "nullable": false,
+      "default": "'ai4ia-pipeline-v2'",
+      "description": ""
+    },
+    {
+      "name": "pipeline_version",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "agents_executed",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'[]'::jsonb",
+      "description": "Array of agent names in execution order."
+    },
+    {
+      "name": "decisions",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "models_used",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb",
+      "description": ""
+    },
+    {
+      "name": "outcome",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "total_duration_ms",
+      "type": "integer",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "expires_at",
+      "type": "timestamptz",
+      "nullable": true,
+      "default": null,
+      "description": "Retention horizon."
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_decision_records_job_id",
+      "columns": [
+        "job_id"
+      ]
+    },
+    {
+      "name": "idx_decision_records_insight_id",
+      "columns": [
+        "insight_id"
+      ]
+    },
+    {
+      "name": "idx_decision_records_user_id",
+      "columns": [
+        "user_id"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "references",
+      "table": "jobs",
+      "column": "job_id",
+      "enforced": false
+    },
+    {
+      "type": "references",
+      "table": "insights",
+      "column": "insight_id",
+      "enforced": false
+    }
+  ]
+}

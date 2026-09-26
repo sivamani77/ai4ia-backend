@@ -1,27 +1,45 @@
+"""app_users — lives in the pipeline Postgres database (DATABASE_URL).
+
+Migrated off the separate auth Supabase project; see
+db/migrations/0006_auth_tables_to_postgres.sql for the schema and
+scripts/migrate_auth_data_from_supabase.py for the one-time data copy.
+"""
 from __future__ import annotations
 
 import logging
 from datetime import datetime, timezone
 from typing import Any, Mapping, TypedDict
 
-from postgrest.exceptions import APIError
+import psycopg2
+from psycopg2 import errorcodes
 
-from app.db.supabase import get_auth_supabase_client
+from app.db.postgres import pg_execute, pg_fetch_all, pg_fetch_one
+from app.db.utils import normalize_value
 
 # Postgres error code for a value that doesn't parse as the column's type
 # (app_users.id is uuid) — raised before the query even runs, so an
 # arbitrary caller-supplied id string (e.g. a path param that isn't a UUID)
 # must be treated as "not found", not surfaced as a 500.
-_INVALID_TEXT_REPRESENTATION = "22P02"
+_INVALID_TEXT_REPRESENTATION = errorcodes.INVALID_TEXT_REPRESENTATION  # 22P02
 
 # Postgres error code for a unique-index violation — raised by the
 # case-insensitive unique indexes on lower(username)/lower(email_id). The
 # username_exists()/email_exists() pre-checks are a TOCTOU race (two signups
 # for "Cordel"/"cordel" within milliseconds could both pass), so this is the
 # actual backstop: the DB serializes the insert, one of the two hits this.
-_UNIQUE_VIOLATION = "23505"
+_UNIQUE_VIOLATION = errorcodes.UNIQUE_VIOLATION  # 23505
 
 logger = logging.getLogger("ai4ia.db.repositories.users")
+
+# Columns a caller is allowed to write. Anything else in an incoming mapping
+# is ignored rather than interpolated — the previous PostgREST client would
+# have rejected an unknown column server-side, and building SQL from unchecked
+# dict keys is exactly the kind of thing that must not become possible here.
+_WRITABLE_COLUMNS = frozenset({
+    "id", "username", "password_hash", "password", "first_name", "last_name",
+    "email_id", "persona", "status", "email_verified", "failed_login_count",
+    "locked_until", "created_at", "updated_at",
+})
 
 
 class DuplicateUserError(Exception):
@@ -31,6 +49,16 @@ class DuplicateUserError(Exception):
     def __init__(self, field: str) -> None:
         self.field = field
         super().__init__(f"Duplicate {field}")
+
+
+def _duplicate_field(exc: psycopg2.Error) -> str:
+    """Infer which unique index was violated. psycopg2 exposes the constraint
+    name directly on diag, which is more reliable than the old string-matching
+    on the PostgREST error message."""
+    name = (getattr(exc.diag, "constraint_name", None) or "").lower()
+    detail = (getattr(exc.diag, "message_detail", None) or "").lower()
+    haystack = f"{name} {detail}"
+    return "username" if "username" in haystack else "email"
 
 
 def _escape_for_ilike(value: str) -> str:
@@ -58,91 +86,112 @@ class UserRecord(TypedDict, total=False):
 
 
 class UserRepository:
-    """Reads/writes app_users in the SEPARATE auth Supabase project. Never use
-    get_supabase_client() (pipeline project) here — always get_auth_supabase_client()."""
+    """Reads/writes app_users in the pipeline Postgres database."""
 
     table_name = "app_users"
 
-    def __init__(self) -> None:
-        self._client = get_auth_supabase_client()
-        self._table = self._client.table(self.table_name)
+    # -- lookups ------------------------------------------------------------
 
     def get_by_username(self, username: str) -> UserRecord | None:
         """Case-insensitive: matches regardless of how the account's
         username was originally cased, without requiring stored data to be
-        rewritten to a canonical case."""
-        response = (
-            self._table.select("*").ilike("username", _escape_for_ilike(username)).limit(1).execute()
+        rewritten to a canonical case. Uses lower(username) so the
+        case-insensitive unique index is what answers the query."""
+        row = pg_fetch_one(
+            "select * from app_users where lower(username) = lower(%s) limit 1",
+            (username,),
         )
-        return self._first(response.data)
+        return self._record(row)
 
     def get_by_email(self, email: str) -> UserRecord | None:
-        response = (
-            self._table.select("*").ilike("email_id", _escape_for_ilike(email)).limit(1).execute()
+        row = pg_fetch_one(
+            "select * from app_users where lower(email_id) = lower(%s) limit 1",
+            (email,),
         )
-        return self._first(response.data)
+        return self._record(row)
 
     def get_by_id(self, user_id: str) -> UserRecord | None:
         try:
-            response = self._table.select("*").eq("id", user_id).limit(1).execute()
-        except APIError as exc:
-            if exc.code == _INVALID_TEXT_REPRESENTATION:
+            row = pg_fetch_one("select * from app_users where id = %s limit 1", (user_id,))
+        except psycopg2.Error as exc:
+            if exc.pgcode == _INVALID_TEXT_REPRESENTATION:
                 return None
             raise
-        return self._first(response.data)
+        return self._record(row)
 
     def get_by_ids(self, ids: list[str]) -> list[UserRecord]:
         """Batch fetch for enrichment — e.g. resolving usernames onto a list
-        of sessions from the separate pipeline Postgres project (no SQL JOIN
-        is possible across the two databases). One query instead of N
-        get_by_id calls."""
+        of sessions. One query instead of N get_by_id calls.
+
+        Now that app_users and user_sessions share a database a SQL JOIN is
+        possible, but this stays a separate query so the calling code is
+        unchanged by the migration.
+        """
         if not ids:
             return []
         try:
-            response = self._table.select("*").in_("id", ids).execute()
-        except APIError as exc:
-            if exc.code == _INVALID_TEXT_REPRESENTATION:
+            rows = pg_fetch_all("select * from app_users where id = any(%s::uuid[])", (list(ids),))
+        except psycopg2.Error as exc:
+            if exc.pgcode == _INVALID_TEXT_REPRESENTATION:
                 return []
             raise
-        return [UserRecord(**row) for row in (response.data or [])]
+        return [self._record(row) for row in rows]  # type: ignore[misc]
 
     def username_exists(self, username: str) -> bool:
-        response = (
-            self._table.select("id").ilike("username", _escape_for_ilike(username)).limit(1).execute()
+        row = pg_fetch_one(
+            "select 1 as hit from app_users where lower(username) = lower(%s) limit 1",
+            (username,),
         )
-        return bool(response.data)
+        return row is not None
 
     def email_exists(self, email: str) -> bool:
-        response = (
-            self._table.select("id").ilike("email_id", _escape_for_ilike(email)).limit(1).execute()
+        row = pg_fetch_one(
+            "select 1 as hit from app_users where lower(email_id) = lower(%s) limit 1",
+            (email,),
         )
-        return bool(response.data)
+        return row is not None
+
+    # -- writes -------------------------------------------------------------
 
     def create_user(self, data: Mapping[str, Any]) -> UserRecord:
-        payload = dict(data)
+        payload = {k: v for k, v in data.items() if k in _WRITABLE_COLUMNS}
+        if not payload:
+            raise ValueError("create_user called with no writable columns")
+
+        columns = list(payload)
+        placeholders = ", ".join(f"%({c})s" for c in columns)
+        column_sql = ", ".join(f'"{c}"' for c in columns)
+
         try:
-            response = self._table.insert(payload).execute()
-        except APIError as exc:
-            if exc.code == _UNIQUE_VIOLATION:
-                message = f"{exc.message or ''} {getattr(exc, 'details', '') or ''}".lower()
-                field = "username" if "username" in message else "email"
-                raise DuplicateUserError(field) from exc
+            row = pg_fetch_one(
+                f"insert into app_users ({column_sql}) values ({placeholders}) returning *",
+                payload,
+            )
+        except psycopg2.Error as exc:
+            if exc.pgcode == _UNIQUE_VIOLATION:
+                raise DuplicateUserError(_duplicate_field(exc)) from exc
             raise
-        created = self._first(response.data)
+
+        created = self._record(row)
         if created is None:
             raise RuntimeError("Insert into app_users returned no row")
         return created
 
     def update_user(self, user_id: str, updates: Mapping[str, Any]) -> None:
-        payload = dict(updates)
+        payload = {k: v for k, v in updates.items() if k in _WRITABLE_COLUMNS}
         payload["updated_at"] = datetime.now(timezone.utc).isoformat()
+
+        assignments = ", ".join(f'"{c}" = %({c})s' for c in payload)
         try:
-            self._table.update(payload).eq("id", user_id).execute()
-        except APIError as exc:
-            if exc.code == _UNIQUE_VIOLATION:
-                message = f"{exc.message or ''} {getattr(exc, 'details', '') or ''}".lower()
-                field = "username" if "username" in message else "email"
-                raise DuplicateUserError(field) from exc
+            pg_execute(
+                f"update app_users set {assignments} where id = %(_user_id)s",
+                {**payload, "_user_id": user_id},
+            )
+        except psycopg2.Error as exc:
+            if exc.pgcode == _UNIQUE_VIOLATION:
+                raise DuplicateUserError(_duplicate_field(exc)) from exc
+            if exc.pgcode == _INVALID_TEXT_REPRESENTATION:
+                return  # non-UUID id matches nothing, same as before
             raise
 
     def upgrade_legacy_password(self, user_id: str, password_hash: str) -> None:
@@ -174,24 +223,49 @@ class UserRepository:
     ) -> tuple[list[UserRecord], int]:
         """Returns (page, total_count). `search` matches username, email, or
         first/last name (case-insensitive substring)."""
-        query = self._table.select("*", count="exact")
+        where: list[str] = []
+        params: dict[str, Any] = {}
+
         if status:
-            query = query.eq("status", status)
+            where.append("status = %(status)s")
+            params["status"] = status
         if persona:
-            query = query.eq("persona", persona)
+            where.append("persona = %(persona)s")
+            params["persona"] = persona
         if search:
-            like = f"%{search}%"
-            query = query.or_(
-                f"username.ilike.{like},email_id.ilike.{like},"
-                f"first_name.ilike.{like},last_name.ilike.{like}"
+            # ESCAPE '\' pairs with _escape_for_ilike so a user searching for
+            # "a_b" gets a literal underscore, not a single-character wildcard.
+            where.append(
+                "(username ilike %(search)s escape '\\'"
+                " or email_id ilike %(search)s escape '\\'"
+                " or first_name ilike %(search)s escape '\\'"
+                " or last_name ilike %(search)s escape '\\')"
             )
-        response = (
-            query.order("created_at", desc=True)
-            .range(offset, offset + limit - 1)
-            .execute()
+            params["search"] = f"%{_escape_for_ilike(search)}%"
+
+        where_sql = f"where {' and '.join(where)}" if where else ""
+
+        total_row = pg_fetch_one(f"select count(*) as n from app_users {where_sql}", params)
+        total = int(total_row["n"]) if total_row else 0
+
+        rows = pg_fetch_all(
+            f"""
+            select * from app_users
+            {where_sql}
+            order by created_at desc
+            limit %(_limit)s offset %(_offset)s
+            """,
+            {**params, "_limit": limit, "_offset": offset},
         )
-        rows = [UserRecord(**row) for row in (response.data or [])]
-        return rows, response.count or 0
+        return [self._record(row) for row in rows], total  # type: ignore[misc]
+
+    def bump_token_version(self, user_id: str) -> int:
+        """Invalidate every access token the user holds; returns the new version."""
+        row = pg_fetch_one(
+            "update app_users set token_version = token_version + 1 where id = %s returning token_version",
+            (user_id,),
+        )
+        return int(row["token_version"]) if row is not None else 0
 
     def deactivate(self, user_id: str) -> None:
         self.update_user(user_id, {"status": "deactivated"})
@@ -206,13 +280,25 @@ class UserRepository:
         self.update_user(user_id, {"persona": persona})
 
     def delete_user(self, user_id: str) -> None:
-        """Hard delete — cascades to refresh_tokens/otp_codes/auth_audit in
-        THIS (auth) project via FK ON DELETE CASCADE/SET NULL. Does not
-        touch the pipeline project (jobs/insights/traces) — callers must
+        """Hard delete — cascades to refresh_tokens/otp_codes (ON DELETE
+        CASCADE) and nulls auth_audit.user_id (ON DELETE SET NULL). Does not
+        touch the pipeline job tables (jobs/insights/traces) — callers must
         clean those up separately before calling this."""
-        self._table.delete().eq("id", user_id).execute()
+        try:
+            pg_execute("delete from app_users where id = %s", (user_id,))
+        except psycopg2.Error as exc:
+            if exc.pgcode == _INVALID_TEXT_REPRESENTATION:
+                return
+            raise
 
-    def _first(self, rows: list[dict[str, Any]] | None) -> UserRecord | None:
-        if not rows:
+    # -- helpers ------------------------------------------------------------
+
+    def _record(self, row: dict[str, Any] | None) -> UserRecord | None:
+        """psycopg2 returns live UUID/datetime objects where PostgREST handed
+        back strings; normalize_value restores the shape callers expect."""
+        if row is None:
             return None
-        return UserRecord(**rows[0])
+        return UserRecord(**normalize_value(dict(row)))
+
+
+__all__ = ["UserRepository", "UserRecord", "DuplicateUserError"]

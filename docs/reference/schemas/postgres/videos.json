@@ -1,0 +1,77 @@
+{
+  "database": "postgres_pipeline",
+  "table": "videos",
+  "source": "backend/app/db/schema.py",
+  "description": "Canonical video registry - one row per video, so video identity is not re-derived from filenames.",
+  "primary_key": [
+    "video_id"
+  ],
+  "columns": [
+    {
+      "name": "video_id",
+      "type": "text",
+      "nullable": false,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "source_video",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "Original filename; unique.",
+      "unique": true
+    },
+    {
+      "name": "title",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "duration",
+      "type": "double precision",
+      "nullable": true,
+      "default": null,
+      "description": "Seconds."
+    },
+    {
+      "name": "webpage_url",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": ""
+    },
+    {
+      "name": "s3_raw_key",
+      "type": "text",
+      "nullable": true,
+      "default": null,
+      "description": "S3 key of the raw download; null means no raw file."
+    },
+    {
+      "name": "updated_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "description": ""
+    }
+  ],
+  "indexes": [
+    {
+      "name": "idx_videos_source_video",
+      "columns": [
+        "source_video"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "referenced_by",
+      "table": "fragments",
+      "column": "video_id",
+      "enforced": false
+    }
+  ]
+}

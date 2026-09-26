@@ -6,9 +6,10 @@ from typing import Any
 import httpx
 
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
+from app.pipeline.storyline_gen.intents.base import agenda_rule
 from app.pipeline.validate_gen.json_utils import extract_json_object
 from app.pipeline.validate_gen.llm_client import STRONG_LLM_MODEL, log, post_with_retries, post_with_retries_async
-from app.pipeline.validate_gen.narrative_templates import DEEPFAKE_VOICEOVER_DEFAULTS, GENERIC_VOICEOVER_DEFAULTS
+from app.pipeline.validate_gen.narrative_templates import GENERIC_VOICEOVER_DEFAULTS
 from app.pipeline.validate_gen.transcript import context_window_to_prompt_text
 
 # Weak trailing words that signal an incomplete quote
@@ -46,7 +47,10 @@ RULES:
 - Use narration_broll when: the content is relevant but the speaker quote is unclear, incomplete, or low-quality audio.
 - Use visual_support when: the content provides good background video but the speech itself is not needed.
 - Reject clips that are: generic greetings, off-topic, repetitive of other clips, or have very low informational value.
-- The final video must follow the narrative structure provided: hook → context → evidence/impact → challenges → responses → synthesis.
+- The final video follows the NARRATIVE SECTIONS given with the fragment. Pick the section the fragment serves best.
+- AI4IA AGENDA: set agenda_relevant=true only if the speaker speaks substantively about AI4IA itself or its agenda.
+""" + agenda_rule() + """
+  A fragment with agenda_relevant=false is never a speaker_clip.
 
 OUTPUT: Respond with ONLY a valid JSON object. No markdown, no explanation outside the JSON.
 """ + UNTRUSTED_CONTENT_NOTICE
@@ -91,13 +95,11 @@ def _base_section_id(section_id: str) -> str:
 def _clean_voiceover_text(
     text: str,
     section_id: str,
-    is_deepfake_topic: bool = False,
 ) -> str:
-    """Strip instruction phrases from voiceover text and apply topic defaults if needed."""
+    """Strip instruction phrases from voiceover text and apply the section default if needed."""
     base_section_id = _base_section_id(section_id)
     if not text:
-        defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-        return defaults.get(base_section_id, "")
+        return GENERIC_VOICEOVER_DEFAULTS.get(base_section_id, "")
 
     cleaned = text.strip()
 
@@ -111,16 +113,14 @@ def _clean_voiceover_text(
                 cleaned = remainder[0].upper() + remainder[1:]
             else:
                 # Nothing left — use topic default
-                defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-                cleaned = defaults.get(base_section_id, cleaned)
+                cleaned = GENERIC_VOICEOVER_DEFAULTS.get(base_section_id, cleaned)
             break
 
     # If still looks like instruction text with no factual content, use default
     instruction_verbs = ("explain", "mention", "show", "describe", "illustrate", "demonstrate")
     words = cleaned.lower().split()
     if words and words[0] in instruction_verbs:
-        defaults = DEEPFAKE_VOICEOVER_DEFAULTS if is_deepfake_topic else GENERIC_VOICEOVER_DEFAULTS
-        cleaned = defaults.get(base_section_id, cleaned)
+        cleaned = GENERIC_VOICEOVER_DEFAULTS.get(base_section_id, cleaned)
 
     # Ensure it ends with a period
     if cleaned and not cleaned.rstrip()[-1:] in ".!?":
@@ -150,6 +150,15 @@ def _quote_starts_cleanly(text: str) -> bool:
     return t[0].isupper()
 
 
+def _measured(values: dict[str, Any], template: str) -> str:
+    """Format a measurement, or say it was not measured. Zeros for a missing
+    measurement read as "unusable audio" and got good clips demoted."""
+    try:
+        return template.format(**values)
+    except (KeyError, ValueError, TypeError):
+        return "not measured (no known audio problem)"
+
+
 def _build_validation_prompt(
     candidate: dict[str, Any],
     context_window: list[dict[str, Any]],
@@ -175,6 +184,7 @@ def _build_validation_prompt(
 
     context_text = context_window_to_prompt_text(context_window, frag_start, frag_end)
 
+    section_ids = " | ".join(s["section_id"] for s in narrative_sections)
     sections_summary = "\n".join(
         f"  {s['section_id']}: {s['title']} — {s['purpose'][:80]}"
         for s in narrative_sections
@@ -193,8 +203,8 @@ CANDIDATE FRAGMENT:
   end: {frag_end:.2f}s
   duration: {frag_end - frag_start:.2f}s
   text: {wrap_untrusted(text)}
-  speech_quality: speech_ratio={speech_quality.get("speech_ratio", 0):.2f}, is_usable={speech_quality.get("is_usable_speech", False)}
-  moment_scores: completeness={moment_scores.get("quote_completeness_score", 0):.2f}, final={moment_scores.get("final_moment_score", 0):.2f}
+  speech_quality: {_measured(speech_quality, "speech_ratio={speech_ratio:.2f}, is_usable={is_usable_speech}")}
+  moment_scores: {_measured(moment_scores, "completeness={quote_completeness_score:.2f}, final={final_moment_score:.2f}")}
 
 SURROUNDING TRANSCRIPT (lines marked <<<FRAGMENT>>> are the selected fragment):
 {wrap_untrusted(context_text) if context_text else "  (no transcript available)"}
@@ -205,8 +215,9 @@ Return JSON with these exact fields:
 {{
   "fragment_id": "{frag_id}",
   "decision": "speaker_clip | narration_broll | visual_support | reject",
-  "section_id": "S1_HOOK | S2_CONTEXT | S3_HUMAN_RISK | S4_PUBLIC_RISK | S5_RESPONSE | S6_SYNTHESIS",
+  "section_id": "{section_ids}",
   "approved": true or false,
+  "agenda_relevant": true or false,
   "reason": "one sentence explanation",
   "quote_complete": true or false,
   "quote_start": {frag_start:.2f},
@@ -288,6 +299,16 @@ async def validate_candidate_with_llm_async(
         except Exception as exc:
             log(f"  [llm] Validation failed for {frag_id[:50]}: {exc}")
             return None
+
+
+def reject_off_agenda(result: dict[str, Any]) -> dict[str, Any]:
+    """A speaker clip the validator judged off the AI4IA agenda is rejected,
+    whatever else it said."""
+    if result.get("decision") == "speaker_clip" and result.get("agenda_relevant") is False:
+        result["decision"] = "reject"
+        result["approved"] = False
+        result["reason"] = "Not on the AI4IA agenda. " + str(result.get("reason") or "")
+    return result
 
 
 def fallback_validation(candidate: dict[str, Any]) -> dict[str, Any]:

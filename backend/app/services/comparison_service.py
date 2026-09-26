@@ -10,9 +10,73 @@ from datetime import datetime, timezone
 from typing import Any
 
 from app.core.config import INSIGHT_MODEL
-from app.services import embedding_index, fragment_store
-from app.services.insight_service import _truncate, _validate
+from app.services import embedding_index, evidence_gate, fragment_store, guardrail_service
+from app.services.insight_service import (
+    DECLINE_TITLE,
+    OUTCOME_GENERATED,
+    OUTCOME_INSUFFICIENT_EVIDENCE,
+    _truncate,
+    _validate,
+)
 from app.services.llm_service import generate_json
+
+_DECLINE_REASON = (
+    "No fragments in the archive matched this closely enough to support an "
+    "evidence-grounded answer."
+)
+
+
+def _declined_relay(topic: str, diagnostics: dict) -> dict:
+    """Same shape as a generated relay, every collection empty. No LLM call."""
+    return {
+        "topic": topic,
+        "outcome": OUTCOME_INSUFFICIENT_EVIDENCE,
+        "decline_reason": _DECLINE_REASON,
+        "decline_diagnostics": diagnostics,
+        "relay_title": DECLINE_TITLE,
+        "relay_narrative": None,
+        "relay_steps": [],
+        "step_count": 0,
+        "distinct_speakers": 0,
+        "edition": "AI4IA 2025",
+        "models": {"llm": None},
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "Semantic search found nothing close enough to this topic, so no "
+                "relay was built and the LLM was never called."
+            ),
+            "retrieval": {"method": "semantic_cosine_similarity", **diagnostics},
+            "generation": {"model": None, "skipped": True},
+        },
+    }
+
+
+def _declined_theme(theme: str, diagnostics: dict) -> dict:
+    """Same shape as a generated theme synthesis, every collection empty."""
+    return {
+        "theme": theme,
+        "outcome": OUTCOME_INSUFFICIENT_EVIDENCE,
+        "decline_reason": _DECLINE_REASON,
+        "decline_diagnostics": diagnostics,
+        "title": DECLINE_TITLE,
+        "summary": None,
+        "key_points": [],
+        "representative_clips": [],
+        "unsupported_claims": [],
+        "evidence_pool": [],
+        "models": {"llm": None},
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "_explain": {
+            "how_it_works": (
+                "Neither the theme facet nor the semantic fallback found anything "
+                "close enough, so no synthesis was attempted and the LLM was "
+                "never called."
+            ),
+            "retrieval": {"method": "theme_facet_match → semantic_fallback", **diagnostics},
+            "generation": {"model": None, "skipped": True},
+        },
+    }
 
 
 def _clip(p: dict) -> dict:
@@ -36,7 +100,7 @@ def _pool_from_fragments(frags: list[dict]) -> list[dict]:
             "speaker_attribution": f.get("speaker_attribution"), "edition": f.get("edition"),
             "primary_theme": f.get("primary_theme"), "primary_chapter": f.get("primary_chapter"),
             "start": f.get("start"), "end": f.get("end"), "duration": f.get("duration"),
-            "stream_url": f.get("stream_url"), "text": f.get("text"),
+            "stream_url": fragment_store.stream_url_for(f.get("source_video")), "text": f.get("text"),
         })
     return pool
 
@@ -74,7 +138,11 @@ Return JSON exactly:
 
 
 def compare_speakers(speakers: list[str], topic: str | None = None,
-                     limit_per_speaker: int = 6, model: str | None = None) -> dict:
+                     limit_per_speaker: int = 6, model: str | None = None,
+                     user_id: str | None = None) -> dict:
+    # Vet the caller's own words only — the default topic below is ours.
+    if topic:
+        guardrail_service.assert_query_allowed(topic, surface="compare_speakers", user_id=user_id)
     topic = topic or "their overall perspective on AI"
     pool: list[dict] = []
     missing: list[str] = []
@@ -178,12 +246,21 @@ Return JSON exactly:
 }}"""
 
 
-def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> dict:
+def synthesize_theme(theme: str, limit: int = 20, model: str | None = None,
+                     user_id: str | None = None) -> dict:
+    guardrail_service.assert_query_allowed(theme, surface="synthesis_theme", user_id=user_id)
+    # Themes come from the taxonomy, so a facet hit is relevant by
+    # classification. The similarity floor only applies to the semantic fallback.
     frags = embedding_index.search(theme, top_k=limit, filters={"theme": theme})
-    if not frags:  # fall back to semantic-only if the theme string isn't an exact facet
+    retrieval_path = "theme_facet_match"
+    if frags:
+        frags.sort(key=lambda f: f.get("similarity") or 0.0, reverse=True)
+    else:  # fall back to semantic-only if the theme string isn't an exact facet
+        retrieval_path = "semantic_fallback"
         frags = embedding_index.search(theme, top_k=limit)
-    if not frags:
-        raise ValueError(f"No fragments found for theme: {theme}")
+        sufficient, gate = evidence_gate.evidence_is_sufficient(frags, surface="synthesis_theme")
+        if not sufficient:
+            return _declined_theme(theme, gate)
 
     numbered = _pool_from_fragments(frags)
     valid = {p["ref"] for p in numbered}
@@ -204,6 +281,7 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> d
 
     return {
         "theme": theme,
+        "outcome": OUTCOME_GENERATED,
         "title": raw.get("title") or theme,
         "summary": raw.get("summary"),
         "key_points": key_points,
@@ -214,14 +292,14 @@ def synthesize_theme(theme: str, limit: int = 20, model: str | None = None) -> d
         "created_at": datetime.now(timezone.utc).isoformat(),
         "_explain": {
             "how_it_works": (
-                "Fragments are retrieved by exact theme facet match first; if that returns nothing, "
-                "a pure semantic search on the theme string is used as fallback. "
+                "Fragments classified under the theme are retrieved and ordered by similarity; "
+                "if none match, a pure semantic search on the theme string is used as fallback. "
                 "The numbered pool is fed to openai/gpt-oss-120b which must cite fragment numbers for "
                 "every key point. Uncited key points are dropped. Representative clips are resolved "
                 "from the pool by their ref number."
             ),
             "retrieval": {
-                "method": "theme_facet_match → semantic_fallback",
+                "method": retrieval_path,
                 "embedding_model": "nomic-embed-text:v1.5",
                 "fragments_in_pool": len(numbered),
                 "limit_requested": limit,
@@ -265,10 +343,13 @@ Return JSON exactly:
 }}"""
 
 
-def build_relay(topic: str, limit: int = 20, model: str | None = None) -> dict:
+def build_relay(topic: str, limit: int = 20, model: str | None = None,
+                user_id: str | None = None) -> dict:
+    guardrail_service.assert_query_allowed(topic, surface="relay", user_id=user_id)
     frags = embedding_index.search(topic, top_k=limit)
-    if not frags:
-        raise ValueError(f"No fragments found for topic: {topic}")
+    sufficient, gate = evidence_gate.evidence_is_sufficient(frags, surface="relay")
+    if not sufficient:
+        return _declined_relay(topic, gate)
 
     # Prefer diversity of speakers in the candidate pool.
     seen, diverse = set(), []
@@ -296,6 +377,7 @@ def build_relay(topic: str, limit: int = 20, model: str | None = None) -> dict:
 
     return {
         "topic": topic,
+        "outcome": OUTCOME_GENERATED,
         "relay_title": raw.get("relay_title") or topic,
         "relay_narrative": raw.get("relay_narrative"),
         "relay_steps": steps,

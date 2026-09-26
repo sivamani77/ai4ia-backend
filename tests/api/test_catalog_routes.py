@@ -9,7 +9,25 @@ def _write_json(path: Path, payload: dict) -> None:
     path.write_text(json.dumps(payload), encoding="utf-8")
 
 
+def test_archive_requires_a_signed_in_user(client):
+    """The archive is not public (A-01); only the dashboard summary is."""
+    assert client.get("/api/archive/speakers").status_code == 401
+    assert client.get("/api/archive/search?q=ai").status_code == 401
+    assert client.get("/api/archive/videos/video123/stream").status_code == 401
+
+
 def test_archive_routes(client, mock_settings, monkeypatch):
+    import app.main as main
+    from app.core.auth import CurrentUser, get_current_user
+
+    main.app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="test-user", persona="general")
+    try:
+        _run_archive_routes(client, mock_settings, monkeypatch)
+    finally:
+        main.app.dependency_overrides.pop(get_current_user, None)
+
+
+def _run_archive_routes(client, mock_settings, monkeypatch):
     import app.api.archive as archive_module
     import app.services.fragment_store as fragment_store
     import app.services.embedding_index as embedding_index
@@ -92,33 +110,47 @@ def test_archive_routes(client, mock_settings, monkeypatch):
 
 
 def test_insights_compare_and_mindmap_routes(client, monkeypatch):
+    import app.main as main
+    from app.core.auth import CurrentUser, get_current_user
     import app.services.insight_service as insight_service
     import app.services.comparison_service as comparison_service
     import app.services.concept_mindmap_service as mindmap_service
 
-    monkeypatch.setattr(insight_service, "generate_insight", lambda query, filters, limit: {
+    # api_generate_insight now requires a verified user (Depends(get_current_user))
+    # so it can attribute the insight to current_user.id — override the dependency
+    # rather than crafting a real JWT.
+    main.app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="test-user", persona="general")
+    try:
+        _run_insights_compare_and_mindmap(client, monkeypatch, insight_service, comparison_service, mindmap_service)
+    finally:
+        main.app.dependency_overrides.pop(get_current_user, None)
+
+
+def _run_insights_compare_and_mindmap(client, monkeypatch, insight_service, comparison_service, mindmap_service):
+    import app.api.concept_mindmap as concept_mindmap_module
+    monkeypatch.setattr(insight_service, "generate_insight", lambda query, filters, limit, user_id=None: {
         "query": query,
         "limit": limit,
         "count": 2,
     })
-    monkeypatch.setattr(insight_service, "list_insights", lambda: [{"id": "insight_1"}])
-    monkeypatch.setattr(insight_service, "get_insight", lambda insight_id: {"id": insight_id, "title": "Insight"})
+    monkeypatch.setattr(insight_service, "list_insights", lambda user_id=None: [{"id": "insight_1"}])
+    monkeypatch.setattr(insight_service, "get_insight", lambda insight_id, user_id=None: {"id": insight_id, "title": "Insight"})
     monkeypatch.setattr(insight_service, "build_sources_map", lambda insight: {"sources": [insight["id"]]})
 
-    monkeypatch.setattr(comparison_service, "compare_speakers", lambda speakers, topic, limit: {
+    monkeypatch.setattr(comparison_service, "compare_speakers", lambda speakers, topic, limit, user_id=None: {
         "speakers": speakers,
         "topic": topic,
         "limit": limit,
     })
-    monkeypatch.setattr(comparison_service, "synthesize_theme", lambda theme, limit: {
+    monkeypatch.setattr(comparison_service, "synthesize_theme", lambda theme, limit, user_id=None: {
         "theme": theme,
         "limit": limit,
     })
-    monkeypatch.setattr(comparison_service, "build_relay", lambda topic, limit: {
+    monkeypatch.setattr(comparison_service, "build_relay", lambda topic, limit, user_id=None: {
         "topic": topic,
         "limit": limit,
     })
-    monkeypatch.setattr(mindmap_service, "generate_concept_mindmap", lambda query, storyline_id=None: {
+    monkeypatch.setattr(concept_mindmap_module, "generate_concept_mindmap", lambda query, storyline_id=None, mode="legacy", user_id=None: {
         "query": query,
         "storyline_id": storyline_id,
     })

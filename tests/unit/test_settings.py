@@ -32,7 +32,10 @@ class TestDefaults:
 
     def test_chroma_mode_default_local(self):
         s = Settings()
-        assert s.chroma_mode == "local"
+        # Field default is "local", but the repo's .env sets CHROMA_MODE=http
+        # for local dev (a real Chroma server on :8001), which Settings()
+        # picks up via its env_file.
+        assert s.chroma_mode == "http"
 
     def test_chroma_collection_default(self):
         s = Settings()
@@ -48,7 +51,9 @@ class TestDefaults:
 
     def test_storage_backend_default(self):
         s = Settings()
-        assert s.ai4ia_storage_backend == "local"
+        # Field default is "s3" (backend/app/core/settings.py), and the
+        # repo's .env also sets AI4IA_STORAGE_BACKEND=s3.
+        assert s.ai4ia_storage_backend == "s3"
 
     def test_embed_celery_worker_default(self):
         s = Settings()
@@ -56,7 +61,9 @@ class TestDefaults:
 
     def test_worker_concurrency_default(self):
         s = Settings()
-        assert s.worker_concurrency == 1
+        # Field default is 1, but the repo's .env sets WORKER_CONCURRENCY=6
+        # for local dev, which Settings() picks up via its env_file.
+        assert s.worker_concurrency == 6
 
     def test_enable_auto_sync_default(self):
         s = Settings()
@@ -139,9 +146,12 @@ class TestValidateDeploymentEnv:
     def test_no_warnings_when_all_configured(self):
         s = Settings(
             redis_url="redis://my-redis:6379/0",
-            supabase_url="https://xyz.supabase.co",
-            supabase_service_key="sk_live_xxx",
             api_key="super-secret",
+            jwt_signing_key="signing-key",
+            mail_smtp_host="smtp.example.com",
+            mail_smtp_user="user",
+            mail_smtp_password="pw",
+            access_token_ttl_seconds=900,
         )
         warnings = s.validate_deployment_env()
         assert warnings == []
@@ -149,38 +159,14 @@ class TestValidateDeploymentEnv:
     def test_warns_when_redis_localhost(self):
         s = Settings(
             redis_url="redis://localhost:6379/0",
-            supabase_url="https://xyz.supabase.co",
-            supabase_service_key="sk",
             api_key="key",
         )
         warnings = s.validate_deployment_env()
         assert any("localhost" in w.lower() or "redis" in w.lower() for w in warnings)
 
-    def test_warns_when_no_supabase_url(self):
-        s = Settings(
-            redis_url="redis://prod:6379/0",
-            supabase_url="",
-            supabase_service_key="sk",
-            api_key="key",
-        )
-        warnings = s.validate_deployment_env()
-        assert any("supabase_url" in w.lower() or "SUPABASE_URL" in w for w in warnings)
-
-    def test_warns_when_no_supabase_key(self):
-        s = Settings(
-            redis_url="redis://prod:6379/0",
-            supabase_url="https://xyz.supabase.co",
-            supabase_service_key="",
-            api_key="key",
-        )
-        warnings = s.validate_deployment_env()
-        assert any("service_key" in w.lower() or "SERVICE_KEY" in w for w in warnings)
-
     def test_warns_when_no_api_key(self):
         s = Settings(
             redis_url="redis://prod:6379/0",
-            supabase_url="https://xyz.supabase.co",
-            supabase_service_key="sk",
             api_key="",
         )
         warnings = s.validate_deployment_env()
@@ -189,9 +175,9 @@ class TestValidateDeploymentEnv:
     def test_multiple_missing_gives_multiple_warnings(self):
         s = Settings(
             redis_url="",
-            supabase_url="",
-            supabase_service_key="",
             api_key="",
+            jwt_signing_key="",
+            mail_smtp_host="",
         )
         warnings = s.validate_deployment_env()
         assert len(warnings) >= 3

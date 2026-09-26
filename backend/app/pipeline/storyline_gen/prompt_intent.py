@@ -1,13 +1,12 @@
-import json
 import re
-from pathlib import Path
 from typing import Any
 
-from app.core.paths import PROJECT_ROOT
+from app.core.settings import settings
 from app.pipeline.storyline_gen.text_utils import (
-    clean_text,
     normalize_name,
     normalize_plural,
+    title_term_overlap,
+    video_title_from_source,
 )
 
 
@@ -112,16 +111,22 @@ PROMPT_TOPIC_CONFIG: dict[str, dict[str, Any]] = {
     },
 }
 
-SPEAKER_ALIAS_MAP: dict[str, str] = {
-    "codrel green": "Cordel Green",
-    "cordel green": "Cordel Green",
-    "cordell green": "Cordel Green",
-    "codel green": "Cordel Green",
-    "kodel green": "Cordel Green",
-    "kodel codel green": "Cordel Green",
-    "cordell kodel green": "Cordel Green",
-    "cordell greene": "Cordel Green",
-}
+def _speaker_alias_map() -> dict[str, str]:
+    """Normalized speaker name or alias -> canonical name, from the speaker
+    registry. Multi-word names only, so a one-word name such as "Nisha"
+    cannot match ordinary prompt text."""
+    from app.services.speaker_registry import get_registry
+
+    aliases: dict[str, str] = {}
+    for canonical, entry in get_registry().speakers.items():
+        for name in (canonical, *(entry.get("aliases") or [])):
+            key = normalize_name(name)
+            if len(key.split()) >= 2:
+                aliases.setdefault(key, canonical)
+    return aliases
+
+
+SPEAKER_ALIAS_MAP: dict[str, str] = _speaker_alias_map()
 
 
 def extract_meaningful_prompt_terms(prompt: str) -> set[str]:
@@ -147,37 +152,11 @@ def expand_prompt_terms(terms: set[str]) -> set[str]:
     return expanded
 
 
-def load_known_speakers(metadata_dir: Path | None = None) -> list[str]:
-    speakers_dir = metadata_dir or (PROJECT_ROOT / "data" / "metadata" / "speakers")
-    known: list[str] = []
-    seen: set[str] = set()
-    if not speakers_dir.exists():
-        return known
-    for fpath in speakers_dir.glob("*.json"):
-        try:
-            data = json.loads(fpath.read_text(encoding="utf-8"))
-            values: list[str] = []
-            primary = data.get("primary_speaker") or data.get("speaker")
-            if isinstance(primary, str) and primary.strip():
-                values.append(primary)
-            for sp in data.get("speakers", []):
-                if isinstance(sp, dict):
-                    name = sp.get("name")
-                    if isinstance(name, str) and name.strip():
-                        values.append(name)
-                elif isinstance(sp, str) and sp.strip():
-                    values.append(sp)
-            stem_guess = fpath.stem.split("_", 1)[-1].replace("_", " ").strip()
-            if stem_guess:
-                values.append(stem_guess)
-            for name in values:
-                norm = normalize_name(name)
-                if norm and norm not in seen:
-                    seen.add(norm)
-                    known.append(clean_text(str(name)))
-        except Exception:
-            pass
-    return known
+def load_known_speakers() -> list[str]:
+    """Canonical speaker names from the speaker registry."""
+    from app.services.speaker_registry import get_registry
+
+    return list(get_registry().speakers)
 
 
 def detect_requested_speaker(prompt: str, known_speakers: list[str]) -> str | None:
@@ -187,9 +166,16 @@ def detect_requested_speaker(prompt: str, known_speakers: list[str]) -> str | No
     for alias, canonical in SPEAKER_ALIAS_MAP.items():
         alias_norm = normalize_name(alias)
         if re.search(rf"\b{re.escape(alias_norm)}\b", normalized_prompt):
-            # Verify canonical exists in known_speakers or close match
+            # Prefer the exact known spelling, then whole-word containment.
+            # Plain substrings are unsafe: "a singh" is inside "ashita singh".
+            canonical_norm = normalize_name(canonical)
             for known in known_speakers:
-                if normalize_name(canonical) in normalize_name(known) or normalize_name(known) in normalize_name(canonical):
+                if normalize_name(known) == canonical_norm:
+                    return known
+            for known in known_speakers:
+                known_norm = normalize_name(known)
+                if known_norm and (re.search(rf"\b{re.escape(canonical_norm)}\b", known_norm)
+                                   or re.search(rf"\b{re.escape(known_norm)}\b", canonical_norm)):
                     return known
             # Return canonical even if not in known_speakers (low confidence)
             return canonical
@@ -204,7 +190,28 @@ def detect_requested_speaker(prompt: str, known_speakers: list[str]) -> str | No
         if re.search(rf"\b{re.escape(normalized_speaker)}\b", normalized_prompt) and len(normalized_speaker) > best_len:
             best_match = speaker
             best_len = len(normalized_speaker)
-    return best_match
+    return best_match or _speaker_from_initials(prompt, known_speakers)
+
+
+# "C Howell", "C. Howell": a capital initial followed by a capitalized surname.
+_INITIAL_SURNAME = re.compile(r"\b([A-Z])\.?\s+([A-Z][A-Za-z'\-]{2,})\b")
+
+
+def _speaker_from_initials(prompt: str, known_speakers: list[str]) -> str | None:
+    """Resolve an initial plus surname through the speaker registry, only
+    when exactly one registered speaker matches."""
+    from app.services.speaker_registry import get_registry
+
+    registry = get_registry()
+    for initial, surname in _INITIAL_SURNAME.findall(prompt or ""):
+        canonical = registry.canonical(f"{initial} {surname}")
+        if not canonical:
+            continue
+        for known in known_speakers:
+            if normalize_name(known) == normalize_name(canonical):
+                return known
+        return canonical
+    return None
 
 
 def extract_topic_terms(prompt: str, requested_speaker: str | None = None) -> set[str]:
@@ -237,13 +244,21 @@ def build_prompt_profile(
     prompt: str,
     known_speakers: list[str],
     target_duration_seconds: int | None = None,
+    requested_speaker: str | None = None,
 ) -> dict[str, Any]:
-    requested_speaker = detect_requested_speaker(prompt, known_speakers)
+    """`requested_speaker`, when the resolve stage already found one, replaces detection."""
+    requested_speaker = requested_speaker or detect_requested_speaker(prompt, known_speakers)
     normalized_prompt = normalize_name(prompt)
     all_themes_requested = bool(re.search(r"\ball(?:\s+the)?\s+themes?\b", normalized_prompt))
     topic_terms = sorted(extract_topic_terms(prompt, requested_speaker=requested_speaker))
     if requested_speaker:
-        speaker_name_tokens = {normalize_plural(tok) for tok in re.findall(r"[a-z0-9]+", normalize_name(requested_speaker))}
+        # The prompt may use an alias ("Cordell Green"), so strip those tokens too.
+        from app.services.speaker_registry import get_registry
+
+        entry = get_registry().speakers.get(requested_speaker) or {}
+        names = [requested_speaker, *(entry.get("aliases") or [])]
+        speaker_name_tokens = {normalize_plural(tok) for name in names
+                               for tok in re.findall(r"[a-z0-9]+", normalize_name(name))}
         topic_terms = [term for term in topic_terms if term not in speaker_name_tokens]
     if requested_speaker and all_themes_requested:
         topic_terms = []
@@ -313,6 +328,11 @@ def build_prompt_profile(
         "evidence_requirement": evidence_requirement,
         "strictness": strictness,
         "target_duration_seconds": target_duration_seconds,
+        # Populated by detect_prompt_intent, which has the corpus to match
+        # titles against; declared here so the profile shape is consistent.
+        "requested_source_video": None,
+        "title_match_ratio": 0.0,
+        "title_matched_terms": [],
     }
 
 
@@ -356,16 +376,154 @@ def lookup_requested_theme(prompt_terms: set[str], records: list[dict[str, Any]]
     return best_theme if best_score > 0 else None
 
 
+# Nouns that name the archive itself rather than anything inside it. Most are
+# STOPWORDS, so they never reach topic_terms — they have to be matched against
+# the raw prompt.
+_ARCHIVE_META_NOUNS = {
+    "ai4ia", "conference", "conferences", "archive", "speaker", "speakers",
+    "theme", "themes", "chapter", "chapters", "video", "videos", "talk",
+    "talks", "session", "sessions", "presentation", "presentations",
+}
+
+# Question scaffolding that survives stopword removal but names no subject.
+_OVERVIEW_SCAFFOLDING = {
+    "overview", "summary", "summarize", "summarise", "main", "major",
+    "important", "most", "many", "much", "discussed", "topic", "whole",
+    "entire", "which", "covered", "cover", "everything", "total", "count",
+    "number", "list", "about", "general", "introduce", "introduction",
+}
+
+
+def detect_archive_overview(
+    prompt: str,
+    topic_terms: set[str] | list[str],
+    requested_speaker: str | None = None,
+    requested_source_video: str | None = None,
+) -> bool:
+    """True when the prompt asks about the archive itself, not a topic in it.
+
+    The test is what survives stopword removal. "how many speakers are there,
+    what are the major themes" reduces to pure scaffolding
+    (many/major/discussed/topic) because every subject noun in it is a
+    STOPWORD; "what did the speakers say about access to information" keeps
+    access/information. So a prompt naming the archive and leaving no subject
+    behind is asking about the archive.
+
+    Speaker and title requests take precedence — those paths already scope
+    retrieval and answer a narrower question.
+    """
+    if requested_speaker or requested_source_video:
+        return False
+    normalized = set(re.findall(r"[a-z0-9]+", normalize_name(prompt)))
+    if not (normalized & _ARCHIVE_META_NOUNS):
+        return False
+    # Meta nouns are subtracted too: "archive" is one of the few that is not a
+    # STOPWORD, so it reaches topic_terms and would otherwise read as a subject.
+    remaining = (
+        {normalize_plural(t) for t in (topic_terms or [])}
+        - _OVERVIEW_SCAFFOLDING
+        - _ARCHIVE_META_NOUNS
+    )
+    return not remaining
+
+
+def lookup_requested_source_video(
+    topic_terms: set[str],
+    records: list[dict[str, Any]],
+    requested_speaker: str | None = None,
+) -> tuple[str | None, float, list[str]]:
+    """Find the source video whose title the prompt is naming, if any.
+
+    Returns (source_video, matched_ratio, matched_terms). A prompt that is a
+    video's exact title (or a close paraphrase) is a request for that video,
+    not merely a topic that resembles it — the caller uses this to relax the
+    per-source diversity cap and to pull the whole video into retrieval.
+
+    The match has to run both ways. Prompt-side coverage alone is not enough:
+    "what did the speakers say about access to information?" reduces to two
+    topic terms, and any title containing both scores 1.0 against it, which
+    would silently turn an ordinary topic prompt into a request for one
+    specific video. Requiring the matched terms to also account for most of
+    the *title* is what separates naming a video from sharing a word with it.
+    """
+    if not topic_terms:
+        return None, 0.0, []
+
+    titles: dict[str, str] = {}
+    for record in records:
+        source_video = str(record.get("source_video") or "")
+        if source_video and source_video not in titles:
+            titles[source_video] = video_title_from_source(record)
+
+    min_ratio = settings.title_match_min_ratio
+    scored: list[tuple[tuple, str, float, list[str]]] = []
+    for source_video, title in titles.items():
+        if not title:
+            continue
+        # Strip the requested speaker from the title the same way
+        # build_prompt_profile strips it from the prompt, so a title that is
+        # mostly a person's name ("Celine Caruso Dixon - Can We Use AI for
+        # Inclusion Work?") is compared on the terms that actually remain on
+        # both sides rather than being diluted by the name.
+        title_terms = extract_topic_terms(title, requested_speaker=requested_speaker)
+        if not title_terms:
+            continue
+        matched, prompt_ratio = title_term_overlap(title, topic_terms)
+        if len(matched) < 2 or prompt_ratio < min_ratio:
+            continue
+        title_ratio = len(matched) / len(title_terms)
+        if title_ratio < min_ratio:
+            continue
+        # Best two-way fit wins; then most terms matched.
+        key = (min(prompt_ratio, title_ratio), prompt_ratio + title_ratio, len(matched))
+        scored.append((key, source_video, prompt_ratio, matched))
+
+    if not scored:
+        return None, 0.0, []
+
+    scored.sort(key=lambda item: item[0], reverse=True)
+    # A generic phrase ("satellite event") can fit several titles equally
+    # well. That is a topic, not a video the user named, so treat a tie at the
+    # top as no title match rather than picking one video arbitrarily.
+    if len(scored) > 1 and scored[1][0] == scored[0][0]:
+        return None, 0.0, []
+
+    _, source_video, prompt_ratio, matched = scored[0]
+    return source_video, prompt_ratio, matched
+
+
 def detect_prompt_intent(
     prompt: str,
     known_speakers: list[str],
     records: list[dict[str, Any]],
     target_duration_seconds: int | None = None,
+    requested_speaker: str | None = None,
 ) -> dict[str, Any]:
-    profile = build_prompt_profile(prompt, known_speakers, target_duration_seconds=target_duration_seconds)
+    profile = build_prompt_profile(prompt, known_speakers, target_duration_seconds=target_duration_seconds,
+                                   requested_speaker=requested_speaker)
     topic_terms = set(profile.get("topic_terms") or [])
     chapter = lookup_requested_chapter(prompt, records)
     theme = lookup_requested_theme(topic_terms, records)
+
+    source_video, title_ratio, title_terms = lookup_requested_source_video(
+        topic_terms, records, requested_speaker=profile.get("requested_speaker")
+    )
+    profile["requested_source_video"] = source_video
+    profile["title_match_ratio"] = round(title_ratio, 4)
+    profile["title_matched_terms"] = title_terms
+
+    # A named chapter is a chapter video, even with no other topic words.
+    if not chapter and detect_archive_overview(
+        prompt,
+        topic_terms,
+        requested_speaker=profile.get("requested_speaker"),
+        requested_source_video=source_video,
+    ):
+        # The answer is a property of the corpus, not a quote from inside it,
+        # so the evidence requirement changes rather than merely relaxing.
+        profile["intent_type"] = "archive_overview"
+        profile["scope"] = "archive_overview"
+        profile["evidence_requirement"] = "corpus_facts"
     if chapter:
         profile["chapter_hint"] = chapter
         if profile["intent_type"] == "topic_video":
@@ -377,7 +535,11 @@ def detect_prompt_intent(
     return profile
 
 
-def candidate_speaker_matches(record: dict[str, Any], requested_speaker: str) -> tuple[bool, str]:
+def candidate_speaker_matches(record: dict[str, Any], requested_speaker: str,
+                              allow_panel: bool = False) -> tuple[bool, str]:
+    """Whether a fragment belongs to the requested speaker. Panel fragments
+    (roster only, no single speaker) count only when allow_panel is set or
+    retrieval marked the candidate as a panel fallback."""
     requested = normalize_name(requested_speaker)
     fields = [
         ("speaker", record.get("speaker")),
@@ -396,5 +558,11 @@ def candidate_speaker_matches(record: dict[str, Any], requested_speaker: str) ->
         normalized_value = normalize_name(str(candidate_name or ""))
         if normalized_value and requested in normalized_value:
             return True, f"speaker_candidates contains {requested_speaker}"
+
+    if allow_panel or record.get("speaker_match_panel"):
+        for name in str(record.get("speaker_roster") or "").split(";"):
+            normalized_value = normalize_name(name)
+            if normalized_value and requested in normalized_value:
+                return True, f"panel roster contains {requested_speaker}"
 
     return False, "speaker mismatch"

@@ -165,3 +165,19 @@ class ChangeEmailRequest(BaseModel):
     @classmethod
     def _normalize_email(cls, v: str) -> str:
         return normalize_identifier(v)
+
+
+class UpgradePersonaRequest(BaseModel):
+    code: str = Field(..., min_length=6, max_length=6)
+
+
+class UpgradePersonaResponse(BaseModel):
+    """The upgraded profile plus a freshly minted access token. The caller's
+    old token still carries persona="general" until it expires, and
+    require_role reads the persona claim off the token — so the client must
+    swap in this token for the new role to take effect."""
+
+    message: str
+    user: UserPublic
+    access_token: str
+    token_type: str = "bearer"

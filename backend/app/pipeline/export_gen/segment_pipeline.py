@@ -18,6 +18,8 @@ from app.pipeline.export_gen.clip_render import (
     FPS,
     OUTPUT_HEIGHT,
     OUTPUT_WIDTH,
+    SEGMENT_AUDIO_CODEC,
+    SEGMENT_CONTAINER_SUFFIX,
     STATIC_CARD_DURATION,
     TITLE_CARD_MIN_DURATION,
     _first_present,
@@ -31,6 +33,38 @@ from app.pipeline.export_gen.timeline_selection import get_canonical_export_time
 from app.pipeline.export_gen.subtitles import format_vtt_timestamp, get_segment_subtitle_text, make_subtitle_entries_for_segment, segment_has_spoken_audio
 
 
+# A rendered segment's video stream may legitimately end a fraction of a frame
+# before its container (last frame vs last audio packet, 1/30s quantisation).
+# Two frames of slack; anything beyond that is real missing picture.
+_SEGMENT_AV_TOLERANCE = 0.10
+
+
+def _segment_video_duration(path: Path) -> float:
+    """Seconds of actual picture in a rendered segment, from the frame count.
+
+    Not media_probe.video_stream_duration: segments are Matroska (see
+    SEGMENT_CONTAINER_SUFFIX), and Matroska carries no per-stream duration, so
+    that helper returns 0.0 for every segment this pipeline writes — a check
+    built on it silently never runs. Counting packets works on any container,
+    and segments are always exactly FPS by construction.
+    """
+    try:
+        out = subprocess.run(
+            [
+                "ffprobe", "-v", "error",
+                "-select_streams", "v:0",
+                "-count_packets",
+                "-show_entries", "stream=nb_read_packets",
+                "-of", "csv=p=0",
+                str(path),
+            ],
+            capture_output=True, text=True, timeout=60,
+        ).stdout.strip()
+        return int(out) / FPS if out else 0.0
+    except (subprocess.SubprocessError, ValueError, OSError):
+        return 0.0
+
+
 class ExportIntegrityError(RuntimeError):
     """A timeline segment cannot be rendered as planned.
 
@@ -38,7 +72,18 @@ class ExportIntegrityError(RuntimeError):
     final video below the validated plan, which is a contract violation. The fix
     belongs upstream (re-run Step 08, restore the missing media), never in
     dropping content at render time.
+
+    `message` (the RuntimeError text) is deliberately technical — fragment ids,
+    stream durations, container details — for logs and support. `user_message`
+    is what a client should show instead; see app.core.error_messages.
     """
+
+    def __init__(self, message: str, user_message: str | None = None):
+        super().__init__(message)
+        self.user_message = user_message or (
+            "We hit a problem while assembling part of your video and stopped "
+            "rather than ship a broken file. Please try generating it again."
+        )
 
 
 def _build_canonical_rendering_timeline(
@@ -340,7 +385,7 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
     durations (get_media_duration / get_video_stream_duration), which are cached.
     """
     segment_label = slugify(item.get("label") or item.get("fragment_id") or f"segment_{idx}", 70)
-    segment_path = work_dir / f"{idx:03d}_{segment_label}.mp4"
+    segment_path = work_dir / f"{idx:03d}_{segment_label}{SEGMENT_CONTAINER_SUFFIX}"
 
     item_type = item.get("type", "")
     seg_type = item.get("segment_type", "")
@@ -378,10 +423,18 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
             f"and refusing to drop it. Fix the manifest timeline."
         )
 
-    source_video = item.get("source_video")
-    role = item.get("role", seg_type or "archive_visual")
-    source_path = find_source_video(source_video, fragment_id)
     item_audio_mode = item.get("audio_mode") or ""
+    is_speech_or_narration = {seg_type, item_type} & {"speaker_clip", "narration_broll"}
+    if not is_speech_or_narration and (
+        seg_type in ("archive_visual", "speaker_visual") or item_audio_mode == "silent" or item.get("muted") is True
+    ):
+        # Archive footage appears only in speaker clips; muted footage is never shown.
+        log(f"  [render] Skipping {seg_type or item_type} {str(fragment_id)[:40]!r}: muted footage is not rendered.")
+        return SegmentPlan(kind="skip", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id)
+
+    source_video = item.get("source_video")
+    role = item.get("role", seg_type or "archive_clip")
+    source_path = find_source_video(source_video, fragment_id)
 
     _has_generated_visual = bool(
         item.get("render_visual_path") or item.get("visual_path") or item.get("asset_path")
@@ -440,19 +493,14 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
 
     # ---- narration_broll / ai_voiceover -------------------------------------
     if seg_type == "narration_broll" or item_audio_mode == "ai_voiceover":
-        start = float(item.get("start") or 0)
-        end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
-        if end <= start:
-            end = start + DEFAULT_CLIP_DURATION
+        # No start/end here: narration has no footage window to seek into — its
+        # picture is a generated still, so only its duration matters.
         external_audio_path = Path(item["audio_path"]) if item.get("audio_path") else None
-        if external_audio_path and external_audio_path.exists():
-            audio_mode = "external"
-        else:
+        if not (external_audio_path and external_audio_path.exists()):
             if external_audio_path:
-                log(f"  [render] External audio not found: {external_audio_path}. Falling back to muted.")
+                log(f"  [render] External audio not found: {external_audio_path}. Rendering the visual silent.")
             else:
-                log(f"  [render] narration_broll item {idx} ({fragment_id!r}) has no audio_path. Falling back to muted.")
-            audio_mode = "muted"
+                log(f"  [render] narration_broll item {idx} ({fragment_id!r}) has no audio_path. Rendering the visual silent.")
             external_audio_path = None
         tts_duration = float(
             item.get("render_duration") or item.get("duration") or get_clip_candidate_duration(item)
@@ -475,60 +523,34 @@ def _plan_segment(idx: int, item: dict[str, Any], work_dir: Path) -> SegmentPlan
                 tts_duration = real_audio_dur + 0.4
         target_duration = tts_duration
 
+        # Narration ALWAYS plays over its generated visual, never over archive
+        # footage — archive footage is reserved exclusively for speaker_clip, so
+        # a viewer never sees real footage except when a real person is speaking.
+        # Step 08 generates a visual for every narration_broll item, so a missing
+        # one is a manifest defect: fail loudly instead of quietly reaching for
+        # footage that this pipeline has decided narration must not use.
         _vis_path_str = (
             item.get("render_visual_path") or item.get("visual_path") or item.get("asset_path")
         )
-        if _vis_path_str and Path(_vis_path_str).exists():
-            return SegmentPlan(
-                kind="generated_visual", segment_path=segment_path, seg_type="narration_broll", fragment_id=fragment_id,
-                image_path=Path(_vis_path_str), audio_path=external_audio_path, min_duration=target_duration,
-                subtitle_text=item.get("voiceover_text") or item.get("subtitle_text") or "",
-                muted=False, visual_mode="generated_asset",
-            )
-        if not source_path:
+        if not _vis_path_str or not Path(_vis_path_str).exists():
             raise ExportIntegrityError(
                 f"Segment {idx} (narration_broll, fragment={fragment_id!r}): no generated "
-                f"visual and no source video — nothing to put on screen. Re-run Step 08 "
-                f"(it now generates a visual for every footage-less narration item)."
+                f"visual at {_vis_path_str!r}. Narration never renders over archive footage, "
+                f"so there is nothing to put on screen. Re-run Step 08 to generate it."
             )
-        bandaid_note = None
-        stream_loop = False
-        if video_stream_dur > 0 and (start + target_duration) > (video_stream_dur - 0.5):
-            if video_stream_dur >= target_duration + 0.5:
-                fallback_start = max(0.0, video_stream_dur - target_duration - 0.5)
-                bandaid_note = (
-                    f"narration_broll item {idx} ({str(fragment_id)[:40]!r}): window {start:.1f}s..{start+target_duration:.1f}s "
-                    f"exceeds video track ({video_stream_dur:.1f}s) — shifted window back to {fallback_start:.1f}s."
-                )
-                log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
-                start = fallback_start
-                end = fallback_start + target_duration
-            else:
-                stream_loop = True
-                bandaid_note = (
-                    f"narration_broll item {idx} ({str(fragment_id)[:40]!r}): source video track ({video_stream_dur:.1f}s) "
-                    f"shorter than voiceover ({target_duration:.1f}s) — enabling video stream looping."
-                )
-                log(f"  [render] WARNING (footage-bandaid): {bandaid_note}")
-                start = 0.0
-                end = video_stream_dur
         return SegmentPlan(
-            kind="archive", segment_path=segment_path, seg_type=seg_type, fragment_id=fragment_id,
-            source_path=source_path, start=start, end=end, target_duration=target_duration,
-            role=role, audio_mode=audio_mode, audio_path=external_audio_path, lower_third=None,
-            muted=item.get("muted", False), bandaid_note=bandaid_note, stream_loop=stream_loop,
+            kind="generated_visual", segment_path=segment_path, seg_type="narration_broll", fragment_id=fragment_id,
+            image_path=Path(_vis_path_str), audio_path=external_audio_path, min_duration=target_duration,
+            subtitle_text=item.get("voiceover_text") or item.get("subtitle_text") or "",
+            muted=False, visual_mode="generated_asset",
         )
 
-    # ---- archive_visual / speaker_visual / default --------------------------
+    # ---- other archive segments, with their own audio -----------------------
     start = float(item.get("start") or 0)
     end = float(item.get("end") or (start + DEFAULT_CLIP_DURATION))
     if end <= start:
         end = start + DEFAULT_CLIP_DURATION
-    if seg_type == "archive_visual" or item_audio_mode == "silent" or item.get("muted") is True:
-        audio_mode = "muted"
-        lower_third = None
-    else:
-        audio_mode = "source"
+    audio_mode = "source"
 
     bandaid_note = None
     stream_loop = False
@@ -597,7 +619,7 @@ def _execute_plan(plan: SegmentPlan) -> None:
             "-vf", vf,
             "-filter:a", f"volume={ARCHIVE_AUDIO_VOLUME},afade=t=in:st=0:d=0.15,afade=t=out:st={max(td - 0.25, 0):.3f}:d=0.25",
             *_vcodec_flags(threads=2),
-            "-c:a", "aac", "-ar", "48000", "-ac", "2",
+            "-c:a", SEGMENT_AUDIO_CODEC, "-ar", "48000", "-ac", "2",
             str(plan.segment_path),
         ])
     elif plan.kind == "archive":
@@ -628,8 +650,12 @@ class HLSStreamWriter:
     finishes, instead of waiting for concat_segments() to produce one
     final mp4.
 
-    Segments are already h264/aac mp4 (see _execute_plan) so turning one
-    into a .ts chunk is a cheap remux (-c copy), not a re-encode.
+    Segments are h264 video + LOSSLESS PCM audio (see SEGMENT_AUDIO_CODEC),
+    so the video still copies but the audio must be encoded to AAC here —
+    MPEG-TS cannot carry PCM. This is the one place that still encodes AAC
+    per segment, and that is correct for HLS: each .ts chunk is a standalone
+    unit whose priming a player trims from its own container. The final mp4
+    takes the other path, where concat_segments encodes AAC exactly once.
 
     add_segment() must be called in ascending timeline order — the caller
     (_render_timeline_items) buffers out-of-order completions (segments
@@ -647,7 +673,7 @@ class HLSStreamWriter:
 
     def add_segment(
         self,
-        mp4_path: Path,
+        segment_path: Path,
         duration: float,
         timeline_item: dict[str, Any],
         start_time: float,
@@ -661,8 +687,9 @@ class HLSStreamWriter:
             subprocess.run(
                 [
                     "ffmpeg", "-y", "-loglevel", "error",
-                    "-i", str(mp4_path),
-                    "-c", "copy", "-bsf:a", "aac_adtstoasc",
+                    "-i", str(segment_path),
+                    "-c:v", "copy",
+                    "-c:a", "aac", "-ar", "48000", "-ac", "2",
                     "-f", "mpegts", str(seg_path),
                 ],
                 check=True,
@@ -763,11 +790,41 @@ def _render_one_segment(
             f"Rendered segment {idx} ({seg_type_check}, fragment={item.get('fragment_id')!r}) "
             f"has duration 0.0 at {plan.segment_path}. Aborting export."
         )
+
+    # The container duration above is max(video, audio). A segment whose VIDEO
+    # stream is shorter than that still reports a healthy duration here, gets a
+    # correct-looking slot on the timeline, and then loses exactly that much
+    # picture during concat — shifting every later visual earlier while the audio
+    # stays put. Catch it on the segment that caused it, by name, instead of
+    # discovering a 4.9s whole-export desync at the end (or not at all).
+    video_duration = _segment_video_duration(plan.segment_path)
+    if video_duration > 0.0 and (duration - video_duration) > _SEGMENT_AV_TOLERANCE:
+        raise ExportIntegrityError(
+            f"Rendered segment {idx} ({plan.seg_type}, fragment={item.get('fragment_id')!r}) "
+            f"has {video_duration:.3f}s of video but a {duration:.3f}s container "
+            f"({duration - video_duration:.3f}s of picture missing) at {plan.segment_path}. "
+            f"Concat would drop that picture and run every later visual early."
+        )
+
+    # Log the frame count for EVERY segment, not just failing ones, and record it
+    # in the manifest. When an export comes back short there is otherwise no way
+    # to tell afterwards whether the frames were missing as each segment was
+    # written or were dropped during concat: the .mkv segments live in a temp dir
+    # that is cleaned up, and the HLS .ts copies are truncated in their own right.
+    # One number per segment in the log settles that question from the job record
+    # alone, without needing to reproduce the run.
+    log(
+        f"  [segment-frames] segment {idx} ({plan.seg_type}): "
+        f"{round(video_duration * FPS)} frames = {video_duration:.3f}s video / "
+        f"{duration:.3f}s container"
+    )
+
     return idx, plan.segment_path, {
         "index": idx,
         "path": str(plan.segment_path),
         "timeline_item": item,
         "duration": duration,
+        "video_duration": round(video_duration, 3),
         "subtitle_text": plan.subtitle_text,
         "rendered": True,
         "segment_type": plan.seg_type,
