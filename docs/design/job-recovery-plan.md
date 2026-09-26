@@ -13,7 +13,7 @@ These override anything below that says otherwise.
 
 | # | Decision | Effect on the design |
 |---|---|---|
-| 1 | **No automatic retry.** A job whose worker is lost is failed with a clear message; the user resubmits. Retry is a separate, later discussion. | R1 always fails. The claim only runs a job that has never been claimed (`attempts = 0`); a redelivered message fails the job instead of rerunning it. `JOB_MAX_ATTEMPTS` = 1. |
+| 1 | ~~No automatic retry.~~ **Retry on worker loss only** (issue #19, 2026-09-26, reverses the original decision). Up to 3 retries, 4 runs in total. Stage errors, cancellation and the runtime cap are never retried. | R1 requeues while retries are left, otherwise fails. A redelivered message takes over a dead holder's job while retries are left. `JOB_MAX_WORKER_LOSS_RETRIES` = 3 (0 restores the no-retry behaviour). See §16. |
 | 2 | **Environment marker is the queue name.** uat uses `video_jobs_uat`, release uses `video_jobs`. | No `AI4IA_ENV`. `worker_queue` is the marker. Startup warns if a sweeper runs on the default `video_jobs` while `AI4IA_STORAGE_BACKEND=local` (a developer machine pointed at shared stores). |
 | 3 | **Job cap of 35 minutes** (`JOB_MAX_RUNTIME_SECONDS=2100`). Real jobs finish well inside 30 minutes, and users won't watch a loading screen longer. Queue wait is capped separately at 30 minutes (`JOB_QUEUED_MAX_AGE_SECONDS=1800`). | Celery hard `time_limit` = 40 min. That is below the broker's default 1-hour visibility timeout, so a long job is **never** handed out twice. Item 2 (visibility timeout) needs no Redis change on either environment; it's set explicitly to 3600 s and validated at startup to stay above the time limit. |
 | 4 | **Worker shutdown grace** is a separate change in the deploy repo. | Out of scope here. |
@@ -435,13 +435,13 @@ Confirmed sound by the review:
 
 **Where the build differs from the plan text above,** following the decisions and three reviews:
 
-- **No retry.** The claim only runs a never-claimed, queued job with a matching `dispatch_id` (`attempts = 0`). A later delivery for a job whose holder is dead fails it as `worker_lost`. R1 always fails.
+- **No retry** (superseded by §16). The claim only runs a never-claimed, queued job with a matching `dispatch_id` (`attempts = 0`). A later delivery for a job whose holder is dead fails it as `worker_lost`. R1 always fails.
 - **The worker enforces the 35-minute cap itself.** The stop signal `deadline` is raised in `run_script` and between stages, and the job is failed through `_fail_job` with a user message. The sweeper's deadline rule is a backstop at cap + stale window, for a silent worker.
 - **Celery limits:**
   - `soft_time_limit` at cap + 4 min: the runner maps it to `deadline_exceeded`, and `run_script` kills its script on any exit.
   - Hard `time_limit` at cap + 5 min, below the 1 h visibility timeout, which stays at the default and is set explicitly.
 - **Snapshot saves** on a leased row never change `status` (except to `cancelled`). Once the row has finished, they don't change `error` or `completed_at` either.
-- **Leftover scripts:** the script's pid and host are kept in the job's metadata (`active_pid`, `active_host`). A delivery on the same host, or the task's own `finally`, kills the script's process group once its leader is confirmed to name the job. PR_SET_PDEATHSIG and clearing temp directories at stage start were dropped: with no retry, a job id never runs twice.
+- **Leftover scripts:** the script's pid and host are kept in the job's metadata (`active_pid`, `active_host`). A delivery on the same host, or the task's own `finally`, kills the script's process group once its leader is confirmed to name the job. PR_SET_PDEATHSIG and clearing temp directories at stage start were dropped: with no retry, a job id never runs twice. Temp-directory clearing is restored in §16.
 - **Legacy rows:** `worker_queue is null` rows are failed as `expired` after 6 h. Queued-too-long is measured from `created_at`.
 
 **Code:**
@@ -470,3 +470,57 @@ Confirmed sound by the review:
 | 3 | `FLUSHDB` with a job queued, no worker | Untouched inside the 120 s grace; then re-sent with a new `dispatch_id`; ran once when a worker started |
 | 4 | Running job's message restored early (the shared-Redis case) | The restored copy was delivered and dropped as `leased`; the job completed once |
 | 5 | Cancel mid-script, the way the API does | The heartbeat saw the cancel; the script stopped in 3 s; the job ended `cancelled` |
+
+---
+
+## 16. Retry on worker loss (issue #19, 2026-09-26)
+
+Reverses decision 1. A job is rerun from the start only when its worker is lost.
+
+**When a job is retried.** Only on the dead-holder path:
+- **Claim takeover.** A redelivered message with the job's current `dispatch_id` finds the holder dead (its pid is gone on this host, or its heartbeat is stale). It kills the leftover script group, then takes the lease in one statement fenced on the dead owner, the `dispatch_id` and the budget.
+- **Sweeper R1.** A running job with a stale heartbeat is requeued: `status = queued`, a new `dispatch_id`, lease cleared, fenced on the owner and a still-stale heartbeat. The message is sent after the row commits; if the send fails, R2 re-sends it.
+
+Stage errors, cancellation, the worker's own runtime cap, the Celery time limits and the sweeper's deadline rule all fail the job as before. The deadline rule runs before R1 in each pass.
+
+**Budget and guard.** `JOB_MAX_WORKER_LOSS_RETRIES` (default 3). A loss is retried while `attempts <= retries`. The job fails as `worker_lost_repeatedly` when the budget is spent, or when its worker is lost a second time in the same stage (read from the job's `interrupted` events), since that stage likely kills the worker. With 0, the job fails as `worker_lost`, as before.
+
+**What a retry resets.**
+- `started_at` is set by every claim, so the runtime cap is per run, like the worker's own cap and the Celery limits. Snapshot saves no longer change `started_at` on leased rows.
+- Progress, `current_stage` and `stage_status` go back to the start, so progress does not jump.
+- Queued-too-long counts from the requeue (`metadata.requeued_at`) for a retried job, and from `created_at` for a first run. A lost-message re-send does not reset it.
+- Each stage clears its job-scoped directories when it starts: `/tmp/ai4ia_pipeline/{07,07b,08,10}_{job_id}`, `data/jobs/{job_id}/generated_assets` (local mode) and `exports/hls/{job_id}`. The `07_` directory is now also removed when a job ends.
+- A retried claim on the same host kills the lost run's leftover script group.
+- Stage 09 (S3 mode) deletes the job's own asset folder in the local cache before downloading, so a storyline-cache hit never renders with the lost run's audio. Assets shared across jobs are kept.
+
+**What the user sees.** An `interrupted` event with `attempt`, `max_attempts` and the message "Restarting after a server interruption". The status goes `running` → `queued` → `running` (sweeper) or stays `running` (takeover). Processing records stay open until the job ends.
+
+**Keeping failures out of the retry path.**
+- If a run ends while it still holds the lease (for example, its failure write raised), the task fails the job as `pipeline_error`, so the sweeper never sees it as a lost worker.
+- The worker stops itself once its last good heartbeat is older than 0.8 × the stale window, even when the heartbeat write hangs instead of failing. So the old run stops before R1 requeues the job.
+- A superseded run leaves the temp directories and the recorded script alone, since they may belong to the new run.
+- A queued job with more attempts than the setting allows (the setting was lowered, e.g. set to 0 for rollback) is failed on delivery, not left to expire.
+
+**Accepted.**
+- A worker cut off from the database for more than about 4 minutes stops itself and is retried. It counts as a lost worker.
+- Snapshot saves are not fenced on the lease owner. A run that is still alive after losing its lease can overwrite progress fields until it stops (edge case 14). The self-stop above makes this window close before R1 fires.
+- Processing-record flags from a lost run stay on the record.
+
+**Chaos runs.** Same setup as §15: a real Celery worker, local Postgres, an isolated Redis database, heartbeat 2 s and stale window 12 s, with the pipeline replaced by one long `run_script` call.
+
+| # | Scenario | Result |
+|---|---|---|
+| 0 | Normal run | Completed, attempts 1 |
+| 1 | `kill -9` the worker child mid-script (OOM) | The redelivery took the job over within 3 s and killed the leftover script. It completed on run 2 with one `interrupted` event. |
+| 2 | `kill -9` the whole worker (pod loss) | The sweeper requeued the job after 12 s (the stale window). The next worker's claim killed the leftover script, and the job completed on run 2. |
+| 3 | 4 losses, each in a new stage | Failed as `worker_lost_repeatedly` after 4 runs, with 3 `interrupted` events |
+| 4 | 2 losses in the same stage | Failed as `worker_lost_repeatedly` after 2 runs |
+| 5 | Stage error | Failed as `pipeline_error` at once. Still attempts 1 after the stale window. |
+
+The interruption's stage is kept in the event payload, because `job_events` has no stage column.
+
+**Metrics.** `jobs_retried_total{path="claim|sweeper"}`; `job_claims_total` gains `retry` and `worker_lost_repeatedly`; `jobs_failed_by_sweeper_total` gains `worker_lost_repeatedly`.
+
+**Cost.** A retry reruns the LLM stages unless the storyline cache hits, and may produce a different storyline.
+
+**Rollback.** Set `JOB_MAX_WORKER_LOSS_RETRIES=0` and restart, or redeploy the previous image. Rows are unchanged, so old code reads them.

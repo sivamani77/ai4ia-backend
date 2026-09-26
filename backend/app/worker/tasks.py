@@ -123,7 +123,29 @@ def run_video_job_task(
         raise exc
     finally:
         job_lease.release(job_id)
-        _kill_own_script(job_id)
+        ended = job_lease.ended_by(job_id)
+        if ended != job_lease.STOP_SUPERSEDED:
+            # A superseded run's recorded script may be the new run's.
+            _kill_own_script(job_id)
+        if ended not in (job_lease.STOP_SUPERSEDED, job_lease.STOP_HEARTBEAT_LOST):
+            _fail_if_still_held(job_id, owner)
+
+
+def _fail_if_still_held(job_id: str, owner: str) -> None:
+    """Fail a job this run still holds after it ended, e.g. because its
+    failure write raised. Left running, it would look like a lost worker and
+    be retried."""
+    from app.services import job_lease
+
+    try:
+        state = job_lease.job_store.job_lease_state(job_id)
+        if not state or state["status"] != "running" or state["lease_owner"] != owner:
+            return
+        logger.error("[%s] Run ended without a result; failing the job", job_id)
+        if job_lease.job_store.fail_job_if_lease(job_id, expected_owner=owner, error=job_lease.RUN_ENDED_ERROR):
+            job_lease.record_failure(job_id, "pipeline_error", job_lease.RUN_ENDED_ERROR)
+    except Exception:  # noqa: BLE001
+        logger.warning("[%s] Could not check the job's final state", job_id, exc_info=True)
 
 
 def _kill_own_script(job_id: str) -> None:

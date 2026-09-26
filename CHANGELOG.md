@@ -16,6 +16,7 @@ First tagged release. It covers everything merged since the last production depl
 - Archive coverage check: prompts about speakers, chapters or years the archive lacks are declined before any LLM call.
 - Speaker registry, and a switch-controlled speaker repair (applied from uat on 2026-09-23).
 - Job recovery: leases, heartbeats and a sweeper fail jobs whose worker is lost, and re-send lost queued jobs.
+- Video jobs whose worker is lost (OOM kill, deploy, node drain) rerun automatically, up to `JOB_MAX_WORKER_LOSS_RETRIES` times (default 3) (#19).
 - Per-environment video queue (`WORKER_QUEUE`).
 - Per-user and platform video job quotas.
 - Feedback, notifications and tour-seen endpoints, replacing direct Supabase calls from the frontend.

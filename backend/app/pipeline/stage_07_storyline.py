@@ -12,7 +12,7 @@ from typing import Any
 from app.core.paths import DATA_DIR, SCRIPTS_DIR, STORYLINES_DIR, PROJECT_ROOT
 from app.core.settings import settings
 from app.pipeline.base import PipelineContext, StageResult, run_script, _newest_file_after
-from app.pipeline.s3_helpers import use_s3, upload, download_if_missing
+from app.pipeline.s3_helpers import use_s3, upload, download_if_missing, cleanup_tmp_dir
 from app.pipeline.timeline_budget import SOURCE_DURATION_INDEX_S3_KEY
 from app.services import processing_records
 from app.services.job_store import append_event, load_job, save_job
@@ -51,6 +51,8 @@ def _prepare_source_duration_index(job_id: str) -> dict[str, str]:
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
     update_stage(job_id, "07_storyline", "running", 5, "Starting storyline generation")
     append_event(job_id, "stage_started", "07_storyline", {"prompt": request.get("prompt", "")})
+    # A rerun after a lost worker must not reuse the lost run's partial files.
+    cleanup_tmp_dir(f"07_{job_id}")
 
     import time
     ts_before = time.time()

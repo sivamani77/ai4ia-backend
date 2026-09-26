@@ -4,6 +4,7 @@ import sys
 import json
 import logging
 import re
+import shutil
 import threading
 import time
 from pathlib import Path
@@ -101,6 +102,12 @@ def _prepare_assets_for_export(manifest_path: str, job_id: str) -> Path:
         mdata = json.loads(manifest_local.read_text(encoding="utf-8"))
     except Exception:
         mdata = {}
+
+    # This job's own assets may be left from a lost run, which the cache
+    # below would reuse. Assets shared across jobs are kept.
+    storyline_id = str(mdata.get("storyline_id") or "")
+    if job_id in storyline_id:
+        shutil.rmtree(GENERATED_ASSETS_DIR / storyline_id, ignore_errors=True)
 
     _download_referenced_assets_cached(mdata)
     _download_source_videos_cached(mdata)
@@ -347,6 +354,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     manifest_path = context.asset_manifest_path
     update_stage(job_id, "09_export", "running", 5, "Starting final video export")
     append_event(job_id, "stage_started", "09_export", {"manifest_path": manifest_path})
+    # A rerun after a lost worker must not reuse the lost run's partial files.
+    shutil.rmtree(EXPORTS_DIR / "hls" / job_id, ignore_errors=True)
 
     if use_s3():
         update_stage(job_id, "09_export", "running", 8, "Downloading assets and source videos from S3")

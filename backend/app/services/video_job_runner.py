@@ -223,7 +223,7 @@ def _is_cancelling(job_id: str) -> bool:
 
 def _cleanup_job_tmp_dirs(job_id: str) -> None:
     """Delete all pipeline /tmp stage directories for a job (safe, ignore_errors)."""
-    for prefix in (f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
+    for prefix in (f"07_{job_id}", f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
         p = Path(f"/tmp/ai4ia_pipeline/{prefix}")
         if p.exists():
             shutil.rmtree(p, ignore_errors=True)
@@ -523,7 +523,9 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
                 # sweeper); record nothing.
                 stage_log.warning("Run stopped during %s: %s", stage_name, exc.reason)
                 job_lease.release(job_id)
-                _cleanup_job_tmp_dirs(job_id)
+                if exc.reason != job_lease.STOP_SUPERSEDED:
+                    # A superseded run's temp dirs may be the new run's.
+                    _cleanup_job_tmp_dirs(job_id)
                 return
             except (JobDeadlineExceeded, SoftTimeLimitExceeded):
                 stage_log.error("Job passed its %ss limit during %s", settings.job_max_runtime_seconds, stage_name)
@@ -605,7 +607,7 @@ def run_video_job(job_id: str, request: dict[str, Any]) -> None:
             if STORAGE_BACKEND == "s3":
                 upload_job_outputs_to_s3(job_id)
                 from app.pipeline.s3_helpers import cleanup_tmp_dir
-                for stage_prefix in (f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
+                for stage_prefix in (f"07_{job_id}", f"07b_{job_id}", f"08_{job_id}", f"09_{job_id}", f"10_{job_id}"):
                     cleanup_tmp_dir(stage_prefix)
         except Exception:
             log.warning("S3 upload failed for job %s — outputs remain on local disk", job_id, exc_info=True)
