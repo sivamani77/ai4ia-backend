@@ -255,6 +255,8 @@ def _semantic_rank_via_chroma(
             continue
         record = dict(meta or {})
         record["fragment_id"] = fid
+        record["video_year"] = conference_year(record.get("video_id"), record.get("source_video"),
+                                               record.get("video_year"))
         record["semantic_score"] = round(1.0 - float(dist), 6)
         ranked.append(record)
         if len(ranked) >= top_k:

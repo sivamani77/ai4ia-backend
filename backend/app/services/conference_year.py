@@ -27,7 +27,8 @@ def known_years() -> dict[str, int]:
     return {k: int(v) for k, v in (data.get("years") or {}).items()}
 
 
-def _as_year(value) -> int | None:
+def as_year(value) -> int | None:
+    """A plausible year as an int, else None ("" and 0 from Chroma included)."""
     try:
         year = int(value)
     except (TypeError, ValueError):
@@ -44,4 +45,4 @@ def conference_year(video_id: str | None = None, source_video: str | None = None
     match = _TITLE_YEAR.search(title or source_video or "")
     if match:
         return int(match.group(1))
-    return _as_year(fallback)
+    return as_year(fallback)

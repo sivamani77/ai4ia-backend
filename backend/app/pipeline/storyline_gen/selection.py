@@ -1,6 +1,7 @@
 from typing import Any
 
 from app.core.settings import settings
+from app.services.conference_year import as_year
 from app.pipeline.timeline_budget import (
     classify_timeline_segment_type,
     normalize_candidate_time_bounds,
@@ -583,12 +584,12 @@ def _assign_relay_sections_by_year(
     if not candidates:
         return recommended_structure
 
-    # Bucket by year; discard year=None for slot assignment
+    # Bucket by year; skip candidates without a usable year
     by_year: dict[int, list[dict[str, Any]]] = {}
     for c in candidates:
-        y = c.get("video_year")
+        y = as_year(c.get("video_year"))
         if y is not None:
-            by_year.setdefault(int(y), []).append(c)
+            by_year.setdefault(y, []).append(c)
 
     distinct_years = sorted(by_year.keys())
     if not distinct_years:
