@@ -99,7 +99,7 @@ class TestNonTerminalWritesAreUnaffected:
 
     def test_finished_leased_jobs_keep_their_error_and_completion_time(self):
         """A late snapshot from a worker the sweeper already failed must not
-        erase the failure (docs/job-recovery-plan.md)."""
+        erase the failure (docs/design/job-recovery-plan.md)."""
         sql = " ".join(_captured_upsert_sql().split())
         for column in ("completed_at", "error"):
             assert (f"{column} = case when jobs.dispatch_id is not null and jobs.status in "

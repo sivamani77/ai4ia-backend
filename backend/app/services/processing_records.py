@@ -1,7 +1,7 @@
 """Request and LLM-exchange records (prompt_resolutions, llm_call_payloads).
 
 Every function here is best-effort: a recording failure is logged and never
-reaches the job. See docs/intent-layer-design.md §10.
+reaches the job. See docs/design/intent-layer-design.md §10.
 """
 from __future__ import annotations
 

@@ -93,7 +93,7 @@ _STATEMENTS = [
     # null are visible to admins only.
     "alter table insights add column if not exists user_id text",
     "create index if not exists idx_insights_user_created on insights (user_id, created_at desc)",
-    # Video job recovery (docs/job-recovery-plan.md). jobs is created by
+    # Video job recovery (docs/design/job-recovery-plan.md). jobs is created by
     # db/init/001_schema.sql, so these are guarded on it existing.
     """
     do $$
@@ -273,7 +273,7 @@ _STATEMENTS = [
     )
     """,
     # One row per request: what was asked and what each layer decided.
-    # See docs/intent-layer-design.md §10.
+    # See docs/design/intent-layer-design.md §10.
     """
     create table if not exists prompt_resolutions (
         id text primary key,
@@ -338,8 +338,8 @@ _STATEMENTS = [
     # feedbacks / notifications — the frontend's feedbackApi.js and
     # notificationsApi.js were switched from direct Supabase calls to this
     # backend's API during the security remediation (frontend commit
-    # "minor fixes", 2026-09-21 — see docs/frontend-changes-for-security-
-    # fixes.md F-5, which already lists both as needing the auth-refresh
+    # "minor fixes", 2026-09-21 — see docs/security/frontend-changes-for-
+    # security-fixes.md F-5, which already lists both as needing the auth-refresh
     # interceptor), but the backend side was never actually built until now.
     # ------------------------------------------------------------------
     """

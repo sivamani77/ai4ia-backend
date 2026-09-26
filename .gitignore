@@ -102,17 +102,8 @@ scripts/export_api_curls.py
 api_curls.sh
 
 CLAUDE.md
-#frontend repo
-ai4ia/
-
-docs/AI4IA_Release_Audit_2026-09-15.xlsx
-docs/AI4IA_Production_Readiness_Audit.xlsx
-docs/AI4IA_Test_Plan_v1.0.docx
-docs/AI4IA_Defect_and_Gap_Tracker_2026-09-21.xlsx
-docs/AI4IA Speaker Register_link.html
-docs/AI4IA Speaker Register.html
-docs/archive-overview-prompts-handoff.md
-# docs/AI4IA Speaker Register_updated.html
+# Local-only working files: reports, spreadsheets, frontend snapshot (see docs/README.md)
+local/
 
 # Local rehearsal backups (speaker cleanup)
 backups/

@@ -1,5 +1,5 @@
 """Job leases: claim outcomes, heartbeat stop signals, leftover-script kill
-(docs/job-recovery-plan.md, section 5)."""
+(docs/design/job-recovery-plan.md, section 5)."""
 from __future__ import annotations
 
 import os

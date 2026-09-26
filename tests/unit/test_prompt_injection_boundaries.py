@@ -1,6 +1,6 @@
 """Structural verification of the prompt-injection mitigation (system/user
 role separation + untrusted-content wrapping) — see
-docs/AI4IA_Production_Readiness_Audit.xlsx, Checklist 2.1.
+local/reports/AI4IA_Production_Readiness_Audit.xlsx, Checklist 2.1.
 
 A deterministic unit test cannot prove a live model resists an injected
 instruction — that is a live-model evaluation concern, out of scope here.
