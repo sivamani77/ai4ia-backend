@@ -21,6 +21,12 @@ GENERIC_ONLY_TERMS = {"inclusion", "equity", "access", "diversity", "accessibili
 # discarding it outright. Provisional value; tune against real reruns.
 NO_TOPIC_TERMS_SEMANTIC_FLOOR = 0.65
 
+# Speaker + topic prompts: the speaker's own fragments closest to the topic count
+# as strong evidence even without the literal topic word (measured: Cordel Green
+# never says "regulation" but speaks about policy and oversight).
+SPEAKER_TOPIC_SHARE = 1 / 3
+SPEAKER_TOPIC_FLOOR = 0.55
+
 
 CRYPTO_TERMS = {"crypto", "cryptocurrency", "blockchain", "web3", "digital currency", "token", "defi", "nft", "exchange", "wallet", "satoshi", "bitcoin", "ethereum"}
 CRYPTOGRAPHY_TERMS = {"cryptography", "encryption", "decryption", "cipher", "quantum cryptography", "post quantum", "homomorphic", "zero knowledge", "cryptographic", "hashing", "hash function", "public key", "private key"}
@@ -465,6 +471,7 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     generic_terms = enriched.get("generic_evidence_terms") or []
 
     semantic_only_match = False
+    own_voice = _own_voice(enriched, profile)
 
     if reject:
         role = "reject"
@@ -479,7 +486,12 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
             f"Prompt names this video's title "
             f"({profile.get('title_match_ratio')} of prompt terms matched)."
         )
-    elif requested_speaker and scope == "all_themes":
+    elif enriched.get("speaker_topic_rank") and own_voice:
+        role = "strong_related"
+        reason = f"Among the speaker's own fragments closest to the topic. {enriched.get('selection_reason')}"
+    elif requested_speaker and own_voice and (scope == "all_themes" or not profile.get("topic_terms")):
+        # A name and no topic: the speaker's own talk is the answer. The name
+        # is not in the embedded text, so similarity to the prompt says little.
         if enriched.get("speaker_match") and (semantic_score >= 0.45 or quote_strength >= 0.55 or clarity_score >= 0.9):
             role = "exact"
             reason = f"Requested speaker match with strong archive evidence across themes. {enriched.get('selection_reason')}"
@@ -583,6 +595,32 @@ def classify_candidate_relevance_v2(candidate: dict[str, Any], profile: dict[str
     return enriched
 
 
+def _own_voice(candidate: dict[str, Any], profile: dict[str, Any]) -> bool:
+    """The requested speaker's own words: never another panelist's, unless the
+    speaker appears only on panels (their clips are then framed as the panel)."""
+    if not (profile.get("requested_speaker") and candidate.get("speaker_match")):
+        return False
+    panel = candidate.get("speaker_match_panel") or str(candidate.get("speaker_match_reason") or "").startswith("panel")
+    return not panel or bool(profile.get("speaker_panel_only"))
+
+
+def rank_speaker_topic(annotated: list[dict[str, Any]], profile: dict[str, Any]) -> list[dict[str, Any]]:
+    """Speaker + topic: re-classify the speaker's own fragments closest to the topic as strong."""
+    if not (profile.get("requested_speaker") and profile.get("topic_terms")):
+        return annotated
+    own = [c for c in annotated if _own_voice(c, profile)
+           and not str(c.get("relevance_reason") or "").startswith("Rejected:")]
+    own.sort(key=lambda c: float(c.get("semantic_score") or 0.0), reverse=True)
+    keep = max(1, round(len(own) * SPEAKER_TOPIC_SHARE)) if own else 0
+    chosen = {id(c) for c in own[:keep] if float(c.get("semantic_score") or 0.0) >= SPEAKER_TOPIC_FLOOR
+              and c.get("relevance_role") not in ("exact", "strong_related")}
+    if not chosen:
+        return annotated
+    log(f"Speaker topic rank: {len(chosen)} of the speaker's {len(own)} fragments promoted to strong_related")
+    return [classify_candidate_relevance_v2({**c, "speaker_topic_rank": True}, profile) if id(c) in chosen else c
+            for c in annotated]
+
+
 def annotate_candidate_relevance(
     records: list[dict[str, Any]],
     prompt: str,
@@ -608,7 +646,7 @@ def annotate_candidate_relevance(
         enriched = classify_candidate_relevance_v2(record, intent)
         annotated.append(enriched)
 
-    return annotated
+    return rank_speaker_topic(annotated, intent)
 
 
 def theme_coverage(records: list[dict[str, Any]]) -> list[str]:
