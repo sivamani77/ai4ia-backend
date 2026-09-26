@@ -92,12 +92,21 @@ def test_resolve_feedback_notifies_submitter(api_app, mock_settings, monkeypatch
     assert notified["user_id"] == "submitter-1"
 
 
-def test_notifications_are_self_scoped(api_app, mock_settings):
+def test_notifications_are_self_scoped(api_app, mock_settings, monkeypatch):
+    import app.db.repositories.notification_repository as notification_repository
+
+    written = {}
+    monkeypatch.setattr(
+        notification_repository.NotificationRepository, "create",
+        lambda self, data: written.update(data) or dict(data),
+    )
+
     api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="user-1", persona="general")
     with TestClient(api_app) as client:
-        response = client.post("/api/notifications", json={"message": "hi"})
+        response = client.post("/api/notifications", json={"message": "hi", "user_id": "someone-else"})
     assert response.status_code == 201
     assert response.json()["user_id"] == "user-1"
+    assert written["user_id"] == "user-1"
 
 
 def test_mark_notification_read_404_for_missing(api_app, mock_settings, monkeypatch):
