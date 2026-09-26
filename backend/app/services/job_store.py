@@ -69,8 +69,20 @@ def create_job_within_quota(
     return reason
 
 
-def claim_job(job_id: str, *, dispatch_id: str | None, owner: str, worker_queue: str) -> bool:
-    return get_job_repo().claim(job_id, dispatch_id=dispatch_id, owner=owner, worker_queue=worker_queue)
+def claim_job(job_id: str, *, dispatch_id: str | None, owner: str, worker_queue: str, max_retries: int = 0) -> bool:
+    return get_job_repo().claim(job_id, dispatch_id=dispatch_id, owner=owner, worker_queue=worker_queue,
+                                max_retries=max_retries)
+
+
+def take_over_job(job_id: str, *, dispatch_id: str | None, dead_owner: str | None, owner: str,
+                  max_retries: int) -> bool:
+    return get_job_repo().take_over(job_id, dispatch_id=dispatch_id, dead_owner=dead_owner, owner=owner,
+                                    max_retries=max_retries)
+
+
+def interrupted_stages(job_id: str) -> list[str]:
+    """The stages in which the job's earlier runs lost their worker."""
+    return get_event_repo().payload_stages(job_id, "interrupted")
 
 
 def job_lease_state(job_id: str) -> dict[str, Any] | None:

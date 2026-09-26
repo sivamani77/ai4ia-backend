@@ -2,6 +2,7 @@ from __future__ import annotations
 import sys
 
 import json
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -49,6 +50,9 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     validated_path = context.validated_storyline_path
     update_stage(job_id, "08_assets", "running", 5, "Starting voiceover and visual asset generation")
     append_event(job_id, "stage_started", "08_assets", {"validated_path": validated_path})
+    # A rerun after a lost worker must not reuse the lost run's partial files.
+    cleanup_tmp_dir(f"08_{job_id}")
+    shutil.rmtree(DATA_DIR / "jobs" / job_id / "generated_assets", ignore_errors=True)
 
     if use_s3():
         update_stage(job_id, "08_assets", "running", 8, "Downloading storyline from S3")

@@ -6,8 +6,10 @@ environment's queue (settings.worker_queue):
 
   deadline    running past the runtime cap plus the stale window (the worker
               fails its own job at the cap, so this only catches a silent one)
-  worker lost running with no heartbeat for job_stale_after_seconds
-  expired     queued longer than job_queued_max_age_seconds
+  worker lost running with no heartbeat for job_stale_after_seconds: requeued
+              while it has retries left (job_lease.loss_verdict), else failed
+  expired     queued longer than job_queued_max_age_seconds, counted from
+              the requeue for a retried job
   legacy      rows from before leases, stuck for 6 hours (either environment)
   lost msg    queued, never claimed, and the queue is empty: re-send it
 
@@ -45,6 +47,7 @@ _ERRORS = {
                         "Please try again, or choose a shorter duration.",
     },
     "worker_lost": job_lease.WORKER_LOST_ERROR,
+    "worker_lost_repeatedly": job_lease.WORKER_LOST_REPEATEDLY_ERROR,
     "queue_expired": {
         "type": "queue_expired",
         "message": "The job waited in the queue past its limit.",
@@ -101,16 +104,13 @@ def _run_rules(queue: str) -> None:
         {**params, "limit": settings.job_max_runtime_seconds + stale},
     )
     if _heartbeats_trustworthy():
-        _fail(
-            "worker_lost",
-            "worker_queue = %(queue)s and status = 'running'"
-            " and heartbeat_at < now() - make_interval(secs => %(stale)s)",
-            params,
-        )
+        _recover_lost_workers(queue)
     _fail(
         "queue_expired",
         "worker_queue = %(queue)s and status = 'queued'"
-        " and created_at < now() - make_interval(secs => %(limit)s)",
+        " and case when attempts = 0 then created_at"
+        " else coalesce((metadata->>'requeued_at')::timestamptz, dispatched_at) end"
+        " < now() - make_interval(secs => %(limit)s)",
         {**params, "limit": settings.job_queued_max_age_seconds},
     )
     _fail(
@@ -130,8 +130,49 @@ def _fail(reason: str, where_sql: str, params: dict) -> None:
         job_lease.record_failure(row["id"], reason, error, by_sweeper=True)
 
 
+def _recover_lost_workers(queue: str) -> None:
+    """Requeue each running job whose heartbeat went stale while it has
+    retries left; fail the rest. Every write is conditional on the heartbeat
+    still being stale, so a worker that beats at the same moment wins."""
+    stale = settings.job_stale_after_seconds
+    repo = job_store.get_job_repo()
+    for row in repo.lost_worker_candidates(queue, stale):
+        attempts = int(row.get("attempts") or 0)
+        error = job_lease.loss_verdict(row["id"], attempts, row["stage"])
+        if error is not None:
+            _fail(
+                error["type"],
+                "worker_queue = %(queue)s and id = %(id)s and status = 'running'"
+                " and lease_owner is not distinct from %(owner)s"
+                " and heartbeat_at < now() - make_interval(secs => %(stale)s)",
+                {"queue": queue, "id": row["id"], "owner": row["lease_owner"], "stale": stale},
+            )
+            continue
+        new_id = uuid.uuid4().hex
+        if not repo.requeue_lost(row["id"], worker_queue=queue, expected_owner=row["lease_owner"],
+                                 stale_seconds=stale, new_dispatch_id=new_id):
+            continue
+        job_lease.record_interrupted(row["id"], attempts, row["stage"], path="sweeper")
+        _send(row["id"], row.get("request") or {}, new_id)
+
+
+def _send(job_id: str, request: dict, dispatch_id: str) -> bool:
+    """Send a job's message after its row has committed, so older messages
+    are already void. A failed send leaves the job queued with no message;
+    the lost-message rule re-sends it."""
+    from app.services.video_job_runner import start_video_job_background
+
+    try:
+        start_video_job_background(job_id, request, dispatch_id=dispatch_id)
+        return True
+    except Exception:  # noqa: BLE001
+        logger.warning("Sweeper could not send job %s", job_id, exc_info=True)
+        return False
+
+
 def _resend_lost_messages(queue: str) -> None:
-    candidates = job_store.get_job_repo().lost_queue_candidates(queue, _LOST_MESSAGE_GRACE_SECONDS)
+    max_retries = settings.job_max_worker_loss_retries
+    candidates = job_store.get_job_repo().lost_queue_candidates(queue, _LOST_MESSAGE_GRACE_SECONDS, max_retries)
     if not candidates:
         return
     size = _queue_size(queue)
@@ -139,21 +180,14 @@ def _resend_lost_messages(queue: str) -> None:
         # Unknown (Redis down) or messages still waiting: the job's message may
         # be among them, and re-sending would put it at the back of the queue.
         return
-    from app.services.video_job_runner import start_video_job_background
-
     for row in candidates:
         new_id = uuid.uuid4().hex
         if not job_store.get_job_repo().redispatch(row["id"], old_dispatch_id=row["dispatch_id"],
-                                                   new_dispatch_id=new_id):
+                                                   new_dispatch_id=new_id, max_retries=max_retries):
             continue
-        try:
-            # Sent after the row committed, so the old message is already void.
-            start_video_job_background(row["id"], row.get("request") or {}, dispatch_id=new_id)
+        if _send(row["id"], row.get("request") or {}, new_id):
             _metrics.jobs_redispatched_total.inc()
             logger.warning("Sweeper re-sent job %s: its queue message was lost", row["id"])
-        except Exception:  # noqa: BLE001
-            # Row now has a dispatch id with no message; the next pass retries.
-            logger.warning("Sweeper could not re-send job %s", row["id"], exc_info=True)
 
 
 def _queue_size(queue: str) -> int | None:

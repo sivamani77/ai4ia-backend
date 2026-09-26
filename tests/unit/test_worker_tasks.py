@@ -229,3 +229,36 @@ class TestIngestDeliveryGuard:
              patch("app.worker.tasks.run_ingest_job") as mock_run:
             run_ingest_job_task.run("ijob_dbdown")
         mock_run.assert_called_once()
+
+
+class TestRunEndedWithoutAResult:
+    """A run whose own failure write raised must not look like a lost worker,
+    or the sweeper would retry a failed stage (issue #19)."""
+
+    @pytest.fixture
+    def job(self, mock_job_store, monkeypatch):
+        from app.services import job_lease, processing_records
+
+        monkeypatch.setattr(processing_records, "finish", lambda *a, **k: None)
+        job_lease._leases.clear()
+        mock_job_store["jobs"]["vjob_x"] = {"job_id": "vjob_x", "status": "queued", "dispatch_id": "d1",
+                                            "attempts": 0, "user_id": "u1"}
+        return mock_job_store["jobs"]["vjob_x"]
+
+    def test_job_still_held_after_the_run_is_failed(self, job):
+        from app.worker.tasks import run_video_job_task
+
+        with patch("app.worker.tasks.run_video_job"):
+            run_video_job_task.run("vjob_x", {}, dispatch_id="d1")
+        assert job["status"] == "failed" and job["error"]["type"] == "pipeline_error"
+
+    def test_superseded_run_leaves_the_job_alone(self, job):
+        from app.services import job_lease
+        from app.worker.tasks import run_video_job_task
+
+        def _superseded(job_id, request):
+            job_lease._leases[job_id].stop_reason = job_lease.STOP_SUPERSEDED
+
+        with patch("app.worker.tasks.run_video_job", side_effect=_superseded):
+            run_video_job_task.run("vjob_x", {}, dispatch_id="d1")
+        assert job["status"] == "running"

@@ -68,6 +68,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     storyline_path = context.storyline_path
     update_stage(job_id, "07b_validate_storyline", "running", 5, "Starting LLM editorial validation")
     append_event(job_id, "stage_started", "07b_validate_storyline", {"storyline_path": storyline_path})
+    # A rerun after a lost worker must not reuse the lost run's partial files.
+    cleanup_tmp_dir(f"07b_{job_id}")
 
     if use_s3():
         update_stage(job_id, "07b_validate_storyline", "running", 8, "Downloading inputs from S3")
