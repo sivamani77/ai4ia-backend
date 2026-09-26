@@ -12,6 +12,7 @@ ENV/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.ai4ia_uat_admin.env
 
 # Environment / secrets
 .env.example

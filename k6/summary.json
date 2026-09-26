@@ -1,317 +1,41 @@
 {
-  "metrics": {
-    "checks": {
-      "type": "rate",
-      "contains": "default",
-      "values": {
-        "rate": 0.400327868852459,
-        "passes": 1221,
-        "fails": 1829
-      }
-    },
-    "t_job_create": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "avg": 6.52767716,
-        "min": 4.167692,
-        "med": 5.738362,
-        "max": 14.156203,
-        "p(90)": 9.654788600000002,
-        "p(95)": 11.298378799999997
-      }
-    },
-    "http_req_failed": {
-      "contains": "default",
-      "values": {
-        "rate": 0.6873773708306082,
-        "passes": 2102,
-        "fails": 956
-      },
-      "thresholds": {
-        "rate<0.05": {
-          "ok": false
-        }
-      },
-      "type": "rate"
-    },
-    "http_req_connecting": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "avg": 0.4422361942446042,
-        "min": 0,
-        "med": 0,
-        "max": 41.558981,
-        "p(90)": 0,
-        "p(95)": 0
-      }
-    },
-    "http_req_receiving": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "avg": 21.57757446468285,
-        "min": 0,
-        "med": 0.023353,
-        "max": 1727.224091,
-        "p(90)": 0.13596160000000007,
-        "p(95)": 2.465008400000022
-      }
-    },
-    "data_sent": {
-      "type": "counter",
-      "contains": "data",
-      "values": {
-        "count": 1562028,
-        "rate": 12670.347257468571
-      }
-    },
-    "vus": {
-      "type": "gauge",
-      "contains": "default",
-      "values": {
-        "value": 50,
-        "min": 0,
-        "max": 50
-      }
-    },
-    "http_req_blocked": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "avg": 3.0541769784172588,
-        "min": 0.001158,
-        "med": 0.0023105,
-        "max": 271.143835,
-        "p(90)": 0.009793,
-        "p(95)": 0.0134026
-      }
-    },
-    "http_req_waiting": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "p(90)": 4261.708365200003,
-        "p(95)": 8336.4517949,
-        "avg": 1797.1110877701215,
-        "min": 3.18926,
-        "med": 14.3109655,
-        "max": 51758.640691
-      }
-    },
-    "failed_requests": {
-      "type": "rate",
-      "contains": "default",
-      "values": {
-        "rate": 0.62,
-        "passes": 1829,
-        "fails": 1121
-      },
-      "thresholds": {
-        "rate<0.05": {
-          "ok": false
-        }
-      }
-    },
-    "vus_max": {
-      "type": "gauge",
-      "contains": "default",
-      "values": {
-        "value": 50,
-        "min": 50,
-        "max": 50
-      }
-    },
-    "group_duration": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "min": 50.290492,
-        "med": 4942.2181275,
-        "max": 52756.129329,
-        "p(90)": 29988.2680182,
-        "p(95)": 38226.10925434998,
-        "avg": 10107.296598907273
-      }
-    },
-    "t_reads": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "max": 51758.675521,
-        "p(90)": 10829.019536700003,
-        "p(95)": 33771.2439749,
-        "avg": 5208.059381538181,
-        "min": 53.504052,
-        "med": 1794.2840995000001
-      }
-    },
-    "server_5xx": {
-      "type": "counter",
-      "contains": "default",
-      "values": {
-        "count": 2003,
-        "rate": 16.247279534495892
-      }
-    },
-    "http_req_tls_handshaking": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "p(90)": 0,
-        "p(95)": 0,
-        "avg": 2.5250794869195556,
-        "min": 0,
-        "med": 0,
-        "max": 230.107645
-      }
-    },
-    "http_reqs": {
-      "type": "counter",
-      "contains": "default",
-      "values": {
-        "count": 3058,
-        "rate": 24.80488308361879
-      }
-    },
-    "iteration_duration": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "avg": 111187.33578809995,
-        "min": 111075.21154,
-        "med": 111212.865031,
-        "max": 111222.57699,
-        "p(90)": 111220.5815494,
-        "p(95)": 111221.42180965
-      }
-    },
-    "iterations": {
-      "values": {
-        "count": 50,
-        "rate": 0.4055736279205165
-      },
-      "type": "counter",
-      "contains": "default"
-    },
-    "http_req_duration{expected_response:true}": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "avg": 3340.7194042290776,
-        "min": 53.504052,
-        "med": 1332.9824125,
-        "max": 36866.239901,
-        "p(90)": 8052.1020215,
-        "p(95)": 12237.09931275
-      }
-    },
-    "data_received": {
-      "values": {
-        "count": 43132537,
-        "rate": 349868.3902501182
-      },
-      "type": "counter",
-      "contains": "data"
-    },
-    "auth_401_403": {
-      "type": "rate",
-      "contains": "default",
-      "values": {
-        "rate": 0,
-        "passes": 0,
-        "fails": 2850
-      },
-      "thresholds": {
-        "rate<0.05": {
-          "ok": true
-        }
-      }
-    },
-    "http_req_duration": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "max": 51758.675521,
-        "p(90)": 4261.871593200003,
-        "p(95)": 8336.620386850002,
-        "avg": 1818.702831142248,
-        "min": 3.210578,
-        "med": 14.343665999999999
-      }
-    },
-    "http_req_sending": {
-      "type": "trend",
-      "contains": "time",
-      "values": {
-        "max": 0.177807,
-        "p(90)": 0.034682300000000034,
-        "p(95)": 0.04316065,
-        "avg": 0.014168907455853459,
-        "min": 0.004054,
-        "med": 0.008808
-      }
-    },
-    "t_analytics_llm": {
-      "values": {
-        "avg": 1469.1981405166666,
-        "min": 5.790731,
-        "med": 13.967704999999999,
-        "max": 15270.08185,
-        "p(90)": 5059.675027600005,
-        "p(95)": 9130.23790605
-      },
-      "type": "trend",
-      "contains": "time"
-    }
-  },
-  "setup_data": {
-    "fragmentId": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0001",
-    "ingestJobId": "ijob_20260627_091113_e4cb71c9",
-    "insightId": "insight_20260713_112350",
-    "speaker1": "Verónica Silva",
-    "speaker2": "Maria Dolores Souza",
-    "theme": "AI Ethics, Governance & Policy",
-    "videoId": "yqqiJmWKZ9I"
-  },
   "root_group": {
     "name": "",
     "path": "",
     "id": "d41d8cd98f00b204e9800998ecf8427e",
     "groups": [
       {
+        "name": "system",
         "path": "::system",
         "id": "6307d02ea602800a1e8024e55602d052",
         "groups": [],
         "checks": [
             {
-              "fails": 0,
               "name": "health 200",
               "path": "::system::health 200",
               "id": "0547f5425da6cd6824aa735677932352",
-              "passes": 50
+              "passes": 10,
+              "fails": 0
             },
             {
               "name": "metrics 200",
               "path": "::system::metrics 200",
               "id": "0d77af69422089effe52981c112fd660",
-              "passes": 50,
+              "passes": 10,
               "fails": 0
             }
-          ],
-        "name": "system"
+          ]
       },
       {
         "id": "4127c5b4ec4d84d8d6603b3aae632e90",
         "groups": [],
         "checks": [
             {
+              "name": "dashboard [200]",
               "path": "::dashboard::dashboard [200]",
               "id": "9acd27dea3565c95bd8992f2dcba7ac7",
-              "passes": 50,
-              "fails": 0,
-              "name": "dashboard [200]"
+              "passes": 10,
+              "fails": 0
             }
           ],
         "name": "dashboard",
@@ -324,127 +48,127 @@
         "groups": [],
         "checks": [
             {
+              "fails": 0,
               "name": "archive_videos [200]",
               "path": "::archive::archive_videos [200]",
               "id": "431caed28e03cf86ce7896f1af91a30d",
-              "passes": 50,
-              "fails": 0
+              "passes": 10
             },
             {
-              "name": "archive_speakers [200]",
-              "path": "::archive::archive_speakers [200]",
               "id": "40b82a109cc2d1bf67947ce08560179d",
-              "passes": 50,
-              "fails": 0
+              "passes": 10,
+              "fails": 0,
+              "name": "archive_speakers [200]",
+              "path": "::archive::archive_speakers [200]"
             },
             {
-              "passes": 50,
               "fails": 0,
               "name": "archive_themes [200]",
               "path": "::archive::archive_themes [200]",
-              "id": "94f008b087fbfc83946e04784366d6ea"
+              "id": "94f008b087fbfc83946e04784366d6ea",
+              "passes": 10
             },
             {
-              "id": "b8e86b971adac4445c0b487bdd69dd4d",
-              "passes": 24,
-              "fails": 26,
+              "passes": 10,
+              "fails": 0,
               "name": "archive_fragments [200]",
-              "path": "::archive::archive_fragments [200]"
+              "path": "::archive::archive_fragments [200]",
+              "id": "b8e86b971adac4445c0b487bdd69dd4d"
             },
             {
+              "name": "archive_search [200]",
               "path": "::archive::archive_search [200]",
               "id": "709e8eeb6f87f416f7bb4a40212df1db",
-              "passes": 35,
-              "fails": 15,
-              "name": "archive_search [200]"
+              "passes": 10,
+              "fails": 0
             },
             {
               "fails": 0,
               "name": "semantic_search [200/503]",
               "path": "::archive::semantic_search [200/503]",
               "id": "53c70f77ce4f75fe181381d48cc1f1df",
-              "passes": 50
+              "passes": 10
             },
             {
-              "id": "de9cf651a13e31f277a236aa401d6e09",
-              "passes": 50,
               "fails": 0,
               "name": "archive_video_detail [200]",
-              "path": "::archive::archive_video_detail [200]"
+              "path": "::archive::archive_video_detail [200]",
+              "id": "de9cf651a13e31f277a236aa401d6e09",
+              "passes": 10
             },
             {
-              "path": "::archive::archive_video_stream alive",
               "id": "d3468f4de8ac24926ff0eaa2058353af",
-              "passes": 50,
+              "passes": 10,
               "fails": 0,
-              "name": "archive_video_stream alive"
+              "name": "archive_video_stream alive",
+              "path": "::archive::archive_video_stream alive"
             },
             {
               "name": "archive_fragment_detail [200]",
               "path": "::archive::archive_fragment_detail [200]",
               "id": "d330cafef59dedc40560032cadc06b8b",
-              "passes": 35,
-              "fails": 15
+              "passes": 10,
+              "fails": 0
             },
             {
               "name": "archive_fragment_preview [200/404]",
               "path": "::archive::archive_fragment_preview [200/404]",
               "id": "c8e190044ed92b5687cd9b1db7af9439",
-              "passes": 48,
-              "fails": 2
+              "passes": 10,
+              "fails": 0
             }
           ]
       },
       {
-        "id": "3ca9bfe2ee2fe75d6fa1cdb92b1ab8bc",
         "groups": [],
         "checks": [
             {
               "name": "insights_list [200]",
               "path": "::insights-read::insights_list [200]",
               "id": "1c363bf0971c7151183e4598d523b214",
-              "passes": 44,
-              "fails": 6
+              "passes": 10,
+              "fails": 0
             },
             {
-              "name": "insight_detail [200]",
-              "path": "::insights-read::insight_detail [200]",
-              "id": "d7e654d00920bdb969f5f7075cdb3063",
-              "passes": 43,
-              "fails": 7
+              "name": "insight_detail [200/404]",
+              "path": "::insights-read::insight_detail [200/404]",
+              "id": "788c82f35276df45b026409929414249",
+              "passes": 10,
+              "fails": 0
             },
             {
-              "fails": 9,
-              "name": "insight_sources [200]",
-              "path": "::insights-read::insight_sources [200]",
-              "id": "c6375f2b815a7564797d1a92909fc605",
-              "passes": 41
+              "name": "insight_sources [200/404]",
+              "path": "::insights-read::insight_sources [200/404]",
+              "id": "486487563479fa25b99d920bb268a129",
+              "passes": 10,
+              "fails": 0
             },
             {
-              "name": "insight_provenance [200]",
-              "path": "::insights-read::insight_provenance [200]",
-              "id": "1faa3f249a7c3aa2aeece173eba90ab9",
-              "passes": 36,
-              "fails": 14
+              "fails": 0,
+              "name": "insight_provenance [200/404]",
+              "path": "::insights-read::insight_provenance [200/404]",
+              "id": "974adf9c325dfc8ca0c2f9e13e798c23",
+              "passes": 10
             }
           ],
         "name": "insights-read",
-        "path": "::insights-read"
+        "path": "::insights-read",
+        "id": "3ca9bfe2ee2fe75d6fa1cdb92b1ab8bc"
       },
       {
-        "name": "provenance",
-        "path": "::provenance",
         "id": "4ebe5964e333ae19576c46ab27435232",
         "groups": [],
         "checks": [
             {
-              "path": "::provenance::provenance_feed [200]",
-              "id": "2d34315b768dc3852016c116562949e4",
-              "passes": 20,
-              "fails": 30,
-              "name": "provenance_feed [200]"
+              "passes": 10,
+              "fails": 0,
+              "name": "provenance_feed [200/401/403]",
+              "path": "::provenance::provenance_feed [200/401/403]",
+              "id": "3be7659e72758c1be1f4c271122f95a4"
             }
-          ]
+          ],
+        "name": "provenance",
+        "path": "::provenance"
       },
       {
         "name": "video-jobs-list",
@@ -453,120 +177,92 @@
         "groups": [],
         "checks": [
             {
-              "fails": 0,
               "name": "video_jobs_list [200]",
               "path": "::video-jobs-list::video_jobs_list [200]",
               "id": "1b0c2d47beb0be5167dd0f65ec3353ec",
-              "passes": 50
+              "passes": 10,
+              "fails": 0
             }
           ]
       },
       {
-        "path": "::ingest-read",
         "id": "41ffb8b9ec55d7160049c45639858156",
         "groups": [],
         "checks": [
             {
-              "id": "65a246464cb4ae5e49d41de9d7879aa6",
-              "passes": 49,
-              "fails": 1,
-              "name": "ingest_jobs [200]",
-              "path": "::ingest-read::ingest_jobs [200]"
+              "fails": 0,
+              "name": "ingest_jobs [200/401/403]",
+              "path": "::ingest-read::ingest_jobs [200/401/403]",
+              "id": "cbdf80d0bf002d90bc95c1696922f367",
+              "passes": 10
             },
             {
-              "id": "79da74d4ecc8fe0cd61c7d738d3e3abb",
-              "passes": 14,
-              "fails": 36,
-              "name": "ingest_videos [200]",
-              "path": "::ingest-read::ingest_videos [200]"
+              "fails": 0,
+              "name": "ingest_videos [200/401/403]",
+              "path": "::ingest-read::ingest_videos [200/401/403]",
+              "id": "a45cf32f177a8815414e006a2975b8bc",
+              "passes": 10
             },
             {
-              "name": "ingest_video_detail [200/404]",
-              "path": "::ingest-read::ingest_video_detail [200/404]",
-              "id": "ea5a3adff6e09332bb621d3da4a3e875",
-              "passes": 14,
-              "fails": 36
-            },
-            {
-              "name": "ingest_job_detail [200/404]",
-              "path": "::ingest-read::ingest_job_detail [200/404]",
-              "id": "0c725af8ce8f50a35918d077348b003d",
-              "passes": 14,
-              "fails": 36
-            },
-            {
-              "name": "ingest_job_provenance [200/404]",
-              "path": "::ingest-read::ingest_job_provenance [200/404]",
-              "id": "d61c53093f8818a793fee9aa0f97f9f8",
-              "passes": 14,
-              "fails": 36
-            },
-            {
-              "fails": 36,
-              "name": "ingest_job_logs [200/404]",
-              "path": "::ingest-read::ingest_job_logs [200/404]",
-              "id": "e435c49794ead463481cb90811fd6a97",
-              "passes": 14
-            },
-            {
-              "name": "ingest_job_events alive",
-              "path": "::ingest-read::ingest_job_events alive",
-              "id": "bb470107f3a4da65717799041967d007",
-              "passes": 14,
-              "fails": 36
+              "passes": 10,
+              "fails": 0,
+              "name": "ingest_video_detail [200/404/401/403]",
+              "path": "::ingest-read::ingest_video_detail [200/404/401/403]",
+              "id": "d31d0f5137de8b16aecc598305dc7e62"
             }
           ],
-        "name": "ingest-read"
+        "name": "ingest-read",
+        "path": "::ingest-read"
       },
       {
+        "name": "analytics",
+        "path": "::analytics",
+        "id": "d54455b341cd082f0fd361293669d622",
         "groups": [],
         "checks": [
             {
-              "id": "52a7bf0c807e5001f9187b01d2f7c2f2",
-              "passes": 50,
+              "passes": 10,
               "fails": 0,
               "name": "insights_generate [200/422/502/503]",
-              "path": "::analytics::insights_generate [200/422/502/503]"
+              "path": "::analytics::insights_generate [200/422/502/503]",
+              "id": "52a7bf0c807e5001f9187b01d2f7c2f2"
             },
             {
               "name": "compare_speakers [200/422/502/503]",
               "path": "::analytics::compare_speakers [200/422/502/503]",
               "id": "0e20038e1e91b929ccd680ae0dfdb5f0",
-              "passes": 50,
+              "passes": 10,
               "fails": 0
             },
             {
               "name": "synthesis_theme [200/422/502/503]",
               "path": "::analytics::synthesis_theme [200/422/502/503]",
               "id": "b56f7dbbd823b0948ecd920644774dd7",
-              "passes": 50,
+              "passes": 10,
               "fails": 0
             },
             {
-              "passes": 50,
+              "passes": 10,
               "fails": 0,
               "name": "relay [200/422/502/503]",
               "path": "::analytics::relay [200/422/502/503]",
               "id": "d6ca02b03825a588a6b067708d3ef5c0"
             },
             {
-              "fails": 39,
               "name": "concept_mindmap [200/404/500]",
               "path": "::analytics::concept_mindmap [200/404/500]",
               "id": "7c9839e63ad4b0dd6b7017ac6da10c62",
-              "passes": 11
+              "passes": 10,
+              "fails": 0
             },
             {
               "id": "41062774283c0cd0948b15226896b8ad",
-              "passes": 11,
-              "fails": 39,
+              "passes": 10,
+              "fails": 0,
               "name": "concept_mindmap_alt [200/404/500]",
               "path": "::analytics::concept_mindmap_alt [200/404/500]"
             }
-          ],
-        "name": "analytics",
-        "path": "::analytics",
-        "id": "d54455b341cd082f0fd361293669d622"
+          ]
       },
       {
         "name": "auth",
@@ -578,144 +274,144 @@
               "name": "auth_me [200]",
               "path": "::auth::auth_me [200]",
               "id": "66c1f1a8e85cad78ffaca57c1c69c220",
-              "passes": 9,
-              "fails": 41
+              "passes": 10,
+              "fails": 0
             },
             {
-              "name": "auth_signup [422/400]",
-              "path": "::auth::auth_signup [422/400]",
               "id": "00e544ae9592d1b3c6eeb0436ac0b036",
-              "passes": 9,
-              "fails": 41
+              "passes": 10,
+              "fails": 0,
+              "name": "auth_signup [422/400]",
+              "path": "::auth::auth_signup [422/400]"
             },
             {
-              "name": "auth_login [401/400/403]",
               "path": "::auth::auth_login [401/400/403]",
               "id": "70723b305a7c797262c1ccba957c046b",
-              "passes": 9,
-              "fails": 41
+              "passes": 10,
+              "fails": 0,
+              "name": "auth_login [401/400/403]"
             },
             {
+              "fails": 0,
               "name": "auth_refresh [401]",
               "path": "::auth::auth_refresh [401]",
               "id": "30adc3c4f1b4ae4e27e0fb40045564ae",
-              "passes": 7,
-              "fails": 43
+              "passes": 10
             },
             {
               "name": "auth_logout [200]",
               "path": "::auth::auth_logout [200]",
               "id": "4a19c0affc8e69cb7eb9379ab3a375e6",
-              "passes": 3,
-              "fails": 47
+              "passes": 10,
+              "fails": 0
             },
             {
-              "path": "::auth::auth_forgot [200]",
-              "id": "ce8ca64c95e43961792ebb099af287f7",
-              "passes": 3,
-              "fails": 47,
-              "name": "auth_forgot [200]"
+              "name": "auth_forgot [200/429]",
+              "path": "::auth::auth_forgot [200/429]",
+              "id": "8d612d41eaf01472c08d3f14576b55e2",
+              "passes": 10,
+              "fails": 0
             },
             {
-              "fails": 50,
-              "name": "auth_resend_otp [200/400/404]",
-              "path": "::auth::auth_resend_otp [200/400/404]",
-              "id": "d43c55c5e14f29a026d30ca4b1c848a8",
-              "passes": 0
+              "id": "eb2eae3913c46eaf5c6edc71063baf4d",
+              "passes": 10,
+              "fails": 0,
+              "name": "auth_resend_otp [200/400/404/429]",
+              "path": "::auth::auth_resend_otp [200/400/404/429]"
             },
             {
               "name": "auth_verify_otp [400/404/422]",
               "path": "::auth::auth_verify_otp [400/404/422]",
               "id": "2a59b6ab757ec7bf36c9924701c5fac8",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             },
             {
-              "fails": 50,
               "name": "auth_reset_pw [400/404/422]",
               "path": "::auth::auth_reset_pw [400/404/422]",
               "id": "3eb5285a1d58aeb9865257d48697787b",
-              "passes": 0
+              "passes": 10,
+              "fails": 0
             }
           ]
       },
       {
+        "name": "admin",
+        "path": "::admin",
+        "id": "709a116e5cdb940511c39cfb09b44164",
         "groups": [],
         "checks": [
             {
-              "id": "7b76b408731950cedfbc07f2cafa26d5",
-              "passes": 0,
-              "fails": 50,
               "name": "admin_exports [403/401]",
-              "path": "::admin::admin_exports [403/401]"
+              "path": "::admin::admin_exports [403/401]",
+              "id": "7b76b408731950cedfbc07f2cafa26d5",
+              "passes": 10,
+              "fails": 0
             },
             {
               "name": "admin_reindex [403/401]",
               "path": "::admin::admin_reindex [403/401]",
               "id": "c05cae70e07c8130ee8f739c261f209a",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             },
             {
               "path": "::admin::admin_storage_space [403/401]",
               "id": "475347a6be8499be0ab459beacbbe709",
-              "passes": 0,
-              "fails": 50,
+              "passes": 10,
+              "fails": 0,
               "name": "admin_storage_space [403/401]"
             },
             {
+              "fails": 0,
+              "name": "admin_storage_dirs [403/401]",
               "path": "::admin::admin_storage_dirs [403/401]",
               "id": "45387861c007da6ad909244d96479ee2",
-              "passes": 0,
-              "fails": 50,
-              "name": "admin_storage_dirs [403/401]"
+              "passes": 10
             },
             {
               "name": "admin_storage_dir [403/401]",
               "path": "::admin::admin_storage_dir [403/401]",
               "id": "953c5700a7f3caa59974f487669ede0e",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             },
             {
               "name": "admin_del_dir [403/401]",
               "path": "::admin::admin_del_dir [403/401]",
               "id": "f405ab23d92575929491bb5f1ab90bc7",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             },
             {
               "name": "admin_del_object [403/401/400/422]",
               "path": "::admin::admin_del_object [403/401/400/422]",
               "id": "68b301004a8b5fd842d2e7c483f2e993",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             },
             {
               "name": "admin_del_video [403/401]",
               "path": "::admin::admin_del_video [403/401]",
               "id": "eaa656400a3cb2f8aebf963fba6a55ac",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             },
             {
+              "passes": 10,
+              "fails": 0,
+              "name": "admin_del_export [403/401]",
               "path": "::admin::admin_del_export [403/401]",
-              "id": "4fa7c196709c37248c890ed876277530",
-              "passes": 0,
-              "fails": 50,
-              "name": "admin_del_export [403/401]"
+              "id": "4fa7c196709c37248c890ed876277530"
             },
             {
               "name": "admin_cleanup [403/401]",
               "path": "::admin::admin_cleanup [403/401]",
               "id": "d5709d5f281c6fc2af3d46e64e155dbc",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             }
-          ],
-        "name": "admin",
-        "path": "::admin",
-        "id": "709a116e5cdb940511c39cfb09b44164"
+          ]
       },
       {
         "name": "admin-users",
@@ -724,78 +420,226 @@
         "groups": [],
         "checks": [
             {
-              "fails": 50,
-              "name": "admin_users_list [403/401]",
               "path": "::admin-users::admin_users_list [403/401]",
               "id": "e29e0ab34727b8c99c2ed9f7b27d94fe",
-              "passes": 0
+              "passes": 10,
+              "fails": 0,
+              "name": "admin_users_list [403/401]"
             },
             {
+              "fails": 0,
+              "name": "admin_user_get [403/401]",
               "path": "::admin-users::admin_user_get [403/401]",
               "id": "390a56418ddbc7fea851462b12867f82",
-              "passes": 0,
-              "fails": 50,
-              "name": "admin_user_get [403/401]"
+              "passes": 10
             },
             {
-              "passes": 0,
-              "fails": 50,
               "name": "admin_user_create [403/401/422]",
               "path": "::admin-users::admin_user_create [403/401/422]",
-              "id": "a7a0fb8c41a33f891defd9d63364b1ce"
+              "id": "a7a0fb8c41a33f891defd9d63364b1ce",
+              "passes": 10,
+              "fails": 0
             },
             {
               "name": "admin_user_patch [403/401]",
               "path": "::admin-users::admin_user_patch [403/401]",
               "id": "3b961dc1534e5c56b44e83cb8bc3ce21",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             },
             {
-              "passes": 0,
-              "fails": 50,
+              "id": "94f4a914b06d3cff9e3f6c2516d97b08",
+              "passes": 10,
+              "fails": 0,
               "name": "admin_user_reset_pw [403/401]",
-              "path": "::admin-users::admin_user_reset_pw [403/401]",
-              "id": "94f4a914b06d3cff9e3f6c2516d97b08"
+              "path": "::admin-users::admin_user_reset_pw [403/401]"
             },
             {
+              "path": "::admin-users::admin_user_unlock [403/401]",
               "id": "f5e7ed7e509f729275a6772c32098e33",
-              "passes": 0,
-              "fails": 50,
-              "name": "admin_user_unlock [403/401]",
-              "path": "::admin-users::admin_user_unlock [403/401]"
+              "passes": 10,
+              "fails": 0,
+              "name": "admin_user_unlock [403/401]"
             },
             {
-              "name": "admin_user_deactivate [403/401]",
-              "path": "::admin-users::admin_user_deactivate [403/401]",
               "id": "1215b372cef2b6a197a655a141a3e8fe",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0,
+              "name": "admin_user_deactivate [403/401]",
+              "path": "::admin-users::admin_user_deactivate [403/401]"
             },
             {
-              "name": "admin_user_reactivate [403/401]",
-              "path": "::admin-users::admin_user_reactivate [403/401]",
               "id": "31bba70617f0f21503cabad0291cdb7f",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0,
+              "name": "admin_user_reactivate [403/401]",
+              "path": "::admin-users::admin_user_reactivate [403/401]"
             },
             {
               "name": "admin_user_delete [403/401]",
               "path": "::admin-users::admin_user_delete [403/401]",
               "id": "3271e547b9c2c551fd3018823f08c691",
-              "passes": 0,
-              "fails": 50
+              "passes": 10,
+              "fails": 0
             }
           ]
+      },
+      {
+        "id": "320d667deed42dd0af942059f03c36dc",
+        "groups": [],
+        "checks": [
+            {
+              "name": "video_job_detail [200/404]",
+              "path": "::video-job-artifacts::video_job_detail [200/404]",
+              "id": "b3fd46ef30cfd389063e74bbe653fcb0",
+              "passes": 10,
+              "fails": 0
+            },
+            {
+              "fails": 0,
+              "name": "video_job_storyline [200/404/409]",
+              "path": "::video-job-artifacts::video_job_storyline [200/404/409]",
+              "id": "54149ca138738911bcf9ad066857a6d6",
+              "passes": 10
+            },
+            {
+              "name": "video_job_validation [200/404/409]",
+              "path": "::video-job-artifacts::video_job_validation [200/404/409]",
+              "id": "65e282d8c9c3eebb439ca54090f7b7a2",
+              "passes": 10,
+              "fails": 0
+            },
+            {
+              "fails": 0,
+              "name": "video_job_provenance [200/404/409]",
+              "path": "::video-job-artifacts::video_job_provenance [200/404/409]",
+              "id": "0fff6b6814734405f6e4ac262e693742",
+              "passes": 10
+            },
+            {
+              "path": "::video-job-artifacts::video_job_result [200/404/409]",
+              "id": "c7d152008e5d15a14962c47c235788aa",
+              "passes": 10,
+              "fails": 0,
+              "name": "video_job_result [200/404/409]"
+            },
+            {
+              "passes": 10,
+              "fails": 0,
+              "name": "vm_manifest [200/404]",
+              "path": "::video-job-artifacts::vm_manifest [200/404]",
+              "id": "ed6301d5f6673f5ed88cd6e59fa2be10"
+            },
+            {
+              "passes": 10,
+              "fails": 0,
+              "name": "vm_timeline [200/404]",
+              "path": "::video-job-artifacts::vm_timeline [200/404]",
+              "id": "2c4b9c954ac13ff7a5e78e9bd66c0653"
+            },
+            {
+              "id": "594a4600c6135e092ce2c5e28875a0d1",
+              "passes": 10,
+              "fails": 0,
+              "name": "vm_media [200/404]",
+              "path": "::video-job-artifacts::vm_media [200/404]"
+            },
+            {
+              "name": "vm_thumbnail [200/404]",
+              "path": "::video-job-artifacts::vm_thumbnail [200/404]",
+              "id": "8cca212570538420e3e7782154f48d2b",
+              "passes": 10,
+              "fails": 0
+            },
+            {
+              "name": "vm_subtitles [200/404]",
+              "path": "::video-job-artifacts::vm_subtitles [200/404]",
+              "id": "7a7a5a747fd1fa1467920c84e0baefff",
+              "passes": 10,
+              "fails": 0
+            },
+            {
+              "name": "vm_video_signed_url [200/404]",
+              "path": "::video-job-artifacts::vm_video_signed_url [200/404]",
+              "id": "9515e2b3efecb2ffec3b5bd9c38d9cef",
+              "passes": 10,
+              "fails": 0
+            },
+            {
+              "path": "::video-job-artifacts::vm_video_download [200/302/404]",
+              "id": "074d053e9a30b322f6464df63fbe4c82",
+              "passes": 10,
+              "fails": 0,
+              "name": "vm_video_download [200/302/404]"
+            },
+            {
+              "fails": 0,
+              "name": "vm_video_stream alive",
+              "path": "::video-job-artifacts::vm_video_stream alive",
+              "id": "b22d3d2f741be3d369460a96dc276ba7",
+              "passes": 10
+            },
+            {
+              "name": "assets [200/404]",
+              "path": "::video-job-artifacts::assets [200/404]",
+              "id": "baa0f2f02ff17d16e7c8d4d0b018c4cb",
+              "passes": 10,
+              "fails": 0
+            },
+            {
+              "fails": 0,
+              "name": "vm_asset_metadata [200/404]",
+              "path": "::video-job-artifacts::vm_asset_metadata [200/404]",
+              "id": "d9b544522db0af384c1f4f97cd7f8454",
+              "passes": 10
+            },
+            {
+              "name": "vm_asset_signed_url [200/404]",
+              "path": "::video-job-artifacts::vm_asset_signed_url [200/404]",
+              "id": "ddb476519c9313731e247478e35c5213",
+              "passes": 10,
+              "fails": 0
+            },
+            {
+              "path": "::video-job-artifacts::vm_asset_download [200/302/404]",
+              "id": "b67122751748917fc27fca3b7318d710",
+              "passes": 10,
+              "fails": 0,
+              "name": "vm_asset_download [200/302/404]"
+            },
+            {
+              "path": "::video-job-artifacts::vm_asset_stream alive",
+              "id": "d47249fc5ac45547697556f2f5a42851",
+              "passes": 10,
+              "fails": 0,
+              "name": "vm_asset_stream alive"
+            }
+          ],
+        "name": "video-job-artifacts",
+        "path": "::video-job-artifacts"
       }
     ],
     "checks": [
       {
-        "passes": 0,
-        "fails": 50,
+        "fails": 0,
         "name": "video_job_create [202/429/503]",
         "path": "::video_job_create [202/429/503]",
-        "id": "0166ec36d07e67e6883cc686eb615771"
+        "id": "0166ec36d07e67e6883cc686eb615771",
+        "passes": 10
+      },
+      {
+        "passes": 10,
+        "fails": 0,
+        "name": "video_job_events alive",
+        "path": "::video_job_events alive",
+        "id": "243b35602888ec8c9aa1d11ebc65576f"
+      },
+      {
+        "id": "d82aff2326d875218decdc19391fe4dc",
+        "passes": 8,
+        "fails": 2,
+        "name": "video render completed",
+        "path": "::video render completed"
       }
     ]
   },
@@ -812,8 +656,319 @@
     "noColor": false
   },
   "state": {
-    "testRunDurationMs": 123282.177533,
     "isStdOutTTY": false,
-    "isStdErrTTY": false
+    "isStdErrTTY": false,
+    "testRunDurationMs": 1186085.522273
+  },
+  "metrics": {
+    "http_req_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(90)": 899.1569820000002,
+        "p(95)": 5899.572325599999,
+        "avg": 946.4757556791117,
+        "min": 6.398299,
+        "med": 19.141398,
+        "max": 33737.481759
+      }
+    },
+    "http_req_sending": {
+      "contains": "time",
+      "values": {
+        "p(90)": 0.17643240000000002,
+        "p(95)": 0.1893688,
+        "avg": 0.1260799262222224,
+        "min": 0.009254,
+        "med": 0.133298,
+        "max": 0.464001
+      },
+      "type": "trend"
+    },
+    "http_req_waiting": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 897.2614347902218,
+        "min": 5.970941,
+        "med": 18.24095,
+        "max": 33736.356447,
+        "p(90)": 312.4625622000002,
+        "p(95)": 5899.385736399999
+      }
+    },
+    "video_failed": {
+      "values": {
+        "count": 2,
+        "rate": 0.0016862190478197762
+      },
+      "type": "counter",
+      "contains": "default"
+    },
+    "http_req_connecting": {
+      "values": {
+        "max": 6.430677,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0.056514752888888894,
+        "min": 0,
+        "med": 0
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "video_created_202": {
+      "values": {
+        "rate": 0.008431095239098881,
+        "count": 10
+      },
+      "type": "counter",
+      "contains": "default"
+    },
+    "group_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "p(95)": 52489.732386100004,
+        "avg": 8627.192950641665,
+        "min": 7.540926,
+        "med": 428.74014550000004,
+        "max": 52890.814906,
+        "p(90)": 36843.4794782
+      }
+    },
+    "http_req_duration{expected_response:true}": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 33737.481759,
+        "p(90)": 176.90600040000007,
+        "p(95)": 882.4112991999973,
+        "avg": 477.8695879230052,
+        "min": 6.398299,
+        "med": 17.795444
+      }
+    },
+    "checks": {
+      "values": {
+        "rate": 0.9974025974025974,
+        "passes": 768,
+        "fails": 2
+      },
+      "type": "rate",
+      "contains": "default"
+    },
+    "auth_401_403": {
+      "values": {
+        "fails": 690,
+        "rate": 0,
+        "passes": 0
+      },
+      "thresholds": {
+        "rate<0.05": {
+          "ok": true
+        }
+      },
+      "type": "rate",
+      "contains": "default"
+    },
+    "t_analytics_llm": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "max": 16906.31711,
+        "p(90)": 16830.5710758,
+        "p(95)": 16834.7821664,
+        "avg": 8744.3973723,
+        "min": 7.428237,
+        "med": 11571.703795000001
+      }
+    },
+    "t_video_generation_e2e": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 464145,
+        "min": 317588,
+        "med": 438153.5,
+        "max": 648025,
+        "p(90)": 626994.2,
+        "p(95)": 637509.6
+      }
+    },
+    "failed_requests": {
+      "type": "rate",
+      "contains": "default",
+      "values": {
+        "rate": 0,
+        "passes": 0,
+        "fails": 730
+      },
+      "thresholds": {
+        "rate<0.05": {
+          "ok": true
+        }
+      }
+    },
+    "data_sent": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 567640,
+        "rate": 478.5826901522089
+      }
+    },
+    "http_req_receiving": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 49.08824096266668,
+        "min": 0.016683,
+        "med": 0.108916,
+        "max": 2774.425987,
+        "p(90)": 2.298432000000001,
+        "p(95)": 15.260152599999943
+      }
+    },
+    "data_received": {
+      "type": "counter",
+      "contains": "data",
+      "values": {
+        "count": 171010202,
+        "rate": 144180.3299919538
+      }
+    },
+    "t_reads": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 45.396939,
+        "max": 6627.155707,
+        "p(90)": 371.81482530000005,
+        "p(95)": 6040.429408599999,
+        "avg": 619.8468481272729,
+        "min": 7.339956
+      }
+    },
+    "http_req_failed": {
+      "values": {
+        "rate": 0.05333333333333334,
+        "passes": 60,
+        "fails": 1065
+      },
+      "thresholds": {
+        "rate<0.05": {
+          "ok": false
+        }
+      },
+      "type": "rate",
+      "contains": "default"
+    },
+    "server_5xx": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 40,
+        "rate": 0.033724380956395524
+      }
+    },
+    "http_req_blocked": {
+      "values": {
+        "avg": 0.19499229599999954,
+        "min": 0.000214,
+        "med": 0.000756,
+        "max": 37.92469,
+        "p(90)": 0.001094,
+        "p(95)": 0.0013017999999999999
+      },
+      "type": "trend",
+      "contains": "time"
+    },
+    "iteration_duration": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 643544.2119341999,
+        "min": 420095.777367,
+        "med": 669493.002522,
+        "max": 1185847.863767,
+        "p(90)": 795127.2321085999,
+        "p(95)": 990487.5479377995
+      }
+    },
+    "http_reqs": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 1125,
+        "rate": 0.9484982143986241
+      }
+    },
+    "http_req_tls_handshaking": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "med": 0,
+        "max": 13.909428,
+        "p(90)": 0,
+        "p(95)": 0,
+        "avg": 0.11454052533333334,
+        "min": 0
+      }
+    },
+    "vus_max": {
+      "type": "gauge",
+      "contains": "default",
+      "values": {
+        "value": 10,
+        "min": 10,
+        "max": 10
+      }
+    },
+    "t_job_create": {
+      "type": "trend",
+      "contains": "time",
+      "values": {
+        "avg": 69.16492639999998,
+        "min": 43.827152,
+        "med": 58.170401999999996,
+        "max": 178.01711,
+        "p(90)": 86.28350479999996,
+        "p(95)": 132.1503073999999
+      }
+    },
+    "iterations": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "rate": 0.008431095239098881,
+        "count": 10
+      }
+    },
+    "vus": {
+      "contains": "default",
+      "values": {
+        "value": 1,
+        "min": 1,
+        "max": 10
+      },
+      "type": "gauge"
+    },
+    "video_completed": {
+      "type": "counter",
+      "contains": "default",
+      "values": {
+        "count": 8,
+        "rate": 0.006744876191279105
+      }
+    }
+  },
+  "setup_data": {
+    "fragmentId": "0001_yqqiJmWKZ9I_Chile Event - “Discussion on the International Day for Universal Access to Information with UNESCO”_0025",
+    "insightId": "insight_1a95a40df6f74df28f44d4cda419b0fe",
+    "speaker1": "Cordel Green",
+    "speaker2": "James Sherer",
+    "theme": "AI Ethics, Governance & Policy",
+    "videoId": "-B6xe3zR3U0"
   }
 }

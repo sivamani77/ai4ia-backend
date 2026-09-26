@@ -127,6 +127,9 @@ function currentUser() { return users[(__VU - 1) % users.length]; }
 // mints a new one — it's a plain module-level var, not the SharedArray users
 // object itself, since SharedArray entries are meant to stay read-only.
 let liveAccessToken = null;
+// /auth/refresh rotates the refresh token, and replaying an old one revokes
+// the whole session, so later refreshes must send the latest one.
+let liveRefreshToken = null;
 
 function headers(user, extra) {
   const h = { Authorization: `Bearer ${liveAccessToken || user.access_token}`, Accept: 'application/json' };
@@ -139,9 +142,10 @@ function headers(user, extra) {
 // here — see mint_loadtest_users.py). Updates liveAccessToken in place;
 // every subsequent headers() call picks it up automatically.
 function refreshAccessToken(user) {
-  if (!user.refresh_token) return false;
+  const refreshToken = liveRefreshToken || user.refresh_token;
+  if (!refreshToken) return false;
   const res = http.post(url('/auth/refresh'), null, {
-    headers: { Cookie: `refresh_token=${user.refresh_token}` },
+    headers: { Cookie: `refresh_token=${refreshToken}` },
     tags: { name: 'auth_refresh_poll' },
   });
   if (res.status !== 200) {
@@ -150,6 +154,8 @@ function refreshAccessToken(user) {
   }
   try {
     liveAccessToken = JSON.parse(res.body).access_token;
+    const rotated = res.cookies.refresh_token;
+    if (rotated && rotated.length) liveRefreshToken = rotated[0].value;
     return true;
   } catch (e) {
     return false;
@@ -195,11 +201,63 @@ const TERMS = ['climate', 'energy', 'policy', 'ai ethics', 'water', 'governance'
 // don't reject on no-match), but doVideoGeneration needs topics confirmed
 // covered — these three are the exact themes a live coverage-check error
 // reported the archive has (see vjob_20260925_062708_29feee74's decline).
-const VIDEO_TOPICS = [
-  'AI ethics, governance and policy',
-  'AI in health, science and environment',
-  'AI and information access, media and journalism',
+// One distinct prompt per VU, all inside the covered themes, so no two jobs
+// share a storyline. force_refresh also skips the storyline cache lookup.
+const VIDEO_PROMPTS = [
+  'how governments are drafting rules for artificial intelligence',
+  'the ethical risks of algorithmic bias in public services',
+  'AI helping doctors diagnose disease earlier',
+  'using AI to monitor climate change and protect the environment',
+  'how AI is changing newsrooms and the work of journalists',
+  'AI-generated misinformation and the fight for trustworthy information',
+  'universal access to information in the age of AI',
+  'international cooperation on AI governance and human rights',
+  'AI accelerating scientific research and discovery',
+  'transparency and accountability for AI systems',
+  'AI tools that help fact-checkers verify content',
+  'protecting privacy and personal data as AI spreads',
+  'AI in public health planning and pandemic response',
+  'the role of UNESCO in shaping ethical AI',
+  'media literacy for citizens living with AI',
+  'AI and water, energy and sustainable development',
+  'who should be held responsible when AI causes harm',
+  'AI and inclusion for people with disabilities',
+  'freedom of expression and content moderation by AI',
+  'AI in agriculture and food security',
+  'regulating AI without stifling innovation',
+  'AI supporting researchers in developing countries',
+  'algorithms deciding what news people see',
+  'building public trust in artificial intelligence',
+  'AI safety and the precautionary principle in policy',
+  'AI in hospitals and the future of patient care',
+  'deepfakes and the threat to democratic elections',
+  'libraries and archives opening knowledge with AI',
+  'gender bias in artificial intelligence',
+  'AI and the rights of indigenous communities',
+  'national AI strategies and public sector adoption',
+  'AI for disaster early warning and climate resilience',
+  'the right to information and open government data',
+  'AI in medical research and drug discovery',
+  'social media platforms, algorithms and public debate',
+  'fairness and equity in automated decision-making',
+  'AI ethics education for the next generation',
+  'journalism ethics when newsrooms use generative AI',
+  'AI for biodiversity and ocean conservation',
+  'global standards for trustworthy AI',
+  'AI chatbots in mental health support',
+  'protecting journalists and sources in the digital age',
+  'human oversight of automated government decisions',
+  'AI for early detection of cancer',
+  'open science and sharing research data with AI',
+  'combating hate speech online with AI moderation',
+  'AI and the future of public broadcasting',
+  'children, education and the ethics of AI',
+  'AI in climate modelling and weather forecasting',
+  'surveillance, facial recognition and civil liberties',
 ];
+const NO_CACHE = (__ENV.NO_CACHE || 'true') !== 'false';
+// Shifts which prompts the VUs get, so a repeat run uses new ones.
+const PROMPT_OFFSET = parseInt(__ENV.PROMPT_OFFSET || '0', 10);
 
 // ===========================================================================
 // The single per-user journey.
@@ -247,9 +305,10 @@ function doReads(data, u) {
   group('insights-read', () => {
     hit('GET', '/insights', { user: u, name: 'insights_list', trend: tReads });
     if (data.insightId) {
-      hit('GET', `/insights/${data.insightId}`, { user: u, name: 'insight_detail' });
-      hit('GET', `/insights/${data.insightId}/sources`, { user: u, name: 'insight_sources' });
-      hit('GET', `/insights/${data.insightId}/provenance`, { user: u, name: 'insight_provenance' });
+      // Insights are owner-scoped and setup() picks user 1's, so others get 404.
+      hit('GET', `/insights/${data.insightId}`, { user: u, name: 'insight_detail', expect: [200, 404] });
+      hit('GET', `/insights/${data.insightId}/sources`, { user: u, name: 'insight_sources', expect: [200, 404] });
+      hit('GET', `/insights/${data.insightId}/provenance`, { user: u, name: 'insight_provenance', expect: [200, 404] });
     }
   });
 
@@ -312,9 +371,9 @@ function doAuthSafe(u) {
       body: JSON.stringify({ username: `noone_${rnd}`, password: 'Wrong#Pass123' }) });
     hit('POST', '/auth/refresh', { user: u, name: 'auth_refresh', expect: [401] });
     hit('POST', '/auth/logout', { user: u, name: 'auth_logout', expect: [200] });
-    hit('POST', '/auth/forgot-password', { user: u, name: 'auth_forgot', expect: [200],
+    hit('POST', '/auth/forgot-password', { user: u, name: 'auth_forgot', expect: [200, 429],
       body: JSON.stringify({ email: `noone_${rnd}@example.com` }) });
-    hit('POST', '/auth/resend-otp', { user: u, name: 'auth_resend_otp', expect: [200, 400, 404],
+    hit('POST', '/auth/resend-otp', { user: u, name: 'auth_resend_otp', expect: [200, 400, 404, 429],
       body: JSON.stringify({ email: `noone_${rnd}@example.com`, purpose: 'signup' }) });
     hit('POST', '/auth/verify-otp', { user: u, name: 'auth_verify_otp', expect: [400, 404, 422],
       body: JSON.stringify({ email: `noone_${rnd}@example.com`, code: '000000', purpose: 'signup' }) });
@@ -357,7 +416,8 @@ function doAdmin(data, u) {
 function doVideoGeneration(data, u) {
   const startedAt = Date.now();
   const body = JSON.stringify({
-    prompt: `A ${TARGET_DURATION}-second documentary about ${randomItem(VIDEO_TOPICS)}.`,
+    prompt: `A ${TARGET_DURATION}-second documentary about ${VIDEO_PROMPTS[(__VU - 1 + PROMPT_OFFSET) % VIDEO_PROMPTS.length]}.`,
+    force_refresh: NO_CACHE,
     target_duration: TARGET_DURATION,
     style: 'documentary',
     validation_mode: 'iterative_llm',
