@@ -44,6 +44,14 @@ _INSERT_JOB_SQL = """
 """
 
 
+# Resets a job's progress when it restarts after a lost worker. Needs a
+# "status" parameter.
+_RESTART_METADATA = """metadata = metadata || jsonb_build_object(
+                       'status', %(status)s, 'current_stage', 'queued', 'stage_status', '{}'::jsonb,
+                       'progress_percent', 0, 'stage_progress_percent', 0,
+                       'message', 'Restarting after a server interruption')"""
+
+
 class JobRepository:
     table_name = "jobs"
     _schema_columns = {
@@ -128,24 +136,47 @@ class JobRepository:
 
     # -- leases (docs/design/job-recovery-plan.md) -----------------------------------
 
-    def claim(self, record_id: str, *, dispatch_id: str | None, owner: str, worker_queue: str) -> bool:
-        """Take the lease on a job that has never run. Only a queued job with
-        no earlier claim and a matching dispatch id can be claimed, so any
-        duplicate or late delivery loses."""
+    def claim(self, record_id: str, *, dispatch_id: str | None, owner: str, worker_queue: str,
+              max_retries: int = 0) -> bool:
+        """Take the lease on a queued job. Only a message carrying the job's
+        current dispatch id can claim it, and only while it has retries left,
+        so any duplicate or late delivery loses. The runtime cap counts from
+        this claim, so a retried job gets a full run."""
         row = pg_fetch_one(
             """
             update jobs
                set status = 'running', lease_owner = %(owner)s, heartbeat_at = now(),
-                   attempts = attempts + 1, started_at = coalesce(started_at, now()),
+                   attempts = attempts + 1, started_at = now(),
                    worker_queue = coalesce(worker_queue, %(queue)s),
                    metadata = metadata || jsonb_build_object('status', 'running')
              where id = %(id)s
                and status = 'queued'
-               and attempts = 0
+               and attempts <= %(max_retries)s
                and dispatch_id is not distinct from %(dispatch_id)s
             returning id
             """,
-            {"id": record_id, "owner": owner, "queue": worker_queue, "dispatch_id": dispatch_id},
+            {"id": record_id, "owner": owner, "queue": worker_queue, "dispatch_id": dispatch_id,
+             "max_retries": max_retries},
+        )
+        return row is not None
+
+    def take_over(self, record_id: str, *, dispatch_id: str | None, dead_owner: str | None, owner: str,
+                  max_retries: int) -> bool:
+        """Rerun a running job whose lease holder is dead, from the start,
+        while it has retries left."""
+        row = pg_fetch_one(
+            f"""
+            update jobs
+               set lease_owner = %(owner)s, heartbeat_at = now(), attempts = attempts + 1,
+                   started_at = now(), progress = 0, {_RESTART_METADATA}
+             where id = %(id)s and status = 'running'
+               and lease_owner is not distinct from %(dead_owner)s
+               and dispatch_id is not distinct from %(dispatch_id)s
+               and attempts <= %(max_retries)s
+            returning id
+            """,
+            {"id": record_id, "owner": owner, "dead_owner": dead_owner, "dispatch_id": dispatch_id,
+             "max_retries": max_retries, "status": "running"},
         )
         return row is not None
 
@@ -156,6 +187,7 @@ class JobRepository:
             """
             select status, dispatch_id, lease_owner, attempts,
                    extract(epoch from now() - heartbeat_at) as heartbeat_age,
+                   coalesce(metadata->>'current_stage', 'unknown') as current_stage,
                    metadata->>'active_pid' as active_pid,
                    metadata->>'active_host' as active_host
               from jobs where id = %s
@@ -232,27 +264,60 @@ class JobRepository:
             {**params, "error": psycopg2.extras.Json(error)},
         )
 
-    def lost_queue_candidates(self, worker_queue: str, grace_seconds: int) -> list[dict[str, Any]]:
+    def lost_worker_candidates(self, worker_queue: str, stale_seconds: int) -> list[dict[str, Any]]:
+        """Running jobs of this queue whose heartbeat has gone stale."""
+        return pg_fetch_all(
+            """
+            select id, lease_owner, attempts, metadata->'request' as request,
+                   coalesce(metadata->>'current_stage', 'unknown') as stage
+              from jobs
+             where worker_queue = %s and status = 'running'
+               and heartbeat_at < now() - make_interval(secs => %s)
+            """,
+            (worker_queue, stale_seconds),
+        )
+
+    def requeue_lost(self, record_id: str, *, worker_queue: str, expected_owner: str | None,
+                     stale_seconds: int, new_dispatch_id: str) -> bool:
+        """Put a job whose worker was lost back in the queue under a new
+        dispatch id, if its heartbeat is still stale."""
+        row = pg_fetch_one(
+            f"""
+            update jobs
+               set status = 'queued', lease_owner = null, dispatch_id = %(new)s, dispatched_at = now(),
+                   progress = 0, {_RESTART_METADATA} || jsonb_build_object('dispatch_id', %(new)s, 'requeued_at', now())
+             where id = %(id)s and worker_queue = %(queue)s and status = 'running'
+               and lease_owner is not distinct from %(owner)s
+               and heartbeat_at < now() - make_interval(secs => %(stale)s)
+            returning id
+            """,
+            {"id": record_id, "queue": worker_queue, "owner": expected_owner, "stale": stale_seconds,
+             "new": new_dispatch_id, "status": "queued"},
+        )
+        return row is not None
+
+    def lost_queue_candidates(self, worker_queue: str, grace_seconds: int, max_retries: int = 0) -> list[dict[str, Any]]:
         return pg_fetch_all(
             """
             select id, dispatch_id, metadata->'request' as request from jobs
-             where worker_queue = %s and status = 'queued' and attempts = 0
+             where worker_queue = %s and status = 'queued' and attempts <= %s
                and dispatched_at < now() - make_interval(secs => %s)
             """,
-            (worker_queue, grace_seconds),
+            (worker_queue, max_retries, grace_seconds),
         )
 
-    def redispatch(self, record_id: str, *, old_dispatch_id: str | None, new_dispatch_id: str) -> bool:
+    def redispatch(self, record_id: str, *, old_dispatch_id: str | None, new_dispatch_id: str,
+                   max_retries: int = 0) -> bool:
         row = pg_fetch_one(
             """
             update jobs
                set dispatch_id = %(new)s, dispatched_at = now(),
                    metadata = metadata || jsonb_build_object('dispatch_id', %(new)s)
-             where id = %(id)s and status = 'queued' and attempts = 0
+             where id = %(id)s and status = 'queued' and attempts <= %(max_retries)s
                and dispatch_id is not distinct from %(old)s
             returning id
             """,
-            {"id": record_id, "old": old_dispatch_id, "new": new_dispatch_id},
+            {"id": record_id, "old": old_dispatch_id, "new": new_dispatch_id, "max_retries": max_retries},
         )
         return row is not None
 
@@ -334,7 +399,12 @@ class JobRepository:
                 source_value = excluded.source_value,
                 progress = excluded.progress,
                 user_id = excluded.user_id,
-                started_at = excluded.started_at,
+                -- The claim sets started_at on leased jobs; a late snapshot
+                -- from an earlier attempt must not move it back.
+                started_at = case
+                    when jobs.dispatch_id is not null then jobs.started_at
+                    else excluded.started_at
+                end,
                 -- A finished leased job keeps the error and completion time it
                 -- ended with; a late snapshot from its worker can't erase them.
                 completed_at = case

@@ -27,6 +27,7 @@ def sweeper(monkeypatch):
     repo = MagicMock()
     repo.fail_where.return_value = []
     repo.lost_queue_candidates.return_value = []
+    repo.lost_worker_candidates.return_value = []
     cursor = _Cursor(leader=True)
 
     @contextmanager
@@ -75,12 +76,11 @@ def test_stale_heartbeats_ignored_until_sweeps_have_been_healthy_a_full_window(s
     monkeypatch.setattr(job_sweeper.time, "monotonic", lambda: clock[0])
 
     job_sweeper.sweep_once()
-    assert "worker_lost" not in _rule_reasons(repo)
+    repo.lost_worker_candidates.assert_not_called()
 
-    repo.fail_where.reset_mock()
     clock[0] += 301
     job_sweeper.sweep_once()
-    assert "worker_lost" in _rule_reasons(repo)
+    repo.lost_worker_candidates.assert_called_once_with("video_jobs_uat", 300)
 
 
 def test_a_failed_pass_resets_the_trust_window(sweeper, monkeypatch):
@@ -93,9 +93,8 @@ def test_a_failed_pass_resets_the_trust_window(sweeper, monkeypatch):
     repo.fail_where.side_effect = RuntimeError("database down")
     assert job_sweeper.sweep_once() == "error"
     repo.fail_where.side_effect = None
-    repo.fail_where.reset_mock()
     job_sweeper.sweep_once()
-    assert "worker_lost" not in _rule_reasons(repo)
+    repo.lost_worker_candidates.assert_not_called()
 
 
 def test_every_rule_is_scoped_to_this_environments_queue(sweeper):
@@ -110,14 +109,64 @@ def test_every_rule_is_scoped_to_this_environments_queue(sweeper):
             assert params["queue"] == "video_jobs_uat"
 
 
-def test_failed_rows_get_events_and_records(sweeper):
+_LOST = {"id": "vjob_dead", "lease_owner": "w1", "attempts": 1, "stage": "09_export", "request": {"prompt": "p"}}
+
+
+@pytest.fixture
+def lost_job(sweeper, monkeypatch):
+    """A trusted sweeper that finds one job with a stale heartbeat."""
     repo, _, recorded = sweeper
     job_sweeper._healthy_since = -1e9
-    repo.fail_where.side_effect = lambda where, params, error: (
-        [{"id": "vjob_dead", "user_id": "u1", "stage": "09_export"}] if "heartbeat_at" in where else []
-    )
+    repo.lost_worker_candidates.return_value = [dict(_LOST)]
+    repo.requeue_lost.return_value = True
+    monkeypatch.setattr(job_sweeper.job_store, "interrupted_stages", lambda job_id: [])
+    interrupted = []
+    monkeypatch.setattr(job_sweeper.job_lease, "record_interrupted", lambda *a, **k: interrupted.append(a))
+    sent = []
+    import app.services.video_job_runner as vjr
+    monkeypatch.setattr(vjr, "start_video_job_background",
+                        lambda job_id, req, dispatch_id: sent.append((job_id, dispatch_id)))
+    return repo, recorded, interrupted, sent
+
+
+def test_lost_worker_job_is_requeued_and_resent(lost_job):
+    repo, recorded, interrupted, sent = lost_job
     job_sweeper.sweep_once()
-    assert recorded == [("vjob_dead", "worker_lost", job_sweeper._ERRORS["worker_lost"], {"by_sweeper": True})]
+
+    kwargs = repo.requeue_lost.call_args.kwargs
+    assert kwargs["expected_owner"] == "w1" and kwargs["worker_queue"] == "video_jobs_uat"
+    assert sent == [("vjob_dead", kwargs["new_dispatch_id"])]
+    assert interrupted == [("vjob_dead", 1, "09_export")]
+    assert recorded == []
+
+
+def test_nothing_sent_when_the_worker_beat_first(lost_job):
+    repo, _, interrupted, sent = lost_job
+    repo.requeue_lost.return_value = False
+    job_sweeper.sweep_once()
+    assert sent == [] and interrupted == []
+
+
+@pytest.mark.parametrize("retries, attempts, prior, reason", [
+    (0, 1, [], "worker_lost"),
+    (3, 4, [], "worker_lost_repeatedly"),
+    (3, 2, ["09_export"], "worker_lost_repeatedly"),
+])
+def test_lost_worker_job_without_a_retry_is_failed(lost_job, monkeypatch, retries, attempts, prior, reason):
+    repo, recorded, _, sent = lost_job
+    monkeypatch.setattr(job_sweeper.settings, "job_max_worker_loss_retries", retries, raising=False)
+    monkeypatch.setattr(job_sweeper.job_store, "interrupted_stages", lambda job_id: prior)
+    repo.lost_worker_candidates.return_value = [{**_LOST, "attempts": attempts}]
+    repo.fail_where.side_effect = lambda where, params, error: (
+        [{"id": "vjob_dead", "user_id": "u1", "stage": "09_export"}] if params.get("id") == "vjob_dead" else [])
+
+    job_sweeper.sweep_once()
+
+    repo.requeue_lost.assert_not_called()
+    assert sent == []
+    assert recorded == [("vjob_dead", reason, job_sweeper._ERRORS[reason], {"by_sweeper": True})]
+    where, params = next(c.args[:2] for c in repo.fail_where.call_args_list if c.args[1].get("id"))
+    assert "heartbeat_at" in where and params["owner"] == "w1"
 
 
 @pytest.mark.parametrize("size, resent", [(0, True), (3, False), (None, False)])

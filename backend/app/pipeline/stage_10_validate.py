@@ -6,7 +6,7 @@ from typing import Any
 
 from app.core.paths import SCRIPTS_DIR, PROJECT_ROOT
 from app.pipeline.base import PipelineContext, StageResult, run_script
-from app.pipeline.s3_helpers import use_s3, download, tmp_dir
+from app.pipeline.s3_helpers import use_s3, download, tmp_dir, cleanup_tmp_dir
 from app.services.job_store import append_event, load_job, save_job
 from app.services.video_job_runner import update_stage
 
@@ -19,6 +19,8 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     export_manifest_path = context.export_manifest_path
     update_stage(job_id, "10_validate_export", "running", 10, "Validating export")
     append_event(job_id, "stage_started", "10_validate_export", {})
+    # A rerun after a lost worker must not reuse the lost run's partial files.
+    cleanup_tmp_dir(f"10_{job_id}")
 
     script = SCRIPTS_DIR / "10_validate_video_export.py"
     if not script.exists():

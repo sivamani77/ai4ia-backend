@@ -415,6 +415,10 @@ class Settings(BaseSettings):
     job_queued_max_age_seconds: int = 30 * 60
     job_sweep_interval_seconds: int = 60
     job_sweeper_enabled: bool = True
+    # Times a job is rerun after its worker is lost (OOM kill, deploy, node
+    # drain). Stage errors, cancellation and the runtime cap are never
+    # retried. 0 fails the job on the first loss.
+    job_max_worker_loss_retries: int = 3
     # Broker redelivery window for unacknowledged tasks. Must stay above the
     # task's hard time limit (job_max_runtime_seconds + 300) so a running job
     # is never handed to a second worker.

@@ -47,13 +47,19 @@ jobs_abandoned_total = Counter(
 job_claims_total = Counter(
     "job_claims_total",
     "Video job deliveries by claim outcome",
-    ["outcome"],  # run, terminal, superseded, leased, worker_lost
+    ["outcome"],  # run, retry, terminal, superseded, leased, worker_lost, worker_lost_repeatedly
+)
+
+jobs_retried_total = Counter(
+    "jobs_retried_total",
+    "Video jobs rerun after their worker was lost",
+    ["path"],  # claim, sweeper
 )
 
 jobs_failed_by_sweeper_total = Counter(
     "jobs_failed_by_sweeper_total",
     "Video jobs failed by the recovery sweeper",
-    ["reason"],  # worker_lost, deadline_exceeded, queue_expired, expired
+    ["reason"],  # worker_lost, worker_lost_repeatedly, deadline_exceeded, queue_expired, expired
 )
 
 jobs_redispatched_total = Counter(

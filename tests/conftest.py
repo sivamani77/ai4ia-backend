@@ -171,7 +171,7 @@ def mock_settings(tmp_path, monkeypatch):
     fake.worker_queue = "video_jobs_test"
     for _name in ("job_heartbeat_interval_seconds", "job_stale_after_seconds", "job_max_runtime_seconds",
                   "job_queued_max_age_seconds", "job_sweep_interval_seconds",
-                  "celery_visibility_timeout_seconds"):
+                  "celery_visibility_timeout_seconds", "job_max_worker_loss_retries"):
         setattr(fake, _name, _defaults[_name].default)
     fake.video_job_max_running_per_user = 1
     fake.video_job_max_queued_per_user = 3
@@ -265,14 +265,27 @@ def mock_job_store(monkeypatch):
         job["lease_owner"] = None
         return True
 
-    def _claim_job(job_id, *, dispatch_id, owner, worker_queue):
+    def _claim_job(job_id, *, dispatch_id, owner, worker_queue, max_retries=0):
         job = jobs.get(job_id)
-        if (job is None or job.get("status") != "queued" or job.get("attempts", 0) != 0
+        if (job is None or job.get("status") != "queued" or job.get("attempts", 0) > max_retries
                 or job.get("dispatch_id") != dispatch_id):
             return False
-        job.update(status="running", lease_owner=owner, attempts=1, heartbeat_age=0.0,
+        job.update(status="running", lease_owner=owner, attempts=job.get("attempts", 0) + 1, heartbeat_age=0.0,
                    worker_queue=job.get("worker_queue") or worker_queue)
         return True
+
+    def _take_over_job(job_id, *, dispatch_id, dead_owner, owner, max_retries):
+        job = jobs.get(job_id)
+        if (job is None or job.get("status") != "running" or job.get("lease_owner") != dead_owner
+                or job.get("dispatch_id") != dispatch_id or job.get("attempts", 0) > max_retries):
+            return False
+        job.update(lease_owner=owner, attempts=job.get("attempts", 0) + 1, heartbeat_age=0.0,
+                   current_stage="queued", stage_status={})
+        return True
+
+    def _interrupted_stages(job_id):
+        # Like the real table, which keeps no stage column.
+        return [e["payload"].get("stage") for e in events.get(job_id, []) if e["event_type"] == "interrupted"]
 
     def _job_lease_state(job_id):
         job = jobs.get(job_id)
@@ -281,6 +294,7 @@ def mock_job_store(monkeypatch):
         return {"status": job.get("status"), "dispatch_id": job.get("dispatch_id"),
                 "lease_owner": job.get("lease_owner"), "attempts": job.get("attempts", 0),
                 "heartbeat_age": job.get("heartbeat_age"), "active_pid": job.get("active_pid"),
+                "current_stage": job.get("current_stage") or "unknown",
                 "active_host": job.get("active_host")}
 
     def _heartbeat_job(job_id, owner):
@@ -310,7 +324,8 @@ def mock_job_store(monkeypatch):
     monkeypatch.setattr(js, "create_job_within_quota", _create_job_within_quota)
     for _name, _fn in (("finish_job", _finish_job), ("claim_job", _claim_job),
                        ("job_lease_state", _job_lease_state), ("heartbeat_job", _heartbeat_job),
-                       ("fail_job_if_lease", _fail_job_if_lease)):
+                       ("fail_job_if_lease", _fail_job_if_lease), ("take_over_job", _take_over_job),
+                       ("interrupted_stages", _interrupted_stages)):
         monkeypatch.setattr(js, _name, _fn)
     monkeypatch.setattr(vjr, "finish_job", _finish_job)
     monkeypatch.setattr(js, "list_user_jobs", _list_user_jobs)

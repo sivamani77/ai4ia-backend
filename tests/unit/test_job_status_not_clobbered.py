@@ -94,8 +94,15 @@ class TestNonTerminalWritesAreUnaffected:
         """The guard is scoped to status/metadata, plus how a leased job ended;
         everything else in a snapshot save still overwrites."""
         sql = _captured_upsert_sql()
-        for column in ("progress", "started_at", "job_type", "worker_id", "retry_count"):
+        for column in ("progress", "job_type", "worker_id", "retry_count"):
             assert f"{column} = excluded.{column}" in sql
+
+    def test_leased_jobs_keep_the_start_time_their_claim_set(self):
+        """The runtime cap counts from the claim; a late snapshot from an
+        earlier run must not move it (issue #19)."""
+        sql = " ".join(_captured_upsert_sql().split())
+        assert ("started_at = case when jobs.dispatch_id is not null then jobs.started_at "
+                "else excluded.started_at end") in sql
 
     def test_finished_leased_jobs_keep_their_error_and_completion_time(self):
         """A late snapshot from a worker the sweeper already failed must not

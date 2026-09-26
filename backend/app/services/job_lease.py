@@ -36,6 +36,20 @@ WORKER_LOST_ERROR = {
     "user_message": "The server processing your video stopped unexpectedly. Please try again.",
 }
 
+WORKER_LOST_REPEATEDLY_ERROR = {
+    "type": "worker_lost_repeatedly",
+    "message": "The worker running this job was lost on several attempts.",
+    "user_message": "The server processing your video stopped several times. Please try again.",
+}
+
+RUN_ENDED_ERROR = {
+    "type": "pipeline_error",
+    "message": "The run ended without recording its result.",
+    "user_message": "Your video could not be generated. Please try again.",
+}
+
+INTERRUPTED_MESSAGE = "Restarting after a server interruption"
+
 
 @dataclass
 class _Lease:
@@ -50,6 +64,8 @@ class _Lease:
 
 _leases: dict[str, _Lease] = {}
 _lock = threading.Lock()
+# Why each released lease stopped early, kept until the task reads it.
+_ended: dict[str, str] = {}
 
 
 def owner_id(task_id: str | None) -> str:
@@ -63,19 +79,24 @@ def owner_id(task_id: str | None) -> str:
 def claim(job_id: str, dispatch_id: str | None, owner: str) -> str:
     """Try to take the job. Returns "run" when this delivery should run it;
     otherwise why not: terminal, superseded, leased (a live worker has it),
-    worker_lost (its worker is gone, so the job was failed) or missing."""
-    if job_store.claim_job(job_id, dispatch_id=dispatch_id, owner=owner, worker_queue=settings.worker_queue):
+    worker_lost or worker_lost_repeatedly (its worker is gone and it has no
+    retry left, so it was failed) or missing."""
+    if job_store.claim_job(job_id, dispatch_id=dispatch_id, owner=owner, worker_queue=settings.worker_queue,
+                           max_retries=settings.job_max_worker_loss_retries):
         _metrics.job_claims_total.labels(outcome="run").inc()
+        _kill_scripts_of_earlier_run(job_id)
         return "run"
 
     state = job_store.job_lease_state(job_id)
-    outcome = _explain_lost_claim(job_id, dispatch_id, state)
+    outcome = _explain_lost_claim(job_id, dispatch_id, owner, state)
     _metrics.job_claims_total.labels(outcome=outcome).inc()
+    if outcome == "retry":
+        return "run"
     logger.info("[%s] Delivery not run: %s", job_id, outcome)
     return outcome
 
 
-def _explain_lost_claim(job_id: str, dispatch_id: str | None, state: dict | None) -> str:
+def _explain_lost_claim(job_id: str, dispatch_id: str | None, owner: str, state: dict | None) -> str:
     if state is None:
         return "missing"
     if state["status"] in _TERMINAL:
@@ -83,16 +104,73 @@ def _explain_lost_claim(job_id: str, dispatch_id: str | None, state: dict | None
     if state["dispatch_id"] != dispatch_id:
         return "superseded"
     if state["status"] != "running":
-        # Queued but already claimed once: a stale copy of a finished attempt.
-        return "superseded"
+        # Queued with no retry left: the retry setting was lowered after it
+        # was requeued.
+        return _fail_out_of_retries(job_id, state)
     holder = state["lease_owner"]
     if not _holder_is_dead(holder, state["heartbeat_age"]):
         return "leased"
-    # No retries (decision 1): the job's only run was lost, so it fails.
     _kill_leftover_scripts(job_id, state)
-    if job_store.fail_job_if_lease(job_id, expected_owner=holder, error=WORKER_LOST_ERROR):
-        record_failure(job_id, "worker_lost", WORKER_LOST_ERROR)
-    return "worker_lost"
+    attempts, stage = int(state.get("attempts") or 0), state.get("current_stage") or "unknown"
+    error = loss_verdict(job_id, attempts, stage)
+    if error is None:
+        if not job_store.take_over_job(job_id, dispatch_id=dispatch_id, dead_owner=holder, owner=owner,
+                                       max_retries=settings.job_max_worker_loss_retries):
+            return "superseded"
+        record_interrupted(job_id, attempts, stage, path="claim")
+        return "retry"
+    if job_store.fail_job_if_lease(job_id, expected_owner=holder, error=error):
+        record_failure(job_id, error["type"], error)
+    return error["type"]
+
+
+def _fail_out_of_retries(job_id: str, state: dict) -> str:
+    attempts = int(state.get("attempts") or 0)
+    if attempts <= settings.job_max_worker_loss_retries:
+        return "superseded"
+    error = WORKER_LOST_REPEATEDLY_ERROR if settings.job_max_worker_loss_retries > 0 else WORKER_LOST_ERROR
+    rows = job_store.get_job_repo().fail_where(
+        "id = %(id)s and status = 'queued' and attempts = %(attempts)s",
+        {"id": job_id, "attempts": attempts}, error=error,
+    )
+    if rows:
+        record_failure(job_id, error["type"], error)
+    return error["type"]
+
+
+def loss_verdict(job_id: str, attempts: int, stage: str) -> dict | None:
+    """Whether a job whose worker was lost after `attempts` runs may run
+    again: None if so, otherwise the error to fail it with. A second loss in
+    the same stage ends the retries, since that stage likely kills the worker."""
+    max_retries = settings.job_max_worker_loss_retries
+    if max_retries <= 0:
+        return WORKER_LOST_ERROR
+    if attempts > max_retries:
+        return WORKER_LOST_REPEATEDLY_ERROR
+    try:
+        lost_before = job_store.interrupted_stages(job_id)
+    except Exception:  # noqa: BLE001
+        # The attempt budget still bounds the retries.
+        logger.warning("[%s] Could not read earlier interruptions", job_id, exc_info=True)
+        lost_before = []
+    if stage in lost_before:
+        return WORKER_LOST_REPEATEDLY_ERROR
+    return None
+
+
+def record_interrupted(job_id: str, attempts: int, stage: str, *, path: str) -> None:
+    """The event a user sees when their job restarts after a lost worker."""
+    logger.warning("[%s] Worker lost in %s on run %d; restarting (%s)", job_id, stage, attempts, path)
+    _metrics.jobs_retried_total.labels(path=path).inc()
+    try:
+        job_store.append_event(job_id, "interrupted", stage, {
+            "message": INTERRUPTED_MESSAGE,
+            "stage": stage,
+            "attempt": attempts + 1,
+            "max_attempts": settings.job_max_worker_loss_retries + 1,
+        })
+    except Exception:  # noqa: BLE001
+        logger.warning("[%s] Could not record interruption event", job_id, exc_info=True)
 
 
 def _holder_is_dead(holder: str | None, heartbeat_age: float | None) -> bool:
@@ -116,6 +194,16 @@ def _holder_is_dead(holder: str | None, heartbeat_age: float | None) -> bool:
     except PermissionError:
         return False
     return False
+
+
+def _kill_scripts_of_earlier_run(job_id: str) -> None:
+    """On a retried job, kill any script its lost run left on this host."""
+    try:
+        state = job_store.job_lease_state(job_id)
+        if state and int(state.get("attempts") or 0) > 1:
+            _kill_leftover_scripts(job_id, state)
+    except Exception:  # noqa: BLE001
+        logger.warning("[%s] Could not check for a leftover script", job_id, exc_info=True)
 
 
 def _kill_leftover_scripts(job_id: str, state: dict) -> None:
@@ -199,6 +287,8 @@ def release(job_id: str) -> str | None:
     this process holds no lease on the job, e.g. in the API)."""
     with _lock:
         lease = _leases.pop(job_id, None)
+        if lease is not None and lease.stop_reason:
+            _ended[job_id] = lease.stop_reason
     if lease is None:
         return None
     lease.stopped.set()
@@ -207,12 +297,23 @@ def release(job_id: str) -> str | None:
     return lease.owner
 
 
+def ended_by(job_id: str) -> str | None:
+    """Why the job's released lease stopped early, if it did. Read once."""
+    with _lock:
+        return _ended.pop(job_id, None)
+
+
 def stop_reason(job_id: str) -> str | None:
     with _lock:
         lease = _leases.get(job_id)
     if lease is None:
         return None
     if lease.stop_reason:
+        return lease.stop_reason
+    if time.monotonic() - lease.last_ok > 0.8 * settings.job_stale_after_seconds:
+        # A heartbeat write can hang rather than fail; stop before the
+        # sweeper could requeue the job.
+        lease.stop_reason = STOP_HEARTBEAT_LOST
         return lease.stop_reason
     if time.monotonic() - lease.started > settings.job_max_runtime_seconds:
         return STOP_DEADLINE

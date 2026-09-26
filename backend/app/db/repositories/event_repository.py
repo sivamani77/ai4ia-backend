@@ -56,6 +56,16 @@ class EventRepository:
         )
         return [self._normalize_output(row) for row in rows]
 
+    def payload_stages(self, job_id: str, event_type: str) -> list[str]:
+        """The payload "stage" of each event of one type for a job, oldest
+        first. The table has no stage column, so the stage must be in the payload."""
+        rows = pg_fetch_all(
+            "select payload->>'stage' as stage from job_events"
+            " where job_id = %s and event_type = %s order by id asc",
+            (job_id, event_type),
+        )
+        return [row["stage"] for row in rows]
+
     def get_events_after(self, job_id: str, after_id: int | None = 0) -> list[dict[str, Any]]:
         """Return events for job_id with id > after_id, ordered by id ascending.
 

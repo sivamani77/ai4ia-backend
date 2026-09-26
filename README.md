@@ -154,12 +154,16 @@ Design detail: [docs/design/ingest-storage-design.md](docs/design/ingest-storage
   ```bash
   cd backend && celery --app app.worker.celery_app:celery_app worker --queues ingest_jobs --concurrency 1
   ```
-- **Leases and heartbeats.** A delivery may run only a queued job that has never run, and only
-  with a matching dispatch id. While the job runs, the worker stamps a heartbeat every 30 s.
-  Jobs are not retried: if the worker dies, the job fails as `worker_lost`.
-- **Sweeper.** It runs in the API, with one leader per queue. It fails jobs with no heartbeat
-  for 5 min, jobs past the 35 min runtime cap, and jobs queued for more than 30 min. It also
-  re-sends queued jobs whose message was lost.
+- **Leases and heartbeats.** A delivery may run only a queued job with a matching dispatch id.
+  While the job runs, the worker stamps a heartbeat every 30 s.
+- **Retry on worker loss.** If the worker dies (OOM kill, deploy, node drain), the job reruns
+  from the start, up to `JOB_MAX_WORKER_LOSS_RETRIES` times (default 3; 0 turns retries off).
+  The user sees an `interrupted` event. A second loss in the same stage, or running out of
+  retries, fails the job as `worker_lost_repeatedly`. Stage errors, cancellation and the
+  runtime cap are never retried.
+- **Sweeper.** It runs in the API, with one leader per queue. It requeues or fails jobs with no
+  heartbeat for 5 min, and fails jobs past the 35 min runtime cap and jobs queued for more than
+  30 min. It also re-sends queued jobs whose message was lost.
 - **Cancellation** is a database flag. `DELETE /api/video-jobs/{id}` sets `cancelled`, and the
   worker notices within seconds and kills the stage's process group.
 
