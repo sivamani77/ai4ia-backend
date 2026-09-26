@@ -108,7 +108,7 @@ config/            Prompts, taxonomy, themes, video list, branding assets
 db/                init SQL + migrations (incl. the auth migration runbook)
 data/              Runtime data (transcripts, fragments, embeddings, chroma, …) — NOT tracked
 docker/            Dockerfile built by CI — the only one that ships
-docs/              Schema reference + production-readiness audits
+docs/              Process, design, security, runbooks and reference (see docs/README.md)
 tests/             pytest suite (unit + api)
 k6/                k6 load tests and reports
 examples/local-dev/  Reference only — superseded k8s/compose manifests, NOT the deployment path
@@ -196,7 +196,7 @@ Consequences worth knowing:
 
 ## Known gaps
 
-Tracked in [docs/AI4IA_Release_Audit_2026-09-15.xlsx](docs/AI4IA_Release_Audit_2026-09-15.xlsx). The ones most likely to surprise you:
+Tracked in the release audit spreadsheet (kept outside git, in `local/reports/`). The ones most likely to surprise you:
 
 | Gap | Effect |
 |---|---|

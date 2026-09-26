@@ -1,4 +1,4 @@
-"""How the pipeline reacts to lease stop signals (docs/job-recovery-plan.md §5)."""
+"""How the pipeline reacts to lease stop signals (docs/design/job-recovery-plan.md §5)."""
 from __future__ import annotations
 
 import time

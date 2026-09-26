@@ -20,7 +20,7 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     """Check the speaker, chapter and year a prompt names against the archive.
 
     Declines here, before any retrieval or storyline call, when the archive
-    clearly cannot answer (docs/intent-layer-design.md §6).
+    clearly cannot answer (docs/design/intent-layer-design.md §6).
     """
     update_stage(job_id, STAGE_NAME, "running", 50, "Checking the prompt against the archive")
     started = time.monotonic()

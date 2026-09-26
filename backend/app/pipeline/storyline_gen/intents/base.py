@@ -1,4 +1,4 @@
-"""Shared storyline instructions; each intent module adds its own (docs/intent-layer-design.md §7)."""
+"""Shared storyline instructions; each intent module adds its own (docs/design/intent-layer-design.md §7)."""
 from __future__ import annotations
 
 import hashlib

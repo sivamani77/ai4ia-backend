@@ -3,7 +3,7 @@ match the speaker registry (config/speaker_registry.json).
 
 Stores touched: Postgres fragments, the Chroma collection, the speaker
 tables, and the per-video roster and classified-fragment files (S3 or local).
-See docs/speaker-cleanup-plan.md for the rollout.
+See docs/runbooks/speaker-cleanup-plan.md for the rollout.
 
 Runs from API startup when a switch below is on, or from the CLI:
 
@@ -49,7 +49,7 @@ from app.services.video_naming import parse_source_video
 
 logger = logging.getLogger("ai4ia.speaker_repair")
 
-# --- Deploy switches (docs/speaker-cleanup-plan.md, Phase 7) -----------------
+# --- Deploy switches (docs/runbooks/speaker-cleanup-plan.md, Phase 7) -----------------
 REPAIR_NAME = "speaker_registry_v1"  # done-marker key; bump to run again
 RUN_SPEAKER_REPAIR = False           # True for deploys 1 and 2, then back to False
 SPEAKER_REPAIR_APPLY = False         # False = dry run and report only

@@ -63,7 +63,7 @@ The cluster's Postgres and ChromaDB cannot be reached from a dev machine, but th
 
 | # | What | Reviewer | How | Scope |
 |---|---|---|---|---|
-| 1 | Speaker registry | Aswin, plus whoever owns the register if a name is disputed | PR diff of `config/speaker_registry.json`, plus `docs/speaker_registry_videos.csv` and `docs/speaker_registry_speakers.csv` (open in a spreadsheet) | Now |
+| 1 | Speaker registry | Aswin, plus whoever owns the register if a name is disputed | PR diff of `config/speaker_registry.json`, plus `docs/reference/speaker-registry/speaker_registry_videos.csv` and `docs/reference/speaker-registry/speaker_registry_speakers.csv` (open in a spreadsheet) | Now |
 | 2 | Local dry-run and apply | Aswin | Report files under `backups/speaker_registry_v1/` | Now |
 | 3 | Cluster dry run (deploy 1) | Aswin | `s3://ai4ia-data/reports/data_repairs/speaker_registry_v1/dry_run.json`, plus pod logs | Now |
 | 4 | Cluster apply result (deploy 2) | Aswin | `…/apply.json`, plus `GET /api/archive/speakers` | Now |
@@ -124,12 +124,12 @@ Local Postgres currently has 0 fragments.
 
 ## Phase 2: Build the registry
 
-`scripts/build_speaker_registry.py` writes `config/speaker_registry.json` and two review files: `docs/speaker_registry_videos.csv` (one row per video) and `docs/speaker_registry_speakers.csv` (one row per speaker). `--check` exits 1 if the registry is out of date.
+`scripts/build_speaker_registry.py` writes `config/speaker_registry.json` and two review files: `docs/reference/speaker-registry/speaker_registry_videos.csv` (one row per video) and `docs/reference/speaker-registry/speaker_registry_speakers.csv` (one row per speaker). `--check` exits 1 if the registry is out of date.
 
 Inputs:
 
-- `docs/AI4IA Speaker Register_updated.html` (the latest register, with affiliations);
-- `docs/AI4IA_speaker_cleanup.csv`;
+- `docs/reference/speaker-registry/AI4IA Speaker Register_updated.html` (the latest register, with affiliations);
+- `docs/reference/speaker-registry/AI4IA_speaker_cleanup.csv`;
 - current corpus speakers from `data/chroma/chroma.sqlite3`, read-only (the video-ID cross-check is recomputed, not read from `docs/AI4IA_speaker_video_xcheck.csv`);
 - video descriptions from `.info.json`, read by code for the "Moderators: … / speakers include …" pattern;
 - the decisions above.

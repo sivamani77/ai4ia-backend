@@ -2,7 +2,7 @@
 reachable with only the optional shared API key (or, for insights.py, with
 no auth check at all): ingest.py, compare.py, concept_mindmap.py, insights.py.
 
-See docs/AI4IA_Production_Readiness_Audit.xlsx, Critical Findings #3/#7 and
+See local/reports/AI4IA_Production_Readiness_Audit.xlsx, Critical Findings #3/#7 and
 Checklist 5.1/5.3.
 """
 from __future__ import annotations

@@ -1,7 +1,7 @@
 """Leases on running video jobs: one runner per job, a heartbeat while it
 runs, and a stop signal when the job should end early.
 
-See docs/job-recovery-plan.md for the design. The worker claims a job before
+See docs/design/job-recovery-plan.md for the design. The worker claims a job before
 running it, a thread stamps a heartbeat, and the run checks stop_reason() at
 stage boundaries and while a script runs.
 """

@@ -1,4 +1,4 @@
-"""Phase 8: documentary format and clip policy per intent (docs/intent-layer-design.md §7.4)."""
+"""Phase 8: documentary format and clip policy per intent (docs/design/intent-layer-design.md §7.4)."""
 from __future__ import annotations
 
 import pytest
@@ -297,7 +297,7 @@ class TestRouting:
                    "topic_terms": topic_terms}
         assert intents.select(profile, {}).NAME == expected
 
-    # Case matrix rows 10 and 31 (docs/intent-layer-design.md §13), from the profile the prompt produces.
+    # Case matrix rows 10 and 31 (docs/design/intent-layer-design.md §13), from the profile the prompt produces.
     @pytest.mark.parametrize("prompt,speaker,expected", [
         ("What did Cordell Green say?", "Cordel Green", "speaker"),       # an alias is not a topic
         ("What did Cordell Green say about regulation?", "Cordel Green", "speaker_topic"),
