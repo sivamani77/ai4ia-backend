@@ -44,7 +44,7 @@ DECLINE_MESSAGES: dict[str, str] = {
     "speaker_ambiguous": 'More than one speaker matches "{name}". Did you mean {options}?',
     "speaker_ambiguous_partial": 'More than one speaker matches "{name}", including {options}. Please use the full name.',
     "speaker_too_many": 'Several speakers match "{name}": {options}. Please use the full name.',
-    "speaker_not_found": '"{name}" isn\'t a speaker in the AI4IA archive.',
+    "speaker_not_found": '"{name}" isn\'t a speaker in the AI4IA archive. Check the spelling, or ask about the topic instead.',
     "speaker_no_recording": "{name} is an AI4IA speaker, but the archive has no recorded talk from them.",
     "chapter_not_found": "The archive has chapters {first}–{last}; there is no chapter {n}.",
     "year_out_of_range": "The archive covers talks from {first} to {last}.",

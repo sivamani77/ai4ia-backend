@@ -260,6 +260,14 @@ class Settings(BaseSettings):
     # Longest prompt accepted with a friendly message; the request model's hard cap is higher.
     prompt_max_chars: int = 2000
 
+    # LLM intent router (docs/design/intent-layer-design.md §7.5). It reads the
+    # prompt's meaning in stage_resolve; any failure falls back to the rules.
+    intent_router_enabled: bool = True
+    # Empty uses prompt_guardrail_model. Must be a model generate_json can route.
+    intent_router_model: str = ""
+    # One attempt; a slow host falls back to the rules instead of holding the job.
+    intent_router_timeout_seconds: int = Field(default=20, gt=0)
+
     # ------------------------------------------------------------------
     # Response translation
     # ------------------------------------------------------------------

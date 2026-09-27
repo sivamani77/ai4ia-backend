@@ -5,6 +5,12 @@ Each PR adds a line under `Unreleased`. At release time, rename `Unreleased` to 
 
 ## [Unreleased]
 
+### Added
+- Intent router: a self-hosted LLM reads what a prompt asks for by meaning, and code checks every name, year and chapter it returns. It falls back to the rules on any failure. "What did Cordel Green contribute?" is now a Cordel Green film, not a decline. New settings `INTENT_ROUTER_ENABLED`, `INTENT_ROUTER_MODEL` and `INTENT_ROUTER_TIMEOUT_SECONDS` (part of #23).
+
+### Changed
+- Prompts that name a person who is not an AI4IA speaker are declined with a message, instead of becoming a topic film. Excluded speakers and subjects ("but not X") are honoured. A second speaker's name is no longer read as a topic or a talk title. Speaker prompts are no longer declined by the fixed 0.60 coverage score; the evidence judge decides (part of #23).
+
 ## [1.0.0] - 2026-09-26
 
 First tagged release. It covers everything merged since the last production deploy

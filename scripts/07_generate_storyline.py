@@ -27,10 +27,8 @@ from app.pipeline.storyline_gen.moment_repair import (  # noqa: E402
     timeline_requires_moment_repair,
 )
 from app.pipeline.storyline_gen.narrative import build_documentary_arc  # noqa: E402
-from app.pipeline.storyline_gen.prompt_intent import (  # noqa: E402
-    detect_prompt_intent,
-    load_known_speakers,
-)
+from app.pipeline.storyline_gen.route import drop_excluded_speakers, profile_for_route  # noqa: E402
+from app.pipeline.storyline_gen.prompt_intent import load_known_speakers  # noqa: E402
 from app.pipeline.storyline_gen.retrieval import (  # noqa: E402
     DEFAULT_TOP_K,
     EMBEDDINGS_DIR,
@@ -131,6 +129,11 @@ def main() -> None:
         help="Exclude fragments with audio_quality_status == 'manual_review'."
     )
     parser.add_argument(
+        "--route-file",
+        default="",
+        help="The intent router's validated route (JSON), written by the resolve stage.",
+    )
+    parser.add_argument(
         "--coverage-file",
         default="",
         help="Where to write the coverage verdict (JSON), for the stage module to read.",
@@ -168,14 +171,19 @@ def main() -> None:
     known_speakers = load_known_speakers()
     log(f"Loaded {len(known_speakers)} known speakers.")
     all_records = get_filtered_records_or_load()
-    prompt_intent = detect_prompt_intent(args.prompt, known_speakers, all_records, target_duration_seconds=args.duration,
-                                         requested_speaker=args.requested_speaker or None)
+    route = json.loads(Path(args.route_file).read_text(encoding="utf-8")) if args.route_file else None
+    prompt_intent = profile_for_route(args.prompt, known_speakers, all_records, route,
+                                      target_duration_seconds=args.duration,
+                                      requested_speaker=args.requested_speaker or None)
     prompt_intent["speaker_panel_only"] = speaker_panel_only(prompt_intent.get("requested_speaker"))
     intent_context = build_intent_context(prompt_intent, all_records)
     log(f"Prompt intent: {json.dumps(prompt_intent, ensure_ascii=False)}")
 
-    raw_retrieved = retrieve_candidates(args.prompt, prompt_intent, top_k=args.top_k)
-    retrieved = annotate_candidate_relevance(raw_retrieved, args.prompt, prompt_intent, known_speakers)
+    # A non-English prompt searches with the router's English topic.
+    query = prompt_intent.get("retrieval_query") or args.prompt
+    raw_retrieved = retrieve_candidates(query, prompt_intent, top_k=args.top_k)
+    retrieved = annotate_candidate_relevance(raw_retrieved, query, prompt_intent, known_speakers)
+    retrieved = drop_excluded_speakers(retrieved, prompt_intent)
 
     # L2b: can the archive answer this at all? (docs/design/intent-layer-design.md §8)
     first_intent = intents.select(prompt_intent, {})

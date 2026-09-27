@@ -54,6 +54,19 @@ SIDE_TOPIC_TERMS = [
 ]
 
 
+# Endings a stemmed topic term may take: "deepfake" -> "deepfakes",
+# "indigenou" -> "indigenous", never "roman" -> "romance".
+TERM_ENDINGS = r"(?:s|es|ed|ing|ings|er|ers|ion|ions|al|ally|ly|y|ies|ic|ics|ical|ity|ities|ation|ations|e|ence|ent|ents)?"
+_TRAILING_ENDING = re.compile(TERM_ENDINGS + "$")
+
+
+def stem_term(word: str) -> str:
+    """"regulation", "regulating" and "regulations" all give "regulat"; short words stay whole."""
+    word = normalize_plural(word.lower())
+    cut = _TRAILING_ENDING.sub("", word)
+    return cut if len(cut) >= 4 else word
+
+
 def normalize_plural(token: str) -> str:
     if len(token) > 4 and token.endswith("ies"):
         return token[:-3] + "y"

@@ -54,9 +54,11 @@ def asks_about_time(prompt: str) -> bool:
 
 
 def matches(profile: dict, director_plan: dict) -> bool:
-    """Evidence spread over years is not enough: the prompt must ask about change over time."""
+    """Evidence spread over years is not enough: the prompt must ask about change over time,
+    by its wording or as read by the intent router."""
     return (director_plan.get("video_mode") == "chronological_relay"
-            and asks_about_time(profile.get("raw_prompt") or ""))
+            and (asks_about_time(profile.get("raw_prompt") or "")
+                 or (profile.get("route") or {}).get("intent") == "chronological"))
 
 
 def prepare_director_plan(director_plan: dict) -> dict:

@@ -250,6 +250,7 @@ maps to an upper-case environment variable, and the values are read from the env
 | `ENABLE_AUTO_SYNC` / `AUTO_SYNC_CRON` | Nightly channel sync through Celery beat |
 | `AI4IA_ENABLE_HLS_STREAMING` | Progressive HLS while stage 09 renders |
 | `TRANSLATION_ENABLED` | Response translation |
+| `INTENT_ROUTER_ENABLED` / `INTENT_ROUTER_MODEL` / `INTENT_ROUTER_TIMEOUT_SECONDS` | LLM intent router in the resolve stage (default on, the guardrail model, 20 s); it falls back to the rules on any failure |
 | `AUTH_SUPABASE_URL` / `AUTH_SUPABASE_SERVICE_KEY` | Read-only access to the retired Supabase auth project, used only to copy auth data into Postgres |
 | `AUTH_SUPABASE_CATCHUP` | Copies auth rows that changed in Supabase after the first copy, on every startup (v1.0.0 cutover) |
 

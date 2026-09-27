@@ -394,6 +394,10 @@ class PipelineContext:
     validated_storyline_data: dict[str, Any] | None = None
     # Canonical speaker found by stage_resolve; stage 07 uses it instead of detecting again.
     resolved_speaker: str | None = None
+    # The intent router's validated route (intent_router.Route.to_dict()); stage 07 applies it.
+    route: dict[str, Any] | None = None
+    # A storyline-cache hit: stages 07 and 07b are skipped, so no route is needed.
+    storyline_cached: bool = False
     asset_manifest_path: str | None = None
     export_manifest_path: str | None = None
     video_path: str | None = None

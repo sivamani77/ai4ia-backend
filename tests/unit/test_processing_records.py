@@ -131,7 +131,7 @@ class TestInProcessCalls:
 
         raw = '{"allowed": true, "category": null}'
         monkeypatch.setattr(llm_service, "_post_with_retries",
-                            lambda url, body: ({"choices": [{"message": {"content": raw}}]}, 0))
+                            lambda url, body, **kw: ({"choices": [{"message": {"content": raw}}]}, 0))
         monkeypatch.setattr(LLMTraceRepository, "create", lambda self, trace: None)
         monkeypatch.setattr(llm_service.threading, "Thread",
                             lambda target, daemon: type("T", (), {"start": staticmethod(target)})())

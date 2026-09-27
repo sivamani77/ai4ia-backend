@@ -39,6 +39,7 @@ from typing import Any
 from app.core import settings as _settings_module
 from app.core import metrics as _metrics
 from app.pipeline.storyline_gen import intents
+from app.services import intent_router
 
 logger = logging.getLogger("ai4ia.services.storyline_cache")
 
@@ -99,6 +100,8 @@ def _relevant_params(request: dict[str, Any]) -> dict[str, Any]:
         "storyline_corpus_version": _settings_module.settings.storyline_corpus_version,
         # Any change to an intent's instructions invalidates storylines built with the old ones.
         "intents_version": intents.REGISTRY_VERSION,
+        # So does any change to how prompts are routed (contract, prompt, validator, model, on/off).
+        "router_version": intent_router.router_version(),
     }
 
 
