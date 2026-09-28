@@ -37,7 +37,7 @@ logger = logging.getLogger("ai4ia.corpus_fix")
 # Deploy 2: CORPUS_FIX_APPLY = True. Deploy 3: RUN_CORPUS_FIX = False.
 FIX_NAME = "corpus_fix_2026_09"  # done-marker key; bump to run again
 RUN_CORPUS_FIX = True
-CORPUS_FIX_APPLY = False         # False = dry run and report only
+CORPUS_FIX_APPLY = True          # False = dry run and report only
 
 _LOCK_KEY = 73_310_002
 # Multi-speaker sessions filed as one speaker's talk; rosters are in the registry.
