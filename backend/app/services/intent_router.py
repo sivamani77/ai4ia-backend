@@ -21,7 +21,7 @@ from app.services.speaker_names import norm_key
 logger = logging.getLogger("ai4ia.services.intent_router")
 
 CONTRACT_VERSION = "1"
-VALIDATOR_VERSION = "2"  # bump on any change to validation or to how stage 07 applies a route
+VALIDATOR_VERSION = "3"  # bump on any change to validation or to how stage 07 applies a route
 INTENTS = ("speaker", "comparison", "counting", "overview", "title", "theme_chapter", "chronological", "topic")
 
 _SYSTEM_TEMPLATE = """You read one request for a short documentary film made from the AI4IA conference archive \
@@ -241,8 +241,9 @@ def _unique_talk(title_text: str, catalog: Catalog) -> str | None:
     return videos[0] if len(videos) == 1 else None
 
 
-def _topic(raw_topic: Any, prompt: str, english: bool, names: list[str], excluded: set[str]) -> list[str]:
-    """Router topic words as topic terms. An English prompt must contain each word
+def _topic(raw_topic: Any, prompt: str, english: bool, names: list[str],
+           excluded: set[str]) -> tuple[list[str], list[str]]:
+    """(topic terms, the same words as written). An English prompt must contain each word
     (any ending); a translated topic from another language is kept as given."""
     from app.pipeline.storyline_gen.prompt_intent import NON_TOPIC_WORDS
     from app.pipeline.storyline_gen.text_utils import normalize_plural, stem_term
@@ -250,6 +251,7 @@ def _topic(raw_topic: Any, prompt: str, english: bool, names: list[str], exclude
     prompt_stems = {stem_term(t) for t in _tokens(prompt)}
     name_stems = {stem_term(t) for n in names for t in _tokens(n)}
     terms: list[str] = []
+    words: list[str] = []
     for token in _tokens(raw_topic if isinstance(raw_topic, str) else ""):
         term, stem = normalize_plural(token), stem_term(token)
         if token.isdigit() or token in NON_TOPIC_WORDS or term in NON_TOPIC_WORDS:
@@ -258,7 +260,8 @@ def _topic(raw_topic: Any, prompt: str, english: bool, names: list[str], exclude
             continue
         if len(term) > 1 and term not in terms:
             terms.append(term)
-    return terms
+            words.append(token)
+    return terms, words
 
 
 def validate(prompt: str, raw: Any, catalog: Catalog) -> Route:
@@ -308,7 +311,7 @@ def validate(prompt: str, raw: Any, catalog: Catalog) -> Route:
         if not canonical:
             canonical, decline = _match_mention(name, person=_looks_like_person(name))
             if decline:
-                terms = _topic(topic_text, prompt, result.language == "en", written, excluded_stems)
+                terms = _topic(topic_text, prompt, result.language == "en", written, excluded_stems)[1]
                 if decline.reason_code == "speaker_not_found" and terms:
                     decline = Decline(decline.reason_code, decline.message,
                                       [f"What did speakers say about {' '.join(terms)}?"])
@@ -323,8 +326,9 @@ def validate(prompt: str, raw: Any, catalog: Catalog) -> Route:
         elif not canonical:
             result.dropped.append({"slot": "speaker", "value": name[:60], "reason": "not_a_person"})
 
-    result.topic_terms = _topic(topic_text, prompt, result.language == "en", written, excluded_stems)
-    result.topic_text = " ".join(result.topic_terms)
+    result.topic_terms, words = _topic(topic_text, prompt, result.language == "en", written, excluded_stems)
+    # As written ("deepfakes", "ethics"): it is shown to users and is what counting scores passages against.
+    result.topic_text = " ".join(words)
 
     prompt_years = sorted({int(y) for y in _YEAR.findall(prompt or "")})
     year = _as_int(raw.get("year"))

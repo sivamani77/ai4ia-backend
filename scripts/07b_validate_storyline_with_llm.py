@@ -33,7 +33,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
-from app.pipeline.storyline_gen import comparison, intents  # noqa: E402
+from app.pipeline.storyline_gen import comparison, counting, intents  # noqa: E402
 from app.pipeline.timeline_budget import (  # noqa: E402
     DURATION_FILL_MARGIN,
     _candidate_is_speaker_eligible,
@@ -640,6 +640,14 @@ def main() -> None:
     if archive_facts:
         for sentence in ensure_asked_figures(enriched_timeline, user_prompt, archive_facts):
             log(f"Overview: narration did not state an asked figure — added {sentence!r}")
+
+    # A count is answered first, with the figure code computed.
+    count_facts = (data.get("storyline") or {}).get("count_facts")
+    if intent.NAME == "counting" and count_facts:
+        count = (data.get("prompt_profile") or data.get("prompt_intent") or {}).get("count") or {}
+        added = counting.ensure_count_answer(enriched_timeline, count_facts, count.get("unit"), count.get("aggregate"))
+        if added:
+            log(f"Count: narration did not state the answer — added {added!r}")
 
     if compare_gap and comparison.state_comparison_gap(enriched_timeline, compare_gap, compare.get("topic") or "",
                                                         archive=compare_gap_in_archive):

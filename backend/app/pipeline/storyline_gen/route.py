@@ -32,6 +32,9 @@ def _set_evidence(profile: dict[str, Any]) -> None:
     topic_terms = profile.get("topic_terms") or []
     if profile["intent_type"] == "archive_overview":
         return
+    if profile["intent_type"] == "counting":
+        profile.update(scope="specific_topic", evidence_requirement="corpus_counts", strictness="medium")
+        return
     if profile["intent_type"] == "speaker_compare":
         profile.update(scope="specific_topic" if topic_terms else "general",
                        evidence_requirement="speaker_source_evidence", strictness="high")
@@ -61,9 +64,6 @@ def profile_for_route(
     if not route or route.get("method") != "router":
         return rules
     intent = route.get("intent")
-    # Intents whose data step is not built yet keep today's behaviour (§7.5.5).
-    if intent == "counting":
-        intent = "topic"
     speakers = route.get("speakers") or []
     compare = speakers[:2] if intent == "comparison" and len(speakers) >= 2 else None
     speaker = speakers[0] if intent in ("speaker", "comparison") and speakers else None
@@ -103,6 +103,9 @@ def profile_for_route(
                        evidence_requirement="corpus_facts", topic_terms=[], expanded_terms=[])
     elif compare:
         profile["intent_type"] = "speaker_compare"
+    elif intent == "counting" and topic_terms:
+        profile.update(intent_type="counting",
+                       count={"unit": route.get("count_unit") or "talks", "aggregate": route.get("aggregate") or "count"})
     elif speaker:
         profile["intent_type"] = "speaker_topic_summary"
     elif source_video:

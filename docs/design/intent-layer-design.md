@@ -719,6 +719,68 @@ Stage 07 restricted the 2023 job to 720 of 5,091 fragments and selected 5 candid
 - **Film.** The first narration states the computed answer. A deterministic check, like `archive_answer.py`, inserts it if missing. Example clips from the top talks follow. The LLM never changes a number.
 - **Gate:** the counts equal an independent direct query (a test over a fixture corpus plus a diagnostics script against local Chroma), and the rule is stated in the docs.
 
+**Built (PR 4, 2026-09-28).**
+
+- `storyline_gen/counting.py` scores every passage in scope with `retrieval.score_every_record`. That uses the stored embeddings, as the score backfill does, and covers the whole archive or one year. It then counts with the rule above.
+  - The query is a plain question ("What did speakers say about deepfakes?"), like the prompts the 0.68 floor was tuned on.
+  - The term test is the coverage test's `has_term`. It reads the passage and its talk's title and metadata, so a talk titled "Harmful deepfakes" counts when two of its passages reach the floor.
+- **Speakers** come from registry single-speaker talks; panels are counted as panels. Review-status speakers are counted but never named ("Speakers not named here: N").
+- **The film:** the `counting` intent sections are the answer, where it comes up, in their words, reading the numbers, and a close. Clips are optional.
+  - `count_facts` reaches the storyline and 07b.
+  - 07b's `ensure_count_answer` opens the first narration with the answer when the narration does not state it. For a talk count: "12 talks in AI4IA 2024 discuss deepfakes." For a ranking: "Of the speakers in the AI4IA archive, X discusses ethics the most."
+- **Zero is answered by a decline**, not a film about nothing: `count_none`, "No talks in the AI4IA archive discuss space law. Related themes it does cover: …".
+- **Measured** with `scripts/diagnostics/count_check.py`, which recomputes each count from every stored embedding with its own scoring and grouping. It matched the production path on all 10 topics:
+
+  | Topic | Talks | Speakers | Panels |
+  |---|---|---|---|
+  | deepfakes | 9 | 6 | 3 |
+  | regulation | 19 | 8 | 10 |
+  | education | 20 | 13 | 7 |
+  | ethics | 27 | 17 | 8 |
+  | quantum computing | 1 | — | — |
+  | open data | 8 | — | — |
+  | smart cities | 1 | — | — |
+  | space law | 0 | — | — |
+  | nuclear weapons | 0 | — | — |
+  | cryptocurrency | 0 | — | — |
+
+  The top talks for deepfakes read as expected: "Harmful deepfakes", "Tackling deepfakes through copyright law", "The rise of deepfakes", "AI Deepfake", and a Europe panel.
+
+**Wording (found in the renders, 2026-09-28).** The rule's two halves both depend on how the topic is worded.
+
+- The first ranking render counted "ethic" (the router's normalised term): 16 talks, against 27 for "ethics".
+- Changes:
+  - Passages are scored against the router's topic words as written, with filler such as "AI" removed. `Route.topic_text` keeps the written form.
+  - Terms match by stem, so "regulating" finds "regulation".
+- Measured with `count_check.py`, before → after:
+  - "AI ethics": 49 → 27, the same as "ethics".
+  - "AI regulation": 20 → 19, the same as "regulation".
+  - "regulating AI": 1 → 15.
+  - "deepfakes", "AI deepfakes": 9 → 9.
+- **Still open:** a different word still gives a different count, because it means something slightly different to the embedding model. "ethical" gives 17 against 27 for "ethics"; "regulating" gives 15 against 19 for "regulation". The film states how a talk was counted.
+
+Review fixes:
+
+- The registry id comes from the file name, since a stored `video_id` can be cut at an underscore.
+- "The most" is claimed only for a unique top speaker who is named. A tie, or a hidden top speaker, is worded as "Speakers who discuss X most include …".
+- The topic and the year have their own lines in the facts block.
+- The "already stated" check needs the figure, as digits or words (0–99), next to its noun.
+- A talk ranking names the top talk.
+- A failed embedding fetch fails the job instead of scoring 0.
+- Example clips come from the counted talks when retrieval finds any.
+- Excluded speakers' passages, and passages with an excluded term, are left out of the count.
+
+Renders (local, 2026-09-28):
+
+| Prompt | Result |
+|---|---|
+| "How many talks cover deepfakes?" | opens "nine distinct talks … deepfakes"; clips come from a counted talk |
+| "Which speakers talked the most about ethics?" | 27 talks; opens "Samantha-Kaye Johnston discusses ethics the most" |
+| "How many talks were about education in 2024?" | 8 talks; the narration says "eight", so nothing was inserted |
+| "How many talks discuss space law?" | declined with `count_none` |
+
+**Open:** in both ethics renders, the narration after the answer invented a claim about panels ("the speakers who mention ethics most are the panels"; "appears in three separate panels"). The figures and the opening answer come from code. The sentences after them are the LLM's, and 07b's grounding does not catch this kind of claim.
+
 ---
 
 ## 8. L2b — coverage

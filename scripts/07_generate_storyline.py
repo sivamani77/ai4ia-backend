@@ -19,7 +19,7 @@ from app.pipeline.storyline_gen.director import (  # noqa: E402
     get_selected_candidate_cap,
 )
 from app.pipeline.storyline_gen import coverage as coverage_check  # noqa: E402
-from app.pipeline.storyline_gen import comparison, intents  # noqa: E402
+from app.pipeline.storyline_gen import comparison, counting, intents  # noqa: E402
 from app.pipeline.storyline_gen.intents.context import build_intent_context, speaker_panel_only  # noqa: E402
 from app.pipeline.storyline_gen.llm_client import call_strong_llm, log, warm_up_ollama  # noqa: E402
 from app.pipeline.storyline_gen.moment_repair import (  # noqa: E402
@@ -37,6 +37,7 @@ from app.pipeline.storyline_gen.retrieval import (  # noqa: E402
     get_filtered_records_or_load,
     restrict_to_year,
     retrieve_candidates,
+    score_every_record,
 )
 from app.pipeline.storyline_gen.selection import (  # noqa: E402
     _assign_relay_sections_by_year,
@@ -185,6 +186,11 @@ def main() -> None:
 
     # A non-English prompt searches with the router's English topic.
     query = prompt_intent.get("retrieval_query") or args.prompt
+    counting_topic = None
+    if prompt_intent.get("intent_type") == "counting":
+        # Examples are searched with the same question the passages are counted against.
+        counting_topic = (route or {}).get("topic_text") or " ".join(prompt_intent["topic_terms"])
+        query = counting.count_question(counting_topic)
     first_intent = intents.select(prompt_intent, {})
     compare_speakers = prompt_intent.get("compare_speakers")
     if compare_speakers:
@@ -204,11 +210,27 @@ def main() -> None:
         retrieved = annotate_candidate_relevance(raw_retrieved, query, prompt_intent, known_speakers)
         retrieved = drop_excluded_speakers(retrieved, prompt_intent)
 
-        # L2b: can the archive answer this at all? (docs/design/intent-layer-design.md §8)
-        coverage = coverage_check.assess(
-            first_intent.NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,
-            floor=settings.archive_relevance_floor, low=settings.coverage_judge_low, records=all_records,
-        )
+        if counting_topic:
+            # The answer is computed by code over every passage in scope (§7.8); zero is answered by a decline.
+            scores = score_every_record(query)
+            terms = counting.count_terms(prompt_intent["topic_terms"] + (prompt_intent.get("expanded_terms") or []))
+            count_facts = counting.count_topic(drop_excluded_speakers(all_records, prompt_intent), scores, terms,
+                                               settings.archive_relevance_floor,
+                                               exclude_terms=prompt_intent.get("negative_terms"))
+            intent_context["count_facts"] = counting.format_count_facts(count_facts, counting_topic,
+                                                                        prompt_intent.get("year"))
+            coverage = coverage_check.count_verdict(count_facts, counting_topic, prompt_intent.get("year"), retrieved)
+            # Examples come from the counted talks when any retrieved clip is from one.
+            from_counted = [c for c in retrieved if c.get("source_video") in count_facts["talks"]]
+            retrieved = from_counted or retrieved
+            log(f"Count: {({k: v for k, v in count_facts.items() if k != 'talks'})}; "
+                f"{len(from_counted)} retrieved clip(s) from counted talks")
+        else:
+            # L2b: can the archive answer this at all? (docs/design/intent-layer-design.md §8)
+            coverage = coverage_check.assess(
+                first_intent.NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,
+                floor=settings.archive_relevance_floor, low=settings.coverage_judge_low, records=all_records,
+            )
     log(f"Coverage: {coverage.verdict} ({coverage.method}) top1={coverage.top_similarity} "
         f"pool={coverage.pool_size} missing_terms={coverage.missing_terms} missing={coverage.missing_aspects}")
     if args.coverage_file:
@@ -512,7 +534,7 @@ def main() -> None:
     storyline["format"] = intents.select(prompt_intent, director_plan).NAME
     storyline["coverage"] = coverage.to_dict()
     # Evidence 07b needs as well: facts for figures, the panel roster, the requested facet, archive gaps.
-    for key in ("archive_facts", "panel_context", "requested_facet", "coverage_gaps", "comparison"):
+    for key in ("archive_facts", "panel_context", "requested_facet", "coverage_gaps", "comparison", "count_facts"):
         if intent_context.get(key):
             storyline[key] = intent_context[key]
     output_path = save_storyline(

@@ -41,7 +41,7 @@ class TestFormats:
         policy = {m.NAME: m.CLIPS for m in intents.REGISTRY}
         assert policy == {
             "title": "required", "speaker_compare": "required", "speaker_panel": "required",
-            "speaker_topic": "required", "speaker": "required",
+            "speaker_topic": "required", "speaker": "required", "counting": "optional",
             "overview": "optional", "theme_chapter": "optional", "chronological": "optional", "topic": "optional",
         }
 
