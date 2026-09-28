@@ -63,7 +63,7 @@ def decide(prompt: str, catalog, records, known, use_router: bool) -> dict:
         chapter = int(m.group(1))
     exclude: list[str] = []
     if route.used:
-        if route.intent in NOT_BUILT or (route.intent == "overview" and route.year):
+        if route.intent in NOT_BUILT:
             intent = route.intent
             speakers = route.speakers if route.intent == "comparison" else []
         year = route.year or year

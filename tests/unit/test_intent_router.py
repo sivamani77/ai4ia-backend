@@ -352,3 +352,11 @@ class TestReviewFindings:
         with pytest.raises(RuntimeError):
             llm_service._post_with_retries("http://x/v1", {}, timeout=1, attempts=1, record_failure=False)
         assert recorded == []
+
+
+def test_a_year_inside_the_range_with_no_talks_declines():
+    catalog = Catalog(CATALOG.chapter_numbers, 2021, 2025, CATALOG.titles, CATALOG.themes, CATALOG.chapter_names,
+                      CATALOG.talks, frozenset({2021, 2023, 2024, 2025}))
+    route = validate("What happened at AI4IA 2022?", {"intent": "overview", "year": 2022}, catalog)
+    assert route.decline.reason_code == "year_no_talks"
+    assert route.decline.message == "The archive has no talks from 2022. It covers 2021 to 2025."

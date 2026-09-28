@@ -33,6 +33,7 @@ import hashlib
 import json
 import logging
 import math
+import re
 import time
 from typing import Any
 
@@ -263,6 +264,10 @@ def _llm_confirms_same_topic(prompt_a: str, prompt_b: str) -> bool:
 # Public API
 # ---------------------------------------------------------------------------
 
+def _years(prompt: str) -> set[str]:
+    return set(re.findall(r"\b(?:19|20)\d\d\b", prompt or ""))
+
+
 def get_cached_storyline(request: dict[str, Any]) -> dict[str, Any] | None:
     """Look up a cached validated storyline for this request. Returns the
     parsed JSON dict on a hit, None on a miss. Never raises."""
@@ -327,6 +332,9 @@ def get_cached_storyline(request: dict[str, Any]) -> dict[str, Any] | None:
             best_entry = entry
 
     threshold = settings.storyline_cache_l2_similarity_threshold
+    if best_entry is not None and _years(prompt) != _years(best_entry["prompt"]):
+        # "Overview of AI4IA 2024" must never be served the 2023 film (issue #23).
+        best_entry = None
     if best_entry is not None and best_similarity >= threshold:
         if _llm_confirms_same_topic(prompt, best_entry["prompt"]):
             try:

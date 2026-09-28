@@ -66,10 +66,11 @@ def _year(value: Any) -> int | None:
 
 
 def build_corpus_facts(records: list[dict[str, Any]], top_n: int = 5,
-                       registry_speaker_count: int | None = None) -> dict[str, Any]:
+                       registry_speaker_count: int | None = None, year: int | None = None) -> dict[str, Any]:
     """Counts and rankings over the active corpus. Omits anything it cannot
     measure rather than guessing. `registry_speaker_count` (speakers with a
-    recorded talk, panels included) replaces the fragment-based estimate."""
+    recorded talk, panels included) replaces the fragment-based estimate.
+    `year`: the records are one conference year's, and the facts say so."""
     from app.pipeline.storyline_gen.prompt_intent import SPEAKER_ALIAS_MAP
 
     videos: set[str] = set()
@@ -97,9 +98,9 @@ def build_corpus_facts(records: list[dict[str, Any]], top_n: int = 5,
         if chapter:
             chapters[chapter] += 1
 
-        year = _year(record.get("video_year"))
-        if year is not None:
-            video_years[source_video] = year
+        video_year = _year(record.get("video_year"))
+        if video_year is not None:
+            video_years[source_video] = video_year
 
     keys = sorted(speakers)
     groups = _variant_groups(keys)
@@ -135,7 +136,9 @@ def build_corpus_facts(records: list[dict[str, Any]], top_n: int = 5,
     }
     if registry_speaker_count:
         facts["registry_speaker_count"] = registry_speaker_count
-    if video_years:
+    if year:
+        facts["year"] = year
+    elif video_years:
         facts["year_first"] = min(video_years.values())
         facts["year_last"] = max(video_years.values())
         facts["edition_years"] = sorted(set(video_years.values()))
@@ -145,18 +148,26 @@ def build_corpus_facts(records: list[dict[str, Any]], top_n: int = 5,
 AI4IA_FULL_NAME = "Artificial Intelligence for Information Accessibility"
 
 
+def _over(count: int) -> str:
+    """"over 60" for 65, "over 50" for exactly 60; a small count is stated as it is."""
+    return f"over {(count - 1) // 10 * 10}" if count > 10 else str(count)
+
+
 def format_facts_for_prompt(facts: dict[str, Any]) -> str:
     """Plain-text facts block for the storyline LLM. Every figure here is one
     the narration may state; anything absent must not be invented."""
-    lines = [
-        f"- AI4IA stands for: {AI4IA_FULL_NAME}",
+    lines = [f"- AI4IA stands for: {AI4IA_FULL_NAME}"]
+    if facts.get("year"):
+        lines.append(f"- Scope: AI4IA {facts['year']} only. Every figure below is for {facts['year']}; "
+                     f"describe that edition, not the whole archive.")
+    lines += [
         f"- Talks in the archive: {facts['video_count']}",
-        f"- Speakers: over {(facts.get('registry_speaker_count') or facts['speaker_count_lower_bound']) // 10 * 10}",
+        f"- Speakers: {_over(facts.get('registry_speaker_count') or facts['speaker_count_lower_bound'])}",
         f"- Themes: {facts['theme_count']}",
         f"- Chapters: {facts['chapter_count']}",
     ]
     if "year_first" in facts:
-        # Range only: some talks lack a year tag (e.g. none carry 2022), so a per-year list would be wrong.
+        # Range only: the narration states the span, never a count of years.
         lines.append(f"- Years covered: {facts['year_first']}–{facts['year_last']} (state the range; never count the years)")
     if facts["themes"]:
         lines.append("- Themes, most discussed first:")

@@ -74,7 +74,7 @@ def test_build_catalog():
                {"primary_chapter": None, "video_year": ""}]
     assert build_catalog(records) == Catalog(
         frozenset({3, 12}), 2021, 2026, frozenset({"open data"}), ("T",), {3: "Ch 3: X", 12: "Ch 12: Y"},
-        {"open data": ("0001_abc_Ann Lee - Open Data",)})
+        {"open data": ("0001_abc_Ann Lee - Open Data",)}, frozenset({2021, 2026}))
     assert build_catalog([]) is None
 
 

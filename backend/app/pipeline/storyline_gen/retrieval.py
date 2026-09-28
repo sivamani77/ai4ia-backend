@@ -236,8 +236,12 @@ def _semantic_rank_via_chroma(
     collection = _get_chroma_collection()
     query_vector = _query_vector(prompt)
 
-    n_results = top_k * 5 if allowed_ids is not None else top_k
-    n_results = max(1, min(n_results, collection.count()))
+    total = collection.count()
+    n_results = top_k
+    if allowed_ids is not None:
+        # Over-fetch in proportion to how much of the collection is allowed (one year is about a fifth).
+        n_results = top_k * 5 * max(1, round(total / max(1, len(allowed_ids))))
+    n_results = max(1, min(n_results, total))
 
     query_kwargs: dict[str, Any] = {
         "query_embeddings": [query_vector.tolist()],
@@ -791,6 +795,19 @@ def activate_corpus(
     }
     _CORPUS_DIAGNOSTICS = diagnostics
     return diagnostics
+
+
+def restrict_to_year(year: int) -> list[dict[str, Any]]:
+    """Narrow the active corpus to one conference year (docs/design/intent-layer-design.md §7.6).
+    Every retrieval channel reads the active corpus, so clips and facts then come from that year only."""
+    global _FILTERED_RECORDS, _FILTERED_MATRIX
+    records = get_filtered_records_or_load()
+    keep = [i for i, r in enumerate(records) if r.get("video_year") == year]
+    if _FILTERED_MATRIX is not None and len(_FILTERED_MATRIX) == len(records):
+        _FILTERED_MATRIX = _FILTERED_MATRIX[keep]
+    _FILTERED_RECORDS = [records[i] for i in keep]
+    log(f"Corpus restricted to {year}: {len(_FILTERED_RECORDS)} of {len(records)} fragments")
+    return _FILTERED_RECORDS
 
 
 def get_filtered_records_or_load() -> list[dict[str, Any]]:

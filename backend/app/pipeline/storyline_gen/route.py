@@ -58,8 +58,6 @@ def profile_for_route(
         return rules
     intent = route.get("intent")
     # Intents whose data step is not built yet keep today's behaviour (§7.5.5).
-    if intent == "overview" and route.get("year"):
-        return rules
     if intent == "counting":
         intent = "topic"
     speakers = route.get("speakers") or []
@@ -107,6 +105,9 @@ def profile_for_route(
         profile["intent_type"] = "topic_video"
 
     _set_evidence(profile)
+    # A year scopes overview and topic films to that conference (§7.6); stage 07 filters the corpus.
+    scoped = route.get("intent") in ("overview", "topic", "counting", "theme_chapter")  # never "since 2023"
+    profile["year"] = route.get("year") if scoped and not (speaker or source_video) else None
     for term in route.get("exclude_terms") or []:
         if term not in profile["negative_terms"]:
             profile["negative_terms"].append(term)
