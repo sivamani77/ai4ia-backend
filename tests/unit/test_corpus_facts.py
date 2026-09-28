@@ -5,6 +5,7 @@ computed live from the corpus, the speaker count is never overstated, and no
 real person's name is spoken unless its spelling is unambiguous.
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -84,7 +85,7 @@ class TestSpeakerCount:
         errs conservative — the stated figure drops, it is never inflated."""
         facts = build_corpus_facts([frag(f"v{i}", f"Person Number{i}") for i in range(263)])
         assert facts["speaker_count_lower_bound"] < facts["speaker_count"]
-        stated = int(format_facts_for_prompt(facts).split("Speakers: over ")[1].split()[0])
+        stated = int(re.search(r"Speakers: (?:over )?(\d+)", format_facts_for_prompt(facts)).group(1))
         assert stated <= facts["speaker_count"]
 
 

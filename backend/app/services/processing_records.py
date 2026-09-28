@@ -77,13 +77,15 @@ def record_layer(
     intent_version: str | None = None,
     template_hash: str | None = None,
     coverage: Mapping[str, Any] | None = None,
+    resolution_method: str | None = None,
 ) -> None:
     """Record one layer's result for a job."""
     fields = {k: v for k, v in (("layer_outcome", outcome), ("reason_code", reason_code),
                                 ("user_message", user_message), ("slots", slots),
                                 ("dropped_slots", dropped_slots), ("suggestions", suggestions),
                                 ("intent", intent), ("intent_version", intent_version),
-                                ("template_hash", template_hash), ("coverage", coverage))
+                                ("template_hash", template_hash), ("coverage", coverage),
+                                ("resolution_method", resolution_method))
               if v is not None}
     merge = {k: v for k, v in (("flags", flags), ("timings_ms", timings_ms)) if v}
     try:

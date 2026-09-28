@@ -33,7 +33,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 _BACKEND_DIR = PROJECT_ROOT / "backend"
 sys.path.insert(0, str(_BACKEND_DIR if (_BACKEND_DIR / "app").is_dir() else PROJECT_ROOT))
 
-from app.pipeline.storyline_gen import intents  # noqa: E402
+from app.pipeline.storyline_gen import comparison, counting, intents  # noqa: E402
 from app.pipeline.timeline_budget import (  # noqa: E402
     DURATION_FILL_MARGIN,
     _candidate_is_speaker_eligible,
@@ -288,6 +288,40 @@ def main() -> None:
             results += _validate_items(extras)
 
     validated_candidates: list[dict] = [r for r, _ in results]
+    compare = (data.get("storyline") or {}).get("comparison") or {}
+    compare_gap = compare.get("gap")
+    compare_gap_in_archive = True
+
+    def _side_of(item: dict) -> str | None:
+        return item.get("compare_side") or candidate_map.get(str(item.get("fragment_id")), {}).get("compare_side")
+
+    if intent.NAME == "speaker_compare":
+        # A side with no usable speaker clip gets more of its own clips checked first.
+        for tag in comparison.SIDES:
+            if not any(_side_of(r) == tag and r.get("approved") and r.get("decision") == "speaker_clip"
+                       for r in validated_candidates):
+                extras = unchecked_speaker_candidates(
+                    [c for c in selected_candidates if c.get("compare_side") == tag],
+                    checked_fids={str(r.get("fragment_id")) for r in validated_candidates},
+                    limit=EXTRA_SPEAKER_CHECKS)
+                if extras:
+                    log(f"\nComparison side {tag} has no speaker clip — checking {len(extras)} more of its own.")
+                    for c in extras:
+                        candidate_map.setdefault(str(c["fragment_id"]), c)
+                    results += _validate_items(extras)
+                    validated_candidates = [r for r, _ in results]
+        # Equal clips per side, each placed in its own side's section; a side left with none is a stated gap (§7.7).
+        for r in validated_candidates:
+            source = candidate_map.get(str(r.get("fragment_id")), {})
+            if source.get("compare_side"):
+                r["compare_side"], r["compare_speaker"] = source["compare_side"], source.get("compare_speaker")
+                if r.get("decision") == "speaker_clip" and r.get("section_id") != "S4_CONTRAST":
+                    r["section_id"] = comparison.SIDE_SECTIONS[source["compare_side"]]
+        empty = comparison.balance_approved(validated_candidates, lambda r: r.get("compare_side"))
+        by_side = {s["side"]: s["speaker"] for s in compare.get("sides") or []}
+        if empty and not compare_gap and len(empty) < len(by_side):
+            compare_gap, compare_gap_in_archive = by_side.get(empty[0]), False
+        log(f"Comparison: sides with no approved clip {empty}; gap={compare_gap}")
     llm_fallback_count = sum(1 for _, used_fallback in results if used_fallback)
 
     approved_count = sum(1 for c in validated_candidates if c.get("approved"))
@@ -415,6 +449,11 @@ def main() -> None:
             item["voiceover_text"] = cleaned
             item["subtitle_text"] = cleaned
 
+    if intent.NAME == "speaker_compare":
+        moved = comparison.place_by_side(enriched_timeline, _side_of, _base_section_id)
+        if moved:
+            log(f"Comparison: moved {moved} speaker clip(s) into their own speaker's section.")
+
     # Narration opens and closes the film; clips sit in the middle sections.
     enriched_timeline = _place_clips(enriched_timeline)
 
@@ -519,6 +558,9 @@ def main() -> None:
     if not clips_required:
         # The top-up only adds speaker clips: never filler for a request that does not need them.
         log("\nDuration top-up skipped: this request does not need speaker clips.")
+    elif intent.NAME == "speaker_compare":
+        # Extra clips would come from whichever side has more and undo the balance.
+        log("\nDuration top-up skipped: a comparison keeps both speakers balanced.")
     elif target_duration or speaker_clip_count == 0:
         floor = float(target_duration or 0) * DURATION_FILL_MARGIN
         current_total = timeline_total_seconds(enriched_timeline)
@@ -598,6 +640,18 @@ def main() -> None:
     if archive_facts:
         for sentence in ensure_asked_figures(enriched_timeline, user_prompt, archive_facts):
             log(f"Overview: narration did not state an asked figure — added {sentence!r}")
+
+    # A count is answered first, with the figure code computed.
+    count_facts = (data.get("storyline") or {}).get("count_facts")
+    if intent.NAME == "counting" and count_facts:
+        count = (data.get("prompt_profile") or data.get("prompt_intent") or {}).get("count") or {}
+        added = counting.ensure_count_answer(enriched_timeline, count_facts, count.get("unit"), count.get("aggregate"))
+        if added:
+            log(f"Count: narration did not state the answer — added {added!r}")
+
+    if compare_gap and comparison.state_comparison_gap(enriched_timeline, compare_gap, compare.get("topic") or "",
+                                                        archive=compare_gap_in_archive):
+        log(f"Comparison gap stated: {compare_gap} ({'archive' if compare_gap_in_archive else 'no usable clip'})")
 
     # A partly covered request says what the archive lacks, and never narrates it.
     storyline = data.get("storyline") or {}

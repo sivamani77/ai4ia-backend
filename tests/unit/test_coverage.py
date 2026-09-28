@@ -148,10 +148,17 @@ class TestSpeakerTopic:
         picked = coverage.evidence_pool("speaker_topic", self.PROFILE, pool)
         assert [c["fragment_id"] for c in picked] == ["own", "by_name"]
 
+    def test_below_the_low_band_goes_to_the_judge(self):
+        # A speaker's own talk can score low on the prompt's words (issue #23): never a rule decline.
+        pool = [frag("a", 0.58, "media regulation", speaker_match=True)]
+        result = assess("speaker_topic", self.PROFILE, pool)
+        assert (result.verdict, result.method) == ("covered", "judge_failed")
+
     def test_decline_names_the_speakers_themes(self):
         pool = [frag("a", 0.58, "media regulation", speaker_match=True,
                      theme="AI & Information Access / Media / Journalism")]
-        result = assess("speaker_topic", self.PROFILE, pool)
+        call = llm_returning({"subjects": [{"subject": "quantum computing", "discussed": False}]})
+        result = assess("speaker_topic", self.PROFILE, pool, call)
         assert result.reason_code == "speaker_topic_not_covered"
         assert result.user_message == ("Cordel Green spoke at AI4IA, but not about quantum computing. "
                                        "Cordel Green's talks cover AI & Information Access / Media / Journalism.")

@@ -14,7 +14,7 @@ from typing import Any, Callable
 from app.core.error_messages import DECLINE_MESSAGES
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
 from app.pipeline.storyline_gen.candidate_scoring import candidate_search_blob
-from app.pipeline.storyline_gen.text_utils import normalize_name
+from app.pipeline.storyline_gen.text_utils import TERM_ENDINGS, normalize_name
 
 # Intents whose prompt carries a topic the archive may not cover. Speaker,
 # title and overview requests were already confirmed by the resolve stage.
@@ -87,14 +87,9 @@ def evidence_pool(intent_name: str, profile: dict[str, Any], candidates: list[di
     return sorted(pool, key=_score, reverse=True)
 
 
-# Endings a stemmed topic term may take: "deepfake" -> "deepfakes",
-# "indigenou" -> "indigenous", never "roman" -> "romance".
-_ENDINGS = r"(?:s|es|ed|ing|ings|er|ers|ion|ions|al|ally|ly|y|ies|ic|ics|ical|ity|ities|ation|ations|e|ence|ent|ents)?"
-
-
 def term_pattern(term: str) -> re.Pattern | None:
     stem = normalize_name(term)
-    return re.compile(rf"\b{re.escape(stem)}{_ENDINGS}\b", re.I) if stem else None
+    return re.compile(rf"\b{re.escape(stem)}{TERM_ENDINGS}\b", re.I) if stem else None
 
 
 def has_term(candidate: dict[str, Any], term: str) -> bool:
@@ -248,16 +243,63 @@ def decline(intent_name: str, profile: dict[str, Any], pool: list[dict[str, Any]
             name=speaker, topic=topic_phrase(profile, []), themes="; ".join(themes))
         return "speaker_topic_not_covered", message, [f"What did {speaker} say?"]
     themes = top_themes(nearest)
-    message = DECLINE_MESSAGES["topic_not_covered"].format(
-        topic=topic_phrase(profile, aspects[:1]),
+    year = profile.get("year")
+    message = DECLINE_MESSAGES["topic_not_covered_year" if year else "topic_not_covered"].format(
+        topic=topic_phrase(profile, aspects[:1]), year=year,
         themes="; ".join(themes) if themes else "AI ethics, information access and governance")
     return "topic_not_covered", message, themes
+
+
+def _year_gap(intent_name: str, profile: dict[str, Any], records: list[dict[str, Any]] | None) -> "Coverage | None":
+    """A year-scoped film whose year has nothing to show: no talks at all, or none in the
+    requested theme or chapter. `records` is already that year's (retrieval.restrict_to_year)."""
+    year = profile.get("year")
+    if not year or records is None:
+        return None
+    facet = profile.get("chapter_hint") or profile.get("theme_hint") if intent_name == "theme_chapter" else None
+    if records and (not facet or any(facet in (r.get("primary_chapter"), r.get("primary_theme")) for r in records)):
+        return None
+    themes = top_themes(records) or ["AI ethics, information access and governance"]
+    topic = facet or topic_phrase(profile, []) or "this subject"
+    return Coverage(verdict="not_covered", method="year_scope", pool_size=0, reason_code="topic_not_covered",
+                    user_message=DECLINE_MESSAGES["topic_not_covered_year"].format(
+                        year=year, topic=topic, themes="; ".join(themes)),
+                    suggestions=themes)
+
+
+def count_verdict(facts: dict[str, Any], topic: str, year: int | None,
+                  records: list[dict[str, Any]]) -> Coverage:
+    """A count of zero is an answer, given as the decline message rather than a film about nothing."""
+    if facts.get("talk_count"):
+        return Coverage(verdict="covered", method="count", pool_size=facts["talk_count"])
+    themes = top_themes(records) or ["AI ethics, information access and governance"]
+    return Coverage(verdict="not_covered", method="count", pool_size=0, reason_code="count_none",
+                    user_message=DECLINE_MESSAGES["count_none"].format(
+                        scope=f" from {year}" if year else "", topic=topic or "this subject",
+                        themes="; ".join(themes)),
+                    suggestions=themes)
+
+
+def compare_verdict(speakers: list[str], sides: list[Coverage], kept: list[dict[str, Any]], topic: str) -> Coverage:
+    """One verdict for a two-speaker comparison: declined only when neither side has anything."""
+    scores = [c.top_similarity for c in sides if c.top_similarity is not None]
+    if kept:
+        return Coverage(verdict="covered", method="per_side", top_similarity=max(scores) if scores else None,
+                        pool_size=len(kept))
+    return Coverage(verdict="not_covered", method="per_side", pool_size=0, reason_code="speaker_compare_not_covered",
+                    user_message=DECLINE_MESSAGES["speaker_compare_not_covered"].format(
+                        first=speakers[0], second=speakers[1], topic=topic or "this subject"),
+                    suggestions=[f"What did {s} say?" for s in speakers])
 
 
 def assess(intent_name: str, profile: dict[str, Any], candidates: list[dict[str, Any]], prompt: str,
            call_llm: Callable[..., str], floor: float, low: float,
            records: list[dict[str, Any]] | None = None) -> Coverage:
-    """`records` is the whole archive; topic requests search it for each term's evidence."""
+    """`records` is the archive (one year's, for a year-scoped film); topic requests search it
+    for each term's evidence."""
+    year_gap = _year_gap(intent_name, profile, records)
+    if year_gap:
+        return year_gap
     pool = evidence_pool(intent_name, profile, candidates)
     top1 = _score(pool[0]) if pool else None
     terms = list(profile.get("topic_terms") or [])
@@ -272,6 +314,9 @@ def assess(intent_name: str, profile: dict[str, Any], candidates: list[dict[str,
 
     result.missing_terms = missing_terms(pool, terms, prompt_phrases(prompt, terms))
     verdict = rule_verdict(top1, result.missing_terms, floor, low)
+    if verdict == "not_covered" and intent_name in ("speaker_topic", "speaker_panel"):
+        # A speaker's own talk scores low on words like "contribution" (issue #23): the judge decides.
+        verdict = "judge"
     if verdict != "judge":
         result.verdict, result.method = verdict, "rule"
     else:

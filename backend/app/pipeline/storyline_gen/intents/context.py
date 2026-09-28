@@ -15,11 +15,20 @@ def speaker_panel_only(speaker: str | None) -> bool:
 def build_intent_context(profile: dict[str, Any], records: list[dict[str, Any]]) -> dict[str, Any]:
     from app.pipeline.storyline_gen.corpus_facts import build_corpus_facts, format_facts_for_prompt
     from app.services.speaker_registry import get_registry
+    from app.services.video_naming import parse_source_video
 
     registry = get_registry()
     context: dict[str, Any] = {}
     if profile.get("intent_type") == "archive_overview":
-        facts = build_corpus_facts(records, registry_speaker_count=registry.recorded_speaker_count())
+        year = profile.get("year")
+        # For one year, `records` is already that year's; its speakers come from the same videos.
+        video_ids = ({parse_source_video(str(r.get("source_video") or ""))[0] or str(r.get("video_id") or "")
+                      for r in records} - {""}) if year else None
+        facts = build_corpus_facts(records, registry_speaker_count=registry.recorded_speaker_count(video_ids),
+                                   year=year)
+        # Never below the named speakers found in the fragments, should the registry lag behind a year.
+        facts["registry_speaker_count"] = max(facts.get("registry_speaker_count") or 0,
+                                              facts["speaker_count_lower_bound"]) or None
         context["archive_facts"] = format_facts_for_prompt(facts)
     if profile.get("speaker_panel_only"):
         titles = {}

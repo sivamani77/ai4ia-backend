@@ -236,8 +236,12 @@ def _semantic_rank_via_chroma(
     collection = _get_chroma_collection()
     query_vector = _query_vector(prompt)
 
-    n_results = top_k * 5 if allowed_ids is not None else top_k
-    n_results = max(1, min(n_results, collection.count()))
+    total = collection.count()
+    n_results = top_k
+    if allowed_ids is not None:
+        # Over-fetch in proportion to how much of the collection is allowed (one year is about a fifth).
+        n_results = top_k * 5 * max(1, round(total / max(1, len(allowed_ids))))
+    n_results = max(1, min(n_results, total))
 
     query_kwargs: dict[str, Any] = {
         "query_embeddings": [query_vector.tolist()],
@@ -791,6 +795,32 @@ def activate_corpus(
     }
     _CORPUS_DIAGNOSTICS = diagnostics
     return diagnostics
+
+
+def score_every_record(query: str) -> dict[str, float]:
+    """fragment_id -> similarity to `query`, for every record in the active corpus (counting, §7.8)."""
+    if _chroma_mode():
+        scored = [{"fragment_id": r.get("fragment_id")} for r in get_filtered_records_or_load()]
+        _backfill_semantic_scores(scored, query)
+        unscored = sum(1 for c in scored if not c.get("semantic_score_backfilled"))
+        if unscored:
+            # A passage scored 0 by a failed fetch would be counted as not discussing the topic.
+            raise RuntimeError(f"Could not score {unscored} of {len(scored)} passages for counting")
+        return {str(c["fragment_id"]): float(c["semantic_score"]) for c in scored}
+    return {str(r.get("fragment_id")): float(r.get("semantic_score") or 0.0) for r in score_all_records(query)}
+
+
+def restrict_to_year(year: int) -> list[dict[str, Any]]:
+    """Narrow the active corpus to one conference year (docs/design/intent-layer-design.md §7.6).
+    Every retrieval channel reads the active corpus, so clips and facts then come from that year only."""
+    global _FILTERED_RECORDS, _FILTERED_MATRIX
+    records = get_filtered_records_or_load()
+    keep = [i for i, r in enumerate(records) if r.get("video_year") == year]
+    if _FILTERED_MATRIX is not None and len(_FILTERED_MATRIX) == len(records):
+        _FILTERED_MATRIX = _FILTERED_MATRIX[keep]
+    _FILTERED_RECORDS = [records[i] for i in keep]
+    log(f"Corpus restricted to {year}: {len(_FILTERED_RECORDS)} of {len(records)} fragments")
+    return _FILTERED_RECORDS
 
 
 def get_filtered_records_or_load() -> list[dict[str, Any]]:

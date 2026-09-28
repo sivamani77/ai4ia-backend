@@ -9,7 +9,8 @@ from app.pipeline.storyline_gen.candidate_scoring import (
 
 
 def choose_video_mode(metrics: dict[str, Any], intent: dict[str, Any] | None = None) -> str:
-    requested_speaker = (intent or {}).get("requested_speaker")
+    # A comparison is speaker-led too: two named speakers, never a year relay.
+    requested_speaker = (intent or {}).get("requested_speaker") or (intent or {}).get("compare_speakers")
     exact_clip_count = int(metrics.get("exact_clip_count") or 0)
     related_clip_count = int(metrics.get("related_clip_count") or 0)
     usable_speaker_clip_count = int(metrics.get("usable_speaker_clip_count") or 0)
@@ -56,7 +57,8 @@ def choose_video_mode(metrics: dict[str, Any], intent: dict[str, Any] | None = N
 
 
 def evidence_strength_from_metrics(metrics: dict[str, Any], intent: dict[str, Any] | None = None) -> str:
-    requested_speaker = (intent or {}).get("requested_speaker")
+    # A comparison is speaker-led too: two named speakers, never a year relay.
+    requested_speaker = (intent or {}).get("requested_speaker") or (intent or {}).get("compare_speakers")
     exact_clip_count = int(metrics.get("exact_clip_count") or 0)
     strong_related_count = int(metrics.get("strong_related_count") or 0)
     usable_speaker_clip_count = int(metrics.get("usable_speaker_clip_count") or 0)

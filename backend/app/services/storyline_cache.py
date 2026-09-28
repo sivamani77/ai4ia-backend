@@ -33,12 +33,14 @@ import hashlib
 import json
 import logging
 import math
+import re
 import time
 from typing import Any
 
 from app.core import settings as _settings_module
 from app.core import metrics as _metrics
 from app.pipeline.storyline_gen import intents
+from app.services import intent_router
 
 logger = logging.getLogger("ai4ia.services.storyline_cache")
 
@@ -99,6 +101,8 @@ def _relevant_params(request: dict[str, Any]) -> dict[str, Any]:
         "storyline_corpus_version": _settings_module.settings.storyline_corpus_version,
         # Any change to an intent's instructions invalidates storylines built with the old ones.
         "intents_version": intents.REGISTRY_VERSION,
+        # So does any change to how prompts are routed (contract, prompt, validator, model, on/off).
+        "router_version": intent_router.router_version(),
     }
 
 
@@ -260,6 +264,10 @@ def _llm_confirms_same_topic(prompt_a: str, prompt_b: str) -> bool:
 # Public API
 # ---------------------------------------------------------------------------
 
+def _years(prompt: str) -> set[str]:
+    return set(re.findall(r"\b(?:19|20)\d\d\b", prompt or ""))
+
+
 def get_cached_storyline(request: dict[str, Any]) -> dict[str, Any] | None:
     """Look up a cached validated storyline for this request. Returns the
     parsed JSON dict on a hit, None on a miss. Never raises."""
@@ -324,6 +332,9 @@ def get_cached_storyline(request: dict[str, Any]) -> dict[str, Any] | None:
             best_entry = entry
 
     threshold = settings.storyline_cache_l2_similarity_threshold
+    if best_entry is not None and _years(prompt) != _years(best_entry["prompt"]):
+        # "Overview of AI4IA 2024" must never be served the 2023 film (issue #23).
+        best_entry = None
     if best_entry is not None and best_similarity >= threshold:
         if _llm_confirms_same_topic(prompt, best_entry["prompt"]):
             try:
