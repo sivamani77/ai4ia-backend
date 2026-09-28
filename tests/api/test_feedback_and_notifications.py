@@ -41,13 +41,16 @@ def test_submit_feedback_notifies_admins(api_app, mock_settings, monkeypatch):
     monkeypatch.setattr(
         feedback_repository.FeedbackRepository, "create",
         lambda self, data: {**data, "resolution_message": None, "resolved_at": None,
-                             "resolved_by": None, "created_at": "2026-01-01T00:00:00Z"},
+                             "resolved_by": None, "created_at": "2026-01-01T00:00:00Z",
+                             "auto_reply": None, "auto_reply_category": None, "auto_reply_sent_at": None},
     )
+    monkeypatch.setattr(feedback_repository.FeedbackRepository, "count_recent_by_user", lambda self, user_id, **kw: 0)
     notified = {}
     monkeypatch.setattr(
         notification_service, "notify_admins",
         lambda message, **kw: notified.update(message=message, kw=kw) or 1,
     )
+    monkeypatch.setattr(notification_service, "notify_user", lambda user_id, message, **kw: {})
 
     api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="user-1", persona="general")
     with TestClient(api_app) as client:
@@ -90,6 +93,98 @@ def test_resolve_feedback_notifies_submitter(api_app, mock_settings, monkeypatch
     assert response.status_code == 200
     assert response.json()["status"] == "resolved"
     assert notified["user_id"] == "submitter-1"
+
+
+def test_submit_feedback_over_the_rate_limit_is_rejected(api_app, mock_settings, monkeypatch):
+    import app.db.repositories.user_repository as user_repository
+    import app.db.repositories.feedback_repository as feedback_repository
+
+    monkeypatch.setattr(
+        user_repository.UserRepository, "get_by_id",
+        lambda self, user_id: {"id": user_id, "username": "alice", "email_id": "alice@example.com"},
+    )
+    monkeypatch.setattr(feedback_repository.FeedbackRepository, "count_recent_by_user", lambda self, user_id, **kw: 999)
+
+    api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="user-1", persona="general")
+    with TestClient(api_app) as client:
+        response = client.post("/api/feedback", json={"feedback": "spam"})
+    assert response.status_code == 429
+
+
+def test_submit_feedback_auto_reply_sets_columns_and_notifies_user(api_app, mock_settings, monkeypatch):
+    import app.db.repositories.user_repository as user_repository
+    import app.db.repositories.feedback_repository as feedback_repository
+    import app.services.notification_service as notification_service
+    import app.services.feedback_auto_reply as feedback_auto_reply
+    from app.services.feedback_auto_reply import AutoReply
+
+    monkeypatch.setattr(
+        user_repository.UserRepository, "get_by_id",
+        lambda self, user_id: {"id": user_id, "username": "alice", "email_id": "alice@example.com"},
+    )
+    monkeypatch.setattr(feedback_repository.FeedbackRepository, "count_recent_by_user", lambda self, user_id, **kw: 0)
+    monkeypatch.setattr(
+        feedback_repository.FeedbackRepository, "create",
+        lambda self, data: {**data, "resolution_message": None, "resolved_at": None,
+                             "resolved_by": None, "created_at": "2026-01-01T00:00:00Z",
+                             "auto_reply": None, "auto_reply_category": None, "auto_reply_sent_at": None},
+    )
+    set_calls = {}
+    monkeypatch.setattr(
+        feedback_repository.FeedbackRepository, "set_auto_reply",
+        lambda self, feedback_id, *, category, reply: set_calls.update(feedback_id=feedback_id, category=category, reply=reply) or None,
+    )
+    monkeypatch.setattr(feedback_auto_reply, "generate", lambda user_id, feedback: AutoReply(category="bug", reply="It's on our list."))
+    monkeypatch.setattr(notification_service, "notify_admins", lambda message, **kw: 1)
+    notified_user = {}
+    monkeypatch.setattr(
+        notification_service, "notify_user",
+        lambda user_id, message, **kw: notified_user.update(user_id=user_id, message=message) or {},
+    )
+
+    api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="user-1", persona="general")
+    with TestClient(api_app) as client:
+        response = client.post("/api/feedback", json={"feedback": "the export button is broken"})
+
+    assert response.status_code == 201
+    assert set_calls == {"feedback_id": response.json()["id"], "category": "bug", "reply": "It's on our list."}
+    assert notified_user == {"user_id": "user-1", "message": "It's on our list."}
+
+
+def test_submit_feedback_falls_back_to_canned_reply_on_llm_failure(api_app, mock_settings, monkeypatch):
+    import app.db.repositories.user_repository as user_repository
+    import app.db.repositories.feedback_repository as feedback_repository
+    import app.services.notification_service as notification_service
+    import app.services.feedback_auto_reply as feedback_auto_reply
+
+    monkeypatch.setattr(
+        user_repository.UserRepository, "get_by_id",
+        lambda self, user_id: {"id": user_id, "username": "alice", "email_id": "alice@example.com"},
+    )
+    monkeypatch.setattr(feedback_repository.FeedbackRepository, "count_recent_by_user", lambda self, user_id, **kw: 0)
+    monkeypatch.setattr(
+        feedback_repository.FeedbackRepository, "create",
+        lambda self, data: {**data, "resolution_message": None, "resolved_at": None,
+                             "resolved_by": None, "created_at": "2026-01-01T00:00:00Z",
+                             "auto_reply": None, "auto_reply_category": None, "auto_reply_sent_at": None},
+    )
+
+    def boom(user_id, feedback):
+        raise RuntimeError("host down")
+    monkeypatch.setattr(feedback_auto_reply, "generate", boom)
+    monkeypatch.setattr(notification_service, "notify_admins", lambda message, **kw: 1)
+    notified_user = {}
+    monkeypatch.setattr(
+        notification_service, "notify_user",
+        lambda user_id, message, **kw: notified_user.update(user_id=user_id, message=message) or {},
+    )
+
+    api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="user-1", persona="general")
+    with TestClient(api_app) as client:
+        response = client.post("/api/feedback", json={"feedback": "the export button is broken"})
+
+    assert response.status_code == 201
+    assert notified_user == {"user_id": "user-1", "message": feedback_auto_reply.CANNED_FALLBACK}
 
 
 def test_notifications_are_self_scoped(api_app, mock_settings, monkeypatch):
