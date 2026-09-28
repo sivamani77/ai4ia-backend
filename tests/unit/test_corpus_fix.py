@@ -59,5 +59,7 @@ class TestPlan:
         fixed.update(speaker_attribution=first["speaker_attribution"], extra={"speaker_roster": first["speaker_roster"]})
         assert corpus_fix.plan([fixed], get_registry(), known_years())["updates"] == {}
 
-    def test_ships_as_a_dry_run(self):
-        assert corpus_fix.RUN_CORPUS_FIX and not corpus_fix.CORPUS_FIX_APPLY
+    def test_switch_is_off_after_the_applied_run(self):
+        # Deploy 3 (docs/process, corpus_fix.py header): the fix applied for real on uat
+        # 2026-09-28, guarded by the done-marker in data_repairs, and the switch is now off.
+        assert not corpus_fix.RUN_CORPUS_FIX
