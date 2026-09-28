@@ -20,6 +20,9 @@ class FeedbackRecord(TypedDict, total=False):
     resolved_at: str | None
     resolved_by: str | None
     created_at: str | None
+    auto_reply: str | None
+    auto_reply_category: str | None
+    auto_reply_sent_at: str | None
 
 
 class FeedbackRepository:
@@ -66,6 +69,32 @@ class FeedbackRepository:
         )
         return self._from_row(row) if row is not None else None
 
+    def set_auto_reply(self, feedback_id: str, *, category: str, reply: str) -> FeedbackRecord | None:
+        """Record the instant LLM reply. Never touches status — an admin still
+        resolves separately, and this never overwrites resolution_message."""
+        row = pg_fetch_one(
+            """
+            update feedbacks
+            set auto_reply = %s, auto_reply_category = %s, auto_reply_sent_at = now()
+            where id = %s
+            returning *
+            """,
+            (reply, category, feedback_id),
+        )
+        return self._from_row(row) if row is not None else None
+
+    def count_recent_by_user(self, user_id: str, *, hours: int = 1) -> int:
+        """How many feedback items this user submitted in the last `hours` — the
+        per-user rate limit's basis (see settings.feedback_submissions_per_user_per_hour)."""
+        row = pg_fetch_one(
+            """
+            select count(*) as n from feedbacks
+            where user_id = %s and created_at > now() - make_interval(hours => %s)
+            """,
+            (user_id, hours),
+        )
+        return int((row or {}).get("n") or 0)
+
     def delete_by_user(self, user_id: str) -> None:
         pg_execute("delete from feedbacks where user_id = %s", (user_id,))
 
@@ -93,4 +122,7 @@ class FeedbackRepository:
             resolved_at=d.get("resolved_at"),
             resolved_by=d.get("resolved_by"),
             created_at=d.get("created_at"),
+            auto_reply=d.get("auto_reply"),
+            auto_reply_category=d.get("auto_reply_category"),
+            auto_reply_sent_at=d.get("auto_reply_sent_at"),
         )

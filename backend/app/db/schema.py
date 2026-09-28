@@ -359,6 +359,12 @@ _STATEMENTS = [
     """,
     "create index if not exists idx_feedbacks_status on feedbacks (status)",
     "create index if not exists idx_feedbacks_user_id on feedbacks (user_id)",
+    # Instant LLM auto-reply (docs/design/feedback-auto-reply-design.md). Kept
+    # separate from resolution_message so a later human resolve never
+    # overwrites the reply the user already saw.
+    "alter table feedbacks add column if not exists auto_reply text",
+    "alter table feedbacks add column if not exists auto_reply_category text",
+    "alter table feedbacks add column if not exists auto_reply_sent_at timestamptz",
     # Named app_notifications, not notifications: a table called "notifications"
     # already exists on the UAT database with a different, unknown schema
     # (predates this repo — git history has zero commits ever touching it), so
