@@ -380,6 +380,7 @@ def _apply_cached_storyline(
     ctx.storyline_path = str(validated_path)
     ctx.validated_storyline_path = str(validated_path)
     ctx.validated_storyline_data = cached_storyline
+    ctx.storyline_cached = True
 
     job = load_job(job_id)
     job["paths"]["storyline_path"] = str(validated_path)
@@ -413,6 +414,10 @@ def _maybe_cache_storyline_result(job_id: str, request: dict[str, Any], ctx: "Pi
         # (stage_07b_validate.py's cleanup_tmp_dir happens before it returns).
         vdata = ctx.validated_storyline_data
         if not vdata:
+            return
+        if (ctx.route or {}).get("method") == "fallback":
+            # Built from the rules' reading; a later routed run of this prompt must not be served it.
+            logger.info("storyline cache: not caching job %s — the intent router fell back to the rules", job_id)
             return
         quality_ok = bool((vdata.get("editorial_quality_gates") or {}).get("final_timeline_approved", False))
         _storyline_cache.store_storyline(request, vdata, quality_ok=quality_ok)

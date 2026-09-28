@@ -44,6 +44,18 @@ def _no_dependency_state_redis(monkeypatch):
 
 
 @pytest.fixture(autouse=True)
+def _no_intent_router_llm(monkeypatch):
+    """The intent router never reaches a model host in tests: it falls back to the
+    rules unless a test stubs intent_router._ask itself."""
+    from app.services import intent_router
+
+    def unavailable(*args, **kwargs):
+        raise RuntimeError("intent router LLM is not available in tests")
+
+    monkeypatch.setattr(intent_router, "_ask", unavailable)
+
+
+@pytest.fixture(autouse=True)
 def _no_rate_limit_redis(monkeypatch):
     """Force app.core.rate_limit onto its in-process fallback path.
 

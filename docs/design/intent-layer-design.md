@@ -1,6 +1,6 @@
 # Intent layer and coverage check — design
 
-**Status:** phases 0–5 built · **Branch:** `uat` · **Updated:** 2026-09-24
+**Status:** phases 0–6 and 8 built; phase 7 (issue #23) designed · **Branch:** `feature/23-intent-router` · **Updated:** 2026-09-27
 **Builds on:** [speaker-cleanup-plan.md](../runbooks/speaker-cleanup-plan.md) (applied on uat)
 
 ![Request journey](intent-layer-flow.png)
@@ -39,7 +39,7 @@ After this change the platform:
 | D7 | Moderation API from the reference diagram | Not used. Privacy policy §4 says prompts are not sent to a third-party AI provider. Every model call stays on the self-hosted infrastructure. |
 | D8 | Declined job status | `status = 'failed'` with `error.code = 'declined'`. See §9.1 for why not a new status. |
 | D9 | Persistence | Two new tables, `prompt_resolutions` and `llm_call_payloads` (§10). |
-| D10 | LLM intent router | Not in the first build. Rules, then `topic` as the fallback. Add the router only if the recorded fallback rate shows it is needed (§12, phase 6). |
+| D10 | LLM intent router | First build: rules only. **Changed 2026-09-27 (issue #23):** the rules misread 35 of 85 labelled prompts (§7.5.1), so a self-hosted LLM router now decides intent by meaning. It never decides facts, and any router failure falls back to the rules (§7.5). |
 
 ## 3. The layers
 
@@ -132,6 +132,7 @@ Rules:
 - **Suggest only `confirmed` names.** A `review` name can match a prompt directly and is then used, but it is never suggested and never shown on screen. A `review` name still counts toward ambiguity. "Singh" matches A Singh (review) and Ashita Singh, so the message is "More than one speaker matches 'Singh', including Ashita Singh. Please use the full name." Suggesting only Ashita Singh would steer the user to the wrong person.
 - **A surname or first name that matches exactly one person** is treated as that person (see open question Q1).
 - "Not a speaker" needs evidence it is a person: a one-word mention with no match ("Nigeria", "NATO") and a longer one sharing no first name or surname with any speaker ("European Union") go on as topics. "John Smith" still declines, because Smith is a registry surname.
+- **Changed 2026-09-28 (issue #23).** When the router (§7.5) names a person of two or more words who shares nothing with the registry ("Bartholomew Quenneville"), the prompt declines with `speaker_not_found`. It is no longer turned into a topic film without a warning. The message asks the user to check the spelling or ask about the topic instead. When the prompt has a topic, `suggestions` holds a topic prompt ("What did speakers say about AI in music?").
 - A mention counts only if it looks like a name: every word capitalised (particles like "de" and "van" allowed), or close (≥ 0.80) to a registry name. "According to the Chinese regulation" is not a person.
 - **Measured:** run over all 5,396 fragment summaries and talk titles, the resolver declines 2, both genuine (registry people with no recorded talk). The legitimate guardrail-matrix prompts: 0 declines.
 - The thresholds are starting values. Tune them on the misspelling rows of the case matrix.
@@ -146,7 +147,7 @@ Rules:
 
 Ranges come from the live catalog (`services/corpus_catalog.py`, cached for an hour; checks are skipped if Chroma is unreachable), never hardcoded.
 
-A year is only checked when it is tied to the archive ("2019 talks", "talks from 2019"); "predictions for AI in 2030" is a topic, not a request for 2030 talks. Only years outside the range decline. **Data gap:** no fragment has `video_year` 2022, although some talk titles say 2022. It is inside the range, so it never declines, but the year backfill should be checked.
+A year is only checked when it is tied to the archive ("2019 talks", "talks from 2019"); "predictions for AI in 2030" is a topic, not a request for 2030 talks. Only years outside the range decline. **Data gap (fixed):** no fragment used to have `video_year` 2022. After the conference-year fix (`config/conference_years.json`, `services/conference_year.py`) every year has talks. Measured locally on 2026-09-27: 2021: 65 talks, 2022: 43, 2023: 55, 2024: 60, 2025: 84. Check the uat corpus before relying on this there.
 
 ---
 
@@ -217,6 +218,11 @@ The first matching intent wins.
 | 6 | `theme_chapter` | theme or chapter resolved | fragments classified to that facet | clip pack + facet description | stay inside the facet |
 | 7 | `chronological` | time-evolution wording (`evolved`, `over the years`, `since 2021`) **and** the director chose `chronological_relay` (the wording check was added in phase 8) | fragments bucketed by year | clips grouped by year | order by time; name the shift |
 | 8 | `topic` | fallback | relevance + speaker diversity (existing) | clip pack | ground every claim in a cited fragment |
+| new | `speaker_compare` | route intent `comparison` with exactly 2 resolved speakers (§7.7) | each speaker's own fragments, separately | two clip packs, one per side | balance both sides; compare only what both said |
+| new | `counting` | route intent `counting` with a topic (§7.8) | code counts over the whole archive, then example clips | counts block + clips | state the computed answer first; never change a number |
+| — | `overview` + year | route intent `overview` with a year (§7.6) | that year's talks only | year facts block + clips | figures only for that year |
+
+With the router (§7.5) the route decides the intent. `speaker_compare` and `counting` sit after `title` and before `speaker_panel`. The table above still applies when the router is off or falls back.
 
 `choose_video_mode` can still choose `chronological_relay` for a `topic` request when the evidence spans years. The intent decides the instructions; the director still decides the video's shape.
 
@@ -427,6 +433,231 @@ Built as specified in §7.4.3.
 - **Duration overshoot.** Renders run 95–319 s for a 90 s target. Renders from before phase 8 ran 56–223 s for 60 s targets, so the overshoot predates it.
 - **Some clips start or end mid-sentence** ("a huge cost to human trust…"). This is the existing quote-completeness behaviour: such clips are flagged `quote_complete: false` and kept.
 
+### 7.5 Intent router (phase 7, issue #23)
+
+Raised on 2026-09-27 by uat job `vjob_20260927_161646_b6043633`, "what did cordel green contributed in AI4IA?". The rules kept "contributed" as a topic word, chose `speaker_topic`, and the 0.60 coverage rule declined the job with "Cordel Green spoke at AI4IA, but not about contributed."
+
+#### 7.5.1 Baseline: what the rules get wrong
+
+Labelled set: the §13 matrix (M1–M39), the 39 edge cases from the issue (E1–E39), and 7 prompts added during plan review (R1–R7). That is 85 rows. We ran the rules offline on the local corpus (5,091 fragments), in stage 07's order: `check_prompt`, `resolve`, `detect_prompt_intent`, `intents.select`. **50 of 85 were correct.**
+
+| Class | Rows | What the rules do |
+|---|---|---|
+| A. A question word read as a topic | 8 (E1–E8) | "contributed", "role", "views", "main ideas", "work", "think", "highlights" become topic words, so `speaker_topic` is chosen instead of `speaker` |
+| B. Right intent, junk words in the topic | 5 (E11, E14, E20, E23, E31) | "thought", "opinion", "view", "think" and "early" are added to the topic |
+| C. Two or more speakers | 5 (M39, E16–E18, R5) | only the first speaker is kept. E17 ("Cordel Green vs Jessica Rose Smith") becomes a **title** film: the title matcher strips only the first speaker's name, so the second name matches the talk "Jessica Rose Smith - Harmful deepfakes" at ratio 1.0 |
+| D. A year | 6 (E26, E27, E29, M35, R2, R6) | the year is kept only when an archive noun sits next to it, so "AI4IA 2023" becomes the topic "2023". "AI4IA 2019" is not declined |
+| E. Counting | 3 (M37, E28, R7) | treated as `topic` |
+| F–G. A loose title or a spelled-out number | 3 (E32, E33, R3) | "the haiku talk" and "Chapter five" become topics. "Chapter thirty" is not declined |
+| H. A misspelled name without "what/how" | 1 (E37) | "wat did cordell grene say" keeps the name's words as the topic |
+| I. Exclusions | 2 (E39, R1) | "but not about regulation" makes regulation the topic. **"AI regulation but not Cordel Green" makes a Cordel Green film** |
+| J. Compound requests and "latest" | 2 (M36, R4) | "overview, then health" becomes `theme_chapter`. "The latest conference" becomes a topic |
+
+Not measured offline: coverage outcomes (M20, M23, M24, E15), the L1 rows, and `chronological`. For `chronological` we assumed the director picks relay whenever the prompt has time wording.
+
+The set and the harness are committed with PR 1 (`tests/fixtures/intent_labelled_set.json`, `scripts/diagnostics/intent_labelled_set.py`). The harness runs the rules, the router, or both.
+
+#### 7.5.2 Where it runs
+
+It runs in `stage_resolve`, after the rules resolver:
+
+1. `resolve()` runs as today. **A rules decline stands**, and the router is not called. Such a decline means the resolver found a clear person, chapter or year that the archive lacks.
+2. One self-hosted call follows (`generate_json`, `settings.intent_router_model`, which defaults to the guardrail model, at temperature 0). Its time is limited by `intent_router_timeout_seconds`. The prompt is wrapped with `wrap_untrusted`. The system prompt lists the seven theme names and says the chapters are numbered 1–25. It lists no speaker names.
+3. Code validates the output (§7.5.4) and builds the **route**.
+4. The route is saved in the job's metadata. `stage_07_storyline` writes it to a file named by `--route-file`, and the script applies it to the profile (§7.5.5).
+
+**Rerun after worker loss (#19).** If the job already has a route, it is reused and the router is not called again. A rerun then routes the same way, even though temperature 0 does not guarantee the same answer.
+
+**Storyline cache hit.** The cached entry stores the route it was built with. On a hit, `stage_resolve` reuses that route and does not call the router, so a cached job is never declined by a second, different reading.
+
+#### 7.5.3 JSON contract
+
+```json
+{"intent": "speaker|comparison|counting|overview|title|theme_chapter|chronological|topic",
+ "speakers": ["name as written in the prompt"],
+ "topic": "short phrase in the prompt's words, or empty",
+ "exclude": ["subject or name the prompt asks to leave out"],
+ "year": 2023, "chapter": 5, "theme": "exact theme name from the list, or null",
+ "title": "title words as written, or null",
+ "aggregate": "count|rank|null", "count_unit": "talks|speakers|null",
+ "language": "ISO 639-1 code of the request, e.g. en, fr",
+ "unsupported": ["part of the request the archive cannot serve"]}
+```
+
+The router chooses from a closed list of intents. It does not choose `speaker_topic` or `speaker_panel`. Code derives those from the speakers, the topic and the registry.
+
+No self-reported confidence is used. A model's own confidence is poorly calibrated, so the fallback rate is measured on the labelled set instead.
+
+#### 7.5.4 Validation: the LLM never decides facts
+
+| Field | Kept only when | Otherwise |
+|---|---|---|
+| `speakers` | the text occurs in the prompt (normalised) and resolves through the registry: exact name or alias, else `_match_mention` | a name that is clearly a person gets the resolver's decline: did-you-mean, ambiguous, not found or no recording. Any other name, or text not in the prompt, is dropped and recorded |
+| `topic` | every word shares a stem with a word in the prompt. **A non-English request** (`language` is not `en`) keeps the router's English topic without this check, and retrieval searches with that English topic, because the archive is embedded in English | the word is dropped. If nothing is left, there is no topic. The rules' leftover words are never used alongside the router's topic |
+| `exclude` | the words are in the prompt | dropped. A kept subject becomes `negative_terms` and is removed from the topic. A kept speaker name clears that speaker and filters their fragments out by metadata |
+| `year` | the year appears as digits in the prompt, exactly once | dropped: a guessed year ("latest", "last year") is never used. A year outside the catalog declines with `year_out_of_range` when the intent is `overview`. Two years in the prompt mean `chronological` |
+| `chapter` | in the catalog. A spelled-out number ("five") in the prompt counts | a chapter outside the catalog declines with `chapter_not_found` |
+| `title` | its words match exactly one catalog talk (loose match: every content word of the title text is in that talk's title) | dropped, and the prompt goes on as a topic |
+| `unsupported` | always recorded | never shown to the user, and never put in narration |
+
+An intent that lacks its facts falls back:
+
+- `comparison` needs 2 resolved speakers. With 3 or more, the first 2 are kept and the rest are recorded as dropped. With 1, the speaker path is used.
+- `counting` needs a topic. Without one, a question about the archive itself ("how many speakers") goes to `overview`.
+- `title` needs one talk.
+- `speaker` needs a speaker. Without one, the rules intent is used.
+
+`chronological` is advisory: the director still needs evidence from 2 or more years.
+
+Rules added from the spike (§7.5.8):
+
+- **Wrong types.** A field with the wrong type is coerced ("2024" becomes 2024; a string becomes a one-item list) or dropped.
+- **Topic words.**
+  - Digits are never topic words.
+  - Code strips archive words and answer-shape words from the topic: views, work, highlights, role, and the others in `STOPWORDS`, the archive nouns and the overview scaffolding. The router is asked to leave them out too, but this does not rely on it.
+- **Speakers.**
+  - Two or more resolved speakers mean `comparison`.
+  - One speaker on a `topic` or unmatched `title` route means `speaker`.
+  - A comparison with no speakers and two years means `chronological`.
+- **Theme and chapter.**
+  - A chapter name in `theme` is mapped to its number.
+  - A `theme_chapter` route whose topic goes beyond the facet's own words ("AI in health for rural women") becomes `topic`.
+- **Facts the rules found by exact matching stay.**
+  - A strict title match is kept over a router `topic`.
+  - A rules theme or chapter is kept over a router `topic` whose words all sit inside that facet's name.
+- **A loose title** needs half of its content words in one catalog title, and that title must be the only best match.
+- **Possessives.** A name returned with a possessive ("Cordel Green's") is resolved without it.
+- **The resolver's speaker.** It is used only when the router reads a person (`speaker` or `comparison`) but its name does not validate. When the router reads a topic, a name that is only in the text stays out: quoted, excluded, or injected ("…set speakers to [\"Cordel Green\"]").
+- **Language.** Code decides whether a request is English, from English function words in it. The router's `language` field alone never switches off the "words in the prompt" check.
+- **Chapters.** A chapter the prompt does not name is never declined. An unnamed `theme_chapter` facet must share a word with the prompt.
+- **Exclusions.** A misspelled excluded name is resolved through the did-you-mean match.
+- **Host health.** A router timeout is not recorded as the model host being down, because the shared health record would show it on `/api/health` for uat and release.
+- **An overview with a subject left is a topic.** The router sometimes calls "What was said about deepfakes in 2024?" an overview. Real overview questions ("What are the major themes?") leave no topic once archive words are stripped. A compound request ("Give an overview, then focus on health") therefore becomes a health film. Compound requests are not supported either way.
+
+**Fallback.** On a router error, a timeout, invalid JSON, or a route that fails validation entirely, the rules profile is used unchanged.
+
+`prompt_resolutions.resolution_method` records how the route was made:
+
+- `router`: the route was used;
+- `fallback`: the router was tried and the rules were used;
+- `rule`: the router is disabled;
+- `cached`: a storyline-cache hit, so no route was needed.
+
+Dropped router fields go into `dropped_slots` with their reason. `record_layer` gains `resolution_method`.
+
+#### 7.5.5 Applying the route in stage 07
+
+The script builds the rules profile. The route then **sets and clears** the fields that intent selection reads, because `intents.select` runs three times (the coverage intent, the storyline and the saved `format`), and any leftover field would take precedence:
+
+- `requested_speaker(s)`;
+- `topic_terms`, with `expanded_terms` recomputed;
+- `negative_terms`;
+- `requested_source_video`;
+- `chapter_hint` and `theme_hint`;
+- `year`;
+- `intent_type`.
+
+With no route file, behaviour is unchanged.
+
+**Intents not built yet.** Until PRs 2–4 land, each PR stays shippable on its own:
+
+- `comparison` makes a film on the first speaker, with the router's topic;
+- `counting` makes a `topic` film on the router's topic;
+- an `overview` with a year keeps the rules profile.
+
+The route records all three in `slots.route`, so these requests can be found later.
+
+#### 7.5.6 Companion fixes (PR 1)
+
+- **Title matching** strips every registry name found in the prompt, not only the requested speaker's. This fixes E17 under the rules too.
+- **A loose title match** runs from the router's `title` field (E32, "the haiku talk").
+- **Misspelled names** that the rules miss ("wat did cordell grene") reach `_match_mention` through the router's `speakers` field, which gives a did-you-mean.
+- **Exclusions** become `negative_terms`, which `candidate_scoring` already penalises. Excluded speakers are filtered by metadata.
+- **Speaker prompts below 0.60** go to the judge (§8.1 note, with its gate).
+
+#### 7.5.7 Settings, cache and recording
+
+- New settings:
+  - `intent_router_enabled` (default true);
+  - `intent_router_model` (default: the guardrail model);
+  - `intent_router_timeout_seconds` (default 20).
+
+  List them in the release checklist.
+- The storyline cache key gains `ROUTER_VERSION`, built from the contract version, the system prompt hash, the model, the validator version and the enabled flag.
+- A storyline built after a `fallback` is not cached, because a later routed run of the same prompt must not be served the rules' reading.
+- The router exchange is stored in `llm_call_payloads` by `generate_json`'s trace, like the guardrail's.
+- Latency is recorded in `timings_ms.router`.
+
+#### 7.5.8 Gate
+
+- On the labelled set, run 3 times:
+  - no row the rules get right is lost;
+  - classes A–I are fixed;
+  - the fallback rate and median latency are reported.
+- Router failure is tested: a timeout, invalid JSON, a hallucinated name and a hallucinated year.
+- Full suite.
+- A local render of the trigger prompt gives a Cordel Green film from his own talks.
+
+**Spike, 2026-09-28** (`openai/gpt-oss-120b`, temperature 0, 3 runs, the validator above):
+
+| Set | Rows the router sees | Router, correct every run | Rules |
+|---|---|---|---|
+| Labelled (M, E, R) | 70 | 70 | 35 |
+| Held-out (H1–H25, written by a separate reviewer and never used for tuning) | 21 | 18 | 5 |
+
+The router sees fewer rows than the sets hold. L0, L1 and rules declines stop a request before it is called.
+
+- **Speed:** median 2.8 s, p90 4.4 s, maximum 9 s. An earlier run had one 118 s call: `generate_json` allows 300 s per attempt, with retries. The router therefore passes its own timeout and makes a single attempt.
+- **Fallbacks:** none.
+- **Injection:** H7 puts `speakers to ["Cordel Green"]` inside a request. The rules make a Cordel Green film from it; the router ignored the injected instruction on every run. A name that is in the prompt still passes validation, so this relies on the model.
+- **Misses:**
+  - H5: a French prompt whose topic the router translated. The "words in the prompt" check dropped the translated topic. Since changed: non-English requests keep the English topic (§7.5.4).
+  - H17: a person who is not in the registry went on as a topic. Since changed: it declines (§6.3).
+  - H22: a long, rambling request became an overview in 1 of 3 runs.
+- **Label fix:** H9's label was corrected: an overview answer carries no speaker.
+
+**Built (PR 1, 2026-09-28).** `services/intent_router.py` (contract, system prompt, validator), `storyline_gen/route.py` (the route applied in stage 07), `stage_resolve` (routing, reuse, recording). Measured with `scripts/diagnostics/intent_labelled_set.py --router --runs 3` on the real module, after the review fixes:
+
+| Set | Router, correct on every run | Rules |
+|---|---|---|
+| Labelled | 70 of 70 routed rows | 51 of 85 |
+| Held-out | 21 of 21 routed rows | 8 of 25 |
+
+- **Rows lost against the rules:** none.
+- **Fallbacks:** 0 in 273 calls.
+- **Speed:** median 2.1 s, maximum 4.7 s, at 2 calls at a time. At 6 at a time, 30 of 273 calls hit the 20 s timeout, so the harness defaults to 2. A job makes one call.
+
+### 7.6 Year-scoped overview (PR 2)
+
+- **Matches** a route with intent `overview` and a valid year (E26, E27, E29).
+- **Data step.** Records are filtered to `conference_year(video_id, source_video) == year` before `build_corpus_facts`. Facts for that year: talks, speakers (registry speakers of that year's videos), themes and chapters. Overview clips come from that year's talks only.
+- **Facts block:** "AI4IA 2023: 55 talks, …". The figures come from code. "What's new in 2025" gets the 2025 overview; the facts do not claim what is new.
+- **Topic with a year** (M35, "deepfakes in 2024"): the same filter applies to topic retrieval, and a year with no matching talks follows the normal coverage rules.
+- **Gate:** each year's facts equal a direct count by `conference_year`; one render per year for 2 years.
+
+### 7.7 Speaker comparison (PR 3)
+
+- **Matches** a route with intent `comparison` and 2 resolved speakers (M39, E16–E18, R5).
+- **Data step.** Retrieval runs once per speaker, each with the speaker's own-voice rules (§7.3a), or the panel rules (§7.3) for a panel-only speaker, and ranks by the topic when there is one. Each side is coverage-checked on its own.
+- **Balance.** Each side gets the same number of clips: the smaller side's count, at least 1.
+- **Gaps.**
+  - One side has nothing: render, and state the gap once ("The archive has no talk where X discusses regulation").
+  - Both sides have nothing: decline with `speaker_compare_not_covered`.
+- **Format:** introduction, speaker A, speaker B, where they agree or differ, close. The agree/differ section may only use fragments cited from both sides. A panel-only side gets panel framing and no attribution (§7.3).
+- **Review-status speakers** (David Daou) are compared, but their name is never shown on screen. This is the existing rule.
+- **Out of scope** (these go to the fallback): topic vs topic ("Africa vs Europe"), which becomes `topic`; year vs year, which becomes `chronological`.
+
+### 7.8 Counting and ranking (PR 4)
+
+- **Matches** a route with intent `counting` and a topic (M37, E28, R7).
+- **Data step, in the stage 07 script** (the query embedding is there). A talk counts for topic T when at least 2 of its fragments pass the coverage test: similarity ≥ `archive_relevance_floor` and a topic or expanded term in the text.
+  - `count_unit = talks`: the number of talks.
+  - `count_unit = speakers`: the number of distinct speakers among single-speaker talks. Panels are counted as panels, never as a person.
+  - `aggregate = rank`: speakers or talks ordered by the number of matching fragments, top 5.
+- **Zero is an answer.** Counting is exempt from the coverage decline: "How many talks cover quantum computing?" answers "none", with the nearest themes.
+- **Film.** The first narration states the computed answer. A deterministic check, like `archive_answer.py`, inserts it if missing. Example clips from the top talks follow. The LLM never changes a number.
+- **Gate:** the counts equal an independent direct query (a test over a fixture corpus plus a diagnostics script against local Chroma), and the rule is stated in the docs.
+
 ---
 
 ## 8. L2b — coverage
@@ -438,11 +669,24 @@ It runs inside stage 07 after retrieval, because it needs the retrieved fragment
 | Intent | Covered when | Not covered when | Otherwise |
 |---|---|---|---|
 | `topic` | top-1 ≥ `archive_relevance_floor` (0.68) **and** at least one fragment contains a topic or expanded term | top-1 < `coverage_judge_low` (0.60) | judge |
-| `speaker_topic` | same test over the speaker's own fragments | none of the speaker's fragments ≥ 0.60 | judge on the speaker's top fragments |
+| `speaker_topic` | same test over the speaker's own fragments | none of the speaker's fragments ≥ 0.60 (see note below) | judge on the speaker's top fragments |
 | `speaker_panel` | same test over the person's panel fragments | as above | judge |
 | `speaker`, `title`, `overview` | always (resolve already confirmed they exist) | — | — |
 | `theme_chapter` | facet has ≥ 3 usable fragments | 0 fragments | low-evidence mode (existing) |
 | `chronological` | topic test passes and ≥ 2 years present | topic test fails | falls back to `topic` (not a decline) |
+| `speaker_compare` | the `speaker_topic` test, run for each speaker | both sides fail | one side fails: render, stating the gap (§7.7) |
+| `counting` | always: zero is an answer (§7.8) | — | — |
+
+**Speaker prompts below 0.60 (issue #23).** A prompt misread as `speaker_topic` ("what did Cordel Green contribute?") was declined by the fixed 0.60 rule. With the router, such prompts become `speaker`, which is never checked. PR 1 also sends `speaker_topic` and `speaker_panel` prompts below 0.60 to the judge instead of declining them. **Gate:** matrix rows 20 and E15 ("Cordel Green on quantum computing") must still decline in a live run. If the judge passes them, keep the 0.60 rule. **Measured 2026-09-28** (live retrieval and judge, 2 runs each):
+
+| Prompt | Top score | Verdict |
+|---|---|---|
+| "What did Cordel Green say about quantum computing?" | 0.70 | declined, both runs |
+| "Cordel Green on quantum computing" | 0.66 | declined, both runs |
+| "What did Cordel Green say about regulation?" | 0.68 | covered, both runs |
+| "Did Cordel Green talk about children and AI?" | 0.63 | covered, both runs |
+
+All four scored at least 0.60, so the judge decided them under the old rule as well. The gate shows that the judge declines an off-topic subject for a real speaker; the below-0.60 path is covered by unit tests only.
 
 The 0.60 / 0.68 band is a starting point. Every run records `top_similarity`, so tune the band from the recorded data.
 
@@ -775,7 +1019,7 @@ Each phase ships on its own and is checked before the next.
 | 4 | `intents/` package: move `topic`, `speaker`, `speaker_topic`, `title`, `chronological` in **without changing behaviour** | existing golden-set tests unchanged |
 | 5 | new intents: `overview`, `speaker_panel`, `theme_chapter` | one hand-checked render each |
 | 6 | L2b coverage + judge + gap narration | coverage rows of the case matrix; band tuned on recorded `top_similarity`. **Built 2026-09-24** (§8.4a). |
-| 7 | LLM router, **only if** recorded `resolution_method = 'fallback'` rows show misrouting | router accuracy on the labelled set |
+| 7 | Issue #23, four PRs (§7.5–§7.8): (1) LLM router + companions, (2) year-scoped overview, (3) speaker comparison, (4) counting and ranking | per PR: the labelled set (§7.5.1) with no row the rules get right lost; full suite; renders of the affected rows |
 | L3 | §8.5: decline speaker intents with no approved clip; ground the repair pass and check its narration | the Cordell Green job above renders real Cordel Green clips or declines; no invented quotes |
 | 8 | §7.4: documentary format per intent, clip policy (required/optional), clips on the AI4IA agenda, clips never at the start or end | §7.4.5 renders. **Built 2026-09-24, before phase 6** (§7.4.6). |
 
@@ -823,9 +1067,9 @@ This is the spec and becomes the test set. Extend it to 100+ rows, adding real p
 | 34 | `AI talks from 2019` | — | year 2019 dropped | `year_out_of_range` | covers 2021–2026 |
 | 35 | `What was said about deepfakes in 2024?` | topic | deepfakes; year 2024 | covered *(verify)* | render, 2024 only |
 | 36 | `Give an overview, then focus on health` | overview (first rule wins) | — | covered | render overview; compound requests are not supported yet |
-| 37 | `How many talks cover deepfakes?` | topic (counting not built) | deepfakes | covered | render; counting is a later intent |
+| 37 | `How many talks cover deepfakes?` | counting (§7.8) | deepfakes; unit talks | covered | render: the computed count, then examples |
 | 38 | `Which talks should I watch on education?` | topic | education | covered | render; discovery belongs on the archive API |
-| 39 | `Compare Cordel Green and Natali Helberger on regulation` | speaker_topic (first speaker) | Cordel Green; regulation; second speaker in `dropped_slots` | covered | render; video comparison not built |
+| 39 | `Compare Cordel Green and Natali Helberger on regulation` | speaker_compare (§7.7) | Cordel Green, Natali Helberger (panel only); regulation | covered or one-sided gap | render; Natali Helberger's side uses panel framing |
 | 40 | any valid prompt, guardrail model down, fail-open on | as normal | as normal | L1 `failed_open` recorded | render; L0 still applied |
 
 ---

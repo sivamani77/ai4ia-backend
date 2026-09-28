@@ -135,10 +135,12 @@ def _list_decline(name: str, matches: list[str]) -> Decline:
     return _decline("speaker_ambiguous", confirmed, name=name, options=_join(confirmed))
 
 
-def _match_mention(name: str) -> tuple[str | None, Decline | None]:
+def _match_mention(name: str, person: bool = False) -> tuple[str | None, Decline | None]:
     """(canonical, None) when one person matches, (None, decline) when the name
     clearly means a speaker we do not have, else (None, None): not a person
-    after all (e.g. "Nigeria", "European Union"), so the prompt goes on as a topic."""
+    after all (e.g. "Nigeria", "European Union"), so the prompt goes on as a topic.
+    `person`: the caller already knows it is a person (the intent router), so a
+    name matching nobody declines instead of becoming a topic."""
     shown = name[:60]
     key = norm_key(name)
     tokens = key.split()
@@ -167,7 +169,7 @@ def _match_mention(name: str) -> tuple[str | None, Decline | None]:
     if len(close) >= 2:
         return None, _list_decline(shown, close)
     # Only a person if it shares a first name or surname with a speaker ("John Smith").
-    if any(t in _all_name_tokens() for t in tokens):
+    if person or any(t in _all_name_tokens() for t in tokens):
         return None, _decline("speaker_not_found", name=shown)
     return None, None
 

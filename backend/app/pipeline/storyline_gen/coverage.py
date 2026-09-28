@@ -14,7 +14,7 @@ from typing import Any, Callable
 from app.core.error_messages import DECLINE_MESSAGES
 from app.pipeline.prompt_safety import UNTRUSTED_CONTENT_NOTICE, wrap_untrusted
 from app.pipeline.storyline_gen.candidate_scoring import candidate_search_blob
-from app.pipeline.storyline_gen.text_utils import normalize_name
+from app.pipeline.storyline_gen.text_utils import TERM_ENDINGS, normalize_name
 
 # Intents whose prompt carries a topic the archive may not cover. Speaker,
 # title and overview requests were already confirmed by the resolve stage.
@@ -87,14 +87,9 @@ def evidence_pool(intent_name: str, profile: dict[str, Any], candidates: list[di
     return sorted(pool, key=_score, reverse=True)
 
 
-# Endings a stemmed topic term may take: "deepfake" -> "deepfakes",
-# "indigenou" -> "indigenous", never "roman" -> "romance".
-_ENDINGS = r"(?:s|es|ed|ing|ings|er|ers|ion|ions|al|ally|ly|y|ies|ic|ics|ical|ity|ities|ation|ations|e|ence|ent|ents)?"
-
-
 def term_pattern(term: str) -> re.Pattern | None:
     stem = normalize_name(term)
-    return re.compile(rf"\b{re.escape(stem)}{_ENDINGS}\b", re.I) if stem else None
+    return re.compile(rf"\b{re.escape(stem)}{TERM_ENDINGS}\b", re.I) if stem else None
 
 
 def has_term(candidate: dict[str, Any], term: str) -> bool:
@@ -272,6 +267,9 @@ def assess(intent_name: str, profile: dict[str, Any], candidates: list[dict[str,
 
     result.missing_terms = missing_terms(pool, terms, prompt_phrases(prompt, terms))
     verdict = rule_verdict(top1, result.missing_terms, floor, low)
+    if verdict == "not_covered" and intent_name in ("speaker_topic", "speaker_panel"):
+        # A speaker's own talk scores low on words like "contribution" (issue #23): the judge decides.
+        verdict = "judge"
     if verdict != "judge":
         result.verdict, result.method = verdict, "rule"
     else:
