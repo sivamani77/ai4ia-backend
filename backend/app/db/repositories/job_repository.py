@@ -512,16 +512,6 @@ class JobRepository:
         rows = pg_fetch_all("select * from jobs where user_id = %s", (user_id,))
         return [self._normalize_output(row) for row in rows]
 
-    def list_recent_by_user(self, user_id: str, limit: int) -> list[JobRecord]:
-        """Newest-first, capped at `limit`, without the full JSONB metadata —
-        for callers (feedback_auto_reply) that only need the last few jobs'
-        status/error, not a user's entire history."""
-        rows = pg_fetch_all(
-            "select id, status, created_at, error from jobs where user_id = %s order by created_at desc limit %s",
-            (user_id, limit),
-        )
-        return [self._normalize_output(row) for row in rows]
-
     def delete_job(self, record_id: str) -> bool:
         self._log("delete", record_id)
         pg_execute("delete from jobs where id = %s", (record_id,))

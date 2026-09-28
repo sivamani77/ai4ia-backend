@@ -56,18 +56,6 @@ def _no_intent_router_llm(monkeypatch):
 
 
 @pytest.fixture(autouse=True)
-def _no_feedback_auto_reply_llm(monkeypatch):
-    """The feedback auto-reply never reaches a model host in tests: it falls
-    back to the canned acknowledgment unless a test stubs the internal _ask."""
-    from app.services import feedback_auto_reply
-
-    def unavailable(*args, **kwargs):
-        raise RuntimeError("feedback auto-reply LLM is not available in tests")
-
-    monkeypatch.setattr(feedback_auto_reply, "_ask", unavailable)
-
-
-@pytest.fixture(autouse=True)
 def _no_rate_limit_redis(monkeypatch):
     """Force app.core.rate_limit onto its in-process fallback path.
 
@@ -215,10 +203,6 @@ def mock_settings(tmp_path, monkeypatch):
     fake.model_gate_enabled = False
     fake.model_gate_inline_wait_seconds = 0
     fake.prompt_max_chars = 2000
-    fake.feedback_auto_reply_enabled = True
-    fake.feedback_auto_reply_model = ""
-    fake.feedback_auto_reply_timeout_seconds = 20
-    fake.feedback_submissions_per_user_per_hour = 10
 
     monkeypatch.setattr(settings_module, "settings", fake)
     return fake

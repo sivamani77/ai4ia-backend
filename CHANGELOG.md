@@ -6,7 +6,6 @@ Each PR adds a line under `Unreleased`. At release time, rename `Unreleased` to 
 ## [Unreleased]
 
 ### Added
-- Feedback auto-reply: submitting feedback now gets an instant reply from a self-hosted LLM, classified as bug/question/feature/other and aware of the user's own recent video-job history. Never resolves the feedback — an admin still does that — and falls back to a canned acknowledgment on any LLM failure. New per-user rate limit on feedback submission. New settings `FEEDBACK_AUTO_REPLY_ENABLED`, `FEEDBACK_AUTO_REPLY_MODEL`, `FEEDBACK_AUTO_REPLY_TIMEOUT_SECONDS`, `FEEDBACK_SUBMISSIONS_PER_USER_PER_HOUR` (#30).
 - Intent router: a self-hosted LLM reads what a prompt asks for by meaning, and code checks every name, year and chapter it returns. It falls back to the rules on any failure. "What did Cordel Green contribute?" is now a Cordel Green film, not a decline. New settings `INTENT_ROUTER_ENABLED`, `INTENT_ROUTER_MODEL` and `INTENT_ROUTER_TIMEOUT_SECONDS` (part of #23).
 - Year-scoped overview: "What happened at AI4IA 2023?" gives that year's figures and clips. A topic with a year ("deepfakes in 2024") uses that year's talks only. A year with no talks is declined (part of #23).
 - Speaker comparison film: "Compare Cordel Green and Natali Helberger on regulation" shows each speaker in their own clips, balanced. If one speaker has nothing on the subject, the film says so; if neither has, the request is declined (part of #23).
