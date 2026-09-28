@@ -68,9 +68,13 @@ def test_chapter_and_year_checks_are_skipped_without_a_catalog():
 
 
 def test_build_catalog():
-    records = [{"primary_chapter": "Ch 3: X", "video_year": 2021}, {"primary_chapter": "Ch 12: Y", "video_year": "2026"},
+    records = [{"primary_chapter": "Ch 3: X", "video_year": 2021, "primary_theme": "T",
+                "source_video": "0001_abc_Ann Lee - Open Data"},
+               {"primary_chapter": "Ch 12: Y", "video_year": "2026"},
                {"primary_chapter": None, "video_year": ""}]
-    assert build_catalog(records) == Catalog(frozenset({3, 12}), 2021, 2026)
+    assert build_catalog(records) == Catalog(
+        frozenset({3, 12}), 2021, 2026, frozenset({"open data"}), ("T",), {3: "Ch 3: X", 12: "Ch 12: Y"},
+        {"open data": ("0001_abc_Ann Lee - Open Data",)}, frozenset({2021, 2026}))
     assert build_catalog([]) is None
 
 

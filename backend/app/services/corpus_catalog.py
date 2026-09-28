@@ -1,10 +1,10 @@
-"""Chapter numbers, year range and talk titles of the active corpus, for the resolve step."""
+"""Chapters, themes, year range and talk titles of the active corpus, for the resolve step."""
 from __future__ import annotations
 
 import logging
 import re
 import time
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 logger = logging.getLogger("ai4ia.services.corpus_catalog")
 
@@ -18,6 +18,10 @@ class Catalog:
     first_year: int
     last_year: int
     titles: frozenset[str] = frozenset()  # normalized talk titles, without the speaker prefix
+    themes: tuple[str, ...] = ()
+    chapter_names: dict[int, str] = field(default_factory=dict)  # 5 -> "Ch 5: Open Data & ..."
+    talks: dict[str, tuple[str, ...]] = field(default_factory=dict)  # normalized title -> source videos
+    years: frozenset[int] = frozenset()  # conference years that have talks
 
     def names_talk(self, prompt: str) -> bool:
         """The prompt is a talk title, or quotes one of four words or more."""
@@ -52,8 +56,20 @@ def build_catalog(records: list[dict]) -> Catalog | None:
             years.add(year)
     if not chapters or not years:
         return None
-    titles = {_normalize(talk_title(str(r.get("source_video") or ""))) for r in records}
-    return Catalog(frozenset(chapters), min(years), max(years), frozenset(t for t in titles if t))
+    talks: dict[str, set[str]] = {}
+    for r in records:
+        source_video = str(r.get("source_video") or "")
+        title = _normalize(talk_title(source_video))
+        if title:
+            talks.setdefault(title, set()).add(source_video)
+    chapter_names = {}
+    for r in records:
+        name = str(r.get("primary_chapter") or "").strip()
+        if m := re.match(r"Ch\s*(\d+)", name):
+            chapter_names.setdefault(int(m.group(1)), name)
+    themes = sorted({str(r.get("primary_theme")).strip() for r in records if r.get("primary_theme")})
+    return Catalog(frozenset(chapters), min(years), max(years), frozenset(talks), tuple(themes), chapter_names,
+                   {t: tuple(sorted(v)) for t, v in talks.items()}, frozenset(years))
 
 
 def get_catalog() -> Catalog | None:

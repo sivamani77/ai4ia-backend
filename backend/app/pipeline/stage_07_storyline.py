@@ -86,6 +86,13 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
     resolved_speaker = getattr(context, "resolved_speaker", None)
     if resolved_speaker:
         cmd += ["--requested-speaker", resolved_speaker]
+    # Rewritten every run, so a rerun never applies an earlier run's route.
+    route_path = Path(tempfile.gettempdir()) / f"ai4ia_route_{job_id}.json"
+    route_path.unlink(missing_ok=True)
+    route = getattr(context, "route", None)
+    if route:
+        route_path.write_text(json.dumps(route), encoding="utf-8")
+        cmd += ["--route-file", str(route_path)]
     coverage_path = Path(tempfile.gettempdir()) / f"ai4ia_coverage_{job_id}.json"
     coverage_path.unlink(missing_ok=True)
     cmd += ["--coverage-file", str(coverage_path)]

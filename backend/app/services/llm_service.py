@@ -53,7 +53,8 @@ _VLLM_BASE_URL_BY_MODEL = {
 # Internal helpers
 # ---------------------------------------------------------------------------
 
-def _post_with_retries(url: str, payload: dict, timeout: int = REQUEST_TIMEOUT_SECONDS) -> tuple[dict, int]:
+def _post_with_retries(url: str, payload: dict, timeout: int = REQUEST_TIMEOUT_SECONDS,
+                       attempts: int = MAX_RETRIES, record_failure: bool = True) -> tuple[dict, int]:
     """Return (response_dict, retry_count). Raises on exhausted retries.
 
     Every vLLM and Ollama call in the backend funnels through here, which is
@@ -66,7 +67,7 @@ def _post_with_retries(url: str, payload: dict, timeout: int = REQUEST_TIMEOUT_S
     host = dependency_state.host_from_url(url)
     last_error = None
     t0 = time.time()
-    for attempt in range(1, MAX_RETRIES + 1):
+    for attempt in range(1, attempts + 1):
         try:
             resp = requests.post(url, json=payload, timeout=timeout)
             resp.raise_for_status()
@@ -78,13 +79,14 @@ def _post_with_retries(url: str, payload: dict, timeout: int = REQUEST_TIMEOUT_S
             return result, attempt - 1
         except Exception as exc:  # noqa: BLE001
             last_error = exc
-            if attempt < MAX_RETRIES:
+            if attempt < attempts:
                 time.sleep(RETRY_SLEEP_SECONDS)
     elapsed = time.time() - t0
-    dependency_state.record(host, False, latency_s=elapsed, error=str(last_error))
+    if record_failure:  # a caller with its own short timeout does not mark the host down
+        dependency_state.record(host, False, latency_s=elapsed, error=str(last_error))
     _metrics.llm_calls_total.labels(host=host, outcome="failure").inc()
     _metrics.llm_call_duration_seconds.labels(host=host).observe(elapsed)
-    raise RuntimeError(f"LLM request failed after {MAX_RETRIES} retries: {last_error}")
+    raise RuntimeError(f"LLM request failed after {attempts} retries: {last_error}")
 
 
 def _sha256(text: str) -> str:
@@ -295,8 +297,11 @@ def generate_json(
     temperature: float = 0.2,
     _trace: dict | None = None,
     system: str | None = None,
+    timeout: int = REQUEST_TIMEOUT_SECONDS,
+    attempts: int = MAX_RETRIES,
+    record_failure: bool = True,
 ) -> Any:
-    """Generate and parse JSON.
+    """Generate and parse JSON. `timeout` is per attempt.
 
     Routing:
     - Fast model (llama3.1:8b / default) → Ollama /api/generate with format=json
@@ -329,6 +334,7 @@ def generate_json(
             }
             data, retry_count = _post_with_retries(
                 f"{_VLLM_BASE_URL_BY_MODEL[resolved_model]}{VLLM_CHAT_ENDPOINT}", body,
+                timeout=timeout, attempts=attempts, record_failure=record_failure,
             )
             raw = (data["choices"][0]["message"]["content"] or "").strip()
         else:
@@ -345,6 +351,7 @@ def generate_json(
             data, retry_count = _post_with_retries(
                 f"{OLLAMA_BASE_URL}/api/generate",
                 ollama_payload,
+                timeout=timeout, attempts=attempts, record_failure=record_failure,
             )
             raw = (data.get("response") or "").strip()
 

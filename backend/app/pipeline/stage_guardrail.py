@@ -38,6 +38,13 @@ def _names_talk(prompt: str) -> bool:
     return bool(catalog and catalog.names_talk(prompt))
 
 
+def _names_speaker(prompt: str) -> bool:
+    """A registry speaker's full name or multi-word alias is in the prompt."""
+    from app.pipeline.storyline_gen.prompt_intent import registry_name_tokens
+
+    return bool(registry_name_tokens(prompt))
+
+
 def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> StageResult:
     """Classify the job's prompt against the video content policy.
 
@@ -71,6 +78,14 @@ def run(job_id: str, request: dict[str, Any], context: PipelineContext) -> Stage
                "agent": "prompt_guardrail", "decision_label": "prompt_moderation"},
     )
     timings = {"l1": int((time.monotonic() - started) * 1000)}
+
+    if verdict.category == "off_topic" and _names_speaker(prompt):
+        # An AI4IA speaker's name is on topic by definition ("Cordel Green vs Jessica Rose Smith").
+        logger.info("Job %s prompt names an archive speaker; off_topic verdict overridden", job_id)
+        processing_records.record_layer(job_id, flags={"l1_speaker_override": True}, timings_ms=timings)
+        update_stage(job_id, STAGE_NAME, "completed", 100, "Prompt names an archive speaker")
+        append_event(job_id, "stage_completed", STAGE_NAME, {"speaker_override": True})
+        return StageResult(stage=STAGE_NAME, status="completed", message="Prompt names an archive speaker")
 
     if verdict.category == "off_topic" and _names_talk(prompt):
         # A talk title is on topic by definition; the classifier cannot know the titles.
