@@ -38,7 +38,6 @@ from app.services.prompt_resolver import resolve  # noqa: E402
 from app.services.prompt_rules import check_prompt  # noqa: E402
 
 FIXTURE = ROOT / "tests" / "fixtures" / "intent_labelled_set.json"
-NOT_BUILT = ("counting",)  # scored on the route's intent until its data step lands
 
 
 def decide(prompt: str, catalog, records, known, use_router: bool) -> dict:
@@ -63,9 +62,6 @@ def decide(prompt: str, catalog, records, known, use_router: bool) -> dict:
         chapter = int(m.group(1))
     exclude: list[str] = []
     if route.used:
-        if route.intent in NOT_BUILT:
-            intent = route.intent
-            speakers = []
         year = route.year or year
         exclude = route.exclude_terms + [s.lower() for s in route.excluded_speakers]
     return {"intent": intent, "speakers": speakers, "topic": profile.get("topic_terms") or [], "year": year,

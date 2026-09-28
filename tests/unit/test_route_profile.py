@@ -73,9 +73,11 @@ def test_the_rules_no_longer_read_a_second_speaker_as_a_title():
     assert profile["topic_terms"] == []
 
 
-def test_counting_is_a_topic_until_it_is_built():
-    profile = routed("How many talks cover deepfakes?", intent="counting", topic_terms=["deepfake"])
-    assert (chosen(profile), profile["topic_terms"]) == ("topic", ["deepfake"])
+def test_counting():
+    profile = routed("Which speakers talked the most about ethics?", intent="counting", topic_terms=["ethic"],
+                     aggregate="rank", count_unit="speakers")
+    assert (chosen(profile), profile["count"], profile["evidence_requirement"]) == (
+        "counting", {"unit": "speakers", "aggregate": "rank"}, "corpus_counts")
 
 
 def test_a_year_overview():

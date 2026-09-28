@@ -267,6 +267,19 @@ def _year_gap(intent_name: str, profile: dict[str, Any], records: list[dict[str,
                     suggestions=themes)
 
 
+def count_verdict(facts: dict[str, Any], topic: str, year: int | None,
+                  records: list[dict[str, Any]]) -> Coverage:
+    """A count of zero is an answer, given as the decline message rather than a film about nothing."""
+    if facts.get("talk_count"):
+        return Coverage(verdict="covered", method="count", pool_size=facts["talk_count"])
+    themes = top_themes(records) or ["AI ethics, information access and governance"]
+    return Coverage(verdict="not_covered", method="count", pool_size=0, reason_code="count_none",
+                    user_message=DECLINE_MESSAGES["count_none"].format(
+                        scope=f" from {year}" if year else "", topic=topic or "this subject",
+                        themes="; ".join(themes)),
+                    suggestions=themes)
+
+
 def compare_verdict(speakers: list[str], sides: list[Coverage], kept: list[dict[str, Any]], topic: str) -> Coverage:
     """One verdict for a two-speaker comparison: declined only when neither side has anything."""
     scores = [c.top_similarity for c in sides if c.top_similarity is not None]

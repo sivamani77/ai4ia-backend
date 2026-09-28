@@ -6,6 +6,7 @@ from types import ModuleType
 
 from app.pipeline.storyline_gen.intents import (
     chronological,
+    counting,
     overview,
     speaker,
     speaker_compare,
@@ -18,7 +19,8 @@ from app.pipeline.storyline_gen.intents import (
 from app.pipeline.storyline_gen.intents.base import system_prompt, template_hash
 
 REGISTRY: list[ModuleType] = [
-    title, speaker_compare, speaker_panel, speaker_topic, speaker, overview, theme_chapter, chronological, topic,
+    title, speaker_compare, speaker_panel, speaker_topic, speaker, counting, overview, theme_chapter, chronological,
+    topic,
 ]
 
 # Changes whenever any intent's template changes; part of the storyline cache key.

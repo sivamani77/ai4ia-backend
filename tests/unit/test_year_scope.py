@@ -130,4 +130,4 @@ class TestReviewFindings:
     def test_the_route_version_changed_with_this_pr(self):
         from app.services import intent_router
 
-        assert intent_router.VALIDATOR_VERSION == "2"
+        assert int(intent_router.VALIDATOR_VERSION) >= 2

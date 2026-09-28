@@ -797,6 +797,19 @@ def activate_corpus(
     return diagnostics
 
 
+def score_every_record(query: str) -> dict[str, float]:
+    """fragment_id -> similarity to `query`, for every record in the active corpus (counting, §7.8)."""
+    if _chroma_mode():
+        scored = [{"fragment_id": r.get("fragment_id")} for r in get_filtered_records_or_load()]
+        _backfill_semantic_scores(scored, query)
+        unscored = sum(1 for c in scored if not c.get("semantic_score_backfilled"))
+        if unscored:
+            # A passage scored 0 by a failed fetch would be counted as not discussing the topic.
+            raise RuntimeError(f"Could not score {unscored} of {len(scored)} passages for counting")
+        return {str(c["fragment_id"]): float(c["semantic_score"]) for c in scored}
+    return {str(r.get("fragment_id")): float(r.get("semantic_score") or 0.0) for r in score_all_records(query)}
+
+
 def restrict_to_year(year: int) -> list[dict[str, Any]]:
     """Narrow the active corpus to one conference year (docs/design/intent-layer-design.md §7.6).
     Every retrieval channel reads the active corpus, so clips and facts then come from that year only."""
