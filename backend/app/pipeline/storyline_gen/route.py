@@ -32,6 +32,10 @@ def _set_evidence(profile: dict[str, Any]) -> None:
     topic_terms = profile.get("topic_terms") or []
     if profile["intent_type"] == "archive_overview":
         return
+    if profile["intent_type"] == "speaker_compare":
+        profile.update(scope="specific_topic" if topic_terms else "general",
+                       evidence_requirement="speaker_source_evidence", strictness="high")
+        return
     has_subject = bool(topic_terms or profile.get("theme_hint") or profile.get("chapter_hint"))
     profile["scope"] = "specific_topic" if has_subject else "general"
     if profile.get("requested_speaker"):
@@ -61,6 +65,7 @@ def profile_for_route(
     if intent == "counting":
         intent = "topic"
     speakers = route.get("speakers") or []
+    compare = speakers[:2] if intent == "comparison" and len(speakers) >= 2 else None
     speaker = speakers[0] if intent in ("speaker", "comparison") and speakers else None
     if speaker is None and requested_speaker and intent in ("speaker", "comparison") \
             and requested_speaker not in (route.get("excluded_speakers") or []):
@@ -72,6 +77,10 @@ def profile_for_route(
                                    requested_speaker=speaker, topic_terms=route.get("topic_terms") or [])
     profile["requested_speaker"] = speaker
     profile["speaker_required"] = speaker is not None
+    if compare:
+        # Both speakers' names are already out of the topic; each side is selected on its own (§7.7).
+        profile.update(compare_speakers=compare, requested_speaker=None, speaker_required=False)
+        speaker = None
 
     source_video = None
     if intent == "title":
@@ -92,6 +101,8 @@ def profile_for_route(
     elif intent == "overview":
         profile.update(intent_type="archive_overview", scope="archive_overview",
                        evidence_requirement="corpus_facts", topic_terms=[], expanded_terms=[])
+    elif compare:
+        profile["intent_type"] = "speaker_compare"
     elif speaker:
         profile["intent_type"] = "speaker_topic_summary"
     elif source_video:

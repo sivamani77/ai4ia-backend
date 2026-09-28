@@ -40,7 +40,8 @@ class TestFormats:
     def test_every_intent_declares_a_clip_policy(self):
         policy = {m.NAME: m.CLIPS for m in intents.REGISTRY}
         assert policy == {
-            "title": "required", "speaker_panel": "required", "speaker_topic": "required", "speaker": "required",
+            "title": "required", "speaker_compare": "required", "speaker_panel": "required",
+            "speaker_topic": "required", "speaker": "required",
             "overview": "optional", "theme_chapter": "optional", "chronological": "optional", "topic": "optional",
         }
 

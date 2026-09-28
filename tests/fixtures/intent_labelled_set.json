@@ -422,7 +422,7 @@
    "prompt": "Compare Cordel Green and Natali Helberger on regulation",
    "expect": {
     "intent": [
-     "comparison"
+     "speaker_compare"
     ],
     "speakers": [
      "Cordel Green",
@@ -658,7 +658,7 @@
    "prompt": "Compare Cordel Green and Natali Helberger on regulation",
    "expect": {
     "intent": [
-     "comparison"
+     "speaker_compare"
     ],
     "speakers": [
      "Cordel Green",
@@ -675,7 +675,7 @@
    "prompt": "Cordel Green vs Jessica Rose Smith",
    "expect": {
     "intent": [
-     "comparison"
+     "speaker_compare"
     ],
     "speakers": [
      "Cordel Green",
@@ -689,7 +689,7 @@
    "prompt": "What do Cordel Green and David Daou agree on?",
    "expect": {
     "intent": [
-     "comparison"
+     "speaker_compare"
     ],
     "speakers": [
      "Cordel Green",
@@ -1021,7 +1021,7 @@
    "prompt": "Compare Cordel Green, Natali Helberger and David Daou",
    "expect": {
     "intent": [
-     "comparison"
+     "speaker_compare"
     ],
     "speakers": [
      "Cordel Green",
@@ -1098,7 +1098,7 @@
    "prompt": "Kemar Green vs Cordel Green on the media landscape in jamaica",
    "expect": {
     "intent": [
-     "comparison"
+     "speaker_compare"
     ],
     "speakers": [
      "Kemar E. Green",
@@ -1116,7 +1116,7 @@
    "prompt": "Stefaan Verhulst, Matthew Stone: where do they disagree about data governance?",
    "expect": {
     "intent": [
-     "comparison"
+     "speaker_compare"
     ],
     "speakers": [
      "Stefaan G. Verhulst",
@@ -1318,7 +1318,7 @@
    "prompt": "how do natali helberger and david daou differ on news recommender systems",
    "expect": {
     "intent": [
-     "comparison"
+     "speaker_compare"
     ],
     "speakers": [
      "Natali Helberger",

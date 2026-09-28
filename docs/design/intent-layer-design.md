@@ -686,6 +686,28 @@ Stage 07 restricted the 2023 job to 720 of 5,091 fragments and selected 5 candid
 - **Review-status speakers** (David Daou) are compared, but their name is never shown on screen. This is the existing rule.
 - **Out of scope** (these go to the fallback): topic vs topic ("Africa vs Europe"), which becomes `topic`; year vs year, which becomes `chronological`.
 
+**Built (PR 3, 2026-09-28).**
+
+- **Stage 07.** A comparison route gives the profile `compare_speakers = [A, B]` and no single `requested_speaker`. `storyline_gen/comparison.py` runs each side through the single-speaker chain unchanged (retrieval, own-voice or panel rules, coverage, bucket, selection) with half the clip cap. It then balances the sides to the smaller count and tags each candidate with `compare_side` and `compare_speaker`.
+- **The later single-speaker steps are skipped for a comparison.** The balanced set is final; running those steps again would drop one side.
+- **The `speaker_compare` intent** comes right after `title`. Its sections are: two voices, the first voice, the second voice, where they meet and differ, and a close. The two voice sections are `core`, so a short film keeps both sides and drops the contrast. `comparison.sides` in the payload says which side is panel-only.
+- **07b** keeps approved speaker clips equal per side. A side left with none opens the film with "The AI4IA archive has no talk where X discusses Y." That sentence is built from the resolved name and the router's topic, never the raw prompt.
+- **Declines.** Neither side has anything: `speaker_compare_not_covered`, with a "What did X say?" suggestion for each speaker.
+- **`build_candidate_pack`** passes `compare_side` and `compare_speaker` only when present, so every other intent's payload is byte-identical (snapshot tests).
+
+**What the first renders showed (2026-09-28), and what changed:**
+
+- **Balancing before 07b lost a side.** Stage 07 cut Cordel Green's side from 5–7 clips to 2 to match the other side. 07b rejected both as fragmentary, so the film had no Cordel Green clip. It then claimed "the archive has no talk where Cordel Green discusses regulation", which is false.
+  - Now each side keeps its whole capped selection, and 07b balances after validation.
+  - A side with no approved speaker clip first gets more of its own clips checked.
+  - A side that has clips in the archive but none usable is described as such, never as missing from the archive.
+- **A clip in the wrong speaker's section.** 07b's validator placed a panel clip from Natali Helberger's side in "The First Voice", Cordel Green's section.
+  - Now each speaker clip's section is set from its side before assembly.
+  - After assembly, a clip found in the other speaker's section moves to its own, after that section's narration.
+- **"Cordel Green vs Jessica Rose Smith" was rejected by the safety guardrail as off-topic**, because it was two names with no subject. `stage_guardrail` now overrides an `off_topic` verdict when the prompt holds a registry speaker's full name, as it already does for a talk title. The override is recorded as `flags.l1_speaker_override`. Name-only speaker prompts ("Show me Jessica Rose Smith") were exposed to the same rejection; the labelled set never ran L1, so it did not catch this.
+- Also from review: stage 07 no longer runs the single-speaker diversity cap (2 per speaker) on a comparison. The director treats a comparison as speaker-led, never a year relay. 07b's assembly prompt gets a COMPARISON block and each candidate's side. The duration top-up is skipped for a comparison. Each side is searched and judged as "What did A say about T?". A review-status name in a gap sentence becomes "one of the two speakers".
+- **Open:** the fallback storyline (used only when the storyline LLM fails) is a generic arc; 07b still builds the comparison format from the approved clips.
+
 ### 7.8 Counting and ranking (PR 4)
 
 - **Matches** a route with intent `counting` and a topic (M37, E28, R7).

@@ -38,7 +38,7 @@ from app.services.prompt_resolver import resolve  # noqa: E402
 from app.services.prompt_rules import check_prompt  # noqa: E402
 
 FIXTURE = ROOT / "tests" / "fixtures" / "intent_labelled_set.json"
-NOT_BUILT = ("comparison", "counting")  # scored on the route's intent until their data steps land
+NOT_BUILT = ("counting",)  # scored on the route's intent until its data step lands
 
 
 def decide(prompt: str, catalog, records, known, use_router: bool) -> dict:
@@ -56,7 +56,7 @@ def decide(prompt: str, catalog, records, known, use_router: bool) -> dict:
     profile["speaker_panel_only"] = speaker_panel_only(profile.get("requested_speaker"))
     over_time = asks_about_time(prompt) or (route.used and route.intent == "chronological")
     intent = intents.select(profile, {"video_mode": "chronological_relay"} if over_time else {}).NAME
-    speakers = [profile["requested_speaker"]] if profile.get("requested_speaker") else []
+    speakers = profile.get("compare_speakers") or ([profile["requested_speaker"]] if profile.get("requested_speaker") else [])
     year = (res.slots.get("years") or [None])[0]
     chapter = res.slots.get("chapter")
     if chapter is None and (m := re.match(r"\s*Ch\s*(\d+)", profile.get("chapter_hint") or "")):
@@ -65,7 +65,7 @@ def decide(prompt: str, catalog, records, known, use_router: bool) -> dict:
     if route.used:
         if route.intent in NOT_BUILT:
             intent = route.intent
-            speakers = route.speakers if route.intent == "comparison" else []
+            speakers = []
         year = route.year or year
         exclude = route.exclude_terms + [s.lower() for s in route.excluded_speakers]
     return {"intent": intent, "speakers": speakers, "topic": profile.get("topic_terms") or [], "year": year,
