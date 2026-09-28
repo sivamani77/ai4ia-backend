@@ -187,6 +187,40 @@ def test_submit_feedback_falls_back_to_canned_reply_on_llm_failure(api_app, mock
     assert notified_user == {"user_id": "user-1", "message": feedback_auto_reply.CANNED_FALLBACK}
 
 
+def test_submit_feedback_still_201s_when_notify_user_raises(api_app, mock_settings, monkeypatch):
+    """The feedback row and any auto-reply are already committed by the time
+    notify_user runs — a transient notification failure must never 500 a
+    request whose real work already succeeded."""
+    import app.db.repositories.user_repository as user_repository
+    import app.db.repositories.feedback_repository as feedback_repository
+    import app.services.notification_service as notification_service
+    import app.services.feedback_auto_reply as feedback_auto_reply
+
+    monkeypatch.setattr(
+        user_repository.UserRepository, "get_by_id",
+        lambda self, user_id: {"id": user_id, "username": "alice", "email_id": "alice@example.com"},
+    )
+    monkeypatch.setattr(feedback_repository.FeedbackRepository, "count_recent_by_user", lambda self, user_id, **kw: 0)
+    monkeypatch.setattr(
+        feedback_repository.FeedbackRepository, "create",
+        lambda self, data: {**data, "resolution_message": None, "resolved_at": None,
+                             "resolved_by": None, "created_at": "2026-01-01T00:00:00Z",
+                             "auto_reply": None, "auto_reply_category": None, "auto_reply_sent_at": None},
+    )
+    monkeypatch.setattr(feedback_auto_reply, "generate", lambda user_id, feedback: None)
+    monkeypatch.setattr(notification_service, "notify_admins", lambda message, **kw: 1)
+
+    def boom(user_id, message, **kw):
+        raise RuntimeError("connection pool exhausted")
+    monkeypatch.setattr(notification_service, "notify_user", boom)
+
+    api_app.dependency_overrides[get_current_user] = lambda: CurrentUser(id="user-1", persona="general")
+    with TestClient(api_app) as client:
+        response = client.post("/api/feedback", json={"feedback": "the export button is broken"})
+
+    assert response.status_code == 201
+
+
 def test_notifications_are_self_scoped(api_app, mock_settings, monkeypatch):
     import app.db.repositories.notification_repository as notification_repository
 

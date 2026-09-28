@@ -72,13 +72,12 @@ def _job_context_lines(user_id: str) -> str:
     try:
         from app.services.job_store import get_job_repo
 
-        jobs = get_job_repo().list_by_user(user_id)
+        recent = get_job_repo().list_recent_by_user(user_id, MAX_JOBS_IN_CONTEXT)
     except Exception:
         logger.warning("feedback_auto_reply: could not load job history for %s", user_id, exc_info=True)
         return ""
-    if not jobs:
+    if not recent:
         return ""
-    recent = sorted(jobs, key=lambda j: j.get("created_at") or "", reverse=True)[:MAX_JOBS_IN_CONTEXT]
     lines = []
     for j in recent:
         error = j.get("error") or {}

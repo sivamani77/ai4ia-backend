@@ -14,10 +14,31 @@ def _no_job_lookup(monkeypatch):
     import app.services.job_store as job_store
 
     class _EmptyRepo:
-        def list_by_user(self, user_id):
+        def list_recent_by_user(self, user_id, limit):
             return []
 
     monkeypatch.setattr(job_store, "get_job_repo", lambda: _EmptyRepo())
+
+
+def test_job_context_asks_for_the_capped_amount_only(monkeypatch):
+    """Regression: the job-history fetch must stay bounded by
+    MAX_JOBS_IN_CONTEXT at the query level, not pull a user's whole history
+    and slice in Python."""
+    import app.services.job_store as job_store
+
+    calls = []
+
+    class _RecordingRepo:
+        def list_recent_by_user(self, user_id, limit):
+            calls.append((user_id, limit))
+            return [{"id": "vjob_1", "status": "failed", "created_at": "2026-01-01T00:00:00Z",
+                     "error": {"user_message": "The export timed out."}}]
+
+    monkeypatch.setattr(job_store, "get_job_repo", lambda: _RecordingRepo())
+    monkeypatch.setattr(feedback_auto_reply, "_ask", lambda *a, **k: {"category": "bug", "reply": "Looked into it."})
+
+    generate("user-1", "my video keeps failing")
+    assert calls == [("user-1", feedback_auto_reply.MAX_JOBS_IN_CONTEXT)]
 
 
 class TestGenerate:
