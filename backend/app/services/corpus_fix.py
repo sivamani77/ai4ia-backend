@@ -34,10 +34,15 @@ logger = logging.getLogger("ai4ia.corpus_fix")
 
 # --- Deploy switches ----------------------------------------------------------
 # Deploy 1: dry run only; check the PLAN and RESULT lines in the API log.
-# Deploy 2: CORPUS_FIX_APPLY = True. Deploy 3: RUN_CORPUS_FIX = False.
+# Deploy 2: CORPUS_FIX_APPLY = True. Deploy 3 (done): RUN_CORPUS_FIX = False.
+#
+# Apply confirmed on uat 2026-09-28 (shared with release): the fix ran once,
+# guarded by the advisory lock and the corpus_fix_2026_09 row in data_repairs,
+# so the switch is off now. `python -m app.services.corpus_fix --apply` still
+# runs on demand from the CLI if it's ever needed again.
 FIX_NAME = "corpus_fix_2026_09"  # done-marker key; bump to run again
-RUN_CORPUS_FIX = True
-CORPUS_FIX_APPLY = True          # False = dry run and report only
+RUN_CORPUS_FIX = False
+CORPUS_FIX_APPLY = True          # False = dry run and report only; moot while RUN_CORPUS_FIX is False
 
 _LOCK_KEY = 73_310_002
 # Multi-speaker sessions filed as one speaker's talk; rosters are in the registry.
