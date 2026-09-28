@@ -5,6 +5,8 @@ Each PR adds a line under `Unreleased`. At release time, rename `Unreleased` to 
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-09-28
+
 ### Added
 - Intent router: a self-hosted LLM reads what a prompt asks for by meaning, and code checks every name, year and chapter it returns. It falls back to the rules on any failure. "What did Cordel Green contribute?" is now a Cordel Green film, not a decline. New settings `INTENT_ROUTER_ENABLED`, `INTENT_ROUTER_MODEL` and `INTENT_ROUTER_TIMEOUT_SECONDS` (part of #23).
 - Year-scoped overview: "What happened at AI4IA 2023?" gives that year's figures and clips. A topic with a year ("deepfakes in 2024") uses that year's talks only. A year with no talks is declined (part of #23).
