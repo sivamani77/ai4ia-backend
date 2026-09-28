@@ -268,20 +268,6 @@ class Settings(BaseSettings):
     # One attempt; a slow host falls back to the rules instead of holding the job.
     intent_router_timeout_seconds: int = Field(default=20, gt=0)
 
-    # LLM feedback auto-reply (docs/design/feedback-auto-reply-design.md). Gives
-    # a user an instant first reply to submitted feedback; any failure falls
-    # back to a canned acknowledgment, and the feedback item stays open either
-    # way — this never resolves it, an admin still does that.
-    feedback_auto_reply_enabled: bool = True
-    # Empty uses prompt_guardrail_model. Must be a model generate_json can route.
-    feedback_auto_reply_model: str = ""
-    # One attempt; a slow host falls back to the canned acknowledgment.
-    feedback_auto_reply_timeout_seconds: int = Field(default=20, gt=0)
-    # Cost guard: this feature turns every feedback submission into a paid LLM
-    # call, so a per-user rate limit is now load-bearing in a way it wasn't
-    # before (submission itself was previously unlimited).
-    feedback_submissions_per_user_per_hour: int = 10
-
     # ------------------------------------------------------------------
     # Response translation
     # ------------------------------------------------------------------
