@@ -35,6 +35,7 @@ from app.pipeline.storyline_gen.retrieval import (  # noqa: E402
     activate_corpus,
     compute_retrieval_diagnostics,
     get_filtered_records_or_load,
+    restrict_to_year,
     retrieve_candidates,
 )
 from app.pipeline.storyline_gen.selection import (  # noqa: E402
@@ -176,6 +177,9 @@ def main() -> None:
                                       target_duration_seconds=args.duration,
                                       requested_speaker=args.requested_speaker or None)
     prompt_intent["speaker_panel_only"] = speaker_panel_only(prompt_intent.get("requested_speaker"))
+    if prompt_intent.get("year"):
+        # A year-scoped overview or topic: clips, facts and coverage evidence from that year only.
+        all_records = restrict_to_year(prompt_intent["year"])
     intent_context = build_intent_context(prompt_intent, all_records)
     log(f"Prompt intent: {json.dumps(prompt_intent, ensure_ascii=False)}")
 

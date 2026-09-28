@@ -76,9 +76,16 @@ def test_counting_is_a_topic_until_it_is_built():
     assert (chosen(profile), profile["topic_terms"]) == ("topic", ["deepfake"])
 
 
-def test_a_year_overview_keeps_the_rules_until_it_is_built():
+def test_a_year_overview():
     profile = routed("What happened at AI4IA 2023?", intent="overview", year=2023)
-    assert "route" not in profile
+    assert (chosen(profile), profile["year"]) == ("overview", 2023)
+
+
+def test_a_year_scopes_a_topic_but_not_a_speaker_or_a_title():
+    assert routed("deepfakes in 2024", intent="topic", topic_terms=["deepfake"], year=2024)["year"] == 2024
+    assert routed("What did Cordel Green say in 2025?", requested_speaker="Cordel Green", intent="speaker",
+                  speakers=["Cordel Green"], year=2025)["year"] is None
+    assert routed("the haiku talk 2023", intent="title", source_video=HAIKU, year=2023)["year"] is None
 
 
 def test_an_overview():

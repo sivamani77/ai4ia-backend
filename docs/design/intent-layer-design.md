@@ -626,6 +626,7 @@ The router sees fewer rows than the sets hold. L0, L1 and rules declines stop a 
 - **Rows lost against the rules:** none.
 - **Fallbacks:** 0 in 273 calls.
 - **Speed:** median 2.1 s, maximum 4.7 s, at 2 calls at a time. At 6 at a time, 30 of 273 calls hit the 20 s timeout, so the harness defaults to 2. A job makes one call.
+- **A busy host (2026-09-28).** While three local renders loaded the same 120b host, 12 router calls in a row (about 2 minutes) hit the 20 s timeout and fell back to the rules. Outside that burst, p95 was 5.2 s. The fallback is safe, but those prompts get the rules' reading. Watch the fallback rate on uat (`prompt_resolutions.resolution_method`). If bursts show up there, raise `INTENT_ROUTER_TIMEOUT_SECONDS`; no code change is needed.
 
 ### 7.6 Year-scoped overview (PR 2)
 
@@ -634,6 +635,44 @@ The router sees fewer rows than the sets hold. L0, L1 and rules declines stop a 
 - **Facts block:** "AI4IA 2023: 55 talks, …". The figures come from code. "What's new in 2025" gets the 2025 overview; the facts do not claim what is new.
 - **Topic with a year** (M35, "deepfakes in 2024"): the same filter applies to topic retrieval, and a year with no matching talks follows the normal coverage rules.
 - **Gate:** each year's facts equal a direct count by `conference_year`; one render per year for 2 years.
+
+**Built (PR 2, 2026-09-28).**
+- `retrieval.restrict_to_year` narrows the active corpus in stage 07. Chroma is searched against the allowed set, and the over-fetch grows with the share of the collection left out.
+- `build_corpus_facts(year=)` builds the year's facts. Its speakers come from the registry videos of that year.
+- The facts block opens with a `- Scope: AI4IA <year> only` line, and `archive_answer` states an asked figure for that year ("AI4IA 2023 had 55 talks").
+- A year inside the range with no talks declines with `year_no_talks`.
+- Speaker and title films ignore a year.
+
+Measured locally against a direct count by `conference_year`:
+
+| Year | Talks (facts = direct) | Speakers (registry) | Stated |
+|---|---|---|---|
+| 2021 | 65 | 65 | over 60 |
+| 2022 | 43 | 49 | over 40 |
+| 2023 | 55 | 60 | over 50 |
+| 2024 | 60 | 92 | over 90 |
+| 2025 | 84 | 99 | over 90 |
+
+Chroma's own `video_year` field agrees locally, but the filter uses `conference_year` in code, so it holds on uat even if Chroma's field is stale.
+
+**Bug found by these counts, fixed:** "over N" used to be `N // 10 * 10`, so exactly 60 speakers read "over 60". It is now strictly below the count, and a count of 10 or less is stated as it is.
+
+Review fixes:
+
+- `VALIDATOR_VERSION` is bumped, so year prompts cached under PR 1 are not served.
+- The semantic cache never matches prompts with different years.
+- Only overview, topic, counting and theme routes carry a year, so "since 2023" is not a 2023-only film.
+- A year-scoped film whose year has no talks, or no talks in the requested chapter or theme, declines with `topic_not_covered` and the year message (coverage method `year_scope`).
+
+Renders (local, 2026-09-28, all routed in 2.5–3 s):
+
+| Prompt | Facts | Clips |
+|---|---|---|
+| "What happened at AI4IA 2023?" | 55 talks, over 50 speakers | 0. The opening says fifty-five talks in 2023 |
+| "Give me a summary of AI4IA 2022" | 43 talks, over 40 speakers | 1, from a 2022 talk |
+| "what did cordel green contributed in AI4IA?" | — | a speaker film with 2 of his own clips (2023, 2025) |
+
+Stage 07 restricted the 2023 job to 720 of 5,091 fragments and selected 5 candidates, but none reached 07b's clip review. This is the existing overview behaviour (0–1 clips, §7.1), not caused by the year scope, and it stays open.
 
 ### 7.7 Speaker comparison (PR 3)
 

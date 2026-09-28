@@ -108,9 +108,12 @@ class SpeakerRegistry:
         """(video_id, speakers) for every registry video the speaker appears in."""
         return [(vid, v) for vid in self._videos if (v := self.video(vid)) and canonical in v.names]
 
-    def recorded_speaker_count(self) -> int:
-        """Speakers who appear in at least one registry video, panels included."""
-        return len(self._recorded)
+    def recorded_speaker_count(self, video_ids: set[str] | None = None) -> int:
+        """Speakers who appear in at least one registry video, panels included;
+        with `video_ids`, only in those videos (one conference year)."""
+        if video_ids is None:
+            return len(self._recorded)
+        return len({s["name"] for vid in video_ids for s in (self._videos.get(vid) or {}).get("speakers") or []})
 
     def has_recording(self, canonical: str) -> bool:
         """True if the speaker appears in at least one registry video."""

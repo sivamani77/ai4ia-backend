@@ -21,7 +21,7 @@ from app.services.speaker_names import norm_key
 logger = logging.getLogger("ai4ia.services.intent_router")
 
 CONTRACT_VERSION = "1"
-VALIDATOR_VERSION = "1"
+VALIDATOR_VERSION = "2"  # bump on any change to validation or to how stage 07 applies a route
 INTENTS = ("speaker", "comparison", "counting", "overview", "title", "theme_chapter", "chronological", "topic")
 
 _SYSTEM_TEMPLATE = """You read one request for a short documentary film made from the AI4IA conference archive \
@@ -334,6 +334,10 @@ def validate(prompt: str, raw: Any, catalog: Catalog) -> Route:
     if year is not None and not catalog.first_year <= year <= catalog.last_year:
         result.decline = _decline("year_out_of_range", first=catalog.first_year, last=catalog.last_year)
         result.dropped.append({"slot": "year", "value": year, "reason": "year_out_of_range"})
+        return result
+    if year is not None and catalog.years and year not in catalog.years:
+        result.decline = _decline("year_no_talks", year=year, first=catalog.first_year, last=catalog.last_year)
+        result.dropped.append({"slot": "year", "value": year, "reason": "year_no_talks"})
         return result
     chapter = _as_int(raw.get("chapter"))
     theme_text = raw.get("theme") if isinstance(raw.get("theme"), str) else ""
