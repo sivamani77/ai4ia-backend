@@ -19,7 +19,7 @@ from app.pipeline.storyline_gen.director import (  # noqa: E402
     get_selected_candidate_cap,
 )
 from app.pipeline.storyline_gen import coverage as coverage_check  # noqa: E402
-from app.pipeline.storyline_gen import intents  # noqa: E402
+from app.pipeline.storyline_gen import comparison, intents  # noqa: E402
 from app.pipeline.storyline_gen.intents.context import build_intent_context, speaker_panel_only  # noqa: E402
 from app.pipeline.storyline_gen.llm_client import call_strong_llm, log, warm_up_ollama  # noqa: E402
 from app.pipeline.storyline_gen.moment_repair import (  # noqa: E402
@@ -185,16 +185,30 @@ def main() -> None:
 
     # A non-English prompt searches with the router's English topic.
     query = prompt_intent.get("retrieval_query") or args.prompt
-    raw_retrieved = retrieve_candidates(query, prompt_intent, top_k=args.top_k)
-    retrieved = annotate_candidate_relevance(raw_retrieved, query, prompt_intent, known_speakers)
-    retrieved = drop_excluded_speakers(retrieved, prompt_intent)
-
-    # L2b: can the archive answer this at all? (docs/design/intent-layer-design.md §8)
     first_intent = intents.select(prompt_intent, {})
-    coverage = coverage_check.assess(
-        first_intent.NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,
-        floor=settings.archive_relevance_floor, low=settings.coverage_judge_low, records=all_records,
-    )
+    compare_speakers = prompt_intent.get("compare_speakers")
+    if compare_speakers:
+        # Two speakers: each side is found, checked and selected on its own (§7.7).
+        side_cap = max(2, get_selected_candidate_cap(args.duration, "", "") // 2)
+        topic_text = (route or {}).get("topic_text") or " ".join(prompt_intent.get("topic_terms") or [])
+        sides = [comparison.select_side(s, prompt_intent, topic_text, known_speakers, all_records,
+                                        call_strong_llm, args.top_k, args.duration // 2, side_cap)
+                 for s in compare_speakers]
+        compared, gap = comparison.combine(compare_speakers, [s for s, _ in sides])
+        coverage = coverage_check.compare_verdict(compare_speakers, [c for _, c in sides], compared, topic_text)
+        intent_context["comparison"] = comparison.comparison_context(compare_speakers, topic_text, gap)
+        retrieved = compared
+        log(f"Comparison: {[len(s) for s, _ in sides]} clips per side → {len(compared)} kept, gap={gap}")
+    else:
+        raw_retrieved = retrieve_candidates(query, prompt_intent, top_k=args.top_k)
+        retrieved = annotate_candidate_relevance(raw_retrieved, query, prompt_intent, known_speakers)
+        retrieved = drop_excluded_speakers(retrieved, prompt_intent)
+
+        # L2b: can the archive answer this at all? (docs/design/intent-layer-design.md §8)
+        coverage = coverage_check.assess(
+            first_intent.NAME, prompt_intent, retrieved, args.prompt, call_strong_llm,
+            floor=settings.archive_relevance_floor, low=settings.coverage_judge_low, records=all_records,
+        )
     log(f"Coverage: {coverage.verdict} ({coverage.method}) top1={coverage.top_similarity} "
         f"pool={coverage.pool_size} missing_terms={coverage.missing_terms} missing={coverage.missing_aspects}")
     if args.coverage_file:
@@ -208,7 +222,12 @@ def main() -> None:
     if coverage.verdict == "partial":
         intent_context["coverage_gaps"] = coverage.missing_aspects
 
-    buckets = bucket_candidates(retrieved, prompt_intent)
+    if compare_speakers:
+        # Already selected per side and balanced; the single-speaker steps below would undo that.
+        buckets = {"selected_candidates": retrieved, "supporting_candidates": [], "context_candidates": [],
+                   "rejected_candidates": []}
+    else:
+        buckets = bucket_candidates(retrieved, prompt_intent)
     selected = buckets["selected_candidates"]
     supporting = buckets["supporting_candidates"]
     context = buckets["context_candidates"]
@@ -224,15 +243,17 @@ def main() -> None:
             f"terms={prompt_intent.get('title_matched_terms')})"
         )
 
-    selected = select_balanced_candidates(
-        selected,
-        limit=min(args.final_candidates, len(selected)),
-        requested_source_video=requested_source_video,
-    ) if selected else []
-    buckets["selected_candidates"] = selected
+    selection_issues = []
+    if not compare_speakers:
+        selected = select_balanced_candidates(
+            selected,
+            limit=min(args.final_candidates, len(selected)),
+            requested_source_video=requested_source_video,
+        ) if selected else []
+        buckets["selected_candidates"] = selected
 
-    selected, selection_issues = validate_speaker_selection(selected, prompt_intent)
-    buckets["selected_candidates"] = selected
+        selected, selection_issues = validate_speaker_selection(selected, prompt_intent)
+        buckets["selected_candidates"] = selected
 
     # Preliminary metrics to determine cap
     pre_metrics = compute_evidence_metrics(selected, supporting, context, rejected_cands)
@@ -245,13 +266,21 @@ def main() -> None:
     # marginally-higher-scoring narration-only clips.
     cap = get_selected_candidate_cap(args.duration, video_mode, evidence_strength)
     pre_cap_count = len(selected)
-    selected, speaker_selection_diag = select_documentary_candidates(
-        selected,
-        target_duration_seconds=args.duration,
-        cap=cap,
-        requested_speaker=prompt_intent.get("requested_speaker"),
-        requested_source_video=requested_source_video,
-    )
+    if compare_speakers:
+        # Each side was selected and capped on its own; the per-speaker diversity cap here would cut both.
+        cap = len(selected)
+        n_voices = sum(1 for c in selected if c.get("speaker_clip_allowed"))
+        speaker_selection_diag = {"speaker_eligible_in_pool": n_voices, "speaker_slots_reserved": n_voices,
+                                  "speaker_target": n_voices, "speakers_per_section": 0, "estimated_sections": 0,
+                                  "fill_slots_used": 0, "comparison": True}
+    else:
+        selected, speaker_selection_diag = select_documentary_candidates(
+            selected,
+            target_duration_seconds=args.duration,
+            cap=cap,
+            requested_speaker=prompt_intent.get("requested_speaker"),
+            requested_source_video=requested_source_video,
+        )
     if evidence_strength == "low":
         cap_reason = "evidence_strength=low"
     elif video_mode in ("low_evidence_brief", "low_evidence_speaker_brief", "no_evidence"):
@@ -483,7 +512,7 @@ def main() -> None:
     storyline["format"] = intents.select(prompt_intent, director_plan).NAME
     storyline["coverage"] = coverage.to_dict()
     # Evidence 07b needs as well: facts for figures, the panel roster, the requested facet, archive gaps.
-    for key in ("archive_facts", "panel_context", "requested_facet", "coverage_gaps"):
+    for key in ("archive_facts", "panel_context", "requested_facet", "coverage_gaps", "comparison"):
         if intent_context.get(key):
             storyline[key] = intent_context[key]
     output_path = save_storyline(

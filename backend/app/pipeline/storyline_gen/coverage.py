@@ -267,6 +267,18 @@ def _year_gap(intent_name: str, profile: dict[str, Any], records: list[dict[str,
                     suggestions=themes)
 
 
+def compare_verdict(speakers: list[str], sides: list[Coverage], kept: list[dict[str, Any]], topic: str) -> Coverage:
+    """One verdict for a two-speaker comparison: declined only when neither side has anything."""
+    scores = [c.top_similarity for c in sides if c.top_similarity is not None]
+    if kept:
+        return Coverage(verdict="covered", method="per_side", top_similarity=max(scores) if scores else None,
+                        pool_size=len(kept))
+    return Coverage(verdict="not_covered", method="per_side", pool_size=0, reason_code="speaker_compare_not_covered",
+                    user_message=DECLINE_MESSAGES["speaker_compare_not_covered"].format(
+                        first=speakers[0], second=speakers[1], topic=topic or "this subject"),
+                    suggestions=[f"What did {s} say?" for s in speakers])
+
+
 def assess(intent_name: str, profile: dict[str, Any], candidates: list[dict[str, Any]], prompt: str,
            call_llm: Callable[..., str], floor: float, low: float,
            records: list[dict[str, Any]] | None = None) -> Coverage:

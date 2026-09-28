@@ -52,6 +52,7 @@ DECLINE_MESSAGES: dict[str, str] = {
     "topic_not_covered": "The AI4IA archive doesn't have talks on {topic}. Related themes it does cover: {themes}.",
     "topic_not_covered_year": "The AI4IA archive has no {year} talks on {topic}. Related themes it does cover: {themes}.",
     "speaker_topic_not_covered": "{name} spoke at AI4IA, but not about {topic}. {name}'s talks cover {themes}.",
+    "speaker_compare_not_covered": "The AI4IA archive has no talks where {first} or {second} discuss {topic}.",
 }
 
 GUARDRAIL_OFF_TOPIC_MESSAGE = (

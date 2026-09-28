@@ -59,11 +59,13 @@ def test_an_excluded_subject_becomes_a_negative_term():
     assert "regulation" in profile["negative_terms"]
 
 
-def test_comparison_uses_the_first_speaker_until_it_is_built():
-    profile = routed("Cordel Green vs Jessica Rose Smith", requested_speaker="Cordel Green", intent="comparison",
-                     speakers=["Cordel Green", "Jessica Rose Smith"])
-    assert (chosen(profile), profile["requested_speaker"], profile["requested_source_video"]) == (
-        "speaker", "Cordel Green", None)
+def test_a_comparison_names_both_speakers_and_no_single_one():
+    profile = routed("Compare Cordel Green and Jessica Rose Smith on deepfakes", requested_speaker="Cordel Green",
+                     intent="comparison", speakers=["Cordel Green", "Jessica Rose Smith"], topic_terms=["deepfake"])
+    assert (chosen(profile), profile["compare_speakers"], profile["requested_speaker"]) == (
+        "speaker_compare", ["Cordel Green", "Jessica Rose Smith"], None)
+    assert (profile["requested_source_video"], profile["topic_terms"], profile["year"]) == (None, ["deepfake"], None)
+    assert (profile["evidence_requirement"], profile["strictness"]) == ("speaker_source_evidence", "high")
 
 
 def test_the_rules_no_longer_read_a_second_speaker_as_a_title():

@@ -818,5 +818,7 @@ def build_candidate_pack(candidates: list[dict[str, Any]]) -> list[dict[str, Any
             "video_year": item.get("video_year"),
             "audio_quality_status": item.get("audio_quality_status"),
             "final_video_allowed": item.get("final_video_allowed", False),
+            # A comparison's side; absent otherwise, so other payloads are unchanged.
+            **{k: item[k] for k in ("compare_side", "compare_speaker") if item.get(k)},
         })
     return packed

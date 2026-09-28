@@ -75,6 +75,14 @@ def _context_blocks(storyline_data: dict[str, Any]) -> str:
     if storyline.get("requested_facet"):
         blocks += ("\nREQUESTED FACET (keep every section inside it):\n"
                    + json.dumps(storyline["requested_facet"], ensure_ascii=False) + "\n")
+    comparison = storyline.get("comparison") or {}
+    if comparison.get("sides"):
+        lines = [f"- side {s['side']}: " + wrap_untrusted(s["speaker"])
+                 + (" (appears only on panels: frame these clips as the panel, never as this person)"
+                    if s.get("panel_only") else "") for s in comparison["sides"]]
+        blocks += ("\nCOMPARISON (each candidate's `side` says whose clip it is; side A's speaker clips go only in "
+                   "S2_FIRST, side B's only in S3_SECOND; S4_CONTRAST may use both; never present one side's words "
+                   "as the other's):\n" + "\n".join(lines) + "\n")
     if storyline.get("coverage_gaps"):
         from app.pipeline.storyline_gen.storyline_llm import COVERAGE_GAP_RULE
 
@@ -111,6 +119,7 @@ def assemble_narrative_with_llm(
             "reason": c.get("reason", ""),
             "confidence": c.get("confidence", 0),
             **({"year": c["video_year"]} if c.get("video_year") else {}),
+            **({"side": c["compare_side"]} if c.get("compare_side") else {}),
         }
         for c in approved
     ], indent=2)
